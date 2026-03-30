@@ -1,0 +1,11 @@
+node_modules
+.history
+.codebuddy
+.vibe
+.env*
+dist
+*.md
+!README.md
+
+# 前端构建产物（由 live-monitor-react build 生成）
+packages/server/public
