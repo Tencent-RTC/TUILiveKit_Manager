@@ -366,9 +366,6 @@ function getCredentials(req) {
 // SSRF 防护：允许的域名白名单（支持通配符 *.im.qcloud.com 和 *.tim.qq.com）
 const ALLOWED_DOMAIN_PATTERN = /^(adminapisgp\.im\.qcloud\.com|console\.tim\.qq\.com|[\w-]+\.im\.qcloud\.com|[\w-]+\.tim\.qq\.com)$/;
 
-// SSRF 防护：允许的 API 路径前缀（不区分大小写）
-const ALLOWED_API_PREFIX = /^v4\/(live_engine_http_srv|profile)\//i;
-
 // SSRF 防护：阻止请求内网地址（元数据服务、私有 IP 等）
 const BLOCKED_HOSTS = /^(127\.|10\.|172\.(1[6-9]|2\d|3[01])\.|192\.168\.|0\.|169\.254\.)/i;
 
@@ -379,12 +376,6 @@ async function executeTrtcProxy(creds, apiPath, body, domainOverride) {
   if (!ALLOWED_DOMAIN_PATTERN.test(domain)) {
     logger.warn('TRTC_PROXY_SSRF', '拒绝请求：域名不在白名单中', { domain });
     return { ErrorCode: -1, ErrorInfo: 'Invalid domain' };
-  }
-
-  // SSRF 校验：API 路径前缀
-  if (!ALLOWED_API_PREFIX.test(apiPath)) {
-    logger.warn('TRTC_PROXY_SSRF', '拒绝请求：API 路径不合法', { apiPath });
-    return { ErrorCode: -1, ErrorInfo: 'Invalid apiPath' };
   }
 
   const random = Math.floor(Math.random() * 1000000000);

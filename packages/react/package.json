@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@live-manager/common": "workspace:*",
-    "@tencentcloud/uikit-base-component-react": "^1.1.7",
+    "@tencentcloud/uikit-base-component-react": "^1.2.0",
     "axios": "^1.13.4",
     "classnames": "^2.5.1",
     "lucide-react": "^0.563.0",
