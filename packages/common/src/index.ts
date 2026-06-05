@@ -1,5 +1,5 @@
 // Aegis 性能监控
-export { initAegis, getAegis, setAegisUin, updateUinFromSdkAppId, enableAutoUpdateUin, disableAutoUpdateUin, isAegisInited, Aegis } from './aegis';
+export { initAegis, getAegis, setAegisUin, reinitAegisIfUinChanged, updateUinFromSdkAppId, enableAutoUpdateUin, disableAutoUpdateUin, isAegisInited, Aegis } from './aegis';
 export type { AegisConfig } from './aegis';
 
 // HTTP 客户端（需各前端项目初始化）

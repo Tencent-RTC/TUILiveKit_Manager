@@ -1,6 +1,7 @@
 import { post, get } from './client';
 import { TRTCApi, trtcRequest } from './trtc-client';
 import { isUrlOverrideMode, createAccountFromUrlOverride, getUrlOverrideParams } from './url-override';
+import { setAegisUin, reinitAegisIfUinChanged } from './aegis';
 import type {
   BasicUserInfo,
   CheckConfigResponse,
@@ -214,15 +215,35 @@ export function saveCredentials(data: LoginResponse['data']): void {
   if (data.configured) {
     // 服务端配置模式：只保存标记
     localStorage.setItem(CREDENTIAL_KEYS.CONFIGURED, 'true');
+
+    // 服务端模式下的 sdkAppId 也写入 localStorage，供 Aegis uin 使用
+    if (typeof data.sdkAppId === 'number') {
+      localStorage.setItem('sdk_app_id', String(data.sdkAppId));
+    }
   } else {
     // 凭证模式或 URL 覆盖模式：保存到 sessionStorage
     localStorage.setItem(CREDENTIAL_KEYS.CONFIGURED, 'false');
     const creds: SessionCredentials = {
-      userId: data.userId,
-      userSig: data.userSig,
-      sdkAppId: data.sdkAppId,
+      userId: data.userId as string,
+      userSig: data.userSig as string,
+      sdkAppId: data.sdkAppId as number,
     };
     sessionStorage.setItem(SS_CREDENTIALS, JSON.stringify(creds));
+
+    // 同步 sdkAppId 到 localStorage 供 Aegis 使用
+    if (typeof data.sdkAppId === 'number') {
+      localStorage.setItem('sdk_app_id', String(data.sdkAppId));
+    }
+  }
+
+  // 设置 Aegis uin
+  const sdkAppId = typeof data.sdkAppId === 'number' ? data.sdkAppId : undefined;
+  if (sdkAppId) {
+    const uin = String(sdkAppId);
+    // 先尝试热更新
+    setAegisUin(uin);
+    // 兜底：若实例在 uin 为空时创建，重建实例以确保 uin 生效
+    reinitAegisIfUinChanged(uin);
   }
 }
 
@@ -298,6 +319,9 @@ export function clearCredentials(): void {
   localStorage.removeItem('user_name');
   localStorage.removeItem('user_sig');
   localStorage.removeItem('sdk_app_id');
+
+  // 清除 Aegis uin
+  setAegisUin('');
 }
 
 // ========== SDK 凭证获取 ==========

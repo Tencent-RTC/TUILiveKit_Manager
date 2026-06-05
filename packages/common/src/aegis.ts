@@ -7,7 +7,7 @@ import Aegis from 'aegis-web-sdk';
 
 // Aegis 实例类型（扩展以支持 setUin）
 interface IAegis extends Aegis {
-  setUin(uin: string): void;
+  setUin: (uin: string) => void;
 }
 
 export interface AegisConfig {
@@ -75,13 +75,71 @@ export function getAegis(): IAegis | null {
 }
 
 /**
+ * 安全更新 Aegis 的 uin
+ * 优先使用 setConfig({ uin })，旧接口 setUin 仅作为兜底
+ */
+function applyAegisUin(instance: IAegis, uin: string): boolean {
+  if (!uin) return false;
+
+  const inst = instance as any;
+
+  if (typeof inst.setConfig === 'function') {
+    inst.setConfig({ uin });
+    return true;
+  }
+
+  if (typeof inst.setUin === 'function') {
+    inst.setUin(uin);
+    return true;
+  }
+
+  if (inst.config && typeof inst.config === 'object') {
+    inst.config.uin = uin;
+    return true;
+  }
+
+  console.warn('[Aegis] 当前 SDK 实例不支持动态更新 uin');
+  return false;
+}
+
+/**
  * 设置用户 ID
  * @param uin 用户唯一 ID
  */
 export function setAegisUin(uin: string): void {
   if (aegisInstance) {
-    aegisInstance.setUin(uin);
+    applyAegisUin(aegisInstance, uin);
   }
+}
+
+/**
+ * 销毁并重建 Aegis 实例（用于 uin 从空变为有值时的场景）
+ * 仅当实例已存在且 uin 确实不同时才重建
+ */
+export function reinitAegisIfUinChanged(uin: string): void {
+  if (!aegisConfig || !aegisConfig.id || !uin) return;
+
+  const currentUin = (aegisInstance as any)?.config?.uin;
+  if (String(currentUin) === String(uin)) return;
+
+  // 销毁旧实例
+  try {
+    (aegisInstance as any)?.destroy?.();
+  } catch {
+    // 忽略销毁失败
+  }
+
+  // 重建实例（带 uin）
+  aegisInstance = new Aegis({
+    reportApiSpeed: true,
+    reportAssetSpeed: true,
+    spa: true,
+    hostUrl: 'https://rumt-zh.com',
+    ...aegisConfig,
+    uin,
+  }) as IAegis;
+
+  console.log('[Aegis] instance reinitialized with uin:', uin);
 }
 
 /**
@@ -91,8 +149,7 @@ export function setAegisUin(uin: string): void {
 export function updateUinFromSdkAppId(): boolean {
   const sdkAppId = getUinFromStorage();
   if (sdkAppId && aegisInstance) {
-    aegisInstance.setUin(sdkAppId);
-    return true;
+    return applyAegisUin(aegisInstance, sdkAppId);
   }
   return false;
 }
@@ -107,7 +164,7 @@ export function enableAutoUpdateUin(): void {
     if (e.key === 'sdk_app_id' && aegisInstance) {
       const newUin = e.newValue || undefined;
       if (newUin) {
-        aegisInstance.setUin(newUin);
+        applyAegisUin(aegisInstance, newUin);
         console.log('[Aegis] uin updated from sdk_app_id:', newUin);
       }
     }
