@@ -1,0 +1,40 @@
+{
+  "name": "livekit-manager-react",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite --port=2028",
+    "build": "vite build",
+    "build:anydev": "vite build --mode anydev",
+    "preview": "vite preview",
+    "publish:github": "node ./scripts/publish_github.js"
+  },
+  "dependencies": {
+    "tuikit-live-manager-sdk-react": "file:../react-sdk",
+    "@tencentcloud/uikit-base-component-react": "^1.4.0",
+    "axios": "^1.13.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.8.2",
+    "tdesign-icons-react": "0.5.0",
+    "tdesign-react": "1.12.0",
+    "tuikit-atomicx-react": "catalog:",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.4.0",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "less": "^4.6.4",
+    "replace": "^1.2.1",
+    "sass": "^1.90.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^7.0.0"
+  }
+}

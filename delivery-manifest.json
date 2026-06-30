@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-07-03T09:29:11.856Z",
+  "name": "TUILiveKit_Manager",
+  "frameworks": [
+    "react",
+    "vue"
+  ],
+  "includeServer": true,
+  "deliveryModel": "open-app-shell-closed-sdk-packages",
+  "sdkPackages": {
+    "tuikit-live-manager-sdk-react": {
+      "version": "1.0.0",
+      "exports": [
+        ".",
+        "./dist/style.css",
+        "./views/*"
+      ]
+    },
+    "tuikit-live-manager-sdk-vue": {
+      "version": "1.0.0",
+      "exports": [
+        ".",
+        "./dist/style.css",
+        "./views/*"
+      ]
+    }
+  },
+  "openPackages": [
+    "packages/react",
+    "packages/vue3",
+    "packages/customization",
+    "packages/server"
+  ],
+  "closedPackages": [
+    "packages/react-sdk",
+    "packages/vue-sdk"
+  ]
+}

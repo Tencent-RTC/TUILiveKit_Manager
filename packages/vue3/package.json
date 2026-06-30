@@ -1,0 +1,32 @@
+{
+  "name": "livekit-manager-vue3",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=2027",
+    "build": "vite build",
+    "build:anydev": "vite build --mode anydev",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "tuikit-live-manager-sdk-vue": "file:../vue-sdk",
+    "@tencentcloud/uikit-base-component-vue3": "1.4.4",
+    "@tencentcloud/uikit-base-widget-vue3": "1.1.1",
+    "axios": "^1.13.2",
+    "tdesign-icons-vue-next": "0.3.6",
+    "tdesign-vue-next": "1.13.1",
+    "tuikit-atomicx-vue3": "catalog:",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/tsconfig": "^0.7.0",
+    "replace": "^1.2.1",
+    "sass": "^1.90.0",
+    "typescript": "~5.7.2",
+    "vite": "^7.0.0",
+    "vue-tsc": "^2.2.4"
+  }
+}

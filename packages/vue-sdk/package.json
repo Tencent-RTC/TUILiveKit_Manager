@@ -1,0 +1,36 @@
+{
+  "name": "tuikit-live-manager-sdk-vue",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./dist/style.css": "./dist/style.css",
+    "./common/style/index.css": "./dist/components/style.css",
+    "./views/*": {
+      "types": "./dist/vue/views/*.d.ts",
+      "import": "./dist/vue/views/*.js"
+    }
+  },
+  "dependencies": {
+    "trtc-sdk-v5": "^5.17.1",
+    "axios": ">=1.0.0",
+    "@tencentcloud/uikit-base-component-vue3": ">=1.4.0",
+    "vue": ">=3.0.0",
+    "vue-router": ">=4.0.0",
+    "tdesign-icons-vue-next": ">=0.3.6",
+    "tdesign-vue-next": ">=1.13.1",
+    "tuikit-atomicx-vue3": ">=6.2.5",
+    "livekit-manager-customization": "file:../customization"
+  },
+  "sideEffects": [
+    "*.css",
+    "**/*.css"
+  ]
+}

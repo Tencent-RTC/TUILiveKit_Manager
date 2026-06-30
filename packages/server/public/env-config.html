@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>服务配置 - LiveKit Manager</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #0f1419;
+      color: #e7e9ea;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #2f3336;
+    }
+    .header h1 { font-size: 24px; font-weight: 600; color: #fff; }
+    .header .badge {
+      background: #1d9bf0; color: #fff; font-size: 12px;
+      padding: 4px 10px; border-radius: 12px;
+    }
+    .card {
+      background: #16181c; border: 1px solid #2f3336;
+      border-radius: 16px; padding: 24px; margin-bottom: 20px;
+    }
+    .card-title {
+      font-size: 16px; font-weight: 600; color: #fff;
+      margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
+    }
+    .card-title .icon {
+      width: 20px; height: 20px; background: #1d9bf0; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center; font-size: 12px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-group {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .form-group.full-width { grid-column: 1 / -1; }
+    .form-group label { font-size: 13px; color: #71767b; font-weight: 500; }
+    .form-group input, .form-group select {
+      background: #0f1419; border: 1px solid #2f3336; border-radius: 8px;
+      padding: 10px 14px; font-size: 14px; color: #e7e9ea;
+      outline: none; transition: border-color 0.2s; width: 100%;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: #1d9bf0; }
+    .form-group input.masked { color: #71767b; }
+    .form-group input::placeholder { color: #536471; }
+    .info-text { font-size: 12px; color: #71767b; margin-top: 4px; }
+
+    /* Log viewer */
+    .log-viewer {
+      background: #0f1419; border: 1px solid #2f3336; border-radius: 8px;
+      height: 300px; overflow-y: auto; padding: 12px;
+      font-family: 'SF Mono', 'Fira Code', 'Menlo', monospace;
+      font-size: 12px; line-height: 1.6;
+    }
+    .log-viewer:empty::before {
+      content: '暂无日志'; color: #536471; padding: 12px; display: block;
+    }
+    .log-line { white-space: pre-wrap; word-break: break-all; }
+    .log-line.error { color: #ff5050; }
+    .log-line.warn { color: #ffa500; }
+    .log-line.info { color: #1d9bf0; }
+    .log-line.success { color: #00c864; }
+    .log-controls {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .log-controls .btn-sm {
+      padding: 6px 14px; border-radius: 6px; font-size: 13px;
+      font-weight: 500; cursor: pointer; border: none;
+      background: #2f3336; color: #e7e9ea; transition: background 0.2s;
+    }
+    .log-controls .btn-sm:hover { background: #3f4346; }
+
+    .actions {
+      display: flex; gap: 12px; margin-top: 24px;
+    }
+    .btn {
+      padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      cursor: pointer; border: none; transition: all 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .btn-primary { background: #1d9bf0; color: #fff; }
+    .btn-primary:hover { background: #1a8cd8; }
+    .btn-secondary { background: #2f3336; color: #e7e9ea; }
+    .btn-secondary:hover { background: #3f4346; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .status {
+      display: flex; align-items: center; gap: 8px; padding: 12px 16px;
+      border-radius: 8px; font-size: 13px; margin-bottom: 20px;
+    }
+    .status.loading { background: rgba(29, 155, 240, 0.1); color: #1d9bf0; }
+    .status.success { background: rgba(0, 200, 100, 0.1); color: #00c864; }
+    .status.error { background: rgba(255, 80, 80, 0.1); color: #ff5050; }
+    .status .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+    .spinner {
+      width: 14px; height: 14px; border: 2px solid currentColor;
+      border-top-color: transparent; border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; padding: 12px 20px;
+      border-radius: 8px; font-size: 14px; font-weight: 500;
+      transform: translateY(100px); opacity: 0; transition: all 0.3s; z-index: 1000;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.success { background: #00c864; color: #fff; }
+    .toast.error { background: #ff5050; color: #fff; }
+    .toast.info { background: #1d9bf0; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>⚙️ 服务配置</h1>
+      <span class="badge">独立页面</span>
+    </div>
+
+    <div id="status" class="status" style="display:none">
+      <div class="spinner"></div>
+      <span id="statusText">加载中...</span>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🔐</span>基础配置</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>SDK App ID</label>
+          <input type="text" id="SDK_APP_ID" placeholder="1400704311">
+        </div>
+        <div class="form-group">
+          <label>Domain</label>
+          <input type="text" id="DOMAIN" placeholder="test.tim.qq.com">
+        </div>
+        <div class="form-group">
+          <label>User ID</label>
+          <input type="text" id="USER_ID" placeholder="administrator">
+        </div>
+        <div class="form-group">
+          <label>端口 (PORT)</label>
+          <input type="text" id="PORT" placeholder="9000">
+        </div>
+        <div class="form-group full-width">
+          <label>Secret Key <span class="info-text">(留空则保持不变，修改需填写完整值)</span></label>
+          <input type="password" id="SECRET_KEY" class="masked" placeholder="••••••••">
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🛡️</span>审核模式</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>审核模式 (MODERATION_MODE)</label>
+          <select id="MODERATION_MODE">
+            <option value="cloud">cloud — 腾讯云 IM 云端审核（默认）</option>
+            <option value="custom">custom — 用户自有审核服务器</option>
+          </select>
+          <span class="info-text">自定义模式需配置下方 CUSTOM_MODERATION_* 参数</span>
+        </div>
+        <div class="form-group full-width">
+          <label>审核服务器地址 (CUSTOM_MODERATION_BASE_URL)</label>
+          <input type="text" id="CUSTOM_MODERATION_BASE_URL" placeholder="http://localhost:9001">
+          <span class="info-text">custom 模式下必填，用户自有审核服务器的 Base URL</span>
+        </div>
+        <div class="form-group">
+          <label>API Key <span class="info-text">(可选，留空保持不变)</span></label>
+          <input type="password" id="CUSTOM_MODERATION_API_KEY" class="masked" placeholder="••••••••">
+          <span class="info-text">调用用户审核服务器时携带的 X-Api-Key，不配则不传</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">💾</span>存储配置</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>存储 Provider</label>
+          <select id="STORAGE_PROVIDER">
+            <option value="">-- 请选择 --</option>
+            <option value="cos">COS (腾讯云对象存储)</option>
+            <option value="custom">自定义上传</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>COS Bucket</label>
+          <input type="text" id="COS_BUCKET" placeholder="my-bucket-1250000000">
+        </div>
+        <div class="form-group">
+          <label>COS Region</label>
+          <input type="text" id="COS_REGION" placeholder="ap-guangzhou">
+        </div>
+        <div class="form-group">
+          <label>COS CDN Domain</label>
+          <input type="text" id="COS_CDN_DOMAIN" placeholder="https://cdn.example.com">
+        </div>
+        <div class="form-group">
+          <label>COS Secret ID <span class="info-text">(留空保持不变)</span></label>
+          <input type="password" id="COS_SECRET_ID" class="masked" placeholder="••••••••">
+        </div>
+        <div class="form-group">
+          <label>COS Secret Key <span class="info-text">(留空保持不变)</span></label>
+          <input type="password" id="COS_SECRET_KEY" class="masked" placeholder="••••••••">
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">☁️</span>自定义上传配置</div>
+      <div class="form-grid">
+        <div class="form-group full-width">
+          <label>上传地址 (Upload URL)</label>
+          <input type="text" id="CUSTOM_UPLOAD_URL" placeholder="https://your-upload-server.com/upload">
+        </div>
+        <div class="form-group">
+          <label>访问域名 (Access Domain)</label>
+          <input type="text" id="CUSTOM_ACCESS_DOMAIN" placeholder="https://cdn.example.com">
+        </div>
+        <div class="form-group">
+          <label>路径前缀</label>
+          <input type="text" id="CUSTOM_PATH_PREFIX" placeholder="/uploads/">
+        </div>
+        <div class="form-group">
+          <label>认证 Header <span class="info-text">(留空保持不变)</span></label>
+          <input type="password" id="CUSTOM_AUTH_HEADER" class="masked" placeholder="••••••••">
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📋</span>服务器日志</div>
+      <div class="log-controls">
+        <span id="logInfo" style="font-size:12px;color:#71767b"></span>
+        <div style="display:flex;gap:8px">
+          <button class="btn-sm" onclick="loadLogs()">🔄 刷新</button>
+          <button class="btn-sm" onclick="clearLogs()">🗑 清空</button>
+        </div>
+      </div>
+      <div class="log-viewer" id="logViewer"></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="btnSaveRestart" onclick="saveAndRestart()">
+        💾 保存 &amp; 重启
+      </button>
+      <button class="btn btn-secondary" id="btnReload" onclick="reloadConfig()">
+        🔄 重新加载
+      </button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const FIELD_MAP = {
+      'SDK_APP_ID': 'SDK_APP_ID', 'SdkAppId': 'SDK_APP_ID',
+      'DOMAIN': 'DOMAIN', 'Domain': 'DOMAIN',
+      'USER_ID': 'USER_ID', 'USERID': 'USER_ID',
+      'SECRET_KEY': 'SECRET_KEY', 'SecretKey': 'SECRET_KEY', 'SDK_SECRET_KEY': 'SECRET_KEY',
+      'PORT': 'PORT',
+      'STORAGE_PROVIDER': 'STORAGE_PROVIDER',
+      'COS_BUCKET': 'COS_BUCKET', 'COS_REGION': 'COS_REGION',
+      'COS_CDN_DOMAIN': 'COS_CDN_DOMAIN',
+      'COS_SECRET_ID': 'COS_SECRET_ID', 'COS_SECRET_KEY': 'COS_SECRET_KEY',
+      'CUSTOM_UPLOAD_URL': 'CUSTOM_UPLOAD_URL',
+      'CUSTOM_ACCESS_DOMAIN': 'CUSTOM_ACCESS_DOMAIN',
+      'CUSTOM_PATH_PREFIX': 'CUSTOM_PATH_PREFIX',
+      'CUSTOM_AUTH_HEADER': 'CUSTOM_AUTH_HEADER',
+      'MODERATION_MODE': 'MODERATION_MODE',
+      'CUSTOM_MODERATION_BASE_URL': 'CUSTOM_MODERATION_BASE_URL',
+      'CUSTOM_MODERATION_API_KEY': 'CUSTOM_MODERATION_API_KEY'
+    };
+
+    const REVERSE_MAP = {
+      'SDK_APP_ID': 'SDK_APP_ID', 'SdkAppId': 'SDK_APP_ID',
+      'DOMAIN': 'DOMAIN', 'Domain': 'DOMAIN',
+      'USER_ID': 'USER_ID', 'USERID': 'USER_ID',
+      'SECRET_KEY': 'SECRET_KEY', 'SecretKey': 'SECRET_KEY', 'SDK_SECRET_KEY': 'SECRET_KEY',
+      'PORT': 'PORT',
+      'STORAGE_PROVIDER': 'STORAGE_PROVIDER',
+      'COS_BUCKET': 'COS_BUCKET', 'COS_REGION': 'COS_REGION',
+      'COS_CDN_DOMAIN': 'COS_CDN_DOMAIN',
+      'COS_SECRET_ID': 'COS_SECRET_ID', 'COS_SECRET_KEY': 'COS_SECRET_KEY',
+      'CUSTOM_UPLOAD_URL': 'CUSTOM_UPLOAD_URL',
+      'CUSTOM_ACCESS_DOMAIN': 'CUSTOM_ACCESS_DOMAIN',
+      'CUSTOM_PATH_PREFIX': 'CUSTOM_PATH_PREFIX',
+      'CUSTOM_AUTH_HEADER': 'CUSTOM_AUTH_HEADER',
+      'MODERATION_MODE': 'MODERATION_MODE',
+      'CUSTOM_MODERATION_BASE_URL': 'CUSTOM_MODERATION_BASE_URL',
+      'CUSTOM_MODERATION_API_KEY': 'CUSTOM_MODERATION_API_KEY'
+    };
+
+    function getApiBase() {
+      const path = window.location.pathname;
+      const idx = path.lastIndexOf('/env-config');
+      return path.substring(0, idx);
+    }
+
+    function showStatus(msg, type = 'loading') {
+      const el = document.getElementById('status');
+      const txt = document.getElementById('statusText');
+      el.className = 'status ' + type;
+      if (type === 'loading') {
+        el.innerHTML = '<div class="spinner"></div><span>' + msg + '</span>';
+      } else {
+        el.innerHTML = '<div class="dot"></div><span>' + msg + '</span>';
+      }
+      el.style.display = 'flex';
+    }
+
+    function hideStatus() {
+      document.getElementById('status').style.display = 'none';
+    }
+
+    function showToast(msg, type = 'success') {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.className = 'toast ' + type + ' show';
+      setTimeout(() => { el.className = 'toast ' + type; }, 3000);
+    }
+
+    function setFields(data) {
+      for (const [key, value] of Object.entries(data)) {
+        const id = FIELD_MAP[key];
+        if (!id) continue;
+        const el = document.getElementById(id);
+        if (el) {
+          el.value = value || '';
+          el.dataset.original = value || '';
+        }
+      }
+    }
+
+    function getFields() {
+      const data = {};
+      for (const [id, envKey] of Object.entries(REVERSE_MAP)) {
+        const el = document.getElementById(id);
+        if (!el || el.value === '') continue;
+        // Secret 字段：如果值和 original 相同（掩码状态），忽略
+        if (el.classList.contains('masked') && el.value === el.dataset.original) {
+          continue;
+        }
+        data[envKey] = el.value;
+      }
+      return data;
+    }
+
+    async function loadConfig() {
+      showStatus('正在加载配置...');
+      try {
+        const res = await fetch(getApiBase() + '/api/env/config');
+        const json = await res.json();
+        if (json.code === 0) {
+          setFields(json.data);
+          hideStatus();
+        } else {
+          showStatus('加载失败: ' + json.message, 'error');
+        }
+      } catch (e) {
+        showStatus('网络错误: ' + e.message, 'error');
+      }
+    }
+
+    async function loadLogs() {
+      try {
+        const res = await fetch(getApiBase() + '/api/env/logs?lines=300');
+        const json = await res.json();
+        if (json.code === 0) {
+          const viewer = document.getElementById('logViewer');
+          const info = document.getElementById('logInfo');
+          viewer.innerHTML = '';
+          json.data.lines.forEach(line => {
+            if (!line.trim()) return;
+            const div = document.createElement('div');
+            div.className = 'log-line';
+            // 根据内容着色
+            const lower = line.toLowerCase();
+            if (lower.includes('error') || lower.includes('fatal')) div.className += ' error';
+            else if (lower.includes('warn')) div.className += ' warn';
+            else if (lower.includes('info')) div.className += ' info';
+            else if (lower.includes('express server started') || lower.includes('sdkappid')) div.className += ' success';
+            div.textContent = line;
+            viewer.appendChild(div);
+          });
+          viewer.scrollTop = viewer.scrollHeight;
+          info.textContent = '共 ' + json.data.total + ' 行，显示 ' + json.data.lines.length + ' 行';
+        }
+      } catch (e) {
+        showToast('日志加载失败', 'error');
+      }
+    }
+
+    async function clearLogs() {
+      if (!confirm('确定要清空服务器日志吗？')) return;
+      try {
+        const res = await fetch(getApiBase() + '/api/env/logs?clear=1', { method: 'POST' });
+        if (res.ok) {
+          document.getElementById('logViewer').innerHTML = '';
+          document.getElementById('logInfo').textContent = '';
+          showToast('日志已清空', 'success');
+        }
+      } catch (e) {
+        showToast('清空失败', 'error');
+      }
+    }
+
+    async function saveAndRestart() {
+      const btn = document.getElementById('btnSaveRestart');
+      btn.disabled = true;
+      btn.textContent = '⏳ 保存 & 重启中...';
+      showStatus('正在保存配置并重启...');
+
+      try {
+        // 1. 保存配置
+        const data = getFields();
+        const saveRes = await fetch(getApiBase() + '/api/env/config', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const saveJson = await saveRes.json();
+        if (saveJson.code !== 0) {
+          showStatus('保存失败: ' + saveJson.message, 'error');
+          showToast('保存失败', 'error');
+          btn.disabled = false;
+          btn.textContent = '💾 保存 & 重启';
+          return;
+        }
+        showToast('配置已保存', 'success');
+        showStatus('正在重启服务...');
+
+        // 2. 触发重启
+        await fetch(getApiBase() + '/api/env/restart', { method: 'POST' });
+
+        // 3. 轮询等待服务恢复
+        let attempts = 0;
+        const maxAttempts = 15;
+        const checkConnection = setInterval(async () => {
+          attempts++;
+          try {
+            const testRes = await fetch(getApiBase() + '/api/env/config');
+            if (testRes.ok) {
+              clearInterval(checkConnection);
+              showStatus('服务已恢复', 'success');
+              showToast('保存 & 重启成功', 'success');
+              await loadConfig();
+              await loadLogs();
+              btn.disabled = false;
+              btn.textContent = '💾 保存 & 重启';
+              // Secret 字段重置为掩码
+              document.querySelectorAll('input.masked').forEach(el => {
+                if (el.dataset.original) el.value = el.dataset.original;
+              });
+              return;
+            }
+          } catch (e) { /* 继续等待 */ }
+          if (attempts >= maxAttempts) {
+            clearInterval(checkConnection);
+            showStatus('服务重启超时，请手动检查', 'error');
+            showToast('重启超时', 'error');
+            btn.disabled = false;
+            btn.textContent = '💾 保存 & 重启';
+          }
+        }, 3000);
+      } catch (e) {
+        showStatus('网络错误: ' + e.message, 'error');
+        showToast('操作失败', 'error');
+        btn.disabled = false;
+        btn.textContent = '💾 保存 & 重启';
+      }
+    }
+
+    async function reloadConfig() {
+      await loadConfig();
+      await loadLogs();
+      showToast('已重新加载', 'success');
+    }
+
+    // 页面加载时自动获取配置和日志
+    window.addEventListener('DOMContentLoaded', () => {
+      loadConfig();
+      loadLogs();
+    });
+  </script>
+</body>
+</html>

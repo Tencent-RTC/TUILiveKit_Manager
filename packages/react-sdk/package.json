@@ -1,0 +1,37 @@
+{
+  "name": "tuikit-live-manager-sdk-react",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./dist/style.css": "./dist/style.css",
+    "./common/style/index.css": "./dist/components/style.css",
+    "./views/*": {
+      "types": "./dist/react/views/*.d.ts",
+      "import": "./dist/react/views/*.js"
+    }
+  },
+  "dependencies": {
+    "trtc-sdk-v5": "^5.17.1",
+    "axios": ">=1.0.0",
+    "@tencentcloud/uikit-base-component-react": ">=1.4.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "react-router-dom": ">=7.0.0",
+    "tdesign-icons-react": ">=0.5.0",
+    "tdesign-react": ">=1.12.0",
+    "tuikit-atomicx-react": ">=6.1.2-beta.1",
+    "livekit-manager-customization": "file:../customization"
+  },
+  "sideEffects": [
+    "*.css",
+    "**/*.css"
+  ]
+}
