@@ -2,18 +2,27 @@
 
 > **中文文档**: [中文版](./README_zh.md)
 
-Live Streaming Management System (React + Vue 3), providing comprehensive live streaming operations management capabilities including live monitoring, room management, gift configuration, content audit, and risk control.
+In live streaming operations, operations management is a critical part of ensuring stable platform operation and improving user experience. The Live Streaming Management System provides one-stop live streaming operations capabilities, covering core features such as live monitoring, room management, gift configuration, and content moderation, with support for both **React** and **Vue 3** frameworks — helping you quickly build a professional live streaming operations system and achieve efficient live room operations and content governance.
 
-This project adopts an **"Open-Source Demo Shell + Closed-Source Component Package"** delivery model. Core business components are delivered as closed-source npm packages (`tuikit-live-manager-sdk-react` / `tuikit-live-manager-sdk-vue`), with only the open-source Demo shell code (routing, layout, menus, configuration) exposed — preventing customers from modifying core source code and breaking upgrade paths. Subsequent upgrades only require replacing the SDK packages as a whole.
+You can choose one of the following two integration methods based on your business needs:
+
+| **Integration Method** | **Applicable Scenarios** | **Integration Notes** |
+|:---------|---------|---------|
+| [Use Directly](#quick-start) | Want to go live quickly without deep customization | After deploying the Live Streaming Management System to your environment, you can use it directly, or embed it into your existing operations system via iframe. |
+| [Secondary Development](#custom-development) | Need to unify brand style, or customize features and pages | Develop based on the open-source code; you can customize pages, menus, and features, and integrate them into your existing business system. |
+
+> **Note:**
+>
+> The Live Streaming Management System does not provide hosted backend services. You need to deploy the server yourself to generate login credentials and call Tencent Cloud-related capabilities. The repository includes a sample server implementation that you can deploy directly or integrate into your existing backend services.
 
 ---
 
 ## Table of Contents
 
 - [Features](#features)
-- [Feature Showcase](#feature-showcase)
-- [Architecture](#architecture)
+- [System Architecture](#system-architecture)
 - [Quick Start](#quick-start)
+- [Advanced Configuration (Optional)](#advanced-configuration-optional)
 - [Custom Development](#custom-development)
 - [Production Deployment](#production-deployment)
 - [Upgrade Guide](#upgrade-guide)
@@ -23,48 +32,49 @@ This project adopts an **"Open-Source Demo Shell + Closed-Source Component Packa
 
 ## Features
 
-- **Live Monitoring**: Multi-screen monitoring, low-latency playback, room search, forced stream termination.
-- **Room Details**: Real-time playback, data statistics, user management (mute/ban), full-room mute, violation warnings.
-- **Room Management**: Room list, create/edit/close rooms, OBS streaming configuration, room tag management.
-- **Gift Configuration**: Gift CRUD, category management, multi-language support.
+<table>
+<tr>
+<td rowspan="1" colSpan="1" ><strong>Feature Module</strong></td>
+<td rowspan="1" colSpan="1" ><strong>Description</strong></td>
+<td rowspan="1" colSpan="1" ><strong>UI Preview</strong></td>
+</tr>
+<tr>
+<td rowspan="1" colSpan="1" >Live Monitoring</td>
+<td rowspan="1" colSpan="1" >- Supports multi-screen concurrent monitoring and quick live room search by Room ID.<br>- For non-compliant live rooms, if you have integrated <a href="https://cloud.tencent.com/document/product/647/132330">audio/video content understanding</a>, the system automatically displays violation labels.<br>- Operators can force-stop streaming with one click or send violation alerts to hosts, keeping track of live status in real time and responding to risks promptly.</td>
+<td rowspan="1" colSpan="1" ><br>![](https://write-document-release-1258344699.cos.ap-guangzhou.tencentcos.cn/100028027846/5ad4115075e811f1a4d2525400380f7d.png)</td>
+</tr>
+<tr>
+<td rowspan="1" colSpan="1" >Room Details</td>
+<td rowspan="1" colSpan="1" >- Supports entering the live room details page to view real-time chat messages, online audience, and core operational data.<br>- Provides management capabilities such as mute all and ban members, helping operators respond to and handle live room issues quickly.<br>- Admins can send admin messages in the chat (entering this page joins the live room with admin identity).<br>- If text moderation is integrated, you can view the live room's text moderation records and use review management features such as batch approval and correction whitelist.</td>
+<td rowspan="1" colSpan="1" ><br>![](https://write-document-release-1258344699.cos.ap-guangzhou.tencentcos.cn/100028027846/5ae0007075e811f18bcd52540008be5a.png)</td>
+</tr>
+<tr>
+<td rowspan="1" colSpan="1" >Room List</td>
+<td rowspan="1" colSpan="1" >- Supports pre-creating live rooms in the backend with a designated host ID; the host can enter the corresponding room directly when going live.<br>- Supports generating OBS streaming URLs so hosts can go live with one click via OBS.</td>
+<td rowspan="1" colSpan="1" ><br>![](https://write-document-release-1258344699.cos.ap-guangzhou.tencentcos.cn/100028027846/5aa7c1f075e811f1909452540073fd3b.png)</td>
+</tr>
+<tr>
+<td rowspan="1" colSpan="1" >Gift Configuration</td>
+<td rowspan="1" colSpan="1" >Supports adding, editing, and deleting gifts and gift categories, with multi-language configuration.</td>
+<td rowspan="1" colSpan="1" >![](https://write-document-release-1258344699.cos.ap-guangzhou.tencentcos.cn/100028027846/5aa43cb575e811f1a4a2525400074c32.png)</td>
+</tr>
+</table>
 
-> **Note for Overseas Users:**
->
-> TRTC services are automatically activated for overseas regions — no separate approval or application is required. Simply configure your SDKAppID and SecretKey to get started.
+## System Architecture
 
-## Feature Showcase
+This project adopts an **"Open-Source Demo Shell + Closed-Source Component Package"** delivery model. Core business components are delivered as closed-source npm packages, with only the open-source Demo shell code (routing, layout, menus, configuration) exposed — preventing customers from modifying core source code and breaking upgrade paths. Subsequent upgrades only require replacing the SDK packages as a whole.
 
-### Live Monitoring
+![](https://write-document-release-1258344699.cos.ap-guangzhou.tencentcos.cn/100028027846/5a79ad0f75e811f1ac40525400ecee81.png)
 
-![](https://qcloudimg.tencent-cloud.cn/image/document/a5bac22e2062c85cda794121dde06d42.png)
-
-### Room Management
-
-![](https://qcloudimg.tencent-cloud.cn/image/document/ec450edbcc29aec0f461332a8ba01857.png)
-
-### Room Details
-
-![](https://qcloudimg.tencent-cloud.cn/image/document/9c0c6e9dc5f89d46a7cccc4f92d41876.png)
-
-### Gift Management
-
-![](https://qcloudimg.tencent-cloud.cn/image/document/1e3e324b280e3df05b11e8d2aeab4c51.png)
-
----
-
-## Architecture
-
-This project uses the **"Open-Source Demo Shell + Closed-Source Component Package"** delivery model:
-
-```
-TUILiveKit_Manager/          ← GitHub open-source repo (customer's local clone)
+```plaintext
+TUILiveKit_Manager/          ← GitHub open-source repo
 ├── packages/
-│   ├── react/               ← Open Source: React Demo Shell (modifiable)
-│   ├── vue3/                ← Open Source: Vue3 Demo Shell (modifiable)
-│   ├── react-sdk/           ← Closed Source: tuikit-live-manager-sdk-react core package
-│   ├── vue-sdk/             ← Closed Source: tuikit-live-manager-sdk-vue core package
-│   ├── customization/       ← Open Source: Extension protocol package (modifiable)
-│   └── server/              ← Open Source: Server-side code (modifiable)
+│   ├── react/               ← React Demo Shell (open-source, modifiable)
+│   ├── vue3/                ← Vue3 Demo Shell (open-source, modifiable)
+│   ├── react-sdk/           ← React Core Package (closed-source)
+│   ├── vue-sdk/             ← Vue3 Core Package (closed-source)
+│   ├── customization/       ← Extension Protocol Package (open-source, modifiable)
+│   └── server/              ← Server-side Code (open-source, modifiable)
 ├── delivery-manifest.json   ← Delivery manifest with package versions & public exports
 └── README.md
 ```
@@ -75,13 +85,12 @@ TUILiveKit_Manager/          ← GitHub open-source repo (customer's local clone
 
 ### Step 1: Environment Setup & Service Activation
 
-Before getting started, please refer to [Getting Started (Web Vue3)](https://cloud.tencent.com/document/product/647/123049) for environment requirements and service activation.
+Before getting started, please refer to the setup guides to complete environment configuration and service activation:
 
-> **Note:**
->
-> For overseas users, TRTC services are automatically activated — no additional approval steps are needed.
+- [Getting Started (Web Vue3)](https://cloud.tencent.com/document/product/647/123049)
+- [Getting Started (Web React)](https://cloud.tencent.com/document/product/647/127810)
 
-### Step 2: Download Project
+### Step 2: Download the Project
 
 Download the latest release from GitHub Releases, or clone via git:
 
@@ -93,42 +102,21 @@ pnpm install
 
 > **Note:**
 >
-> The GitHub repository's `packages/react-sdk` and `packages/vue-sdk` directories contain only compiled output and type declarations (`.js` / `.d.ts` / `.css`), not core business source code. All instructions in this guide operate on the delivered distribution code.
+> The GitHub repository's `packages/react-sdk` and `packages/vue-sdk` directories contain only compiled output and type declarations (`.js` / `.d.ts` / `.css`), not core business source code.
 
-### Step 3: Configure Server
+### Step 3: Configure & Start the Server
 
-Edit `packages/server/config/.env`:
-
-```bash
-SDK_APP_ID=1400000001           # Replace with your SDKAppID
-SECRET_KEY=xxxxxxx              # Replace with your SecretKey
-USER_ID=administrator           # Replace with your admin userID
-```
-
-> **Note:**
->
-> - For how to obtain SDK_APP_ID and SECRET_KEY, see [Activate Services](https://cloud.tencent.com/document/product/647/105439).
-> - For how to obtain USER_ID, see [Admin Account Management](https://cloud.tencent.com/document/product/647/117216).
-
-Start the server:
+Edit `packages/server/config/.env`, fill in your SDKAppID, SecretKey, and admin userID, then start the server:
 
 ```bash
 pnpm run start:server
 ```
 
-> Default port is 9000. For full configuration details (content moderation, custom port, etc.), see [Server Documentation](./packages/server/README.md#configuration).
+> Default port is 9000. For full configuration details (content moderation, image upload, custom port, etc.), see [Server Documentation](./packages/server/README.md).
 
-### Step 4: Configure Image Upload (Optional)
+### Step 4: Configure & Start the Frontend
 
-The system requires image upload for gift thumbnails, materials, and room covers. **If not configured, the frontend will automatically degrade to manual URL input mode.**
-
-The server supports three storage providers: Tencent Cloud COS (default), custom HTTP upload, and extending to other services (S3, OSS, etc.).
-
-> For detailed storage configuration, see [Server Documentation — Image Upload](./packages/server/README.md#image-upload).
-
-### Step 5: Configure Frontend
-
-Choose your frontend framework and edit the corresponding `.env` file:
+Choose your framework and edit the corresponding `.env` file:
 
 **Vue 3:**
 
@@ -136,6 +124,10 @@ Edit `packages/vue3/.env`:
 
 ```bash
 VITE_API_BASE_URL=http://localhost:9000/api
+```
+
+```bash
+pnpm run dev:vue
 ```
 
 **React:**
@@ -146,34 +138,42 @@ Edit `packages/react/.env`:
 VITE_API_BASE_URL=http://localhost:9000/api
 ```
 
-> **Note:**
->
-> The port in `VITE_API_BASE_URL` must match the server port configured in Step 3.
-
-### Step 6: Start Frontend
-
 ```bash
-# Vue 3
-pnpm run dev:vue
-
-# React
 pnpm run dev:react
 ```
+
+> **Note:**
+>
+> The port in `VITE_API_BASE_URL` must match the server port configured in the previous step.
+
+---
+
+## Advanced Configuration (Optional)
+
+The following features can be configured based on your business needs:
+
+- **Image Upload**: Required for gift thumbnails, room covers, etc. Supports three storage providers: Tencent Cloud COS (default), custom HTTP upload, and extending to other services (S3, OSS, etc.). When not configured, the frontend falls back to manual URL input mode. See [Server Documentation — Image Upload](./packages/server/README.md#image-upload).
+- **Content Moderation**: Supports text moderation record viewing, batch approval, and correction whitelist. Requires Tencent Cloud API key configuration. See [Server Documentation — Configuration](./packages/server/README.md#configuration).
+- **Violation Label Display**: Requires integration of [audio/video content understanding](https://cloud.tencent.com/document/product/647/132330) capabilities.
 
 ---
 
 ## Custom Development
 
-The Demo shell code (`packages/react`, `packages/vue3`) is fully open-source. You may modify routing, layouts, menus, page shells, and extend business capabilities through:
+The Demo shell code (`packages/react`, `packages/vue3`) is fully open-source. You may modify routing, layouts, menus, branding, and page styles, and extend business capabilities through:
 
-- **Customer Config**: Customize page title, logo, branding via `customer.config.ts`.
-- **SDK Entry**: Configure SDK parameters (e.g., `SDKAppID`, `serverUrl`) via `configureLiveManager()` in `live-manager.ts`.
-- **Component Slots**: Inject custom components at key page positions via `defineCustomerExtension`'s `components` field, receiving context Props automatically.
-- **Server Extensions**: Extend storage, authentication, and other capabilities via the Provider mechanism in `packages/server`. See [Server Documentation — Extending the Server](./packages/server/README.md#extending-the-server).
+- **Brand & Appearance**: Customize page title, logo, branding via `customer.config.ts`.
+- **Component Customization**: Inject custom content via component properties and slots.
+- **SDK Entry Configuration**: Configure SDK parameters via `configureLiveManager()` in `live-manager.ts`.
+- **Server Extensions**: Extend storage, authentication, and other backend capabilities via the Provider mechanism.
 
-> **Framework-specific code examples and API details** are available in each SDK package's README:
-> - [tuikit-live-manager-sdk-react — Customization Guide](./packages/react-sdk/README.md#customization)
-> - [tuikit-live-manager-sdk-vue — Customization Guide](./packages/vue-sdk/README.md#customization)
+> For detailed component APIs, slot usage, and code examples, see each SDK package's documentation:
+> - [React SDK Customization Guide](./packages/react-sdk/README.md#customization)
+> - [Vue3 SDK Customization Guide](./packages/vue-sdk/README.md#customization)
+>
+> For development guides of the Demo projects themselves:
+> - [React Demo Development Guide](./packages/react/README.md)
+> - [Vue3 Demo Development Guide](./packages/vue3/README.md)
 
 ---
 
@@ -181,26 +181,24 @@ The Demo shell code (`packages/react`, `packages/vue3`) is fully open-source. Yo
 
 > **Note:**
 >
-> - If you have your own server, choose Option 1: Self-hosted deployment for more flexibility and easier integration with your existing system.
-> - If you want a quick trial or demo, choose Option 2: Cloud Functions + COS/EdgeOne Pages for faster setup without purchasing or configuring servers.
+> - If you have your own server, choose Option 1: Self-hosted Deployment for more flexibility and integration with your existing system.
+> - If you want a quick trial or demo, choose Option 2: Cloud Functions + COS/EdgeOne Pages for faster setup without purchasing and configuring servers.
 
 ### Option 1: Self-hosted Deployment
 
-- **Server**: After modifying the configuration, deploy `packages/server` to your server and run `node src/index.js` to start.
-- **Frontend**: After modifying `VITE_API_BASE_URL`, run `pnpm run build:vue` (Vue 3) or `pnpm run build:react` (React) at the project root. Deploy the build output to a static server such as Nginx, or place it in the server's `public` directory to share the port. In the latter case, set `VITE_API_BASE_URL=/api` and the frontend will use relative paths for API requests.
+- **Server**: After modifying the configuration, deploy `packages/server` to your server. Run `pnpm install` in that directory, then `node src/index.js` to start.
+- **Frontend**: After modifying `VITE_API_BASE_URL` in `.env`, run `pnpm run build:vue` / `pnpm run build:react` at the root and deploy the build output to a static server like Nginx. You can also place the build output in the server's `public` directory to share the port (set `VITE_API_BASE_URL=/api`).
 
 ### Option 2: Cloud Functions + COS / EdgeOne Pages
 
-- **Server**: Upload the `packages/server` directory to Tencent [Cloud Functions](https://cloud.tencent.com/document/product/583) (Web Functions, Node.js 18.15).
-- **Frontend**: Create `.env.production` with the cloud function URL, then run `pnpm run build:vue` (Vue 3) or `pnpm run build:react` (React) at the root. Upload the build output to [COS](https://cloud.tencent.com/document/product/436/38484) or [EdgeOne Pages](https://cloud.tencent.com/document/product/1552/87601).
+- **Server**: Run `npm run deploy:server` and upload `packages/server/dist/scf-deploy.zip` to Tencent [Cloud Functions](https://cloud.tencent.com/document/product/583) (Web Functions, Node.js 20.19).
+- **Frontend**: Create `.env.production` with the Cloud Function request URL, then run `pnpm run build:vue` / `pnpm run build:react` and upload the build output to [COS](https://cloud.tencent.com/document/product/436/38484) or [EdgeOne Pages](https://cloud.tencent.com/document/product/1552/87601).
 
   ```bash
   VITE_API_BASE_URL=https://your-scf-url.com/api
   ```
 
-  > **Note:**
-  >
-  > Replace `your-scf-url.com` with your actual domain and port.
+> For detailed deployment instructions, see [Server Documentation — Deployment](./packages/server/README.md#deployment).
 
 ---
 
@@ -211,7 +209,7 @@ Since the SDK packages use a closed-source delivery model, follow these steps to
 1. Download the latest `TUILiveKit_Manager` from the GitHub Releases page.
 2. Replace the entire `packages/react-sdk` and `packages/vue-sdk` directories in your project.
 3. Compare against `delivery-manifest.json` to confirm version numbers and public exports have no breaking changes.
-4. If there are breaking changes, refer to the Release Notes and update the corresponding calls in the Demo shell.
+4. If there are breaking changes, update the corresponding calls in the Demo shell.
 5. Run `pnpm install` again and rebuild.
 
 > **Note:**
@@ -223,11 +221,14 @@ Since the SDK packages use a closed-source delivery model, follow these steps to
 ## Related Documentation
 
 - [Getting Started (Web Vue3)](https://cloud.tencent.com/document/product/647/123049)
+- [Getting Started (Web React)](https://cloud.tencent.com/document/product/647/127810)
 - [Activate TUILiveKit Services](https://cloud.tencent.com/document/product/647/105439)
 - [TUILiveKit Admin Account Management](https://cloud.tencent.com/document/product/647/117216)
+- [Content Understanding Service (Domestic)](https://cloud.tencent.com/document/product/647/132331)
+- [Cloud Moderation](https://cloud.tencent.com/document/product/269/103733)
 - [Cloud Functions Quick Start](https://cloud.tencent.com/document/product/583/54786)
 - [COS (Object Storage) Quick Start](https://cloud.tencent.com/document/product/436/38484)
 - [EdgeOne Pages](https://cloud.tencent.com/document/product/1552/87601)
-- [tuikit-live-manager-sdk-react Package Documentation](./packages/react-sdk/README.md)
-- [tuikit-live-manager-sdk-vue Package Documentation](./packages/vue-sdk/README.md)
+- [React SDK Package Documentation](./packages/react-sdk/README.md)
+- [Vue3 SDK Package Documentation](./packages/vue-sdk/README.md)
 - [Server Documentation](./packages/server/README.md)

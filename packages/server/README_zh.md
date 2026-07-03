@@ -158,6 +158,7 @@ const PROVIDER_MAP = {
 修改配置后将 `packages/server` 部署到服务器：
 
 ```bash
+pnpm install
 node src/index.js
 ```
 
@@ -165,7 +166,7 @@ node src/index.js
 
 ### 云函数
 
-将 `packages/server` 上传至腾讯 [云函数](https://cloud.tencent.com/document/product/583)（Web 函数，Node.js 18.15），在云函数控制台设置环境变量。
+在项目根目录运行 `npm run deploy:server` 生成 `dist/scf-deploy.zip` 部署包，上传至腾讯 [云函数](https://cloud.tencent.com/document/product/583)（Web 函数，Node.js 20.19），在云函数控制台设置环境变量。
 
 ### 与前端共用端口
 

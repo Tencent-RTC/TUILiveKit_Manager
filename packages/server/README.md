@@ -158,6 +158,7 @@ const PROVIDER_MAP = {
 After modifying the configuration, deploy `packages/server` to your server:
 
 ```bash
+pnpm install
 node src/index.js
 ```
 
@@ -165,7 +166,7 @@ Make sure the firewall allows access to the configured port (default `9000`).
 
 ### Cloud Functions
 
-Upload `packages/server` to Tencent [Cloud Functions](https://cloud.tencent.com/document/product/583) (Web Functions, Node.js 18.15). Set the environment variables in the cloud function console.
+Run `npm run deploy:server` at the project root to generate the `dist/scf-deploy.zip` deployment package, then upload it to Tencent [Cloud Functions](https://cloud.tencent.com/document/product/583) (Web Functions, Node.js 20.19). Set the environment variables in the cloud function console.
 
 ### Sharing Port with Frontend
 
