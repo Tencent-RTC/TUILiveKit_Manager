@@ -10,6 +10,13 @@
     "start:moderation-server": "pnpm --filter custom-moderation-server start",
     "deploy:moderation-server": "pnpm --filter custom-moderation-server run deploy"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "vue-demi"
+    ]
+  },
   "devDependencies": {
     "depcheck": "^1.4.7"
   },
