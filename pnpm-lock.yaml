@@ -25,6 +25,18 @@ importers:
         specifier: ^1.4.7
         version: 1.4.7
 
+  packages/custom-moderation-server:
+    dependencies:
+      dotenv:
+        specifier: ^16.6.1
+        version: 16.6.1
+      express:
+        specifier: ^4.21.2
+        version: 4.22.2
+      sql.js:
+        specifier: ^1.12.0
+        version: 1.14.1
+
   packages/customization:
     devDependencies:
       typescript:
@@ -135,7 +147,7 @@ importers:
         version: 1.12.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       trtc-sdk-v5:
         specifier: ^5.17.1
-        version: 5.18.1
+        version: 5.18.2
       tuikit-atomicx-react:
         specifier: '>=6.1.2-beta.1'
         version: 6.1.3(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.1)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1))
@@ -184,10 +196,10 @@ importers:
         version: 1.13.1(vue@3.5.39(typescript@5.7.3))
       trtc-sdk-v5:
         specifier: ^5.17.1
-        version: 5.18.1
+        version: 5.18.2
       tuikit-atomicx-vue3:
         specifier: '>=6.2.5'
-        version: 6.2.6(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
+        version: 6.3.0(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.0)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
       vue:
         specifier: '>=3.0.0'
         version: 3.5.39(typescript@5.7.3)
@@ -214,10 +226,10 @@ importers:
         version: 1.13.1(vue@3.5.39(typescript@5.7.3))
       tuikit-atomicx-vue3:
         specifier: 'catalog:'
-        version: 6.2.6-beta.2(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
+        version: 6.2.6-beta.2(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
       tuikit-live-manager-sdk-vue:
         specifier: file:../vue-sdk
-        version: link:../vue-sdk
+        version: file:packages/vue-sdk(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)
       vue:
         specifier: ^3.5.13
         version: 3.5.39(typescript@5.7.3)
@@ -884,6 +896,9 @@ packages:
   '@tencentcloud/tuiroom-engine-js@4.1.2-beta.4':
     resolution: {integrity: sha512-jNltVyKKF5qe0xc70VePy6C8EH4an1HsuKDf+7T03cCtgagHaHTqN+Im/D+Ieqz/9ImF+ECCUO7f+JOWYvesSA==}
 
+  '@tencentcloud/tuiroom-engine-js@4.2.0':
+    resolution: {integrity: sha512-RqSqq/1B0KOdEBCRZFZefwPJPQuzQktqXU8LfPLsfSoL08icbc4e+A+rBt/UKa1XL5kODJFxQujTN527cn+hUA==}
+
   '@tencentcloud/uikit-base-component-react@1.4.0':
     resolution: {integrity: sha512-hvDfkkYbo0IkdEQGPkwUVsi6zzDfmgbrszKWzcP9dxOSgJjRwm6xZGMN+fFF5nqZ6l5Kz7xvPRUA+AOglbgtmg==}
     peerDependencies:
@@ -1413,8 +1428,8 @@ packages:
     resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
     engines: {node: 18 || 20 || >=22}
 
-  baseline-browser-mapping@2.10.40:
-    resolution: {integrity: sha512-BSSLZ9/Cjjv7Gtj5B68ZzXcXUg8iOf3fme+FCuh8rC/Go+Kmh8cox7M3A8dolou16s64QjLPOSdngh7GxXvkSw==}
+  baseline-browser-mapping@2.10.42:
+    resolution: {integrity: sha512-c/jurFrDLyui7o1J86yLkRu4LMsTYcBohveus7/I2Hzdn9KIP2bdJPTue/lR1KH46enoPbD77GKeSYNdyPoD3Q==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1484,8 +1499,8 @@ packages:
     resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
     engines: {node: '>=10'}
 
-  caniuse-lite@1.0.30001800:
-    resolution: {integrity: sha512-MMHtuAz9Ys840zAY5F4k6fV5GaivZ9sPk+nz0mY+GYVzRBnYkN0mpqkSR92oWRQ19yQWo4HvBV/FnC16AJX8MA==}
+  caniuse-lite@1.0.30001802:
+    resolution: {integrity: sha512-vmv8ub2xwTNmljSKf82mtCk5JH7hC+YgzLj3P5zotvA0tPQ9016tdNNOG8WRca1IxOnhSsivB+J0z5FeE5LOUw==}
 
   caseless@0.12.0:
     resolution: {integrity: sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==}
@@ -1696,8 +1711,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.384:
-    resolution: {integrity: sha512-g6KAKY1vkYsADvSPWvdJsuYT0ixdcu6lUtD9P/wJKGBEDlZVXh2AX42j1mPqqaQPDluWjara9ziQ7xqAeXCt5A==}
+  electron-to-chromium@1.5.387:
+    resolution: {integrity: sha512-TaxwufTFDufvPEoXdhwVrA3UdFWBeWGkYoJ1K8ldF1xe6gKfth6iRNS5lTQ5JPNOHdGQm8PT1QYKUqFLCiUefQ==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2530,8 +2545,8 @@ packages:
     resolution: {integrity: sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==}
     engines: {node: '>=8.6'}
 
-  picomatch@4.0.4:
-    resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
+  picomatch@4.0.5:
+    resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
     engines: {node: '>=12'}
 
   pkg-up@3.1.0:
@@ -2879,6 +2894,9 @@ packages:
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
 
+  sql.js@1.14.1:
+    resolution: {integrity: sha512-gcj8zBWU5cFsi9WUP+4bFNXAyF1iRpA3LLyS/DP5xlrNzGmPIizUeBggKa8DbDwdqaKwUcTEnChtd2grWo/x/A==}
+
   sshpk@1.18.0:
     resolution: {integrity: sha512-2p2KJZTSqQ/I3+HX42EpYOa2l3f8Erv8MWKsy2I9uf4wA7yFIkXRffYdsx86y6z4vHtV8u7g+pPlr8/4ouAxsQ==}
     engines: {node: '>=0.10.0'}
@@ -3001,11 +3019,11 @@ packages:
   trtc-sdk-v5@5.17.1-kit.1:
     resolution: {integrity: sha512-XwNs1Wh720k1LsLKXh3Ifx93p/i9sX6cfML77s71GC96Ruv2JQ+I1KlJ/Qn4QHm7ziTaFij8EysjtU8t8Qa1ZQ==}
 
-  trtc-sdk-v5@5.18.1:
-    resolution: {integrity: sha512-f00eHDYiVspJHHraL5gs81C3/5E9VD+a7UJhT9JRU4DpLZKHGNxX+ZCeNq0gv9yyp8KPHtDWP17VbMD9553RyQ==}
-
   trtc-sdk-v5@5.18.1-kit.1:
     resolution: {integrity: sha512-QFeOONJelVmt/KC+hPubpDdPhCIT6Itrw900/3ZizPclLhuJowjCjf6wkldIh7fnSC4wPtSYqeEY4EtPcSUxRg==}
+
+  trtc-sdk-v5@5.18.2:
+    resolution: {integrity: sha512-+iStv0OMWIYzX4SvM1U0/Th9qNbrDfdvsI4zs+m7F4Goe0GO33rb3cG8zxI0SpoDnaojAMRhHA1q09wc+U5Zsw==}
 
   ts-api-utils@2.5.0:
     resolution: {integrity: sha512-OJ/ibxhPlqrMM0UiNHJ/0CKQkoKF243/AEmplt3qpRgkW8VG7IfOS41h7V8TjITqdByHzrjcS/2si+y4lIh8NA==}
@@ -3056,16 +3074,6 @@ packages:
       svgaplayerweb: ^2.3.2
       trtc-cloud-js-sdk: 2.10.1
 
-  tuikit-atomicx-vue3@6.2.6:
-    resolution: {integrity: sha512-n9Vl/VojI1JV/vZfMnAgeBnBDUkGzvdSNueMOaNgTc5Wq716eMoVWLBI15ZlMQoONuEjD8xh4Wc2H4D/UtT/Pw==}
-    peerDependencies:
-      '@tencentcloud/chat-uikit-engine-lite': ~1.0.7
-      '@tencentcloud/lite-chat': ^1.6.15
-      '@tencentcloud/tui-core-lite': ~1.0.1
-      '@tencentcloud/tuiroom-engine-js': ~4.1.2-beta.4
-      '@tencentcloud/uikit-base-component-vue3': ~1.4.4
-      vue: ^3.4.0
-
   tuikit-atomicx-vue3@6.2.6-beta.2:
     resolution: {integrity: sha512-MTrZ5W76Ot0eFK61ySIQBogLEIljHQttCzbv67PFH38dKiC2rJJhrrhGzAwVVFh5tPo+kqFeB2gL5IQRYskfsg==}
     peerDependencies:
@@ -3076,8 +3084,21 @@ packages:
       '@tencentcloud/uikit-base-component-vue3': ~1.4.4
       vue: ^3.4.0
 
+  tuikit-atomicx-vue3@6.3.0:
+    resolution: {integrity: sha512-VPLXR/rYckvCNFfu1B9ZErKW6AlQQqGKhY0POGheIQxI6nqmt8no1tIrJ/4lSw/SX+/8LPbhRmXRJoWv0ung5g==}
+    peerDependencies:
+      '@tencentcloud/chat-uikit-engine-lite': ^1.0.7
+      '@tencentcloud/lite-chat': ^1.6.15
+      '@tencentcloud/tui-core-lite': ^1.0.1
+      '@tencentcloud/tuiroom-engine-js': ~4.2.0
+      '@tencentcloud/uikit-base-component-vue3': ~1.4.5
+      vue: ^3.4.0
+
   tuikit-live-manager-sdk-react@file:packages/react-sdk:
     resolution: {directory: packages/react-sdk, type: directory}
+
+  tuikit-live-manager-sdk-vue@file:packages/vue-sdk:
+    resolution: {directory: packages/vue-sdk, type: directory}
 
   tunnel-agent@0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
@@ -3745,7 +3766,7 @@ snapshots:
       detect-libc: 2.1.2
       is-glob: 4.0.3
       node-addon-api: 7.1.1
-      picomatch: 4.0.4
+      picomatch: 4.0.5
     optionalDependencies:
       '@parcel/watcher-android-arm64': 2.5.6
       '@parcel/watcher-darwin-arm64': 2.5.6
@@ -3889,6 +3910,13 @@ snapshots:
       trtc-cloud-js-sdk: 2.12.1
 
   '@tencentcloud/tuiroom-engine-js@4.1.2-beta.4':
+    dependencies:
+      '@tencentcloud/lite-chat': 1.6.16
+      rtc-detect: 0.0.5
+      tcplayer.js: 5.3.4-beta.34
+      trtc-cloud-js-sdk: 2.12.2-beta.8
+
+  '@tencentcloud/tuiroom-engine-js@4.2.0':
     dependencies:
       '@tencentcloud/lite-chat': 1.6.16
       rtc-detect: 0.0.5
@@ -4647,7 +4675,7 @@ snapshots:
 
   balanced-match@4.0.4: {}
 
-  baseline-browser-mapping@2.10.40: {}
+  baseline-browser-mapping@2.10.42: {}
 
   bcrypt-pbkdf@1.0.2:
     dependencies:
@@ -4693,9 +4721,9 @@ snapshots:
 
   browserslist@4.28.4:
     dependencies:
-      baseline-browser-mapping: 2.10.40
-      caniuse-lite: 1.0.30001800
-      electron-to-chromium: 1.5.384
+      baseline-browser-mapping: 2.10.42
+      caniuse-lite: 1.0.30001802
+      electron-to-chromium: 1.5.387
       node-releases: 2.0.50
       update-browserslist-db: 1.2.3(browserslist@4.28.4)
 
@@ -4725,7 +4753,7 @@ snapshots:
 
   camelcase@6.3.0: {}
 
-  caniuse-lite@1.0.30001800: {}
+  caniuse-lite@1.0.30001802: {}
 
   caseless@0.12.0: {}
 
@@ -4945,7 +4973,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.384: {}
+  electron-to-chromium@1.5.387: {}
 
   emoji-regex@8.0.0: {}
 
@@ -5160,9 +5188,9 @@ snapshots:
     dependencies:
       strnum: 1.1.2
 
-  fdir@6.5.0(picomatch@4.0.4):
+  fdir@6.5.0(picomatch@4.0.5):
     optionalDependencies:
-      picomatch: 4.0.4
+      picomatch: 4.0.5
 
   file-entry-cache@8.0.0:
     dependencies:
@@ -5761,7 +5789,7 @@ snapshots:
 
   picomatch@2.3.2: {}
 
-  picomatch@4.0.4: {}
+  picomatch@4.0.5: {}
 
   pkg-up@3.1.0:
     dependencies:
@@ -6210,6 +6238,8 @@ snapshots:
 
   sprintf-js@1.0.3: {}
 
+  sql.js@1.14.1: {}
+
   sshpk@1.18.0:
     dependencies:
       asn1: 0.2.6
@@ -6336,8 +6366,8 @@ snapshots:
 
   tinyglobby@0.2.17:
     dependencies:
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
 
   tippy.js@6.3.7:
     dependencies:
@@ -6376,11 +6406,11 @@ snapshots:
     dependencies:
       webrtc-adapter: 9.0.6
 
-  trtc-sdk-v5@5.18.1:
+  trtc-sdk-v5@5.18.1-kit.1:
     dependencies:
       webrtc-adapter: 9.0.6
 
-  trtc-sdk-v5@5.18.1-kit.1:
+  trtc-sdk-v5@5.18.2:
     dependencies:
       webrtc-adapter: 9.0.6
 
@@ -6507,13 +6537,12 @@ snapshots:
       - supports-color
       - use-sync-external-store
 
-  tuikit-atomicx-vue3@6.2.6(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3)):
+  tuikit-atomicx-vue3@6.2.6-beta.2(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3)):
     dependencies:
       '@nanostores/vue': 1.1.0(nanostores@1.4.0)(vue@3.5.39(typescript@5.7.3))
       '@tencentcloud/chat-uikit-engine-lite': 1.0.7
       '@tencentcloud/lite-chat': 1.6.16
       '@tencentcloud/tui-core-lite': 1.0.1
-      '@tencentcloud/tuiroom-engine-js': 4.1.2-beta.4
       '@tencentcloud/uikit-base-component-vue3': 1.4.4(vue@3.5.39(typescript@5.7.3))
       '@tencentcloud/universal-api': 2.4.1
       '@tiptap/extension-image': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
@@ -6541,13 +6570,13 @@ snapshots:
       - supports-color
       - typescript
 
-  tuikit-atomicx-vue3@6.2.6-beta.2(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3)):
+  tuikit-atomicx-vue3@6.3.0(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.0)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3)):
     dependencies:
       '@nanostores/vue': 1.1.0(nanostores@1.4.0)(vue@3.5.39(typescript@5.7.3))
       '@tencentcloud/chat-uikit-engine-lite': 1.0.7
       '@tencentcloud/lite-chat': 1.6.16
       '@tencentcloud/tui-core-lite': 1.0.1
-      '@tencentcloud/tuiroom-engine-js': 4.1.2-beta.4
+      '@tencentcloud/tuiroom-engine-js': 4.2.0
       '@tencentcloud/uikit-base-component-vue3': 1.4.4(vue@3.5.39(typescript@5.7.3))
       '@tencentcloud/universal-api': 2.4.1
       '@tiptap/extension-image': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
@@ -6585,7 +6614,7 @@ snapshots:
       react-router-dom: 7.18.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tdesign-icons-react: 0.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tdesign-react: 1.12.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      trtc-sdk-v5: 5.18.1
+      trtc-sdk-v5: 5.18.2
       tuikit-atomicx-react: 6.1.3(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1))
     transitivePeerDependencies:
       - '@base-ui/react'
@@ -6602,6 +6631,31 @@ snapshots:
       - svgaplayerweb
       - trtc-cloud-js-sdk
       - use-sync-external-store
+
+  tuikit-live-manager-sdk-vue@file:packages/vue-sdk(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3):
+    dependencies:
+      '@tencentcloud/uikit-base-component-vue3': 1.4.4(vue@3.5.39(typescript@5.7.3))
+      axios: 1.18.1
+      livekit-manager-customization: file:packages/customization
+      tdesign-icons-vue-next: 0.3.6(vue@3.5.39(typescript@5.7.3))
+      tdesign-vue-next: 1.13.1(vue@3.5.39(typescript@5.7.3))
+      trtc-sdk-v5: 5.18.2
+      tuikit-atomicx-vue3: 6.3.0(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.0)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
+      vue: 3.5.39(typescript@5.7.3)
+      vue-router: 4.6.4(vue@3.5.39(typescript@5.7.3))
+    transitivePeerDependencies:
+      - '@nanostores/logger'
+      - '@tencentcloud/chat-uikit-engine-lite'
+      - '@tencentcloud/lite-chat'
+      - '@tencentcloud/tui-core-lite'
+      - '@tencentcloud/tuiroom-engine-js'
+      - '@tiptap/core'
+      - '@vue/composition-api'
+      - '@vue/devtools-api'
+      - debug
+      - nanostores
+      - supports-color
+      - typescript
 
   tunnel-agent@0.6.0:
     dependencies:
@@ -6693,8 +6747,8 @@ snapshots:
   vite@7.3.6(less@4.6.7)(sass@1.101.0):
     dependencies:
       esbuild: 0.28.1
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
       postcss: 8.5.16
       rollup: 4.62.2
       tinyglobby: 0.2.17

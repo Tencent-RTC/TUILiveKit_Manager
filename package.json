@@ -6,7 +6,9 @@
     "dev:vue": "pnpm --filter livekit-manager-vue3 dev",
     "build:vue": "pnpm --filter livekit-manager-vue3 build",
     "start:server": "pnpm --filter livekit-manager-server start",
-    "deploy:server": "pnpm --filter livekit-manager-server run deploy"
+    "deploy:server": "pnpm --filter livekit-manager-server run deploy",
+    "start:moderation-server": "pnpm --filter custom-moderation-server start",
+    "deploy:moderation-server": "pnpm --filter custom-moderation-server run deploy"
   },
   "devDependencies": {
     "depcheck": "^1.4.7"

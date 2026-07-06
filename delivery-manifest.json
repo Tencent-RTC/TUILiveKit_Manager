@@ -1,11 +1,12 @@
 {
-  "generatedAt": "2026-07-03T10:36:15.131Z",
+  "generatedAt": "2026-07-06T09:02:34.610Z",
   "name": "TUILiveKit_Manager",
   "frameworks": [
     "react",
     "vue"
   ],
   "includeServer": true,
+  "includeModerationServer": true,
   "deliveryModel": "open-app-shell-closed-sdk-packages",
   "sdkPackages": {
     "tuikit-live-manager-sdk-react": {
@@ -29,7 +30,8 @@
     "packages/react",
     "packages/vue3",
     "packages/customization",
-    "packages/server"
+    "packages/server",
+    "packages/custom-moderation-server"
   ],
   "closedPackages": [
     "packages/react-sdk",

@@ -41,22 +41,22 @@ You can choose one of the following two integration methods based on your busine
 <tr>
 <td rowspan="1" colSpan="1" >Live Monitoring</td>
 <td rowspan="1" colSpan="1" >- Supports multi-screen concurrent monitoring and quick live room search by Room ID.<br>- For non-compliant live rooms, if you have integrated <a href="https://cloud.tencent.com/document/product/647/132330">audio/video content understanding</a>, the system automatically displays violation labels.<br>- Operators can force-stop streaming with one click or send violation alerts to hosts, keeping track of live status in real time and responding to risks promptly.</td>
-<td rowspan="1" colSpan="1" ><br>![](https://write-document-release-1258344699.cos.ap-guangzhou.tencentcos.cn/100028027846/5ad4115075e811f1a4d2525400380f7d.png)</td>
+<td rowspan="1" colSpan="1" ><br>![](https://staticintl.cloudcachetci.com/cms/backend-cms/fb9d7310768d11f19469525400a31896.png)</td>
 </tr>
 <tr>
 <td rowspan="1" colSpan="1" >Room Details</td>
 <td rowspan="1" colSpan="1" >- Supports entering the live room details page to view real-time chat messages, online audience, and core operational data.<br>- Provides management capabilities such as mute all and ban members, helping operators respond to and handle live room issues quickly.<br>- Admins can send admin messages in the chat (entering this page joins the live room with admin identity).<br>- If text moderation is integrated, you can view the live room's text moderation records and use review management features such as batch approval and correction whitelist.</td>
-<td rowspan="1" colSpan="1" ><br>![](https://write-document-release-1258344699.cos.ap-guangzhou.tencentcos.cn/100028027846/5ae0007075e811f18bcd52540008be5a.png)</td>
+<td rowspan="1" colSpan="1" ><br>![](https://staticintl.cloudcachetci.com/cms/backend-cms/5dccceac768d11f1909452540073fd3b.png)</td>
 </tr>
 <tr>
 <td rowspan="1" colSpan="1" >Room List</td>
 <td rowspan="1" colSpan="1" >- Supports pre-creating live rooms in the backend with a designated host ID; the host can enter the corresponding room directly when going live.<br>- Supports generating OBS streaming URLs so hosts can go live with one click via OBS.</td>
-<td rowspan="1" colSpan="1" ><br>![](https://write-document-release-1258344699.cos.ap-guangzhou.tencentcos.cn/100028027846/5aa7c1f075e811f1909452540073fd3b.png)</td>
+<td rowspan="1" colSpan="1" ><br>![](https://staticintl.cloudcachetci.com/cms/backend-cms/c7825422768c11f19469525400a31896.png)</td>
 </tr>
 <tr>
 <td rowspan="1" colSpan="1" >Gift Configuration</td>
 <td rowspan="1" colSpan="1" >Supports adding, editing, and deleting gifts and gift categories, with multi-language configuration.</td>
-<td rowspan="1" colSpan="1" >![](https://write-document-release-1258344699.cos.ap-guangzhou.tencentcos.cn/100028027846/5aa43cb575e811f1a4a2525400074c32.png)</td>
+<td rowspan="1" colSpan="1" >![](https://staticintl.cloudcachetci.com/cms/backend-cms/5dd4f15a768611f1ac40525400ecee81.png)</td>
 </tr>
 </table>
 
@@ -64,7 +64,63 @@ You can choose one of the following two integration methods based on your busine
 
 This project adopts an **"Open-Source Demo Shell + Closed-Source Component Package"** delivery model. Core business components are delivered as closed-source npm packages, with only the open-source Demo shell code (routing, layout, menus, configuration) exposed — preventing customers from modifying core source code and breaking upgrade paths. Subsequent upgrades only require replacing the SDK packages as a whole.
 
-![](https://write-document-release-1258344699.cos.ap-guangzhou.tencentcos.cn/100028027846/5a79ad0f75e811f1ac40525400ecee81.png)
+```mermaid
+sequenceDiagram
+    participant Browser as 🖥️ React / Vue
+    participant SDK as 📦 tuikit-atomicx-*
+    participant Server as 🖥️ Node.js Server
+    participant ModServer as 🛡️ Moderation Server
+    participant Cloud as ☁️ Tencent Cloud
+
+    %% ══════════════════════════════════════════
+    %% TRTC RESTful API
+    %% ══════════════════════════════════════════
+    rect rgb(236, 245, 255)
+        Note over Browser,Cloud: 📡 TRTC RESTful API · Live Stream Management · Gift Management
+
+        Browser->>+Server: CRUD for live streams and gifts
+        Note right of SDK: Concatenate sdkAppId + userId + userSig
+        Server->>+Cloud: TRTC REST API
+        Cloud-->>-Server: JSON response
+        Server-->>-Browser: Return result
+    end
+
+    %% ══════════════════════════════════════════
+    %% Cloud API
+    %% ══════════════════════════════════════════
+    rect rgb(236, 245, 255)
+        Note over Browser,Cloud: ☁️ Cloud API · Content Moderation · File Upload
+
+        Browser->>+Server: Query text moderation, audio/video violation tags, image upload
+        Note right of Server: SecretId + SecretKey
+        Server->>+Cloud: Cloud API
+        Cloud-->>-Server: JSON response
+        Server-->>-Browser: Text moderation list, video violation tags
+    end
+
+    %% ══════════════════════════════════════════
+    %% Custom Moderation
+    %% ══════════════════════════════════════════
+    rect rgb(240, 255, 240)
+        Note over Server,Cloud: 🛡️ Custom Moderation (Optional) · User-owned Review Logic
+
+        Server->>+ModServer: Proxy moderation API (list/delete/toggle)
+        ModServer-->>-Server: Moderation records
+        Cloud->>+ModServer: IM Group.CallbackBeforeSendMsg
+        ModServer-->>-Cloud: Intercept or pass through
+    end
+
+    %% ══════════════════════════════════════════
+    %% Audio/Video Stream
+    %% ══════════════════════════════════════════
+    rect rgb(255, 246, 230)
+        Note over Browser,Cloud: 🎥 Audio/Video Stream (WebRTC direct connection, bypassing Node.js Server)
+
+        Browser->>SDK: Play video, send comments
+        SDK->>Cloud: Login, join room, subscribe, send comments
+        Cloud-->>SDK: Audio/video data, comment data
+    end
+```
 
 ```plaintext
 TUILiveKit_Manager/          ← GitHub open-source repo
@@ -74,7 +130,8 @@ TUILiveKit_Manager/          ← GitHub open-source repo
 │   ├── react-sdk/           ← React Core Package (closed-source)
 │   ├── vue-sdk/             ← Vue3 Core Package (closed-source)
 │   ├── customization/       ← Extension Protocol Package (open-source, modifiable)
-│   └── server/              ← Server-side Code (open-source, modifiable)
+│   ├── server/              ← Server-side Code (open-source, modifiable)
+│   └── custom-moderation-server/  ← Custom Moderation Demo Server (open-source, optional)
 ├── delivery-manifest.json   ← Delivery manifest with package versions & public exports
 └── README.md
 ```
@@ -154,6 +211,7 @@ The following features can be configured based on your business needs:
 
 - **Image Upload**: Required for gift thumbnails, room covers, etc. Supports three storage providers: Tencent Cloud COS (default), custom HTTP upload, and extending to other services (S3, OSS, etc.). When not configured, the frontend falls back to manual URL input mode. See [Server Documentation — Image Upload](./packages/server/README.md#image-upload).
 - **Content Moderation**: Supports text moderation record viewing, batch approval, and correction whitelist. Requires Tencent Cloud API key configuration. See [Server Documentation — Configuration](./packages/server/README.md#configuration).
+- **Custom Moderation Server**: When you need fully customizable moderation logic (user-owned database, custom review rules, full audit toggle), you should **develop your own moderation server** that implements the documented [interface spec](./docs/custom-moderation-guide.md) ([中文](./docs/custom-moderation-guide_zh.md)). A minimal prototype (`packages/custom-moderation-server/`) is provided **only to help you validate the end-to-end flow** — it is a reference implementation using SQLite and **must not be used in production**. See [Custom Moderation Guide](./docs/custom-moderation-guide.md) ([中文](./docs/custom-moderation-guide_zh.md)).
 - **Violation Label Display**: Requires integration of [audio/video content understanding](https://cloud.tencent.com/document/product/647/132330) capabilities.
 
 ---
@@ -192,6 +250,7 @@ The Demo shell code (`packages/react`, `packages/vue3`) is fully open-source. Yo
 ### Option 2: Cloud Functions + COS / EdgeOne Pages
 
 - **Server**: Run `npm run deploy:server` and upload `packages/server/dist/scf-deploy.zip` to Tencent [Cloud Functions](https://cloud.tencent.com/document/product/583) (Web Functions, Node.js 20.19).
+- **Custom Moderation Server (Optional)**: Run `npm run deploy:moderation-server` and upload `packages/custom-moderation-server/dist/scf-deploy.zip` to Tencent Cloud Functions as well. **Note: this is the minimal prototype and must not be used in production — implement your own server per the [guide](./docs/custom-moderation-guide.md) ([中文](./docs/custom-moderation-guide_zh.md)) before going live.**
 - **Frontend**: Create `.env.production` with the Cloud Function request URL, then run `pnpm run build:vue` / `pnpm run build:react` and upload the build output to [COS](https://cloud.tencent.com/document/product/436/38484) or [EdgeOne Pages](https://cloud.tencent.com/document/product/1552/87601).
 
   ```bash

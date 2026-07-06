@@ -784,18 +784,25 @@ function getCustomModerationClient() {
     headers['X-Api-Key'] = apiKey;
   }
 
+  const axiosConfig = {
+    headers,
+    timeout: 10000,
+    // 不因 HTTP 4xx/5xx 自动抛异常，由路由层自行处理业务错误
+    validateStatus: () => true,
+  };
+
   return {
     async get(path, params = {}) {
       const url = `${baseUrl}${path}`;
       logger.info('CUSTOM_MODERATION', `GET ${url}`);
-      const response = await axios.get(url, { headers, params, timeout: 10000 });
-      return response.data;
+      const response = await axios.get(url, { ...axiosConfig, params });
+      return { status: response.status, data: response.data };
     },
     async post(path, body = {}) {
       const url = `${baseUrl}${path}`;
       logger.info('CUSTOM_MODERATION', `POST ${url}`, { bodyKeys: Object.keys(body) });
-      const response = await axios.post(url, body, { headers, timeout: 10000 });
-      return response.data;
+      const response = await axios.post(url, body, axiosConfig);
+      return { status: response.status, data: response.data };
     },
   };
 }
@@ -819,8 +826,8 @@ apiRouter.get('/moderation/custom/toggle', asyncHandler(async (req, res) => {
   }
   try {
     const client = getCustomModerationClient();
-    const data = await client.get('/moderation/toggle');
-    res.json(data);
+    const { status, data } = await client.get('/moderation/toggle');
+    res.status(status).json(data);
   } catch (error) {
     logger.error('CUSTOM_MOD_TOGGLE_GET', error.message);
     res.status(502).json({ code: -1, message: '用户审核服务器不可达: ' + error.message });
@@ -837,8 +844,8 @@ apiRouter.post('/moderation/custom/toggle', asyncHandler(async (req, res) => {
   }
   try {
     const client = getCustomModerationClient();
-    const data = await client.post('/moderation/toggle', req.body);
-    res.json(data);
+    const { status, data } = await client.post('/moderation/toggle', req.body);
+    res.status(status).json(data);
   } catch (error) {
     logger.error('CUSTOM_MOD_TOGGLE_POST', error.message);
     res.status(502).json({ code: -1, message: '用户审核服务器不可达: ' + error.message });
@@ -862,8 +869,8 @@ apiRouter.post('/moderation/custom/list', asyncHandler(async (req, res) => {
       SdkAppId: Config.SdkAppId,
       ...req.body,
     };
-    const data = await client.post('/moderation/list', body);
-    res.json(data);
+    const { status, data } = await client.post('/moderation/list', body);
+    res.status(status).json(data);
   } catch (error) {
     logger.error('CUSTOM_MOD_LIST', error.message);
     res.status(502).json({ code: -1, message: '用户审核服务器不可达: ' + error.message });
@@ -886,8 +893,8 @@ apiRouter.post('/moderation/custom/delete', asyncHandler(async (req, res) => {
       SdkAppId: Config.SdkAppId,
       ...req.body,
     };
-    const data = await client.post('/moderation/delete', body);
-    res.json(data);
+    const { status, data } = await client.post('/moderation/delete', body);
+    res.status(status).json(data);
   } catch (error) {
     logger.error('CUSTOM_MOD_DELETE', error.message);
     res.status(502).json({ code: -1, message: '用户审核服务器不可达: ' + error.message });

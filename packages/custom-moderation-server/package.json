@@ -1,0 +1,15 @@
+{
+  "name": "custom-moderation-server",
+  "version": "1.0.0",
+  "description": "Demo server for user-customized text moderation. Implements IM callback receiver + SQLite storage + moderation APIs.",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "node --watch ./src/index.js",
+    "deploy": "node ./scripts/deploy.mjs"
+  },
+  "dependencies": {
+    "sql.js": "^1.12.0",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2"
+  }
+}
