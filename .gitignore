@@ -21,6 +21,10 @@ lib/
 coverage/
 *.tsbuildinfo
 
+# Exception: pre-compiled SDK packages (closed-source, ship dist/ in repo)
+!packages/vue-sdk/dist/
+!packages/react-sdk/dist/
+
 # Vite
 .vite/
 

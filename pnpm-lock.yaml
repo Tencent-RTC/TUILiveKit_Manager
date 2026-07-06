@@ -68,10 +68,10 @@ importers:
         version: 1.12.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tuikit-atomicx-react:
         specifier: 'catalog:'
-        version: 6.1.3-beta.5(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1))
+        version: 6.1.3-beta.5(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.0)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.12.2-beta.8)(use-sync-external-store@1.6.0(react@18.3.1))
       tuikit-live-manager-sdk-react:
         specifier: file:../react-sdk
-        version: file:packages/react-sdk(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1))
+        version: link:../react-sdk
       zustand:
         specifier: ^5.0.8
         version: 5.0.14(@types/react@18.3.31)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))
@@ -150,7 +150,7 @@ importers:
         version: 5.18.2
       tuikit-atomicx-react:
         specifier: '>=6.1.2-beta.1'
-        version: 6.1.3(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.1)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1))
+        version: 6.1.3(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.0)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.12.2-beta.8)(use-sync-external-store@1.6.0(react@18.3.1))
 
   packages/server:
     dependencies:
@@ -889,12 +889,6 @@ packages:
 
   '@tencentcloud/tui-core-lite@1.0.1':
     resolution: {integrity: sha512-EYPEzzUxArtGkhlD6fzzHUjMQJYRdttrLyFjWAemwAQ9yuEvCjPwN0HfMorK6QDOENKfjnSCnyipcE4qzEFHXg==}
-
-  '@tencentcloud/tuiroom-engine-js@4.1.1':
-    resolution: {integrity: sha512-RiaDk5FNYm9sv46HM+CT07COd623wKLMZoKDYmBeYA7H0A8JWsSmqOrX1Bia0giiL1h+BsEyxFTVB2srOFFoWg==}
-
-  '@tencentcloud/tuiroom-engine-js@4.1.2-beta.4':
-    resolution: {integrity: sha512-jNltVyKKF5qe0xc70VePy6C8EH4an1HsuKDf+7T03cCtgagHaHTqN+Im/D+Ieqz/9ImF+ECCUO7f+JOWYvesSA==}
 
   '@tencentcloud/tuiroom-engine-js@4.2.0':
     resolution: {integrity: sha512-RqSqq/1B0KOdEBCRZFZefwPJPQuzQktqXU8LfPLsfSoL08icbc4e+A+rBt/UKa1XL5kODJFxQujTN527cn+hUA==}
@@ -3004,20 +2998,8 @@ packages:
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
-  trtc-cloud-js-sdk@2.10.1:
-    resolution: {integrity: sha512-XDteznvQ245uijFSZWag7xnHpCE+LctGrZa+txA1Yn3/pIZ0mFnjvfc+JuQhU9vJdumoDLK7jpdI3gAJGs+6ig==}
-
-  trtc-cloud-js-sdk@2.12.1:
-    resolution: {integrity: sha512-2YtNCZSXDV5PwbxpAFFQa1EW1KNDqil6bKw/Q0ai9iqh2e/l4YOvEOFEqQVxJfinIjkOKxl6r5cEUAALB/zg0A==}
-
   trtc-cloud-js-sdk@2.12.2-beta.8:
     resolution: {integrity: sha512-NDAU5z/9LntE+wOSZALhoH8ntrfIsimpul+T2bDSMcs6nrA2M+f7Xwj9jzt6P/m50h7gPGZF1Z47ERsnZ16jzA==}
-
-  trtc-sdk-v5@5.13.0-beta.18:
-    resolution: {integrity: sha512-w2C0qKlY9OIhaE3MMoqhin49KenMR1FvNcSpmItrgJ2Nmg1lHS2GI79OfXB0NKzV4valWZz66nOOufZ3mt3mgw==}
-
-  trtc-sdk-v5@5.17.1-kit.1:
-    resolution: {integrity: sha512-XwNs1Wh720k1LsLKXh3Ifx93p/i9sX6cfML77s71GC96Ruv2JQ+I1KlJ/Qn4QHm7ziTaFij8EysjtU8t8Qa1ZQ==}
 
   trtc-sdk-v5@5.18.1-kit.1:
     resolution: {integrity: sha512-QFeOONJelVmt/KC+hPubpDdPhCIT6Itrw900/3ZizPclLhuJowjCjf6wkldIh7fnSC4wPtSYqeEY4EtPcSUxRg==}
@@ -3093,9 +3075,6 @@ packages:
       '@tencentcloud/tuiroom-engine-js': ~4.2.0
       '@tencentcloud/uikit-base-component-vue3': ~1.4.5
       vue: ^3.4.0
-
-  tuikit-live-manager-sdk-react@file:packages/react-sdk:
-    resolution: {directory: packages/react-sdk, type: directory}
 
   tuikit-live-manager-sdk-vue@file:packages/vue-sdk:
     resolution: {directory: packages/vue-sdk, type: directory}
@@ -3285,10 +3264,6 @@ packages:
 
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
-
-  webrtc-adapter@8.2.4:
-    resolution: {integrity: sha512-VwtwbYNKnVQW8koB9qb8YcxNwpSVHTvvKEZLzY6uQ3gFrA9E87VPbB5xE+m1AGwUjL1UgN35jRR9hQgteZI5bg==}
-    engines: {node: '>=6.0.0', npm: '>=3.10.0'}
 
   webrtc-adapter@9.0.6:
     resolution: {integrity: sha512-CHbl2ZQbxx164IgWRgzJno4hWtM4tFbRam1QfI3Yxhs3w/DvqluVxVWeXs3oL5/fbGkSNLKo0Ty5MgUWceNhog==}
@@ -3901,20 +3876,6 @@ snapshots:
   '@tencentcloud/tui-core-lite@1.0.1':
     dependencies:
       '@tencentcloud/lite-chat': 1.6.16
-
-  '@tencentcloud/tuiroom-engine-js@4.1.1':
-    dependencies:
-      '@tencentcloud/lite-chat': 1.6.16
-      rtc-detect: 0.0.5
-      tcplayer.js: 5.3.4-beta.34
-      trtc-cloud-js-sdk: 2.12.1
-
-  '@tencentcloud/tuiroom-engine-js@4.1.2-beta.4':
-    dependencies:
-      '@tencentcloud/lite-chat': 1.6.16
-      rtc-detect: 0.0.5
-      tcplayer.js: 5.3.4-beta.34
-      trtc-cloud-js-sdk: 2.12.2-beta.8
 
   '@tencentcloud/tuiroom-engine-js@4.2.0':
     dependencies:
@@ -6386,25 +6347,9 @@ snapshots:
 
   tr46@0.0.3: {}
 
-  trtc-cloud-js-sdk@2.10.1:
-    dependencies:
-      trtc-sdk-v5: 5.13.0-beta.18
-
-  trtc-cloud-js-sdk@2.12.1:
-    dependencies:
-      trtc-sdk-v5: 5.17.1-kit.1
-
   trtc-cloud-js-sdk@2.12.2-beta.8:
     dependencies:
       trtc-sdk-v5: 5.18.1-kit.1
-
-  trtc-sdk-v5@5.13.0-beta.18:
-    dependencies:
-      webrtc-adapter: 8.2.4
-
-  trtc-sdk-v5@5.17.1-kit.1:
-    dependencies:
-      webrtc-adapter: 9.0.6
 
   trtc-sdk-v5@5.18.1-kit.1:
     dependencies:
@@ -6426,13 +6371,13 @@ snapshots:
 
   tsml@1.0.1: {}
 
-  tuikit-atomicx-react@6.1.3(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.1)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1)):
+  tuikit-atomicx-react@6.1.3(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.0)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.12.2-beta.8)(use-sync-external-store@1.6.0(react@18.3.1)):
     dependencies:
       '@base-ui/react': 1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tencentcloud/chat-uikit-engine-lite': 1.0.7
       '@tencentcloud/lite-chat': 1.6.16
       '@tencentcloud/tui-core-lite': 1.0.1
-      '@tencentcloud/tuiroom-engine-js': 4.1.1
+      '@tencentcloud/tuiroom-engine-js': 4.2.0
       '@tencentcloud/uikit-base-component-react': 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tencentcloud/universal-api': 2.4.1
       '@tiptap/extension-image': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
@@ -6452,7 +6397,7 @@ snapshots:
       react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       svgaplayerweb: 2.3.2
       tippy.js: 6.3.7
-      trtc-cloud-js-sdk: 2.10.1
+      trtc-cloud-js-sdk: 2.12.2-beta.8
       valtio: 2.3.2(@types/react@18.3.31)(react@18.3.1)
       zustand: 5.0.14(@types/react@18.3.31)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))
     transitivePeerDependencies:
@@ -6463,13 +6408,13 @@ snapshots:
       - supports-color
       - use-sync-external-store
 
-  tuikit-atomicx-react@6.1.3(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1)):
+  tuikit-atomicx-react@6.1.3-beta.5(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.0)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.12.2-beta.8)(use-sync-external-store@1.6.0(react@18.3.1)):
     dependencies:
       '@base-ui/react': 1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tencentcloud/chat-uikit-engine-lite': 1.0.7
       '@tencentcloud/lite-chat': 1.6.16
       '@tencentcloud/tui-core-lite': 1.0.1
-      '@tencentcloud/tuiroom-engine-js': 4.1.2-beta.4
+      '@tencentcloud/tuiroom-engine-js': 4.2.0
       '@tencentcloud/uikit-base-component-react': 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tencentcloud/universal-api': 2.4.1
       '@tiptap/extension-image': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
@@ -6489,44 +6434,7 @@ snapshots:
       react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       svgaplayerweb: 2.3.2
       tippy.js: 6.3.7
-      trtc-cloud-js-sdk: 2.10.1
-      valtio: 2.3.2(@types/react@18.3.31)(react@18.3.1)
-      zustand: 5.0.14(@types/react@18.3.31)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))
-    transitivePeerDependencies:
-      - '@tiptap/core'
-      - '@types/react'
-      - debug
-      - immer
-      - supports-color
-      - use-sync-external-store
-
-  tuikit-atomicx-react@6.1.3-beta.5(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1)):
-    dependencies:
-      '@base-ui/react': 1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tencentcloud/chat-uikit-engine-lite': 1.0.7
-      '@tencentcloud/lite-chat': 1.6.16
-      '@tencentcloud/tui-core-lite': 1.0.1
-      '@tencentcloud/tuiroom-engine-js': 4.1.2-beta.4
-      '@tencentcloud/uikit-base-component-react': 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tencentcloud/universal-api': 2.4.1
-      '@tiptap/extension-image': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-mention': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)(@tiptap/suggestion@2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5))
-      '@tiptap/extension-placeholder': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
-      '@tiptap/pm': 2.11.5
-      '@tiptap/react': 2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tiptap/starter-kit': 2.11.5
-      '@tiptap/suggestion': 2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
-      axios: 1.18.1
-      classnames: 2.5.1
-      date-fns: 4.4.0
-      es-toolkit: 1.49.0
-      eventemitter3: 4.0.7
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      svgaplayerweb: 2.3.2
-      tippy.js: 6.3.7
-      trtc-cloud-js-sdk: 2.10.1
+      trtc-cloud-js-sdk: 2.12.2-beta.8
       valtio: 2.3.2(@types/react@18.3.31)(react@18.3.1)
       zustand: 5.0.14(@types/react@18.3.31)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))
     transitivePeerDependencies:
@@ -6603,34 +6511,6 @@ snapshots:
       - nanostores
       - supports-color
       - typescript
-
-  tuikit-live-manager-sdk-react@file:packages/react-sdk(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1)):
-    dependencies:
-      '@tencentcloud/uikit-base-component-react': 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      axios: 1.18.1
-      livekit-manager-customization: file:packages/customization
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-router-dom: 7.18.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      tdesign-icons-react: 0.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      tdesign-react: 1.12.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      trtc-sdk-v5: 5.18.2
-      tuikit-atomicx-react: 6.1.3(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1))
-    transitivePeerDependencies:
-      - '@base-ui/react'
-      - '@tencentcloud/chat-uikit-engine-lite'
-      - '@tencentcloud/lite-chat'
-      - '@tencentcloud/tui-core-lite'
-      - '@tencentcloud/tuiroom-engine-js'
-      - '@tencentcloud/universal-api'
-      - '@tiptap/core'
-      - '@types/react'
-      - debug
-      - immer
-      - supports-color
-      - svgaplayerweb
-      - trtc-cloud-js-sdk
-      - use-sync-external-store
 
   tuikit-live-manager-sdk-vue@file:packages/vue-sdk(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3):
     dependencies:
@@ -6787,10 +6667,6 @@ snapshots:
   w3c-keyname@2.2.8: {}
 
   webidl-conversions@3.0.1: {}
-
-  webrtc-adapter@8.2.4:
-    dependencies:
-      sdp: 3.2.2
 
   webrtc-adapter@9.0.6:
     dependencies:

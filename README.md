@@ -40,7 +40,7 @@ You can choose one of the following two integration methods based on your busine
 </tr>
 <tr>
 <td rowspan="1" colSpan="1" >Live Monitoring</td>
-<td rowspan="1" colSpan="1" >- Supports multi-screen concurrent monitoring and quick live room search by Room ID.<br>- For non-compliant live rooms, if you have integrated <a href="https://cloud.tencent.com/document/product/647/132330">audio/video content understanding</a>, the system automatically displays violation labels.<br>- Operators can force-stop streaming with one click or send violation alerts to hosts, keeping track of live status in real time and responding to risks promptly.</td>
+<td rowspan="1" colSpan="1" >- Supports multi-screen concurrent monitoring and quick live room search by Room ID.<br>- For non-compliant live rooms, if you have integrated <a href="https://www.tencentcloud.com/document/product/647/132330">audio/video content understanding</a>, the system automatically displays violation labels.<br>- Operators can force-stop streaming with one click or send violation alerts to hosts, keeping track of live status in real time and responding to risks promptly.</td>
 <td rowspan="1" colSpan="1" ><br>![](https://staticintl.cloudcachetci.com/cms/backend-cms/fb9d7310768d11f19469525400a31896.png)</td>
 </tr>
 <tr>
@@ -144,8 +144,8 @@ TUILiveKit_Manager/          ← GitHub open-source repo
 
 Before getting started, please refer to the setup guides to complete environment configuration and service activation:
 
-- [Getting Started (Web Vue3)](https://cloud.tencent.com/document/product/647/123049)
-- [Getting Started (Web React)](https://cloud.tencent.com/document/product/647/127810)
+- [Getting Started (Web Vue3)](https://www.tencentcloud.com/document/product/647/123049)
+- [Getting Started (Web React)](https://www.tencentcloud.com/document/product/647/77813)
 
 ### Step 2: Download the Project
 
@@ -212,7 +212,7 @@ The following features can be configured based on your business needs:
 - **Image Upload**: Required for gift thumbnails, room covers, etc. Supports three storage providers: Tencent Cloud COS (default), custom HTTP upload, and extending to other services (S3, OSS, etc.). When not configured, the frontend falls back to manual URL input mode. See [Server Documentation — Image Upload](./packages/server/README.md#image-upload).
 - **Content Moderation**: Supports text moderation record viewing, batch approval, and correction whitelist. Requires Tencent Cloud API key configuration. See [Server Documentation — Configuration](./packages/server/README.md#configuration).
 - **Custom Moderation Server**: When you need fully customizable moderation logic (user-owned database, custom review rules, full audit toggle), you should **develop your own moderation server** that implements the documented [interface spec](./docs/custom-moderation-guide.md) ([中文](./docs/custom-moderation-guide_zh.md)). A minimal prototype (`packages/custom-moderation-server/`) is provided **only to help you validate the end-to-end flow** — it is a reference implementation using SQLite and **must not be used in production**. See [Custom Moderation Guide](./docs/custom-moderation-guide.md) ([中文](./docs/custom-moderation-guide_zh.md)).
-- **Violation Label Display**: Requires integration of [audio/video content understanding](https://cloud.tencent.com/document/product/647/132330) capabilities.
+- **Violation Label Display**: Requires integration of [audio/video content understanding](https://www.tencentcloud.com/document/product/647/132330) capabilities.
 
 ---
 
@@ -249,9 +249,9 @@ The Demo shell code (`packages/react`, `packages/vue3`) is fully open-source. Yo
 
 ### Option 2: Cloud Functions + COS / EdgeOne Pages
 
-- **Server**: Run `npm run deploy:server` and upload `packages/server/dist/scf-deploy.zip` to Tencent [Cloud Functions](https://cloud.tencent.com/document/product/583) (Web Functions, Node.js 20.19).
+- **Server**: Run `npm run deploy:server` and upload `packages/server/dist/scf-deploy.zip` to Tencent [Cloud Functions](https://www.tencentcloud.com/document/product/583) (Web Functions, Node.js 20.19).
 - **Custom Moderation Server (Optional)**: Run `npm run deploy:moderation-server` and upload `packages/custom-moderation-server/dist/scf-deploy.zip` to Tencent Cloud Functions as well. **Note: this is the minimal prototype and must not be used in production — implement your own server per the [guide](./docs/custom-moderation-guide.md) ([中文](./docs/custom-moderation-guide_zh.md)) before going live.**
-- **Frontend**: Create `.env.production` with the Cloud Function request URL, then run `pnpm run build:vue` / `pnpm run build:react` and upload the build output to [COS](https://cloud.tencent.com/document/product/436/38484) or [EdgeOne Pages](https://cloud.tencent.com/document/product/1552/87601).
+- **Frontend**: Create `.env.production` with the Cloud Function request URL, then run `pnpm run build:vue` / `pnpm run build:react` and upload the build output to [COS](https://www.tencentcloud.com/document/product/436/38484) or [EdgeOne Pages](https://www.tencentcloud.com/document/product/1552/87601).
 
   ```bash
   VITE_API_BASE_URL=https://your-scf-url.com/api
@@ -279,15 +279,15 @@ Since the SDK packages use a closed-source delivery model, follow these steps to
 
 ## Related Documentation
 
-- [Getting Started (Web Vue3)](https://cloud.tencent.com/document/product/647/123049)
-- [Getting Started (Web React)](https://cloud.tencent.com/document/product/647/127810)
-- [Activate TUILiveKit Services](https://cloud.tencent.com/document/product/647/105439)
-- [TUILiveKit Admin Account Management](https://cloud.tencent.com/document/product/647/117216)
-- [Content Understanding Service (Domestic)](https://cloud.tencent.com/document/product/647/132331)
-- [Cloud Moderation](https://cloud.tencent.com/document/product/269/103733)
-- [Cloud Functions Quick Start](https://cloud.tencent.com/document/product/583/54786)
-- [COS (Object Storage) Quick Start](https://cloud.tencent.com/document/product/436/38484)
-- [EdgeOne Pages](https://cloud.tencent.com/document/product/1552/87601)
+- [Getting Started (Web Vue3)](https://www.tencentcloud.com/document/product/647/123049)
+- [Getting Started (Web React)](https://www.tencentcloud.com/document/product/647/77813)
+- [Activate TUILiveKit Services](https://www.tencentcloud.com/document/product/647/60033)
+- [TUILiveKit Admin Account Management](https://www.tencentcloud.com/document/product/647/69881)
+- [Content Understanding Service (Domestic)](https://www.tencentcloud.com/document/product/647/132331)
+- [Cloud Moderation](https://www.tencentcloud.com/document/product/269/103733)
+- [Cloud Functions Quick Start](https://www.tencentcloud.com/document/product/583/54786)
+- [COS (Object Storage) Quick Start](https://www.tencentcloud.com/document/product/436/38484)
+- [EdgeOne Pages](https://www.tencentcloud.com/document/product/1552/87601)
 - [React SDK Package Documentation](./packages/react-sdk/README.md)
 - [Vue3 SDK Package Documentation](./packages/vue-sdk/README.md)
 - [Server Documentation](./packages/server/README.md)
