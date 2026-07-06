@@ -6,17 +6,10 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./index.d.ts",
-  "files": [
-    "dist",
-    "index.d.ts",
-    "README.md",
-    "README_zh.md"
-  ],
   "exports": {
     ".": {
       "types": "./index.d.ts",
-      "import": "./dist/index.js",
-     default": "./dist/index.js"
+      "import": "./dist/index.js"
     },
     "./dist/style.css": "./dist/style.css",
     "./common/style/index.css": "./dist/components/style.css",
