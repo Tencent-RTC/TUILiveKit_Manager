@@ -4,20 +4,20 @@ import { useNavigate as Ve } from "react-router-dom";
 import { useUIKit as ce } from "@tencentcloud/uikit-base-component-react";
 import { SearchIcon as Fe, RefreshIcon as Ue, FullscreenIcon as Me, NotificationIcon as xe, StopCircleIcon as ke } from "tdesign-icons-react";
 import { Input as $e, Button as X, Dialog as Ie } from "tdesign-react";
-import { u as he, a as Ge, s as We } from "../../chunks/live-monitor.DzfKuVn6.js";
-import { g as re, P as te, bC as ze, bD as He, E as se, s as me, p as Ke, f as Be, bK as qe, bH as Ye, bE as je, bF as Xe } from "../../chunks/main-layout.BqLTYqar.js";
-import { I as n, g as Ze, a3 as Ne, a9 as Je, a7 as Qe, a6 as er, b as rr, q, W as Le, O as tr, E as nr, P as ar } from "../../chunks/layout.DppKPdLU.js";
-import { c as ge } from "../../chunks/logger.DCFRj533.js";
-import "../../chunks/useSvgaPlayer.xaOB2im4.js";
-import { M as B } from "../../chunks/useAsyncAction.Ce9HnFRp.js";
-import { u as or } from "../../chunks/useConfirmAction.CRsj8aPf.js";
+import { u as he, a as Ge, s as We } from "../../chunks/live-monitor.hbwprFT4.js";
+import { g as re, P as te, bC as ze, bD as He, E as se, s as me, p as Ke, f as Be, bK as qe, bH as Ye, bE as je, bF as Xe } from "../../chunks/main-layout.DNtgEqmy.js";
+import { I as n, g as Ze, a3 as Ne, a9 as Je, a7 as Qe, a6 as er, b as rr, q, W as Le, O as tr, E as nr, P as ar } from "../../chunks/layout.CpAnx6QV.js";
+import { c as ge } from "../../chunks/logger.CjN8f6V1.js";
+import "../../chunks/useSvgaPlayer.PvIOBBem.js";
+import { M as B } from "../../chunks/useAsyncAction.BPwANCLg.js";
+import { u as or } from "../../chunks/useConfirmAction.C0smeLuW.js";
 import { c as ir } from "../../chunks/config.BhtXZwQl.js";
 import { c as sr } from "../../chunks/mock.Bnui3Fqh.js";
-import { M as cr } from "../../chunks/MonitorPagination.DFg391Ih.js";
-import { A as lr } from "../../chunks/AnchorAvatar.DaGA8h42.js";
-import { S as dr } from "../../chunks/SlotRenderer.vgqO2kMA.js";
-import { s as ur, t as vr, f as hr } from "../../chunks/utils.Bs5D6gUq.js";
-import { s as gr, V as fr, A as pr } from "../../chunks/adaptive-tags-runtime.Cka5EKuv.js";
+import { M as cr } from "../../chunks/MonitorPagination.CV3IjNL_.js";
+import { A as lr } from "../../chunks/AnchorAvatar.C0I34rVY.js";
+import { S as dr } from "../../chunks/SlotRenderer.C26oD6Ib.js";
+import { s as ur, t as vr, f as hr } from "../../chunks/utils.BKfUtY2V.js";
+import { s as gr, V as fr, A as pr } from "../../chunks/adaptive-tags-runtime.Cr4jGXtP.js";
 const Ir = ({
   searchInput: e,
   onSearchInputChange: s,

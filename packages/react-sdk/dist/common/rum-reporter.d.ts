@@ -36,11 +36,8 @@ export declare function reportCapability(capability: CapabilityType): void;
 export type FeatureKey = 'live_monitor' | 'live_detail' | 'create_live' | 'gift_manage' | 'risk_control';
 /**
  * 上报功能使用。在用户进入核心功能页面时调用。
- * 会话内同一 sdkAppId + feature 仅上报一次；刷新页面后重置。
- * 注意：会话内去重仅为减少无效数据量，RUM 侧最终按 ext3 全局去重，
- * 因此即便重复上报也不影响最终"使用客户数"统计。
- * sdkAppId 不可用时跳过（无客户身份不产生事件）。
- * @param feature 功能标识
+ * 如果调用时 sdkAppId 尚不可用（鉴权未完成），会自动排队，
+ * 在 reportAppInit（saveCredentials 后）统一补发。
  */
 export declare function reportFeatureUse(feature: FeatureKey): void;
 /** 上报页面浏览（SPA 路由变化时调用） */

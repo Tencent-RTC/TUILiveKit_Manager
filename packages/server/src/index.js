@@ -24,6 +24,12 @@ app.use('/api', apiRouter);
 app.use('/api/env', envConfigRouter);
 app.use('/api/rum', rumApiRouter);
 
+// 内部工具配置持久化（dev only，release 不含此文件）
+try {
+  const { configApiRouter } = require('./routes/configApiRouter.js');
+  app.use('/api/tools', configApiRouter);
+} catch { /* release 不含 configApiRouter.js */ }
+
 // 全局错误处理中间件
 app.use((err, req, res, next) => {
   logger.error('GLOBAL_ERROR', err, {

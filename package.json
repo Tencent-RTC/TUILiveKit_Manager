@@ -16,11 +16,5 @@
       "esbuild",
       "vue-demi"
     ]
-  },
-  "devDependencies": {
-    "depcheck": "^1.4.7"
-  },
-  "dependencies": {
-    "svgaplayerweb": "^2.3.2"
   }
 }

@@ -5,19 +5,19 @@ import { Dialog as Ne, Tooltip as oe, Button as Q, Tabs as ve, Switch as Be, Loa
 import { CheckCircleIcon as Te, ChatOffIcon as xe, UserCheckedIcon as qe, UserBlockedIcon as Fe, MoreIcon as je, InfoCircleIcon as de, CloseCircleIcon as Ye, RefreshIcon as Je, ChevronLeftIcon as Xe, ChevronRightIcon as Ze, ArrowLeftIcon as Qe, NotificationIcon as en, StopCircleIcon as nn } from "tdesign-icons-react";
 import { useUIKit as Se } from "@tencentcloud/uikit-base-component-react";
 import { LiveView as tn, useLiveAudienceState as Ae, BarrageList as rn, BarrageInput as an, LiveAudienceList as on, useLiveListState as sn, useLoginState as cn, useLivePlayerState as ln, LiveListEvent as ye } from "tuikit-atomicx-react";
-import { c as Ee } from "../../chunks/logger.DCFRj533.js";
-import { I as n, a3 as dn, f as un, W as ge, q as ue, s as pe, k as Re, O as mn, g as fn, a9 as hn } from "../../chunks/layout.DppKPdLU.js";
-import { bg as Nn, b8 as Me, bb as De, l as gn, bm as we, D as En, bN as Cn, a6 as pn, bE as Ln, Y as Le, aj as Tn, ao as An, aI as vn, aR as bn, aB as Mn, bX as fe, ah as In, bc as _n, bK as Sn, bD as On, bC as yn } from "../../chunks/main-layout.BqLTYqar.js";
-import { b as Ve, u as Oe } from "../../chunks/live-monitor.DzfKuVn6.js";
-import "../../chunks/useSvgaPlayer.xaOB2im4.js";
-import { M as q, u as Rn } from "../../chunks/useAsyncAction.Ce9HnFRp.js";
-import { u as me } from "../../chunks/useConfirmAction.CRsj8aPf.js";
-import { S as We } from "../../chunks/SlotRenderer.vgqO2kMA.js";
-import { c as Dn, i as wn } from "../../chunks/user-action-dropdown.8c9nzcrX.js";
-import { A as Ie } from "../../chunks/AnchorAvatar.DaGA8h42.js";
+import { c as Ee } from "../../chunks/logger.CjN8f6V1.js";
+import { I as n, a3 as dn, f as un, W as ge, q as ue, s as pe, k as Re, O as mn, g as fn, a9 as hn } from "../../chunks/layout.CpAnx6QV.js";
+import { bg as Nn, b8 as Me, bb as De, l as gn, bm as we, D as En, bN as Cn, a6 as pn, bE as Ln, Y as Le, aj as Tn, ao as An, aI as vn, aR as bn, aB as Mn, bX as fe, ah as In, bc as _n, bK as Sn, bD as On, bC as yn } from "../../chunks/main-layout.DNtgEqmy.js";
+import { b as Ve, u as Oe } from "../../chunks/live-monitor.hbwprFT4.js";
+import "../../chunks/useSvgaPlayer.PvIOBBem.js";
+import { M as q, u as Rn } from "../../chunks/useAsyncAction.BPwANCLg.js";
+import { u as me } from "../../chunks/useConfirmAction.C0smeLuW.js";
+import { S as We } from "../../chunks/SlotRenderer.C26oD6Ib.js";
+import { c as Dn, i as wn } from "../../chunks/user-action-dropdown.BMuTq4TA.js";
+import { A as Ie } from "../../chunks/AnchorAvatar.C0I34rVY.js";
 import { createPortal as Un } from "react-dom";
-import { u as kn } from "../../chunks/gift.bgXTYSLh.js";
-import { p as Pn, g as Bn, b as xn } from "../../chunks/columns.qsOqR_3f.js";
+import { u as kn } from "../../chunks/gift.DrqYoQLw.js";
+import { p as Pn, g as Bn, b as xn } from "../../chunks/columns.CS5xHM1E.js";
 import { A as _e, F as Fn } from "../../chunks/ActionButtons.Cfkno1zE.js";
 function Vn() {
   const [a, t] = w(""), [c, d] = w(""), L = O((u, f) => {

@@ -6,12 +6,12 @@ import { ArrowLeftIcon as K, FileCopyIcon as Z } from "tdesign-icons-react";
 import { useUIKit as J, i18next as x } from "@tencentcloud/uikit-base-component-react";
 import { F as M, a as p } from "../../chunks/FormField.D0eRD3uO.js";
 import { F as Q, A as F } from "../../chunks/ActionButtons.Cfkno1zE.js";
-import { M as N, u as D } from "../../chunks/useAsyncAction.Ce9HnFRp.js";
-import { u as ee } from "../../chunks/gift.bgXTYSLh.js";
-import "../../chunks/logger.DCFRj533.js";
-import { I as t, W as G, t as k } from "../../chunks/layout.DppKPdLU.js";
-import { G as ae, L as te, a as y, g as c, b as ie } from "../../chunks/main-layout.BqLTYqar.js";
-import { M as b, g as re, C as _, a as d, b as g } from "../../chunks/constants.0sqSRoRZ.js";
+import { M as N, u as D } from "../../chunks/useAsyncAction.BPwANCLg.js";
+import { u as ee } from "../../chunks/gift.DrqYoQLw.js";
+import "../../chunks/logger.CjN8f6V1.js";
+import { I as t, W as G, t as k } from "../../chunks/layout.CpAnx6QV.js";
+import { G as ae, L as te, a as y, g as c, b as ie } from "../../chunks/main-layout.DNtgEqmy.js";
+import { M as b, g as re, C as _, a as d, b as g } from "../../chunks/constants.BwJej5rq.js";
 /* empty css                                  */
 function ye() {
   const { t: e } = J(), I = j(), s = ee(), O = w(null);

@@ -4,11 +4,11 @@ import { ArrowLeftIcon as Ce, EditIcon as ve, CopyIcon as Te } from "tdesign-ico
 import { MessagePlugin as A } from "tdesign-vue-next";
 import { useUIKit as be, i18next as Z } from "@tencentcloud/uikit-base-component-vue3";
 import { _ as ye, a as K } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
-import { u as Ae } from "../../chunks/gift.C2r8tUnB.js";
-import "../../chunks/logger.DCFRj533.js";
-import { I as a, t as ee } from "../../chunks/layout.DppKPdLU.js";
-import { G as Ie, a_ as F, b1 as Ge, g, b as he, a as x, as as Le, b0 as Oe } from "../../chunks/main-layout.BqLTYqar.js";
-import { g as Re, M as U, C as N, a as C, b as v } from "../../chunks/constants.0sqSRoRZ.js";
+import { u as Ae } from "../../chunks/gift.gDHGwpCF.js";
+import "../../chunks/logger.CjN8f6V1.js";
+import { I as a, t as ee } from "../../chunks/layout.CpAnx6QV.js";
+import { G as Ie, a_ as F, b1 as Ge, g, b as he, a as x, as as Le, b0 as Oe } from "../../chunks/main-layout.DNtgEqmy.js";
+import { g as Re, M as U, C as N, a as C, b as v } from "../../chunks/constants.BwJej5rq.js";
 /* empty css                                  */
 const Ne = { class: "gift-category-container" }, De = { class: "gift-category-page-header" }, Ye = { class: "gift-category-title-section" }, ke = { class: "gift-category-actions" }, Me = {
   key: 0,

@@ -3,15 +3,15 @@ import { useRouter as ft } from "vue-router";
 import { SearchIcon as mt, AdjustmentIcon as pt, EditIcon as Ce, CopyIcon as _t } from "tdesign-icons-vue-next";
 import { MessagePlugin as E } from "tdesign-vue-next";
 import { useUIKit as vt, i18next as Te } from "@tencentcloud/uikit-base-component-vue3";
-import { c as Et } from "../../chunks/logger.DCFRj533.js";
-import { g as It, I as l, t as he } from "../../chunks/layout.DppKPdLU.js";
-import { H as Ct, bj as be, F as Ne, aQ as Tt, b0 as ht, a_ as oe, b1 as bt, g, y as S, z as I, w as C, x as X, b as Nt, a as j, aa as At } from "../../chunks/main-layout.BqLTYqar.js";
-import { b as Gt, f as Lt, e as yt } from "../../chunks/upload.Ne4Xd5tE.js";
-import { g as Rt } from "../../chunks/columns.DXZISpo3.js";
-import { I as Ae } from "../../chunks/ImageUpload.JuZWHEq7.js";
+import { c as Et } from "../../chunks/logger.CjN8f6V1.js";
+import { g as It, I as l, t as he } from "../../chunks/layout.CpAnx6QV.js";
+import { H as Ct, bj as be, F as Ne, aQ as Tt, b0 as ht, a_ as oe, b1 as bt, g, y as S, z as I, w as C, x as X, b as Nt, a as j, aa as At } from "../../chunks/main-layout.DNtgEqmy.js";
+import { b as Gt, f as Lt, e as yt } from "../../chunks/upload.zkDcPb1K.js";
+import { g as Rt } from "../../chunks/columns.DKNxMEbd.js";
+import { I as Ae } from "../../chunks/ImageUpload.CO7Z7Jon.js";
 import { _ as Ut, a as Ge } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
-import { _ as ne } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.iwDk4NW9.js";
-import { u as Ft } from "../../chunks/gift.C2r8tUnB.js";
+import { _ as ne } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.VUNTxtGc.js";
+import { u as Ft } from "../../chunks/gift.gDHGwpCF.js";
 /* empty css                                */
 const St = { class: "gift-config-container" }, Mt = { class: "gift-config-page-header" }, Ot = { class: "gift-config-title" }, xt = { class: "gift-config-actions" }, Dt = { class: "gift-search-input" }, kt = { class: "gift-id" }, Vt = { class: "gift-id-text" }, Pt = { class: "gift-thumbnail" }, Bt = ["src", "alt"], wt = { key: 1 }, Xt = ["onClick"], Yt = { class: "gift-lang-tags" }, Ht = ["onClick"], $t = {
   key: 1,

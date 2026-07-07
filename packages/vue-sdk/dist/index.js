@@ -3135,7 +3135,7 @@ function reportAppInit(Oo = SDK_VERSION) {
   const jo = getCurrentSdkAppId();
   if (!jo) return;
   const No = `${jo}:${Oo}`;
-  reportedAppInits.has(No) || (reportedAppInits.add(No), reportEvent("app_init", "live_manager", Oo));
+  reportedAppInits.has(No) || (reportedAppInits.add(No), reportEvent("app_init", "live_manager", Oo), flushPendingFeatures());
 }
 const reportedCapabilities = /* @__PURE__ */ new Set();
 function reportCapability(Oo) {
@@ -3144,12 +3144,24 @@ function reportCapability(Oo) {
   const No = `${jo}:${Oo}`;
   reportedCapabilities.has(No) || (reportedCapabilities.add(No), reportEvent("capability", Oo, "on"));
 }
-const reportedFeatures = /* @__PURE__ */ new Set();
-function reportFeatureUse(Oo) {
+const reportedFeatures = /* @__PURE__ */ new Set(), pendingFeatures = [];
+let pendingFeaturesFlushed = !1;
+function flushPendingFeatures() {
+  if (!pendingFeaturesFlushed) {
+    pendingFeaturesFlushed = !0;
+    for (const Oo of pendingFeatures)
+      _tryReportFeature(Oo);
+    pendingFeatures.length = 0;
+  }
+}
+function _tryReportFeature(Oo) {
   const jo = getCurrentSdkAppId();
-  if (!jo) return;
+  if (!jo) return !1;
   const No = `${jo}:${Oo}`;
-  reportedFeatures.has(No) || (reportedFeatures.add(No), reportEvent("feature_use", Oo));
+  return reportedFeatures.has(No) || (reportedFeatures.add(No), reportEvent("feature_use", Oo)), !0;
+}
+function reportFeatureUse(Oo) {
+  _tryReportFeature(Oo) || pendingFeatures.includes(Oo) || pendingFeatures.push(Oo);
 }
 let lastPagePath = null;
 function reportPageView(Oo) {
@@ -11451,7 +11463,7 @@ function useLiveMonitorState() {
         return;
       }
       try {
-        await globalCore.endLive(Wo), reportBusinessOp("live_crud", "delete", !0, Wo);
+        await globalCore.endLive(Wo), reportBusinessOp("live_crud", "delete", !0, Wo), reportEvent("force_stop");
       } catch (Ko) {
         throw reportBusinessOp("live_crud", "delete", !1), Ko;
       }
