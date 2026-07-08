@@ -1,57 +1,7 @@
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Dependencies
 node_modules/
-**/node_modules/
-
-# Build outputs
 dist/
-build/
-lib/
-coverage/
-*.tsbuildinfo
-
-# Exception: pre-compiled SDK packages (closed-source, ship dist/ in repo)
-!packages/vue-sdk/dist/
-!packages/react-sdk/dist/
-
-# Vite
-.vite/
-
-# Runtime / temp
-*.pid
-*.seed
-*.pid.lock
-*.tmp
-*.temp
-.tmp/
-.cache/
-
-# IDE / editor
-.vscode/
-!.vscode/extensions.json
-.idea/
-*.swp
-*.swo
-
-# Package manager stores
-.pnpm-store/
-.npm/
-.yarn/
-
-# Serverless / deployment artifacts
-.vercel/
-.serverless/
-.scf/
-.history
-.env.production
+.env
+.DS_Store
+*.log
+.vibe
+test-results/

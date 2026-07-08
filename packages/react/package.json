@@ -6,6 +6,7 @@
     "dev": "vite --port=2028",
     "build": "vite build",
     "build:anydev": "vite build --mode anydev",
+    "build:release": "vite build --outDir ../../release/react",
     "preview": "vite preview",
     "publish:github": "node ./scripts/publish_github.js"
   },
