@@ -1,5 +1,7 @@
 node_modules/
 dist/
+!packages/react-sdk/dist/
+!packages/vue-sdk/dist/
 .env
 .DS_Store
 *.log
