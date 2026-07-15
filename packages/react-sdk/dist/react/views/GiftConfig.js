@@ -5,17 +5,16 @@ import { useNavigate as we } from "react-router-dom";
 import { Dialog as S, Input as V, InputNumber as se, Textarea as Be, Button as _, Select as Ee, Card as Ve } from "tdesign-react";
 import { useUIKit as X, i18next as ce } from "@tencentcloud/uikit-base-component-react";
 import { A as he, F as Ye } from "../../chunks/ActionButtons.Cfkno1zE.js";
-import { M as m, u as Xe, a as Q } from "../../chunks/useAsyncAction.BxAgRz5E.js";
+import { M as N, u as Xe, a as Q } from "../../chunks/useAsyncAction.CJQgktvN.js";
 /* empty css                                */
-import { c as De } from "../../chunks/logger.rNWqpx5t.js";
-import { h as re, _ as j, I as i, u as Ie } from "../../chunks/layout.C1lzYH2h.js";
-import { x as O, g, y as N, v as T, w as $, aa as He, b as We, a as z, aQ as $e, a_ as ze, L as je, F as qe, bj as de, z as ge } from "../../chunks/main-layout.QTEHh38b.js";
-import { f as Ke, e as Je, b as Qe } from "../../chunks/upload.BK_WDSwt.js";
+import { g as De, l as re, an as j, I as i, A as Ie } from "../../chunks/layout.Br-W54NR.js";
+import { x as O, g, y as m, v as T, w as $, aa as He, b as We, a as z, aQ as $e, a_ as ze, L as je, F as qe, bj as de, z as ge } from "../../chunks/main-layout.1w0vpJq1.js";
+import { f as Ke, e as Je, b as Qe } from "../../chunks/upload.C-_mha0d.js";
 import { F as _e, a as C } from "../../chunks/FormField.D0eRD3uO.js";
-import { I as ue } from "../../chunks/ImageUpload.3GxsSRil.js";
-import { g as Ze } from "../../chunks/columns.C2TAPr0y.js";
-import { b as ei } from "../../chunks/useT.C_9voV_t.js";
-import { S as pe } from "../../chunks/SlotRenderer.oN7HTB7W.js";
+import { I as ue } from "../../chunks/ImageUpload.B_lPyswd.js";
+import { g as Ze } from "../../chunks/columns.CfpW-l5l.js";
+import { b as ei } from "../../chunks/useT.CoE745-e.js";
+import { S as pe } from "../../chunks/SlotRenderer.CuSOZ-rh.js";
 const R = 0, P = 2147483647, w = 0, B = 99, fe = {
   id: "",
   name: "",
@@ -45,48 +44,48 @@ function ni({
     I(), E();
   }, [x, k] = L(!1), ee = async () => {
     if (!e.id.trim()) {
-      m.error(t(i.ENTER_GIFT_ID));
+      N.error(t(i.ENTER_GIFT_ID));
       return;
     }
     if (g(e.id) > O) {
-      m.error(t(i.MAX_BYTES, { field: t(i.GIFT_ID), max: O }));
+      N.error(t(i.MAX_BYTES, { field: t(i.GIFT_ID), max: O }));
       return;
     }
     if (!e.name.trim()) {
-      m.error(t(i.ENTER_GIFT_NAME));
+      N.error(t(i.ENTER_GIFT_NAME));
       return;
     }
-    if (g(e.name) > N) {
-      m.error(t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: N }));
+    if (g(e.name) > m) {
+      N.error(t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: m }));
       return;
     }
     if (e.description && g(e.description) > T) {
-      m.error(t(i.MAX_BYTES, { field: t(i.DESCRIPTION), max: T }));
+      N.error(t(i.MAX_BYTES, { field: t(i.DESCRIPTION), max: T }));
       return;
     }
     const o = parseInt(e.level);
     if (e.level && !isNaN(o) && (o < w || o > B)) {
-      m.error(t(i.GIFT_LEVEL_RANGE, { min: w, max: B }));
+      N.error(t(i.GIFT_LEVEL_RANGE, { min: w, max: B }));
       return;
     }
     if (e.price < R || e.price > P) {
-      m.error(t(i.GIFT_PRICE_RANGE, { min: R, max: P }));
+      N.error(t(i.GIFT_PRICE_RANGE, { min: R, max: P }));
       return;
     }
     const q = h.current?.isUrlInputMode ?? !0, ie = q && (h.current?.urlInputValue?.trim?.() || "");
     if (!b && !e.iconUrl.trim() && !ie) {
-      q && h.current?.setUrlError(t(i.ENTER_THUMBNAIL_URL)), m.error(t(i.UPLOAD_THUMBNAIL_OR_ENTER_URL));
+      q && h.current?.setUrlError(t(i.ENTER_THUMBNAIL_URL)), N.error(t(i.UPLOAD_THUMBNAIL_OR_ENTER_URL));
       return;
     }
     if (e.extensionInfo.trim()) {
       try {
         JSON.parse(e.extensionInfo.trim());
       } catch {
-        m.error(t(i.EXTENSION_INFO_JSON_FORMAT));
+        N.error(t(i.EXTENSION_INFO_JSON_FORMAT));
         return;
       }
       if (new TextEncoder().encode(e.extensionInfo.trim()).length > 100) {
-        m.error(t(i.MAX_BYTES, { field: t(i.CUSTOM_EXTENSION_INFO), max: 100 }));
+        N.error(t(i.MAX_BYTES, { field: t(i.CUSTOM_EXTENSION_INFO), max: 100 }));
         return;
       }
     }
@@ -110,7 +109,7 @@ function ni({
       const te = He(e, G, K);
       await p(te);
     } catch (G) {
-      ii.error("GiftFormDialog", `Image upload failed: ${G?.message || t(i.UNKNOWN_HOST)}`, G), m.error(Je(G, t(i.THUMBNAIL)));
+      ii.error("GiftFormDialog", `Image upload failed: ${G?.message || t(i.UNKNOWN_HOST)}`, G), N.error(Je(G, t(i.THUMBNAIL)));
     } finally {
       k(!1);
     }
@@ -255,15 +254,15 @@ function ni({
               value: e.name,
               onChange: (o) => r({ ...e, name: String(o) }),
               placeholder: t(i.ENTER_GIFT_NAME),
-              status: g(e.name) > N ? "error" : "default",
-              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > N ? " byte-overflow" : ""}`, children: [
+              status: g(e.name) > m ? "error" : "default",
+              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > m ? " byte-overflow" : ""}`, children: [
                 g(e.name),
                 "/",
-                N
+                m
               ] })
             }
           ),
-          g(e.name) > N && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: N }) })
+          g(e.name) > m && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: m }) })
         ] }) }),
         /* @__PURE__ */ n(C, { label: t(i.DESCRIPTION), children: /* @__PURE__ */ a("div", { className: "form-field__input-wrapper", children: [
           /* @__PURE__ */ n(
@@ -407,15 +406,15 @@ function ri({
                 r({ ...e, name: String(h) });
               },
               placeholder: c ? t(i.ENTER_LANGUAGE_GIFT_NAME, { lang: t(z[c].label) }) : "",
-              status: g(e.name) > N ? "error" : "default",
-              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > N ? " byte-overflow" : ""}`, children: [
+              status: g(e.name) > m ? "error" : "default",
+              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > m ? " byte-overflow" : ""}`, children: [
                 g(e.name),
                 "/",
-                N
+                m
               ] })
             }
           ),
-          g(e.name) > N && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: N }) })
+          g(e.name) > m && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: m }) })
         ] }) }),
         /* @__PURE__ */ n(C, { label: t(i.DESCRIPTION), children: /* @__PURE__ */ a("div", { className: "form-field__input-wrapper", children: [
           /* @__PURE__ */ n(
@@ -637,12 +636,12 @@ function ci() {
     render: si(e.key, s, u)
   }));
 }
-function Oi() {
+function yi() {
   const { t: s } = X(), u = Xe(), c = we(), e = ci(), d = Z(null);
   d.current || (d.current = new qe({
     actions: u,
     t: s,
-    toast: m,
+    toast: N,
     onNavigateToCategoryManagement: () => c("/gift-category")
   }));
   const r = d.current;
@@ -701,8 +700,8 @@ function Oi() {
     langConfigVisible: K,
     giftLangConfig: ne,
     langEditVisible: te,
-    editingLang: me,
-    editingGiftForLang: Ne,
+    editingLang: Ne,
+    editingGiftForLang: me,
     langEditForm: Te,
     categoryEditVisible: Ce,
     editingCategoryGift: Ae,
@@ -752,7 +751,7 @@ function Oi() {
             onChange: (l) => r.setSearchInput(String(l ?? "")),
             onEnter: () => {
               if (r.isSearchInputTooLong()) {
-                m.error(s(i.INPUT_TOO_LONG));
+                N.error(s(i.INPUT_TOO_LONG));
                 return;
               }
               r.search();
@@ -824,8 +823,8 @@ function Oi() {
       ri,
       {
         visible: te,
-        editingGiftForLang: Ne,
-        editingLang: me,
+        editingGiftForLang: me,
+        editingLang: Ne,
         langEditForm: Te,
         saving: h,
         onFormChange: (l) => r.setLangEditForm(l),
@@ -869,5 +868,5 @@ function Oi() {
   ] });
 }
 export {
-  Oi as default
+  yi as default
 };

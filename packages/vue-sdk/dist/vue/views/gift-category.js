@@ -4,11 +4,10 @@ import { ArrowLeftIcon as Ae, EditIcon as Te, CopyIcon as ye } from "tdesign-ico
 import { MessagePlugin as A } from "tdesign-vue-next";
 import { useUIKit as be, i18next as K } from "@tencentcloud/uikit-base-component-vue3";
 import { _ as Ge, a as ee } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
-import { u as Ie, a as Le } from "../../chunks/useAsyncAction.TZaXlZ4q.js";
-import "../../chunks/logger.rNWqpx5t.js";
-import { I as a, u as te, a as F } from "../../chunks/layout.C1lzYH2h.js";
-import { G as Oe, a_ as U, b1 as Re, g, b as he, a as x, as as Ne, b0 as De } from "../../chunks/main-layout.QTEHh38b.js";
-import { g as Ye, M as w, C as N, a as C, b as v } from "../../chunks/constants.7GHep651.js";
+import { u as Ie, a as Le } from "../../chunks/useAsyncAction.E1F28vKl.js";
+import { I as a, A as te, c as F } from "../../chunks/layout.Br-W54NR.js";
+import { G as Oe, a_ as U, b1 as Re, g, b as he, a as x, as as Ne, b0 as De } from "../../chunks/main-layout.1w0vpJq1.js";
+import { g as Ye, M as w, C as N, a as C, b as v } from "../../chunks/constants.C_WSTVOQ.js";
 /* empty css                                  */
 const ke = { class: "gift-category-container" }, Se = { class: "gift-category-page-header" }, Me = { class: "gift-category-title-section" }, xe = { class: "gift-category-actions" }, Ve = {
   key: 0,
@@ -28,7 +27,7 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
 }, et = { class: "category-lang-table-cell-desc" }, tt = {
   key: 1,
   class: "category-lang-table-empty"
-}, _t = /* @__PURE__ */ fe({
+}, Et = /* @__PURE__ */ fe({
   __name: "gift-category",
   setup(at) {
     const ae = ve(), { t } = be(), b = Ie(), c = new Oe({
@@ -534,5 +533,5 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
   }
 });
 export {
-  _t as default
+  Et as default
 };

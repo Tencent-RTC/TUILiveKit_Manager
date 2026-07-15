@@ -4,15 +4,14 @@ import { useNavigate as Ye } from "react-router-dom";
 import { Dialog as fe, Input as G, Select as Ge, InputNumber as He, Checkbox as Xe, Button as L, Card as ze } from "tdesign-react";
 import { useUIKit as _e, i18next as ve } from "@tencentcloud/uikit-base-component-react";
 import { ChevronDownIcon as Re, ChevronRightIcon as Me, CloseIcon as be, AddIcon as Ce, FileCopyIcon as ae, SearchIcon as We, RefreshIcon as $e } from "tdesign-icons-react";
-import { c as xe } from "../../chunks/logger.rNWqpx5t.js";
-import { a as je, I as e, _ as he, u as De, r as qe, L as Qe, t as Je, h as Ze, ad as er } from "../../chunks/layout.C1lzYH2h.js";
-import { a3 as rr, au as Le, A as ee, g as N, Q as y, aV as ar, ba as Se, be as tr, C as F, bh as Ee, as as sr, a9 as ir, bS as nr, av as Oe, a0 as Ae, aC as or, c1 as lr, an as cr, aW as dr, T as mr, ac as ur, aN as vr, P as Ne, bk as fr } from "../../chunks/main-layout.QTEHh38b.js";
-import { r as Ue, I as Ve, b as hr } from "../../chunks/upload.BK_WDSwt.js";
-import { g as Er } from "../../chunks/columns.BYpIbkBz.js";
-import { M as Ir } from "../../chunks/MonitorPagination.BJWz_Xv1.js";
-import { a as ge, M as me } from "../../chunks/useAsyncAction.BxAgRz5E.js";
-import { I as we } from "../../chunks/ImageUpload.3GxsSRil.js";
-import { S as te } from "../../chunks/SlotRenderer.oN7HTB7W.js";
+import { g as xe, c as je, I as e, an as he, A as De, x as qe, L as Qe, z as Je, l as Ze, aD as er } from "../../chunks/layout.Br-W54NR.js";
+import { a3 as rr, au as Le, A as ee, g as N, Q as y, aV as ar, ba as Se, be as tr, C as F, bh as Ee, as as sr, a9 as ir, bS as nr, av as Oe, a0 as Ae, aC as or, c1 as lr, an as cr, aW as dr, T as mr, ac as ur, aN as vr, P as Ne, bk as fr } from "../../chunks/main-layout.1w0vpJq1.js";
+import { r as Ue, I as Ve, b as hr } from "../../chunks/upload.C-_mha0d.js";
+import { g as Er } from "../../chunks/columns.CB_IFrzG.js";
+import { M as Ir } from "../../chunks/MonitorPagination.DJ-uhGYM.js";
+import { a as ge, M as me } from "../../chunks/useAsyncAction.CJQgktvN.js";
+import { I as we } from "../../chunks/ImageUpload.B_lPyswd.js";
+import { S as te } from "../../chunks/SlotRenderer.CuSOZ-rh.js";
 import { F as Fe, a as Y } from "../../chunks/FormField.D0eRD3uO.js";
 import { A as pr, F as Nr } from "../../chunks/ActionButtons.Cfkno1zE.js";
 import { useLiveMonitorState as _r } from "../../react.js";
@@ -593,7 +592,7 @@ function Tr({ visible: D, live: s, onClose: H, onSuccess: X, uploadEnabled: q = 
     `edit-live-${s?.id}`
   );
 }
-function Gr() {
+function Yr() {
   const D = Ye(), { t: s } = _e(), {
     createLive: H,
     updateLive: X,
@@ -921,5 +920,5 @@ function Lr() {
   }, []), D;
 }
 export {
-  Gr as default
+  Yr as default
 };

@@ -52,8 +52,6 @@ TUILiveKit Manager React SDK 提供了两种开发模式，适用于不同场景
   <div style="background:#fff;border-radius:8px;border:1px solid #e0e6ed;padding:10px 16px;text-align:center;font-size:12px;color:#666;">
     <span style="font-weight:600;color:#333;">配置 &amp; 定制：</span>
     <span style="background:#f3f3f3;padding:3px 8px;border-radius:4px;font-size:11px;margin:0 2px;">configureLiveManager</span>
-    <span style="background:#f3f3f3;padding:3px 8px;border-radius:4px;font-size:11px;margin:0 2px;">mountLiveManager</span>
-    <span style="background:#f3f3f3;padding:3px 8px;border-radius:4px;font-size:11px;margin:0 2px;">defineCustomerExtension</span>
   </div>
 </div>
 
@@ -139,195 +137,11 @@ TUILiveKit Manager React SDK 提供了两种开发模式，适用于不同场景
 ### 步骤2：安装依赖
 
 {/* @slate id="qz57aYF6iDsjWKgchdQW7" */}
-在您的 React 项目中安装本 SDK 及其必需的 Peer 依赖：
-
-<Table rowHeader id="CFKjHRRpvr5wEOyGmzWfK">
-<Row id="rLjbz31-MeKldFoMsR6jX">
-<Cell id="8wa5Pypszt9HTBiiCMZ5U">
-
-{/* @slate id="sNyziQUhUutLJATq0LHzg" */}
-依赖
-
-</Cell>
-<Cell id="4QG5qB490paHRpw3gCUhw">
-
-{/* @slate id="nRDfb2OItDDCPEZ6TVSHw" */}
-最低版本
-
-</Cell>
-<Cell id="V5eKlus8t9k3_fjbVAi8D">
-
-{/* @slate id="bv8vGvfAoeShCPh3d8JAV" */}
-说明
-
-</Cell>
-</Row>
-<Row id="4rQd41dIeF2uNYAkBuqLW">
-<Cell id="p-e1ZbaR1Bu-t-UvyjXRz">
-
-{/* @slate id="GNZx44WGZ02-MTkxkQ14o" */}
-`react`
-
-</Cell>
-<Cell id="gCv44OG_o4cmzDX72TKtl">
-
-{/* @slate id="YKFYuwtQ1dgqCKlzHvcKK" */}
-\>=18.0.0
-
-</Cell>
-<Cell id="ZlpdtWHij760a1eM1UeWe">
-
-{/* @slate id="g03k7oJ_3yw1KnxyKlCjU" */}
-React 框架
-
-</Cell>
-</Row>
-<Row id="0gXNJ8PMoixoUdmfHWZvL">
-<Cell id="7qgYssflHz0zg8RuKAw84">
-
-{/* @slate id="Ujjcn67nYQDnLLvv-p2sO" */}
-`react-dom`
-
-</Cell>
-<Cell id="VB89BdNJI42_7zriQyRUp">
-
-{/* @slate id="76gWmf2T2IH7wsruvPKQM" */}
-\>=18.0.0
-
-</Cell>
-<Cell id="LwtlJehn9TLLLAs2vif2M">
-
-{/* @slate id="acCnbR_Ro0WFPbzNc_wN8" */}
-React DOM
-
-</Cell>
-</Row>
-<Row id="6qNLoSfx6IIhqPWk2sFua">
-<Cell id="6yqkgjBMVDbLp0cCiCTeI">
-
-{/* @slate id="a_XV6kn8yYyGU5hcxnPqx" */}
-`react-router-dom`
-
-</Cell>
-<Cell id="f1v0plbkLm4FTeYNdUeSM">
-
-{/* @slate id="rwI_y-EYObxOpRHzwIPdp" */}
-\>=7.0.0
-
-</Cell>
-<Cell id="-A6t30WskWO5HPIJ1tEcq">
-
-{/* @slate id="RoMHCZJm2RcyY7CJelayy" */}
-React 路由
-
-</Cell>
-</Row>
-<Row id="IKF0Nppb8htL6vrq0kJkb">
-<Cell id="qbIPferNv78NJHmxf8mbK">
-
-{/* @slate id="kD4LVvrIk8zx4G5Rm2NJX" */}
-`tdesign-react`
-
-</Cell>
-<Cell id="hyJTSTcorcOsdiwershSQ">
-
-{/* @slate id="BDfeswGAQ-B5STaeqnIdA" */}
-\>=1.12.0
-
-</Cell>
-<Cell id="LLuYpxk6--z9uXBoTjh2U">
-
-{/* @slate id="xPW48WpGLYpOHjKubAZ3n" */}
-腾讯 TDesign 组件库
-
-</Cell>
-</Row>
-<Row id="cLMNH36iiZ3ijoAQ_R5hq">
-<Cell id="dWoOl6EcoLxbORRnA56bo">
-
-{/* @slate id="5vab-pZ-PiGvBA-lswsdq" */}
-`tdesign-icons-react`
-
-</Cell>
-<Cell id="7YAoR06BdDIBRU9Xeo1AS">
-
-{/* @slate id="3eQ5EPEMG277HhTgzoXEP" */}
-\>=0.5.0
-
-</Cell>
-<Cell id="wfkmewTTr6dLxXwJWPis0">
-
-{/* @slate id="hZx7cnFBlGUcwAmCBKl6O" */}
-TDesign 图标库
-
-</Cell>
-</Row>
-<Row id="xfsEuVaRzpxh3QO7RRn_i">
-<Cell id="990wmJ4LIuialNBGZqlnH">
-
-{/* @slate id="k-GLJreQS4xl4vUSVLcXl" */}
-`tuikit-atomicx-react`
-
-</Cell>
-<Cell id="FkciBT87k2BOe-jL2Ogxe">
-
-{/* @slate id="xj7zjy-Bs-KfqGgn3K0k0" */}
-\>=6.1.2-beta.1
-
-</Cell>
-<Cell id="Zq9joNj-m5-gvda2Tcp4W">
-
-{/* @slate id="6Bk6Ed-zJ3ZHOsnfPY0kS" */}
-TUILiveKit 基础组件
-
-</Cell>
-</Row>
-<Row id="T56GFgVWesr2XWKntpmlA">
-<Cell id="xHESDPVkswIgd7FcaCTGW">
-
-{/* @slate id="yhX19IFR9xRi1fODkXOUb" */}
-`@tencentcloud/uikit-base-component-react`
-
-</Cell>
-<Cell id="5k94R3KRsJwrrFYL9a2wm">
-
-{/* @slate id="rcx_UiADhqMRRE0FOaH06" */}
-\>=1.4.0
-
-</Cell>
-<Cell id="qFKtyYuaOT-7AvBj2jD-_">
-
-{/* @slate id="-_Hz2GYyHBykfIGsRtXZ-" */}
-基础 UI 组件
-
-</Cell>
-</Row>
-<Row id="V-PotZkMR14aM70oyTKAJ">
-<Cell id="z50neda3qmkF441msMZCY">
-
-{/* @slate id="fZ_NQTVt1gRBv_Hol07B0" */}
-`axios`
-
-</Cell>
-<Cell id="5zWGCcurwg9PbGrjJQKM3">
-
-{/* @slate id="WShX3lydj6xQQ-Z3LRXxi" */}
-\>=1.0.0
-
-</Cell>
-<Cell id="eSHqlxFS-8WOplXRJMjpS">
-
-{/* @slate id="rAPs_1auFVbe3n1_EPM3X" */}
-HTTP 请求库
-
-</Cell>
-</Row>
-</Table>
+在您的 React 项目中安装本 SDK。使用 pnpm 安装时，Peer 依赖将自动一并安装：
 
 {/* @slate id="5TGQyqunTBqtnrwso2B8k" */}
 ```bash
 pnpm add tuikit-live-manager-sdk-react
-pnpm add react react-dom react-router-dom tdesign-react tdesign-icons-react tuikit-atomicx-react @tencentcloud/uikit-base-component-react axios
 ```
 
 {/* @slate id="K8OYEMPN3kOb_lPqLs99h" nodeId="787827ad-5565-4883-9c7e-1fdc2af1557a" */}
@@ -347,7 +161,6 @@ pnpm add react react-dom react-router-dom tdesign-react tdesign-icons-react tuik
 import { configureLiveManager } from 'tuikit-live-manager-sdk-react';
 
 const config = configureLiveManager({
-  version: '1',
   brand: {
     app: {
       title: '直播间管理系统',
@@ -363,34 +176,8 @@ const config = configureLiveManager({
 export default config;
 ```
 
-{/* @slate id="xNlpagBCmdYnBph1tasOg" nodeId="53c9dd22-2073-40c4-a5a3-987254802a14" */}
-### 方式一：mountLiveManager 独立挂载
-
-{/* @slate id="T3Qb90Aeomm2di3Lkfxad" */}
-适用于将管理后台作为独立模块嵌入到已有页面：
-
-{/* @slate id="WyLXzeh_Gtfd97Gd8gwpv" */}
-```tsx
-import { mountLiveManager } from 'tuikit-live-manager-sdk-react';
-
-const container = document.getElementById('app');
-
-// 挂载直播监控模块
-const instance = await mountLiveManager({
-  container: container!,
-  module: 'live-monitor',
-  framework: 'react',
-  runtime: {
-    apiBaseUrl: 'http://localhost:9000/api',
-    language: 'zh-CN',
-  },
-});
-
-// 卸载：instance.unmount();
-```
-
 {/* @slate id="evfAScw4llXhNbW-vZVHW" nodeId="e1130627-200a-4b3f-a166-67eea6e042f4" */}
-### 方式二：直接使用组件
+### 方式一：直接使用组件
 
 {/* @slate id="MjMTj9KVrGtzFJ2MpP7zX" */}
 适用于已将 SDK 作为依赖引入的 React 项目：
@@ -717,8 +504,6 @@ const {
   unbanMember,                    // 取消封禁
   mutedList,                      // 禁言列表
   bannedList,                     // 封禁列表
-  memberLoading,                  // 成员操作加载状态
-  memberError,                    // 成员操作错误
 
   // 聊天管理
   sendViolationWarning,           // 发送违规警告
@@ -910,14 +695,13 @@ function CustomRiskPanel({ liveId }: { liveId: string }) {
 ### 品牌与菜单配置
 
 {/* @slate id="wy_23wgZhX10XNT5JlHJ-" */}
-两种开发模式都支持通过 `defineCustomerExtension` 定制品牌和菜单：
+两种开发模式都支持通过 `CustomerExtensionV1` 配置定制品牌和菜单：
 
 {/* @slate id="LLkZXraRqKEx-YCEQHcwH" */}
 ```ts
-import { defineCustomerExtension } from 'tuikit-live-manager-sdk-react';
+import type { CustomerExtensionV1 } from 'tuikit-live-manager-sdk-react';
 
-export default defineCustomerExtension({
-  version: '1',
+export default {
   brand: {
     app: {
       title: '我的直播间管理系统',
@@ -929,7 +713,7 @@ export default defineCustomerExtension({
     roomList: { enabled: true, label: '直播间管理' },
     giftConfig: { enabled: true, label: '礼物配置' },
   },
-});
+} satisfies CustomerExtensionV1;
 ```
 
 {/* @slate id="y9CX39sHFAXjdbn9Lha5L" nodeId="599aeb82-4113-4897-9be2-559cd452e716" */}
@@ -1123,15 +907,14 @@ Props
 
 {/* @slate id="YteYM-9TJB7yh9wY9Cwpk" */}
 ```ts
-export default defineCustomerExtension({
-  version: '1',
-  components: {
+export default {
+    components: {
     layout: { headerRight: () => <span>v2.0</span> },
     liveList: {
       tableExtraColumns: ({ live }) => <span>{live.customInfo?.tag}</span>,
     },
   },
-});
+} satisfies CustomerExtensionV1;
 ```
 
 {/* @slate id="hHPlmfEAI_LEKoXwtWLWo" nodeId="f2e60215-e917-4150-8ffb-648cbc2707b6" */}
@@ -1143,7 +926,7 @@ export default defineCustomerExtension({
 {/* @slate id="huVpgXohZNXD-MH1ds6qA" */}
 ```ts
 interface CustomerExtensionV1<TComponent = unknown> {
-  version: '1';
+  version?: '1';
   brand?: BrandConfig;
   menus?: MenuExtension;
   routes?: RouteExtension<TComponent>;
@@ -1155,36 +938,6 @@ interface CustomerExtensionV1<TComponent = unknown> {
 function configureLiveManager<TComponent = unknown>(
   extension?: CustomerExtensionV1<TComponent>,
 ): LiveManagerAppConfig<TComponent>
-```
-
-{/* @slate id="nEbptK-q8qX8vi-btVpYE" nodeId="c04dac65-db85-42e3-bace-35ecdf90aea1" */}
-### `mountLiveManager(options)`
-
-{/* @slate id="dkN_nXqLa6imjJeiR5-1A" */}
-```ts
-interface LiveManagerMountOptions {
-  container: HTMLElement | string;
-  module: 'room-list' | 'live-monitor' | 'room-control' | 'gift-config' | 'risk-control';
-  framework?: 'react' | 'vue';
-  runtime?: {
-    apiBaseUrl?: string;
-    authToken?: string;
-    getAuthToken?: () => string | Promise<string>;
-    language?: 'zh-CN' | 'en-US';
-    routerMode?: 'hash' | 'memory';
-    popupContainer?: HTMLElement | string;
-  };
-  extension?: unknown;
-  props?: Record<string, unknown>;
-}
-```
-
-{/* @slate id="nI8GdXjlN70BdN-328jtw" nodeId="3a2c37c6-09b8-4189-8f16-7bcbe7c12d3d" */}
-### `preloadLiveManager(options?)`
-
-{/* @slate id="72j4WIHDDRB518QgqktVk" */}
-```ts
-await preloadLiveManager({ framework: 'react', module: 'live-monitor' });
 ```
 
 {/* @slate id="KVYpVj10F6l8VGC0_epsU" nodeId="5d11fc70-e60c-4e38-9397-59f6dbedbe24" */}
@@ -1200,7 +953,7 @@ await preloadLiveManager({ framework: 'react', module: 'live-monitor' });
 ### 如何自定义页面标题和 Logo？
 
 {/* @slate id="hr3m0JKvetr9ikIQyjdj2" */}
-在 `configureLiveManager` 或 `defineCustomerExtension` 的 `brand.app` 中设置 `title` 和 `logo`。
+在 `configureLiveManager` 的 `brand.app` 中设置 `title` 和 `logo`。
 
 {/* @slate id="1nGdtAlO2ztHrNp_sm1Pa" nodeId="c370db6b-17bb-42a7-bcb0-425f6388a0c9" */}
 ### 支持哪些语言？

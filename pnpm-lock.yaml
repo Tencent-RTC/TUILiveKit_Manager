@@ -7,11 +7,11 @@ settings:
 catalogs:
   default:
     tuikit-atomicx-react:
-      specifier: 6.1.3-beta.5
-      version: 6.1.3-beta.5
+      specifier: 6.2.0
+      version: 6.2.0
     tuikit-atomicx-vue3:
-      specifier: 6.2.6-beta.2
-      version: 6.2.6-beta.2
+      specifier: 6.4.0
+      version: 6.4.0
 
 importers:
 
@@ -38,8 +38,8 @@ importers:
   packages/react:
     dependencies:
       '@tencentcloud/uikit-base-component-react':
-        specifier: ^1.4.0
-        version: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^1.4.1
+        version: 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       axios:
         specifier: ^1.13.4
         version: 1.18.1
@@ -60,10 +60,10 @@ importers:
         version: 1.12.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tuikit-atomicx-react:
         specifier: 'catalog:'
-        version: 6.1.3-beta.5(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1))
+        version: 6.2.0(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.1)(@tencentcloud/uikit-base-component-react@1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.13.0)(use-sync-external-store@1.6.0(react@18.3.1))
       tuikit-live-manager-sdk-react:
         specifier: file:../react-sdk
-        version: file:packages/react-sdk(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1))
+        version: file:packages/react-sdk(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.13.0)(use-sync-external-store@1.6.0(react@18.3.1))
       zustand:
         specifier: ^5.0.8
         version: 5.0.14(@types/react@18.3.31)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))
@@ -106,16 +106,19 @@ importers:
         version: 5.7.3
       typescript-eslint:
         specifier: ^8.24.1
-        version: 8.63.0(eslint@9.39.5)(typescript@5.7.3)
+        version: 8.64.0(eslint@9.39.5)(typescript@5.7.3)
       vite:
         specifier: ^7.0.0
         version: 7.3.6(less@4.6.7)(sass@1.101.0)
 
   packages/react-sdk:
     dependencies:
+      '@tencentcloud/tuiroom-engine-js':
+        specifier: 4.2.1
+        version: 4.2.1
       '@tencentcloud/uikit-base-component-react':
         specifier: '>=1.4.0'
-        version: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       axios:
         specifier: '>=1.0.0'
         version: 1.18.1
@@ -141,8 +144,8 @@ importers:
         specifier: ^5.17.1
         version: 5.18.3
       tuikit-atomicx-react:
-        specifier: '>=6.1.2-beta.1'
-        version: 6.1.4(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.1)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1))
+        specifier: '>=6.2.0'
+        version: 6.2.0(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.1)(@tencentcloud/uikit-base-component-react@1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.13.0)(use-sync-external-store@1.6.0(react@18.3.1))
 
   packages/server:
     dependencies:
@@ -171,9 +174,12 @@ importers:
 
   packages/vue-sdk:
     dependencies:
+      '@tencentcloud/tuiroom-engine-js':
+        specifier: 4.2.1
+        version: 4.2.1
       '@tencentcloud/uikit-base-component-vue3':
-        specifier: '>=1.4.0'
-        version: 1.4.4(vue@3.5.39(typescript@5.7.3))
+        specifier: '>=1.4.6'
+        version: 1.4.6(vue@3.5.39(typescript@5.7.3))
       axios:
         specifier: '>=1.0.0'
         version: 1.18.1
@@ -190,8 +196,8 @@ importers:
         specifier: ^5.17.1
         version: 5.18.3
       tuikit-atomicx-vue3:
-        specifier: '>=6.2.5'
-        version: 6.3.1(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.0)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
+        specifier: '>=6.4.0'
+        version: 6.4.0(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.1)(@tencentcloud/uikit-base-component-vue3@1.4.6(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
       vue:
         specifier: '>=3.0.0'
         version: 3.5.39(typescript@5.7.3)
@@ -202,11 +208,11 @@ importers:
   packages/vue3:
     dependencies:
       '@tencentcloud/uikit-base-component-vue3':
-        specifier: 1.4.4
-        version: 1.4.4(vue@3.5.39(typescript@5.7.3))
+        specifier: 1.4.6
+        version: 1.4.6(vue@3.5.39(typescript@5.7.3))
       '@tencentcloud/uikit-base-widget-vue3':
-        specifier: 1.1.1
-        version: 1.1.1(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
+        specifier: 1.1.3
+        version: 1.1.3(@tencentcloud/uikit-base-component-vue3@1.4.6(vue@3.5.39(typescript@5.7.3)))(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
       axios:
         specifier: ^1.13.2
         version: 1.18.1
@@ -218,10 +224,10 @@ importers:
         version: 1.13.1(vue@3.5.39(typescript@5.7.3))
       tuikit-atomicx-vue3:
         specifier: 'catalog:'
-        version: 6.2.6-beta.2(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
+        version: 6.4.0(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.1)(@tencentcloud/uikit-base-component-vue3@1.4.6(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
       tuikit-live-manager-sdk-vue:
         specifier: file:../vue-sdk
-        version: file:packages/vue-sdk(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)
+        version: link:../vue-sdk
       vue:
         specifier: ^3.5.13
         version: 3.5.39(typescript@5.7.3)
@@ -231,7 +237,7 @@ importers:
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^6.0.0
-        version: 6.0.7(vite@7.3.6(less@4.6.7)(sass@1.101.0))(vue@3.5.39(typescript@5.7.3))
+        version: 6.0.8(vite@7.3.6(less@4.6.7)(sass@1.101.0))(vue@3.5.39(typescript@5.7.3))
       '@vue/tsconfig':
         specifier: ^0.7.0
         version: 0.7.0(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
@@ -882,30 +888,24 @@ packages:
   '@tencentcloud/tui-core-lite@1.0.1':
     resolution: {integrity: sha512-EYPEzzUxArtGkhlD6fzzHUjMQJYRdttrLyFjWAemwAQ9yuEvCjPwN0HfMorK6QDOENKfjnSCnyipcE4qzEFHXg==}
 
-  '@tencentcloud/tuiroom-engine-js@4.1.1':
-    resolution: {integrity: sha512-RiaDk5FNYm9sv46HM+CT07COd623wKLMZoKDYmBeYA7H0A8JWsSmqOrX1Bia0giiL1h+BsEyxFTVB2srOFFoWg==}
+  '@tencentcloud/tuiroom-engine-js@4.2.1':
+    resolution: {integrity: sha512-AIlRl12ANM8UQn08R4jAoOc0xRljAYWmWk1X8jEF7yFiymimTwzkvo+fapVrOZqNkDJeowp390bxKk1QhBKYkQ==}
 
-  '@tencentcloud/tuiroom-engine-js@4.1.2-beta.4':
-    resolution: {integrity: sha512-jNltVyKKF5qe0xc70VePy6C8EH4an1HsuKDf+7T03cCtgagHaHTqN+Im/D+Ieqz/9ImF+ECCUO7f+JOWYvesSA==}
-
-  '@tencentcloud/tuiroom-engine-js@4.2.0':
-    resolution: {integrity: sha512-RqSqq/1B0KOdEBCRZFZefwPJPQuzQktqXU8LfPLsfSoL08icbc4e+A+rBt/UKa1XL5kODJFxQujTN527cn+hUA==}
-
-  '@tencentcloud/uikit-base-component-react@1.4.0':
-    resolution: {integrity: sha512-hvDfkkYbo0IkdEQGPkwUVsi6zzDfmgbrszKWzcP9dxOSgJjRwm6xZGMN+fFF5nqZ6l5Kz7xvPRUA+AOglbgtmg==}
+  '@tencentcloud/uikit-base-component-react@1.4.1':
+    resolution: {integrity: sha512-YpQuuZC+o2GRxsPOTs6hJ81mtygUI0pCOJtI6G9YRoFldaDisCwyBQ4WJeC2g4VF3oxrg2KDCCcoyn7EQqU2Dw==}
     peerDependencies:
       react: ^18.2.0 || ^19.0.0
       react-dom: ^18.2.0 || ^19.0.0
 
-  '@tencentcloud/uikit-base-component-vue3@1.4.4':
-    resolution: {integrity: sha512-gFU2qOUTMZoHwHMojcb19eJ0akoc0QUBTVjVgByWPSn7cYFnOAK3sP4tizmCt5tB3aHMJ5M0PgpetXj53zgNMw==}
+  '@tencentcloud/uikit-base-component-vue3@1.4.6':
+    resolution: {integrity: sha512-bm+xTWwqNFtLafbT/rRO6JmexsVnxLexuMp4fnvhhlhgH0c1Pu9K//p9qwO+dZKxo5uwA7GoiqrWZlTNPzqqjw==}
     peerDependencies:
       vue: ^3.4.0
 
-  '@tencentcloud/uikit-base-widget-vue3@1.1.1':
-    resolution: {integrity: sha512-8ErCp5IIbcvfI6q4id9Vepsy+0ZgSI0t1tE5yB5ZghxD5B7fjFkq+WX6KO+FIy54Cy44f74EQCHEo9afis5LRQ==}
+  '@tencentcloud/uikit-base-widget-vue3@1.1.3':
+    resolution: {integrity: sha512-V8zg+QSYVtaJUblpV6FcJYc5CFKhHxkWU/g3xgRRgIwxpceCwYqASNGsXr/cDT+1WbO8Fod1JY6GTJt0fIzp7Q==}
     peerDependencies:
-      '@tencentcloud/uikit-base-component-vue3': 1.1.0
+      '@tencentcloud/uikit-base-component-vue3': ~1.4.6
       vue: ^3.4.21
 
   '@tencentcloud/universal-api@2.4.1':
@@ -1158,63 +1158,63 @@ packages:
   '@types/web-bluetooth@0.0.21':
     resolution: {integrity: sha512-oIQLCGWtcFZy2JW77j9k8nHzAOpqMHLQejDA48XXMWH6tjCQHz5RCFz1bzsmROyL6PUm+LLnUiI4BCn221inxA==}
 
-  '@typescript-eslint/eslint-plugin@8.63.0':
-    resolution: {integrity: sha512-rvwSgqT+DHpWdzfSzPatRLm02a0GlESt++9iy3hLCDY4BgkaLcl8LBi9Yh7XGFBpwcBE/K3024QuXWTpbz4FfQ==}
+  '@typescript-eslint/eslint-plugin@8.64.0':
+    resolution: {integrity: sha512-CGvQPBxN3wZLu6Rz2kFUpZeoCm78xUic92ck39KPePkO1NPOwjCqdQnm5Q87tpWw9vcBvW8XLrDXjH9PWYtJ3Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      '@typescript-eslint/parser': ^8.63.0
+      '@typescript-eslint/parser': ^8.64.0
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
       typescript: '>=4.8.4 <6.1.0'
 
-  '@typescript-eslint/parser@8.63.0':
-    resolution: {integrity: sha512-gwh4gvvlaVDKKxyfxMG+Gnu1u9X0OQBwyGLkbwB65dIzBKnxeRiJlNFqlI3zwVhNXJIs6qV7mlFCn/BIajlVig==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-    peerDependencies:
-      eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
-      typescript: '>=4.8.4 <6.1.0'
-
-  '@typescript-eslint/project-service@8.63.0':
-    resolution: {integrity: sha512-e5dh0/UI0ok53AlZ5wRkXCB32z/f2jUZqPR/ygAw5WYaSw8j9EoJWlS7wQjr/dmOaqWjnPIn2m+HhVPCMWGZVQ==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-    peerDependencies:
-      typescript: '>=4.8.4 <6.1.0'
-
-  '@typescript-eslint/scope-manager@8.63.0':
-    resolution: {integrity: sha512-uUyfMWCnDSN8bCpcrY8nGP2BLkQ9Xn0GsipcONcpIDWhwhO4ZSyHvyS14U3X75mzxWxL3I2UZIrenTzdzcJO8A==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@typescript-eslint/tsconfig-utils@8.63.0':
-    resolution: {integrity: sha512-sUAbkulqBAsncKnbRP3+7CtQFRKicexnj7ZwNC6ddCR7EmrXvjvdCYMJbUIqMd6lwoEriZjwLo08aS5tSjVMHg==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-    peerDependencies:
-      typescript: '>=4.8.4 <6.1.0'
-
-  '@typescript-eslint/type-utils@8.63.0':
-    resolution: {integrity: sha512-Nzzh/OGxVCOjObjaj1CQF2RUasyYy2Jfuh+zZ3PjLzG2fYRriAiZLib9UKtO+CpQAS3YHiAS+ckZDclwqI1TPA==}
+  '@typescript-eslint/parser@8.64.0':
+    resolution: {integrity: sha512-KA0OshtlcCCXmbfqyZkM5pV3/WNraJf7DkJRLpyrmwPtud57H5BDX7C3k0LPSPxpprfRL+cJDGabF10mvNCoCw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
       typescript: '>=4.8.4 <6.1.0'
 
-  '@typescript-eslint/types@8.63.0':
-    resolution: {integrity: sha512-xyLtl9DUBBFrcJS4x2pIqGLH68/tC2uOa4Z7pUteW09D3bXnnXUom4dyPikzWgB7llmIc1zoeI3aoUdC4rPK/Q==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@typescript-eslint/typescript-estree@8.63.0':
-    resolution: {integrity: sha512-ygBkU+B7ex5UI/gKhaqexWev79uISfIv7XQCRNYO/jmD8rGLPyWLAb3KMRT6nd8Gt9bmUBi9+iX6tBdYfOY81Q==}
+  '@typescript-eslint/project-service@8.64.0':
+    resolution: {integrity: sha512-tk4WpOJ6IEbGrVHaNmM0YRrwAD3exZlIK3iadQNAxh4YKk6jvUQ4ecq18n+v7+meh+cJ3j+D8nbk8sRKhlwLQg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       typescript: '>=4.8.4 <6.1.0'
 
-  '@typescript-eslint/utils@8.63.0':
-    resolution: {integrity: sha512-fUKaeAvrTuQg/Tgt3nliAUSZHJM6DlCcfyEmxCvlX8kieWSStBX+5O5Fnidtc3i2JrH+9c/GL4RY2iasd/GPTA==}
+  '@typescript-eslint/scope-manager@8.64.0':
+    resolution: {integrity: sha512-CXEaFdYXjSTgKhisNkwCcJwTP8Pl+fmRrEQrri4nm3vU743bALrxzLmq7fHG/7e6a5xO0lDYeURpZmBuhHk54w==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@typescript-eslint/tsconfig-utils@8.64.0':
+    resolution: {integrity: sha512-2yo8rRNKuzbVWQp5kslhANqZ2uDAeROQHBRZNPu8JDsHmeFNj/XJJhX/FhNUWmkHHvoNsKa6+tHJiig87EzsQw==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      typescript: '>=4.8.4 <6.1.0'
+
+  '@typescript-eslint/type-utils@8.64.0':
+    resolution: {integrity: sha512-XWG4Fmmv/6SvyS9nH8jWrKs6terwJvE8cyRt1CzYYqzp9OrPhCT4cMc/f7C6RZCwG+qMmiffJS1/qJP8G1URtg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
       typescript: '>=4.8.4 <6.1.0'
 
-  '@typescript-eslint/visitor-keys@8.63.0':
-    resolution: {integrity: sha512-UexrHGnGTpbuQHct2ExOc2ZcFbGUS9FOesCxxqdBGcpI1BxYu/LZ6U8Aq6/72XtF/qRBk9nhuGHFJIXXMhPMdw==}
+  '@typescript-eslint/types@8.64.0':
+    resolution: {integrity: sha512-qjhfuTfLXjA4IOzXvz0rTjT01BqEiIgPoUeMwiEjnaHKJMTNo8rH5pYW1a2L/0Dnux2fPC85AeyJoWaGa8WxTA==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@typescript-eslint/typescript-estree@8.64.0':
+    resolution: {integrity: sha512-Pztpsn1aCE1oWDvDEfUk31nngvvF7vUB5SwHFEaZIFpvw7WJtqUHHL4plBZDA9HfWJJjL13BdG0YrJInTUvoVA==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      typescript: '>=4.8.4 <6.1.0'
+
+  '@typescript-eslint/utils@8.64.0':
+    resolution: {integrity: sha512-aJUGVB3+U0htrrCjoA8qukw8cm8fNCGAxK/tVoS70k8aeb7DETKeFozRiVFIwEeN9WJLsjaP3ph8I60tY2XZoQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
+      typescript: '>=4.8.4 <6.1.0'
+
+  '@typescript-eslint/visitor-keys@8.64.0':
+    resolution: {integrity: sha512-mrtuL8Nsn6gi2H4mo5KMTp823M+3Q19Ew/i+Zlikq20tIMm99C3Ez0dCmkWWnxut20esQvTg8aUSEhMcAOXhEw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@vitejs/plugin-react@4.7.0':
@@ -1223,8 +1223,8 @@ packages:
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
 
-  '@vitejs/plugin-vue@6.0.7':
-    resolution: {integrity: sha512-km+p+XdSz9Sxm5rqUbqcSfZYaAniKxWBj1KURl+Jr7UaPvvX7BmaWMdP69I5rrFDeQGyxAG7NXdc57vz+snhWg==}
+  '@vitejs/plugin-vue@6.0.8':
+    resolution: {integrity: sha512-0ZjgOg7oO6farnNGup7yvoM/YXZV84OZxHAwtflItNa/6zzQyVb5LNxyea3FEKEX2XlagIKzrlH7wwxkKgtiew==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -2400,8 +2400,8 @@ packages:
     resolution: {integrity: sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==}
     engines: {node: '>=8'}
 
-  postcss@8.5.18:
-    resolution: {integrity: sha512-xdB1oSLHbz1vRWgCDalrCqEFTWzFlhqFC5tIHLMOSUIjhm3XXQ1qrFy8S/ESr1JYRRXqM3c1QFiMZUJdUTqyMQ==}
+  postcss@8.5.19:
+    resolution: {integrity: sha512-Mz8SaolMd8nB+G13WkORcxQKHZ/NE4xXevtkJHVuG+guo9/wYKlIMTKAqGdEmYOXR2ijPjTYNHssizdaVSUNdQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -2814,23 +2814,11 @@ packages:
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
-  trtc-cloud-js-sdk@2.10.1:
-    resolution: {integrity: sha512-XDteznvQ245uijFSZWag7xnHpCE+LctGrZa+txA1Yn3/pIZ0mFnjvfc+JuQhU9vJdumoDLK7jpdI3gAJGs+6ig==}
+  trtc-cloud-js-sdk@2.13.0:
+    resolution: {integrity: sha512-U4rHthojmj5F7BuNn8jsyqfDqcmYl8173fJgzCRDihkoLt41aoY9Mr46mzwHwRElQuIG6GpBeYnTr/2NUwg8yg==}
 
-  trtc-cloud-js-sdk@2.12.1:
-    resolution: {integrity: sha512-2YtNCZSXDV5PwbxpAFFQa1EW1KNDqil6bKw/Q0ai9iqh2e/l4YOvEOFEqQVxJfinIjkOKxl6r5cEUAALB/zg0A==}
-
-  trtc-cloud-js-sdk@2.12.2-beta.8:
-    resolution: {integrity: sha512-NDAU5z/9LntE+wOSZALhoH8ntrfIsimpul+T2bDSMcs6nrA2M+f7Xwj9jzt6P/m50h7gPGZF1Z47ERsnZ16jzA==}
-
-  trtc-sdk-v5@5.13.0-beta.18:
-    resolution: {integrity: sha512-w2C0qKlY9OIhaE3MMoqhin49KenMR1FvNcSpmItrgJ2Nmg1lHS2GI79OfXB0NKzV4valWZz66nOOufZ3mt3mgw==}
-
-  trtc-sdk-v5@5.17.1-kit.1:
-    resolution: {integrity: sha512-XwNs1Wh720k1LsLKXh3Ifx93p/i9sX6cfML77s71GC96Ruv2JQ+I1KlJ/Qn4QHm7ziTaFij8EysjtU8t8Qa1ZQ==}
-
-  trtc-sdk-v5@5.18.1-kit.1:
-    resolution: {integrity: sha512-QFeOONJelVmt/KC+hPubpDdPhCIT6Itrw900/3ZizPclLhuJowjCjf6wkldIh7fnSC4wPtSYqeEY4EtPcSUxRg==}
+  trtc-sdk-v5@5.18.2-kit.6:
+    resolution: {integrity: sha512-lnqV5B12jTxQrth2lSL8IcZiCbh1D0ogWzPskY1L+NQKjmLRUfEDWfiJ9XmkFYPF1Nt+dQ93/J6p6AdPjpNRHw==}
 
   trtc-sdk-v5@5.18.3:
     resolution: {integrity: sha512-5qdpA1BtvSs812T+CSVChPQrEhpv1tZhw55DtkexV1rXNj7nKeQcrcAijKvbRhZ9URefEdKkPdnpjZLtP1tgYQ==}
@@ -2854,61 +2842,33 @@ packages:
     resolution: {integrity: sha512-3KmepnH9SUsoOVtg013CRrL7c+AK7ECaquAsJdvu4288EDJuraqBlP4PDXT/rLEJ9YDn4jqLAzRJsnFPx+V6lg==}
     deprecated: no longer maintained
 
-  tuikit-atomicx-react@6.1.3-beta.5:
-    resolution: {integrity: sha512-qJTZDaEyQEvCSALUnbb/V1BnZfZBLPaatLGEAmjC4Kf2/Ugno+LQVWETe+oKiVdygfny+9R9v62M6utWxAxOiw==}
+  tuikit-atomicx-react@6.2.0:
+    resolution: {integrity: sha512-hEpH9IpnEwdkXf0QQU3AZllzF25lrXTe/76iUjjkk5z9kt1iWcNyRKU6BiPrwpFfJWvyx5F8O2lDAp5sSsfxqA==}
     peerDependencies:
       '@base-ui/react': ^1.4.0
-      '@tencentcloud/chat-uikit-engine-lite': ~1.0.7
+      '@tencentcloud/chat-uikit-engine-lite': ^1.0.7
       '@tencentcloud/lite-chat': ^1.6.15
-      '@tencentcloud/tui-core-lite': ~1.0.1
-      '@tencentcloud/tuiroom-engine-js': ~4.1.2-beta.4
-      '@tencentcloud/uikit-base-component-react': ~1.4.0
+      '@tencentcloud/tui-core-lite': ^1.0.1
+      '@tencentcloud/tuiroom-engine-js': ~4.2.1
+      '@tencentcloud/uikit-base-component-react': ~1.4.1
       '@tencentcloud/universal-api': ^2.4.1
       react: ^18.2.0 || ^19.0.0
       react-dom: ^18.2.0 || ^19.0.0
       svgaplayerweb: ^2.3.2
       trtc-cloud-js-sdk: 2.10.1
 
-  tuikit-atomicx-react@6.1.4:
-    resolution: {integrity: sha512-/XmsZIon/U+IgtPLYigQrOUVRfO4JFlR0IrLwF8hemJbRjFIfY/+IWwE1QS5Bj+Qv0cDQTcebDS3fTQSUOb9Uw==}
-    peerDependencies:
-      '@base-ui/react': ^1.4.0
-      '@tencentcloud/chat-uikit-engine-lite': ~1.0.7
-      '@tencentcloud/lite-chat': ^1.6.15
-      '@tencentcloud/tui-core-lite': ~1.0.1
-      '@tencentcloud/tuiroom-engine-js': ~4.1.1
-      '@tencentcloud/uikit-base-component-react': ~1.4.0
-      '@tencentcloud/universal-api': ^2.4.1
-      react: ^18.2.0 || ^19.0.0
-      react-dom: ^18.2.0 || ^19.0.0
-      svgaplayerweb: ^2.3.2
-      trtc-cloud-js-sdk: 2.10.1
-
-  tuikit-atomicx-vue3@6.2.6-beta.2:
-    resolution: {integrity: sha512-MTrZ5W76Ot0eFK61ySIQBogLEIljHQttCzbv67PFH38dKiC2rJJhrrhGzAwVVFh5tPo+kqFeB2gL5IQRYskfsg==}
-    peerDependencies:
-      '@tencentcloud/chat-uikit-engine-lite': ~1.0.7
-      '@tencentcloud/lite-chat': ^1.6.15
-      '@tencentcloud/tui-core-lite': ~1.0.1
-      '@tencentcloud/tuiroom-engine-js': ~4.1.2-beta.4
-      '@tencentcloud/uikit-base-component-vue3': ~1.4.4
-      vue: ^3.4.0
-
-  tuikit-atomicx-vue3@6.3.1:
-    resolution: {integrity: sha512-zoDzj9YUBpbFkUMlbVuxUxwdt4H7lYlx4jt0eYnnRw/TD4KX4u+uMG9OyGIDqGD5M+KROzaLTK8Fhq2bufdR0Q==}
+  tuikit-atomicx-vue3@6.4.0:
+    resolution: {integrity: sha512-9dHBtGfYI4YxjZSKdahhagpQO7f3rvGdlDODUnH+qlXedhSI3FuiQwiPoAOer7HZK16qzx8Ba9In0NdXo7KNnw==}
     peerDependencies:
       '@tencentcloud/chat-uikit-engine-lite': ^1.0.7
       '@tencentcloud/lite-chat': ^1.6.15
       '@tencentcloud/tui-core-lite': ^1.0.1
-      '@tencentcloud/tuiroom-engine-js': ~4.2.0
-      '@tencentcloud/uikit-base-component-vue3': ~1.4.5
+      '@tencentcloud/tuiroom-engine-js': ~4.2.1
+      '@tencentcloud/uikit-base-component-vue3': ~1.4.6
       vue: ^3.4.0
 
   tuikit-live-manager-sdk-react@file:packages/react-sdk:
     resolution: {directory: packages/react-sdk, type: directory}
-
-  tuikit-live-manager-sdk-vue@file:packages/vue-sdk:
-    resolution: {directory: packages/vue-sdk, type: directory}
 
   tunnel-agent@0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
@@ -2927,8 +2887,8 @@ packages:
   typedarray@0.0.6:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
 
-  typescript-eslint@8.63.0:
-    resolution: {integrity: sha512-xgwXyzG4sK9ALkBxbyGkTMMOS+imnW65iPhxCQMK83KhxyoDNW7l+IDqEf9vMdoUidHpOoS967RCq4eMiTexwQ==}
+  typescript-eslint@8.64.0:
+    resolution: {integrity: sha512-0qg+pDNMnqYzqH9AnNK+39tejHvsShUOUUoRUgtnTGE7QuMZhiFDnozq8nHJVq+Wae6NMLKNWLg5WmkcC/ndyQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
@@ -3095,10 +3055,6 @@ packages:
 
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
-
-  webrtc-adapter@8.2.4:
-    resolution: {integrity: sha512-VwtwbYNKnVQW8koB9qb8YcxNwpSVHTvvKEZLzY6uQ3gFrA9E87VPbB5xE+m1AGwUjL1UgN35jRR9hQgteZI5bg==}
-    engines: {node: '>=6.0.0', npm: '>=3.10.0'}
 
   webrtc-adapter@9.0.6:
     resolution: {integrity: sha512-CHbl2ZQbxx164IgWRgzJno4hWtM4tFbRam1QfI3Yxhs3w/DvqluVxVWeXs3oL5/fbGkSNLKo0Ty5MgUWceNhog==}
@@ -3688,28 +3644,14 @@ snapshots:
     dependencies:
       '@tencentcloud/lite-chat': 1.6.16
 
-  '@tencentcloud/tuiroom-engine-js@4.1.1':
+  '@tencentcloud/tuiroom-engine-js@4.2.1':
     dependencies:
       '@tencentcloud/lite-chat': 1.6.16
       rtc-detect: 0.0.5
       tcplayer.js: 5.3.4-beta.34
-      trtc-cloud-js-sdk: 2.12.1
+      trtc-cloud-js-sdk: 2.13.0
 
-  '@tencentcloud/tuiroom-engine-js@4.1.2-beta.4':
-    dependencies:
-      '@tencentcloud/lite-chat': 1.6.16
-      rtc-detect: 0.0.5
-      tcplayer.js: 5.3.4-beta.34
-      trtc-cloud-js-sdk: 2.12.2-beta.8
-
-  '@tencentcloud/tuiroom-engine-js@4.2.0':
-    dependencies:
-      '@tencentcloud/lite-chat': 1.6.16
-      rtc-detect: 0.0.5
-      tcplayer.js: 5.3.4-beta.34
-      trtc-cloud-js-sdk: 2.12.2-beta.8
-
-  '@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tencentcloud/uikit-base-component-react@1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       classnames: 2.5.1
       i18next: 23.16.8
@@ -3717,14 +3659,14 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3))':
+  '@tencentcloud/uikit-base-component-vue3@1.4.6(vue@3.5.39(typescript@5.7.3))':
     dependencies:
       i18next: 23.16.8
       vue: 3.5.39(typescript@5.7.3)
 
-  '@tencentcloud/uikit-base-widget-vue3@1.1.1(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))':
+  '@tencentcloud/uikit-base-widget-vue3@1.1.3(@tencentcloud/uikit-base-component-vue3@1.4.6(vue@3.5.39(typescript@5.7.3)))(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))':
     dependencies:
-      '@tencentcloud/uikit-base-component-vue3': 1.4.4(vue@3.5.39(typescript@5.7.3))
+      '@tencentcloud/uikit-base-component-vue3': 1.4.6(vue@3.5.39(typescript@5.7.3))
       '@types/qs': 6.15.1
       '@vue/tsconfig': 0.7.0(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
       axios: 1.18.1
@@ -3745,17 +3687,9 @@ snapshots:
     dependencies:
       '@tiptap/pm': 2.27.2
 
-  '@tiptap/extension-blockquote@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
-
   '@tiptap/extension-blockquote@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
-
-  '@tiptap/extension-bold@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
 
   '@tiptap/extension-bold@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
@@ -3767,23 +3701,25 @@ snapshots:
       '@tiptap/pm': 2.11.5
       tippy.js: 6.3.7
 
+  '@tiptap/extension-bubble-menu@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)':
+    dependencies:
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
+      '@tiptap/pm': 2.11.5
+      tippy.js: 6.3.7
+
   '@tiptap/extension-bubble-menu@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.27.2
       tippy.js: 6.3.7
 
-  '@tiptap/extension-bullet-list@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
-
   '@tiptap/extension-bullet-list@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
 
-  '@tiptap/extension-code-block@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)':
+  '@tiptap/extension-code-block@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)':
     dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.11.5
 
   '@tiptap/extension-code-block@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)':
@@ -3791,25 +3727,17 @@ snapshots:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.27.2
 
-  '@tiptap/extension-code@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
-
   '@tiptap/extension-code@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
-
-  '@tiptap/extension-document@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
 
   '@tiptap/extension-document@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
 
-  '@tiptap/extension-dropcursor@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)':
+  '@tiptap/extension-dropcursor@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)':
     dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.11.5
 
   '@tiptap/extension-dropcursor@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)':
@@ -3823,15 +3751,21 @@ snapshots:
       '@tiptap/pm': 2.11.5
       tippy.js: 6.3.7
 
+  '@tiptap/extension-floating-menu@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)':
+    dependencies:
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
+      '@tiptap/pm': 2.11.5
+      tippy.js: 6.3.7
+
   '@tiptap/extension-floating-menu@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.27.2
       tippy.js: 6.3.7
 
-  '@tiptap/extension-gapcursor@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)':
+  '@tiptap/extension-gapcursor@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)':
     dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.11.5
 
   '@tiptap/extension-gapcursor@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)':
@@ -3839,25 +3773,17 @@ snapshots:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.27.2
 
-  '@tiptap/extension-hard-break@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
-
   '@tiptap/extension-hard-break@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
-
-  '@tiptap/extension-heading@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
 
   '@tiptap/extension-heading@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
 
-  '@tiptap/extension-history@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)':
+  '@tiptap/extension-history@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)':
     dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.11.5
 
   '@tiptap/extension-history@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)':
@@ -3865,9 +3791,9 @@ snapshots:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.27.2
 
-  '@tiptap/extension-horizontal-rule@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)':
+  '@tiptap/extension-horizontal-rule@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)':
     dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.11.5
 
   '@tiptap/extension-horizontal-rule@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)':
@@ -3879,21 +3805,17 @@ snapshots:
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
 
+  '@tiptap/extension-image@2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
+    dependencies:
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
+
   '@tiptap/extension-image@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
 
-  '@tiptap/extension-italic@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
-
   '@tiptap/extension-italic@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
-
-  '@tiptap/extension-list-item@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
 
   '@tiptap/extension-list-item@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
@@ -3905,23 +3827,21 @@ snapshots:
       '@tiptap/pm': 2.11.5
       '@tiptap/suggestion': 2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
 
+  '@tiptap/extension-mention@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)(@tiptap/suggestion@2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5))':
+    dependencies:
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
+      '@tiptap/pm': 2.11.5
+      '@tiptap/suggestion': 2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)
+
   '@tiptap/extension-mention@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)(@tiptap/suggestion@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.27.2
       '@tiptap/suggestion': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)
 
-  '@tiptap/extension-ordered-list@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
-
   '@tiptap/extension-ordered-list@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
-
-  '@tiptap/extension-paragraph@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
 
   '@tiptap/extension-paragraph@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
@@ -3932,30 +3852,23 @@ snapshots:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
       '@tiptap/pm': 2.11.5
 
+  '@tiptap/extension-placeholder@2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)':
+    dependencies:
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
+      '@tiptap/pm': 2.11.5
+
   '@tiptap/extension-placeholder@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.27.2
 
-  '@tiptap/extension-strike@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
-
   '@tiptap/extension-strike@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
 
-  '@tiptap/extension-text-style@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
-
   '@tiptap/extension-text-style@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
-
-  '@tiptap/extension-text@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))':
-    dependencies:
-      '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
 
   '@tiptap/extension-text@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))':
     dependencies:
@@ -4015,28 +3928,40 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       use-sync-external-store: 1.6.0(react@18.3.1)
 
+  '@tiptap/react@2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
+      '@tiptap/extension-bubble-menu': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)
+      '@tiptap/extension-floating-menu': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)
+      '@tiptap/pm': 2.11.5
+      '@types/use-sync-external-store': 0.0.6
+      fast-deep-equal: 3.1.3
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      use-sync-external-store: 1.6.0(react@18.3.1)
+
   '@tiptap/starter-kit@2.11.5':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
-      '@tiptap/extension-blockquote': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-bold': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-bullet-list': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-code': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-code-block': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
-      '@tiptap/extension-document': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-dropcursor': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
-      '@tiptap/extension-gapcursor': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
-      '@tiptap/extension-hard-break': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-heading': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-history': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
-      '@tiptap/extension-horizontal-rule': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
-      '@tiptap/extension-italic': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-list-item': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-ordered-list': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-paragraph': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-strike': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-text': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-text-style': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
+      '@tiptap/extension-blockquote': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-bold': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-bullet-list': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-code': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-code-block': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)
+      '@tiptap/extension-document': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-dropcursor': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)
+      '@tiptap/extension-gapcursor': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)
+      '@tiptap/extension-hard-break': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-heading': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-history': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)
+      '@tiptap/extension-horizontal-rule': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)
+      '@tiptap/extension-italic': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-list-item': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-ordered-list': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-paragraph': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-strike': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-text': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-text-style': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
       '@tiptap/pm': 2.11.5
 
   '@tiptap/starter-kit@2.27.2':
@@ -4066,6 +3991,11 @@ snapshots:
   '@tiptap/suggestion@2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)':
     dependencies:
       '@tiptap/core': 2.27.2(@tiptap/pm@2.11.5)
+      '@tiptap/pm': 2.11.5
+
+  '@tiptap/suggestion@2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)':
+    dependencies:
+      '@tiptap/core': 2.27.2(@tiptap/pm@2.27.2)
       '@tiptap/pm': 2.11.5
 
   '@tiptap/suggestion@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)':
@@ -4144,14 +4074,14 @@ snapshots:
 
   '@types/web-bluetooth@0.0.21': {}
 
-  '@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@9.39.5)(typescript@5.7.3))(eslint@9.39.5)(typescript@5.7.3)':
+  '@typescript-eslint/eslint-plugin@8.64.0(@typescript-eslint/parser@8.64.0(eslint@9.39.5)(typescript@5.7.3))(eslint@9.39.5)(typescript@5.7.3)':
     dependencies:
       '@eslint-community/regexpp': 4.12.2
-      '@typescript-eslint/parser': 8.63.0(eslint@9.39.5)(typescript@5.7.3)
-      '@typescript-eslint/scope-manager': 8.63.0
-      '@typescript-eslint/type-utils': 8.63.0(eslint@9.39.5)(typescript@5.7.3)
-      '@typescript-eslint/utils': 8.63.0(eslint@9.39.5)(typescript@5.7.3)
-      '@typescript-eslint/visitor-keys': 8.63.0
+      '@typescript-eslint/parser': 8.64.0(eslint@9.39.5)(typescript@5.7.3)
+      '@typescript-eslint/scope-manager': 8.64.0
+      '@typescript-eslint/type-utils': 8.64.0(eslint@9.39.5)(typescript@5.7.3)
+      '@typescript-eslint/utils': 8.64.0(eslint@9.39.5)(typescript@5.7.3)
+      '@typescript-eslint/visitor-keys': 8.64.0
       eslint: 9.39.5
       ignore: 7.0.6
       natural-compare: 1.4.0
@@ -4160,41 +4090,41 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/parser@8.63.0(eslint@9.39.5)(typescript@5.7.3)':
+  '@typescript-eslint/parser@8.64.0(eslint@9.39.5)(typescript@5.7.3)':
     dependencies:
-      '@typescript-eslint/scope-manager': 8.63.0
-      '@typescript-eslint/types': 8.63.0
-      '@typescript-eslint/typescript-estree': 8.63.0(typescript@5.7.3)
-      '@typescript-eslint/visitor-keys': 8.63.0
+      '@typescript-eslint/scope-manager': 8.64.0
+      '@typescript-eslint/types': 8.64.0
+      '@typescript-eslint/typescript-estree': 8.64.0(typescript@5.7.3)
+      '@typescript-eslint/visitor-keys': 8.64.0
       debug: 4.4.3
       eslint: 9.39.5
       typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/project-service@8.63.0(typescript@5.7.3)':
+  '@typescript-eslint/project-service@8.64.0(typescript@5.7.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.63.0(typescript@5.7.3)
-      '@typescript-eslint/types': 8.63.0
+      '@typescript-eslint/tsconfig-utils': 8.64.0(typescript@5.7.3)
+      '@typescript-eslint/types': 8.64.0
       debug: 4.4.3
       typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/scope-manager@8.63.0':
+  '@typescript-eslint/scope-manager@8.64.0':
     dependencies:
-      '@typescript-eslint/types': 8.63.0
-      '@typescript-eslint/visitor-keys': 8.63.0
+      '@typescript-eslint/types': 8.64.0
+      '@typescript-eslint/visitor-keys': 8.64.0
 
-  '@typescript-eslint/tsconfig-utils@8.63.0(typescript@5.7.3)':
+  '@typescript-eslint/tsconfig-utils@8.64.0(typescript@5.7.3)':
     dependencies:
       typescript: 5.7.3
 
-  '@typescript-eslint/type-utils@8.63.0(eslint@9.39.5)(typescript@5.7.3)':
+  '@typescript-eslint/type-utils@8.64.0(eslint@9.39.5)(typescript@5.7.3)':
     dependencies:
-      '@typescript-eslint/types': 8.63.0
-      '@typescript-eslint/typescript-estree': 8.63.0(typescript@5.7.3)
-      '@typescript-eslint/utils': 8.63.0(eslint@9.39.5)(typescript@5.7.3)
+      '@typescript-eslint/types': 8.64.0
+      '@typescript-eslint/typescript-estree': 8.64.0(typescript@5.7.3)
+      '@typescript-eslint/utils': 8.64.0(eslint@9.39.5)(typescript@5.7.3)
       debug: 4.4.3
       eslint: 9.39.5
       ts-api-utils: 2.5.0(typescript@5.7.3)
@@ -4202,14 +4132,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/types@8.63.0': {}
+  '@typescript-eslint/types@8.64.0': {}
 
-  '@typescript-eslint/typescript-estree@8.63.0(typescript@5.7.3)':
+  '@typescript-eslint/typescript-estree@8.64.0(typescript@5.7.3)':
     dependencies:
-      '@typescript-eslint/project-service': 8.63.0(typescript@5.7.3)
-      '@typescript-eslint/tsconfig-utils': 8.63.0(typescript@5.7.3)
-      '@typescript-eslint/types': 8.63.0
-      '@typescript-eslint/visitor-keys': 8.63.0
+      '@typescript-eslint/project-service': 8.64.0(typescript@5.7.3)
+      '@typescript-eslint/tsconfig-utils': 8.64.0(typescript@5.7.3)
+      '@typescript-eslint/types': 8.64.0
+      '@typescript-eslint/visitor-keys': 8.64.0
       debug: 4.4.3
       minimatch: 10.2.5
       semver: 7.8.5
@@ -4219,20 +4149,20 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@8.63.0(eslint@9.39.5)(typescript@5.7.3)':
+  '@typescript-eslint/utils@8.64.0(eslint@9.39.5)(typescript@5.7.3)':
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.5)
-      '@typescript-eslint/scope-manager': 8.63.0
-      '@typescript-eslint/types': 8.63.0
-      '@typescript-eslint/typescript-estree': 8.63.0(typescript@5.7.3)
+      '@typescript-eslint/scope-manager': 8.64.0
+      '@typescript-eslint/types': 8.64.0
+      '@typescript-eslint/typescript-estree': 8.64.0(typescript@5.7.3)
       eslint: 9.39.5
       typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/visitor-keys@8.63.0':
+  '@typescript-eslint/visitor-keys@8.64.0':
     dependencies:
-      '@typescript-eslint/types': 8.63.0
+      '@typescript-eslint/types': 8.64.0
       eslint-visitor-keys: 5.0.1
 
   '@vitejs/plugin-react@4.7.0(vite@7.3.6(less@4.6.7)(sass@1.101.0))':
@@ -4247,7 +4177,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue@6.0.7(vite@7.3.6(less@4.6.7)(sass@1.101.0))(vue@3.5.39(typescript@5.7.3))':
+  '@vitejs/plugin-vue@6.0.8(vite@7.3.6(less@4.6.7)(sass@1.101.0))(vue@3.5.39(typescript@5.7.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
       vite: 7.3.6(less@4.6.7)(sass@1.101.0)
@@ -4287,7 +4217,7 @@ snapshots:
       '@vue/shared': 3.5.39
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.18
+      postcss: 8.5.19
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.39':
@@ -5419,7 +5349,7 @@ snapshots:
     dependencies:
       find-up: 3.0.0
 
-  postcss@8.5.18:
+  postcss@8.5.19:
     dependencies:
       nanoid: 3.3.16
       picocolors: 1.1.1
@@ -5976,27 +5906,11 @@ snapshots:
 
   tr46@0.0.3: {}
 
-  trtc-cloud-js-sdk@2.10.1:
+  trtc-cloud-js-sdk@2.13.0:
     dependencies:
-      trtc-sdk-v5: 5.13.0-beta.18
+      trtc-sdk-v5: 5.18.2-kit.6
 
-  trtc-cloud-js-sdk@2.12.1:
-    dependencies:
-      trtc-sdk-v5: 5.17.1-kit.1
-
-  trtc-cloud-js-sdk@2.12.2-beta.8:
-    dependencies:
-      trtc-sdk-v5: 5.18.1-kit.1
-
-  trtc-sdk-v5@5.13.0-beta.18:
-    dependencies:
-      webrtc-adapter: 8.2.4
-
-  trtc-sdk-v5@5.17.1-kit.1:
-    dependencies:
-      webrtc-adapter: 9.0.6
-
-  trtc-sdk-v5@5.18.1-kit.1:
+  trtc-sdk-v5@5.18.2-kit.6:
     dependencies:
       webrtc-adapter: 9.0.6
 
@@ -6016,14 +5930,14 @@ snapshots:
 
   tsml@1.0.1: {}
 
-  tuikit-atomicx-react@6.1.3-beta.5(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1)):
+  tuikit-atomicx-react@6.2.0(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.1)(@tencentcloud/uikit-base-component-react@1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.13.0)(use-sync-external-store@1.6.0(react@18.3.1)):
     dependencies:
       '@base-ui/react': 1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tencentcloud/chat-uikit-engine-lite': 1.0.7
       '@tencentcloud/lite-chat': 1.6.16
       '@tencentcloud/tui-core-lite': 1.0.1
-      '@tencentcloud/tuiroom-engine-js': 4.1.2-beta.4
-      '@tencentcloud/uikit-base-component-react': 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tencentcloud/tuiroom-engine-js': 4.2.1
+      '@tencentcloud/uikit-base-component-react': 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tencentcloud/universal-api': 2.4.1
       '@tiptap/extension-image': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
       '@tiptap/extension-mention': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)(@tiptap/suggestion@2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5))
@@ -6042,7 +5956,7 @@ snapshots:
       react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       svgaplayerweb: 2.3.2
       tippy.js: 6.3.7
-      trtc-cloud-js-sdk: 2.10.1
+      trtc-cloud-js-sdk: 2.13.0
       valtio: 2.3.2(@types/react@18.3.31)(react@18.3.1)
       zustand: 5.0.14(@types/react@18.3.31)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))
     transitivePeerDependencies:
@@ -6053,22 +5967,22 @@ snapshots:
       - supports-color
       - use-sync-external-store
 
-  tuikit-atomicx-react@6.1.4(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.1)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1)):
+  tuikit-atomicx-react@6.2.0(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.1)(@tencentcloud/uikit-base-component-react@1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.13.0)(use-sync-external-store@1.6.0(react@18.3.1)):
     dependencies:
       '@base-ui/react': 1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tencentcloud/chat-uikit-engine-lite': 1.0.7
       '@tencentcloud/lite-chat': 1.6.16
       '@tencentcloud/tui-core-lite': 1.0.1
-      '@tencentcloud/tuiroom-engine-js': 4.1.1
-      '@tencentcloud/uikit-base-component-react': 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tencentcloud/tuiroom-engine-js': 4.2.1
+      '@tencentcloud/uikit-base-component-react': 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tencentcloud/universal-api': 2.4.1
-      '@tiptap/extension-image': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-mention': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)(@tiptap/suggestion@2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5))
-      '@tiptap/extension-placeholder': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
+      '@tiptap/extension-image': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
+      '@tiptap/extension-mention': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)(@tiptap/suggestion@2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5))
+      '@tiptap/extension-placeholder': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)
       '@tiptap/pm': 2.11.5
-      '@tiptap/react': 2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tiptap/react': 2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tiptap/starter-kit': 2.11.5
-      '@tiptap/suggestion': 2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
+      '@tiptap/suggestion': 2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.11.5)
       axios: 1.18.1
       classnames: 2.5.1
       date-fns: 4.4.0
@@ -6079,7 +5993,7 @@ snapshots:
       react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       svgaplayerweb: 2.3.2
       tippy.js: 6.3.7
-      trtc-cloud-js-sdk: 2.10.1
+      trtc-cloud-js-sdk: 2.13.0
       valtio: 2.3.2(@types/react@18.3.31)(react@18.3.1)
       zustand: 5.0.14(@types/react@18.3.31)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))
     transitivePeerDependencies:
@@ -6090,50 +6004,14 @@ snapshots:
       - supports-color
       - use-sync-external-store
 
-  tuikit-atomicx-react@6.1.4(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1)):
-    dependencies:
-      '@base-ui/react': 1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tencentcloud/chat-uikit-engine-lite': 1.0.7
-      '@tencentcloud/lite-chat': 1.6.16
-      '@tencentcloud/tui-core-lite': 1.0.1
-      '@tencentcloud/tuiroom-engine-js': 4.1.2-beta.4
-      '@tencentcloud/uikit-base-component-react': 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tencentcloud/universal-api': 2.4.1
-      '@tiptap/extension-image': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))
-      '@tiptap/extension-mention': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)(@tiptap/suggestion@2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5))
-      '@tiptap/extension-placeholder': 2.0.0-beta.220(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
-      '@tiptap/pm': 2.11.5
-      '@tiptap/react': 2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tiptap/starter-kit': 2.11.5
-      '@tiptap/suggestion': 2.11.5(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@tiptap/pm@2.11.5)
-      axios: 1.18.1
-      classnames: 2.5.1
-      date-fns: 4.4.0
-      es-toolkit: 1.49.0
-      eventemitter3: 4.0.7
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      svgaplayerweb: 2.3.2
-      tippy.js: 6.3.7
-      trtc-cloud-js-sdk: 2.10.1
-      valtio: 2.3.2(@types/react@18.3.31)(react@18.3.1)
-      zustand: 5.0.14(@types/react@18.3.31)(react@18.3.1)(use-sync-external-store@1.6.0(react@18.3.1))
-    transitivePeerDependencies:
-      - '@tiptap/core'
-      - '@types/react'
-      - debug
-      - immer
-      - supports-color
-      - use-sync-external-store
-
-  tuikit-atomicx-vue3@6.2.6-beta.2(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3)):
+  tuikit-atomicx-vue3@6.4.0(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.1)(@tencentcloud/uikit-base-component-vue3@1.4.6(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3)):
     dependencies:
       '@nanostores/vue': 1.1.0(nanostores@1.4.0)(vue@3.5.39(typescript@5.7.3))
       '@tencentcloud/chat-uikit-engine-lite': 1.0.7
       '@tencentcloud/lite-chat': 1.6.16
       '@tencentcloud/tui-core-lite': 1.0.1
-      '@tencentcloud/uikit-base-component-vue3': 1.4.4(vue@3.5.39(typescript@5.7.3))
+      '@tencentcloud/tuiroom-engine-js': 4.2.1
+      '@tencentcloud/uikit-base-component-vue3': 1.4.6(vue@3.5.39(typescript@5.7.3))
       '@tencentcloud/universal-api': 2.4.1
       '@tiptap/extension-image': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
       '@tiptap/extension-mention': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)(@tiptap/suggestion@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2))
@@ -6160,43 +6038,10 @@ snapshots:
       - supports-color
       - typescript
 
-  tuikit-atomicx-vue3@6.3.1(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.0)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3)):
+  tuikit-live-manager-sdk-react@file:packages/react-sdk(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.13.0)(use-sync-external-store@1.6.0(react@18.3.1)):
     dependencies:
-      '@nanostores/vue': 1.1.0(nanostores@1.4.0)(vue@3.5.39(typescript@5.7.3))
-      '@tencentcloud/chat-uikit-engine-lite': 1.0.7
-      '@tencentcloud/lite-chat': 1.6.16
-      '@tencentcloud/tui-core-lite': 1.0.1
-      '@tencentcloud/tuiroom-engine-js': 4.2.0
-      '@tencentcloud/uikit-base-component-vue3': 1.4.4(vue@3.5.39(typescript@5.7.3))
-      '@tencentcloud/universal-api': 2.4.1
-      '@tiptap/extension-image': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))
-      '@tiptap/extension-mention': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)(@tiptap/suggestion@2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2))
-      '@tiptap/extension-placeholder': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)
-      '@tiptap/pm': 2.27.2
-      '@tiptap/starter-kit': 2.27.2
-      '@tiptap/suggestion': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)
-      '@tiptap/vue-3': 2.27.2(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(@tiptap/pm@2.27.2)(vue@3.5.39(typescript@5.7.3))
-      '@vue/tsconfig': 0.7.0(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
-      axios: 1.18.1
-      classnames: 2.5.1
-      date-fns: 4.4.0
-      eventemitter3: 4.0.7
-      reka-ui: 2.10.1(vue@3.5.39(typescript@5.7.3))
-      svgaplayerweb: 2.3.2
-      vue: 3.5.39(typescript@5.7.3)
-    transitivePeerDependencies:
-      - '@nanostores/logger'
-      - '@tiptap/core'
-      - '@vue/composition-api'
-      - '@vue/devtools-api'
-      - debug
-      - nanostores
-      - supports-color
-      - typescript
-
-  tuikit-live-manager-sdk-react@file:packages/react-sdk(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1)):
-    dependencies:
-      '@tencentcloud/uikit-base-component-react': 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tencentcloud/tuiroom-engine-js': 4.2.1
+      '@tencentcloud/uikit-base-component-react': 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       axios: 1.18.1
       livekit-manager-customization: file:packages/customization
       react: 18.3.1
@@ -6205,13 +6050,12 @@ snapshots:
       tdesign-icons-react: 0.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tdesign-react: 1.12.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       trtc-sdk-v5: 5.18.3
-      tuikit-atomicx-react: 6.1.4(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.1.2-beta.4)(@tencentcloud/uikit-base-component-react@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.10.1)(use-sync-external-store@1.6.0(react@18.3.1))
+      tuikit-atomicx-react: 6.2.0(@base-ui/react@1.6.0(@types/react@18.3.31)(date-fns@4.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.1)(@tencentcloud/uikit-base-component-react@1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tencentcloud/universal-api@2.4.1)(@tiptap/core@2.27.2(@tiptap/pm@2.11.5))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svgaplayerweb@2.3.2)(trtc-cloud-js-sdk@2.13.0)(use-sync-external-store@1.6.0(react@18.3.1))
     transitivePeerDependencies:
       - '@base-ui/react'
       - '@tencentcloud/chat-uikit-engine-lite'
       - '@tencentcloud/lite-chat'
       - '@tencentcloud/tui-core-lite'
-      - '@tencentcloud/tuiroom-engine-js'
       - '@tencentcloud/universal-api'
       - '@tiptap/core'
       - '@types/react'
@@ -6221,31 +6065,6 @@ snapshots:
       - svgaplayerweb
       - trtc-cloud-js-sdk
       - use-sync-external-store
-
-  tuikit-live-manager-sdk-vue@file:packages/vue-sdk(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3):
-    dependencies:
-      '@tencentcloud/uikit-base-component-vue3': 1.4.4(vue@3.5.39(typescript@5.7.3))
-      axios: 1.18.1
-      livekit-manager-customization: file:packages/customization
-      tdesign-icons-vue-next: 0.3.6(vue@3.5.39(typescript@5.7.3))
-      tdesign-vue-next: 1.13.1(vue@3.5.39(typescript@5.7.3))
-      trtc-sdk-v5: 5.18.3
-      tuikit-atomicx-vue3: 6.3.1(@tencentcloud/chat-uikit-engine-lite@1.0.7)(@tencentcloud/lite-chat@1.6.16)(@tencentcloud/tui-core-lite@1.0.1)(@tencentcloud/tuiroom-engine-js@4.2.0)(@tencentcloud/uikit-base-component-vue3@1.4.4(vue@3.5.39(typescript@5.7.3)))(@tiptap/core@2.27.2(@tiptap/pm@2.27.2))(nanostores@1.4.0)(typescript@5.7.3)(vue@3.5.39(typescript@5.7.3))
-      vue: 3.5.39(typescript@5.7.3)
-      vue-router: 4.6.4(vue@3.5.39(typescript@5.7.3))
-    transitivePeerDependencies:
-      - '@nanostores/logger'
-      - '@tencentcloud/chat-uikit-engine-lite'
-      - '@tencentcloud/lite-chat'
-      - '@tencentcloud/tui-core-lite'
-      - '@tencentcloud/tuiroom-engine-js'
-      - '@tiptap/core'
-      - '@vue/composition-api'
-      - '@vue/devtools-api'
-      - debug
-      - nanostores
-      - supports-color
-      - typescript
 
   tunnel-agent@0.6.0:
     dependencies:
@@ -6264,12 +6083,12 @@ snapshots:
 
   typedarray@0.0.6: {}
 
-  typescript-eslint@8.63.0(eslint@9.39.5)(typescript@5.7.3):
+  typescript-eslint@8.64.0(eslint@9.39.5)(typescript@5.7.3):
     dependencies:
-      '@typescript-eslint/eslint-plugin': 8.63.0(@typescript-eslint/parser@8.63.0(eslint@9.39.5)(typescript@5.7.3))(eslint@9.39.5)(typescript@5.7.3)
-      '@typescript-eslint/parser': 8.63.0(eslint@9.39.5)(typescript@5.7.3)
-      '@typescript-eslint/typescript-estree': 8.63.0(typescript@5.7.3)
-      '@typescript-eslint/utils': 8.63.0(eslint@9.39.5)(typescript@5.7.3)
+      '@typescript-eslint/eslint-plugin': 8.64.0(@typescript-eslint/parser@8.64.0(eslint@9.39.5)(typescript@5.7.3))(eslint@9.39.5)(typescript@5.7.3)
+      '@typescript-eslint/parser': 8.64.0(eslint@9.39.5)(typescript@5.7.3)
+      '@typescript-eslint/typescript-estree': 8.64.0(typescript@5.7.3)
+      '@typescript-eslint/utils': 8.64.0(eslint@9.39.5)(typescript@5.7.3)
       eslint: 9.39.5
       typescript: 5.7.3
     transitivePeerDependencies:
@@ -6339,7 +6158,7 @@ snapshots:
       esbuild: 0.28.1
       fdir: 6.5.0(picomatch@4.0.5)
       picomatch: 4.0.5
-      postcss: 8.5.18
+      postcss: 8.5.19
       rollup: 4.62.2
       tinyglobby: 0.2.17
     optionalDependencies:
@@ -6377,10 +6196,6 @@ snapshots:
   w3c-keyname@2.2.8: {}
 
   webidl-conversions@3.0.1: {}
-
-  webrtc-adapter@8.2.4:
-    dependencies:
-      sdp: 3.2.2
 
   webrtc-adapter@9.0.6:
     dependencies:

@@ -113,10 +113,14 @@ function callRumApi(params) {
       timeout: 30000,
     };
 
+    let settled = false;
+
     const req = https.request(options, (res) => {
       let data = '';
       res.on('data', (chunk) => { data += chunk; });
       res.on('end', () => {
+        if (settled) return;
+        settled = true;
         try {
           const result = JSON.parse(data);
           resolve(result);
@@ -127,11 +131,18 @@ function callRumApi(params) {
     });
 
     req.on('error', (e) => {
-      logger.error('RUM_API_CALL', e, { action, params });
+      if (settled) return;
+      settled = true;
+      // 错误日志中对敏感字段做掩码处理
+      const safeParams = { ...params };
+      if (safeParams.ExtThird) safeParams.ExtThird = '***';
+      logger.error('RUM_API_CALL', e, { action, params: safeParams });
       reject(e);
     });
 
     req.on('timeout', () => {
+      if (settled) return;
+      settled = true;
       req.destroy();
       reject(new Error('RUM API 请求超时'));
     });
@@ -139,6 +150,20 @@ function callRumApi(params) {
     req.write(payload);
     req.end();
   });
+}
+
+/**
+ * 解析 RUM API 响应中的 Result 字段（腾讯云返回为 JSON 字符串）
+ */
+function parseRumResult(response) {
+  if (response?.Result && typeof response.Result === 'string') {
+    try {
+      return JSON.parse(response.Result);
+    } catch {
+      return response.Result;
+    }
+  }
+  return response?.Result || null;
 }
 
 // POST /api/rum/events
@@ -180,19 +205,20 @@ rumApiRouter.post('/events', asyncHandler(async (req, res) => {
 
     // 解析 Result 字段（RUM API 返回 Result 为 JSON 字符串）
     const response = result?.Response;
-    let parsedResult = null;
-    if (response?.Result && typeof response.Result === 'string') {
-      try {
-        parsedResult = JSON.parse(response.Result);
-      } catch {
-        parsedResult = response.Result;
-      }
-    }
+    const parsedResult = parseRumResult(response);
 
     // 调试日志：打印前 3 条结果示例
     if (parsedResult?.results?.length) {
       logger.info('RUM_EVENTS_RESPONSE', `返回 ${parsedResult.results.length} 条结果`, {
         sample: parsedResult.results.slice(0, 3),
+      });
+    } else {
+      // 空结果也记录，方便排查数据缺失问题
+      logger.info('RUM_EVENTS_RESPONSE_EMPTY', 'RUM API 返回空结果', {
+        hasError: !!response?.Error,
+        errorCode: response?.Error?.Code,
+        errorMessage: response?.Error?.Message,
+        hasResult: !!response?.Result,
       });
     }
 
@@ -206,12 +232,83 @@ rumApiRouter.post('/events', asyncHandler(async (req, res) => {
       },
     });
   } catch (error) {
-    logger.error('RUM_EVENTS_QUERY', error, { params });
+    const safeParams = { ...params };
+    if (safeParams.ExtThird) safeParams.ExtThird = '***';
+    logger.error('RUM_EVENTS_QUERY', error, { params: safeParams });
     res.status(500).json({
       code: -1,
       message: error.message || 'RUM API 调用失败',
     });
   }
 }, 'rum_events', 'local'));
+
+// GET /api/rum/debug/events/:sdkAppId — 调试端点：按 SDKAppID 查询所有自定义事件
+rumApiRouter.get('/debug/events/:sdkAppId', asyncHandler(async (req, res) => {
+  const { sdkAppId } = req.params;
+  const { start, end, id, type = 'ext3' } = req.query;
+
+  if (!sdkAppId) {
+    res.status(400).json({ code: -1, message: 'sdkAppId 为必填参数' });
+    return;
+  }
+
+  // 默认查最近 30 天
+  const now = Math.floor(Date.now() / 1000);
+  const StartTime = start ? Number(start) : now - 30 * 86400;
+  const EndTime = end ? Number(end) : now;
+  const projectId = Number(id) || 131800;
+
+  const params = {
+    ID: projectId,
+    Type: type,
+    StartTime,
+    EndTime,
+    ExtThird: sdkAppId,
+  };
+
+  logger.info('RUM_DEBUG_EVENTS', `调试查询 SDKAppID=${sdkAppId}`, {
+    params: { ...params, ExtThird: '***' },
+  });
+
+  try {
+    const result = await callRumApi(params);
+    const response = result?.Response;
+    const parsedResult = parseRumResult(response);
+
+    // 提取 event names（从 series tags 中）
+    const events = [];
+    if (parsedResult?.results?.length) {
+      for (const r of parsedResult.results) {
+        if (r.series) {
+          for (const s of r.series) {
+            events.push({
+              tags: s.tags || {},
+              total: s.values?.reduce((sum, v) => sum + (v[1] || 0), 0) || 0,
+            });
+          }
+        }
+      }
+    }
+
+    res.json({
+      code: 0,
+      message: 'success',
+      data: {
+        sdkAppId,
+        timeRange: { start: StartTime, end: EndTime },
+        events,
+        raw: parsedResult,
+        requestId: response?.RequestId || null,
+        error: response?.Error || null,
+      },
+    });
+  } catch (error) {
+    logger.error('RUM_DEBUG_EVENTS', error, { sdkAppId });
+    res.status(500).json({
+      code: -1,
+      message: error.message || 'RUM API 调用失败',
+    });
+  }
+}, 'rum_debug', 'local'));
 
 module.exports = { rumApiRouter };

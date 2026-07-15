@@ -44,3 +44,11 @@ export type FeatureKey = 'live_monitor' | 'live_detail' | 'create_live' | 'gift_
 export declare function reportFeatureUse(feature: FeatureKey): void;
 /** 上报页面浏览（SPA 路由变化时调用） */
 export declare function reportPageView(path: string): void;
+/**
+ * 重置会话内去重缓存。
+ *
+ * 当 Aegis 实例因 uin 变化而被销毁重建时（reinitAegisIfUinChanged），
+ * 旧实例上排队的事件会丢失，但去重 Set 已标记为"已上报"。
+ * 重置这些缓存，让后续调用可以用新实例重新上报。
+ */
+export declare function resetReportedCaches(): void;

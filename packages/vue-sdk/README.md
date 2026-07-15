@@ -8,48 +8,44 @@ This package is delivered as a **closed-source distribution** — compiled outpu
 
 ## Architecture Overview
 
-TUILiveKit Manager Vue SDK offers two development modes for different scenarios:
-<div style="background:#f7f8fa;border-radius:10px;padding:20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:680px;margin:16px 0;">
-  <div style="text-align:center;font-size:15px;font-weight:700;color:#0052d9;padding:10px 0;border-bottom:2px solid #e0e6ed;margin-bottom:16px;">Your Dashboard</div>
-  <div style="display:flex;gap:12px;">
-    <!-- With UI -->
-    <div style="flex:1;background:#fff;border-radius:8px;border:2px solid #b3d4ff;overflow:hidden;">
-      <div style="background:#edf4ff;padding:8px 12px;font-size:13px;font-weight:600;color:#0052d9;">With UI (Pre-built Pages)</div>
-      <div style="padding:10px 14px;font-size:13px;color:#333;line-height:2;">
-        <div style="background:#f0f6ff;border-radius:4px;padding:6px 10px;margin:4px 0;border-left:3px solid #0052d9;">LiveMonitor</div>
-        <div style="background:#f0f6ff;border-radius:4px;padding:6px 10px;margin:4px 0;border-left:3px solid #0052d9;">LiveList</div>
-        <div style="background:#f0f6ff;border-radius:4px;padding:6px 10px;margin:4px 0;border-left:3px solid #0052d9;">LiveControl</div>
-        <div style="background:#f0f6ff;border-radius:4px;padding:6px 10px;margin:4px 0;border-left:3px solid #0052d9;">GiftConfig</div>
-        <div style="background:#f0f6ff;border-radius:4px;padding:6px 10px;margin:4px 0;border-left:3px solid #0052d9;">GiftCategory</div>
-        <div style="background:#f0f6ff;border-radius:4px;padding:6px 10px;margin:4px 0;border-left:3px solid #0052d9;">RiskControl</div>
+TUILiveKit Manager Vue SDK offers two development modes and a ready-to-run demo project for different scenarios:
+
+<div style="background:#f7f8fa;border-radius:10px;padding:20px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:680px;margin:16px 0;">
+  <div style="text-align:center;font-size:15px;font-weight:700;color:#0052d9;padding:10px 0;border-bottom:2px solid #e0e6ed;margin-bottom:14px;">Your Dashboard</div>
+  <!-- Demo project -->
+  <div style="background:#fff3e0;border-radius:8px;border:2px solid #ffcc02;padding:12px 16px;margin-bottom:4px;">
+    <div style="font-size:13px;font-weight:600;color:#e65100;margin-bottom:4px;">Demo Project (Ready to Run)</div>
+    <div style="font-size:12px;color:#888;">Out-of-the-box complete dashboard, built on the components &amp; Hooks below</div>
+  </div>
+  <div style="text-align:center;font-size:14px;color:#bbb;line-height:1.2;margin:0;">↓ Built on ↓</div>
+  <!-- With UI + Without UI two columns -->
+  <div style="display:flex;gap:8px;margin-bottom:4px;">
+    <div style="flex:2;background:#edf4ff;border-radius:8px;border:2px solid #b3d4ff;padding:12px 16px;">
+      <div style="font-size:13px;font-weight:600;color:#0052d9;margin-bottom:8px;">With UI (Pre-built Pages)</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <span style="background:#f0f6ff;padding:4px 10px;border-radius:4px;font-size:12px;">LiveMonitor</span>
+        <span style="background:#f0f6ff;padding:4px 10px;border-radius:4px;font-size:12px;">LiveList</span>
+        <span style="background:#f0f6ff;padding:4px 10px;border-radius:4px;font-size:12px;">LiveControl</span>
+        <span style="background:#f0f6ff;padding:4px 10px;border-radius:4px;font-size:12px;">GiftConfig</span>
+        <span style="background:#f0f6ff;padding:4px 10px;border-radius:4px;font-size:12px;">GiftCategory</span>
       </div>
     </div>
-    <!-- Without UI -->
-    <div style="flex:1;background:#fff;border-radius:8px;border:2px solid #ccd5e0;overflow:hidden;">
-      <div style="background:#f0f2f5;padding:8px 12px;font-size:13px;font-weight:600;color:#555;">Without UI (Custom UI)</div>
-      <div style="padding:10px 14px;font-size:13px;color:#333;line-height:2;">
-        <div style="background:#f0f2f5;border-radius:4px;padding:6px 10px;margin:4px 0;border-left:3px solid #029cd4;">useLiveMonitorState</div>
-        <div style="background:#f0f2f5;border-radius:4px;padding:6px 10px;margin:4px 0;border-left:3px solid #029cd4;">useGiftState</div>
-        <div style="background:#f0f2f5;border-radius:4px;padding:6px 10px;margin:4px 0;border-left:3px solid #029cd4;">useRiskControlState</div>
-        <div style="margin-top:10px;padding-top:8px;border-top:1px dashed #d0d5dd;font-size:12px;color:#888;text-align:center;">+ tuikit-core utilities<br>(auth / API / tools)</div>
+    <div style="flex:1;background:#fff;border-radius:8px;border:2px solid #ccd5e0;padding:12px 16px;">
+      <div style="font-size:13px;font-weight:600;color:#555;margin-bottom:8px;">Without UI (Custom UI)</div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;">
+        <span style="background:#f0f2f5;padding:4px 8px;border-radius:4px;font-size:11px;">useLiveMonitorState</span>
+        <span style="background:#f0f2f5;padding:4px 8px;border-radius:4px;font-size:11px;">useGiftState</span>
+        <span style="background:#f0f2f5;padding:4px 8px;border-radius:4px;font-size:11px;">useRiskControlState</span>
       </div>
     </div>
   </div>
-  <!-- Dependency layer: tuikit-atomicx -->
-  <div style="margin-top:12px;background:#fff;border-radius:8px;border:1px solid #e0e6ed;padding:12px 16px;text-align:center;font-size:12px;color:#666;">
-    <span style="font-weight:600;color:#333;margin-right:8px;">Video &amp; IM Rendering:</span>
-    <span style="background:#e8f5e9;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;color:#2e7d32;">LiveView</span>
-    <span style="background:#e8f5e9;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;color:#2e7d32;">BarrageList</span>
-    <span style="background:#e8f5e9;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;color:#2e7d32;">useLiveListState</span>
-    <span style="background:#e8f5e9;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;color:#2e7d32;">useLoginState</span>
-    <span style="color:#888;margin-left:4px;">… from tuikit-atomicx-vue3</span>
-  </div>
-  <!-- Shared layer -->
-  <div style="margin-top:8px;background:#fff;border-radius:8px;border:1px solid #e0e6ed;padding:12px 16px;text-align:center;font-size:12px;color:#666;">
-    <span style="font-weight:600;color:#333;margin-right:8px;">Config &amp; Customize:</span>
-    <span style="background:#f3f3f3;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;">configureLiveManager</span>
-    <span style="background:#f3f3f3;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;">mountLiveManager</span>
-    <span style="background:#f3f3f3;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;">defineCustomerExtension</span>
+  <!-- Underlying layer -->
+  <div style="background:#fff;border-radius:8px;border:1px solid #e0e6ed;padding:12px 16px;text-align:center;font-size:12px;color:#666;">
+    <span style="font-weight:600;color:#333;margin-right:8px;">Underlying:</span>
+    <span style="background:#e8f5e9;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;color:#2e7d32;">tuikit-atomicx-vue3</span>
+    <span style="color:#888;margin:0 4px;">(LiveView / BarrageList / useLiveListState …)</span>
+    <span style="background:#f3f3f3;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;">tuikit-core</span>
+    <span style="color:#888;margin:0 4px;">(configureLiveManager)</span>
   </div>
 </div>
 
@@ -70,21 +66,10 @@ See [Activate TUILiveKit Services](https://cloud.tencent.com/document/product/64
 
 ### Step 2: Install Dependencies
 
-Install the SDK and its peer dependencies in your Vue 3 project:
-
-| Package | Min Version | Description |
-|------|---------|------|
-| `vue` | >=3.0.0 | Vue 3 framework |
-| `vue-router` | >=4.0.0 | Vue Router |
-| `tdesign-vue-next` | >=1.13.1 | TDesign component library |
-| `tdesign-icons-vue-next` | >=0.3.6 | TDesign icons |
-| `tuikit-atomicx-vue3` | >=6.2.5 | TUILiveKit base components |
-| `@tencentcloud/uikit-base-component-vue3` | >=1.4.0 | Base UI components |
-| `axios` | >=1.0.0 | HTTP client |
+Install the SDK in your Vue 3 project. With pnpm, peer dependencies are auto-installed:
 
 ```bash
 pnpm add tuikit-live-manager-sdk-vue
-pnpm add vue vue-router tdesign-vue-next tdesign-icons-vue-next tuikit-atomicx-vue3 @tencentcloud/uikit-base-component-vue3 axios
 ```
 
 ---
@@ -101,7 +86,6 @@ Create `live-manager.ts`:
 import { configureLiveManager } from 'tuikit-live-manager-sdk-vue';
 
 const config = configureLiveManager({
-  version: '1',
   brand: { app: { title: 'Live Manager' } },
   menus: {
     liveMonitor: { enabled: true },
@@ -113,26 +97,7 @@ const config = configureLiveManager({
 export default config;
 ```
 
-### Option A: mountLiveManager
-
-Embed a management module into an existing page:
-
-```ts
-import { mountLiveManager } from 'tuikit-live-manager-sdk-vue';
-
-const instance = await mountLiveManager({
-  container: '#app',
-  module: 'live-monitor',
-  framework: 'vue',
-  runtime: {
-    apiBaseUrl: 'http://localhost:9000/api',
-    language: 'zh-CN',
-  },
-});
-// instance.unmount();
-```
-
-### Option B: Direct Component Usage
+### Option A: Direct Component Usage
 
 Use in a Vue project that already has the SDK as a dependency:
 
@@ -170,6 +135,118 @@ app.mount('#app');
 | `RiskControl` | `risk-control` | Content moderation and risk management |
 
 > Lazy load: `import { LiveList } from 'tuikit-live-manager-sdk-vue/views/LiveList'`
+
+### Preset Page Configuration Examples
+
+The following examples demonstrate how to build a complete dashboard with Vue Router and all preset pages:
+
+**1. Project Structure**
+
+```text
+src/
+  live-manager.ts       # SDK configuration entry
+  router.ts             # Route definitions
+  App.vue               # Root component (with layout)
+  main.ts               # App entry point
+```
+
+**2. SDK Configuration `live-manager.ts`**
+
+```ts
+import { configureLiveManager } from 'tuikit-live-manager-sdk-vue';
+import type { CustomerExtensionV1 } from 'tuikit-live-manager-sdk-vue';
+
+const customerExtension = {
+  brand: {
+    appName: 'My Live Manager',
+    pageTitle: 'Live Management',
+    logoUrl: '/logo.svg',
+  },
+  menus: {
+    roomList: { enabled: true, label: 'Room Management' },
+    liveMonitor: { enabled: true, label: 'Live Monitor' },
+    giftConfig: { enabled: true, label: 'Gift Config' },
+    riskControl: { enabled: true, label: 'Risk Control' },
+  },
+} satisfies CustomerExtensionV1;
+
+export default configureLiveManager(customerExtension);
+```
+
+**3. Route Definitions `router.ts`**
+
+```ts
+import { createRouter, createWebHistory } from 'vue-router';
+import { LiveList, LiveMonitor, LiveControl, GiftConfig, GiftCategory } from 'tuikit-live-manager-sdk-vue';
+
+const routes = [
+  { path: '/', redirect: '/live-list' },
+  { path: '/live-list', name: 'LiveList', component: LiveList },
+  { path: '/live-monitor', name: 'LiveMonitor', component: LiveMonitor },
+  {
+    path: '/live-control/:liveId',
+    name: 'LiveControl',
+    component: LiveControl,
+    props: true,
+  },
+  { path: '/gift-config', name: 'GiftConfig', component: GiftConfig },
+  { path: '/gift-category', name: 'GiftCategory', component: GiftCategory },
+];
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
+export default router;
+```
+
+**4. Root Component `App.vue`**
+
+```vue
+<script setup lang="ts">
+import { RouterView } from 'vue-router';
+</script>
+
+<template>
+  <div id="live-manager-app">
+    <RouterView />
+  </div>
+</template>
+
+<style>
+#live-manager-app {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg-color, #f5f6f8);
+}
+</style>
+```
+
+**5. App Entry `main.ts`**
+
+```ts
+import { createApp } from 'vue';
+import { initHttpClient } from 'tuikit-live-manager-sdk-vue';
+import TDesign from 'tdesign-vue-next';
+import 'tdesign-vue-next/es/style/index.css';
+import axios from 'axios';
+import App from './App.vue';
+import router from './router';
+import './live-manager'; // Automatically triggers configureLiveManager
+
+// Initialize HTTP client
+const httpClient = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+  timeout: 10000,
+});
+initHttpClient(httpClient);
+
+const app = createApp(App);
+app.use(TDesign);
+app.use(router);
+app.mount('#app');
+```
 
 ---
 
@@ -308,8 +385,6 @@ const {
   unbanMember,                    // Unban a member
   mutedList,                      // Ref<MutedMember[]>
   bannedList,                     // Ref<BannedMember[]>
-  memberLoading,                  // Ref<boolean>
-  memberError,                    // Ref<Error | null>
 
   // Chat management
   sendViolationWarning,           // Send violation warning
@@ -348,20 +423,19 @@ Available for use alongside the three core Composables:
 
 ### Branding & Menus
 
-Both modes support customization via `defineCustomerExtension`:
+Both modes support customization via `CustomerExtensionV1` config:
 
 ```ts
-import { defineCustomerExtension } from 'tuikit-live-manager-sdk-vue';
+import type { CustomerExtensionV1 } from 'tuikit-live-manager-sdk-vue';
 
-export default defineCustomerExtension({
-  version: '1',
+export default {
   brand: { app: { title: 'My Live Manager', logo: '/assets/my-logo.png' } },
   menus: {
     liveMonitor: { enabled: true, label: 'Live Monitor' },
     roomList: { enabled: true, label: 'Room Management' },
     giftConfig: { enabled: true, label: 'Gift Configuration' },
   },
-});
+} satisfies CustomerExtensionV1;
 ```
 
 ### Component Slots (With-UI Mode)
@@ -380,15 +454,14 @@ Inject custom components at key positions in pre-built pages:
 | `layout.sidebarBottom` | — | Sidebar bottom area |
 
 ```ts
-export default defineCustomerExtension({
-  version: '1',
-  components: {
+export default {
+    components: {
     layout: { headerRight: { render: () => 'v2.0' } },
     liveList: {
       tableExtraColumns: { render: ({ live }) => live.customInfo?.tag },
     },
   },
-});
+} satisfies CustomerExtensionV1;
 ```
 
 ---
@@ -399,7 +472,7 @@ export default defineCustomerExtension({
 
 ```ts
 interface CustomerExtensionV1<TComponent = unknown> {
-  version: '1';
+  version?: '1';
   brand?: BrandConfig;
   menus?: MenuExtension;
   routes?: RouteExtension<TComponent>;
@@ -413,25 +486,6 @@ function configureLiveManager<TComponent = unknown>(
 ): LiveManagerAppConfig<TComponent>
 ```
 
-### `mountLiveManager(options)`
-
-```ts
-interface LiveManagerMountOptions {
-  container: HTMLElement | string;
-  module: 'room-list' | 'live-monitor' | 'room-control' | 'gift-config' | 'risk-control';
-  framework?: 'react' | 'vue';
-  runtime?: { apiBaseUrl?: string; authToken?: string; language?: 'zh-CN' | 'en-US'; ... };
-  extension?: unknown;
-  props?: Record<string, unknown>;
-}
-```
-
-### `preloadLiveManager(options?)`
-
-```ts
-await preloadLiveManager({ framework: 'vue', module: 'live-monitor' });
-```
-
 ---
 
 ## FAQ
@@ -442,7 +496,7 @@ Yes. For example, use `useLiveMonitorState()` for a custom page while mounting `
 
 ### How do I customize the title and logo?
 
-Set `title` and `logo` in `configureLiveManager` or `defineCustomerExtension`'s `brand.app`.
+Set `title` and `logo` in `configureLiveManager`'s `brand.app`.
 
 ### What languages are supported?
 

@@ -1,8 +1,29 @@
 import { configureLiveManager, initHttpClient } from 'tuikit-live-manager-sdk-vue';
+import type { Component } from 'vue';
 import axios from 'axios';
-import customerExtension from './customer.config';
 
-export const liveManagerConfig = configureLiveManager(customerExtension);
+export const liveManagerConfig = configureLiveManager<Component>({
+  brand: {
+    appName: import.meta.env.VITE_APP_NAME,
+    pageTitle: import.meta.env.VITE_PAGE_TITLE,
+    logoUrl: import.meta.env.VITE_LOGO_URL,
+    primaryColor: import.meta.env.VITE_PRIMARY_COLOR,
+    defaultAvatarUrl: import.meta.env.VITE_DEFAULT_AVATAR_URL,
+    defaultCoverUrl: import.meta.env.VITE_DEFAULT_COVER_URL,
+  },
+  menus: {
+    hidden: [],
+    rename: {},
+    order: [],
+    extraMenus: [],
+  },
+  routes: {},
+  components: {},
+  features: {},
+  runtime: {
+    apiBaseUrl: import.meta.env.VITE_API_BASE_URL,
+  },
+});
 
 // 初始化 HTTP 客户端（真实环境）
 const axiosInstance = axios.create({

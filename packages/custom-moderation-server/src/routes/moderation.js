@@ -79,18 +79,16 @@ router.post('/toggle', (req, res) => {
 /**
  * POST /moderation/list
  *
- * 查询审核消息列表（对齐腾讯云 DescribeCloudAuditRecordDetailV2 接口格式）
+ * 查询审核消息列表
  *
  * 请求体：
  * {
- *   "SdkAppId": 1400000000,
+ *   "Receiver": "liveRoomId",
  *   "PageNo": 1,
- *   "PageSize": 20,
- *   "Scene": "Group",
- *   "Receiver": "liveRoomId"
+ *   "PageSize": 20
  * }
  *
- * 响应（对齐 DescribeCloudAuditRecordDetailV2 的 Data 数组结构）：
+ * 响应：
  * {
  *   "TotalCount": 100,
  *   "RequestId": "xxx",
@@ -144,7 +142,6 @@ router.post('/list', (req, res) => {
  *
  * 请求体：
  * {
- *   "SdkAppId": 1400000000,
  *   "ContentIds": ["msg_001", "msg_002"]
  * }
  *

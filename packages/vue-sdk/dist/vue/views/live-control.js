@@ -1,19 +1,18 @@
-import { defineComponent as se, openBlock as u, createElementBlock as C, toDisplayString as c, createCommentVNode as K, resolveComponent as be, createElementVNode as i, createVNode as g, unref as e, withCtx as y, createTextVNode as V, Fragment as Fe, createBlock as G, computed as $, ref as N, h as Se, watch as ve, onUnmounted as ye, Teleport as Ze, normalizeStyle as et, renderList as tt, onMounted as Lt, withDirectives as vt, vShow as mt, withModifiers as rn, nextTick as Ve, mergeProps as ft, normalizeClass as cn, reactive as Qe } from "vue";
+import { defineComponent as le, openBlock as u, createElementBlock as T, toDisplayString as c, createCommentVNode as K, resolveComponent as be, createElementVNode as i, createVNode as g, unref as e, withCtx as y, createTextVNode as V, Fragment as Fe, createBlock as G, computed as $, ref as I, h as Se, watch as ve, onUnmounted as ye, Teleport as Ze, normalizeStyle as et, renderList as tt, onMounted as Lt, withDirectives as vt, vShow as mt, withModifiers as rn, nextTick as Ve, mergeProps as ft, normalizeClass as cn, reactive as Qe } from "vue";
 import { useRoute as dn, useRouter as un } from "vue-router";
 import { Tooltip as Ne, MessagePlugin as A } from "tdesign-vue-next";
 import { useUIKit as me } from "@tencentcloud/uikit-base-component-vue3";
 import { LiveView as vn, useLiveAudienceState as je, LiveAudienceList as mn, useLoginState as fn, useLiveListState as gn, useLivePlayerState as bn } from "tuikit-atomicx-vue3";
-import { _ as Tt } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.DX4aj1kg.js";
-import { ArrowLeftIcon as hn, NotificationIcon as En, StopCircleIcon as In, CheckCircleIcon as He, ChatOffIcon as Ct, UserCheckedIcon as Mt, UserBlockedIcon as yt, MoreIcon as _n, InfoCircleIcon as Me, CloseCircleIcon as Nn, RefreshIcon as Ln, ChevronDownIcon as gt } from "tdesign-icons-vue-next";
-import { c as Ye } from "../../chunks/logger.rNWqpx5t.js";
-import { I as t, a7 as Tn, g as Cn, a as At, r as te, m as Ot, l as bt, S as Mn, h as yn, ad as An } from "../../chunks/layout.C1lzYH2h.js";
-import { bg as On, b8 as Pe, bb as ht, l as pn, D as Rn, bQ as wn, bF as Sn, a6 as Dn, aj as Un, b_ as Ke, bc as kn, bE as Et, bD as It, aO as $n, Y as qe, ao as xn, aI as Bn, aB as _t, aR as Pn, bN as Fn, ah as Vn } from "../../chunks/main-layout.QTEHh38b.js";
+import { _ as Ct } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.B6xJ0SA2.js";
+import { ArrowLeftIcon as hn, NotificationIcon as En, StopCircleIcon as In, CheckCircleIcon as He, ChatOffIcon as Tt, UserCheckedIcon as Mt, UserBlockedIcon as yt, MoreIcon as _n, InfoCircleIcon as Me, CloseCircleIcon as Nn, RefreshIcon as Ln, ChevronDownIcon as gt } from "tdesign-icons-vue-next";
+import { I as t, ax as Cn, g as Ye, k as Tn, c as At, x as ae, r as Ot, q as bt, ab as Mn, l as yn, aD as An } from "../../chunks/layout.Br-W54NR.js";
+import { bg as On, b8 as Pe, bb as ht, l as pn, D as Rn, bQ as wn, bF as Sn, a6 as Dn, aj as Un, b_ as Ke, bc as kn, bE as Et, bD as It, aO as $n, Y as qe, ao as xn, aI as Bn, aB as _t, aR as Pn, bN as Fn, ah as Vn } from "../../chunks/main-layout.1w0vpJq1.js";
 import { BarrageList as Gn, BarrageInput as Wn, LiveListEvent as Kn } from "tuikit-atomicx-vue3/live";
-import { _ as nt } from "../../chunks/AnchorAvatar.vue_vue_type_script_setup_true_lang.DnJBxwMs.js";
-import { c as qn, i as jn } from "../../chunks/user-action-dropdown.mpLYb6KT.js";
+import { _ as nt } from "../../chunks/AnchorAvatar.vue_vue_type_script_setup_true_lang.Cbni7EnY.js";
+import { c as qn, C as jn } from "../../chunks/user-action-dropdown.BWQSPxr1.js";
 import { useLiveMonitorState as at, useRiskControlState as pt, useConfirmAction as Je } from "../../vue.js";
-import { u as Hn } from "../../chunks/useAsyncAction.TZaXlZ4q.js";
-import { p as Yn, b as zn, g as Jn } from "../../chunks/columns.DCEilkva.js";
+import { u as Hn } from "../../chunks/useAsyncAction.E1F28vKl.js";
+import { p as Yn, b as zn, g as Jn } from "../../chunks/columns.Dtl_rF_k.js";
 import { a as ot, _ as Qn } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
 import "../../chunks/action-buttons.ChAJrOyM.js";
 import { _ as Xn } from "../../chunks/_plugin-vue_export-helper.CHgC5LLL.js";
@@ -23,19 +22,19 @@ const Zn = { class: "toast-area" }, ea = {
 }, ta = {
   key: 1,
   class: "status-error"
-}, na = /* @__PURE__ */ se({
+}, na = /* @__PURE__ */ le({
   __name: "ToastMessages",
   props: {
     successMsg: {},
     errorMsg: {}
   },
   setup(a) {
-    return (l, d) => (u(), C("div", Zn, [
-      a.successMsg ? (u(), C("div", ea, c(a.successMsg), 1)) : K("", !0),
-      a.errorMsg ? (u(), C("div", ta, c(a.errorMsg), 1)) : K("", !0)
+    return (l, d) => (u(), T("div", Zn, [
+      a.successMsg ? (u(), T("div", ea, c(a.successMsg), 1)) : K("", !0),
+      a.errorMsg ? (u(), T("div", ta, c(a.errorMsg), 1)) : K("", !0)
     ]));
   }
-}), aa = { class: "live-control-navbar" }, oa = { class: "nav-left" }, ia = { class: "nav-right" }, sa = /* @__PURE__ */ se({
+}), aa = { class: "live-control-navbar" }, oa = { class: "nav-left" }, ia = { class: "nav-right" }, sa = /* @__PURE__ */ le({
   __name: "NavBar",
   props: {
     handleLeaveLive: { type: Function },
@@ -47,7 +46,7 @@ const Zn = { class: "toast-area" }, ea = {
     const { t: l } = me();
     return (d, o) => {
       const m = be("t-button");
-      return u(), C("header", aa, [
+      return u(), T("header", aa, [
         i("div", oa, [
           g(m, {
             variant: "outline",
@@ -115,7 +114,7 @@ const Zn = { class: "toast-area" }, ea = {
     fontWeight: 500,
     lineHeight: "24px"
   }
-}, Ea = /* @__PURE__ */ se({
+}, Ea = /* @__PURE__ */ le({
   __name: "VideoMonitor",
   props: {
     liveInfo: {},
@@ -132,10 +131,10 @@ const Zn = { class: "toast-area" }, ea = {
     const { t: l } = me();
     function d(o) {
       const m = o.target;
-      m.src = Tn;
+      m.src = Cn;
     }
-    return (o, m) => (u(), C("section", la, [
-      g(Tt, {
+    return (o, m) => (u(), T("section", la, [
+      g(Ct, {
         "slot-component": a.liveControlSlots?.beforeLiveInfo,
         "slot-props": { liveInfo: a.liveInfo }
       }, null, 8, ["slot-component", "slot-props"]),
@@ -150,8 +149,8 @@ const Zn = { class: "toast-area" }, ea = {
       ]),
       i("div", da, [
         i("div", ua, [
-          a.isMockMode ? (u(), C(Fe, { key: 0 }, [
-            a.liveInfo?.coverUrl ? (u(), C("div", va, [
+          a.isMockMode ? (u(), T(Fe, { key: 0 }, [
+            a.liveInfo?.coverUrl ? (u(), T("div", va, [
               i("img", {
                 src: a.liveInfo.coverUrl,
                 alt: "cover",
@@ -160,7 +159,7 @@ const Zn = { class: "toast-area" }, ea = {
               }, null, 40, ma)
             ])) : K("", !0)
           ], 64)) : a.sdkReady ? (u(), G(e(vn), { key: 1 })) : K("", !0),
-          a.liveEndedOverlayVisible ? (u(), C("div", fa, [
+          a.liveEndedOverlayVisible ? (u(), T("div", fa, [
             i("div", ga, [
               i("img", {
                 src: e(qn),
@@ -174,7 +173,7 @@ const Zn = { class: "toast-area" }, ea = {
       ])
     ]));
   }
-}), Ia = { class: "message-list-scroll-area barrage-list-wrapper" }, _a = 12 * 1024, Na = /* @__PURE__ */ se({
+}), Ia = { class: "message-list-scroll-area barrage-list-wrapper" }, _a = 12 * 1024, Na = /* @__PURE__ */ le({
   __name: "MessageList",
   props: {
     liveId: { default: "" },
@@ -190,59 +189,59 @@ const Zn = { class: "toast-area" }, ea = {
     const l = Ye("MessageList"), { t: d } = me(), { giftList: o, fetchGiftList: m } = Hn();
     m().catch(() => {
     });
-    const v = a, { currentLive: f } = at(), { audienceList: s, disableSendMessage: p } = je(), b = $(() => v.currentLive || f.value), I = N(!1), P = N({ top: 0, left: 0 }), T = N(null), ne = N(null), Y = N(null), S = N(null), x = (_) => s.value.find((B) => B.userId === _), Q = (_) => {
-      const B = x(_);
+    const v = a, { currentLive: f } = at(), { audienceList: s, disableSendMessage: p } = je(), b = $(() => v.currentLive || f.value), N = I(!1), x = I({ top: 0, left: 0 }), C = I(null), te = I(null), H = I(null), S = I(null), P = (_) => s.value.find((B) => B.userId === _), Z = (_) => {
+      const B = P(_);
       if (B)
         return B.isMessageDisabled === !0;
       const W = v.mutedList.find((q) => q.userId === _);
       return W ? W.endTime > Date.now() / 1e3 : !1;
-    }, X = (_) => {
+    }, J = (_) => {
       const B = v.bannedList.find((W) => W.userId === _);
       return B ? B.endTime > Date.now() / 1e3 : !1;
-    }, Z = (_, B) => {
+    }, Y = (_, B) => {
       if (_.preventDefault(), _.stopPropagation(), Number(B.sender.userRole) !== 2 || On(v.liveId || "", B.sender.userId))
         return;
       const q = _.target.closest(".message-item");
       if (!q) return;
-      const oe = q.getBoundingClientRect(), D = oe.bottom + 4, j = Math.min(
-        oe.left,
+      const ie = q.getBoundingClientRect(), D = ie.bottom + 4, j = Math.min(
+        ie.left,
         window.innerWidth - 150
       );
-      P.value = { top: D, left: Math.max(0, j) }, T.value = B, I.value = !0;
-    }, de = () => {
-      if (T.value && v.onBanUser) {
-        const _ = T.value.sender.userId;
+      x.value = { top: D, left: Math.max(0, j) }, C.value = B, N.value = !0;
+    }, ee = () => {
+      if (C.value && v.onBanUser) {
+        const _ = C.value.sender.userId;
         if (_ === Pe(b.value?.liveOwner?.userId || "")) {
-          I.value = !1, T.value = null;
+          N.value = !1, C.value = null;
           return;
         }
         if (ht(_, s.value)) {
-          I.value = !1, T.value = null;
+          N.value = !1, C.value = null;
           return;
         }
-        const B = T.value.sender.userName || T.value.sender.nameCard || T.value.sender.userId, W = X(_);
+        const B = C.value.sender.userName || C.value.sender.nameCard || C.value.sender.userId, W = J(_);
         v.onBanUser(_, B, W);
       }
-      I.value = !1, T.value = null;
-    }, z = async () => {
-      if (!T.value) return;
-      const _ = T.value.sender.userId;
+      N.value = !1, C.value = null;
+    }, Q = async () => {
+      if (!C.value) return;
+      const _ = C.value.sender.userId;
       if (_ === Pe(b.value?.liveOwner?.userId || "")) {
-        I.value = !1, T.value = null;
+        N.value = !1, C.value = null;
         return;
       }
       if (ht(_, s.value)) {
-        I.value = !1, T.value = null;
+        N.value = !1, C.value = null;
         return;
       }
-      const B = T.value.sender.userName || T.value.sender.nameCard || T.value.sender.userId, W = Q(_);
+      const B = C.value.sender.userName || C.value.sender.nameCard || C.value.sender.userId, W = Z(_);
       try {
         await p({ userId: _, isDisable: !W }), l.info("muteOperation", W ? "解除禁言成功" : "禁言成功");
       } catch (q) {
         l.error("SDK 禁言失败，使用备用方法", "", q), v.onMuteUser && v.onMuteUser(_, B, W);
       }
-      I.value = !1, T.value = null;
-    }, le = se({
+      N.value = !1, C.value = null;
+    }, re = le({
       props: {
         message: {
           type: Object,
@@ -264,53 +263,53 @@ const Zn = { class: "toast-area" }, ea = {
           q = _.message.textContent || "";
         else if (_.message.businessId === "gift" && _.message.data)
           try {
-            const j = JSON.parse(_.message.data), ee = j.giftName || "", fe = j.giftId;
+            const j = JSON.parse(_.message.data), ne = j.giftName || "", fe = j.giftId;
             if (fe) {
               const M = o.value.find((U) => U.id === fe);
-              M?.languageList ? q = Cn(M.languageList)?.name || ee : q = ee;
+              M?.languageList ? q = Tn(M.languageList)?.name || ne : q = ne;
             } else
-              q = ee;
+              q = ne;
           } catch {
             q = _.message.data || "";
           }
         else
           q = _.message.data || "";
-        const oe = Yn(q), D = () => oe.map((j, ee) => j.type === "emoji" ? Se("img", {
-          key: ee,
+        const ie = Yn(q), D = () => ie.map((j, ne) => j.type === "emoji" ? Se("img", {
+          key: ne,
           class: "message-emoji",
           src: j.src,
           alt: j.key
-        }) : Se("span", { key: ee, class: "message-text" }, j.text));
+        }) : Se("span", { key: ne, class: "message-text" }, j.text));
         return () => Se("div", {
           class: ["message-item", W ? "host" : ""],
           style: _.style,
-          onContextMenu: (j) => Z(j, _.message)
+          onContextMenu: (j) => Y(j, _.message)
         }, [
           // 主播标识
           W ? Se("span", { class: "message-badge" }, d(t.HOST)) : null,
           // 昵称
-          Se("span", { class: "message-username", onClick: (j) => Z(j, _.message) }, `${B}: `),
+          Se("span", { class: "message-username", onClick: (j) => Y(j, _.message) }, `${B}: `),
           // 消息内容
           Se("span", { class: "message-content" }, D())
         ]);
       }
-    }), ae = (_) => {
-      Y.value && Y.value.contains(_.target) || (I.value = !1, T.value = null);
+    }), oe = (_) => {
+      H.value && H.value.contains(_.target) || (N.value = !1, C.value = null);
     };
-    return ve(I, (_) => {
-      _ ? document.addEventListener("mousedown", ae) : document.removeEventListener("mousedown", ae);
+    return ve(N, (_) => {
+      _ ? document.addEventListener("mousedown", oe) : document.removeEventListener("mousedown", oe);
     }), ye(() => {
-      document.removeEventListener("mousedown", ae);
-    }), (_, B) => (u(), C("div", {
+      document.removeEventListener("mousedown", oe);
+    }), (_, B) => (u(), T("div", {
       class: "message-list-container",
       ref_key: "containerRef",
-      ref: ne
+      ref: te
     }, [
       i("div", Ia, [
         g(e(Gn), {
           ref_key: "barrageListRef",
           ref: S,
-          Message: e(le)
+          Message: e(re)
         }, null, 8, ["Message"])
       ]),
       a.roomJoined ? (u(), G(e(Wn), {
@@ -321,36 +320,36 @@ const Zn = { class: "toast-area" }, ea = {
         autoFocus: !1
       }, null, 8, ["placeholder", "disabled"])) : K("", !0),
       (u(), G(Ze, { to: "body" }, [
-        I.value && T.value ? (u(), C("div", {
+        N.value && C.value ? (u(), T("div", {
           key: 0,
           ref_key: "dropdownRef",
-          ref: Y,
+          ref: H,
           class: "user-action-dropdown",
           style: et({
             position: "fixed",
-            top: `${P.value.top}px`,
-            left: `${P.value.left}px`
+            top: `${x.value.top}px`,
+            left: `${x.value.left}px`
           })
         }, [
           i("button", {
             class: "dropdown-item",
-            onClick: z
+            onClick: Q
           }, [
-            Q(T.value.sender.userId) ? (u(), G(e(He), { key: 0 })) : (u(), G(e(Ct), { key: 1 })),
-            i("span", null, c(Q(T.value.sender.userId) ? e(d)(e(t).UNMUTE) : e(d)(e(t).MUTE)), 1)
+            Z(C.value.sender.userId) ? (u(), G(e(He), { key: 0 })) : (u(), G(e(Tt), { key: 1 })),
+            i("span", null, c(Z(C.value.sender.userId) ? e(d)(e(t).UNMUTE) : e(d)(e(t).MUTE)), 1)
           ]),
           i("button", {
             class: "dropdown-item danger",
-            onClick: de
+            onClick: ee
           }, [
-            X(T.value.sender.userId) ? (u(), G(e(Mt), { key: 0 })) : (u(), G(e(yt), { key: 1 })),
-            i("span", null, c(X(T.value.sender.userId) ? e(d)(e(t).UNBAN) : e(d)(e(t).BAN)), 1)
+            J(C.value.sender.userId) ? (u(), G(e(Mt), { key: 0 })) : (u(), G(e(yt), { key: 1 })),
+            i("span", null, c(J(C.value.sender.userId) ? e(d)(e(t).UNBAN) : e(d)(e(t).BAN)), 1)
           ])
         ], 4)) : K("", !0)
       ]))
     ], 512));
   }
-}), La = ["innerHTML"], Xe = /* @__PURE__ */ se({
+}), La = ["innerHTML"], Xe = /* @__PURE__ */ le({
   __name: "ConfirmDialog",
   props: {
     visible: { type: Boolean },
@@ -372,10 +371,10 @@ const Zn = { class: "toast-area" }, ea = {
       o.onClose();
     };
     return (p, b) => {
-      const I = be("t-dialog");
-      return u(), G(I, {
+      const N = be("t-dialog");
+      return u(), G(N, {
         visible: v.value,
-        "onUpdate:visible": b[0] || (b[0] = (P) => v.value = P),
+        "onUpdate:visible": b[0] || (b[0] = (x) => v.value = x),
         header: e(d)(a.title),
         "confirm-btn": { content: e(d)(a.confirmText) || e(d)(e(t).CONFIRM), theme: "primary", shape: "round", loading: a.loading },
         "cancel-btn": { content: e(d)(e(t).CANCEL), shape: "round", disabled: a.loading },
@@ -392,7 +391,7 @@ const Zn = { class: "toast-area" }, ea = {
       }, 8, ["visible", "header", "confirm-btn", "cancel-btn"]);
     };
   }
-}), Ta = { class: "member-list-panel-modal" }, Ca = {
+}), Ca = { class: "member-list-panel-modal" }, Ta = {
   key: 0,
   class: "member-list-empty"
 }, Ma = {
@@ -405,7 +404,7 @@ const Zn = { class: "toast-area" }, ea = {
   key: 0,
   class: "list-action-button",
   disabled: ""
-}, Da = /* @__PURE__ */ se({
+}, Da = /* @__PURE__ */ le({
   __name: "MutedModal",
   props: {
     visible: { type: Boolean },
@@ -432,8 +431,8 @@ const Zn = { class: "toast-area" }, ea = {
         footer: !1
       }, {
         default: y(() => [
-          i("div", Ta, [
-            a.memberListLoading ? (u(), C("div", Ca, c(e(d)(e(t).LOADING)), 1)) : a.mutedList.length === 0 ? (u(), C("div", Ma, c(e(d)(e(t).NO_MUTED_MEMBERS)), 1)) : (u(), C("table", ya, [
+          i("div", Ca, [
+            a.memberListLoading ? (u(), T("div", Ta, c(e(d)(e(t).LOADING)), 1)) : a.mutedList.length === 0 ? (u(), T("div", Ma, c(e(d)(e(t).NO_MUTED_MEMBERS)), 1)) : (u(), T("table", ya, [
               i("thead", null, [
                 i("tr", null, [
                   i("th", null, c(e(d)(e(t).USER)), 1),
@@ -442,7 +441,7 @@ const Zn = { class: "toast-area" }, ea = {
                 ])
               ]),
               i("tbody", null, [
-                (u(!0), C(Fe, null, tt(a.mutedList, (b) => (u(), C("tr", {
+                (u(!0), T(Fe, null, tt(a.mutedList, (b) => (u(), T("tr", {
                   key: b.userId
                 }, [
                   i("td", Aa, [
@@ -466,7 +465,7 @@ const Zn = { class: "toast-area" }, ea = {
                   ]),
                   i("td", Ra, c(b.endTime > 0 ? new Date(b.endTime * 1e3).toLocaleString() : "-"), 1),
                   i("td", wa, [
-                    a.unmutingUserId === b.userId ? (u(), C("button", Sa, c(e(d)(e(t).UNMUTING)), 1)) : (u(), G(ot, {
+                    a.unmutingUserId === b.userId ? (u(), T("button", Sa, c(e(d)(e(t).UNMUTING)), 1)) : (u(), G(ot, {
                       key: 1,
                       actions: a.getMutedMemberActions(b.userId)
                     }, null, 8, ["actions"]))
@@ -493,7 +492,7 @@ const Zn = { class: "toast-area" }, ea = {
   key: 0,
   class: "list-action-button",
   disabled: ""
-}, Ka = /* @__PURE__ */ se({
+}, Ka = /* @__PURE__ */ le({
   __name: "BannedModal",
   props: {
     visible: { type: Boolean },
@@ -521,7 +520,7 @@ const Zn = { class: "toast-area" }, ea = {
       }, {
         default: y(() => [
           i("div", Ua, [
-            a.memberListLoading ? (u(), C("div", ka, c(e(d)(e(t).LOADING)), 1)) : a.bannedList.length === 0 ? (u(), C("div", $a, c(e(d)(e(t).NO_BANNED_MEMBERS)), 1)) : (u(), C("table", xa, [
+            a.memberListLoading ? (u(), T("div", ka, c(e(d)(e(t).LOADING)), 1)) : a.bannedList.length === 0 ? (u(), T("div", $a, c(e(d)(e(t).NO_BANNED_MEMBERS)), 1)) : (u(), T("table", xa, [
               i("thead", null, [
                 i("tr", null, [
                   i("th", null, c(e(d)(e(t).USER)), 1),
@@ -530,7 +529,7 @@ const Zn = { class: "toast-area" }, ea = {
                 ])
               ]),
               i("tbody", null, [
-                (u(!0), C(Fe, null, tt(a.bannedList, (b) => (u(), C("tr", {
+                (u(!0), T(Fe, null, tt(a.bannedList, (b) => (u(), T("tr", {
                   key: b.userId
                 }, [
                   i("td", Ba, [
@@ -554,7 +553,7 @@ const Zn = { class: "toast-area" }, ea = {
                   ]),
                   i("td", Va, c(b.endTime > 0 ? new Date(b.endTime * 1e3).toLocaleString() : "-"), 1),
                   i("td", Ga, [
-                    a.unbanningUserId === b.userId ? (u(), C("button", Wa, c(e(d)(e(t).UNBANNING)), 1)) : (u(), G(ot, {
+                    a.unbanningUserId === b.userId ? (u(), T("button", Wa, c(e(d)(e(t).UNBANNING)), 1)) : (u(), G(ot, {
                       key: 1,
                       actions: a.getBannedMemberActions(b.userId)
                     }, null, 8, ["actions"]))
@@ -568,7 +567,7 @@ const Zn = { class: "toast-area" }, ea = {
       }, 8, ["visible", "header"]);
     };
   }
-}), qa = { class: "dropdown-header" }, ja = /* @__PURE__ */ se({
+}), qa = { class: "dropdown-header" }, ja = /* @__PURE__ */ le({
   __name: "AudienceDropdown",
   props: {
     visible: { type: Boolean },
@@ -579,7 +578,7 @@ const Zn = { class: "toast-area" }, ea = {
   },
   emits: ["mute", "ban", "close"],
   setup(a, { emit: l }) {
-    const { t: d } = me(), o = N(null), m = a, v = l, f = (b) => {
+    const { t: d } = me(), o = I(null), m = a, v = l, f = (b) => {
       o.value && !o.value.contains(b.target) && v("close");
     };
     ve(
@@ -595,8 +594,8 @@ const Zn = { class: "toast-area" }, ea = {
     }, p = () => {
       v("ban"), v("close");
     };
-    return (b, I) => (u(), G(Ze, { to: "body" }, [
-      a.visible ? (u(), C("div", {
+    return (b, N) => (u(), G(Ze, { to: "body" }, [
+      a.visible ? (u(), T("div", {
         key: 0,
         ref_key: "dropdownRef",
         ref: o,
@@ -608,20 +607,20 @@ const Zn = { class: "toast-area" }, ea = {
         })
       }, [
         i("div", qa, c(a.userName), 1),
-        I[0] || (I[0] = i("div", { class: "dropdown-divider" }, null, -1)),
-        a.isMuted ? (u(), C("button", {
+        N[0] || (N[0] = i("div", { class: "dropdown-divider" }, null, -1)),
+        a.isMuted ? (u(), T("button", {
           key: 0,
           class: "dropdown-item",
           onClick: s
         }, [
           g(e(He)),
           V(" " + c(e(d)(e(t).UNMUTE)), 1)
-        ])) : (u(), C("button", {
+        ])) : (u(), T("button", {
           key: 1,
           class: "dropdown-item",
           onClick: s
         }, [
-          g(e(Ct)),
+          g(e(Tt)),
           V(" " + c(e(d)(e(t).MUTE)), 1)
         ])),
         i("button", {
@@ -646,7 +645,7 @@ const Zn = { class: "toast-area" }, ea = {
 }, oo = {
   key: 0,
   class: "audience-muted-badge"
-}, io = ["title", "disabled", "onClick"], so = { class: "audience-bottom-actions" }, lo = ["disabled"], ro = ["disabled"], co = /* @__PURE__ */ se({
+}, io = ["title", "disabled", "onClick"], so = { class: "audience-bottom-actions" }, lo = ["disabled"], ro = ["disabled"], co = /* @__PURE__ */ le({
   __name: "InteractionPanel",
   props: {
     liveId: {},
@@ -665,29 +664,28 @@ const Zn = { class: "toast-area" }, ea = {
     }), {
       mutedList: p,
       bannedList: b,
-      memberLoading: I,
-      muteMember: P,
-      unmuteMember: T,
-      banMember: ne,
-      unbanMember: Y,
-      fetchMutedList: S,
-      fetchBannedList: x
-    } = pt({ liveId: v.liveId, pageSize: 100 }), { updateLive: Q } = at(), { audienceList: X } = je(), Z = $(() => v.currentLive?.isMessageDisabled === !0), de = N(!1), z = N(null), le = N(!1);
-    function ae(h) {
-      z.value = { ...h, visible: !0 };
+      muteMember: N,
+      unmuteMember: x,
+      banMember: C,
+      unbanMember: te,
+      fetchMutedList: H,
+      fetchBannedList: S
+    } = pt({ liveId: v.liveId, pageSize: 100 }), { updateLive: P } = at(), { audienceList: Z } = je(), J = $(() => v.currentLive?.isMessageDisabled === !0), Y = I(!1), ee = I(!1), Q = I(null), re = I(!1);
+    function oe(h) {
+      Q.value = { ...h, visible: !0 };
     }
     function _() {
-      z.value = null, le.value = !1;
+      Q.value = null, re.value = !1;
     }
     async function B() {
-      if (!(!z.value || le.value)) {
-        le.value = !0;
+      if (!(!Q.value || re.value)) {
+        re.value = !0;
         try {
-          await z.value.action();
+          await Q.value.action();
         } catch (h) {
           d.error("confirm action failed:", h);
         } finally {
-          le.value = !1, z.value = null;
+          re.value = !1, Q.value = null;
         }
       }
     }
@@ -696,23 +694,23 @@ const Zn = { class: "toast-area" }, ea = {
         A.warning(o(t.LIVE_ENDED));
         return;
       }
-      const J = Pe(v.anchorUserId);
-      if (h !== J) {
+      const X = Pe(v.anchorUserId);
+      if (h !== X) {
         if (O) {
-          T({ memberAccounts: [h] }).then(() => {
+          x({ memberAccounts: [h] }).then(() => {
             A.success(m(t.UNMUTE, E));
-          }).catch((re) => {
-            const w = te(re).info || re?.message || o(t.UNKNOWN_ERROR);
+          }).catch((ce) => {
+            const w = ae(ce).info || ce?.message || o(t.UNKNOWN_ERROR);
             A.error(`【${o(t.UNMUTE)}】${o(t.OPERATION_FAILED, { error: w })}`);
           });
           return;
         }
-        ae({
+        oe({
           title: o(t.CONFIRM_ACTION_TITLE, { action: o(t.MUTE) }),
           content: o(t.MUTE_CONFIRM_CONTENT, { name: E }),
           confirmText: o(t.CONFIRM),
           action: async () => {
-            await P({ memberAccounts: [h], muteTime: pn }), A.success(m(t.MUTE, E));
+            await N({ memberAccounts: [h], muteTime: pn }), A.success(m(t.MUTE, E));
           }
         });
       }
@@ -722,78 +720,78 @@ const Zn = { class: "toast-area" }, ea = {
         A.warning(o(t.LIVE_ENDED));
         return;
       }
-      const J = Pe(v.anchorUserId);
-      if (h !== J) {
+      const X = Pe(v.anchorUserId);
+      if (h !== X) {
         if (O) {
-          Y({ memberAccounts: [h] }).then(() => {
+          te({ memberAccounts: [h] }).then(() => {
             A.success(m(t.UNBAN, E));
-          }).catch((re) => {
-            const w = te(re).info || re?.message || o(t.UNKNOWN_ERROR);
+          }).catch((ce) => {
+            const w = ae(ce).info || ce?.message || o(t.UNKNOWN_ERROR);
             A.error(`【${o(t.UNBAN)}】${o(t.OPERATION_FAILED, { error: w })}`);
           });
           return;
         }
-        ae({
+        oe({
           title: o(t.CONFIRM_ACTION_TITLE, { action: o(t.BAN) }),
           content: o(t.BAN_CONFIRM_CONTENT, { name: E }),
           confirmText: o(t.CONFIRM),
           action: async () => {
-            await ne({ memberAccounts: [h], duration: Rn }), A.success(m(t.BAN, E));
+            await C({ memberAccounts: [h], duration: Rn }), A.success(m(t.BAN, E));
           }
         });
       }
     }
-    function oe(h) {
+    function ie(h) {
       if (v.disabled) {
         A.warning(o(t.LIVE_ENDED));
         return;
       }
       const E = !!h;
-      if (E !== Z.value) {
+      if (E !== J.value) {
         if (!E) {
-          de.value = !0, Q({ liveId: v.liveId, isMessageDisabled: !1 }).then(() => {
+          Y.value = !0, P({ liveId: v.liveId, isMessageDisabled: !1 }).then(() => {
             A.success(m(t.OP_DISABLE, t.ALL_MEMBER_MUTE));
           }).catch((O) => {
-            const J = te(O).info || O?.message || o(t.UNKNOWN_ERROR);
-            A.error(`【${o(t.ALL_MEMBER_MUTE)}】${o(t.OPERATION_FAILED, { error: J })}`);
+            const X = ae(O).info || O?.message || o(t.UNKNOWN_ERROR);
+            A.error(`【${o(t.ALL_MEMBER_MUTE)}】${o(t.OPERATION_FAILED, { error: X })}`);
           }).finally(() => {
-            de.value = !1;
+            Y.value = !1;
           });
           return;
         }
-        ae({
+        oe({
           title: o(t.ENABLE_ALL_MEMBER_MUTE),
           content: o(t.ENABLE_ALL_MEMBER_MUTE_CONFIRM_CONTENT),
           confirmText: o(t.CONFIRM_ENABLE),
           action: async () => {
-            de.value = !0;
+            Y.value = !0;
             try {
-              await Q({ liveId: v.liveId, isMessageDisabled: !0 }), A.success(m(t.OP_ENABLE, t.ALL_MEMBER_MUTE));
+              await P({ liveId: v.liveId, isMessageDisabled: !0 }), A.success(m(t.OP_ENABLE, t.ALL_MEMBER_MUTE));
             } finally {
-              de.value = !1;
+              Y.value = !1;
             }
           }
         });
       }
     }
-    const D = N(null);
+    const D = I(null);
     function j(h, E, O) {
       h.stopPropagation();
-      const J = h.currentTarget.getBoundingClientRect();
-      D.value = { userId: E, userName: O, x: J.right, y: J.bottom + 4 };
+      const X = h.currentTarget.getBoundingClientRect();
+      D.value = { userId: E, userName: O, x: X.right, y: X.bottom + 4 };
     }
-    function ee() {
+    function ne() {
       D.value = null;
     }
     function fe() {
       if (!D.value) return;
       const { userId: h, userName: E } = D.value;
-      W(h, E, U(h)), ee();
+      W(h, E, U(h)), ne();
     }
     function M() {
       if (!D.value) return;
       const { userId: h, userName: E } = D.value;
-      q(h, E, he(h)), ee();
+      q(h, E, he(h)), ne();
     }
     function U(h) {
       return p.value.some((E) => E.userId === h);
@@ -802,46 +800,46 @@ const Zn = { class: "toast-area" }, ea = {
       return b.value.some((E) => E.userId === h);
     }
     function Le(h) {
-      const E = X.value.find((O) => O.userId === h);
+      const E = Z.value.find((O) => O.userId === h);
       if (E && "avatarUrl" in E && typeof E.avatarUrl == "string")
         return E.avatarUrl;
     }
     function De(h) {
-      const E = X.value.find((O) => O.userId === h);
+      const E = Z.value.find((O) => O.userId === h);
       return E?.userName ? E.userName : h;
     }
-    const Te = N(null), H = N(null);
+    const Ce = I(null), z = I(null);
     async function Ue(h) {
       if (v.disabled) {
         A.warning(o(t.LIVE_ENDED));
         return;
       }
-      if (!Te.value) {
-        Te.value = h, await Ve();
+      if (!Ce.value) {
+        Ce.value = h, await Ve();
         try {
-          await T({ memberAccounts: [h] }), A.success(m(t.UNMUTE, h));
+          await x({ memberAccounts: [h] }), A.success(m(t.UNMUTE, h));
         } catch (E) {
-          const O = te(E).info || E?.message || o(t.UNKNOWN_ERROR);
+          const O = ae(E).info || E?.message || o(t.UNKNOWN_ERROR);
           A.error(`【${o(t.UNMUTE)}】${o(t.OPERATION_FAILED, { error: O })}`);
         } finally {
-          Te.value = null;
+          Ce.value = null;
         }
       }
     }
-    async function ie(h) {
+    async function se(h) {
       if (v.disabled) {
         A.warning(o(t.LIVE_ENDED));
         return;
       }
-      if (!H.value) {
-        H.value = h, await Ve();
+      if (!z.value) {
+        z.value = h, await Ve();
         try {
-          await Y({ memberAccounts: [h] }), A.success(m(t.UNBAN, h));
+          await te({ memberAccounts: [h] }), A.success(m(t.UNBAN, h));
         } catch (E) {
-          const O = te(E).info || E?.message || o(t.UNKNOWN_ERROR);
+          const O = ae(E).info || E?.message || o(t.UNKNOWN_ERROR);
           A.error(`【${o(t.UNBAN)}】${o(t.OPERATION_FAILED, { error: O })}`);
         } finally {
-          H.value = null;
+          z.value = null;
         }
       }
     }
@@ -859,27 +857,33 @@ const Zn = { class: "toast-area" }, ea = {
         {
           key: "unban",
           label: o(t.UNBAN),
-          onClick: () => ie(h)
+          onClick: () => se(h)
         }
       ];
     }
-    const Ce = N(!1), Ae = N(!1);
+    const Te = I(!1), Ae = I(!1);
     function Oe() {
-      S(), Ce.value = !0;
+      ee.value = !0, H().finally(() => {
+        ee.value = !1;
+      }), Te.value = !0;
     }
     function k() {
-      x(), Ae.value = !0;
+      ee.value = !0, S().finally(() => {
+        ee.value = !1;
+      }), Ae.value = !0;
     }
     let ge = null;
     return ve(
       () => v.activeTab,
       (h) => {
         if (h === "audience") {
-          S(), x();
+          ee.value = !0, Promise.all([H(), S()]).finally(() => {
+            ee.value = !1;
+          });
           const E = () => {
-            document.querySelectorAll(".viewer-name").forEach((J) => {
-              const re = J, w = re.textContent || "";
-              re.title !== w && (re.title = w);
+            document.querySelectorAll(".viewer-name").forEach((X) => {
+              const ce = X, w = ce.textContent || "";
+              ce.title !== w && (ce.title = w);
             });
           };
           setTimeout(() => {
@@ -891,14 +895,16 @@ const Zn = { class: "toast-area" }, ea = {
           ge?.disconnect(), ge = null;
       }
     ), Lt(() => {
-      v.activeTab === "audience" && (S(), x());
+      v.activeTab === "audience" && (ee.value = !0, Promise.all([H(), S()]).finally(() => {
+        ee.value = !1;
+      }));
     }), ye(() => {
       ge?.disconnect(), ge = null;
     }), (h, E) => {
-      const O = be("t-tab-panel"), J = be("t-tabs"), re = be("t-switch");
-      return u(), C("div", Ha, [
+      const O = be("t-tab-panel"), X = be("t-tabs"), ce = be("t-switch");
+      return u(), T("div", Ha, [
         i("div", Ya, [
-          g(J, {
+          g(X, {
             modelValue: s.value,
             "onUpdate:modelValue": E[0] || (E[0] = (w) => s.value = w),
             class: "interaction-tabs"
@@ -916,17 +922,17 @@ const Zn = { class: "toast-area" }, ea = {
             _: 1
           }, 8, ["modelValue"]),
           i("div", za, [
-            g(re, {
-              value: Z.value,
-              disabled: de.value || a.disabled,
-              onChange: oe
+            g(ce, {
+              value: J.value,
+              disabled: Y.value || a.disabled,
+              onChange: ie
             }, null, 8, ["value", "disabled"]),
             i("span", Ja, c(e(o)(e(t).ALL_MEMBER_MUTE)), 1)
           ])
         ]),
         i("div", Qa, [
           vt(i("div", Xa, [
-            Z.value ? (u(), C("div", Za, [
+            J.value ? (u(), T("div", Za, [
               E[4] || (E[4] = i("span", { class: "all-mute-banner-icon" }, "!", -1)),
               i("span", null, c(e(o)(e(t).ALL_MEMBER_MUTE_ENABLED_BANNER)), 1)
             ])) : K("", !0),
@@ -947,8 +953,8 @@ const Zn = { class: "toast-area" }, ea = {
             i("div", to, [
               g(e(mn), { height: "99%" }, {
                 "audience-mark": y(({ audience: w }) => [
-                  w.userId === a.currentUserId ? (u(), C("span", no, c(e(o)(e(t).ME)), 1)) : w.userRole !== 0 && w.userId !== e(Pe)(a.anchorUserId) ? (u(), C("div", ao, [
-                    U(w.userId) ? (u(), C("span", oo, c(e(o)(e(t).MUTED)), 1)) : K("", !0),
+                  w.userId === a.currentUserId ? (u(), T("span", no, c(e(o)(e(t).ME)), 1)) : w.userRole !== 0 && w.userId !== e(Pe)(a.anchorUserId) ? (u(), T("div", ao, [
+                    U(w.userId) ? (u(), T("span", oo, c(e(o)(e(t).MUTED)), 1)) : K("", !0),
                     i("button", {
                       class: "audience-more-btn",
                       title: e(o)(e(t).MORE_ACTIONS),
@@ -978,23 +984,23 @@ const Zn = { class: "toast-area" }, ea = {
             [mt, a.activeTab === "audience"]
           ])
         ]),
-        z.value ? (u(), G(Xe, {
+        Q.value ? (u(), G(Xe, {
           key: 0,
-          visible: z.value.visible,
-          "onUpdate:visible": E[1] || (E[1] = (w) => z.value.visible = w),
-          title: z.value.title,
-          content: z.value.content,
-          "confirm-text": z.value.confirmText,
-          loading: le.value,
+          visible: Q.value.visible,
+          "onUpdate:visible": E[1] || (E[1] = (w) => Q.value.visible = w),
+          title: Q.value.title,
+          content: Q.value.content,
+          "confirm-text": Q.value.confirmText,
+          loading: re.value,
           "on-confirm": B,
           "on-close": _
         }, null, 8, ["visible", "title", "content", "confirm-text", "loading"])) : K("", !0),
         g(Da, {
-          visible: Ce.value,
-          "onUpdate:visible": E[2] || (E[2] = (w) => Ce.value = w),
+          visible: Te.value,
+          "onUpdate:visible": E[2] || (E[2] = (w) => Te.value = w),
           "muted-list": e(p),
-          "member-list-loading": e(I),
-          "unmuting-user-id": Te.value,
+          "member-list-loading": ee.value,
+          "unmuting-user-id": Ce.value,
           "get-user-avatar": Le,
           "get-user-name-from-cache": De,
           "get-muted-member-actions": Ge
@@ -1003,8 +1009,8 @@ const Zn = { class: "toast-area" }, ea = {
           visible: Ae.value,
           "onUpdate:visible": E[3] || (E[3] = (w) => Ae.value = w),
           "banned-list": e(b),
-          "member-list-loading": e(I),
-          "unbanning-user-id": H.value,
+          "member-list-loading": ee.value,
+          "unbanning-user-id": z.value,
           "get-user-avatar": Le,
           "get-user-name-from-cache": De,
           "get-banned-member-actions": ke
@@ -1017,12 +1023,12 @@ const Zn = { class: "toast-area" }, ea = {
           position: D.value || { x: 0, y: 0 },
           onMute: fe,
           onBan: M,
-          onClose: ee
+          onClose: ne
         }, null, 8, ["visible", "user-name", "is-muted", "is-banned", "position"])
       ]);
     };
   }
-}), uo = { class: "left-content-area" }, Nt = 5, vo = 2e3, mo = /* @__PURE__ */ se({
+}), uo = { class: "left-content-area" }, Nt = 5, vo = 2e3, mo = /* @__PURE__ */ le({
   __name: "LiveControlLeftPanel",
   props: {
     liveId: {},
@@ -1036,7 +1042,7 @@ const Zn = { class: "toast-area" }, ea = {
   },
   emits: ["update:activeTab", "joined-live", "live-ended"],
   setup(a, { emit: l }) {
-    const d = Ye("LiveControlPanel"), o = a, m = l, { login: v, loginUserInfo: f } = fn(), { joinLive: s, leaveLive: p, subscribeEvent: b, unsubscribeEvent: I } = gn(), { fetchAudienceList: P } = je(), { hideControlBar: T, showControlBar: ne, setAutoHideDelay: Y } = bn();
+    const d = Ye("LiveControlPanel"), o = a, m = l, { login: v, loginUserInfo: f } = fn(), { joinLive: s, leaveLive: p, subscribeEvent: b, unsubscribeEvent: N } = gn(), { fetchAudienceList: x } = je(), { hideControlBar: C, showControlBar: te, setAutoHideDelay: H } = bn();
     function S() {
       try {
         if (typeof window < "u" && window.__IDENTITY_MODE__ === "admin")
@@ -1045,53 +1051,53 @@ const Zn = { class: "toast-area" }, ea = {
       }
       return "audience";
     }
-    const x = N(!1), Q = N(""), X = N(!1), Z = N(""), de = N(!1), z = N(!1), le = N(!1), ae = N(0), _ = S(), B = $(
-      () => f.value?.userId || Z.value || o.currentUserId || Ot() || ""
+    const P = I(!1), Z = I(""), J = I(!1), Y = I(""), ee = I(!1), Q = I(!1), re = I(!1), oe = I(0), _ = S(), B = $(
+      () => f.value?.userId || Y.value || o.currentUserId || Ot() || ""
     ), W = $(
-      () => o.liveEndedOverlayVisible || de.value && !o.currentLive && !o.isMockMode
+      () => o.liveEndedOverlayVisible || ee.value && !o.currentLive && !o.isMockMode
     );
     function q() {
       const M = Kn;
       return M.onLiveEnded || M.ON_LIVE_ENDED || "";
     }
-    const oe = q(), D = () => {
+    const ie = q(), D = () => {
       m("live-ended");
     }, j = async () => {
       if (o.isMockMode) {
-        x.value = !0;
+        P.value = !0;
         return;
       }
-      if (!x.value && !z.value) {
-        z.value = !0;
+      if (!P.value && !Q.value) {
+        Q.value = !0;
         try {
           let M;
           if (_ === "audience" ? (d.info("LiveControlLeftPanel", "Audience mode (internal), creating basic account..."), M = await Sn("audience")) : (d.info("LiveControlLeftPanel", "Admin mode, resolving account..."), M = await Mn()), !M || M.sdkAppId === 0 || !M.userId || !M.userSig) {
-            d.warn("LiveControlLeftPanel", "No valid account obtained, will retry"), ee();
+            d.warn("LiveControlLeftPanel", "No valid account obtained, will retry"), ne();
             return;
           }
-          d.info("LiveControlLeftPanel", "Logging in as:", _, "userId:", M.userId), await v({ sdkAppId: M.sdkAppId, userId: M.userId, userSig: M.userSig }), await Ve(), x.value = !0, Z.value = M.userId, ae.value = 0;
+          d.info("LiveControlLeftPanel", "Logging in as:", _, "userId:", M.userId), await v({ sdkAppId: M.sdkAppId, userId: M.userId, userSig: M.userSig }), await Ve(), P.value = !0, Y.value = M.userId, oe.value = 0;
         } catch (M) {
           if (M?.code === 2025 || M?.message?.includes("重复登录")) {
-            await Ve(), x.value = !0, Z.value = Z.value || "recovered", ae.value = 0;
+            await Ve(), P.value = !0, Y.value = Y.value || "recovered", oe.value = 0;
             return;
           }
-          d.error("LiveControlLeftPanel", "TUIKit login failed:", M), ee();
+          d.error("LiveControlLeftPanel", "TUIKit login failed:", M), ne();
         } finally {
-          z.value = !1;
+          Q.value = !1;
         }
       }
-    }, ee = () => {
-      if (ae.value >= Nt) {
+    }, ne = () => {
+      if (oe.value >= Nt) {
         d.error("LiveControlLeftPanel", `Login failed after ${Nt} retries, giving up`);
         return;
       }
-      const M = vo * (ae.value + 1);
-      d.info("LiveControlLeftPanel", `Scheduling login retry #${ae.value + 1} in ${M}ms`), setTimeout(() => {
-        !x.value && !o.isMockMode && ae.value++;
+      const M = vo * (oe.value + 1);
+      d.info("LiveControlLeftPanel", `Scheduling login retry #${oe.value + 1} in ${M}ms`), setTimeout(() => {
+        !P.value && !o.isMockMode && oe.value++;
       }, M);
     }, fe = async () => {
-      if (!(!o.liveId || !o.currentLive || !x.value || Q.value === o.liveId) && !le.value) {
-        le.value = !0;
+      if (!(!o.liveId || !o.currentLive || !P.value || Z.value === o.liveId) && !re.value) {
+        re.value = !0;
         try {
           d.info("LiveControlLeftPanel", "Joining live:", o.liveId, "as:", _);
           const M = bt();
@@ -1099,25 +1105,25 @@ const Zn = { class: "toast-area" }, ea = {
             api: "setCurrentLanguage",
             params: { language: M === "en-US" ? "en" : M === "zh-CN" ? "zh-Hans" : M }
           })).catch(() => {
-          }), await s({ liveId: o.liveId }), Q.value = o.liveId, await P().catch((U) => {
+          }), await s({ liveId: o.liveId }), Z.value = o.liveId, await x().catch((U) => {
             d.warn("LiveControlLeftPanel", "fetchAudienceList after join failed:", U);
-          }), T(), Y(0), !X.value && b && oe && (d.info("LiveControlLeftPanel", "Subscribing to live ended event:", oe), b(oe, D), X.value = !0), m("joined-live"), console.log("[LiveControlLeftPanel] adding live admin:", Z.value, "room:", o.liveId), Dn(o.liveId, Z.value).catch((U) => {
+          }), C(), H(0), !J.value && b && ie && (d.info("LiveControlLeftPanel", "Subscribing to live ended event:", ie), b(ie, D), J.value = !0), m("joined-live"), console.log("[LiveControlLeftPanel] adding live admin:", Y.value, "room:", o.liveId), Dn(o.liveId, Y.value).catch((U) => {
             console.error("[LiveControlLeftPanel] addLiveAdmin failed:", U), d.warn("LiveControlLeftPanel", "addLiveAdmin failed:", U);
           });
         } catch (M) {
           d.error("LiveControlLeftPanel", "joinLive failed:", M);
         } finally {
-          le.value = !1, de.value = !0;
+          re.value = !1, ee.value = !0;
         }
       }
     };
     return ve(
-      () => [o.liveId, o.currentLive, B.value, x.value, ae.value],
+      () => [o.liveId, o.currentLive, B.value, P.value, oe.value],
       async () => {
-        if (!(!o.liveId || !o.currentLive) && (x.value || await j(), !!x.value)) {
-          if (!o.isMockMode && _ === "audience" && Z.value) {
+        if (!(!o.liveId || !o.currentLive) && (P.value || await j(), !!P.value)) {
+          if (!o.isMockMode && _ === "audience" && Y.value) {
             const M = bt() === "en-US" ? "admin" : "管理员";
-            wn(Z.value, M).catch((U) => {
+            wn(Y.value, M).catch((U) => {
               d.warn("LiveControlLeftPanel", "setMonitorNickname before join failed:", U);
             });
           }
@@ -1128,16 +1134,16 @@ const Zn = { class: "toast-area" }, ea = {
     ), ve(
       () => o.liveId,
       () => {
-        Q.value = "", de.value = !1;
+        Z.value = "", ee.value = !1;
       }
     ), ye(() => {
-      X.value && I && oe && (I(oe, D), X.value = !1), Q.value && p?.().catch?.((M) => {
+      J.value && N && ie && (N(ie, D), J.value = !1), Z.value && p?.().catch?.((M) => {
         d.error("LiveControlLeftPanel", "leaveLive on unmount failed:", M);
-      }), ne();
-    }), (M, U) => (u(), C("div", uo, [
+      }), te();
+    }), (M, U) => (u(), T("div", uo, [
       g(Ea, ft(a.videoMonitor, {
         "live-ended-overlay-visible": W.value,
-        "sdk-ready": x.value
+        "sdk-ready": P.value
       }), null, 16, ["live-ended-overlay-visible", "sdk-ready"]),
       g(co, ft(a.interaction, {
         "active-tab": a.activeTab,
@@ -1146,7 +1152,7 @@ const Zn = { class: "toast-area" }, ea = {
       }), null, 16, ["active-tab", "current-user-id"])
     ]));
   }
-}), fo = { class: "sidebar-stats-card" }, go = { class: "stats-card-header" }, bo = { class: "stats-header-left" }, ho = { class: "live-status-tag" }, Eo = { class: "live-duration-text" }, Io = { class: "update-time" }, _o = { class: "stat-bar-item" }, No = { class: "stat-label" }, Lo = { class: "stat-value" }, To = { class: "stat-bar-item" }, Co = { class: "stat-label" }, Mo = { class: "stat-value" }, yo = { class: "stat-bar-item" }, Ao = { class: "stat-label" }, Oo = { class: "stat-value" }, po = { class: "stat-bar-item" }, Ro = { class: "stat-label" }, wo = { class: "stat-value" }, So = { class: "stat-bar-item" }, Do = { class: "stat-label" }, Uo = { class: "stat-value" }, ko = { class: "stat-bar-item" }, $o = { class: "stat-label" }, xo = { class: "stat-value" }, Bo = { class: "stat-bar-item" }, Po = { class: "stat-label" }, Fo = { class: "stat-value" }, Vo = /* @__PURE__ */ se({
+}), fo = { class: "sidebar-stats-card" }, go = { class: "stats-card-header" }, bo = { class: "stats-header-left" }, ho = { class: "live-status-tag" }, Eo = { class: "live-duration-text" }, Io = { class: "update-time" }, _o = { class: "stat-bar-item" }, No = { class: "stat-label" }, Lo = { class: "stat-value" }, Co = { class: "stat-bar-item" }, To = { class: "stat-label" }, Mo = { class: "stat-value" }, yo = { class: "stat-bar-item" }, Ao = { class: "stat-label" }, Oo = { class: "stat-value" }, po = { class: "stat-bar-item" }, Ro = { class: "stat-label" }, wo = { class: "stat-value" }, So = { class: "stat-bar-item" }, Do = { class: "stat-label" }, Uo = { class: "stat-value" }, ko = { class: "stat-bar-item" }, $o = { class: "stat-label" }, xo = { class: "stat-value" }, Bo = { class: "stat-bar-item" }, Po = { class: "stat-label" }, Fo = { class: "stat-value" }, Vo = /* @__PURE__ */ le({
   __name: "StatsCard",
   props: {
     stats: {},
@@ -1157,29 +1163,29 @@ const Zn = { class: "toast-area" }, ea = {
     formatDuration: { type: Function }
   },
   setup(a) {
-    const { t: l } = me(), d = N(null);
+    const { t: l } = me(), d = I(null);
     let o = null, m = null, v = null;
-    const f = (I, P, T) => {
-      const ne = Array.from({ length: P }, () => 0);
-      return I.forEach((Y, S) => {
-        const x = S % P;
-        ne[x] = Math.max(ne[x], Y);
-      }), ne.reduce((Y, S) => Y + S, 0) + T * (P - 1);
-    }, s = (I) => {
-      const P = Array.from(I.querySelectorAll(":scope > .stat-bar-item")), T = document.createElement("div");
-      T.style.position = "absolute", T.style.left = "-99999px", T.style.top = "0", T.style.visibility = "hidden", T.style.pointerEvents = "none", T.style.width = "max-content", document.body.appendChild(T);
-      const ne = P.map((Y) => {
-        const S = Y.cloneNode(!0);
-        return S.style.width = "max-content", S.style.maxWidth = "none", T.appendChild(S), Math.ceil(S.getBoundingClientRect().width);
+    const f = (N, x, C) => {
+      const te = Array.from({ length: x }, () => 0);
+      return N.forEach((H, S) => {
+        const P = S % x;
+        te[P] = Math.max(te[P], H);
+      }), te.reduce((H, S) => H + S, 0) + C * (x - 1);
+    }, s = (N) => {
+      const x = Array.from(N.querySelectorAll(":scope > .stat-bar-item")), C = document.createElement("div");
+      C.style.position = "absolute", C.style.left = "-99999px", C.style.top = "0", C.style.visibility = "hidden", C.style.pointerEvents = "none", C.style.width = "max-content", document.body.appendChild(C);
+      const te = x.map((H) => {
+        const S = H.cloneNode(!0);
+        return S.style.width = "max-content", S.style.maxWidth = "none", C.appendChild(S), Math.ceil(S.getBoundingClientRect().width);
       });
-      return T.remove(), ne;
+      return C.remove(), te;
     }, p = () => {
-      const I = d.value;
-      if (!I || I.clientWidth <= 0) return;
-      const P = s(I);
-      if (!P.length) return;
-      const T = parseFloat(getComputedStyle(I).columnGap) || 0, ne = I.clientWidth, Y = [7, 4, 3, 2, 1].find((S) => f(P, S, T) <= ne + 1) || 1;
-      I.style.setProperty("--stats-columns", String(Y));
+      const N = d.value;
+      if (!N || N.clientWidth <= 0) return;
+      const x = s(N);
+      if (!x.length) return;
+      const C = parseFloat(getComputedStyle(N).columnGap) || 0, te = N.clientWidth, H = [7, 4, 3, 2, 1].find((S) => f(x, S, C) <= te + 1) || 1;
+      N.style.setProperty("--stats-columns", String(H));
     }, b = () => {
       v !== null && cancelAnimationFrame(v), v = requestAnimationFrame(() => {
         v = null, p();
@@ -1187,17 +1193,17 @@ const Zn = { class: "toast-area" }, ea = {
     };
     return Lt(() => {
       Ve(() => {
-        const I = d.value;
-        I && (o = new ResizeObserver(b), o.observe(I), m = new MutationObserver(b), m.observe(I, { childList: !0, subtree: !0, characterData: !0 }), b());
+        const N = d.value;
+        N && (o = new ResizeObserver(b), o.observe(N), m = new MutationObserver(b), m.observe(N, { childList: !0, subtree: !0, characterData: !0 }), b());
       });
     }), ye(() => {
       o?.disconnect(), m?.disconnect(), v !== null && (cancelAnimationFrame(v), v = null);
-    }), (I, P) => (u(), C("div", fo, [
+    }), (N, x) => (u(), T("div", fo, [
       i("div", go, [
         i("div", bo, [
           i("h3", null, c(e(l)(e(t).LIVE_DATA_CONTROL)), 1),
           i("span", ho, [
-            P[0] || (P[0] = i("span", { class: "live-status-dot" }, null, -1)),
+            x[0] || (x[0] = i("span", { class: "live-status-dot" }, null, -1)),
             V(" " + c(e(l)(e(t).LIVE_NOW)) + " ", 1),
             i("span", Eo, c(a.formatDuration(a.liveDuration)), 1)
           ])
@@ -1224,8 +1230,8 @@ const Zn = { class: "toast-area" }, ea = {
           ]),
           i("div", Lo, c(a.formatNumber(a.stats.onlineCount)), 1)
         ]),
-        i("div", To, [
-          i("div", Co, [
+        i("div", Co, [
+          i("div", To, [
             V(c(e(l)(e(t).COMMENT_COUNT)) + " ", 1),
             g(e(Ne), {
               content: e(l)(e(t).COMMENT_COUNT_TOOLTIP),
@@ -1326,7 +1332,7 @@ const Zn = { class: "toast-area" }, ea = {
 }, oi = { class: "pagination-pages" }, ii = ["disabled"], si = {
   key: 0,
   class: "page-ellipsis"
-}, li = ["disabled", "onClick"], ri = ["disabled"], ci = /* @__PURE__ */ se({
+}, li = ["disabled", "onClick"], ri = ["disabled"], ci = /* @__PURE__ */ le({
   __name: "ModerationCard",
   props: {
     moderationMode: {},
@@ -1356,10 +1362,10 @@ const Zn = { class: "toast-area" }, ea = {
     const { t: l } = me();
     return (d, o) => {
       const m = be("t-switch"), v = be("t-button");
-      return u(), C("div", Go, [
+      return u(), T("div", Go, [
         i("div", Wo, [
           i("div", Ko, [
-            a.moderationMode !== "custom" ? (u(), C("h3", qo, c(e(l)(e(t).CONTENT_MODERATION)), 1)) : K("", !0),
+            a.moderationMode !== "custom" ? (u(), T("h3", qo, c(e(l)(e(t).CONTENT_MODERATION)), 1)) : K("", !0),
             a.moderationMode === "custom" ? (u(), G(m, {
               key: 1,
               size: "small",
@@ -1368,7 +1374,7 @@ const Zn = { class: "toast-area" }, ea = {
               onChange: o[0] || (o[0] = (f) => a.onCustomToggleChange?.(f)),
               style: { "margin-left": "12px" }
             }, null, 8, ["value", "disabled"])) : K("", !0),
-            a.moderationMode === "custom" ? (u(), C("span", jo, c(e(l)(e(t).CUSTOM_MODERATION_TOGGLE)), 1)) : K("", !0),
+            a.moderationMode === "custom" ? (u(), T("span", jo, c(e(l)(e(t).CUSTOM_MODERATION_TOGGLE)), 1)) : K("", !0),
             g(v, {
               theme: "primary",
               shape: "round",
@@ -1489,7 +1495,7 @@ const Zn = { class: "toast-area" }, ea = {
             ]),
             _: 1
           }, 8, ["columns", "data"]),
-          a.moderationList.length > 0 ? (u(), C("div", ai, [
+          a.moderationList.length > 0 ? (u(), T("div", ai, [
             i("span", null, c(e(l)(e(t).TOTAL_ITEMS, { count: a.moderationTotal, total: a.moderationTotal })), 1),
             i("div", oi, [
               i("button", {
@@ -1500,10 +1506,10 @@ const Zn = { class: "toast-area" }, ea = {
               }, [
                 g(e(gt), { style: { transform: "rotate(90deg)", width: "14px" } })
               ], 8, ii),
-              (u(!0), C(Fe, null, tt(a.moderationPageNumbers, (f, s) => (u(), C(Fe, {
+              (u(!0), T(Fe, null, tt(a.moderationPageNumbers, (f, s) => (u(), T(Fe, {
                 key: f === "..." ? `ellipsis-${s}` : f
               }, [
-                f === "..." ? (u(), C("span", si, "...")) : (u(), C("button", {
+                f === "..." ? (u(), T("span", si, "...")) : (u(), T("button", {
                   key: 1,
                   class: cn(["page-num", { active: f === a.moderationPage }]),
                   disabled: a.disabled,
@@ -1524,7 +1530,7 @@ const Zn = { class: "toast-area" }, ea = {
       ]);
     };
   }
-}), di = /* @__PURE__ */ se({
+}), di = /* @__PURE__ */ le({
   __name: "ModerationDropdown",
   props: {
     visible: { type: Boolean },
@@ -1532,7 +1538,7 @@ const Zn = { class: "toast-area" }, ea = {
   },
   emits: ["release", "close"],
   setup(a, { emit: l }) {
-    const { t: d } = me(), o = N(null), m = a, v = l, f = (p) => {
+    const { t: d } = me(), o = I(null), m = a, v = l, f = (p) => {
       o.value && !o.value.contains(p.target) && v("close");
     };
     ve(
@@ -1547,7 +1553,7 @@ const Zn = { class: "toast-area" }, ea = {
       v("release"), v("close");
     };
     return (p, b) => (u(), G(Ze, { to: "body" }, [
-      a.visible ? (u(), C("div", {
+      a.visible ? (u(), T("div", {
         key: 0,
         ref_key: "dropdownRef",
         ref: o,
@@ -1570,7 +1576,7 @@ const Zn = { class: "toast-area" }, ea = {
   }
 });
 function ui() {
-  const a = N({
+  const a = I({
     visible: !1,
     title: "",
     content: ""
@@ -1582,7 +1588,7 @@ function ui() {
     visible: !1,
     x: 0,
     y: 0
-  }), o = N(!1), m = N(!1), v = N(""), f = N("");
+  }), o = I(!1), m = I(!1), v = I(""), f = I("");
   return {
     // 状态
     confirmDialog: a,
@@ -1602,14 +1608,14 @@ function ui() {
     hideConfirmDialog: () => {
       a.value.visible = !1;
     },
-    showModerationDropdown: (S, x, Q, X) => {
-      l.visible = !0, l.x = S, l.y = x, l.itemId = Q, l.content = X;
+    showModerationDropdown: (S, P, Z, J) => {
+      l.visible = !0, l.x = S, l.y = P, l.itemId = Z, l.content = J;
     },
     hideModerationDropdown: () => {
       l.visible = !1;
     },
-    showAudienceDropdown: (S, x, Q, X) => {
-      d.visible = !0, d.x = S, d.y = x, d.userId = Q, d.userName = X;
+    showAudienceDropdown: (S, P, Z, J) => {
+      d.visible = !0, d.x = S, d.y = P, d.userId = Z, d.userName = J;
     },
     hideAudienceDropdown: () => {
       d.visible = !1;
@@ -1626,28 +1632,28 @@ function ui() {
     }
   };
 }
-const vi = { class: "live-control-container" }, mi = { class: "live-control-viewport" }, fi = { class: "right-sidebar" }, gi = /* @__PURE__ */ se({
+const vi = { class: "live-control-container" }, mi = { class: "live-control-viewport" }, fi = { class: "right-sidebar" }, gi = /* @__PURE__ */ le({
   __name: "live-control",
   setup(a) {
-    const l = Ye("LiveControl"), d = dn(), o = un(), m = $(() => d.params.liveId), v = $(() => d.query.from === "live-list" ? "/live-list" : "/live-monitor"), f = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, { t: s } = me(), { opSuccess: p, opFailed: b } = At(s), { currentLive: I, fetchLiveDetail: P, fetchLiveStats: T, setCurrentLive: ne, endLive: Y, updateLive: S } = at(), { audienceCount: x } = je(), Q = yn().components?.liveControl, {
-      moderationMode: X,
-      customModerationToggleEnabled: Z,
-      updateCustomModerationToggleEnabled: de,
-      textModerationList: z,
-      textModerationTotal: le,
-      textModerationPageNum: ae,
+    const l = Ye("LiveControl"), d = dn(), o = un(), m = $(() => d.params.liveId), v = $(() => d.query.from === "live-list" ? "/live-list" : "/live-monitor"), f = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, { t: s } = me(), { opSuccess: p, opFailed: b } = At(s), { currentLive: N, fetchLiveDetail: x, fetchLiveStats: C, setCurrentLive: te, endLive: H, updateLive: S } = at(), { audienceCount: P } = je(), Z = yn().components?.liveControl, {
+      moderationMode: J,
+      customModerationToggleEnabled: Y,
+      updateCustomModerationToggleEnabled: ee,
+      textModerationList: Q,
+      textModerationTotal: re,
+      textModerationPageNum: oe,
       textModerationLoading: _,
       fetchTextModerationList: B,
       approveTextModerationItems: W,
       bypassCorrectionKeyword: q,
-      deleteModerationItems: oe
+      deleteModerationItems: ie
     } = pt({
       liveId: m.value,
       pageSize: qe
-    }), D = $(() => X.value === "custom"), {
+    }), D = $(() => J.value === "custom"), {
       successMsg: j,
-      errorMsg: ee
-    } = ui(), fe = N(""), M = N(""), U = N(!1), he = N(!1), Le = N(null), De = $(() => Ot() || ""), Te = N(!0), H = N(null), Ue = N(!1), ie = $(() => !H.value || Number(H.value?.activityStatus) === 2), Ge = N("chat"), ke = N(!1), Ce = N(0), Ae = N(null), Oe = N(null), k = Qe({
+      errorMsg: ne
+    } = ui(), fe = I(""), M = I(""), U = I(!1), he = I(!1), Le = I(null), De = $(() => Ot() || ""), Ce = I(!0), z = I(null), Ue = I(!1), se = $(() => !z.value || Number(z.value?.activityStatus) === 2), Ge = I("chat"), ke = I(!1), Te = I(0), Ae = I(null), Oe = I(null), k = Qe({
       onlineCount: 0,
       totalViewers: 0,
       totalMsgCount: 0,
@@ -1659,21 +1665,21 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       if (k.totalViewers <= 0) return "0%";
       const n = k.totalMsgCount / k.totalViewers * 100;
       return Math.min(n, 100).toFixed(1) + "%";
-    }), h = N(""), E = () => {
+    }), h = I(""), E = () => {
       const n = /* @__PURE__ */ new Date(), r = String(n.getHours()).padStart(2, "0"), L = String(n.getMinutes()).padStart(2, "0");
       h.value = `${r}:${L}`;
     };
     E(), ve(
-      I,
+      N,
       (n) => {
         n && (k.totalViewers = n.stats?.viewCount || k.totalViewers, k.totalMsgCount = n.stats?.commentCount || k.totalMsgCount, k.totalLikesReceived = n.stats?.likeCount || k.totalLikesReceived, k.totalGiftsSent = n.stats?.giftCount || k.totalGiftsSent, k.totalGiftCoins = n.stats?.giftAmount || k.totalGiftCoins, k.totalUniqueGiftSenders = n.stats?.giftUserCount || k.totalUniqueGiftSenders, n.onlineCount && (k.onlineCount = n.onlineCount), E());
       },
       { immediate: !0 }
     );
-    const O = N([]), J = N(1), re = _, w = N(0), F = N([]), ze = $(
+    const O = I([]), X = I(1), ce = _, w = I(0), F = I([]), ze = $(
       () => Un(w.value, qe)
     ), Rt = $(
-      () => zn(J.value, ze.value)
+      () => zn(X.value, ze.value)
     ), wt = $(() => {
       if (O.value.length === 0) return !1;
       const n = Ke(O.value.map((r) => r.id));
@@ -1685,9 +1691,9 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       type: n.type,
       createdAtMs: n.createdAtMs
     }), $e = async (n = 1) => {
-      if (!re.value && m.value)
+      if (!ce.value && m.value)
         try {
-          const r = Math.max(1, n), L = xn(I.value?.createdAt);
+          const r = Math.max(1, n), L = xn(N.value?.createdAt);
           await B({
             liveId: m.value,
             pageNum: r,
@@ -1695,28 +1701,28 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
             startTime: L,
             violationOnly: !D.value
           });
-          let R = z.value;
+          let R = Q.value;
           if (D.value) {
-            const ce = _t(R);
-            O.value = ce.map(it), w.value = le.value;
+            const de = _t(R);
+            O.value = de.map(it), w.value = re.value;
           } else {
             R = await Bn(R);
-            const ce = _t(R), we = await Pn();
-            O.value = ce.map(it), w.value = Math.max(0, le.value - we);
+            const de = _t(R), we = await Pn();
+            O.value = de.map(it), w.value = Math.max(0, re.value - we);
           }
-          J.value = r, F.value = Ke(
+          X.value = r, F.value = Ke(
             F.value.filter(
-              (ce) => R.some((we) => we.id === ce)
+              (de) => R.some((we) => we.id === de)
             )
           );
         } catch (r) {
-          const L = te(r).info || r?.message || s(t.UNKNOWN_ERROR);
-          l.error("moderation", `load failed (ErrorCode: ${te(r).code || "N/A"}):`, r), A.error(`【${s(t.REFRESH)}${s(t.CONTENT_MODERATION)}】${s(t.OPERATION_FAILED, { error: L })}`);
+          const L = ae(r).info || r?.message || s(t.UNKNOWN_ERROR);
+          l.error("moderation", `load failed (ErrorCode: ${ae(r).code || "N/A"}):`, r), A.error(`【${s(t.REFRESH)}${s(t.CONTENT_MODERATION)}】${s(t.OPERATION_FAILED, { error: L })}`);
         }
     }, st = async (n = !1) => {
-      ie.value || (await $e(J.value), n || A.success(p(t.REFRESH)));
+      se.value || (await $e(X.value), n || A.success(p(t.REFRESH)));
     }, Dt = (n) => {
-      n !== "..." && (n < 1 || n > ze.value || n === J.value || $e(n));
+      n !== "..." && (n < 1 || n > ze.value || n === X.value || $e(n));
     }, xe = async (n) => {
       F.value = F.value.filter(
         (L) => !n.includes(L)
@@ -1724,7 +1730,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
         (L) => !n.includes(L.id)
       ), w.value = Math.max(0, w.value - n.length);
       const r = Vn(
-        J.value,
+        X.value,
         w.value,
         n.length,
         qe
@@ -1742,7 +1748,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
         n.forEach((R) => L.add(R)), F.value = Array.from(L);
       }
     }, $t = (n) => {
-      if (ie.value) {
+      if (se.value) {
         A.warning(s(t.LIVE_ENDED));
         return;
       }
@@ -1754,13 +1760,13 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
             liveId: m.value
           }), We("success", p(t.RELEASE_AND_RESEND)), await xe([n.id]);
         } catch (r) {
-          const L = te(r).info || r?.message || s(t.UNKNOWN_ERROR);
-          l.error("moderation", `release failed (ErrorCode: ${te(r).code || "N/A"}):`, r), A.error(`【${s(t.RELEASE_AND_RESEND)}】${s(t.OPERATION_FAILED, { error: L })}`);
+          const L = ae(r).info || r?.message || s(t.UNKNOWN_ERROR);
+          l.error("moderation", `release failed (ErrorCode: ${ae(r).code || "N/A"}):`, r), A.error(`【${s(t.RELEASE_AND_RESEND)}】${s(t.OPERATION_FAILED, { error: L })}`);
         } finally {
           U.value = !1;
         }
       }, U.value = !0;
-    }, pe = N(null), lt = () => {
+    }, pe = I(null), lt = () => {
       pe.value = null;
     }, xt = (n, r) => {
       n.stopPropagation();
@@ -1771,18 +1777,18 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
         y: L.bottom + 4
       };
     }, Bt = async (n) => {
-      if (ie.value) {
+      if (se.value) {
         A.warning(s(t.LIVE_ENDED));
         return;
       }
       try {
-        await oe([n.id]), A.info(p(t.DELETE)), await xe([n.id]);
+        await ie([n.id]), A.info(p(t.DELETE)), await xe([n.id]);
       } catch (r) {
-        const L = te(r).info || r?.message || s(t.UNKNOWN_ERROR);
-        l.error("moderation", `delete failed (ErrorCode: ${te(r).code || "N/A"}):`, r), A.error(`【${s(t.DELETE)}${s(t.CONTENT_MODERATION)}】${s(t.OPERATION_FAILED, { error: L })}`);
+        const L = ae(r).info || r?.message || s(t.UNKNOWN_ERROR);
+        l.error("moderation", `delete failed (ErrorCode: ${ae(r).code || "N/A"}):`, r), A.error(`【${s(t.DELETE)}${s(t.CONTENT_MODERATION)}】${s(t.OPERATION_FAILED, { error: L })}`);
       }
     }, Pt = (n) => {
-      if (ie.value) {
+      if (se.value) {
         A.warning(s(t.LIVE_ENDED));
         return;
       }
@@ -1793,8 +1799,8 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
             liveId: m.value
           }), We("success", p(t.BYPASS_CORRECTION)), await xe([n.id]);
         } catch (r) {
-          const L = te(r).info || r?.message || s(t.UNKNOWN_ERROR);
-          l.error("moderation", `bypass correction keyword failed (ErrorCode: ${te(r).code || "N/A"}):`, r), A.error(`【${s(t.BYPASS_CORRECTION)}】${s(t.OPERATION_FAILED, { error: L })}`);
+          const L = ae(r).info || r?.message || s(t.UNKNOWN_ERROR);
+          l.error("moderation", `bypass correction keyword failed (ErrorCode: ${ae(r).code || "N/A"}):`, r), A.error(`【${s(t.BYPASS_CORRECTION)}】${s(t.OPERATION_FAILED, { error: L })}`);
         } finally {
           U.value = !1;
         }
@@ -1824,7 +1830,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
         onClick: (L) => xt(L, n)
       }), r;
     }, Gt = () => {
-      if (ie.value) {
+      if (se.value) {
         A.warning(s(t.LIVE_ENDED));
         return;
       }
@@ -1834,7 +1840,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       }
       Ie.requestConfirm();
     }, Wt = async () => {
-      if (ie.value) {
+      if (se.value) {
         A.warning(s(t.LIVE_ENDED));
         return;
       }
@@ -1844,14 +1850,14 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       }
       const n = [...F.value];
       try {
-        await oe(n), A.info(p(t.DELETE)), await xe(n);
+        await ie(n), A.info(p(t.DELETE)), await xe(n);
       } catch (r) {
-        const L = te(r).info || r?.message || s(t.UNKNOWN_ERROR);
-        l.error("moderation", `bulk delete failed (ErrorCode: ${te(r).code || "N/A"}):`, r), A.error(`【${s(t.BULK_DELETE)}${s(t.CONTENT_MODERATION)}】${s(t.OPERATION_FAILED, { error: L })}`);
+        const L = ae(r).info || r?.message || s(t.UNKNOWN_ERROR);
+        l.error("moderation", `bulk delete failed (ErrorCode: ${ae(r).code || "N/A"}):`, r), A.error(`【${s(t.BULK_DELETE)}${s(t.CONTENT_MODERATION)}】${s(t.OPERATION_FAILED, { error: L })}`);
       }
     };
     ve(
-      [m, () => I.value?.createdAt],
+      [m, () => N.value?.createdAt],
       ([n, r]) => {
         n && r != null && $e(1);
       },
@@ -1863,11 +1869,11 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       { label: s(t.ONE_MINUTE), value: 60 },
       { label: s(t.FIVE_MINUTES), value: 300 }
     ]);
-    const Kt = N(30), { confirmDialog: Be, requestConfirm: qt, cancelConfirm: rt, executeWithConfirm: jt, loading: ct } = Je({
+    const Kt = I(30), { confirmDialog: Be, requestConfirm: qt, cancelConfirm: rt, executeWithConfirm: jt, loading: ct } = Je({
       operationName: s(t.SEND_VIOLATION_WARNING),
       action: async () => {
         if (!m.value) throw new Error("liveId is required");
-        const n = H.value?.liveName || m.value;
+        const n = z.value?.liveName || m.value;
         await Fn(m.value, {
           violationType: s(t.VIOLATION_TYPE_WARNING),
           violationContent: s(t.VIOLATION_WARNING_CONTENT_TEMPLATE, { liveName: n }),
@@ -1882,7 +1888,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       errorMessage: b(t.OP_SEND),
       showSuccess: !0
     }), Ht = () => {
-      if (ie.value) {
+      if (se.value) {
         A.warning(s(t.LIVE_ENDED));
         return;
       }
@@ -1890,8 +1896,8 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
     }, Ee = Je({
       operationName: s(t.FORCE_STOP),
       action: async () => {
-        if (!H.value) throw new Error("liveInfo is null");
-        return Y(H.value.id || H.value.liveId);
+        if (!z.value) throw new Error("liveInfo is null");
+        return H(z.value.id || z.value.liveId);
       },
       confirm: {
         title: s(t.CONFIRM_ACTION_TITLE, { action: s(t.FORCE_STOP) }),
@@ -1904,7 +1910,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
     }), Ie = Je({
       operationName: s(t.BULK_APPROVE),
       action: async () => {
-        const n = O.value.filter((R) => F.value.includes(R.id)).sort((R, ce) => R.createdAtMs - ce.createdAtMs), r = n.map((R) => R.id), L = n.map((R) => ({ id: R.id, content: R.content, userId: R.userId }));
+        const n = O.value.filter((R) => F.value.includes(R.id)).sort((R, de) => R.createdAtMs - de.createdAtMs), r = n.map((R) => R.id), L = n.map((R) => ({ id: R.id, content: R.content, userId: R.userId }));
         await W({ ids: r, items: L, liveId: m.value });
       },
       confirm: {
@@ -1924,39 +1930,39 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
     }, Jt = $(() => Ee.confirmDialog.value ? Ee.loading.value : Ie.confirmDialog.value ? Ie.loading.value : !1);
     let ue = null, _e = null;
     const Qt = $(
-      () => I.value?.liveOwner?.userId || H.value?.anchor.userId || ""
+      () => N.value?.liveOwner?.userId || z.value?.anchor.userId || ""
     ), Xt = $(
       () => Oe.value?.nick || Et(
-        I.value?.liveOwner,
-        H.value?.anchor.nick || s(t.UNKNOWN_HOST)
+        N.value?.liveOwner,
+        z.value?.anchor.nick || s(t.UNKNOWN_HOST)
       )
     ), Zt = $(
-      () => Oe.value?.avatarUrl || It(I.value?.liveOwner) || H.value?.anchor.avatarUrl
+      () => Oe.value?.avatarUrl || It(N.value?.liveOwner) || z.value?.anchor.avatarUrl
     ), en = $(() => ({
-      liveInfo: H.value,
+      liveInfo: z.value,
       liveAnchorAvatar: Zt.value,
       liveAnchorName: Xt.value,
-      currentLive: I.value,
+      currentLive: N.value,
       isMockMode: f,
-      liveControlSlots: Q,
+      liveControlSlots: Z,
       handleLeaveLive: dt
     })), tn = $(() => ({
       liveId: m.value,
-      disabled: ie.value,
+      disabled: se.value,
       currentUserId: De.value,
       anchorUserId: Qt.value,
-      currentLive: I.value,
+      currentLive: N.value,
       roomJoined: ke.value
     })), We = (n, r) => {
-      n === "success" ? (j.value = r, setTimeout(() => j.value = "", 3e3)) : (ee.value = r, setTimeout(() => ee.value = "", 3e3));
+      n === "success" ? (j.value = r, setTimeout(() => j.value = "", 3e3)) : (ne.value = r, setTimeout(() => ne.value = "", 3e3));
     }, nn = (n) => n >= 1e4 ? (n / 1e4).toFixed(1) + "w" : n.toLocaleString(), an = (n) => {
       n < 0 && (n = 0);
-      const r = Math.floor(n / 86400), L = Math.floor(n % 86400 / 3600), R = Math.floor(n % 3600 / 60), ce = n % 60, we = `${L.toString().padStart(2, "0")}:${R.toString().padStart(2, "0")}:${ce.toString().padStart(2, "0")}`;
+      const r = Math.floor(n / 86400), L = Math.floor(n % 86400 / 3600), R = Math.floor(n % 3600 / 60), de = n % 60, we = `${L.toString().padStart(2, "0")}:${R.toString().padStart(2, "0")}:${de.toString().padStart(2, "0")}`;
       return r > 0 ? `${r}${s(t.DAYS)} ${we}` : we;
     }, dt = () => {
       o.push(v.value);
     }, on = () => {
-      if (ie.value) {
+      if (se.value) {
         A.warning(s(t.LIVE_ENDED));
         return;
       }
@@ -1964,7 +1970,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
     }, sn = async () => {
       if (console.log("[LiveControl][fetchRoomInfo] start, liveId:", m.value), !!m.value)
         try {
-          const n = await P(m.value);
+          const n = await x(m.value);
           if (console.log("[LiveControl][fetchRoomInfo] fetchLiveDetail result:", n ? "exists" : "null"), n) {
             const r = Et(n, n.anchor?.userId || "-"), L = It(n);
             if (n.anchor ? Oe.value = {
@@ -1973,7 +1979,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
             } : Oe.value = {
               nick: r,
               avatarUrl: L
-            }, H.value = {
+            }, z.value = {
               id: n.liveId,
               title: n.liveName || s(t.UNNAMED_LIVE_SHORT),
               coverUrl: n.coverUrl || An,
@@ -2001,71 +2007,71 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
             else {
               const R = n.createdAt && n.createdAt > 1e9 ? n.createdAt * 1e3 : null;
               if (Ae.value = R, R) {
-                const ce = Math.floor((Date.now() - R) / 1e3);
-                Ce.value = ce > 0 ? ce : 0;
+                const de = Math.floor((Date.now() - R) / 1e3);
+                Te.value = de > 0 ? de : 0;
               }
             }
           } else
-            Te.value = !1;
+            Ce.value = !1;
         } catch (n) {
-          l.error("fetchRoomInfo", `获取直播信息失败 (ErrorCode: ${te(n).code || "N/A"})`, n);
+          l.error("fetchRoomInfo", `获取直播信息失败 (ErrorCode: ${ae(n).code || "N/A"})`, n);
           const r = n instanceof Error ? n : new Error(String(n));
           r.message?.includes("network") || r.message?.includes("fetch") ? We("error", s(t.NETWORK_ERROR)) : We("error", b(t.OP_REQUEST));
         } finally {
-          Te.value = !1;
+          Ce.value = !1;
         }
     }, ut = async () => {
-      if (!(!m.value || !I.value))
+      if (!(!m.value || !N.value))
         try {
-          const n = await T();
+          const n = await C();
           n && (k.totalViewers = n.viewCount || 0, k.totalMsgCount = n.commentCount || 0, k.totalLikesReceived = n.likeCount || 0, k.totalGiftsSent = n.giftCount || 0, k.totalGiftCoins = n.giftAmount || 0, k.totalUniqueGiftSenders = n.giftUserCount || 0, E());
         } catch (n) {
           const r = n instanceof Error ? n : new Error(String(n));
-          l.error("获取统计数据失败", `(ErrorCode: ${te(n).code || "N/A"}) ${r.message || ""}`, r);
+          l.error("获取统计数据失败", `(ErrorCode: ${ae(n).code || "N/A"}) ${r.message || ""}`, r);
         }
     }, ln = () => {
-      ue && (clearInterval(ue), ue = null), _e && (clearInterval(_e), _e = null), H.value && (H.value = { ...H.value, activityStatus: 2 }), ne(null), Ue.value = !0;
+      ue && (clearInterval(ue), ue = null), _e && (clearInterval(_e), _e = null), z.value && (z.value = { ...z.value, activityStatus: 2 }), te(null), Ue.value = !0;
     };
     return ve(
       m,
       (n) => {
-        n && (ke.value = !1, sn(), ut(), I.value?.createdAt != null && $e(1));
+        n && (ke.value = !1, sn(), ut(), N.value?.createdAt != null && $e(1));
       },
       { immediate: !0 }
-    ), ve([() => Ae.value, ie], ([n, r]) => {
+    ), ve([() => Ae.value, se], ([n, r]) => {
       ue && (clearInterval(ue), ue = null), n && n > 1e12 && !r && (ue = window.setInterval(() => {
         const L = Math.floor((Date.now() - n) / 1e3);
-        Ce.value = L > 0 ? L : 0;
+        Te.value = L > 0 ? L : 0;
       }, 1e3));
     }, { immediate: !0 }), ve(
-      [Kt, ie, m, Z, D],
-      ([n, r, L, R, ce]) => {
+      [Kt, se, m, Y, D],
+      ([n, r, L, R, de]) => {
         _e && (clearInterval(_e), _e = null), n > 0 && L && !r && (_e = window.setInterval(() => {
-          ut(), ce && !R || st(!0);
+          ut(), de && !R || st(!0);
         }, n * 1e3));
       },
       { immediate: !0 }
-    ), ve(x, (n) => {
+    ), ve(P, (n) => {
       k.onlineCount = n;
     }), ye(() => {
       m.value && l.info("LiveControl", "Component unmounting, liveId:", m.value), ue && clearInterval(ue), _e && clearInterval(_e);
     }), (n, r) => {
       const L = be("t-dialog");
-      return u(), C("div", vi, [
+      return u(), T("div", vi, [
         g(e(na), {
           "success-msg": e(j),
-          "error-msg": e(ee)
+          "error-msg": e(ne)
         }, null, 8, ["success-msg", "error-msg"]),
         g(e(sa), {
           "handle-leave-live": dt,
           "handle-violation-warning": Ht,
           "handle-force-stop-live": on,
-          disabled: ie.value
+          disabled: se.value
         }, null, 8, ["disabled"]),
         i("main", mi, [
           g(e(mo), {
             "live-id": m.value,
-            "current-live": e(I),
+            "current-live": e(N),
             "is-mock-mode": e(f),
             "live-ended-overlay-visible": Ue.value,
             "current-user-id": De.value,
@@ -2079,31 +2085,31 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
           i("aside", fi, [
             g(e(Vo), {
               stats: k,
-              "live-duration": Ce.value,
+              "live-duration": Te.value,
               "update-time-text": h.value,
               "interaction-rate": ge.value,
               "format-number": nn,
               "format-duration": an
             }, null, 8, ["stats", "live-duration", "update-time-text", "interaction-rate"]),
-            g(Tt, {
-              "slot-component": e(Q)?.customControlPanel,
-              "slot-props": { liveInfo: H.value, stats: k }
+            g(Ct, {
+              "slot-component": e(Z)?.customControlPanel,
+              "slot-props": { liveInfo: z.value, stats: k }
             }, null, 8, ["slot-component", "slot-props"]),
             g(e(ci), {
-              "moderation-mode": e(X),
+              "moderation-mode": e(J),
               "moderation-list": O.value,
-              "moderation-loading": e(re),
-              "moderation-page": J.value,
+              "moderation-loading": e(ce),
+              "moderation-page": X.value,
               "moderation-total": w.value,
               "moderation-total-pages": ze.value,
               "moderation-page-numbers": Rt.value,
               "moderation-selected-ids": F.value,
               "moderation-columns": St.value,
               "is-all-on-page-selected": wt.value,
-              "custom-moderation-toggle-enabled": e(Z),
-              "on-custom-toggle-change": e(de),
+              "custom-moderation-toggle-enabled": e(Y),
+              "on-custom-toggle-change": e(ee),
               "update-time-text": h.value,
-              disabled: ie.value,
+              disabled: se.value,
               "handle-bulk-approve": Gt,
               "handle-bulk-delete": Wt,
               "handle-refresh-moderation": st,
@@ -2181,7 +2187,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       ]);
     };
   }
-}), ki = /* @__PURE__ */ Xn(gi, [["__scopeId", "data-v-403d58e3"]]);
+}), Ui = /* @__PURE__ */ Xn(gi, [["__scopeId", "data-v-403d58e3"]]);
 export {
-  ki as default
+  Ui as default
 };

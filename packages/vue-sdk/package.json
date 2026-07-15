@@ -21,12 +21,13 @@
   "dependencies": {
     "trtc-sdk-v5": "^5.17.1",
     "axios": ">=1.0.0",
-    "@tencentcloud/uikit-base-component-vue3": ">=1.4.0",
+    "@tencentcloud/uikit-base-component-vue3": ">=1.4.6",
     "vue": ">=3.0.0",
     "vue-router": ">=4.0.0",
     "tdesign-icons-vue-next": ">=0.3.6",
     "tdesign-vue-next": ">=1.13.1",
-    "tuikit-atomicx-vue3": ">=6.2.5",
+    "tuikit-atomicx-vue3": ">=6.4.0",
+    "@tencentcloud/tuiroom-engine-js": "4.2.1",
     "livekit-manager-customization": "file:../customization"
   },
   "sideEffects": [

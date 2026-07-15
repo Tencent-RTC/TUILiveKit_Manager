@@ -62,10 +62,6 @@ export interface UseRiskControlStateReturn {
     mutedList: MutedMember[];
     /** 封禁列表（与 fetchTextModerationList 命名对齐） */
     bannedList: BannedMember[];
-    /** 成员操作加载状态 */
-    memberLoading: boolean;
-    /** 成员操作错误 */
-    memberError: Error | null;
     /** 获取禁言列表（与 fetchTextModerationList 命名对齐） */
     fetchMutedList(): Promise<MutedMember[]>;
     /** 获取封禁列表（与 fetchTextModerationList 命名对齐） */

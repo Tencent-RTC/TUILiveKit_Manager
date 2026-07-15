@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "tuikit-live-manager-sdk-vue": "file:../vue-sdk",
-    "@tencentcloud/uikit-base-component-vue3": "1.4.4",
-    "@tencentcloud/uikit-base-widget-vue3": "1.1.1",
+    "@tencentcloud/uikit-base-component-vue3": "1.4.6",
+    "@tencentcloud/uikit-base-widget-vue3": "1.1.3",
     "axios": "^1.13.2",
     "tdesign-icons-vue-next": "0.3.6",
     "tdesign-vue-next": "1.13.1",

@@ -77,10 +77,6 @@ export interface UseRiskControlStateReturn {
     mutedList: Ref<MutedMember[]>;
     /** 封禁列表 */
     bannedList: Ref<BannedMember[]>;
-    /** 成员操作加载状态 */
-    memberLoading: Ref<boolean>;
-    /** 成员操作错误 */
-    memberError: Ref<Error | null>;
     /** 获取禁言列表 */
     fetchMutedList(): Promise<MutedMember[]>;
     /** 获取封禁列表 */

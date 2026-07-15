@@ -1,12 +1,11 @@
 export { initAegis, getAegis, setAegisUin, updateUinFromSdkAppId, enableAutoUpdateUin, disableAutoUpdateUin, isAegisInited, Aegis } from './aegis';
 export type { AegisConfig } from './aegis';
-export { reportEvent, reportTime, reportBusinessOp, reportPageView, measureAndReport, reportAppInit, reportCapability, reportFeatureUse, setReportPlatform } from './rum-reporter';
+export { reportEvent, reportTime, reportBusinessOp, reportPageView, measureAndReport, reportAppInit, reportCapability, reportFeatureUse, setReportPlatform, resetReportedCaches } from './rum-reporter';
 export type { CapabilityType, FeatureKey } from './rum-reporter';
 export { logger, Logger, createLogger, setGlobalLogLevel, getGlobalLogLevel } from './utils/logger';
 export type { LogLevel, LoggerConfig } from './utils/logger';
 export { LiveManagerError, apiError } from './error';
 export * from './types';
-export { defineCustomerExtension, } from 'livekit-manager-customization';
 export type { AppMenu, AppRoute, BrandConfig, ComponentSlots, CustomerExtensionV1, FeatureFlags, MenuExtension, RouteExtension, RuntimeConfig, } from 'livekit-manager-customization';
 export { I18N, type I18nKey } from './i18n';
 export { bindI18nHelpers } from './i18n';

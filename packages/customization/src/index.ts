@@ -104,7 +104,7 @@ export interface RuntimeConfig {
 }
 
 export interface CustomerExtensionV1<TComponent = unknown> {
-  version: CustomerExtensionProtocolVersion;
+  version?: CustomerExtensionProtocolVersion;
   brand?: BrandConfig;
   menus?: MenuExtension;
   routes?: RouteExtension<TComponent>;
@@ -122,16 +122,6 @@ export interface ResolvedCustomerConfig<TComponent = unknown> {
   features: Required<FeatureFlags>;
   runtime: RuntimeConfig;
 }
-
-export function defineCustomerExtension<TComponent = unknown>(
-  extension: CustomerExtensionV1<TComponent>,
-): CustomerExtensionV1<TComponent> {
-  if (extension.version !== '1') {
-    throw new Error(`Unsupported customer extension version: ${extension.version}`);
-  }
-  return extension;
-}
-
 export function resolveBrandConfig(defaultBrand: BrandConfig, extension?: BrandConfig): BrandConfig {
   return {
     ...defaultBrand,

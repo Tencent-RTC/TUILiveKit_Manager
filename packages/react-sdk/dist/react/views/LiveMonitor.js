@@ -1,20 +1,19 @@
 import { jsxs as m, jsx as t, Fragment as Ve } from "react/jsx-runtime";
-import { I as n, h as Fe, a7 as Ne, ad as Ue, ab as xe, aa as ke, a as ge, b as Ge, r as X, _ as Le, S as $e, H as We, U as He } from "../../chunks/layout.C1lzYH2h.js";
-import { useMemo as fe, useRef as y, useEffect as x, useState as C, useCallback as f } from "react";
-import { useNavigate as ze } from "react-router-dom";
+import { I as n, l as Fe, ax as Ne, aD as xe, aB as Ue, aA as ke, g as fe, c as ge, b as Ge, x as X, an as Le, ab as $e, V as We, ac as ze } from "../../chunks/layout.Br-W54NR.js";
+import { useMemo as pe, useRef as y, useEffect as U, useState as _, useCallback as f } from "react";
+import { useNavigate as He } from "react-router-dom";
 import { useUIKit as le } from "@tencentcloud/uikit-base-component-react";
 import { SearchIcon as Ke, RefreshIcon as Be, FullscreenIcon as Se, NotificationIcon as qe, StopCircleIcon as Ye } from "tdesign-icons-react";
 import { Input as je, Button as Z, Dialog as Me } from "tdesign-react";
-import { useLiveMonitorState as pe, usePaginatedList as Xe, subscribeToPagination as Je, useConfirmAction as Ze } from "../../react.js";
+import { useLiveMonitorState as Ie, usePaginatedList as Xe, subscribeToPagination as Je, useConfirmAction as Ze } from "../../react.js";
 import { c as Qe } from "../../chunks/config.BhtXZwQl.js";
-import { c as Ie } from "../../chunks/logger.rNWqpx5t.js";
-import { g as te, P as ne, bD as er, bE as rr, E as ce, s as _e, p as tr, d as nr, t as ar, f as or, c6 as ir, bN as sr, bJ as cr, bF as lr, bG as dr } from "../../chunks/main-layout.QTEHh38b.js";
-import { M as j } from "../../chunks/useAsyncAction.BxAgRz5E.js";
+import { g as te, P as ne, bD as er, bE as rr, E as ce, s as Ce, p as tr, d as nr, t as ar, f as or, c6 as ir, bN as sr, bJ as cr, bF as lr, bG as dr } from "../../chunks/main-layout.1w0vpJq1.js";
+import { M as j } from "../../chunks/useAsyncAction.CJQgktvN.js";
 import { c as ur } from "../../chunks/mock.Bnui3Fqh.js";
-import { M as vr } from "../../chunks/MonitorPagination.BJWz_Xv1.js";
-import { A as hr } from "../../chunks/AnchorAvatar.Cpzva6Ua.js";
-import { S as gr } from "../../chunks/SlotRenderer.oN7HTB7W.js";
-import { s as fr, V as pr, A as Ir } from "../../chunks/adaptive-tags-runtime.BIBVwV0n.js";
+import { M as vr } from "../../chunks/MonitorPagination.DJ-uhGYM.js";
+import { A as hr } from "../../chunks/AnchorAvatar.DPu0Iep0.js";
+import { S as gr } from "../../chunks/SlotRenderer.CuSOZ-rh.js";
+import { s as fr, V as pr, A as Ir } from "../../chunks/adaptive-tags-runtime.DK-QkIB_.js";
 const mr = ({
   searchInput: e,
   onSearchInputChange: o,
@@ -73,12 +72,12 @@ const mr = ({
   onMouseEnter: R,
   onMouseLeave: k,
   onClickDetails: v,
-  onViolationWarning: A,
+  onViolationWarning: P,
   onCloseLive: a,
   onTagHover: N
 }) => {
-  const { t: s } = le(), { startPlay: d, stopPlay: L } = pe(), S = Fe().components?.liveMonitor, G = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, K = e.avatarUrl?.trim() || "", F = p?.avatarUrl || e.anchor?.avatarUrl || K || er(e), b = p?.nick || e.anchor?.nick || rr(e, s(n.UNKNOWN_HOST)), B = e.stats?.viewCount ?? 0, $ = fe(() => `live_monitor_view_${e.liveId}`, [e.liveId]), q = y(""), D = y(0), E = y(null);
-  return x(() => {
+  const { t: s } = le(), { startPlay: d, stopPlay: L } = Ie(), S = Fe().components?.liveMonitor, G = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, K = e.avatarUrl?.trim() || "", F = p?.avatarUrl || e.anchor?.avatarUrl || K || er(e), b = p?.nick || e.anchor?.nick || rr(e, s(n.UNKNOWN_HOST)), B = e.stats?.viewCount ?? 0, $ = pe(() => `live_monitor_view_${e.liveId}`, [e.liveId]), q = y(""), D = y(0), E = y(null);
+  return U(() => {
     const i = e.liveId;
     if (!i) return;
     const W = ++D.current;
@@ -91,19 +90,19 @@ const mr = ({
         }
       try {
         if (await d({ liveId: i, containerId: $ }), M || D.current !== W) {
-          L(i).catch((_) => {
-            console.warn("[LiveCard] Failed to stop play during unmount:", _);
+          L(i).catch((C) => {
+            console.warn("[LiveCard] Failed to stop play during unmount:", C);
           });
           return;
         }
         q.current = i;
-      } catch (_) {
-        !M && D.current === W && (_ === ce.LOGIN_TIMEOUT || _ === ce.USER_SIG_ILLEGAL) && (xe(), ke(), localStorage.removeItem("tuiLiveMonitor-userInfo"), window.location.href = "#/config-required");
+      } catch (C) {
+        !M && D.current === W && (C === ce.LOGIN_TIMEOUT || C === ce.USER_SIG_ILLEGAL) && (Ue(), ke(), localStorage.removeItem("tuiLiveMonitor-userInfo"), window.location.href = "#/config-required");
       }
     })(), () => {
       M = !0, D.current += 1;
-      const _ = q.current || i;
-      q.current === _ && (q.current = ""), E.current = L(_), E.current.catch(() => {
+      const C = q.current || i;
+      q.current === C && (q.current = ""), E.current = L(C), E.current.catch(() => {
       });
     };
   }, [e.liveId, $, d, L]), /* @__PURE__ */ m(
@@ -119,7 +118,7 @@ const mr = ({
             {
               className: "live-video-bg",
               style: {
-                backgroundImage: `url(${G ? Ne : e.backgroundUrl || e.coverUrl || Ue})`
+                backgroundImage: `url(${G ? Ne : e.backgroundUrl || e.coverUrl || xe})`
               }
             }
           ),
@@ -241,7 +240,7 @@ const mr = ({
               theme: "warning",
               icon: /* @__PURE__ */ t(qe, { size: 16 }),
               onClick: (i) => {
-                i.stopPropagation(), A();
+                i.stopPropagation(), P();
               },
               children: /* @__PURE__ */ t("span", { className: "button-text", children: s(n.VIOLATION_WARNING) })
             }
@@ -265,18 +264,18 @@ const mr = ({
     },
     e.liveId
   );
-}, se = Ie("LiveMonitorData"), Lr = () => {
-  const e = pe(), o = Xe(), { t: u } = le(), { opSuccess: T, opFailed: p } = ge(u), [I, l] = C(o.currentPage), [R, k] = C(o.hasMore), [v, A] = C(o.loading), [a, N] = C(o.pageData);
-  x(() => {
+}, se = fe("LiveMonitorData"), Lr = () => {
+  const e = Ie(), o = Xe(), { t: u } = le(), { opSuccess: T, opFailed: p } = ge(u), [I, l] = _(o.currentPage), [R, k] = _(o.hasMore), [v, P] = _(o.loading), [a, N] = _(o.pageData);
+  U(() => {
     const c = Je((h) => {
-      l(h.currentPage), k(h.hasMoreData), A(h.loading), N([...h.list]);
+      l(h.currentPage), k(h.hasMoreData), P(h.loading), N([...h.list]);
     });
     return () => {
       c(), $.next();
     };
   }, []);
-  const s = a.length > 0, [d, L] = C(/* @__PURE__ */ new Map()), S = y(!1), G = y(/* @__PURE__ */ new Map());
-  G.current = fe(() => {
+  const s = a.length > 0, [d, L] = _(/* @__PURE__ */ new Map()), S = y(!1), G = y(/* @__PURE__ */ new Map());
+  G.current = pe(() => {
     const c = /* @__PURE__ */ new Map();
     return c.set(I, a), c;
   }, [I, a]);
@@ -285,9 +284,9 @@ const mr = ({
   const F = y(), b = y(d);
   b.current = d;
   const B = y();
-  B.current || (B.current = _e());
+  B.current || (B.current = Ce());
   const $ = B.current;
-  F.current || (F.current = _e(), tr(
+  F.current || (F.current = Ce(), tr(
     F.current,
     ir((c) => c.length > 0),
     fr((c) => or(Ge(c))),
@@ -295,29 +294,29 @@ const mr = ({
     nr(
       (c) => {
         L((h) => {
-          const O = new Map(h);
-          return c.forEach((U, V) => {
-            O.set(V, U);
-          }), O;
+          const A = new Map(h);
+          return c.forEach((x, V) => {
+            A.set(V, x);
+          }), A;
         });
       },
       (c) => {
         se.error("useLiveMonitorData", "Fastrx profile fetch failed:", c);
       }
     )
-  )), x(() => {
+  )), U(() => {
     if (a.length === 0) return;
-    const c = a.map((O) => O.anchor?.userId || "").filter(Boolean);
+    const c = a.map((A) => A.anchor?.userId || "").filter(Boolean);
     if (c.length === 0) return;
-    const h = c.filter((O) => !b.current.has(O));
+    const h = c.filter((A) => !b.current.has(A));
     h.length !== 0 && F.current?.next(h);
   }, [a, d, S]);
-  const [q, D] = C(!1), [E, i] = C(!1), [W, M] = C(!1), [Q, _] = C(""), [de, Y] = C(null), H = y(!1), ee = y(0), ue = f(async (c, h, O) => {
+  const [q, D] = _(!1), [E, i] = _(!1), [W, M] = _(!1), [Q, C] = _(""), [de, Y] = _(null), z = y(!1), ee = y(0), ue = f(async (c, h, A) => {
     if (!o.loading)
       try {
-        !h && O <= 1 && c > 1 ? await o.prevPage() : await o.refreshCurrentPage();
-      } catch (U) {
-        se.error("closeLiveSuccess 翻页失败", `(ErrorCode: ${X(U).code || "N/A"})`, U);
+        !h && A <= 1 && c > 1 ? await o.prevPage() : await o.refreshCurrentPage();
+      } catch (x) {
+        se.error("closeLiveSuccess 翻页失败", `(ErrorCode: ${X(x).code || "N/A"})`, x);
       }
   }, [o]), ve = f(async (c) => {
     if (o.loading) return;
@@ -326,31 +325,31 @@ const mr = ({
       h && te(h) > ne && j.error(u(n.INPUT_TOO_LONG));
       return;
     }
-    const O = h;
+    const A = h;
     D(!0);
-    const U = ++ee.current;
+    const x = ++ee.current;
     try {
-      const V = await e.fetchLiveDetail(O);
-      if (S.current || ee.current !== U)
+      const V = await e.fetchLiveDetail(A);
+      if (S.current || ee.current !== x)
         return;
       if (!V) {
-        j.error(u(n.NO_SEARCH_RESULTS_FOR, { keyword: h })), _(""), M(!1), H.current = !1, Y(null), await o.goToFirstPage();
+        j.error(u(n.NO_SEARCH_RESULTS_FOR, { keyword: h })), C(""), M(!1), z.current = !1, Y(null), await o.goToFirstPage();
         return;
       }
-      M(!0), H.current = !0, Y([V]), j.success(T(n.OP_SEARCH, n.LIVE));
+      M(!0), z.current = !0, Y([V]), j.success(T(n.OP_SEARCH, n.LIVE));
     } catch (V) {
       if (se.error("搜索直播间失败", `(ErrorCode: ${X(V).code || "N/A"})`, V), V === ce.LOGIN_TIMEOUT || V === ce.USER_SIG_ILLEGAL) {
         localStorage.removeItem("tuiLiveMonitor-userInfo"), window.location.href = "#/config-required";
         return;
       }
-      j.error(u(n.NO_SEARCH_RESULTS_FOR, { keyword: h })), _(""), M(!1), H.current = !1, Y(null), await o.goToFirstPage();
+      j.error(u(n.NO_SEARCH_RESULTS_FOR, { keyword: h })), C(""), M(!1), z.current = !1, Y(null), await o.goToFirstPage();
     } finally {
       S.current || D(!1);
     }
   }, [e, S, o, u]), he = f(async () => {
     if (o.loading) return;
-    const c = H.current;
-    if (_(""), M(!1), H.current = !1, Y(null), !!c)
+    const c = z.current;
+    if (C(""), M(!1), z.current = !1, Y(null), !!c)
       try {
         await o.goToFirstPage();
       } catch {
@@ -359,7 +358,7 @@ const mr = ({
     if (!(E || o.loading)) {
       i(!0);
       try {
-        W && (M(!1), H.current = !1, _("")), await o.refreshCurrentPage(), j.success(T(n.REFRESH));
+        W && (M(!1), z.current = !1, C("")), await o.refreshCurrentPage(), j.success(T(n.REFRESH));
       } catch (c) {
         se.error("刷新失败", `(ErrorCode: ${X(c).code || "N/A"})`, c);
         const { info: h } = X(c);
@@ -391,8 +390,8 @@ const mr = ({
     isSearchMode: W,
     searchInput: Q,
     searchResults: de,
-    isSearchModeRef: H,
-    setSearchInput: _,
+    isSearchModeRef: z,
+    setSearchInput: C,
     setIsSearchMode: M,
     setSearchResults: Y,
     handleSearch: ve,
@@ -403,8 +402,8 @@ const mr = ({
     // —— 封禁后翻页 ——
     handleCloseLiveSuccess: ue
   };
-}, Mr = 8, _r = Ie("ViolationLabels"), Cr = (e) => {
-  const { pageSize: o, isSearchModeRef: u, isUnmountedRef: T } = e, [p, I] = C(/* @__PURE__ */ new Map()), l = y(null);
+}, Mr = 8, Cr = fe("ViolationLabels"), _r = (e) => {
+  const { pageSize: o, isSearchModeRef: u, isUnmountedRef: T } = e, [p, I] = _(/* @__PURE__ */ new Map()), l = y(null);
   l.current || (l.current = new pr({
     pageSize: o,
     getTimeRange: () => {
@@ -425,9 +424,9 @@ const mr = ({
       });
     },
     onError: (a) => {
-      _r.warn("LiveMonitor", "获取直播违规标签失败:", a);
+      Cr.warn("LiveMonitor", "获取直播违规标签失败:", a);
     }
-  }), l.current.ensureStarted()), x(() => () => {
+  }), l.current.ensureStarted()), U(() => () => {
     l.current?.stop();
   }, []);
   const R = f(async (a, N, s) => {
@@ -440,18 +439,18 @@ const mr = ({
       for (const d of s || [])
         d && !N.includes(d) && N.push(d);
     return N;
-  }, []), A = f((a) => v(
+  }, []), P = f((a) => v(
     p.get(a.liveId)
   ), [v, p]);
   return {
     liveViolationLabelMap: p,
     loadLiveViolationLabelsForPage: R,
     clearLiveViolationRefreshTimer: k,
-    getLiveDisplayTags: A
+    getLiveDisplayTags: P
   };
 };
 function Sr(e, o) {
-  const u = y(null), [, T] = C(0);
+  const u = y(null), [, T] = _(0);
   u.current || (u.current = new Ir({
     containerSelector: ".live-monitor-grid",
     t: o
@@ -459,11 +458,11 @@ function Sr(e, o) {
   const p = f(() => {
     T((v) => v + 1);
   }, []), I = f((v) => {
-    const A = u.current, a = A.getResult(v);
+    const P = u.current, a = P.getResult(v);
     if (!a.visibleCount && !a.showMore && a.idMaxWidth === "calc(100% - 12px)") {
       const s = e()?.find((d) => d.liveId === v);
       s && setTimeout(() => {
-        A.compute(v, s), p();
+        P.compute(v, s), p();
       }, 0);
     }
     return a;
@@ -476,7 +475,7 @@ function Sr(e, o) {
   }, []), k = f((v) => {
     u.current?.initForList(v), p();
   }, [p]);
-  return x(() => () => {
+  return U(() => () => {
     u.current?.disconnect(), u.current = null;
   }, []), {
     getAdaptiveResult: I,
@@ -485,16 +484,16 @@ function Sr(e, o) {
     initAdaptiveTags: k
   };
 }
-const P = Ie("LiveMonitor");
-let z = null, re = null, Ce = null;
-const Wr = () => {
-  const { t: e } = le(), o = ze(), { init: u, stopPlay: T, endLive: p } = pe(), {
+const O = fe("LiveMonitor");
+let H = null, re = null, _e = null;
+const $r = () => {
+  const { t: e } = le(), o = He(), { init: u, stopPlay: T, endLive: p } = Ie(), {
     currentPage: I,
     hasMoreData: l,
     loading: R,
     hasLiveData: k,
     pageData: v,
-    isUnmountedRef: A,
+    isUnmountedRef: P,
     paginatedList: a,
     userProfileMap: N,
     // 搜索相关
@@ -510,7 +509,7 @@ const Wr = () => {
     handleRefresh: B,
     // 封禁后翻页
     handleCloseLiveSuccess: $
-  } = Lr(), [q, D] = C(!1), [E, i] = C({ visible: !1, liveId: "", liveName: "", closing: !1 }), W = y({ liveId: "", liveName: "" }), { confirmDialog: M, requestConfirm: Q, cancelConfirm: _, executeWithConfirm: de, loading: Y } = Ze({
+  } = Lr(), [q, D] = _(!1), [E, i] = _({ visible: !1, liveId: "", liveName: "", closing: !1 }), W = y({ liveId: "", liveName: "" }), { confirmDialog: M, requestConfirm: Q, cancelConfirm: C, executeWithConfirm: de, loading: Y } = Ze({
     operationName: e(n.SEND_VIOLATION_WARNING),
     action: async () => {
       const { liveId: r, liveName: g } = W.current;
@@ -528,7 +527,7 @@ const Wr = () => {
       confirmText: e(n.CONFIRM)
     },
     errorMessage: ge(e).opFailed(n.OP_SEND)
-  }), [H, ee] = C(null), [ue, ve] = C(null), {
+  }), [z, ee] = _(null), [ue, ve] = _(null), {
     getAdaptiveResult: he,
     initResizeObserver: ae,
     cleanupResizeObserver: c,
@@ -540,14 +539,14 @@ const Wr = () => {
     })),
     e
   ), {
-    liveViolationLabelMap: O,
-    loadLiveViolationLabelsForPage: U,
+    liveViolationLabelMap: A,
+    loadLiveViolationLabelsForPage: x,
     clearLiveViolationRefreshTimer: V,
     getLiveDisplayTags: oe
-  } = Cr({
+  } = _r({
     pageSize: Mr,
     isSearchModeRef: S,
-    isUnmountedRef: A
+    isUnmountedRef: P
   }), Ee = (r) => {
     G(String(r));
   }, Te = f(async () => {
@@ -555,43 +554,43 @@ const Wr = () => {
       try {
         await a.prevPage();
       } catch (r) {
-        P.error("prevPage 失败", `(ErrorCode: ${X(r).code || "N/A"})`, r);
+        O.error("prevPage 失败", `(ErrorCode: ${X(r).code || "N/A"})`, r);
       }
   }, [a]), Re = f(async () => {
     if (!a.loading)
       try {
         await a.nextPage();
       } catch (r) {
-        P.error("nextPage 失败", `(ErrorCode: ${X(r).code || "N/A"})`, r);
+        O.error("nextPage 失败", `(ErrorCode: ${X(r).code || "N/A"})`, r);
       }
   }, [a]), ye = f(async () => {
     if (!a.loading)
       try {
         await a.goToFirstPage();
       } catch (r) {
-        P.error("goToFirstPage 失败", `(ErrorCode: ${X(r).code || "N/A"})`, r);
+        O.error("goToFirstPage 失败", `(ErrorCode: ${X(r).code || "N/A"})`, r);
       }
   }, [a]);
-  x(() => {
-    R || v.length === 0 || U(v, I, 0);
-  }, [v, I, R, U]), x(() => (ae(), () => {
+  U(() => {
+    R || v.length === 0 || x(v, I, 0);
+  }, [v, I, R, x]), U(() => (ae(), () => {
     c();
   }), [ae, c]);
-  const Oe = f((r, g) => {
+  const Ae = f((r, g) => {
     i({ visible: !0, liveId: r, liveName: g, closing: !1 });
-  }, []), Pe = f(async () => {
+  }, []), Oe = f(async () => {
     const { liveId: r } = E;
     if (r) {
       i((g) => ({ ...g, closing: !0 }));
       try {
         await T(r), await p(r), i({ visible: !1, liveId: "", liveName: "", closing: !1 }), j.success(ge(e).opSuccess(n.FORCE_STOP, n.LIVE)), await $(I, l, v.length);
       } catch (g) {
-        P.error("封禁直播失败", `(ErrorCode: ${X(g).code || "N/A"})`, g), i((w) => ({ ...w, closing: !1 }));
+        O.error("封禁直播失败", `(ErrorCode: ${X(g).code || "N/A"})`, g), i((w) => ({ ...w, closing: !1 }));
       }
     }
   }, [E, T, p, $, I, l, v.length, e]), me = f(() => {
     i({ visible: !1, liveId: "", liveName: "", closing: !1 });
-  }, []), Ae = f((r, g) => {
+  }, []), Pe = f((r, g) => {
     W.current = { liveId: r, liveName: g }, Q();
   }, [Q]), we = f((r) => {
     try {
@@ -603,25 +602,25 @@ const Wr = () => {
     } catch {
     }
     o(`/live-control/${r}`, { state: { from: "live-monitor" } });
-  }, [a, o]), be = fe(
+  }, [a, o]), be = pe(
     () => s && L ? L : v,
     [s, L, v]
   ), De = s ? L && L.length > 0 : k;
-  return x(() => {
-    O.size !== 0 && h(
+  return U(() => {
+    A.size !== 0 && h(
       v.map((r) => ({
         liveId: r.liveId,
         tags: oe(r)
       }))
     );
-  }, [O, v, oe, h]), x(() => {
+  }, [A, v, oe, h]), U(() => {
     (async () => {
       try {
         const g = typeof window < "u" && window.__IDENTITY_MODE__ === "admin" ? "admin" : "audience";
-        z || (z = await $e() ?? null, z && z.sdkAppId !== 0 && !We() && (He({ userId: z.userId, userSig: z.userSig, sdkAppId: z.sdkAppId, configured: !0 }), P.info("LiveMonitor", "Admin account saved to auth-store:", z.userId))), (Ce !== g || !re) && (Ce = g, g === "admin" ? re = z : (re = await lr("audience") ?? null, P.info("LiveMonitor", "Room entry account created (not saved to auth-store):", re?.userId)));
+        H || (H = await $e() ?? null, H && H.sdkAppId !== 0 && !We() && (ze({ userId: H.userId, userSig: H.userSig, sdkAppId: H.sdkAppId, configured: !0 }), O.info("LiveMonitor", "Admin account saved to auth-store:", H.userId))), (_e !== g || !re) && (_e = g, g === "admin" ? re = H : (re = await lr("audience") ?? null, O.info("LiveMonitor", "Room entry account created (not saved to auth-store):", re?.userId)));
         const w = re;
         if (w && w.sdkAppId !== 0) {
-          P.info("LiveMonitor", "Initializing SDK with account:", w.userId), Qe({
+          O.info("LiveMonitor", "Initializing SDK with account:", w.userId), Qe({
             baseURL: "http://localhost:9000/api",
             authToken: w.userSig
           });
@@ -629,17 +628,17 @@ const Wr = () => {
           u({
             baseURL: "http://localhost:9000/api",
             playerFactory: ie ? ur() : void 0
-          }), P.info("LiveMonitor", "SDK initialized, mock mode:", ie);
+          }), O.info("LiveMonitor", "SDK initialized, mock mode:", ie);
           const J = dr();
-          J.pageToLoad > 1 ? (P.info("LiveMonitor", "Restoring pagination state, page:", J.pageToLoad), await a.goToPage(J.pageToLoad, J.pageCursors), P.info("LiveMonitor", "Pagination state restored to page", J.pageToLoad)) : (await a.goToFirstPage(), P.info("LiveMonitor", "goToFirstPage done")), D(!0);
+          J.pageToLoad > 1 ? (O.info("LiveMonitor", "Restoring pagination state, page:", J.pageToLoad), await a.goToPage(J.pageToLoad, J.pageCursors), O.info("LiveMonitor", "Pagination state restored to page", J.pageToLoad)) : (await a.goToFirstPage(), O.info("LiveMonitor", "goToFirstPage done")), D(!0);
         } else
-          P.error("LiveMonitor", "No valid credentials found"), D(!0);
+          O.error("LiveMonitor", "No valid credentials found"), D(!0);
       } catch (g) {
-        P.error("LiveMonitor", "SDK init error:", g), D(!0);
+        O.error("LiveMonitor", "SDK init error:", g), D(!0);
       }
     })();
-  }, []), x(() => (A.current = !1, () => {
-    A.current = !0, V();
+  }, []), U(() => (P.current = !1, () => {
+    P.current = !0, V();
   }), []), /* @__PURE__ */ m("div", { className: "live-monitor-page", children: [
     /* @__PURE__ */ t(
       mr,
@@ -661,7 +660,7 @@ const Wr = () => {
         Nr,
         {
           item: r,
-          hoveredCardId: H,
+          hoveredCardId: z,
           hoveredTagId: ue,
           isMuted: !!r.isMuted,
           userProfile: ie,
@@ -670,8 +669,8 @@ const Wr = () => {
           onMouseEnter: () => ee(r.liveId),
           onMouseLeave: () => ee(null),
           onClickDetails: () => we(r.liveId),
-          onViolationWarning: () => Ae(r.liveId, r.liveName || e(n.UNNAMED_LIVE)),
-          onCloseLive: () => Oe(r.liveId, r.liveName || e(n.UNNAMED_LIVE)),
+          onViolationWarning: () => Pe(r.liveId, r.liveName || e(n.UNNAMED_LIVE)),
+          onCloseLive: () => Ae(r.liveId, r.liveName || e(n.UNNAMED_LIVE)),
           onTagHover: (J) => ve(J)
         },
         `${I}:${r.liveId}`
@@ -705,7 +704,7 @@ const Wr = () => {
             {
               shape: "round",
               theme: "primary",
-              onClick: Pe,
+              onClick: Oe,
               disabled: E.closing,
               children: E.closing ? e(n.CLOSING) : e(n.CONFIRM_BAN_LIVE)
             }
@@ -721,13 +720,13 @@ const Wr = () => {
         header: M.title,
         width: Le.CONFIRM,
         confirmBtn: /* @__PURE__ */ t(Z, { shape: "round", loading: Y, onClick: () => de(), children: M.confirmText ?? e(n.CONFIRM) }),
-        cancelBtn: /* @__PURE__ */ t(Z, { variant: "outline", shape: "round", disabled: Y, onClick: _, children: e(n.CANCEL) }),
-        onClose: _,
+        cancelBtn: /* @__PURE__ */ t(Z, { variant: "outline", shape: "round", disabled: Y, onClick: C, children: e(n.CANCEL) }),
+        onClose: C,
         children: /* @__PURE__ */ t("p", { children: M.content })
       }
     )
   ] });
 };
 export {
-  Wr as default
+  $r as default
 };

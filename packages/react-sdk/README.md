@@ -48,8 +48,6 @@ TUILiveKit Manager React SDK offers two development modes for different scenario
   <div style="margin-top:8px;background:#fff;border-radius:8px;border:1px solid #e0e6ed;padding:12px 16px;text-align:center;font-size:12px;color:#666;">
     <span style="font-weight:600;color:#333;margin-right:8px;">Config &amp; Customize:</span>
     <span style="background:#f3f3f3;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;">configureLiveManager</span>
-    <span style="background:#f3f3f3;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;">mountLiveManager</span>
-    <span style="background:#f3f3f3;padding:4px 10px;border-radius:4px;margin:0 4px;font-weight:500;">defineCustomerExtension</span>
   </div>
 </div>
 
@@ -70,22 +68,10 @@ See [Activate TUILiveKit Services](https://cloud.tencent.com/document/product/64
 
 ### Step 2: Install Dependencies
 
-Install the SDK and its peer dependencies in your React project:
-
-| Package | Min Version | Description |
-|------|---------|------|
-| `react` | >=18.0.0 | React framework |
-| `react-dom` | >=18.0.0 | React DOM |
-| `react-router-dom` | >=7.0.0 | React Router |
-| `tdesign-react` | >=1.12.0 | TDesign component library |
-| `tdesign-icons-react` | >=0.5.0 | TDesign icons |
-| `tuikit-atomicx-react` | >=6.1.2-beta.1 | TUILiveKit base components |
-| `@tencentcloud/uikit-base-component-react` | >=1.4.0 | Base UI components |
-| `axios` | >=1.0.0 | HTTP client |
+Install the SDK in your React project. With pnpm, peer dependencies are auto-installed:
 
 ```bash
 pnpm add tuikit-live-manager-sdk-react
-pnpm add react react-dom react-router-dom tdesign-react tdesign-icons-react tuikit-atomicx-react @tencentcloud/uikit-base-component-react axios
 ```
 
 ---
@@ -102,7 +88,6 @@ Create `live-manager.ts`:
 import { configureLiveManager } from 'tuikit-live-manager-sdk-react';
 
 const config = configureLiveManager({
-  version: '1',
   brand: { app: { title: 'Live Manager' } },
   menus: {
     liveMonitor: { enabled: true },
@@ -114,26 +99,7 @@ const config = configureLiveManager({
 export default config;
 ```
 
-### Option A: mountLiveManager
-
-Embed a management module into an existing page:
-
-```tsx
-import { mountLiveManager } from 'tuikit-live-manager-sdk-react';
-
-const instance = await mountLiveManager({
-  container: document.getElementById('app')!,
-  module: 'live-monitor',
-  framework: 'react',
-  runtime: {
-    apiBaseUrl: 'http://localhost:9000/api',
-    language: 'zh-CN',
-  },
-});
-// instance.unmount();
-```
-
-### Option B: Direct Component Usage
+### Option A: Direct Component Usage
 
 Use in a React project that already has the SDK as a dependency:
 
@@ -300,8 +266,6 @@ const {
   unbanMember,                    // Unban a member
   mutedList,                      // Muted members list
   bannedList,                     // Banned members list
-  memberLoading,                  // Member operation loading
-  memberError,                    // Member operation error
 
   // Chat management
   sendViolationWarning,           // Send violation warning
@@ -340,20 +304,19 @@ Available for use alongside the three core Hooks:
 
 ### Branding & Menus
 
-Both modes support customization via `defineCustomerExtension`:
+Both modes support customization via `CustomerExtensionV1` config:
 
 ```ts
-import { defineCustomerExtension } from 'tuikit-live-manager-sdk-react';
+import type { CustomerExtensionV1 } from 'tuikit-live-manager-sdk-react';
 
-export default defineCustomerExtension({
-  version: '1',
+export default {
   brand: { app: { title: 'My Live Manager', logo: '/assets/my-logo.png' } },
   menus: {
     liveMonitor: { enabled: true, label: 'Live Monitor' },
     roomList: { enabled: true, label: 'Room Management' },
     giftConfig: { enabled: true, label: 'Gift Configuration' },
   },
-});
+} satisfies CustomerExtensionV1;
 ```
 
 ### Component Slots (With-UI Mode)
@@ -379,7 +342,7 @@ Inject custom components at key positions in pre-built pages:
 
 ```ts
 interface CustomerExtensionV1<TComponent = unknown> {
-  version: '1';
+  version?: '1';
   brand?: BrandConfig;
   menus?: MenuExtension;
   routes?: RouteExtension<TComponent>;
@@ -393,25 +356,6 @@ function configureLiveManager<TComponent = unknown>(
 ): LiveManagerAppConfig<TComponent>
 ```
 
-### `mountLiveManager(options)`
-
-```ts
-interface LiveManagerMountOptions {
-  container: HTMLElement | string;
-  module: 'room-list' | 'live-monitor' | 'room-control' | 'gift-config' | 'risk-control';
-  framework?: 'react' | 'vue';
-  runtime?: { apiBaseUrl?: string; authToken?: string; language?: 'zh-CN' | 'en-US'; ... };
-  extension?: unknown;
-  props?: Record<string, unknown>;
-}
-```
-
-### `preloadLiveManager(options?)`
-
-```ts
-await preloadLiveManager({ framework: 'react', module: 'live-monitor' });
-```
-
 ---
 
 ## FAQ
@@ -422,7 +366,7 @@ Yes. For example, use `useLiveMonitorState()` for a custom page while mounting `
 
 ### How do I customize the title and logo?
 
-Set `title` and `logo` in `configureLiveManager` or `defineCustomerExtension`'s `brand.app`.
+Set `title` and `logo` in `configureLiveManager`'s `brand.app`.
 
 ### What languages are supported?
 

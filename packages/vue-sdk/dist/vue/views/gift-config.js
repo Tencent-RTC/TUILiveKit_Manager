@@ -3,15 +3,14 @@ import { useRouter as vt } from "vue-router";
 import { SearchIcon as Et, AdjustmentIcon as It, EditIcon as Ce, CopyIcon as Tt } from "tdesign-icons-vue-next";
 import { MessagePlugin as E } from "tdesign-vue-next";
 import { useUIKit as Ct, i18next as he } from "@tencentcloud/uikit-base-component-vue3";
-import { c as ht } from "../../chunks/logger.rNWqpx5t.js";
-import { h as bt, I as l, u as be, a as Nt } from "../../chunks/layout.C1lzYH2h.js";
-import { F as At, bj as Ne, z as Ae, aQ as Gt, b0 as Lt, a_ as oe, b1 as yt, g, x as F, y as I, v as T, w as Y, b as Rt, a as j, aa as Ot } from "../../chunks/main-layout.QTEHh38b.js";
-import { b as Ut, f as Ft, e as Dt } from "../../chunks/upload.BK_WDSwt.js";
-import { g as Mt } from "../../chunks/columns.C2TAPr0y.js";
-import { u as St, a as ne } from "../../chunks/useAsyncAction.TZaXlZ4q.js";
-import { I as Ge } from "../../chunks/ImageUpload.CirRFGMi.js";
+import { g as ht, l as bt, I as l, A as be, c as Nt } from "../../chunks/layout.Br-W54NR.js";
+import { F as At, bj as Ne, z as Ae, aQ as Gt, b0 as Lt, a_ as oe, b1 as yt, g, x as F, y as I, v as T, w as Y, b as Rt, a as j, aa as Ot } from "../../chunks/main-layout.1w0vpJq1.js";
+import { b as Ut, f as Ft, e as Dt } from "../../chunks/upload.C-_mha0d.js";
+import { g as Mt } from "../../chunks/columns.CfpW-l5l.js";
+import { u as St, a as ne } from "../../chunks/useAsyncAction.E1F28vKl.js";
+import { I as Ge } from "../../chunks/ImageUpload.BxAXq2fo.js";
 import { _ as xt, a as Le } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
-import { _ as ie } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.DX4aj1kg.js";
+import { _ as ie } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.B6xJ0SA2.js";
 /* empty css                                */
 const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-header" }, Pt = { class: "gift-config-title" }, Bt = { class: "gift-config-actions" }, wt = { class: "gift-search-input" }, Yt = { class: "gift-id" }, Xt = { class: "gift-id-text" }, Ht = { class: "gift-thumbnail" }, $t = ["src", "alt"], zt = { key: 1 }, qt = ["onClick"], jt = { class: "gift-lang-tags" }, Jt = ["onClick"], Wt = {
   key: 1,
@@ -34,7 +33,7 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
 }, ul = { class: "gift-category-edit-tags" }, gl = ["onClick"], fl = { class: "gift-category-add-wrapper" }, ml = { class: "category-select-list" }, pl = {
   key: 0,
   class: "category-select-empty"
-}, _l = { class: "category-select-footer" }, X = 0, J = 2147483647, k = 0, P = 99, Ml = /* @__PURE__ */ ut({
+}, _l = { class: "category-select-footer" }, X = 0, J = 2147483647, k = 0, P = 99, Dl = /* @__PURE__ */ ut({
   __name: "gift-config",
   setup(vl) {
     const ye = ht("GiftConfig"), Re = vt(), W = bt().components?.giftConfig, Oe = Mt(), { t } = Ct(), G = St(), u = new At({
@@ -963,5 +962,5 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
   }
 });
 export {
-  Ml as default
+  Dl as default
 };
