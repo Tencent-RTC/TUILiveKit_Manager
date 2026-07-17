@@ -5,7 +5,7 @@
  * useRiskControlState 是 SDK 对外暴露的风控入口，直接调用 API；
  * UI 层可以直接使用，也可以在 View/composable 层包一层 UI 状态。
  */
-import { type Ref } from 'vue';
+import { type Ref } from '../vue';
 import type { MuteMemberParams, BanMemberParams, MemberAccountsParam } from '../types/live';
 import type { GetModerationListParams, PaginatedModerationList, ModerationType, TextModerationItem } from '../types/interaction';
 import type { MutedMember, BannedMember } from '../common/member-management-actions';

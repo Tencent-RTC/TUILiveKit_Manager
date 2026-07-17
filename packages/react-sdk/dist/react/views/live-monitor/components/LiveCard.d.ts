@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../../../react';
 import type { AdaptiveTagResult } from '../../../../common';
 import type { MonitorLiveInfo } from '../../../../types/live';
 import type { UserPortraitProfile } from '../../../../types/live';

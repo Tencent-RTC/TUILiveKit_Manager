@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../react';
 import { type MessageListProps } from '../../common';
 import '../../common/style/message-list.css';
 import '../../common/components/user-action-dropdown/user-action-dropdown.css';

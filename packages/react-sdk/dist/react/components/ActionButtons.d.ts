@@ -1,4 +1,4 @@
-import type { MouseEvent, ReactNode } from 'react';
+import type { MouseEvent, ReactNode } from '../../react';
 import '../../common/style/action-buttons.css';
 export interface ActionButtonItem {
     key: string;
@@ -15,5 +15,5 @@ interface ActionButtonsProps {
     className?: string;
     disabled?: boolean;
 }
-export default function ActionButtons({ actions, className, disabled }: ActionButtonsProps): import("react").JSX.Element;
+export default function ActionButtons({ actions, className, disabled }: ActionButtonsProps): import("../../react").JSX.Element;
 export {};

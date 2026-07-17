@@ -21,5 +21,5 @@ interface LiveControlLeftPanelProps {
  *
  * 注意：成员管理/禁言/封禁/全员禁言逻辑已下沉到 InteractionPanel
  */
-export default function LiveControlLeftPanel({ liveControlSlots, liveInfo, liveId, initialIsLiveEnded, activeTab, onActiveTabChange, onLiveEnded, t, }: LiveControlLeftPanelProps): import("react").JSX.Element;
+export default function LiveControlLeftPanel({ liveControlSlots, liveInfo, liveId, initialIsLiveEnded, activeTab, onActiveTabChange, onLiveEnded, t, }: LiveControlLeftPanelProps): import("../../../react").JSX.Element;
 export {};

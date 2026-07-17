@@ -1,7 +1,7 @@
 /**
  * 审核列表组件
  */
-import React from 'react';
+import React from '../../../react';
 import type { TextModerationItem } from './types';
 interface ModerationCardProps {
     /** 审核模式：cloud | custom */

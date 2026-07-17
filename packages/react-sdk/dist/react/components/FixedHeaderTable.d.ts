@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from '../../react';
 import '../../common/style/fixed-header-table.css';
 export interface FixedHeaderTableColumn<T> {
     key: string;
@@ -41,5 +41,5 @@ interface FixedHeaderTableProps<T> {
     /** 自动计算宽度时最多测量多少行，避免大列表产生性能问题 */
     fitContentMaxRows?: number;
 }
-declare function FixedHeaderTable<T>({ columns, data, rowKey, className, tableClassName, headerClassName, bodyClassName, rowClassName, loading, loadingNode, emptyNode, bodyStyle, fitContent, fitContentMaxRows, }: FixedHeaderTableProps<T>): import("react").JSX.Element;
+declare function FixedHeaderTable<T>({ columns, data, rowKey, className, tableClassName, headerClassName, bodyClassName, rowClassName, loading, loadingNode, emptyNode, bodyStyle, fitContent, fitContentMaxRows, }: FixedHeaderTableProps<T>): import("../../react").JSX.Element;
 export default FixedHeaderTable;

@@ -6,4 +6,4 @@ interface AnchorAvatarProps {
     src?: string;
     title?: string;
 }
-export default function AnchorAvatar({ className, name, src, title, }: AnchorAvatarProps): import("react").JSX.Element;
+export default function AnchorAvatar({ className, name, src, title, }: AnchorAvatarProps): import("../../react").JSX.Element;

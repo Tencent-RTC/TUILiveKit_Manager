@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../react';
 import './FormField.css';
 interface FormFieldProps {
     label?: React.ReactNode;

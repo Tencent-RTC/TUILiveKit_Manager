@@ -20,5 +20,5 @@ interface GiftCategoryEditDialogProps {
     onClose: () => void;
     onCloseDeleteDialog: () => void;
 }
-export default function GiftCategoryEditDialog({ visible, editingCategoryGift, giftCategoryIds, allCategories, availableCategories, selectedCategoryId, categoryAddPopVisible, categoryDeleteVisible, deletingCategoryId, categoryAddLoading, categoryRemoveLoading, onRemoveCategory, onAddCategoryConfirm, onSelectCategory, onToggleAddPop, onConfirmRemoveCategory, onClose, onCloseDeleteDialog, }: GiftCategoryEditDialogProps): import("react").JSX.Element;
+export default function GiftCategoryEditDialog({ visible, editingCategoryGift, giftCategoryIds, allCategories, availableCategories, selectedCategoryId, categoryAddPopVisible, categoryDeleteVisible, deletingCategoryId, categoryAddLoading, categoryRemoveLoading, onRemoveCategory, onAddCategoryConfirm, onSelectCategory, onToggleAddPop, onConfirmRemoveCategory, onClose, onCloseDeleteDialog, }: GiftCategoryEditDialogProps): import("../../../react").JSX.Element;
 export {};

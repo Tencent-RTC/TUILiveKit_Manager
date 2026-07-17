@@ -1,4 +1,4 @@
-import type { ElementType } from 'react';
+import type { ElementType } from '../../react';
 import type { MonitorLiveInfo, UpdateLiveParams } from '../../types/live';
 import './EditLiveModal.css';
 interface EditLiveModalProps {
@@ -14,5 +14,5 @@ interface EditLiveModalProps {
     onUpdate: (liveId: string, params: UpdateLiveParams) => Promise<any>;
     onFetchDetail: (liveId: string) => Promise<any>;
 }
-export default function EditLiveModal({ visible, live, onClose, onSuccess, uploadEnabled, extraFieldsSlot, onUpdate, onFetchDetail }: EditLiveModalProps): import("react").JSX.Element | null;
+export default function EditLiveModal({ visible, live, onClose, onSuccess, uploadEnabled, extraFieldsSlot, onUpdate, onFetchDetail }: EditLiveModalProps): import("../../react").JSX.Element | null;
 export {};

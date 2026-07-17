@@ -27,7 +27,7 @@ export interface UseSvgaPlayerOptions {
  */
 export declare function useSvgaPlayer(options?: UseSvgaPlayerOptions): {
     /** Container ref (attach to div) */
-    containerRef: import("react").RefObject<HTMLDivElement>;
+    containerRef: import("../../react").RefObject<HTMLDivElement>;
     /** Play SVGA from URL */
     playUrl: (url: string) => Promise<void>;
     /** Play SVGA from File/Blob */

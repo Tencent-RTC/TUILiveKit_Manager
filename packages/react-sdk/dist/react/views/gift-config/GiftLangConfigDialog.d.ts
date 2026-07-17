@@ -7,5 +7,5 @@ interface GiftLangConfigDialogProps {
     onEditLang: (giftId: string, lang: LangKey) => void;
     onClearLang: (giftId: string, lang: LangKey) => void;
 }
-export default function GiftLangConfigDialog({ visible, editingId, giftLangConfig, onClose, onEditLang, onClearLang, }: GiftLangConfigDialogProps): import("react").JSX.Element;
+export default function GiftLangConfigDialog({ visible, editingId, giftLangConfig, onClose, onEditLang, onClearLang, }: GiftLangConfigDialogProps): import("../../../react").JSX.Element;
 export {};

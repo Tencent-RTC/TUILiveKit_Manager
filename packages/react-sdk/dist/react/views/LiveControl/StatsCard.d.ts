@@ -1,7 +1,7 @@
 /**
  * 数据看板组件
  */
-import React from 'react';
+import React from '../../../react';
 import type { MonitorLiveInfo } from '../../../common/types';
 interface StatsCardProps {
     liveInfo: MonitorLiveInfo | null;

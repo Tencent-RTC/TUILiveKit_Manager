@@ -10,5 +10,5 @@ interface GiftLangEditDialogProps {
     onSave: () => void;
     onClose: () => void;
 }
-export default function GiftLangEditDialog({ visible, editingGiftForLang, editingLang, langEditForm, saving, onFormChange, onSave, onClose, }: GiftLangEditDialogProps): import("react").JSX.Element;
+export default function GiftLangEditDialog({ visible, editingGiftForLang, editingLang, langEditForm, saving, onFormChange, onSave, onClose, }: GiftLangEditDialogProps): import("../../../react").JSX.Element;
 export {};

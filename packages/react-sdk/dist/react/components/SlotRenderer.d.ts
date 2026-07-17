@@ -1,5 +1,5 @@
-import React from 'react';
-import type { ComponentType, ElementType, ReactElement, ReactNode } from 'react';
+import React from '../../react';
+import type { ComponentType, ElementType, ReactElement, ReactNode } from '../../react';
 export type ReactSlotComponent<P extends Record<string, unknown> = Record<string, unknown>> = ComponentType<P> | ElementType | ReactElement | null | undefined;
 interface SlotRendererProps<P extends Record<string, unknown> = Record<string, unknown>> {
     slot?: ReactSlotComponent<P>;

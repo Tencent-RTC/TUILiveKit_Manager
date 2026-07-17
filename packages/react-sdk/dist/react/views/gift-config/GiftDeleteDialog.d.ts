@@ -6,5 +6,5 @@ interface GiftDeleteDialogProps {
     onConfirm: () => void;
     onClose: () => void;
 }
-export default function GiftDeleteDialog({ visible, deletingItem, loading, onConfirm, onClose, }: GiftDeleteDialogProps): import("react").JSX.Element;
+export default function GiftDeleteDialog({ visible, deletingItem, loading, onConfirm, onClose, }: GiftDeleteDialogProps): import("../../../react").JSX.Element;
 export {};

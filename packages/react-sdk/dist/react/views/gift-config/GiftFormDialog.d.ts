@@ -10,5 +10,5 @@ interface GiftFormDialogProps {
     onSubmitGift: (payload: SubmitGiftPayload) => Promise<void>;
     onClose: () => void;
 }
-export default function GiftFormDialog({ visible, isEdit, editingId, formData, uploadEnabled, onFormDataChange, onSubmitGift, onClose, }: GiftFormDialogProps): import("react").JSX.Element;
+export default function GiftFormDialog({ visible, isEdit, editingId, formData, uploadEnabled, onFormDataChange, onSubmitGift, onClose, }: GiftFormDialogProps): import("../../../react").JSX.Element;
 export {};

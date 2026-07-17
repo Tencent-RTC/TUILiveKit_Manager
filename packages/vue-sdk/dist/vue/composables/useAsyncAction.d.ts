@@ -1,4 +1,4 @@
-import { type Ref } from 'vue';
+import { type Ref } from '../../vue';
 import type { I18nKey } from '../../common/i18n';
 export interface UseAsyncActionOptions<T = any> {
     /**

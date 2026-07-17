@@ -1,4 +1,4 @@
-import type { ElementType } from 'react';
+import type { ElementType } from '../../react';
 import type { CreateLiveParams, MonitorLiveInfo } from '../../types/live';
 import './CreateLiveModal.css';
 interface CreateLiveModalProps {
@@ -9,5 +9,5 @@ interface CreateLiveModalProps {
     extraFieldsSlot?: ElementType;
     onCreate: (params: CreateLiveParams) => Promise<MonitorLiveInfo>;
 }
-export default function CreateLiveModal({ visible, onClose, onSuccess, uploadEnabled, extraFieldsSlot, onCreate: onCreate }: CreateLiveModalProps): import("react").JSX.Element;
+export default function CreateLiveModal({ visible, onClose, onSuccess, uploadEnabled, extraFieldsSlot, onCreate: onCreate }: CreateLiveModalProps): import("../../react").JSX.Element;
 export {};

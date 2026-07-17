@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../../react';
 import type { BaseUserActionDropdownProps } from '../../../common/components/user-action-dropdown';
 export interface UserActionDropdownProps extends BaseUserActionDropdownProps {
     onVisibleChange?: (visible: boolean) => void;

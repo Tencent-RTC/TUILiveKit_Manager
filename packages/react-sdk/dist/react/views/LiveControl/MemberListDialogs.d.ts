@@ -1,7 +1,7 @@
 /**
  * 成员列表对话框组件
  */
-import React from 'react';
+import React from '../../../react';
 import type { MutedMember, BannedMember } from './types';
 interface MemberListDialogsProps {
     mutedModalVisible: boolean;

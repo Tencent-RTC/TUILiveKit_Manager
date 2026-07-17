@@ -14,5 +14,5 @@ interface InteractionPanelProps {
  * 2. 调用 useMemberManagement 获取核心数据能力
  * 3. 渲染确认弹窗、禁言/封禁列表、观众下拉菜单
  */
-export default function InteractionPanel({ liveId, activeTab, onActiveTabChange, disabled, currentUserId, roomJoined, }: InteractionPanelProps): import("react").JSX.Element;
+export default function InteractionPanel({ liveId, activeTab, onActiveTabChange, disabled, currentUserId, roomJoined, }: InteractionPanelProps): import("../../../react").JSX.Element;
 export {};

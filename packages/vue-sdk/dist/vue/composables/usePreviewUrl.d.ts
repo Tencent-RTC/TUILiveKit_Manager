@@ -19,7 +19,7 @@
  */
 export declare function usePreviewUrl(): {
     /** Current preview URL (empty string if none) */
-    previewUrl: import("vue").Ref<string, string>;
+    previewUrl: import("../../vue").Ref<string, string>;
     /** Set preview from File/Blob (or null to clear) */
     setPreview: (file: File | Blob | null) => void;
     /** Clear preview URL */
