@@ -245,7 +245,7 @@ rumApiRouter.post('/events', asyncHandler(async (req, res) => {
 // GET /api/rum/debug/events/:sdkAppId — 调试端点：按 SDKAppID 查询所有自定义事件
 rumApiRouter.get('/debug/events/:sdkAppId', asyncHandler(async (req, res) => {
   const { sdkAppId } = req.params;
-  const { start, end, id, type = 'ext3' } = req.query;
+  const { start, end, id, type = 'ext1' } = req.query;
 
   if (!sdkAppId) {
     res.status(400).json({ code: -1, message: 'sdkAppId 为必填参数' });
@@ -258,6 +258,9 @@ rumApiRouter.get('/debug/events/:sdkAppId', asyncHandler(async (req, res) => {
   const EndTime = end ? Number(end) : now;
   const projectId = Number(id) || 131800;
 
+  // 默认按 ext1（操作类型/事件分类）分组，并用 ExtThird=sdkAppId 过滤。
+  // 注意：ext3 在 SDK 端固定为 sdkAppId，若 type=ext3 + ExtThird=sdkAppId 会导致
+  // 只返回 1 个分组，且该分组的 tags.ext1 为空（按 ext3 分组时 ext1 不参与），前端展示会恒为 N/A。
   const params = {
     ID: projectId,
     Type: type,
@@ -275,7 +278,7 @@ rumApiRouter.get('/debug/events/:sdkAppId', asyncHandler(async (req, res) => {
     const response = result?.Response;
     const parsedResult = parseRumResult(response);
 
-    // 提取 event names（从 series tags 中）
+    // 提取事件维度（每个 series 对应一个 ext1 分类，tags 里还可能携带 ext2 / name 等）
     const events = [];
     if (parsedResult?.results?.length) {
       for (const r of parsedResult.results) {
@@ -283,6 +286,7 @@ rumApiRouter.get('/debug/events/:sdkAppId', asyncHandler(async (req, res) => {
           for (const s of r.series) {
             events.push({
               tags: s.tags || {},
+              name: s.name || r.name || null,
               total: s.values?.reduce((sum, v) => sum + (v[1] || 0), 0) || 0,
             });
           }
