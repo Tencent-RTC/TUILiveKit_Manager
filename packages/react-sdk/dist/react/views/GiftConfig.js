@@ -5,16 +5,16 @@ import { useNavigate as we } from "react-router-dom";
 import { Dialog as S, Input as V, InputNumber as se, Textarea as Be, Button as _, Select as Ee, Card as Ve } from "tdesign-react";
 import { useUIKit as X, i18next as ce } from "@tencentcloud/uikit-base-component-react";
 import { A as he, F as Ye } from "../../chunks/ActionButtons.Cfkno1zE.js";
-import { M as N, u as Xe, a as Q } from "../../chunks/useAsyncAction.CJQgktvN.js";
+import { M as N, u as Xe, a as Q } from "../../chunks/useAsyncAction.BEfuTbHp.js";
 /* empty css                                */
-import { g as De, l as re, an as j, I as i, A as Ie } from "../../chunks/layout.Br-W54NR.js";
-import { x as O, g, y as m, v as T, w as $, aa as He, b as We, a as z, aQ as $e, a_ as ze, L as je, F as qe, bj as de, z as ge } from "../../chunks/main-layout.1w0vpJq1.js";
-import { f as Ke, e as Je, b as Qe } from "../../chunks/upload.C-_mha0d.js";
+import { g as De, l as re, an as j, I as i, A as Ie } from "../../chunks/layout.CKxcF5ct.js";
+import { x as O, g, y as m, v as T, w as $, aa as He, b as We, a as z, aQ as $e, a_ as ze, L as je, F as qe, bj as de, z as ge } from "../../chunks/main-layout.D1ZA8pmk.js";
+import { f as Ke, e as Je, b as Qe } from "../../chunks/upload.GtMjhtad.js";
 import { F as _e, a as C } from "../../chunks/FormField.D0eRD3uO.js";
-import { I as ue } from "../../chunks/ImageUpload.B_lPyswd.js";
-import { g as Ze } from "../../chunks/columns.CfpW-l5l.js";
-import { b as ei } from "../../chunks/useT.CoE745-e.js";
-import { S as pe } from "../../chunks/SlotRenderer.CuSOZ-rh.js";
+import { I as ue } from "../../chunks/ImageUpload.DQvjjI1R.js";
+import { g as Ze } from "../../chunks/columns.CTKJZk4D.js";
+import { b as ei } from "../../chunks/useT.BpiWhAmu.js";
+import { S as pe } from "../../chunks/SlotRenderer.Cso_TRGI.js";
 const R = 0, P = 2147483647, w = 0, B = 99, fe = {
   id: "",
   name: "",

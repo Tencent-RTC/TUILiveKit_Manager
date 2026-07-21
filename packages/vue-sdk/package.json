@@ -1,7 +1,6 @@
 {
   "name": "tuikit-live-manager-sdk-vue",
   "version": "1.0.0",
-  "private": true,
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",

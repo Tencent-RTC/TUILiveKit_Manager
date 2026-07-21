@@ -131,16 +131,20 @@ function cloneAuthState(Oo) {
   };
 }
 function applyPatch(Oo, jo) {
-  const No = cloneAuthState({
+  const No = jo.credentials === void 0 ? Oo.credentials : jo.credentials ? {
+    ...jo.credentials,
+    // 如果新凭证没有 secretKey，保留旧的 secretKey
+    secretKey: (jo.credentials.secretKey ?? Oo.credentials?.secretKey ?? Oo.secretKey) || void 0
+  } : null, Ho = cloneAuthState({
     ...Oo,
     ...jo,
-    credentials: jo.credentials === void 0 ? Oo.credentials : jo.credentials ? { ...jo.credentials } : null
+    credentials: No
   });
   if (jo.credentials !== void 0) {
-    const Ho = No.credentials;
-    No.sdkAppId = Ho?.sdkAppId ?? 0, No.userId = Ho?.userId ?? "", No.userSig = Ho?.userSig ?? "", No.secretKey = Ho?.secretKey ?? "";
+    const Fo = Ho.credentials;
+    Ho.sdkAppId = Fo?.sdkAppId ?? 0, Ho.userId = Fo?.userId ?? "", Ho.userSig = Fo?.userSig ?? "", Ho.secretKey = Fo?.secretKey ?? Oo.secretKey ?? "";
   }
-  return No;
+  return Ho;
 }
 let memoryState = getDefaultAuthState();
 const defaultAdapter = {
@@ -7196,16 +7200,16 @@ function saveCredentials(Oo) {
     log$d.warn("saveCredentials", "凭证模式缺少必要字段，跳过保存");
     return;
   }
-  const Ho = typeof Oo.token == "string" ? Oo.token : "", Fo = typeof Oo.userName == "string" ? Oo.userName : "", Qo = typeof Oo.domain == "string" ? Oo.domain : "";
+  const Ho = typeof Oo.token == "string" ? Oo.token : "", Fo = typeof Oo.userName == "string" ? Oo.userName : "", Qo = typeof Oo.domain == "string" ? Oo.domain : "", Vo = getAuthStateSnapshot().mode, qo = typeof Oo.secretKey == "string" && Oo.secretKey !== "";
   if (updateAuthState({
-    mode: No ? "server" : "proxy",
+    mode: No ? "server" : qo ? "proxy" : Vo,
     token: Ho,
     userName: Fo,
     domain: Qo,
     credentials: jo
   }), jo?.sdkAppId) {
-    const Vo = String(jo.sdkAppId);
-    setAegisUin(Vo), reinitAegisIfUinChanged(Vo), reportAppInit();
+    const Go = String(jo.sdkAppId);
+    setAegisUin(Go), reinitAegisIfUinChanged(Go), reportAppInit();
   }
   clearLegacyBrowserCredentials();
 }
@@ -7231,6 +7235,9 @@ function getSdkAppId() {
 }
 function getCurrentUserId() {
   return getAuthStateSnapshot().userId || "";
+}
+function getSecretKey() {
+  return getAuthStateSnapshot().secretKey || "";
 }
 function computeUserSig(Oo) {
   const jo = getAuthStateSnapshot(), No = jo.sdkAppId || jo.credentials?.sdkAppId, Ho = jo.secretKey || jo.credentials?.secretKey;
@@ -9394,7 +9401,7 @@ async function getObsLiveDetailInfo(Oo) {
       };
     try {
       let qo = await getStreamInfoAsync(jo, Fo);
-      if (!qo && getSdkAppId() === 0) {
+      if (!qo && getSdkAppId() === 0 && (!isProxyMode() || getSecretKey())) {
         const Go = await createBasicAccount();
         Go && (saveCredentials({ userId: Go.userId, userSig: Go.userSig, sdkAppId: Go.sdkAppId }), qo = await getStreamInfoAsync(jo, Fo));
       }
