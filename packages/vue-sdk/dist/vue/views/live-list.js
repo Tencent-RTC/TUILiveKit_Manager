@@ -1,18 +1,18 @@
-import { defineComponent as Ee, computed as M, ref as L, resolveComponent as V, openBlock as _, createBlock as P, unref as e, withCtx as n, createVNode as s, createElementVNode as a, normalizeClass as me, toDisplayString as i, createCommentVNode as B, createTextVNode as N, createElementBlock as R, Fragment as pe, renderList as Ie, watch as Qe, shallowRef as Le, onMounted as qe, onBeforeUnmount as ze, createSlots as je } from "vue";
+import { defineComponent as Ee, computed as M, ref as L, resolveComponent as A, openBlock as _, createBlock as P, unref as e, withCtx as n, createVNode as s, createElementVNode as a, normalizeClass as me, toDisplayString as i, createCommentVNode as B, createTextVNode as N, createElementBlock as R, Fragment as pe, renderList as Ie, watch as qe, shallowRef as Le, onMounted as ze, onBeforeUnmount as Qe, createSlots as je } from "vue";
 import { useRouter as Ze } from "vue-router";
 import { ChevronDownIcon as Ne, ChevronRightIcon as xe, CloseIcon as ke, AddIcon as he, CopyIcon as ie, SearchIcon as Je, RefreshIcon as el } from "tdesign-icons-vue-next";
 import { MessagePlugin as y } from "tdesign-vue-next";
 import { useUIKit as be } from "@tencentcloud/uikit-base-component-vue3";
-import { a3 as ll, au as Re, g as oe, bh as z, ba as tl, aV as al, A as ae, Q as k, C as U, a9 as ol, bS as sl, as as il, av as Ae, a0 as Ve, aC as nl, aA as Oe, c1 as rl, an as ul, aW as dl, T as cl, bk as Ue, P as Me, aN as vl, ac as ml } from "../../chunks/main-layout.BgP9Ncvl.js";
-import { a as Ce } from "../../chunks/useAsyncAction.hiF1kgA5.js";
-import { h as De, d as _l, I as l, B as we, L as pl, A as fl, m as El, aE as Il } from "../../chunks/layout.QDR0rddX.js";
-import { r as Be, I as $e, b as hl } from "../../chunks/upload.B9g98mEN.js";
-import { g as bl } from "../../chunks/columns.Dd5IRgBx.js";
+import { a4 as ll, aq as Re, g as oe, b8 as Q, b1 as tl, aO as al, A as ae, S as k, C as U, aa as ol, bG as sl, ao as il, ar as Ve, a1 as Ae, ay as nl, aw as Oe, bR as rl, ak as ul, aP as dl, V as cl, bb as Ue, R as Me, aI as vl, ad as ml } from "../../chunks/main-layout.OEkSp6vd.js";
+import { a as Ce } from "../../chunks/useAsyncAction.DYLXidOr.js";
+import { h as De, d as _l, I as l, C as we, L as pl, B as fl, n as El, aR as Il } from "../../chunks/shared-state.Bf8CkvaR.js";
+import { r as Be, I as $e, b as hl } from "../../chunks/upload.BUq-1ot2.js";
+import { g as bl } from "../../chunks/columns.CY8AmK1x.js";
 import { useLiveMonitorState as ye } from "../../vue.js";
-import { _ as Cl } from "../../chunks/MonitorPagination.vue_vue_type_script_setup_true_lang.Dmj_Wt1g.js";
-import { I as Fe } from "../../chunks/ImageUpload.BxREa4JW.js";
+import { _ as Cl } from "../../chunks/MonitorPagination.vue_vue_type_script_setup_true_lang.BGVSlg7G.js";
+import { I as Fe } from "../../chunks/ImageUpload.D2_AUcUv.js";
 import { _ as Ke } from "../../chunks/_plugin-vue_export-helper.CHgC5LLL.js";
-import { _ as ve } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.D5UgT9kd.js";
+import { _ as ve } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.m6h4dX42.js";
 import { _ as yl, a as gl } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
 const Tl = { class: "custom-info-section" }, Sl = {
   key: 2,
@@ -20,7 +20,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
 }, Ll = {
   key: 0,
   class: "custom-info-container"
-}, Rl = { class: "custom-input-wrap" }, Al = { class: "custom-input-wrap custom-value-wrap" }, Vl = {
+}, Rl = { class: "custom-input-wrap" }, Vl = { class: "custom-input-wrap custom-value-wrap" }, Al = {
   key: 1,
   class: "create-success-content"
 }, Ol = { class: "create-success-summary" }, Ul = {
@@ -41,7 +41,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
     }), ee = M(() => ll.map((E) => ({
       value: E.value,
       label: t(E.labelKey)
-    }))), g = (E) => oe(E), A = (E) => oe(E), o = (E) => {
+    }))), g = (E) => oe(E), V = (E) => oe(E), o = (E) => {
       c.value.maxSeatCount = Number(E) || 1;
     }, c = L(Re()), h = L([]), F = L(!1), x = L(!1), r = L(!1), X = L(""), ne = L(""), K = L(null), D = L(""), le = L(null), re = L(!1), { loading: te, execute: fe } = Ce({
       operationName: t(l.CREATE_LIVE),
@@ -61,7 +61,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
           y.error(de);
           return;
         }
-        if (h.value.some(z)) {
+        if (h.value.some(Q)) {
           y.error(t(l.CUSTOM_INFO_KEY_REQUIRED));
           return;
         }
@@ -70,10 +70,10 @@ const Tl = { class: "custom-info-section" }, Sl = {
           coverUrl: E,
           customInfos: h.value,
           useObsStreaming: r.value
-        }), q = p.liveId, w = p.anchorId;
+        }), z = p.liveId, w = p.anchorId;
         if (await J(p), K.value = null, D.value = "", r.value, r.value) {
           const S = await sl({
-            liveId: q,
+            liveId: z,
             anchorId: w,
             onStatusChange: (de) => {
               X.value = de;
@@ -92,17 +92,17 @@ const Tl = { class: "custom-info-section" }, Sl = {
       }
     }), f = M(() => oe(c.value.anchorId)), m = M(() => oe(c.value.liveName));
     M(() => h.value.filter((E) => E.key.trim()).length);
-    const T = M(() => h.value.some(z)), G = M(() => {
+    const T = M(() => h.value.some(Q)), G = M(() => {
       const E = tl(c.value.seatTemplate), p = t(E?.descKey || "");
       return E?.orientation === "landscape" ? `${p}，${t(l.LANDSCAPE_BROADCASTING_HINT)}` : p;
-    }), b = M(() => al(c.value.seatTemplate)), $ = M(() => r.value ? X.value === "error" ? `OBS 配置失败：${ne.value}` : K.value ? "OBS 已配置完成，可直接复制下方推流信息。" : D.value ? `OBS 已配置完成，但推流信息生成失败：${D.value}` : "OBS 已配置完成。" : ""), Q = M(() => X.value === "error" || !!D.value), C = (E) => {
+    }), b = M(() => al(c.value.seatTemplate)), $ = M(() => r.value ? X.value === "error" ? `OBS 配置失败：${ne.value}` : K.value ? "OBS 已配置完成，可直接复制下方推流信息。" : D.value ? `OBS 已配置完成，但推流信息生成失败：${D.value}` : "OBS 已配置完成。" : ""), q = M(() => X.value === "error" || !!D.value), C = (E) => {
       re.value = !!E;
     }, ue = async (E, p) => {
       try {
         await il(E), y.success(Z(l.COPY, p));
-      } catch (q) {
-        const w = q, S = w.ErrorInfo || (w instanceof Error ? w.message : String(w)) || t(l.UNKNOWN_ERROR);
-        j.error("CreateLive", `Copy failed: ${S}`, q), y.error(O(l.COPY, null, S));
+      } catch (z) {
+        const w = z, S = w.ErrorInfo || (w instanceof Error ? w.message : String(w)) || t(l.UNKNOWN_ERROR);
+        j.error("CreateLive", `Copy failed: ${S}`, z), y.error(O(l.COPY, null, S));
       }
     }, se = () => {
       if (h.value.length >= U.maxCount) {
@@ -129,7 +129,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
         y.error(t(l.MAX_BYTES_WITH_CURRENT, { field: t(l.LIVE_TITLE), max: k, current: m.value }));
         return;
       }
-      if (h.value.some(z)) {
+      if (h.value.some(Q)) {
         y.error(t(l.CUSTOM_INFO_KEY_REQUIRED));
         return;
       }
@@ -138,7 +138,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
       ge(), H("success"), H("update:visible", !1);
     };
     return (E, p) => {
-      const q = V("t-input"), w = V("t-form-item"), S = V("t-select"), de = V("t-input-number"), Ge = V("t-checkbox"), ce = V("t-button"), He = V("t-form"), We = V("t-dialog");
+      const z = A("t-input"), w = A("t-form-item"), S = A("t-select"), de = A("t-input-number"), Ge = A("t-checkbox"), ce = A("t-button"), He = A("t-form"), We = A("t-dialog");
       return _(), P(We, {
         visible: W.value,
         "onUpdate:visible": p[8] || (p[8] = (I) => W.value = I),
@@ -187,7 +187,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
           ])
         ]),
         default: n(() => [
-          x.value ? (_(), R("div", Vl, [
+          x.value ? (_(), R("div", Al, [
             a("div", Ol, [
               p[9] || (p[9] = a("div", { class: "create-success-icon" }, [
                 a("svg", {
@@ -214,7 +214,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
               a("h3", null, i(e(Z)(e(l).LABEL_CREATED, e(l).LIVE)), 1),
               $.value ? (_(), R("p", {
                 key: 0,
-                class: me(["create-success-description", { "is-error": Q.value }])
+                class: me(["create-success-description", { "is-error": q.value }])
               }, i($.value), 3)) : B("", !0)
             ]),
             K.value ? (_(), R("div", Ul, [
@@ -260,7 +260,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
                 "required-mark": !0
               }, {
                 default: n(() => [
-                  s(q, {
+                  s(z, {
                     modelValue: c.value.anchorId,
                     "onUpdate:modelValue": p[0] || (p[0] = (I) => c.value.anchorId = I),
                     placeholder: e(t)(e(l).ENTER_ANCHOR_ID),
@@ -281,7 +281,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
                 label: e(t)(e(l).LIVE_TITLE)
               }, {
                 default: n(() => [
-                  s(q, {
+                  s(z, {
                     modelValue: c.value.liveName,
                     "onUpdate:modelValue": p[1] || (p[1] = (I) => c.value.liveName = I),
                     placeholder: e(t)(e(l).ENTER_LIVE_TITLE),
@@ -393,21 +393,21 @@ const Tl = { class: "custom-info-section" }, Sl = {
                     class: "custom-info-row"
                   }, [
                     a("div", Rl, [
-                      s(q, {
+                      s(z, {
                         modelValue: I.key,
                         "onUpdate:modelValue": (_e) => I.key = _e,
                         placeholder: e(t)(e(l).ENTER_KEY),
-                        status: g(I.key) > e(U).maxKeyBytes || e(z)(I) ? "error" : "default",
-                        tips: g(I.key) > e(U).maxKeyBytes ? e(t)(e(l).MAX_BYTES, { field: "Key", max: e(U).maxKeyBytes }) : e(z)(I) ? e(t)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
+                        status: g(I.key) > e(U).maxKeyBytes || e(Q)(I) ? "error" : "default",
+                        tips: g(I.key) > e(U).maxKeyBytes ? e(t)(e(l).MAX_BYTES, { field: "Key", max: e(U).maxKeyBytes }) : e(Q)(I) ? e(t)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
                     ]),
-                    a("div", Al, [
-                      s(q, {
+                    a("div", Vl, [
+                      s(z, {
                         modelValue: I.value,
                         "onUpdate:modelValue": (_e) => I.value = _e,
                         placeholder: e(t)(e(l).ENTER_VALUE),
-                        status: A(I.value) > e(U).maxValueBytes ? "error" : "default",
-                        tips: A(I.value) > e(U).maxValueBytes ? e(t)(e(l).VALUE_EXCEEDS_2KB_LIMIT) : ""
+                        status: V(I.value) > e(U).maxValueBytes ? "error" : "default",
+                        tips: V(I.value) > e(U).maxValueBytes ? e(t)(e(l).VALUE_EXCEEDS_2KB_LIMIT) : ""
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
                     ]),
                     s(ce, {
@@ -456,7 +456,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
 }, Hl = {
   key: 0,
   class: "custom-info-container"
-}, Wl = { class: "custom-input-wrap" }, Ql = { class: "custom-input-wrap custom-value-wrap" }, ql = { class: "dialog-footer" }, zl = /* @__PURE__ */ Ee({
+}, Wl = { class: "custom-input-wrap" }, ql = { class: "custom-input-wrap custom-value-wrap" }, zl = { class: "dialog-footer" }, Ql = /* @__PURE__ */ Ee({
   __name: "EditLiveModal",
   props: {
     visible: { type: Boolean },
@@ -469,7 +469,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
     const j = De("EditLive"), { t } = be(), { fetchLiveDetail: Z, updateLive: O } = ye(), u = Y, d = M(() => u.live?.liveId || u.live?.id || ""), J = v, H = M({
       get: () => u.visible,
       set: (f) => J("update:visible", f)
-    }), W = (f) => oe(f), ee = (f) => oe(f), g = L(Ae()), A = L(""), o = L([]), c = L(!1), h = L([]), F = L(Ve), x = L(null), r = L(!1), { loading: X, execute: ne } = Ce({
+    }), W = (f) => oe(f), ee = (f) => oe(f), g = L(Ve()), V = L(""), o = L([]), c = L(!1), h = L([]), F = L(Ae), x = L(null), r = L(!1), { loading: X, execute: ne } = Ce({
       toast: { action: l.EDIT, entity: l.LIVE },
       action: async (f) => {
         const m = u.live?.liveId || u.live?.id || "";
@@ -488,21 +488,21 @@ const Tl = { class: "custom-info-section" }, Sl = {
     }), K = (f) => {
       r.value = !!f;
     }, D = M(() => oe(g.value.liveName));
-    M(() => o.value.filter((f) => f.key.trim()).length), Qe([() => u.live?.liveId || u.live?.id, () => u.visible], async ([f, m]) => {
+    M(() => o.value.filter((f) => f.key.trim()).length), qe([() => u.live?.liveId || u.live?.id, () => u.visible], async ([f, m]) => {
       const T = u.live;
       if (T && m) {
         g.value = {
           liveName: T.liveName || "",
           coverUrl: T.coverUrl || ""
-        }, T.coverUrl ? F.value = await nl(T.coverUrl) : F.value = Ve;
+        }, T.coverUrl ? F.value = await nl(T.coverUrl) : F.value = Ae;
         const G = T.liveId || T.id || "";
         try {
           const b = await Z(G), $ = Oe(b?.customInfo);
-          o.value = $, c.value = $.length > 0, h.value = $.map((Q) => Q.key);
+          o.value = $, c.value = $.length > 0, h.value = $.map((q) => q.key);
         } catch (b) {
-          b instanceof pl && (A.value = fl(b.code ?? 0, "", t(l.LIVE_NOT_FOUND)));
-          const $ = T.customInfo, Q = Oe($);
-          o.value = Q, c.value = Q.length > 0, h.value = Q.map((C) => C.key);
+          b instanceof pl && (V.value = fl(b.code ?? 0, "", t(l.LIVE_NOT_FOUND)));
+          const $ = T.customInfo, q = Oe($);
+          o.value = q, c.value = q.length > 0, h.value = q.map((C) => C.key);
         }
       }
     }, { immediate: !0 });
@@ -515,7 +515,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
     }, re = (f) => {
       o.value.splice(f, 1);
     }, te = () => {
-      A.value = "", o.value = [], c.value = !1, h.value = [], r.value = !1, x.value?.reset(), g.value = Ae(), J("update:visible", !1);
+      V.value = "", o.value = [], c.value = !1, h.value = [], r.value = !1, x.value?.reset(), g.value = Ve(), J("update:visible", !1);
     }, fe = async () => {
       if (u.live) {
         if (!g.value.liveName.trim()) {
@@ -526,7 +526,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
           y.error(t(l.MAX_BYTES_WITH_CURRENT, { field: t(l.LIVE_TITLE), max: k, current: D.value }));
           return;
         }
-        if (o.value.some(z)) {
+        if (o.value.some(Q)) {
           y.error(t(l.CUSTOM_INFO_KEY_REQUIRED));
           return;
         }
@@ -563,8 +563,8 @@ const Tl = { class: "custom-info-section" }, Sl = {
       }
     };
     return (f, m) => {
-      const T = V("t-input"), G = V("t-form-item"), b = V("t-button"), $ = V("t-form"), Q = V("t-dialog");
-      return _(), P(Q, {
+      const T = A("t-input"), G = A("t-form-item"), b = A("t-button"), $ = A("t-form"), q = A("t-dialog");
+      return _(), P(q, {
         visible: H.value,
         "onUpdate:visible": m[3] || (m[3] = (C) => H.value = C),
         header: e(t)(e(l).EDIT_LIVE),
@@ -574,7 +574,7 @@ const Tl = { class: "custom-info-section" }, Sl = {
         onClose: te
       }, {
         footer: n(() => [
-          a("div", ql, [
+          a("div", zl, [
             s(b, {
               variant: "outline",
               shape: "round",
@@ -606,9 +606,9 @@ const Tl = { class: "custom-info-section" }, Sl = {
             colon: !1
           }, {
             default: n(() => [
-              A.value ? (_(), R("div", Yl, [
+              V.value ? (_(), R("div", Yl, [
                 m[4] || (m[4] = a("span", { class: "edit-live-error-icon" }, "!", -1)),
-                a("span", null, i(A.value), 1)
+                a("span", null, i(V.value), 1)
               ])) : B("", !0),
               s(G, {
                 label: e(t)(e(l).LIVE_ID)
@@ -695,11 +695,11 @@ const Tl = { class: "custom-info-section" }, Sl = {
                         modelValue: C.key,
                         "onUpdate:modelValue": (se) => C.key = se,
                         placeholder: e(t)(e(l).ENTER_KEY),
-                        status: W(C.key) > e(U).maxKeyBytes || e(z)(C) ? "error" : "default",
-                        tips: W(C.key) > e(U).maxKeyBytes ? e(t)(e(l).MAX_BYTES, { field: "Key", max: e(U).maxKeyBytes }) : e(z)(C) ? e(t)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
+                        status: W(C.key) > e(U).maxKeyBytes || e(Q)(C) ? "error" : "default",
+                        tips: W(C.key) > e(U).maxKeyBytes ? e(t)(e(l).MAX_BYTES, { field: "Key", max: e(U).maxKeyBytes }) : e(Q)(C) ? e(t)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
                     ]),
-                    a("div", Ql, [
+                    a("div", ql, [
                       s(T, {
                         modelValue: C.value,
                         "onUpdate:modelValue": (se) => C.value = se,
@@ -745,10 +745,10 @@ const Tl = { class: "custom-info-section" }, Sl = {
       }, 8, ["visible", "header"]);
     };
   }
-}), jl = /* @__PURE__ */ Ke(zl, [["__scopeId", "data-v-5c6350d0"]]), Zl = { class: "live-list-page" }, Jl = { class: "live-list-header" }, et = { class: "live-list-title" }, lt = { class: "header-actions" }, tt = { class: "live-list-id-cell" }, at = { class: "live-list-id-text" }, ot = { class: "live-list-cover-cell" }, st = ["src", "alt"], it = { class: "live-list-text" }, nt = { class: "live-list-text" }, rt = { class: "live-list-loading-container" }, ut = { class: "live-list-loading-text" }, dt = { class: "live-list-empty-container" }, ct = { class: "live-list-empty-text" }, vt = { class: "live-info-form" }, mt = {
+}), jl = /* @__PURE__ */ Ke(Ql, [["__scopeId", "data-v-5c6350d0"]]), Zl = { class: "live-list-page" }, Jl = { class: "live-list-header" }, et = { class: "live-list-title" }, lt = { class: "header-actions" }, tt = { class: "live-list-id-cell" }, at = { class: "live-list-id-text" }, ot = { class: "live-list-cover-cell" }, st = ["src", "alt"], it = { class: "live-list-text" }, nt = { class: "live-list-text" }, rt = { class: "live-list-loading-container" }, ut = { class: "live-list-loading-text" }, dt = { class: "live-list-empty-container" }, ct = { class: "live-list-empty-text" }, vt = { class: "live-info-form" }, mt = {
   key: 0,
   class: "live-info-error"
-}, _t = { class: "live-info-section" }, pt = { class: "live-info-section-title" }, ft = { class: "live-info-card" }, Et = { class: "live-info-row" }, It = { class: "live-info-label" }, ht = { class: "live-info-value-area" }, bt = { class: "live-info-value" }, Ct = { class: "live-info-row" }, yt = { class: "live-info-label" }, gt = { class: "live-info-value-area" }, Tt = { class: "live-info-value" }, St = { class: "live-info-row" }, Lt = { class: "live-info-label" }, Rt = { class: "live-info-value-area" }, At = { class: "live-info-value" }, Vt = { class: "live-info-row" }, Ot = { class: "live-info-label" }, Ut = { class: "live-info-value-area" }, Mt = { class: "live-info-value live-info-value-url" }, Nt = {
+}, _t = { class: "live-info-section" }, pt = { class: "live-info-section-title" }, ft = { class: "live-info-card" }, Et = { class: "live-info-row" }, It = { class: "live-info-label" }, ht = { class: "live-info-value-area" }, bt = { class: "live-info-value" }, Ct = { class: "live-info-row" }, yt = { class: "live-info-label" }, gt = { class: "live-info-value-area" }, Tt = { class: "live-info-value" }, St = { class: "live-info-row" }, Lt = { class: "live-info-label" }, Rt = { class: "live-info-value-area" }, Vt = { class: "live-info-value" }, At = { class: "live-info-row" }, Ot = { class: "live-info-label" }, Ut = { class: "live-info-value-area" }, Mt = { class: "live-info-value live-info-value-url" }, Nt = {
   key: 1,
   class: "live-info-section"
 }, xt = { class: "live-info-section-title" }, kt = { class: "live-info-card" }, Dt = { class: "live-info-row" }, wt = { class: "live-info-label" }, Bt = { class: "live-info-value-area" }, $t = { class: "live-info-value live-info-value-url" }, Ft = { class: "live-info-row" }, Kt = { class: "live-info-label" }, Pt = { class: "live-info-value-area" }, Yt = { class: "live-info-value live-info-value-url" }, Xt = {
@@ -762,13 +762,13 @@ const Tl = { class: "custom-info-section" }, Sl = {
   setup(Y) {
     const { t: v } = be(), j = Ze(), { endLive: t, fetchLiveDetail: Z } = ye(), O = El().components?.liveList, u = new cl({
       endLive: t,
-      onEnterLive: (A) => {
-        j.push({ path: `/live-control/${A}`, query: { from: "live-list" } });
+      onEnterLive: (V) => {
+        j.push({ path: `/live-control/${V}`, query: { from: "live-list" } });
       },
       t: v,
       toast: {
-        success: (A) => y.success(A),
-        error: (A) => y.error(A)
+        success: (V) => y.success(V),
+        error: (V) => y.error(V)
       },
       fetchLiveDetail: Z
     }), d = Le(u.getState()), J = u.subscribe(() => {
@@ -780,24 +780,24 @@ const Tl = { class: "custom-info-section" }, Sl = {
         await u.confirmDelete();
       }
     }), W = Le(!1);
-    qe(async () => {
+    ze(async () => {
       W.value = await hl(), await u.init();
-    }), ze(() => {
+    }), Qe(() => {
       J(), u.dispose();
     });
     const ee = M(() => bl({ hasExtraColumn: !!O?.tableExtraColumns }).map((o) => ({
       ...o,
       title: o.i18nKey ? v(o.i18nKey) : ""
-    }))), g = (A) => ml({
-      live: A,
+    }))), g = (V) => ml({
+      live: V,
       t: v,
       onEnter: (o) => u.enterLive(o),
       onDetail: (o) => u.showDetail(o),
       onEdit: (o) => u.openEditModal(o),
       onDelete: (o) => u.requestDelete(o)
     });
-    return (A, o) => {
-      const c = V("t-input"), h = V("t-button"), F = V("t-card"), x = V("t-dialog");
+    return (V, o) => {
+      const c = A("t-input"), h = A("t-button"), F = A("t-card"), x = A("t-dialog");
       return _(), R("div", Zl, [
         a("div", Jl, [
           a("h1", et, i(e(v)(e(l).LIVE_LIST)), 1),
@@ -1034,10 +1034,10 @@ const Tl = { class: "custom-info-section" }, Sl = {
                   a("div", St, [
                     a("span", Lt, i(e(v)(e(l).LIVE_TITLE)), 1),
                     a("div", Rt, [
-                      a("span", At, i(d.value.obsModal.live?.liveName || "-"), 1)
+                      a("span", Vt, i(d.value.obsModal.live?.liveName || "-"), 1)
                     ])
                   ]),
-                  a("div", Vt, [
+                  a("div", At, [
                     a("span", Ot, i(e(v)(e(l).LIVE_COVER)), 1),
                     a("div", Ut, [
                       a("span", Mt, i(d.value.obsModal.live?.coverUrl || "-"), 1)

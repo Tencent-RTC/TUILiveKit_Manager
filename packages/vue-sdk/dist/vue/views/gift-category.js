@@ -1,13 +1,13 @@
 import { defineComponent as fe, shallowRef as me, computed as f, ref as Ee, onMounted as _e, onBeforeUnmount as pe, resolveComponent as h, openBlock as E, createElementBlock as _, createElementVNode as n, createVNode as u, unref as e, withCtx as s, toDisplayString as i, normalizeClass as I, createTextVNode as p, createCommentVNode as Ce, Fragment as M, renderList as Z } from "vue";
 import { useRouter as ve } from "vue-router";
-import { ArrowLeftIcon as Ae, EditIcon as Te, CopyIcon as ye } from "tdesign-icons-vue-next";
-import { MessagePlugin as A } from "tdesign-vue-next";
+import { ArrowLeftIcon as Te, EditIcon as Ae, CopyIcon as ye } from "tdesign-icons-vue-next";
+import { MessagePlugin as T } from "tdesign-vue-next";
 import { useUIKit as be, i18next as K } from "@tencentcloud/uikit-base-component-vue3";
 import { _ as Ge, a as ee } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
-import { u as Ie, a as Le } from "../../chunks/useAsyncAction.hiF1kgA5.js";
-import { I as a, B as te, d as F } from "../../chunks/layout.QDR0rddX.js";
-import { G as Oe, a_ as U, b1 as Re, g, b as he, a as x, as as Ne, b0 as De } from "../../chunks/main-layout.BgP9Ncvl.js";
-import { g as Ye, M as w, C as N, a as C, b as v } from "../../chunks/constants.D7m1L-Nc.js";
+import { u as Ie, a as Le } from "../../chunks/useAsyncAction.DYLXidOr.js";
+import { I as a, C as te, d as F } from "../../chunks/shared-state.Bf8CkvaR.js";
+import { G as Oe, aT as U, aW as Re, g, b as he, a as x, ao as Ne, aV as De } from "../../chunks/main-layout.OEkSp6vd.js";
+import { g as Ye, M as w, C as N, a as C, b as v } from "../../chunks/constants.CoYk_HaF.js";
 /* empty css                                  */
 const ke = { class: "gift-category-container" }, Se = { class: "gift-category-page-header" }, Me = { class: "gift-category-title-section" }, xe = { class: "gift-category-actions" }, Ve = {
   key: 0,
@@ -42,13 +42,13 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
       },
       t,
       toast: {
-        success: (o) => A.success(o),
-        error: (o) => A.error(o)
+        success: (o) => T.success(o),
+        error: (o) => T.error(o)
       },
       onNavigateBack: () => ae.push("/gift-config")
     }), d = me(c.getState()), oe = c.subscribe(() => {
       d.value = c.getState();
-    }), le = f(() => d.value.loading), D = f(() => d.value.categoryList), V = f(() => d.value.isEdit), m = f(() => d.value.formData), Y = f(() => d.value.categoryLangConfig), G = f(() => d.value.editingLang), T = f(() => d.value.langEditForm), B = f({
+    }), le = f(() => d.value.loading), D = f(() => d.value.categoryList), V = f(() => d.value.isEdit), m = f(() => d.value.formData), Y = f(() => d.value.categoryLangConfig), G = f(() => d.value.editingLang), A = f(() => d.value.langEditForm), B = f({
       get: () => d.value.dialogVisible,
       set: (o) => {
         o || c.closeDialog();
@@ -90,7 +90,7 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
         await c.confirmDelete();
       }
     }), ie = Ye(), se = (o) => {
-      Ne(String(o || "")), A.success(F(t).opSuccess(a.COPY, t(a.CATEGORY_ID)));
+      Ne(String(o || "")), T.success(F(t).opSuccess(a.COPY, t(a.CATEGORY_ID)));
     }, re = (o, r) => {
       const k = U(r), y = De(k);
       y && c.openLangEditDialog(o, y);
@@ -122,11 +122,11 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
     ], ue = async () => {
       const o = d.value.formData;
       if (!o.categoryId.trim()) {
-        A.error(t(a.ENTER_CATEGORY_ID));
+        T.error(t(a.ENTER_CATEGORY_ID));
         return;
       }
       if (!o.name.trim()) {
-        A.error(t(a.ENTER_CATEGORY_NAME));
+        T.error(t(a.ENTER_CATEGORY_NAME));
         return;
       }
       L.value = !0;
@@ -135,7 +135,7 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
           categoryId: o.categoryId.trim(),
           name: o.name.trim(),
           description: o.description.trim()
-        }), A.success(F(t).opSuccess(a.CATEGORY_SAVE));
+        }), T.success(F(t).opSuccess(a.CATEGORY_SAVE));
       } catch {
       } finally {
         L.value = !1;
@@ -143,15 +143,15 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
     }, ge = async () => {
       const o = d.value.langEditForm;
       if (o.name && g(o.name) > C) {
-        A.error(t(a.MAX_BYTES, { field: t(a.CATEGORY_NAME), max: C }));
+        T.error(t(a.MAX_BYTES, { field: t(a.CATEGORY_NAME), max: C }));
         return;
       }
       if (o.description && g(o.description) > v) {
-        A.error(t(a.MAX_BYTES, { field: t(a.CATEGORY_DESCRIPTION), max: v }));
+        T.error(t(a.MAX_BYTES, { field: t(a.CATEGORY_DESCRIPTION), max: v }));
         return;
       }
       try {
-        await c.saveLangEdit(), A.success(F(t).opSuccess(a.CATEGORY_MULTILINGUAL_SAVE));
+        await c.saveLangEdit(), T.success(F(t).opSuccess(a.CATEGORY_MULTILINGUAL_SAVE));
       } catch {
       }
     }, J = () => c.onLanguageChanged();
@@ -172,7 +172,7 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
               title: e(t)(e(a).BACK_TO_LIST)
             }, {
               icon: s(() => [
-                u(e(Ae), {
+                u(e(Te), {
                   "fill-color": "transparent",
                   "stroke-color": "currentColor",
                   "stroke-width": 2
@@ -251,7 +251,7 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
                   class: "category-lang-tag",
                   onClick: (ot) => re(l.id, R)
                 }, i(e(t)(e(Re)(e(U)(R)))), 9, Pe))), 128)) : (E(), _("span", Xe, "-")),
-                u(e(Te), {
+                u(e(Ae), {
                   class: "category-lang-edit-icon",
                   size: "14",
                   onClick: (R) => e(c).openLangConfigDialog(l.id)
@@ -473,13 +473,13 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
                       modelValue: W.value,
                       "onUpdate:modelValue": r[8] || (r[8] = (l) => W.value = l),
                       placeholder: G.value ? e(t)(e(a).ENTER_LANGUAGE_CATEGORY_NAME, { lang: e(t)(e(x)[G.value].label) }) : "",
-                      status: e(g)(T.value.name) > e(C) ? "error" : "default",
-                      tips: e(g)(T.value.name) > e(C) ? e(t)(e(a).MAX_BYTES, { field: e(t)(e(a).CATEGORY_NAME), max: e(C) }) : ""
+                      status: e(g)(A.value.name) > e(C) ? "error" : "default",
+                      tips: e(g)(A.value.name) > e(C) ? e(t)(e(a).MAX_BYTES, { field: e(t)(e(a).CATEGORY_NAME), max: e(C) }) : ""
                     }, {
                       suffix: s(() => [
                         n("span", {
-                          class: I(["input-suffix-count", { "byte-overflow": e(g)(T.value.name) > e(C) }])
-                        }, i(e(g)(T.value.name)) + "/" + i(e(C)), 3)
+                          class: I(["input-suffix-count", { "byte-overflow": e(g)(A.value.name) > e(C) }])
+                        }, i(e(g)(A.value.name)) + "/" + i(e(C)), 3)
                       ]),
                       _: 1
                     }, 8, ["modelValue", "placeholder", "status", "tips"])
@@ -494,13 +494,13 @@ const ke = { class: "gift-category-container" }, Se = { class: "gift-category-pa
                       modelValue: j.value,
                       "onUpdate:modelValue": r[9] || (r[9] = (l) => j.value = l),
                       placeholder: G.value ? e(t)(e(a).ENTER_LANGUAGE_CATEGORY_DESCRIPTION, { lang: e(t)(e(x)[G.value].label) }) : "",
-                      status: e(g)(T.value.description) > e(v) ? "error" : "default",
-                      tips: e(g)(T.value.description) > e(v) ? e(t)(e(a).MAX_BYTES, { field: e(t)(e(a).CATEGORY_DESCRIPTION), max: e(v) }) : ""
+                      status: e(g)(A.value.description) > e(v) ? "error" : "default",
+                      tips: e(g)(A.value.description) > e(v) ? e(t)(e(a).MAX_BYTES, { field: e(t)(e(a).CATEGORY_DESCRIPTION), max: e(v) }) : ""
                     }, {
                       suffix: s(() => [
                         n("span", {
-                          class: I(["input-suffix-count", { "byte-overflow": e(g)(T.value.description) > e(v) }])
-                        }, i(e(g)(T.value.description)) + "/" + i(e(v)), 3)
+                          class: I(["input-suffix-count", { "byte-overflow": e(g)(A.value.description) > e(v) }])
+                        }, i(e(g)(A.value.description)) + "/" + i(e(v)), 3)
                       ]),
                       _: 1
                     }, 8, ["modelValue", "placeholder", "status", "tips"])

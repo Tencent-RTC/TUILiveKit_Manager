@@ -8,7 +8,7 @@
  *
  * 架构: View → useLiveData → useLiveMonitorState (Hook) → API
  */
-import { type Ref } from 'vue';
+import { type Ref } from '../../vue';
 export interface LiveDataState {
     loading: boolean;
     liveInfo: any | null;
@@ -55,7 +55,7 @@ export declare function useLiveData(liveId: Ref<string>): {
         totalGiftCoins: number;
         totalUniqueGiftSenders: number;
     };
-    interactionRate: import("vue").ComputedRef<string>;
+    interactionRate: import("../../vue").ComputedRef<string>;
     currentLive: Ref<{
         liveId: string;
         id?: string | undefined;

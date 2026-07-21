@@ -13,7 +13,7 @@
  *   - actions 自动绑定 currentLive，无需重复传入 liveId
  *   - 单例模式：多次调用 useLiveMonitorState() 共享同一个 core 实例
  */
-import { type Ref } from 'vue';
+import { type Ref } from '../vue';
 import type { MonitorLiveInfo, CreateLiveParams, UpdateLiveParams, FetchLiveListParams, ServerConfig } from '../types/live';
 import { type PaginatedListSnapshot } from '../common/live-list';
 export declare const LiveListEvent: {

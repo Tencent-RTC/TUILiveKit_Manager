@@ -1,19 +1,19 @@
 import { jsxs as s, jsx as e, Fragment as se } from "react/jsx-runtime";
-import { I as n, ay as ze, h as Ce, l as He, ao as ge, d as fe, y as ue, A as Le, r as Re, ac as Ke, m as qe, aE as je } from "../../chunks/layout.QDR0rddX.js";
+import { I as n, aC as ze, h as Ce, m as He, ar as ge, d as fe, z as ue, B as Le, s as Re, af as Ke, aI as qe, aT as je, aW as Ye, n as Je, aR as Xe } from "../../chunks/shared-state.Bf8CkvaR.js";
 import Be, { useState as w, useCallback as y, useEffect as V, useRef as j, useMemo as le } from "react";
-import { useParams as Ye, useNavigate as Je, useLocation as Xe } from "react-router-dom";
-import { Dialog as Ee, Tooltip as oe, Button as Z, Tabs as be, Switch as xe, Loading as Qe } from "tdesign-react";
-import { CheckCircleIcon as Ae, ChatOffIcon as Fe, UserCheckedIcon as Ze, UserBlockedIcon as Ve, MoreIcon as en, InfoCircleIcon as de, CloseCircleIcon as nn, RefreshIcon as tn, ChevronLeftIcon as rn, ChevronRightIcon as an, ArrowLeftIcon as on, NotificationIcon as sn, StopCircleIcon as cn } from "tdesign-icons-react";
+import { useParams as Ze, useNavigate as Qe, useLocation as en } from "react-router-dom";
+import { Dialog as Ee, Tooltip as oe, Button as Q, Tabs as be, Switch as xe, Loading as nn } from "tdesign-react";
+import { CheckCircleIcon as Ae, ChatOffIcon as Fe, UserCheckedIcon as tn, UserBlockedIcon as Ve, MoreIcon as rn, InfoCircleIcon as de, CloseCircleIcon as an, RefreshIcon as on, ChevronLeftIcon as sn, ChevronRightIcon as cn, ArrowLeftIcon as ln, NotificationIcon as dn, StopCircleIcon as un } from "tdesign-icons-react";
 import { useUIKit as ye } from "@tencentcloud/uikit-base-component-react";
-import { LiveView as ln, useLiveAudienceState as ve, BarrageList as dn, BarrageInput as un, LiveAudienceList as mn, useLiveListState as fn, useLoginState as hn, useLivePlayerState as Nn, LiveListEvent as De } from "tuikit-atomicx-react";
-import { bg as gn, b8 as Ie, bb as we, l as En, bm as Ue, D as Cn, bQ as pn, a6 as Ln, bF as Tn, Y as Te, aj as An, ao as vn, aI as bn, aR as Mn, aB as In, b_ as he, ah as _n, bc as On, bN as yn, bE as Sn, bD as Rn } from "../../chunks/main-layout.BgP9Ncvl.js";
+import { LiveView as mn, useLiveAudienceState as ve, BarrageList as fn, BarrageInput as hn, LiveAudienceList as Nn, useLiveListState as gn, useLoginState as En, useLivePlayerState as Cn, LiveListEvent as De } from "tuikit-atomicx-react";
+import { b7 as pn, b0 as Ie, b2 as we, n as Ln, bd as Ue, D as Tn, bE as An, a7 as vn, bu as bn, _ as Te, al as Mn, ax as In, bO as he, ah as _n, b3 as On, bB as yn, bt as Sn, bs as Rn } from "../../chunks/main-layout.OEkSp6vd.js";
 import { useRiskControlState as We, useConfirmAction as me, useLiveMonitorState as Se } from "../../react.js";
-import { u as Dn, M as q, a as wn } from "../../chunks/useAsyncAction.BQ2CRmHy.js";
-import { S as $e } from "../../chunks/SlotRenderer.BP46Gx6z.js";
-import { c as Un, C as kn } from "../../chunks/user-action-dropdown.jDY49WGX.js";
-import { A as _e } from "../../chunks/AnchorAvatar.BsgNCmDL.js";
+import { u as Dn, M as q, a as wn } from "../../chunks/useAsyncAction.R1AlIQqh.js";
+import { S as $e } from "../../chunks/SlotRenderer.C2--beKA.js";
+import { c as Un, C as kn } from "../../chunks/user-action-dropdown.C8Wr7xmv.js";
+import { A as _e } from "../../chunks/AnchorAvatar.CiD-Uid4.js";
 import { createPortal as Pn } from "react-dom";
-import { p as Bn, g as xn, b as Fn } from "../../chunks/columns.DGoQAesP.js";
+import { p as Bn, g as xn, b as Fn } from "../../chunks/columns.B8HdBl39.js";
 import { A as Oe, F as Vn } from "../../chunks/ActionButtons.Cfkno1zE.js";
 function Wn() {
   const [a, r] = w(""), [c, d] = w(""), L = y((u, m) => {
@@ -61,7 +61,7 @@ function $n({
             _.currentTarget.src = ze;
           }
         }
-      ) }) : null : /* @__PURE__ */ e(ln, {}),
+      ) }) : null : /* @__PURE__ */ e(mn, {}),
       l && /* @__PURE__ */ e("div", { className: "live-state-overlay live-state-overlay--ended", children: /* @__PURE__ */ s("div", { className: "live-state-overlay-content", children: [
         /* @__PURE__ */ e("img", { src: Un, alt: "", className: "live-state-overlay-icon" }),
         /* @__PURE__ */ e(
@@ -162,7 +162,7 @@ const ke = Ce("MessageList"), Gn = 12 * 1024, ce = { current: { giftList: [] } }
     };
   }, [E]);
   const k = y((p, v) => {
-    if (p.stopPropagation(), Number(v.sender.userRole) !== 2 || gn(a || "", v.sender.userId))
+    if (p.stopPropagation(), Number(v.sender.userRole) !== 2 || pn(a || "", v.sender.userId))
       return;
     const f = p.target.closest(".message-item");
     if (!f)
@@ -214,13 +214,13 @@ const ke = Ce("MessageList"), Gn = 12 * 1024, ce = { current: { giftList: [] } }
       ref: $,
       children: [
         /* @__PURE__ */ e("div", { className: "message-list-scroll-area barrage-list-wrapper", children: /* @__PURE__ */ e(
-          dn,
+          fn,
           {
             Message: zn
           }
         ) }),
         m && /* @__PURE__ */ e(
-          un,
+          hn,
           {
             placeholder: l(n.ENTER_MESSAGE_TO_SEND_AS_ADMIN),
             disabled: !a,
@@ -249,7 +249,7 @@ const ke = Ce("MessageList"), Gn = 12 * 1024, ce = { current: { giftList: [] } }
                   /* @__PURE__ */ e("span", { children: l(n.MUTE) })
                 ] }) }),
                 /* @__PURE__ */ e("button", { className: "dropdown-item danger", onClick: S, children: z(b.sender.userId) ? /* @__PURE__ */ s(se, { children: [
-                  /* @__PURE__ */ e(Ze, { size: 14 }),
+                  /* @__PURE__ */ e(tn, { size: 14 }),
                   /* @__PURE__ */ e("span", { children: l(n.UNBAN) })
                 ] }) : /* @__PURE__ */ s(se, { children: [
                   /* @__PURE__ */ e(Ve, { size: 14 }),
@@ -288,7 +288,7 @@ function qn({
         header: N(n.MUTED_LIST),
         onClose: _,
         width: ge.WIDE,
-        footer: /* @__PURE__ */ e(Z, { shape: "round", variant: "outline", onClick: _, children: N(n.CLOSE) }),
+        footer: /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", onClick: _, children: N(n.CLOSE) }),
         children: /* @__PURE__ */ e("div", { className: "member-list-panel-modal", children: L ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(n.LOADING) }) : c.length === 0 ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(n.NO_MUTED_MEMBERS) }) : /* @__PURE__ */ s("table", { className: "member-list-table", children: [
           /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ s("tr", { children: [
             /* @__PURE__ */ e("th", { children: N(n.USER) }),
@@ -334,7 +334,7 @@ function qn({
         header: N(n.BANNED_LIST),
         onClose: g,
         width: ge.WIDE,
-        footer: /* @__PURE__ */ e(Z, { shape: "round", variant: "outline", onClick: g, children: N(n.CLOSE) }),
+        footer: /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", onClick: g, children: N(n.CLOSE) }),
         children: /* @__PURE__ */ e("div", { className: "member-list-panel-modal", children: L ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(n.LOADING) }) : d.length === 0 ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(n.NO_BANNED_MEMBERS) }) : /* @__PURE__ */ s("table", { className: "member-list-table", children: [
           /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ s("tr", { children: [
             /* @__PURE__ */ e("th", { children: N(n.USER) }),
@@ -398,7 +398,7 @@ function jn(a, r, c, d) {
     try {
       await g({ memberAccounts: [o] }), R("success", L(n.UNMUTE, t)), await l();
     } catch (i) {
-      const { code: D, info: Q } = ue(i), X = D ? Le(D, Q) : (i instanceof Error ? i.message : "") || r(n.UNKNOWN_HOST);
+      const { code: D, info: Z } = ue(i), X = D ? Le(D, Z) : (i instanceof Error ? i.message : "") || r(n.UNKNOWN_HOST);
       R("error", `【${r(n.UNMUTE)}】${r(n.OPERATION_FAILED, { error: X })}`);
     }
   }, [g, r, l]), W = me({
@@ -406,7 +406,7 @@ function jn(a, r, c, d) {
     action: async () => {
       const o = z.current;
       if (!o) throw new Error("No target");
-      await _({ memberAccounts: [o.userId], muteTime: En });
+      await _({ memberAccounts: [o.userId], muteTime: Ln });
     },
     confirm: {
       title: r(n.CONFIRM_ACTION_TITLE, { action: r(n.MUTE) }),
@@ -428,7 +428,7 @@ function jn(a, r, c, d) {
     try {
       await E({ memberAccounts: [o] }), R("success", L(n.UNBAN, t)), await h();
     } catch (i) {
-      const { code: D, info: Q } = ue(i), X = D ? Le(D, Q) : (i instanceof Error ? i.message : "") || r(n.UNKNOWN_HOST);
+      const { code: D, info: Z } = ue(i), X = D ? Le(D, Z) : (i instanceof Error ? i.message : "") || r(n.UNKNOWN_HOST);
       R("error", `【${r(n.UNBAN)}】${r(n.OPERATION_FAILED, { error: X })}`);
     }
   }, [E, r, h]), J = me({
@@ -436,7 +436,7 @@ function jn(a, r, c, d) {
     action: async () => {
       const o = k.current;
       if (!o) throw new Error("No target");
-      await I({ memberAccounts: [o.userId], duration: Cn });
+      await I({ memberAccounts: [o.userId], duration: Tn });
     },
     confirm: {
       title: r(n.CONFIRM_ACTION_TITLE, { action: r(n.BAN) }),
@@ -604,9 +604,9 @@ function Jn({
         width: ge.CONFIRM,
         zIndex: 2600,
         footer: /* @__PURE__ */ s(se, { children: [
-          /* @__PURE__ */ e(Z, { shape: "round", variant: "outline", disabled: B.loading, onClick: () => B.cancelConfirm(), children: m(n.CANCEL) }),
+          /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", disabled: B.loading, onClick: () => B.cancelConfirm(), children: m(n.CANCEL) }),
           /* @__PURE__ */ e(
-            Z,
+            Q,
             {
               shape: "round",
               theme: "primary",
@@ -683,7 +683,7 @@ function Jn({
           className: "audience-tab-wrapper",
           style: { display: r === "audience" ? "flex" : "none" },
           children: [
-            /* @__PURE__ */ e("div", { className: "audience-list-area", children: /* @__PURE__ */ e(mn, { height: "99%", children: ({ audience: C }) => {
+            /* @__PURE__ */ e("div", { className: "audience-list-area", children: /* @__PURE__ */ e(Nn, { height: "99%", children: ({ audience: C }) => {
               if (C.userId === L)
                 return /* @__PURE__ */ e("span", { className: "audience-me-tag", children: m(n.ME) });
               const B = Ie(_);
@@ -702,7 +702,7 @@ function Jn({
                         C.userName || C.userId
                       );
                     },
-                    children: /* @__PURE__ */ e(en, { size: 18 })
+                    children: /* @__PURE__ */ e(rn, { size: 18 })
                   }
                 )
               ] });
@@ -793,8 +793,8 @@ function Jn({
         width: ge.CONFIRM,
         zIndex: 2600,
         footer: /* @__PURE__ */ s(se, { children: [
-          /* @__PURE__ */ e(Z, { shape: "round", variant: "outline", onClick: () => b(!1), children: m(n.CANCEL) }),
-          /* @__PURE__ */ e(Z, { shape: "round", theme: "primary", loading: N, onClick: $, children: m(n.CONFIRM_ENABLE) })
+          /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", onClick: () => b(!1), children: m(n.CANCEL) }),
+          /* @__PURE__ */ e(Q, { shape: "round", theme: "primary", loading: N, onClick: $, children: m(n.CONFIRM_ENABLE) })
         ] }),
         children: /* @__PURE__ */ e("p", { dangerouslySetInnerHTML: { __html: m(n.ENABLE_ALL_MEMBER_MUTE_CONFIRM_CONTENT) } })
       }
@@ -829,7 +829,7 @@ function Xn() {
   }
   return "audience";
 }
-function Qn({
+function Zn({
   liveControlSlots: a,
   liveInfo: r,
   liveId: c,
@@ -839,7 +839,7 @@ function Qn({
   onLiveEnded: m,
   t: l
 }) {
-  const { currentLive: h, setCurrentLive: _ } = Se(), { joinLive: g, leaveLive: I, subscribeEvent: E, unsubscribeEvent: N } = fn(), { fetchAudienceList: A } = ve(), { login: x, loginUserInfo: b } = hn(), { hideControlBar: H, showControlBar: $, setAutoHideDelay: U } = Nn(), [O, M] = w(!1), [P, z] = w(""), [k, S] = w(!1), [K, p] = w(0), v = j(""), R = j(!1), f = j(null), W = j(null), re = b?.userId || P, F = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, J = j(Xn()).current, C = 5, B = 2e3;
+  const { currentLive: h, setCurrentLive: _ } = Se(), { joinLive: g, leaveLive: I, subscribeEvent: E, unsubscribeEvent: N } = gn(), { fetchAudienceList: A } = ve(), { login: x, loginUserInfo: b } = En(), { hideControlBar: H, showControlBar: $, setAutoHideDelay: U } = Cn(), [O, M] = w(!1), [P, z] = w(""), [k, S] = w(!1), [K, p] = w(0), v = j(""), R = j(!1), f = j(null), W = j(null), re = b?.userId || P, F = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, J = j(Xn()).current, C = 5, B = 2e3;
   V(() => {
     if (F) {
       G.info("LiveControlLeftPanel", "Mock mode, skipping TUILogin"), M(!0);
@@ -849,7 +849,7 @@ function Qn({
     const o = async () => {
       try {
         let i;
-        if (J === "audience" ? (G.info("LiveControlLeftPanel", "Audience mode, creating basic account..."), i = await Tn("audience")) : (G.info("LiveControlLeftPanel", "Admin mode, resolving account..."), i = await Ke()), !i || i.sdkAppId === 0) {
+        if (J === "audience" ? (G.info("LiveControlLeftPanel", "Audience mode, creating basic account..."), i = await bn("audience")) : (G.info("LiveControlLeftPanel", "Admin mode, resolving account..."), i = await Ke()), !i || i.sdkAppId === 0) {
           G.warn("LiveControlLeftPanel", "No valid credentials, will retry"), t();
           return;
         }
@@ -877,7 +877,7 @@ function Qn({
   }, [F, O, x, K]), V(() => {
     if (F || !O || !P || J !== "audience") return;
     const o = Re() === "en-US" ? "admin" : "管理员";
-    pn(P, o).catch((t) => {
+    An(P, o).catch((t) => {
       G.warn("LiveControlLeftPanel", "setMonitorNickname before join failed:", t);
     });
   }, [F, O, P]), V(() => {
@@ -911,7 +911,7 @@ function Qn({
           };
           f.current = t, E(De.ON_LIVE_ENDED, t), R.current = !0;
         }
-        G.info("LiveControlLeftPanel", "Successfully joined live:", c), console.log("[LiveControlLeftPanel] adding live admin:", P, "room:", c), Ln(c, P).catch((t) => {
+        G.info("LiveControlLeftPanel", "Successfully joined live:", c), console.log("[LiveControlLeftPanel] adding live admin:", P, "room:", c), vn(c, P).catch((t) => {
           console.error("[LiveControlLeftPanel] addLiveAdmin failed:", t), G.warn("LiveControlLeftPanel", "addLiveAdmin failed:", t);
         });
       } catch (o) {
@@ -972,7 +972,7 @@ function Qn({
     )
   ] });
 }
-const Zn = (a, r, c) => {
+const Qn = (a, r, c) => {
   const d = Array.from({ length: r }, () => 0);
   return a.forEach((L, u) => {
     const m = u % r;
@@ -990,7 +990,7 @@ const Zn = (a, r, c) => {
   if (a.clientWidth <= 0) return;
   const r = et(a);
   if (!r.length) return;
-  const c = parseFloat(getComputedStyle(a).columnGap) || 0, d = a.clientWidth, L = [7, 4, 3, 2, 1].find((u) => Zn(r, u, c) <= d + 1) || 1;
+  const c = parseFloat(getComputedStyle(a).columnGap) || 0, d = a.clientWidth, L = [7, 4, 3, 2, 1].find((u) => Qn(r, u, c) <= d + 1) || 1;
   a.style.setProperty("--stats-columns", String(L));
 }, tt = (a) => a >= 1e4 ? (a / 1e4).toFixed(1) + "w" : a.toLocaleString(), rt = (a, r) => {
   a < 0 && (a = 0);
@@ -1185,7 +1185,7 @@ function it({
           /* @__PURE__ */ e("span", { style: { fontSize: 13 }, children: M(n.CUSTOM_MODERATION_TOGGLE) })
         ] }),
         /* @__PURE__ */ e(
-          Z,
+          Q,
           {
             theme: "primary",
             shape: "round",
@@ -1196,13 +1196,13 @@ function it({
           }
         ),
         /* @__PURE__ */ e(
-          Z,
+          Q,
           {
             theme: "primary",
             shape: "round",
             onClick: x,
             disabled: I || m.length <= 1,
-            icon: /* @__PURE__ */ e(nn, { style: { width: 14, height: 14 } }),
+            icon: /* @__PURE__ */ e(an, { style: { width: 14, height: 14 } }),
             children: M(n.BULK_DELETE)
           }
         )
@@ -1210,12 +1210,12 @@ function it({
       /* @__PURE__ */ s("div", { className: "moderation-toolbar", children: [
         /* @__PURE__ */ e("span", { className: "update-time", children: M(n.UPDATED_AT, { time: g }) }),
         /* @__PURE__ */ e(
-          Z,
+          Q,
           {
             theme: "primary",
             variant: "outline",
             shape: "round",
-            icon: /* @__PURE__ */ e(tn, {}),
+            icon: /* @__PURE__ */ e(on, {}),
             loading: c,
             disabled: I,
             onClick: E,
@@ -1247,7 +1247,7 @@ function it({
               disabled: I || d <= 1,
               onClick: () => N(d - 1),
               "aria-label": M(n.PREVIOUS_PAGE),
-              children: /* @__PURE__ */ e(rn, { style: { width: 14 } })
+              children: /* @__PURE__ */ e(sn, { style: { width: 14 } })
             }
           ),
           Fn(d, u).map(
@@ -1269,7 +1269,7 @@ function it({
               disabled: d >= u,
               onClick: () => N(d + 1),
               "aria-label": M(n.NEXT_PAGE),
-              children: /* @__PURE__ */ e(an, { style: { width: 14 } })
+              children: /* @__PURE__ */ e(cn, { style: { width: 14 } })
             }
           )
         ] })
@@ -1287,12 +1287,12 @@ function st(a, r, c, d) {
     approveTextModerationItems: h,
     bypassCorrectionKeyword: _,
     deleteModerationItems: g
-  } = We({ liveId: a || "", pageSize: Te }), I = L === "custom", [E, N] = w([]), [A, x] = w(!1), [b, H] = w(1), [$, U] = w(0), [O, M] = w([]), [P, z] = w(null), [k, S] = w(null), K = le(() => An($, Te), [$]), p = y(
+  } = We({ liveId: a || "", pageSize: Te }), I = L === "custom", [E, N] = w([]), [A, x] = w(!1), [b, H] = w(1), [$, U] = w(0), [O, M] = w([]), [P, z] = w(null), [k, S] = w(null), K = le(() => qe($, Te), [$]), p = y(
     async (T = 1) => {
       if (a) {
         x(!0);
         try {
-          const o = Math.max(1, T), t = vn(d), i = await l({
+          const o = Math.max(1, T), t = Mn(d), i = await l({
             pageNum: o,
             pageSize: Te,
             startTime: t,
@@ -1301,14 +1301,14 @@ function st(a, r, c, d) {
           });
           let D = i.list || [];
           if (I) {
-            const Q = [...D].sort((X, te) => te.createdAtMs - X.createdAtMs);
-            N(Q), U(i.total || 0);
+            const Z = [...D].sort((X, te) => te.createdAtMs - X.createdAtMs);
+            N(Z), U(i.total || 0);
           } else {
-            D = await bn(D);
-            const Q = await Mn(), te = [...In(D)].sort((pe, Ge) => Ge.createdAtMs - pe.createdAtMs);
-            N(te), U(Math.max(0, (i.total || 0) - Q));
+            D = await je(D);
+            const Z = await Ye(), te = [...In(D)].sort((pe, Ge) => Ge.createdAtMs - pe.createdAtMs);
+            N(te), U(Math.max(0, (i.total || 0) - Z));
           }
-          H(o), M((Q) => he(Q.filter((X) => D.some((te) => te.id === X))));
+          H(o), M((Z) => he(Z.filter((X) => D.some((te) => te.id === X))));
         } catch (o) {
           Me.error("moderation", `load failed (ErrorCode: ${o?.ErrorCode ?? o?.code ?? o?.errorCode ?? "N/A"}):`, o);
           const t = ue(o).info || o.message || r(n.UNKNOWN_ERROR);
@@ -1494,11 +1494,11 @@ function st(a, r, c, d) {
 }
 const Ne = Ce("LiveControl");
 function Mt() {
-  const { liveId: a } = Ye();
+  const { liveId: a } = Ze();
   V(() => (Ne.info("LiveControl", "✅ Component MOUNTED, liveId:", a), () => {
     Ne.info("LiveControl", "❌ Component UNMOUNTED, liveId:", a);
   }), []);
-  const r = Je(), L = Xe().state?.from === "live-list" ? "/live-list" : "/live-monitor", m = qe().components?.liveControl, { t: l } = ye(), {
+  const r = Qe(), L = en().state?.from === "live-list" ? "/live-list" : "/live-monitor", m = Je().components?.liveControl, { t: l } = ye(), {
     fetchLiveDetail: h,
     fetchLiveStats: _,
     endLive: g
@@ -1554,16 +1554,16 @@ function Mt() {
     },
     onSuccess: (t) => {
       if ($(!1), !t) return;
-      const i = t.anchor?.userId, D = Sn(t, i || "-"), Q = Rn(t);
+      const i = t.anchor?.userId, D = Sn(t, i || "-"), Z = Rn(t);
       if (N({
         liveId: t.liveId,
         id: t.liveId,
         liveName: t.liveName || l(n.UNNAMED_LIVE_SHORT),
-        coverUrl: t.coverUrl || je,
+        coverUrl: t.coverUrl || Xe,
         anchor: {
           userId: i || "",
           nick: D,
-          avatarUrl: Q
+          avatarUrl: Z
         },
         onlineCount: t.onlineCount || 0,
         createdAt: t.createdAt ?? 0,
@@ -1633,9 +1633,9 @@ function Mt() {
       p(X > 0 ? X : 0);
     };
     D();
-    const Q = window.setInterval(D, 1e3);
+    const Z = window.setInterval(D, 1e3);
     return () => {
-      window.clearInterval(Q);
+      window.clearInterval(Z);
     };
   }, [E?.createdAt, E?.activityStatus]), V(() => {
     if (!v) return;
@@ -1671,34 +1671,34 @@ function Mt() {
     }, ne * 1e3), () => {
       ee.current && (clearInterval(ee.current), ee.current = null);
     };
-  }, [a, ne, A, B, f.handleRefreshModeration, f.moderationMode, f.customModerationToggleEnabled]), H ? /* @__PURE__ */ e("div", { className: "loading-container", children: /* @__PURE__ */ e(Qe, { loading: !0, text: l(n.LOADING) }) }) : /* @__PURE__ */ s("div", { className: "live-control-container", children: [
+  }, [a, ne, A, B, f.handleRefreshModeration, f.moderationMode, f.customModerationToggleEnabled]), H ? /* @__PURE__ */ e("div", { className: "loading-container", children: /* @__PURE__ */ e(nn, { loading: !0, text: l(n.LOADING) }) }) : /* @__PURE__ */ s("div", { className: "live-control-container", children: [
     /* @__PURE__ */ s("div", { className: "toast-area", children: [
       U && /* @__PURE__ */ e("div", { className: "status-success", children: U }),
       O && /* @__PURE__ */ e("div", { className: "status-error", children: O })
     ] }),
     /* @__PURE__ */ s("header", { className: "live-control-navbar", children: [
       /* @__PURE__ */ s("div", { className: "nav-left", children: [
-        /* @__PURE__ */ e(Z, { shape: "circle", variant: "outline", className: "back-btn", onClick: ie, title: l(n.BACK_TO_LIST), icon: /* @__PURE__ */ e(on, { fill: "transparent", stroke: "currentColor", strokeWidth: 2 }) }),
+        /* @__PURE__ */ e(Q, { shape: "circle", variant: "outline", className: "back-btn", onClick: ie, title: l(n.BACK_TO_LIST), icon: /* @__PURE__ */ e(ln, { fill: "transparent", stroke: "currentColor", strokeWidth: 2 }) }),
         /* @__PURE__ */ e("h1", { children: l(n.LIVE_DETAILS) })
       ] }),
       /* @__PURE__ */ s("div", { className: "nav-right", children: [
         /* @__PURE__ */ e(
-          Z,
+          Q,
           {
             variant: "text",
             theme: "warning",
-            icon: /* @__PURE__ */ e(sn, { size: 16 }),
+            icon: /* @__PURE__ */ e(dn, { size: 16 }),
             disabled: A,
             onClick: k,
             children: l(n.VIOLATION_WARNING)
           }
         ),
-        /* @__PURE__ */ e(Z, { variant: "text", theme: "danger", disabled: A, onClick: () => M.requestConfirm(), icon: /* @__PURE__ */ e(cn, {}), children: l(n.FORCE_STOP) })
+        /* @__PURE__ */ e(Q, { variant: "text", theme: "danger", disabled: A, onClick: () => M.requestConfirm(), icon: /* @__PURE__ */ e(un, {}), children: l(n.FORCE_STOP) })
       ] })
     ] }),
     /* @__PURE__ */ s("main", { className: "live-control-viewport", children: [
       /* @__PURE__ */ e(
-        Qn,
+        Zn,
         {
           liveControlSlots: m,
           liveInfo: E,
@@ -1800,9 +1800,9 @@ function Mt() {
           width: ge.CONFIRM,
           zIndex: 2600,
           footer: /* @__PURE__ */ s(se, { children: [
-            /* @__PURE__ */ e(Z, { shape: "round", variant: "outline", disabled: i.action.loading, onClick: () => i.action.cancelConfirm(), children: l(n.CANCEL) }),
+            /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", disabled: i.action.loading, onClick: () => i.action.cancelConfirm(), children: l(n.CANCEL) }),
             /* @__PURE__ */ e(
-              Z,
+              Q,
               {
                 shape: "round",
                 theme: "primary",

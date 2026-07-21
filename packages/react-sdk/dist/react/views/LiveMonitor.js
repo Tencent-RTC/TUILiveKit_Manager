@@ -1,20 +1,19 @@
 import { jsxs as m, jsx as t, Fragment as Ve } from "react/jsx-runtime";
-import { I as n, m as Fe, ay as Ne, aE as Ue, aC as xe, aB as ke, h as fe, d as ge, c as Ge, y as X, ao as Le, ac as $e, W as We, ad as ze } from "../../chunks/layout.QDR0rddX.js";
-import { useMemo as pe, useRef as R, useEffect as x, useState as _, useCallback as f } from "react";
-import { useNavigate as He } from "react-router-dom";
+import { I as n, n as Fe, aC as Ne, aR as Ue, aM as xe, aL as ke, h as fe, d as ge, c as $e, z as X, at as Ge, aa as We, ar as Le, af as ze, Y as He, ag as Ke, bk as Be } from "../../chunks/shared-state.Bf8CkvaR.js";
+import { useMemo as pe, useRef as y, useEffect as x, useState as _, useCallback as f } from "react";
+import { useNavigate as Ye } from "react-router-dom";
 import { useUIKit as le } from "@tencentcloud/uikit-base-component-react";
-import { SearchIcon as Ke, RefreshIcon as Be, FullscreenIcon as Se, NotificationIcon as qe, StopCircleIcon as Ye } from "tdesign-icons-react";
-import { Input as je, Button as Z, Dialog as Me } from "tdesign-react";
-import { useLiveMonitorState as Ie, usePaginatedList as Xe, subscribeToPagination as Je, useConfirmAction as Ze } from "../../react.js";
-import { c as Qe } from "../../chunks/config.BhtXZwQl.js";
-import { g as te, P as ne, bD as er, bE as rr, E as ce, s as Ce, p as tr, d as nr, t as ar, f as or, c6 as ir, bN as sr, bJ as cr, bF as lr, bG as dr } from "../../chunks/main-layout.BgP9Ncvl.js";
-import { M as j } from "../../chunks/useAsyncAction.BQ2CRmHy.js";
-import { c as ur } from "../../chunks/mock.Bnui3Fqh.js";
-import { M as vr } from "../../chunks/MonitorPagination.BCAcIBjD.js";
-import { A as hr } from "../../chunks/AnchorAvatar.BsgNCmDL.js";
-import { S as gr } from "../../chunks/SlotRenderer.BP46Gx6z.js";
-import { s as fr, V as pr, A as Ir } from "../../chunks/adaptive-tags-runtime.Nrz95dSj.js";
-const mr = ({
+import { SearchIcon as qe, RefreshIcon as je, FullscreenIcon as Se, NotificationIcon as Xe, StopCircleIcon as Ze } from "tdesign-icons-react";
+import { Input as Je, Button as J, Dialog as Me } from "tdesign-react";
+import { useLiveMonitorState as Ie, usePaginatedList as Qe, subscribeToPagination as er, useConfirmAction as rr } from "../../react.js";
+import { g as te, R as ne, bs as tr, bt as nr, E as ce, s as Ce, p as ar, e as or, t as ir, f as sr, bV as cr, bB as lr, bx as dr, bu as ur, bv as vr } from "../../chunks/main-layout.OEkSp6vd.js";
+import { M as j } from "../../chunks/useAsyncAction.R1AlIQqh.js";
+import { c as hr } from "../../chunks/mock.Bnui3Fqh.js";
+import { M as gr } from "../../chunks/MonitorPagination.DA0Y5Aae.js";
+import { A as fr } from "../../chunks/AnchorAvatar.CiD-Uid4.js";
+import { S as pr } from "../../chunks/SlotRenderer.C2--beKA.js";
+import { s as Ir, V as mr } from "../../chunks/violation-labels-poller.BLRVAuJB.js";
+const Nr = ({
   searchInput: e,
   onSearchInputChange: o,
   onSearch: u,
@@ -22,7 +21,7 @@ const mr = ({
   onRefresh: p,
   refreshing: I
 }) => {
-  const { t: l } = le(), y = () => {
+  const { t: l } = le(), R = () => {
     if (te(e) > ne) {
       j.error(l(n.INPUT_TOO_LONG));
       return;
@@ -33,27 +32,27 @@ const mr = ({
     /* @__PURE__ */ t("div", { className: "monitor-title-section", children: /* @__PURE__ */ t("h2", { className: "monitor-title", children: l(n.LIVE_MONITOR) }) }),
     /* @__PURE__ */ m("div", { className: "monitor-header-actions", children: [
       /* @__PURE__ */ t(
-        je,
+        Je,
         {
           value: e,
           onChange: o,
-          onEnter: y,
+          onEnter: R,
           clearable: !0,
           onClear: T,
           placeholder: l(n.ENTER_LIVE_ID_TO_SEARCH),
-          suffixIcon: /* @__PURE__ */ t(Ke, { size: 16 }),
+          suffixIcon: /* @__PURE__ */ t(qe, { size: 16 }),
           className: "monitor-search-input",
           status: te(e) > ne ? "error" : "default",
           tips: te(e) > ne ? l(n.INPUT_EXCEEDS_LENGTH_LIMIT) : ""
         }
       ),
       /* @__PURE__ */ t(
-        Z,
+        J,
         {
           theme: "primary",
           variant: "outline",
           shape: "round",
-          icon: /* @__PURE__ */ t(Be, {}),
+          icon: /* @__PURE__ */ t(je, {}),
           loading: I,
           onClick: p,
           children: l(n.REFRESH)
@@ -61,7 +60,7 @@ const mr = ({
       )
     ] })
   ] });
-}, Nr = ({
+}, Lr = ({
   item: e,
   hoveredCardId: o,
   hoveredTagId: u,
@@ -69,14 +68,14 @@ const mr = ({
   userProfile: p,
   displayTags: I,
   adaptiveResult: l,
-  onMouseEnter: y,
+  onMouseEnter: R,
   onMouseLeave: k,
   onClickDetails: v,
-  onViolationWarning: A,
+  onViolationWarning: w,
   onCloseLive: a,
   onTagHover: N
 }) => {
-  const { t: s } = le(), { startPlay: d, stopPlay: L } = Ie(), S = Fe().components?.liveMonitor, G = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, K = e.avatarUrl?.trim() || "", F = p?.avatarUrl || e.anchor?.avatarUrl || K || er(e), b = p?.nick || e.anchor?.nick || rr(e, s(n.UNKNOWN_HOST)), B = e.stats?.viewCount ?? 0, $ = pe(() => `live_monitor_view_${e.liveId}`, [e.liveId]), q = R(""), D = R(0), E = R(null);
+  const { t: s } = le(), { startPlay: d, stopPlay: L } = Ie(), S = Fe().components?.liveMonitor, $ = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, K = e.avatarUrl?.trim() || "", F = p?.avatarUrl || e.anchor?.avatarUrl || K || tr(e), b = p?.nick || e.anchor?.nick || nr(e, s(n.UNKNOWN_HOST)), B = e.stats?.viewCount ?? 0, G = pe(() => `live_monitor_view_${e.liveId}`, [e.liveId]), Y = y(""), D = y(0), E = y(null);
   return x(() => {
     const i = e.liveId;
     if (!i) return;
@@ -89,27 +88,27 @@ const mr = ({
         } catch {
         }
       try {
-        if (await d({ liveId: i, containerId: $ }), M || D.current !== W) {
+        if (await d({ liveId: i, containerId: G }), M || D.current !== W) {
           L(i).catch((C) => {
             console.warn("[LiveCard] Failed to stop play during unmount:", C);
           });
           return;
         }
-        q.current = i;
+        Y.current = i;
       } catch (C) {
         !M && D.current === W && (C === ce.LOGIN_TIMEOUT || C === ce.USER_SIG_ILLEGAL) && (xe(), ke(), localStorage.removeItem("tuiLiveMonitor-userInfo"), window.location.href = "#/config-required");
       }
     })(), () => {
       M = !0, D.current += 1;
-      const C = q.current || i;
-      q.current === C && (q.current = ""), E.current = L(C), E.current.catch(() => {
+      const C = Y.current || i;
+      Y.current === C && (Y.current = ""), E.current = L(C), E.current.catch(() => {
       });
     };
-  }, [e.liveId, $, d, L]), /* @__PURE__ */ m(
+  }, [e.liveId, G, d, L]), /* @__PURE__ */ m(
     "div",
     {
       className: `live-card ${o === e.liveId ? "hovered" : ""}`,
-      onMouseEnter: y,
+      onMouseEnter: R,
       onMouseLeave: k,
       children: [
         /* @__PURE__ */ m("div", { id: e.liveId, className: "live-video-container", children: [
@@ -118,11 +117,11 @@ const mr = ({
             {
               className: "live-video-bg",
               style: {
-                backgroundImage: `url(${G ? Ne : e.backgroundUrl || e.coverUrl || Ue})`
+                backgroundImage: `url(${$ ? Ne : e.backgroundUrl || e.coverUrl || Ue})`
               }
             }
           ),
-          G && e.coverUrl && /* @__PURE__ */ t(
+          $ && e.coverUrl && /* @__PURE__ */ t(
             "img",
             {
               src: e.coverUrl,
@@ -136,7 +135,7 @@ const mr = ({
           /* @__PURE__ */ t(
             "div",
             {
-              id: $,
+              id: G,
               className: "live-video-player"
             }
           ),
@@ -215,7 +214,7 @@ const mr = ({
           /* @__PURE__ */ m("div", { className: "live-card-meta", children: [
             /* @__PURE__ */ m("div", { className: "live-card-anchor", children: [
               /* @__PURE__ */ t(
-                hr,
+                fr,
                 {
                   className: "anchor-avatar",
                   src: F,
@@ -233,26 +232,26 @@ const mr = ({
         ] }),
         /* @__PURE__ */ m("div", { className: `live-card-actions ${o === e.liveId ? "show" : ""}`, children: [
           /* @__PURE__ */ t(
-            Z,
+            J,
             {
               className: "card-action",
               variant: "text",
               theme: "warning",
-              icon: /* @__PURE__ */ t(qe, { size: 16 }),
+              icon: /* @__PURE__ */ t(Xe, { size: 16 }),
               onClick: (i) => {
-                i.stopPropagation(), A();
+                i.stopPropagation(), w();
               },
               children: /* @__PURE__ */ t("span", { className: "button-text", children: s(n.VIOLATION_WARNING) })
             }
           ),
-          /* @__PURE__ */ t(gr, { slot: S?.userActionExtraItems, props: { live: e } }),
+          /* @__PURE__ */ t(pr, { slot: S?.userActionExtraItems, props: { live: e } }),
           /* @__PURE__ */ t(
-            Z,
+            J,
             {
               className: "card-action",
               variant: "text",
               theme: "danger",
-              icon: /* @__PURE__ */ t(Ye, { size: 16 }),
+              icon: /* @__PURE__ */ t(Ze, { size: 16 }),
               onClick: (i) => {
                 i.stopPropagation(), a();
               },
@@ -264,34 +263,34 @@ const mr = ({
     },
     e.liveId
   );
-}, se = fe("LiveMonitorData"), Lr = () => {
-  const e = Ie(), o = Xe(), { t: u } = le(), { opSuccess: T, opFailed: p } = ge(u), [I, l] = _(o.currentPage), [y, k] = _(o.hasMore), [v, A] = _(o.loading), [a, N] = _(o.pageData);
+}, se = fe("LiveMonitorData"), Mr = () => {
+  const e = Ie(), o = Qe(), { t: u } = le(), { opSuccess: T, opFailed: p } = ge(u), [I, l] = _(o.currentPage), [R, k] = _(o.hasMore), [v, w] = _(o.loading), [a, N] = _(o.pageData);
   x(() => {
-    const c = Je((h) => {
-      l(h.currentPage), k(h.hasMoreData), A(h.loading), N([...h.list]);
+    const c = er((h) => {
+      l(h.currentPage), k(h.hasMoreData), w(h.loading), N([...h.list]);
     });
     return () => {
-      c(), $.next();
+      c(), G.next();
     };
   }, []);
-  const s = a.length > 0, [d, L] = _(/* @__PURE__ */ new Map()), S = R(!1), G = R(/* @__PURE__ */ new Map());
-  G.current = pe(() => {
+  const s = a.length > 0, [d, L] = _(/* @__PURE__ */ new Map()), S = y(!1), $ = y(/* @__PURE__ */ new Map());
+  $.current = pe(() => {
     const c = /* @__PURE__ */ new Map();
     return c.set(I, a), c;
   }, [I, a]);
-  const K = R([]);
+  const K = y([]);
   K.current = a;
-  const F = R(), b = R(d);
+  const F = y(), b = y(d);
   b.current = d;
-  const B = R();
+  const B = y();
   B.current || (B.current = Ce());
-  const $ = B.current;
-  F.current || (F.current = Ce(), tr(
+  const G = B.current;
+  F.current || (F.current = Ce(), ar(
     F.current,
-    ir((c) => c.length > 0),
-    fr((c) => or(Ge(c))),
-    ar($),
-    nr(
+    cr((c) => c.length > 0),
+    Ir((c) => sr($e(c))),
+    ir(G),
+    or(
       (c) => {
         L((h) => {
           const O = new Map(h);
@@ -311,7 +310,7 @@ const mr = ({
     const h = c.filter((O) => !b.current.has(O));
     h.length !== 0 && F.current?.next(h);
   }, [a, d, S]);
-  const [q, D] = _(!1), [E, i] = _(!1), [W, M] = _(!1), [Q, C] = _(""), [de, Y] = _(null), z = R(!1), ee = R(0), ue = f(async (c, h, O) => {
+  const [Y, D] = _(!1), [E, i] = _(!1), [W, M] = _(!1), [Q, C] = _(""), [de, q] = _(null), z = y(!1), ee = y(0), ue = f(async (c, h, O) => {
     if (!o.loading)
       try {
         !h && O <= 1 && c > 1 ? await o.prevPage() : await o.refreshCurrentPage();
@@ -333,23 +332,23 @@ const mr = ({
       if (S.current || ee.current !== U)
         return;
       if (!V) {
-        j.error(u(n.NO_SEARCH_RESULTS_FOR, { keyword: h })), C(""), M(!1), z.current = !1, Y(null), await o.goToFirstPage();
+        j.error(u(n.NO_SEARCH_RESULTS_FOR, { keyword: h })), C(""), M(!1), z.current = !1, q(null), await o.goToFirstPage();
         return;
       }
-      M(!0), z.current = !0, Y([V]), j.success(T(n.OP_SEARCH, n.LIVE));
+      M(!0), z.current = !0, q([V]), j.success(T(n.OP_SEARCH, n.LIVE));
     } catch (V) {
       if (se.error("搜索直播间失败", `(ErrorCode: ${X(V).code || "N/A"})`, V), V === ce.LOGIN_TIMEOUT || V === ce.USER_SIG_ILLEGAL) {
         localStorage.removeItem("tuiLiveMonitor-userInfo"), window.location.href = "#/config-required";
         return;
       }
-      j.error(u(n.NO_SEARCH_RESULTS_FOR, { keyword: h })), C(""), M(!1), z.current = !1, Y(null), await o.goToFirstPage();
+      j.error(u(n.NO_SEARCH_RESULTS_FOR, { keyword: h })), C(""), M(!1), z.current = !1, q(null), await o.goToFirstPage();
     } finally {
       S.current || D(!1);
     }
   }, [e, S, o, u]), he = f(async () => {
     if (o.loading) return;
     const c = z.current;
-    if (C(""), M(!1), z.current = !1, Y(null), !!c)
+    if (C(""), M(!1), z.current = !1, q(null), !!c)
       try {
         await o.goToFirstPage();
       } catch {
@@ -371,7 +370,7 @@ const mr = ({
   return {
     // —— 分页快照（响应式，来自 controller） ——
     currentPage: I,
-    hasMoreData: y,
+    hasMoreData: R,
     loading: v,
     pageData: a,
     hasLiveData: s,
@@ -381,19 +380,19 @@ const mr = ({
     // —— Refs（与分页解耦） ——
     isUnmountedRef: S,
     // —— 兼容老接口的只读 refs（仅当前页数据；不可 mutate） ——
-    pageDataCacheRef: G,
+    pageDataCacheRef: $,
     liveListRef: K,
     // —— 分页操作（来自 SDK 对外状态入口） ——
     paginatedList: o,
     // —— 搜索相关 ——
-    searching: q,
+    searching: Y,
     isSearchMode: W,
     searchInput: Q,
     searchResults: de,
     isSearchModeRef: z,
     setSearchInput: C,
     setIsSearchMode: M,
-    setSearchResults: Y,
+    setSearchResults: q,
     handleSearch: ve,
     handleClearSearch: he,
     // —— 刷新相关 ——
@@ -402,14 +401,14 @@ const mr = ({
     // —— 封禁后翻页 ——
     handleCloseLiveSuccess: ue
   };
-}, Mr = 8, Cr = fe("ViolationLabels"), _r = (e) => {
-  const { pageSize: o, isSearchModeRef: u, isUnmountedRef: T } = e, [p, I] = _(/* @__PURE__ */ new Map()), l = R(null);
-  l.current || (l.current = new pr({
+}, Cr = 8, _r = fe("ViolationLabels"), Sr = (e) => {
+  const { pageSize: o, isSearchModeRef: u, isUnmountedRef: T } = e, [p, I] = _(/* @__PURE__ */ new Map()), l = y(null);
+  l.current || (l.current = new mr({
     pageSize: o,
     getTimeRange: () => {
       const a = /* @__PURE__ */ new Date(), N = new Date(a.getTime() - 600 * 1e3), s = (d) => {
-        const L = d.getFullYear(), S = String(d.getMonth() + 1).padStart(2, "0"), G = String(d.getDate()).padStart(2, "0"), K = String(d.getHours()).padStart(2, "0"), F = String(d.getMinutes()).padStart(2, "0"), b = String(d.getSeconds()).padStart(2, "0");
-        return `${L}-${S}-${G} ${K}:${F}:${b}`;
+        const L = d.getFullYear(), S = String(d.getMonth() + 1).padStart(2, "0"), $ = String(d.getDate()).padStart(2, "0"), K = String(d.getHours()).padStart(2, "0"), F = String(d.getMinutes()).padStart(2, "0"), b = String(d.getSeconds()).padStart(2, "0");
+        return `${L}-${S}-${$} ${K}:${F}:${b}`;
       };
       return { startTime: s(N), endTime: s(a) };
     },
@@ -424,12 +423,12 @@ const mr = ({
       });
     },
     onError: (a) => {
-      Cr.warn("LiveMonitor", "获取直播违规标签失败:", a);
+      _r.warn("LiveMonitor", "获取直播违规标签失败:", a);
     }
   }), l.current.ensureStarted()), x(() => () => {
     l.current?.stop();
   }, []);
-  const y = f(async (a, N, s) => {
+  const R = f(async (a, N, s) => {
     u.current || T.current || l.current?.feed(a);
   }, [u, T]), k = f(() => {
     l.current?.stop();
@@ -439,30 +438,30 @@ const mr = ({
       for (const d of s || [])
         d && !N.includes(d) && N.push(d);
     return N;
-  }, []), A = f((a) => v(
+  }, []), w = f((a) => v(
     p.get(a.liveId)
   ), [v, p]);
   return {
     liveViolationLabelMap: p,
-    loadLiveViolationLabelsForPage: y,
+    loadLiveViolationLabelsForPage: R,
     clearLiveViolationRefreshTimer: k,
-    getLiveDisplayTags: A
+    getLiveDisplayTags: w
   };
 };
-function Sr(e, o) {
-  const u = R(null), [, T] = _(0);
-  u.current || (u.current = new Ir({
+function Er(e, o) {
+  const u = y(null), [, T] = _(0);
+  u.current || (u.current = new Ge({
     containerSelector: ".live-monitor-grid",
     t: o
   }));
   const p = f(() => {
     T((v) => v + 1);
   }, []), I = f((v) => {
-    const A = u.current, a = A.getResult(v);
+    const w = u.current, a = w.getResult(v);
     if (!a.visibleCount && !a.showMore && a.idMaxWidth === "calc(100% - 12px)") {
       const s = e()?.find((d) => d.liveId === v);
       s && setTimeout(() => {
-        A.compute(v, s), p();
+        w.compute(v, s), p();
       }, 0);
     }
     return a;
@@ -470,7 +469,7 @@ function Sr(e, o) {
     u.current?.observe(() => {
       p();
     });
-  }, [p]), y = f(() => {
+  }, [p]), R = f(() => {
     u.current?.disconnect();
   }, []), k = f((v) => {
     u.current?.initForList(v), p();
@@ -480,20 +479,20 @@ function Sr(e, o) {
   }, []), {
     getAdaptiveResult: I,
     initResizeObserver: l,
-    cleanupResizeObserver: y,
+    cleanupResizeObserver: R,
     initAdaptiveTags: k
   };
 }
 const P = fe("LiveMonitor");
 let H = null, re = null, _e = null;
-const $r = () => {
-  const { t: e } = le(), o = He(), { init: u, stopPlay: T, endLive: p } = Ie(), {
+const Gr = () => {
+  const { t: e } = le(), o = Ye(), { init: u, stopPlay: T, endLive: p } = Ie(), {
     currentPage: I,
     hasMoreData: l,
-    loading: y,
+    loading: R,
     hasLiveData: k,
     pageData: v,
-    isUnmountedRef: A,
+    isUnmountedRef: w,
     paginatedList: a,
     userProfileMap: N,
     // 搜索相关
@@ -501,23 +500,23 @@ const $r = () => {
     searchInput: d,
     searchResults: L,
     isSearchModeRef: S,
-    setSearchInput: G,
+    setSearchInput: $,
     handleSearch: K,
     handleClearSearch: F,
     // 刷新相关
     refreshing: b,
     handleRefresh: B,
     // 封禁后翻页
-    handleCloseLiveSuccess: $
-  } = Lr(), [q, D] = _(!1), [E, i] = _({ visible: !1, liveId: "", liveName: "", closing: !1 }), W = R({ liveId: "", liveName: "" }), { confirmDialog: M, requestConfirm: Q, cancelConfirm: C, executeWithConfirm: de, loading: Y } = Ze({
+    handleCloseLiveSuccess: G
+  } = Mr(), [Y, D] = _(!1), [E, i] = _({ visible: !1, liveId: "", liveName: "", closing: !1 }), W = y({ liveId: "", liveName: "" }), { confirmDialog: M, requestConfirm: Q, cancelConfirm: C, executeWithConfirm: de, loading: q } = rr({
     operationName: e(n.SEND_VIOLATION_WARNING),
     action: async () => {
       const { liveId: r, liveName: g } = W.current;
       if (!r) throw new Error("liveId is required");
-      const w = g || r;
-      await sr(r, {
+      const A = g || r;
+      await lr(r, {
         violationType: e(n.VIOLATION_TYPE_WARNING),
-        violationContent: e(n.VIOLATION_WARNING_CONTENT_TEMPLATE, { liveName: w }),
+        violationContent: e(n.VIOLATION_WARNING_CONTENT_TEMPLATE, { liveName: A }),
         handleSuggestion: e(n.VIOLATION_WARNING_DEFAULT_SUGGESTION)
       });
     },
@@ -532,7 +531,7 @@ const $r = () => {
     initResizeObserver: ae,
     cleanupResizeObserver: c,
     initAdaptiveTags: h
-  } = Sr(
+  } = Er(
     () => v.map((r) => ({
       liveId: r.liveId,
       tags: oe(r)
@@ -543,12 +542,12 @@ const $r = () => {
     loadLiveViolationLabelsForPage: U,
     clearLiveViolationRefreshTimer: V,
     getLiveDisplayTags: oe
-  } = _r({
-    pageSize: Mr,
+  } = Sr({
+    pageSize: Cr,
     isSearchModeRef: S,
-    isUnmountedRef: A
+    isUnmountedRef: w
   }), Ee = (r) => {
-    G(String(r));
+    $(String(r));
   }, Te = f(async () => {
     if (!a.loading)
       try {
@@ -556,14 +555,14 @@ const $r = () => {
       } catch (r) {
         P.error("prevPage 失败", `(ErrorCode: ${X(r).code || "N/A"})`, r);
       }
-  }, [a]), ye = f(async () => {
+  }, [a]), Re = f(async () => {
     if (!a.loading)
       try {
         await a.nextPage();
       } catch (r) {
         P.error("nextPage 失败", `(ErrorCode: ${X(r).code || "N/A"})`, r);
       }
-  }, [a]), Re = f(async () => {
+  }, [a]), ye = f(async () => {
     if (!a.loading)
       try {
         await a.goToFirstPage();
@@ -572,8 +571,8 @@ const $r = () => {
       }
   }, [a]);
   x(() => {
-    y || v.length === 0 || U(v, I, 0);
-  }, [v, I, y, U]), x(() => (ae(), () => {
+    R || v.length === 0 || U(v, I, 0);
+  }, [v, I, R, U]), x(() => (ae(), () => {
     c();
   }), [ae, c]);
   const Oe = f((r, g) => {
@@ -583,19 +582,20 @@ const $r = () => {
     if (r) {
       i((g) => ({ ...g, closing: !0 }));
       try {
-        await T(r), await p(r), i({ visible: !1, liveId: "", liveName: "", closing: !1 }), j.success(ge(e).opSuccess(n.FORCE_STOP, n.LIVE)), await $(I, l, v.length);
+        await T(r), await p(r), i({ visible: !1, liveId: "", liveName: "", closing: !1 }), j.success(ge(e).opSuccess(n.FORCE_STOP, n.LIVE)), await G(I, l, v.length);
       } catch (g) {
-        P.error("封禁直播失败", `(ErrorCode: ${X(g).code || "N/A"})`, g), i((w) => ({ ...w, closing: !1 }));
+        P.error("封禁直播失败", `(ErrorCode: ${X(g).code || "N/A"})`, g), i((A) => ({ ...A, closing: !1 }));
       }
     }
-  }, [E, T, p, $, I, l, v.length, e]), me = f(() => {
+  }, [E, T, p, G, I, l, v.length, e]), me = f(() => {
     i({ visible: !1, liveId: "", liveName: "", closing: !1 });
-  }, []), Ae = f((r, g) => {
+  }, []), we = f((r, g) => {
     W.current = { liveId: r, liveName: g }, Q();
-  }, [Q]), we = f((r) => {
+  }, [Q]), Ae = f((r) => {
+    We("live_detail");
     try {
       const g = a.getSnapshot();
-      cr({
+      dr({
         currentPage: g.currentPage,
         pageCursors: g.pageCursors
       });
@@ -617,31 +617,31 @@ const $r = () => {
     (async () => {
       try {
         const g = typeof window < "u" && window.__IDENTITY_MODE__ === "admin" ? "admin" : "audience";
-        H || (H = await $e() ?? null, H && H.sdkAppId !== 0 && !We() && (ze({ userId: H.userId, userSig: H.userSig, sdkAppId: H.sdkAppId, configured: !0 }), P.info("LiveMonitor", "Admin account saved to auth-store:", H.userId))), (_e !== g || !re) && (_e = g, g === "admin" ? re = H : (re = await lr("audience") ?? null, P.info("LiveMonitor", "Room entry account created (not saved to auth-store):", re?.userId)));
-        const w = re;
-        if (w && w.sdkAppId !== 0) {
-          P.info("LiveMonitor", "Initializing SDK with account:", w.userId), Qe({
+        H || (H = await ze() ?? null, H && H.sdkAppId !== 0 && !He() && (Ke({ userId: H.userId, userSig: H.userSig, sdkAppId: H.sdkAppId, configured: !0 }), P.info("LiveMonitor", "Admin account saved to auth-store:", H.userId))), (_e !== g || !re) && (_e = g, g === "admin" ? re = H : (re = await ur("audience") ?? null, P.info("LiveMonitor", "Room entry account created (not saved to auth-store):", re?.userId)));
+        const A = re;
+        if (A && A.sdkAppId !== 0) {
+          P.info("LiveMonitor", "Initializing SDK with account:", A.userId), Be({
             baseURL: "http://localhost:9000/api",
-            authToken: w.userSig
+            authToken: A.userSig
           });
           const ie = typeof window.__MOCK_MODE__ < "u" && window.__MOCK_MODE__;
           u({
             baseURL: "http://localhost:9000/api",
-            playerFactory: ie ? ur() : void 0
+            playerFactory: ie ? hr() : void 0
           }), P.info("LiveMonitor", "SDK initialized, mock mode:", ie);
-          const J = dr();
-          J.pageToLoad > 1 ? (P.info("LiveMonitor", "Restoring pagination state, page:", J.pageToLoad), await a.goToPage(J.pageToLoad, J.pageCursors), P.info("LiveMonitor", "Pagination state restored to page", J.pageToLoad)) : (await a.goToFirstPage(), P.info("LiveMonitor", "goToFirstPage done")), D(!0);
+          const Z = vr();
+          Z.pageToLoad > 1 ? (P.info("LiveMonitor", "Restoring pagination state, page:", Z.pageToLoad), await a.goToPage(Z.pageToLoad, Z.pageCursors), P.info("LiveMonitor", "Pagination state restored to page", Z.pageToLoad)) : (await a.goToFirstPage(), P.info("LiveMonitor", "goToFirstPage done")), D(!0);
         } else
           P.error("LiveMonitor", "No valid credentials found"), D(!0);
       } catch (g) {
         P.error("LiveMonitor", "SDK init error:", g), D(!0);
       }
     })();
-  }, []), x(() => (A.current = !1, () => {
-    A.current = !0, V();
+  }, []), x(() => (w.current = !1, () => {
+    w.current = !0, V();
   }), []), /* @__PURE__ */ m("div", { className: "live-monitor-page", children: [
     /* @__PURE__ */ t(
-      mr,
+      Nr,
       {
         searchInput: d,
         onSearchInputChange: Ee,
@@ -651,13 +651,13 @@ const $r = () => {
         refreshing: b
       }
     ),
-    /* @__PURE__ */ t("div", { className: "live-monitor-grid", children: y || !q ? /* @__PURE__ */ m("div", { className: "monitor-loading", children: [
+    /* @__PURE__ */ t("div", { className: "live-monitor-grid", children: R || !Y ? /* @__PURE__ */ m("div", { className: "monitor-loading", children: [
       /* @__PURE__ */ t("div", { className: "loading-spinner" }),
       /* @__PURE__ */ t("span", { children: e(n.LOADING) })
     ] }) : De ? be.map((r) => {
-      const g = oe(r), w = r.anchor?.userId || "", ie = w && (N.get(w) || N.get(w.toLowerCase())) || r.anchor;
+      const g = oe(r), A = r.anchor?.userId || "", ie = A && (N.get(A) || N.get(A.toLowerCase())) || r.anchor;
       return /* @__PURE__ */ t(
-        Nr,
+        Lr,
         {
           item: r,
           hoveredCardId: z,
@@ -668,10 +668,10 @@ const $r = () => {
           adaptiveResult: he(r.liveId),
           onMouseEnter: () => ee(r.liveId),
           onMouseLeave: () => ee(null),
-          onClickDetails: () => we(r.liveId),
-          onViolationWarning: () => Ae(r.liveId, r.liveName || e(n.UNNAMED_LIVE)),
+          onClickDetails: () => Ae(r.liveId),
+          onViolationWarning: () => we(r.liveId, r.liveName || e(n.UNNAMED_LIVE)),
           onCloseLive: () => Oe(r.liveId, r.liveName || e(n.UNNAMED_LIVE)),
-          onTagHover: (J) => ve(J)
+          onTagHover: (Z) => ve(Z)
         },
         `${I}:${r.liveId}`
       );
@@ -680,14 +680,14 @@ const $r = () => {
       /* @__PURE__ */ t("p", { children: e(n.NO_LIVE_RIGHT_NOW) })
     ] }) }),
     !s && /* @__PURE__ */ t(
-      vr,
+      gr,
       {
         currentPage: I,
         hasMoreData: l,
-        loading: y,
+        loading: R,
         onPrevPage: Te,
-        onNextPage: ye,
-        onGoToFirstPage: Re
+        onNextPage: Re,
+        onGoToFirstPage: ye
       }
     ),
     /* @__PURE__ */ t(
@@ -698,9 +698,9 @@ const $r = () => {
         onClose: me,
         width: Le.CONFIRM,
         footer: /* @__PURE__ */ m(Ve, { children: [
-          /* @__PURE__ */ t(Z, { shape: "round", variant: "outline", onClick: me, disabled: E.closing, children: e(n.CANCEL) }),
+          /* @__PURE__ */ t(J, { shape: "round", variant: "outline", onClick: me, disabled: E.closing, children: e(n.CANCEL) }),
           /* @__PURE__ */ t(
-            Z,
+            J,
             {
               shape: "round",
               theme: "primary",
@@ -719,8 +719,8 @@ const $r = () => {
         visible: M.visible,
         header: M.title,
         width: Le.CONFIRM,
-        confirmBtn: /* @__PURE__ */ t(Z, { shape: "round", loading: Y, onClick: () => de(), children: M.confirmText ?? e(n.CONFIRM) }),
-        cancelBtn: /* @__PURE__ */ t(Z, { variant: "outline", shape: "round", disabled: Y, onClick: C, children: e(n.CANCEL) }),
+        confirmBtn: /* @__PURE__ */ t(J, { shape: "round", loading: q, onClick: () => de(), children: M.confirmText ?? e(n.CONFIRM) }),
+        cancelBtn: /* @__PURE__ */ t(J, { variant: "outline", shape: "round", disabled: q, onClick: C, children: e(n.CANCEL) }),
         onClose: C,
         children: /* @__PURE__ */ t("p", { children: M.content })
       }
@@ -728,5 +728,5 @@ const $r = () => {
   ] });
 };
 export {
-  $r as default
+  Gr as default
 };

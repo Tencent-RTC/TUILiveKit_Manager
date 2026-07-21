@@ -145,29 +145,41 @@ function applyPatch(Oo, jo) {
   }
   return Ho;
 }
-let memoryState = getDefaultAuthState();
+const GLOBAL_KEY$2 = "__LIVEKIT_AUTH_STORE__";
+function getGlobalStore() {
+  return window[GLOBAL_KEY$2] || (window[GLOBAL_KEY$2] = {
+    memoryState: getDefaultAuthState(),
+    customAdapter: null
+  }), window[GLOBAL_KEY$2];
+}
 const defaultAdapter = {
-  getState: () => cloneAuthState(memoryState),
+  getState: () => cloneAuthState(getGlobalStore().memoryState),
   setState: (Oo) => {
-    memoryState = applyPatch(memoryState, Oo);
+    const jo = getGlobalStore();
+    jo.memoryState = applyPatch(jo.memoryState, Oo);
   },
   reset: () => {
-    memoryState = getDefaultAuthState();
+    getGlobalStore().memoryState = getDefaultAuthState(), getGlobalStore().customAdapter = null;
   }
 };
-let authStoreAdapter = defaultAdapter;
+function getAdapter() {
+  return getGlobalStore().customAdapter ?? defaultAdapter;
+}
 function setAuthStoreAdapter(Oo) {
-  const jo = authStoreAdapter.getState();
-  authStoreAdapter = Oo ?? defaultAdapter, authStoreAdapter.reset(), authStoreAdapter.setState(jo);
+  const jo = getGlobalStore(), Ho = getAdapter().getState();
+  jo.customAdapter = Oo ?? null;
+  const Fo = getAdapter();
+  Fo.reset(), Fo.setState(Ho);
 }
 function getAuthStateSnapshot() {
-  return authStoreAdapter.getState();
+  return getAdapter().getState();
 }
 function updateAuthState(Oo) {
-  return authStoreAdapter.setState(Oo), authStoreAdapter.getState();
+  const jo = getAdapter();
+  return jo.setState(Oo), jo.getState();
 }
 function resetAuthState() {
-  authStoreAdapter.reset();
+  getAdapter().reset();
 }
 function getDefaultExportFromCjs(Oo) {
   return Oo && Oo.__esModule && Object.prototype.hasOwnProperty.call(Oo, "default") ? Oo.default : Oo;
@@ -3194,58 +3206,64 @@ function extractPageName(Oo) {
 function resetReportedCaches() {
   reportedAppInits.clear(), reportedCapabilities.clear(), reportedFeatures.clear();
 }
-let aegisInstance = null, aegisInitConfig = null;
+const GLOBAL_KEY$1 = "__LIVEKIT_AEGIS__";
+function getStore() {
+  return window[GLOBAL_KEY$1] || (window[GLOBAL_KEY$1] = {
+    instance: null,
+    initConfig: null
+  }), window[GLOBAL_KEY$1];
+}
 function getUinFromAuthState() {
   const Oo = getAuthStateSnapshot().credentials?.sdkAppId;
   return Oo ? String(Oo) : void 0;
 }
 function applyAegisUin(Oo, jo) {
-  if (!jo)
-    return !1;
+  if (!jo) return !1;
   const No = Oo;
   return typeof No.setConfig == "function" ? (No.setConfig({ uin: jo }), !0) : typeof No.setUin == "function" ? (No.setUin(jo), !0) : No.config && typeof No.config == "object" ? (No.config.uin = jo, !0) : (console.warn("[Aegis] 当前 SDK 实例不支持动态更新 uin"), !1);
 }
 function initAegis(Oo) {
   if (!Oo.id)
     return console.warn("[Aegis] id is required"), null;
-  aegisInitConfig = { ...Oo };
-  const jo = Oo.uin || getUinFromAuthState();
-  return aegisInstance = new Aegis({
+  const jo = getStore(), No = Oo.uin || getUinFromAuthState(), Ho = new Aegis({
     reportApiSpeed: !0,
     reportAssetSpeed: !0,
     spa: !0,
     hostUrl: "https://rumt-zh.com",
-    uin: jo,
+    uin: No,
     ...Oo
-  }), (Oo.autoUpdateUin || !Oo.uin && getUinFromAuthState()) && updateUinFromSdkAppId(), aegisInstance;
+  });
+  return jo.instance = Ho, jo.initConfig = { ...Oo }, (Oo.autoUpdateUin || !Oo.uin && getUinFromAuthState()) && updateUinFromSdkAppId(), Ho;
 }
 function reinitAegisIfUinChanged(Oo) {
-  if (!aegisInitConfig || !aegisInitConfig.id || !Oo) return;
-  const jo = aegisInstance?.config?.uin;
-  if (String(jo) !== String(Oo)) {
+  const jo = getStore();
+  if (!jo.initConfig?.id || !Oo) return;
+  const No = jo.instance?.config?.uin;
+  if (String(No) !== String(Oo)) {
     try {
-      aegisInstance.destroy?.();
+      jo.instance.destroy?.();
     } catch {
     }
-    aegisInstance = new Aegis({
+    jo.instance = new Aegis({
       reportApiSpeed: !0,
       reportAssetSpeed: !0,
       spa: !0,
       hostUrl: "https://rumt-zh.com",
-      ...aegisInitConfig,
+      ...jo.initConfig,
       uin: Oo
     }), resetReportedCaches(), console.log("[Aegis] instance reinitialized with uin:", Oo);
   }
 }
 function getAegis() {
-  return aegisInstance;
+  return getStore().instance;
 }
 function setAegisUin(Oo) {
-  aegisInstance && applyAegisUin(aegisInstance, Oo);
+  const jo = getStore().instance;
+  jo && applyAegisUin(jo, Oo);
 }
 function updateUinFromSdkAppId() {
-  const Oo = getUinFromAuthState();
-  return Oo && aegisInstance ? applyAegisUin(aegisInstance, Oo) : !1;
+  const Oo = getUinFromAuthState(), jo = getStore().instance;
+  return Oo && jo ? applyAegisUin(jo, Oo) : !1;
 }
 function enableAutoUpdateUin() {
   updateUinFromSdkAppId();
@@ -3253,7 +3271,7 @@ function enableAutoUpdateUin() {
 function disableAutoUpdateUin() {
 }
 function isAegisInited() {
-  return aegisInstance !== null;
+  return getStore().instance !== null;
 }
 function reportErrorToRum(Oo, jo, No) {
   formatErrorDetail(No), reportBusinessOp(Oo, "error", !1);
@@ -9891,7 +9909,7 @@ class LiveMonitorCore {
       hasPlayerFactory: !!jo.playerFactory,
       baseURL: jo.baseURL,
       alreadyInitialized: this.initialized
-    }), this.initialized) {
+    }), reportFeatureUse("live_monitor"), this.initialized) {
       log$6.info("LiveMonitorCore", "Already initialized, skipping playerFactory setup");
       return;
     }
@@ -11491,7 +11509,7 @@ function useLiveMonitorState() {
         throw log$2.warn("useLiveMonitorState", "createLive: core is null, cannot create"), new Error("LiveMonitorCore not initialized");
       try {
         const Ko = await globalCore.createLive(Wo);
-        return reportBusinessOp("live_crud", "create", !0, Ko.liveId), Ko;
+        return reportBusinessOp("live_crud", "create", !0, Ko.liveId), reportFeatureUse("create_live"), Ko;
       } catch (Ko) {
         throw reportBusinessOp("live_crud", "create", !1), Ko;
       }

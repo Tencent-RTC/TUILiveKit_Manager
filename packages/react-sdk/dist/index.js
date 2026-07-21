@@ -146,29 +146,41 @@ function applyPatch(Oo, jo) {
   }
   return Ho;
 }
-let memoryState = getDefaultAuthState();
+const GLOBAL_KEY$2 = "__LIVEKIT_AUTH_STORE__";
+function getGlobalStore() {
+  return window[GLOBAL_KEY$2] || (window[GLOBAL_KEY$2] = {
+    memoryState: getDefaultAuthState(),
+    customAdapter: null
+  }), window[GLOBAL_KEY$2];
+}
 const defaultAdapter = {
-  getState: () => cloneAuthState(memoryState),
+  getState: () => cloneAuthState(getGlobalStore().memoryState),
   setState: (Oo) => {
-    memoryState = applyPatch(memoryState, Oo);
+    const jo = getGlobalStore();
+    jo.memoryState = applyPatch(jo.memoryState, Oo);
   },
   reset: () => {
-    memoryState = getDefaultAuthState();
+    getGlobalStore().memoryState = getDefaultAuthState(), getGlobalStore().customAdapter = null;
   }
 };
-let authStoreAdapter = defaultAdapter;
+function getAdapter() {
+  return getGlobalStore().customAdapter ?? defaultAdapter;
+}
 function setAuthStoreAdapter(Oo) {
-  const jo = authStoreAdapter.getState();
-  authStoreAdapter = Oo ?? defaultAdapter, authStoreAdapter.reset(), authStoreAdapter.setState(jo);
+  const jo = getGlobalStore(), Ho = getAdapter().getState();
+  jo.customAdapter = Oo ?? null;
+  const Yo = getAdapter();
+  Yo.reset(), Yo.setState(Ho);
 }
 function getAuthStateSnapshot() {
-  return authStoreAdapter.getState();
+  return getAdapter().getState();
 }
 function updateAuthState(Oo) {
-  return authStoreAdapter.setState(Oo), authStoreAdapter.getState();
+  const jo = getAdapter();
+  return jo.setState(Oo), jo.getState();
 }
 function resetAuthState() {
-  authStoreAdapter.reset();
+  getAdapter().reset();
 }
 function getDefaultExportFromCjs(Oo) {
   return Oo && Oo.__esModule && Object.prototype.hasOwnProperty.call(Oo, "default") ? Oo.default : Oo;
@@ -489,7 +501,7 @@ function requireAegis_min() {
           }))), Es = ns, rs(cs ? Es : Es[0]));
         };
       }
-      function Ls(Uo) {
+      function Ns(Uo) {
         return function(Zo, es) {
           Uo.lifeCycle.emit("modifyRequest", Zo);
           var rs = Uo.config.modifyRequest;
@@ -502,7 +514,7 @@ function requireAegis_min() {
           es(Zo);
         };
       }
-      function Ns(Uo) {
+      function Ls(Uo) {
         return function(Zo, es) {
           (rs = Uo.lifeCycle) != null && rs.emit("afterRequest", Zo);
           var rs = (Uo.config || {}).afterRequest;
@@ -552,8 +564,8 @@ function requireAegis_min() {
       }, aA = function(Uo) {
         var Zo = typeof Uo;
         return "" + (Zo == "undefined" || Zo == "symbol" || Zo == "function" ? "null" : Zo == "string" || Zo == "object" ? '"' + Uo + '"' : Uo);
-      }, Ha = /data:(image|text|application|font)\/.*;base64/, La = ((Us = {})[Wo.LOG] = "log", Us[Wo.MEMORY] = "log", Us[Wo.SPEED] = "speed", Us[Wo.PERFORMANCE] = "performance", Us[Wo.VITALS] = "webvitals", Us[Wo.PV] = "pv", Us[Wo.EVENT] = "event", Us[Wo.CUSTOM] = "custom", Us[Wo.SET_DATA] = "miniProgramData", Us[Wo.LOAD_PACKAGE] = "miniProgramData", Us), AA = ((Us = {})[Fo.ERROR] = "jsError", Us[Fo.PROMISE_ERROR] = "jsError", Us[Fo.BLANK_SCREEN] = "whiteScreen", Us[Fo.SCRIPT_ERROR] = "assetsException", Us[Fo.IMAGE_ERROR] = "assetsException", Us[Fo.CSS_ERROR] = "assetsException", Us[Fo.MEDIA_ERROR] = "assetsException", Us), Fa = function(Uo, Zo) {
-        return Uo === Wo.LOG && Zo && AA[Zo] ? AA[Zo] : La[Uo] || "";
+      }, Ha = /data:(image|text|application|font)\/.*;base64/, Na = ((Us = {})[Wo.LOG] = "log", Us[Wo.MEMORY] = "log", Us[Wo.SPEED] = "speed", Us[Wo.PERFORMANCE] = "performance", Us[Wo.VITALS] = "webvitals", Us[Wo.PV] = "pv", Us[Wo.EVENT] = "event", Us[Wo.CUSTOM] = "custom", Us[Wo.SET_DATA] = "miniProgramData", Us[Wo.LOAD_PACKAGE] = "miniProgramData", Us), AA = ((Us = {})[Fo.ERROR] = "jsError", Us[Fo.PROMISE_ERROR] = "jsError", Us[Fo.BLANK_SCREEN] = "whiteScreen", Us[Fo.SCRIPT_ERROR] = "assetsException", Us[Fo.IMAGE_ERROR] = "assetsException", Us[Fo.CSS_ERROR] = "assetsException", Us[Fo.MEDIA_ERROR] = "assetsException", Us), Fa = function(Uo, Zo) {
+        return Uo === Wo.LOG && Zo && AA[Zo] ? AA[Zo] : Na[Uo] || "";
       }, Wa = function(Uo) {
         return Uo == null || !(Uo <= 0) && (100 <= Uo || 100 * Math.random() < Uo);
       }, nA = function(Uo) {
@@ -824,7 +836,7 @@ function requireAegis_min() {
         return !!Uo && (!this.config.whiteListUrl || this.whitelistUseGzipReady && this.whitelistUseGzip);
       }, $s.prototype.send = function(Uo, Zo, es) {
         var rs = this;
-        return xs([Ls(this), Xs(this, Uo?.type), function(ns, ss) {
+        return xs([Ns(this), Xs(this, Uo?.type), function(ns, ss) {
           rs.request(ns, function() {
             for (var fs = [], cs = 0; cs < arguments.length; cs++) fs[cs] = arguments[cs];
             ss({ isErr: !1, result: fs, logType: ns.type, logs: ns.log }), Zo?.apply(void 0, fs);
@@ -832,7 +844,7 @@ function requireAegis_min() {
             for (var fs = [], cs = 0; cs < arguments.length; cs++) fs[cs] = arguments[cs];
             ss({ isErr: !0, result: fs, logType: ns.type, logs: ns.log }), es?.apply(void 0, fs);
           });
-        }, Ns(this)])(Uo);
+        }, Ls(this)])(Uo);
       }, $s.prototype.sendSDKError = function(Uo) {
         var Zo = this;
         this.sendPipeline([function(es, rs) {
@@ -849,7 +861,7 @@ function requireAegis_min() {
         }, function(fs, cs) {
           if (ns !== Wo.SDK_ERROR && ns !== Wo.WHITE_LIST) return rs.rateLimitReady ? void Vs(rs, fs, cs, ns) : (rs.rateLimitPool || (rs.rateLimitPool = []), void (rs.rateLimitPool.length < 200 && rs.rateLimitPool.push({ logs: fs, resolve: cs, sendType: ns })));
           cs(fs);
-        }, Zs(rs = es = this, ns = Zo)], Uo, [Xs(this, Zo), Ls(this), function(fs, cs) {
+        }, Zs(rs = es = this, ns = Zo)], Uo, [Xs(this, Zo), Ns(this), function(fs, cs) {
           var Es;
           fs.url && ss.rateLimitSampled && (Es = fs.url.indexOf("?") === -1 ? "?" : "&", fs.url = fs.url + Es + "sampled=1"), cs(fs);
         }, function(fs, cs) {
@@ -861,7 +873,7 @@ function requireAegis_min() {
             for (var Es, gs = [], ms = 0; ms < arguments.length; ms++) gs[ms] = arguments[ms];
             60 <= ++ss.failRequestCount && ss.destroy(), -1 < ("" + gs[0]).indexOf("403 forbidden") && ss.destroy(), cs({ isErr: !0, result: gs, logType: fs?.type, logs: fs?.log }), (Es = fs?.fail) != null && Es.call.apply(Es, Go([fs], gs));
           });
-        }, Ns(this)]));
+        }, Ls(this)]));
       }, $s.prototype.validateRange = function(Uo) {
         return 0 <= Uo && Uo <= 127 ? Uo : -1;
       }, $s.prototype.info = function() {
@@ -951,7 +963,7 @@ function requireAegis_min() {
         }
       }, onNewAegis: function(Uo) {
         Uo.bean.aid = this.aid, Uo.config.aid = this.aid;
-      } }), $a = new na({ name: "reportAssetSpeed" }), NA = $a = new na({ name: "reportAssetSpeed", collectCur: 0, collectEntryType: "resource", ASSETS_INITIATOR_TYPE: ["img", "css", "script", "link", "audio", "video"], getFromParam: function(Uo) {
+      } }), $a = new na({ name: "reportAssetSpeed" }), LA = $a = new na({ name: "reportAssetSpeed", collectCur: 0, collectEntryType: "resource", ASSETS_INITIATOR_TYPE: ["img", "css", "script", "link", "audio", "video"], getFromParam: function(Uo) {
         return Uo.getCurrentPageUrl();
       }, onNewAegis: function(Uo) {
         var Zo = this;
@@ -1312,33 +1324,33 @@ res startTime: ` + ms + `
                   return va = va.split(": "), va[0] && va[1] && (da[va[0]] = va[1]), da;
                 }, {}), oa = ka(fa, la, "res"), sa = _a(ss.aegisXhrReqHeader), la = (fa = Uo.api) == null ? void 0 : fa.apiDetail, ba = la ? Cs(fs, (fa = Uo.api) == null ? void 0 : fa.reqParamHandler, { url: Ys }) : "", Sa = la ? Cs(ss.response, (fa = Uo.api) == null ? void 0 : fa.resBodyHandler, { url: Ys }) : "";
                 try {
-                  ((da, va, ma, Na) => {
+                  ((da, va, ma, La) => {
                     var OA, VA, Qa;
                     try {
                       if (typeof va?.retCodeHandlerAsync == "function") return va.retCodeHandlerAsync(da, ma?.url, ma?.ctx, function(Xa) {
                         var xA = Xa.code;
-                        Na?.({ code: xA === void 0 ? os : xA, isErr: Xa.isErr });
+                        La?.({ code: xA === void 0 ? os : xA, isErr: Xa.isErr });
                       });
-                      if (typeof va?.retCodeHandler == "function") return Qa = (VA = va.retCodeHandler(da, ma?.url, ma?.ctx, ma?.payload) || {}).code, Na != null && Na({ code: Qa === void 0 ? os : Qa, isErr: VA.isErr });
-                      if (!(da = typeof da == "string" ? JSON.parse(da) : da)) return Na != null && Na({ code: os, isErr: !1 });
+                      if (typeof va?.retCodeHandler == "function") return Qa = (VA = va.retCodeHandler(da, ma?.url, ma?.ctx, ma?.payload) || {}).code, La != null && La({ code: Qa === void 0 ? os : Qa, isErr: VA.isErr });
+                      if (!(da = typeof da == "string" ? JSON.parse(da) : da)) return La != null && La({ code: os, isErr: !1 });
                       typeof ((OA = va?.ret) == null ? void 0 : OA.join) == "function" && (ha = [].concat(va.ret.map(function(Xa) {
                         return Xa.toLowerCase();
                       })));
                       var rf = Object.getOwnPropertyNames(da).filter(function(Xa) {
                         return ha.indexOf(Xa.toLowerCase()) !== -1;
                       });
-                      if (rf.length) return (Qa = da[rf[0]]) !== "未知" && Qa !== "" || (Qa = os), Na != null && Na({ code: "" + Qa, isErr: Qa !== 0 && Qa !== "0" && Qa !== os });
-                      Na?.({ code: os, isErr: !1 });
+                      if (rf.length) return (Qa = da[rf[0]]) !== "未知" && Qa !== "" || (Qa = os), La != null && La({ code: "" + Qa, isErr: Qa !== 0 && Qa !== "0" && Qa !== os });
+                      La?.({ code: os, isErr: !1 });
                     } catch {
-                      Na?.({ code: os, isErr: !1 });
+                      La?.({ code: os, isErr: !1 });
                     }
                   })(ss.response, Uo.api, { url: Ys, ctx: ss, payload: fs }, function(ma) {
-                    var va = ma.code, ma = ma.isErr, Na = [js ? "AJAX_ERROR: request " + js : "", "fetch req url: " + Ys, "res status: " + (Ss.status || 0), "res duration: " + Ss.duration + "ms", "res startTime: " + ys, ia, oa, "req method: " + (Ss.method || "GET"), "res retcode: " + va, ya(ba, "req param"), ya(Sa, "res data")].filter(function(OA) {
+                    var va = ma.code, ma = ma.isErr, La = [js ? "AJAX_ERROR: request " + js : "", "fetch req url: " + Ys, "res status: " + (Ss.status || 0), "res duration: " + Ss.duration + "ms", "res startTime: " + ys, ia, oa, "req method: " + (Ss.method || "GET"), "res retcode: " + va, ya(ba, "req param"), ya(Sa, "res data")].filter(function(OA) {
                       return OA;
                     }).join(`
 
 `);
-                    Ss.ret = va, Ss.isErr = +ma, Ss.payload = fs, Uo.slowApiLog && Va(Ss?.duration, Uo, Ss) ? rs.publishNormalLog({ msg: Na, level: Fo.SLOW_NET_REQUEST, code: va, trace: sa, errorMsg: "", from: cs || rs.getFromParam(Zo), originFrom: Es }, Zo) : rs.publishNormalLog({ msg: Na, level: eA(!!js, ma), code: va, trace: sa, errorMsg: "", from: cs || rs.getFromParam(Zo), originFrom: Es }, Zo), rs.publishSpeed(Ss, Zo);
+                    Ss.ret = va, Ss.isErr = +ma, Ss.payload = fs, Uo.slowApiLog && Va(Ss?.duration, Uo, Ss) ? rs.publishNormalLog({ msg: La, level: Fo.SLOW_NET_REQUEST, code: va, trace: sa, errorMsg: "", from: cs || rs.getFromParam(Zo), originFrom: Es }, Zo) : rs.publishNormalLog({ msg: La, level: eA(!!js, ma), code: va, trace: sa, errorMsg: "", from: cs || rs.getFromParam(Zo), originFrom: Es }, Zo), rs.publishSpeed(Ss, Zo);
                   });
                 } catch {
                   Ss.ret = os, rs.publishSpeed(Ss, Zo);
@@ -1733,9 +1745,9 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         };
       }
       function Yf() {
-        return FA < 0 && (FA = Mu(), Nu(), YA(function() {
+        return FA < 0 && (FA = Mu(), Lu(), YA(function() {
           setTimeout(function() {
-            FA = Mu(), Nu();
+            FA = Mu(), Lu();
           }, 0);
         })), { get firstHiddenTime() {
           return FA;
@@ -1753,8 +1765,8 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
               cs.name === "first-contentful-paint" && (ss.disconnect(), cs.startTime < rs.firstHiddenTime) && (ns.value = Math.max(cs.startTime - kf(), 0), ns.entries.push(cs), es(!0));
             });
           });
-          ss && (es = dA(Uo, ns, Lu, Zo.reportAllChanges), YA(function(fs) {
-            ns = lA("FCP"), es = dA(Uo, ns, Lu, Zo.reportAllChanges), Qf(function() {
+          ss && (es = dA(Uo, ns, Nu, Zo.reportAllChanges), YA(function(fs) {
+            ns = lA("FCP"), es = dA(Uo, ns, Nu, Zo.reportAllChanges), Qf(function() {
               ns.value = performance.now() - fs.timeStamp, es(!0);
             });
           }));
@@ -1838,7 +1850,7 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         } catch {
         }
       }
-      var CA, _A, xu, yf, Uf, LA, Tu = -1, YA = function(Uo) {
+      var CA, _A, xu, yf, Uf, NA, Tu = -1, YA = function(Uo) {
         addEventListener("pageshow", function(Zo) {
           Zo.persisted && (Tu = Zo.timeStamp, Uo(Zo));
         }, !0);
@@ -1851,11 +1863,11 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         return document.visibilityState !== "hidden" || document.prerendering ? 1 / 0 : 0;
       }, bf = function(Uo) {
         document.visibilityState === "hidden" && -1 < FA && (FA = Uo.type === "visibilitychange" ? Uo.timeStamp : 0, Ec());
-      }, Nu = function() {
+      }, Lu = function() {
         addEventListener("visibilitychange", bf, !0), addEventListener("prerenderingchange", bf, !0);
       }, Ec = function() {
         removeEventListener("visibilitychange", bf, !0), removeEventListener("prerenderingchange", bf, !0);
-      }, Lu = [1800, 3e3], Du = [0.1, 0.25], $A = { passive: !0, capture: !0 }, Ic = /* @__PURE__ */ new Date(), zu = function(Uo, Zo) {
+      }, Nu = [1800, 3e3], Du = [0.1, 0.25], $A = { passive: !0, capture: !0 }, Ic = /* @__PURE__ */ new Date(), zu = function(Uo, Zo) {
         CA || (CA = Zo, _A = Uo, xu = /* @__PURE__ */ new Date(), Bu(removeEventListener), Hu());
       }, Hu = function() {
         var Uo;
@@ -2003,7 +2015,7 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         };
       } }), Uu = (new na({ name: "pagePerformance" }), 3), ef = /* @__PURE__ */ new Map(), bc = new na({ name: "pagePerformance", performanceMap: {}, onNewAegis: function(Uo) {
         var Zo;
-        Hs() && (ef.set(Uo, { isPagePerformanceReported: !1 }), LA ? this.publish(LA, Uo) : this.startCalcPerformance(Uo), Zo = this.publishWhenObHidden.bind(this, Uo), Ff(Zo, { once: !0 }), Uo.lifeCycle.on("destroy", function() {
+        Hs() && (ef.set(Uo, { isPagePerformanceReported: !1 }), NA ? this.publish(NA, Uo) : this.startCalcPerformance(Uo), Zo = this.publishWhenObHidden.bind(this, Uo), Ff(Zo, { once: !0 }), Uo.lifeCycle.on("destroy", function() {
           var es = ef.get(Uo);
           es && (es.isPagePerformanceReported = !1);
         }));
@@ -2016,7 +2028,7 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
             ns && 0 < ns.length && (rs = ns[0]) && 0 < rs.startTime && (es = rs.startTime);
           } catch {
           }
-          (LA = this.buildPerformanceLog(Uo, es, this.getPageUrl(Uo), window.location.href)) && this.publish(LA, Uo, !0);
+          (NA = this.buildPerformanceLog(Uo, es, this.getPageUrl(Uo), window.location.href)) && this.publish(NA, Uo, !0);
         }
       }, buildPerformanceLog: function(Uo, Zo, es, rs) {
         var ns = performance.timing;
@@ -2053,7 +2065,7 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         try {
           var es = this.getPageUrl(Uo), rs = Uo.getOriginFrom();
           this.getFirstScreenTiming(Uo, function(ns) {
-            LA = Zo.buildPerformanceLog(Uo, ns, es, rs), ns = ef.get(Uo), !LA || ns != null && ns.isPagePerformanceReported || Zo.publish(LA, Uo);
+            NA = Zo.buildPerformanceLog(Uo, ns, es, rs), ns = ef.get(Uo), !NA || ns != null && ns.isPagePerformanceReported || Zo.publish(NA, Uo);
           });
         } catch {
         }
@@ -2793,12 +2805,12 @@ It is recommended that you contact us for feedback and thank you for your suppor
           }
         }
       }, onNewAegis: function(Uo) {
-        var Zo, es, rs, ns, ss, fs, cs, Es, gs, ms, ys, Os, Ps, Ts, js, Ms, Fs, Qs, Ys, Ss, ia, fa, oa, sa, la, ba, Sa, da, va, ma, Na, OA, VA, Qa, rf, Xa, xA, qA, iu, Rf = this;
+        var Zo, es, rs, ns, ss, fs, cs, Es, gs, ms, ys, Os, Ps, Ts, js, Ms, Fs, Qs, Ys, Ss, ia, fa, oa, sa, la, ba, Sa, da, va, ma, La, OA, VA, Qa, rf, Xa, xA, qA, iu, Rf = this;
         document.elementFromPoint && (this.pendingTimeouts.forEach(function(wa) {
           clearTimeout(wa);
         }), this.pendingTimeouts = [], this.isDestroyed = !1, this.isAwaitingClientScreenshot = !1, rs = Ju(Uo), ns = rs.everySideSampleNumber, ss = rs.sameElementsPercent, fs = rs.containers, cs = rs.ignoreContainers, Es = rs.containerMatchers, gs = rs.ignoreMatchers, ms = rs.detectStartPosition, ys = rs.ignoreElesWhenDomChange, Os = rs.reDetectInterval, Ps = rs.disableSameElementsCheck, Ts = rs.samePointDepth, js = rs.enableScreenshot, Ms = rs.needScreenShotMeta, Fs = rs.onBlankScreenCapture, Qs = rs.clientScreenshotTimeout, Ys = 4 * ns - 3, Ss = Math.floor(Ys * rs.emptyElementsPercent / 100), ia = Math.floor(Ys * ss / 100), fa = UA.UNKNOWN, sa = null, la = oa = !1, ba = function() {
           return qo(Rf, void 0, void 0, function() {
-            var wa, za, TA, vA, nc, ic, Of, nf, HA, ou, WA, of, xf, oA, Tf, sA, su, oc, rA, au, Au, jf, Mf, sc, jA, sf, af, Af, ff, Nf, fu, ZA, Nc = this;
+            var wa, za, TA, vA, nc, ic, Of, nf, HA, ou, WA, of, xf, oA, Tf, sA, su, oc, rA, au, Au, jf, Mf, sc, jA, sf, af, Af, ff, Lf, fu, ZA, Lc = this;
             return Xo(this, function(uf) {
               switch (uf.label) {
                 case 0:
@@ -2806,15 +2818,15 @@ It is recommended that you contact us for feedback and thank you for your suppor
                   for (nc = TA + (za - TA) / 2, ic = vA + (wa - vA) / 2, Of = [], nf = ns + 1, ou = HA = 0, WA = 1; WA < nf; WA++) oA = vA + (wa - vA) * WA / nf, sA = Cf(of = TA + (za - TA) * WA / nf, ic), xf = Cf(nc, oA), Tf = Cf(of, oA), of = Cf(of, wa - oA), oA = Pf(sA, fs, cs, Es, gs), oA.isWhitePoint && (HA += 1), Of.push(oA.selectorPointers), WA !== nf / 2 && (sA = Pf(xf, fs, cs, Es, gs), oA = sA.isWhitePoint, xf = sA.selectorPointers, oA && (HA += 1), sA = Pf(Tf, fs, cs, Es, gs), oA = sA.isWhitePoint, Tf = sA.selectorPointers, oA && (HA += 1), sA = Pf(of, fs, cs, Es, gs), sA.isWhitePoint && (HA += 1), Of.push(xf, Tf, sA.selectorPointers));
                   return af = Ss <= HA, Af = !1, su = { samePointerMap: {}, maximumSamePointer: {} }, Ps || (rA = Of.map(function(Pa) {
                     return Pa.slice(0, Ts);
-                  }), Lf = rA.map(function(Pa) {
+                  }), Nf = rA.map(function(Pa) {
                     return Pa.join(" < ");
                   }).reduce(function(Pa, qa) {
                     return Pa[qa] = Pa[qa] ? Pa[qa] + 1 : 1, Pa;
-                  }, {}), uu = Object.keys(Lf).map(function(Pa) {
-                    return [Pa, Lf[Pa]];
+                  }, {}), uu = Object.keys(Nf).map(function(Pa) {
+                    return [Pa, Nf[Pa]];
                   }).sort(function(Pa, qa) {
                     return qa[1] - Pa[1];
-                  })[0], ac = uu[0], rA = { samePointerMap: Lf, maximumSamePointerClass: ac, maximumSamePointerCounter: uu[1] }, su = { samePointerMap: rA.samePointerMap, maximumSamePointer: ((ZA = {})[oc = rA.maximumSamePointerClass] = rA = rA.maximumSamePointerCounter, ZA) }, ou = rA, ZA = xc.some(function(Pa) {
+                  })[0], ac = uu[0], rA = { samePointerMap: Nf, maximumSamePointerClass: ac, maximumSamePointerCounter: uu[1] }, su = { samePointerMap: rA.samePointerMap, maximumSamePointer: ((ZA = {})[oc = rA.maximumSamePointerClass] = rA = rA.maximumSamePointerCounter, ZA) }, ou = rA, ZA = xc.some(function(Pa) {
                     return oc.startsWith(Pa);
                   }), Af = ia <= rA && !ZA), af || Af ? [3, 1] : (oa = !1, sa = null, [3, 8]);
                 case 1:
@@ -2842,7 +2854,7 @@ linkError: ` + jA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
                 case 2:
                   return [4, this.captureScreenshotWithStrategy()];
                 case 3:
-                  ff = uf.sent(), fu = Nf = null, fu = typeof ff == "string" ? (Nf = ff, { success: !0, source: "sdk" }) : (Nf = null, { success: !1, source: "sdk", error: ff.error, details: ff.details }), sf(Nf, fu), uf.label = 4;
+                  ff = uf.sent(), fu = Lf = null, fu = typeof ff == "string" ? (Lf = ff, { success: !0, source: "sdk" }) : (Lf = null, { success: !1, source: "sdk", error: ff.error, details: ff.details }), sf(Lf, fu), uf.label = 4;
                 case 4:
                   return [3, 6];
                 case 5:
@@ -2851,7 +2863,7 @@ linkError: ` + jA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
                   return oa = !1, sa = null, [3, 8];
                 case 7:
                   sa = Vo(Vo({ msg: "blank_screen", level: Fo.BLANK_SCREEN, whitePointCount: HA, samePointCount: ou }, su), Zo ? { linkLogType: Zo?.type, linkLogLevel: Zo?.level, linkErrorMsg: Zo?.errorMsg, linkMsg: Zo?.msg } : {}), oa = !0, es = setTimeout(function() {
-                    return qo(Nc, void 0, void 0, function() {
+                    return qo(Lc, void 0, void 0, function() {
                       return Xo(this, function(Pa) {
                         switch (Pa.label) {
                           case 0:
@@ -2865,7 +2877,7 @@ linkError: ` + jA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
                 case 8:
                   return [2];
               }
-              var Lf, uu, ac;
+              var Nf, uu, ac;
             });
           });
         }, Sa = function() {
@@ -2915,7 +2927,7 @@ linkError: ` + jA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
           wa = wa.filter(function(za) {
             return za.level !== Fo.BLANK_SCREEN;
           }), 0 < wa.length && (Zo = wa[wa.length - 1], da());
-        }), ma = null, window.MutationObserver && (Xa = xA = null, Na = window.cancelAnimationFrame || function(wa) {
+        }), ma = null, window.MutationObserver && (Xa = xA = null, La = window.cancelAnimationFrame || function(wa) {
           clearTimeout(wa);
         }, OA = window.requestAnimationFrame || function(wa) {
           return setTimeout(wa, 1e3 / 60);
@@ -2925,7 +2937,7 @@ linkError: ` + jA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
             wa.length === 1 && za || da();
           })).observe(document.body, { childList: !0, subtree: !0 });
         }, Qa = function() {
-          xA && (clearTimeout(xA), xA = null), Xa && (Na(Xa), Xa = null);
+          xA && (clearTimeout(xA), xA = null), Xa && (La(Xa), Xa = null);
         }, document.body ? VA() : (Xa = OA(rf = function() {
           document.body ? (Qa(), VA()) : Xa = OA(rf);
         }), xA = setTimeout(function() {
@@ -3101,7 +3113,7 @@ linkError: ` + jA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
         this.memoryReportTimer && (clearInterval(this.memoryReportTimer), this.memoryReportTimer = null), this.oomCheckTimer && (clearInterval(this.oomCheckTimer), this.oomCheckTimer = null);
       }, destroy: function() {
         this.cleanup(), this.clearMemoryRecords(), this.lastOOMTime = 0;
-      } }), Us.use(dc), Us.use(fc), Us.use(NA), Us.use(bc), Us.use(yc), Us.use(ra), Us.use(Aa), Us.use(Pc), Us.use(Oc), Us.use(hc), Us.use(gc), Us.use(Mc), Us.use(na), Us.use(uc), Us.use(zA), Us;
+      } }), Us.use(dc), Us.use(fc), Us.use(LA), Us.use(bc), Us.use(yc), Us.use(ra), Us.use(Aa), Us.use(Pc), Us.use(Oc), Us.use(hc), Us.use(gc), Us.use(Mc), Us.use(na), Us.use(uc), Us.use(zA), Us;
     });
   })(aegis_min$1)), aegis_min$1.exports;
 }
@@ -3207,59 +3219,64 @@ const rumReporter = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineP
   reportTime,
   resetReportedCaches,
   setReportPlatform
-}, Symbol.toStringTag, { value: "Module" }));
-let aegisInstance = null, aegisInitConfig = null;
+}, Symbol.toStringTag, { value: "Module" })), GLOBAL_KEY$1 = "__LIVEKIT_AEGIS__";
+function getStore() {
+  return window[GLOBAL_KEY$1] || (window[GLOBAL_KEY$1] = {
+    instance: null,
+    initConfig: null
+  }), window[GLOBAL_KEY$1];
+}
 function getUinFromAuthState() {
   const Oo = getAuthStateSnapshot().credentials?.sdkAppId;
   return Oo ? String(Oo) : void 0;
 }
 function applyAegisUin(Oo, jo) {
-  if (!jo)
-    return !1;
+  if (!jo) return !1;
   const No = Oo;
   return typeof No.setConfig == "function" ? (No.setConfig({ uin: jo }), !0) : typeof No.setUin == "function" ? (No.setUin(jo), !0) : No.config && typeof No.config == "object" ? (No.config.uin = jo, !0) : (console.warn("[Aegis] 当前 SDK 实例不支持动态更新 uin"), !1);
 }
 function initAegis(Oo) {
   if (!Oo.id)
     return console.warn("[Aegis] id is required"), null;
-  aegisInitConfig = { ...Oo };
-  const jo = Oo.uin || getUinFromAuthState();
-  return aegisInstance = new Aegis({
+  const jo = getStore(), No = Oo.uin || getUinFromAuthState(), Ho = new Aegis({
     reportApiSpeed: !0,
     reportAssetSpeed: !0,
     spa: !0,
     hostUrl: "https://rumt-zh.com",
-    uin: jo,
+    uin: No,
     ...Oo
-  }), (Oo.autoUpdateUin || !Oo.uin && getUinFromAuthState()) && updateUinFromSdkAppId(), aegisInstance;
+  });
+  return jo.instance = Ho, jo.initConfig = { ...Oo }, (Oo.autoUpdateUin || !Oo.uin && getUinFromAuthState()) && updateUinFromSdkAppId(), Ho;
 }
 function reinitAegisIfUinChanged(Oo) {
-  if (!aegisInitConfig || !aegisInitConfig.id || !Oo) return;
-  const jo = aegisInstance?.config?.uin;
-  if (String(jo) !== String(Oo)) {
+  const jo = getStore();
+  if (!jo.initConfig?.id || !Oo) return;
+  const No = jo.instance?.config?.uin;
+  if (String(No) !== String(Oo)) {
     try {
-      aegisInstance.destroy?.();
+      jo.instance.destroy?.();
     } catch {
     }
-    aegisInstance = new Aegis({
+    jo.instance = new Aegis({
       reportApiSpeed: !0,
       reportAssetSpeed: !0,
       spa: !0,
       hostUrl: "https://rumt-zh.com",
-      ...aegisInitConfig,
+      ...jo.initConfig,
       uin: Oo
     }), resetReportedCaches(), console.log("[Aegis] instance reinitialized with uin:", Oo);
   }
 }
 function getAegis() {
-  return aegisInstance;
+  return getStore().instance;
 }
 function setAegisUin(Oo) {
-  aegisInstance && applyAegisUin(aegisInstance, Oo);
+  const jo = getStore().instance;
+  jo && applyAegisUin(jo, Oo);
 }
 function updateUinFromSdkAppId() {
-  const Oo = getUinFromAuthState();
-  return Oo && aegisInstance ? applyAegisUin(aegisInstance, Oo) : !1;
+  const Oo = getUinFromAuthState(), jo = getStore().instance;
+  return Oo && jo ? applyAegisUin(jo, Oo) : !1;
 }
 function enableAutoUpdateUin() {
   updateUinFromSdkAppId();
@@ -3267,7 +3284,7 @@ function enableAutoUpdateUin() {
 function disableAutoUpdateUin() {
 }
 function isAegisInited() {
-  return aegisInstance !== null;
+  return getStore().instance !== null;
 }
 function reportErrorToRum(Oo, jo, No) {
   formatErrorDetail(No), reportBusinessOp(Oo, "error", !1);
@@ -4241,8 +4258,8 @@ var ee = Q(function(Oo, jo) {
         var os = is + as, us = ts[os];
         ts[os] = 16711935 & (us << 8 | us >>> 24) | 4278255360 & (us << 24 | us >>> 8);
       }
-      var As = this._hash.words, ds = ts[is + 0], ps = ts[is + 1], hs = ts[is + 2], Is = ts[is + 3], ws = ts[is + 4], vs = ts[is + 5], bs = ts[is + 6], Rs = ts[is + 7], Cs = ts[is + 8], Gs = ts[is + 9], ks = ts[is + 10], Vs = ts[is + 11], ea = ts[is + 12], _s = ts[is + 13], Xs = ts[is + 14], Zs = ts[is + 15], Ls = As[0], Ns = As[1], Ds = As[2], Bs = As[3];
-      Ls = Wo(Ls, Ns, Ds, Bs, ds, 7, Go[0]), Bs = Wo(Bs, Ls, Ns, Ds, ps, 12, Go[1]), Ds = Wo(Ds, Bs, Ls, Ns, hs, 17, Go[2]), Ns = Wo(Ns, Ds, Bs, Ls, Is, 22, Go[3]), Ls = Wo(Ls, Ns, Ds, Bs, ws, 7, Go[4]), Bs = Wo(Bs, Ls, Ns, Ds, vs, 12, Go[5]), Ds = Wo(Ds, Bs, Ls, Ns, bs, 17, Go[6]), Ns = Wo(Ns, Ds, Bs, Ls, Rs, 22, Go[7]), Ls = Wo(Ls, Ns, Ds, Bs, Cs, 7, Go[8]), Bs = Wo(Bs, Ls, Ns, Ds, Gs, 12, Go[9]), Ds = Wo(Ds, Bs, Ls, Ns, ks, 17, Go[10]), Ns = Wo(Ns, Ds, Bs, Ls, Vs, 22, Go[11]), Ls = Wo(Ls, Ns, Ds, Bs, ea, 7, Go[12]), Bs = Wo(Bs, Ls, Ns, Ds, _s, 12, Go[13]), Ds = Wo(Ds, Bs, Ls, Ns, Xs, 17, Go[14]), Ls = Ko(Ls, Ns = Wo(Ns, Ds, Bs, Ls, Zs, 22, Go[15]), Ds, Bs, ps, 5, Go[16]), Bs = Ko(Bs, Ls, Ns, Ds, bs, 9, Go[17]), Ds = Ko(Ds, Bs, Ls, Ns, Vs, 14, Go[18]), Ns = Ko(Ns, Ds, Bs, Ls, ds, 20, Go[19]), Ls = Ko(Ls, Ns, Ds, Bs, vs, 5, Go[20]), Bs = Ko(Bs, Ls, Ns, Ds, ks, 9, Go[21]), Ds = Ko(Ds, Bs, Ls, Ns, Zs, 14, Go[22]), Ns = Ko(Ns, Ds, Bs, Ls, ws, 20, Go[23]), Ls = Ko(Ls, Ns, Ds, Bs, Gs, 5, Go[24]), Bs = Ko(Bs, Ls, Ns, Ds, Xs, 9, Go[25]), Ds = Ko(Ds, Bs, Ls, Ns, Is, 14, Go[26]), Ns = Ko(Ns, Ds, Bs, Ls, Cs, 20, Go[27]), Ls = Ko(Ls, Ns, Ds, Bs, _s, 5, Go[28]), Bs = Ko(Bs, Ls, Ns, Ds, hs, 9, Go[29]), Ds = Ko(Ds, Bs, Ls, Ns, Rs, 14, Go[30]), Ls = Jo(Ls, Ns = Ko(Ns, Ds, Bs, Ls, ea, 20, Go[31]), Ds, Bs, vs, 4, Go[32]), Bs = Jo(Bs, Ls, Ns, Ds, Cs, 11, Go[33]), Ds = Jo(Ds, Bs, Ls, Ns, Vs, 16, Go[34]), Ns = Jo(Ns, Ds, Bs, Ls, Xs, 23, Go[35]), Ls = Jo(Ls, Ns, Ds, Bs, ps, 4, Go[36]), Bs = Jo(Bs, Ls, Ns, Ds, ws, 11, Go[37]), Ds = Jo(Ds, Bs, Ls, Ns, Rs, 16, Go[38]), Ns = Jo(Ns, Ds, Bs, Ls, ks, 23, Go[39]), Ls = Jo(Ls, Ns, Ds, Bs, _s, 4, Go[40]), Bs = Jo(Bs, Ls, Ns, Ds, ds, 11, Go[41]), Ds = Jo(Ds, Bs, Ls, Ns, Is, 16, Go[42]), Ns = Jo(Ns, Ds, Bs, Ls, bs, 23, Go[43]), Ls = Jo(Ls, Ns, Ds, Bs, Gs, 4, Go[44]), Bs = Jo(Bs, Ls, Ns, Ds, ea, 11, Go[45]), Ds = Jo(Ds, Bs, Ls, Ns, Zs, 16, Go[46]), Ls = $o(Ls, Ns = Jo(Ns, Ds, Bs, Ls, hs, 23, Go[47]), Ds, Bs, ds, 6, Go[48]), Bs = $o(Bs, Ls, Ns, Ds, Rs, 10, Go[49]), Ds = $o(Ds, Bs, Ls, Ns, Xs, 15, Go[50]), Ns = $o(Ns, Ds, Bs, Ls, vs, 21, Go[51]), Ls = $o(Ls, Ns, Ds, Bs, ea, 6, Go[52]), Bs = $o(Bs, Ls, Ns, Ds, Is, 10, Go[53]), Ds = $o(Ds, Bs, Ls, Ns, ks, 15, Go[54]), Ns = $o(Ns, Ds, Bs, Ls, ps, 21, Go[55]), Ls = $o(Ls, Ns, Ds, Bs, Cs, 6, Go[56]), Bs = $o(Bs, Ls, Ns, Ds, Zs, 10, Go[57]), Ds = $o(Ds, Bs, Ls, Ns, bs, 15, Go[58]), Ns = $o(Ns, Ds, Bs, Ls, _s, 21, Go[59]), Ls = $o(Ls, Ns, Ds, Bs, ws, 6, Go[60]), Bs = $o(Bs, Ls, Ns, Ds, Vs, 10, Go[61]), Ds = $o(Ds, Bs, Ls, Ns, hs, 15, Go[62]), Ns = $o(Ns, Ds, Bs, Ls, Gs, 21, Go[63]), As[0] = As[0] + Ls | 0, As[1] = As[1] + Ns | 0, As[2] = As[2] + Ds | 0, As[3] = As[3] + Bs | 0;
+      var As = this._hash.words, ds = ts[is + 0], ps = ts[is + 1], hs = ts[is + 2], Is = ts[is + 3], ws = ts[is + 4], vs = ts[is + 5], bs = ts[is + 6], Rs = ts[is + 7], Cs = ts[is + 8], Gs = ts[is + 9], ks = ts[is + 10], Vs = ts[is + 11], ea = ts[is + 12], _s = ts[is + 13], Xs = ts[is + 14], Zs = ts[is + 15], Ns = As[0], Ls = As[1], Ds = As[2], Bs = As[3];
+      Ns = Wo(Ns, Ls, Ds, Bs, ds, 7, Go[0]), Bs = Wo(Bs, Ns, Ls, Ds, ps, 12, Go[1]), Ds = Wo(Ds, Bs, Ns, Ls, hs, 17, Go[2]), Ls = Wo(Ls, Ds, Bs, Ns, Is, 22, Go[3]), Ns = Wo(Ns, Ls, Ds, Bs, ws, 7, Go[4]), Bs = Wo(Bs, Ns, Ls, Ds, vs, 12, Go[5]), Ds = Wo(Ds, Bs, Ns, Ls, bs, 17, Go[6]), Ls = Wo(Ls, Ds, Bs, Ns, Rs, 22, Go[7]), Ns = Wo(Ns, Ls, Ds, Bs, Cs, 7, Go[8]), Bs = Wo(Bs, Ns, Ls, Ds, Gs, 12, Go[9]), Ds = Wo(Ds, Bs, Ns, Ls, ks, 17, Go[10]), Ls = Wo(Ls, Ds, Bs, Ns, Vs, 22, Go[11]), Ns = Wo(Ns, Ls, Ds, Bs, ea, 7, Go[12]), Bs = Wo(Bs, Ns, Ls, Ds, _s, 12, Go[13]), Ds = Wo(Ds, Bs, Ns, Ls, Xs, 17, Go[14]), Ns = Ko(Ns, Ls = Wo(Ls, Ds, Bs, Ns, Zs, 22, Go[15]), Ds, Bs, ps, 5, Go[16]), Bs = Ko(Bs, Ns, Ls, Ds, bs, 9, Go[17]), Ds = Ko(Ds, Bs, Ns, Ls, Vs, 14, Go[18]), Ls = Ko(Ls, Ds, Bs, Ns, ds, 20, Go[19]), Ns = Ko(Ns, Ls, Ds, Bs, vs, 5, Go[20]), Bs = Ko(Bs, Ns, Ls, Ds, ks, 9, Go[21]), Ds = Ko(Ds, Bs, Ns, Ls, Zs, 14, Go[22]), Ls = Ko(Ls, Ds, Bs, Ns, ws, 20, Go[23]), Ns = Ko(Ns, Ls, Ds, Bs, Gs, 5, Go[24]), Bs = Ko(Bs, Ns, Ls, Ds, Xs, 9, Go[25]), Ds = Ko(Ds, Bs, Ns, Ls, Is, 14, Go[26]), Ls = Ko(Ls, Ds, Bs, Ns, Cs, 20, Go[27]), Ns = Ko(Ns, Ls, Ds, Bs, _s, 5, Go[28]), Bs = Ko(Bs, Ns, Ls, Ds, hs, 9, Go[29]), Ds = Ko(Ds, Bs, Ns, Ls, Rs, 14, Go[30]), Ns = Jo(Ns, Ls = Ko(Ls, Ds, Bs, Ns, ea, 20, Go[31]), Ds, Bs, vs, 4, Go[32]), Bs = Jo(Bs, Ns, Ls, Ds, Cs, 11, Go[33]), Ds = Jo(Ds, Bs, Ns, Ls, Vs, 16, Go[34]), Ls = Jo(Ls, Ds, Bs, Ns, Xs, 23, Go[35]), Ns = Jo(Ns, Ls, Ds, Bs, ps, 4, Go[36]), Bs = Jo(Bs, Ns, Ls, Ds, ws, 11, Go[37]), Ds = Jo(Ds, Bs, Ns, Ls, Rs, 16, Go[38]), Ls = Jo(Ls, Ds, Bs, Ns, ks, 23, Go[39]), Ns = Jo(Ns, Ls, Ds, Bs, _s, 4, Go[40]), Bs = Jo(Bs, Ns, Ls, Ds, ds, 11, Go[41]), Ds = Jo(Ds, Bs, Ns, Ls, Is, 16, Go[42]), Ls = Jo(Ls, Ds, Bs, Ns, bs, 23, Go[43]), Ns = Jo(Ns, Ls, Ds, Bs, Gs, 4, Go[44]), Bs = Jo(Bs, Ns, Ls, Ds, ea, 11, Go[45]), Ds = Jo(Ds, Bs, Ns, Ls, Zs, 16, Go[46]), Ns = $o(Ns, Ls = Jo(Ls, Ds, Bs, Ns, hs, 23, Go[47]), Ds, Bs, ds, 6, Go[48]), Bs = $o(Bs, Ns, Ls, Ds, Rs, 10, Go[49]), Ds = $o(Ds, Bs, Ns, Ls, Xs, 15, Go[50]), Ls = $o(Ls, Ds, Bs, Ns, vs, 21, Go[51]), Ns = $o(Ns, Ls, Ds, Bs, ea, 6, Go[52]), Bs = $o(Bs, Ns, Ls, Ds, Is, 10, Go[53]), Ds = $o(Ds, Bs, Ns, Ls, ks, 15, Go[54]), Ls = $o(Ls, Ds, Bs, Ns, ps, 21, Go[55]), Ns = $o(Ns, Ls, Ds, Bs, Cs, 6, Go[56]), Bs = $o(Bs, Ns, Ls, Ds, Zs, 10, Go[57]), Ds = $o(Ds, Bs, Ns, Ls, bs, 15, Go[58]), Ls = $o(Ls, Ds, Bs, Ns, _s, 21, Go[59]), Ns = $o(Ns, Ls, Ds, Bs, ws, 6, Go[60]), Bs = $o(Bs, Ns, Ls, Ds, Vs, 10, Go[61]), Ds = $o(Ds, Bs, Ns, Ls, hs, 15, Go[62]), Ls = $o(Ls, Ds, Bs, Ns, Gs, 21, Go[63]), As[0] = As[0] + Ns | 0, As[1] = As[1] + Ls | 0, As[2] = As[2] + Ds | 0, As[3] = As[3] + Bs | 0;
     }, _doFinalize: function() {
       var ts = this._data, is = ts.words, as = 8 * this._nDataBytes, os = 8 * ts.sigBytes;
       is[os >>> 5] |= 128 << 24 - os % 32;
@@ -4355,17 +4372,17 @@ var ee = Q(function(Oo, jo) {
     var Ko = Xo.SHA512 = Yo.extend({ _doReset: function() {
       this._hash = new qo.init([new Vo.init(1779033703, 4089235720), new Vo.init(3144134277, 2227873595), new Vo.init(1013904242, 4271175723), new Vo.init(2773480762, 1595750129), new Vo.init(1359893119, 2917565137), new Vo.init(2600822924, 725511199), new Vo.init(528734635, 4215389547), new Vo.init(1541459225, 327033209)]);
     }, _doProcessBlock: function(Jo, $o) {
-      for (var ts = this._hash.words, is = ts[0], as = ts[1], os = ts[2], us = ts[3], As = ts[4], ds = ts[5], ps = ts[6], hs = ts[7], Is = is.high, ws = is.low, vs = as.high, bs = as.low, Rs = os.high, Cs = os.low, Gs = us.high, ks = us.low, Vs = As.high, ea = As.low, _s = ds.high, Xs = ds.low, Zs = ps.high, Ls = ps.low, Ns = hs.high, Ds = hs.low, Bs = Is, ha = ws, ja = vs, ua = bs, Ca = Rs, Ya = Cs, pA = Gs, aA = ks, Ha = Vs, La = ea, AA = _s, Fa = Xs, Wa = Zs, nA = Ls, EA = Ns, Ba = Ds, Ra = 0; Ra < 80; Ra++) {
+      for (var ts = this._hash.words, is = ts[0], as = ts[1], os = ts[2], us = ts[3], As = ts[4], ds = ts[5], ps = ts[6], hs = ts[7], Is = is.high, ws = is.low, vs = as.high, bs = as.low, Rs = os.high, Cs = os.low, Gs = us.high, ks = us.low, Vs = As.high, ea = As.low, _s = ds.high, Xs = ds.low, Zs = ps.high, Ns = ps.low, Ls = hs.high, Ds = hs.low, Bs = Is, ha = ws, ja = vs, ua = bs, Ca = Rs, Ya = Cs, pA = Gs, aA = ks, Ha = Vs, Na = ea, AA = _s, Fa = Xs, Wa = Zs, nA = Ns, EA = Ls, Ba = Ds, Ra = 0; Ra < 80; Ra++) {
         var iA = Wo[Ra];
         if (Ra < 16) var Za = iA.high = 0 | Jo[$o + 2 * Ra], Ka = iA.low = 0 | Jo[$o + 2 * Ra + 1];
         else {
           var fA = Wo[Ra - 15], aa = fA.high, Ja = fA.low, MA = (aa >>> 1 | Ja << 31) ^ (aa >>> 8 | Ja << 24) ^ aa >>> 7, bA = (Ja >>> 1 | aa << 31) ^ (Ja >>> 8 | aa << 24) ^ (Ja >>> 7 | aa << 25), BA = Wo[Ra - 2], uA = BA.high, _a = BA.low, xs = (uA >>> 19 | _a << 13) ^ (uA << 3 | _a >>> 29) ^ uA >>> 6, Ws = (_a >>> 19 | uA << 13) ^ (_a << 3 | uA >>> 29) ^ (_a >>> 6 | uA << 26), ls = Wo[Ra - 7], ta = ls.high, Oa = ls.low, Ks = Wo[Ra - 16], Da = Ks.high, qs = Ks.low;
           Za = (Za = (Za = MA + ta + ((Ka = bA + Oa) >>> 0 < bA >>> 0 ? 1 : 0)) + xs + ((Ka += Ws) >>> 0 < Ws >>> 0 ? 1 : 0)) + Da + ((Ka += qs) >>> 0 < qs >>> 0 ? 1 : 0), iA.high = Za, iA.low = Ka;
         }
-        var ca, Hs = Ha & AA ^ ~Ha & Wa, zs = La & Fa ^ ~La & nA, pa = Bs & ja ^ Bs & Ca ^ ja & Ca, na = ha & ua ^ ha & Ya ^ ua & Ya, ra = (Bs >>> 28 | ha << 4) ^ (Bs << 30 | ha >>> 2) ^ (Bs << 25 | ha >>> 7), $a = (ha >>> 28 | Bs << 4) ^ (ha << 30 | Bs >>> 2) ^ (ha << 25 | Bs >>> 7), NA = (Ha >>> 14 | La << 18) ^ (Ha >>> 18 | La << 14) ^ (Ha << 23 | La >>> 9), ga = (La >>> 14 | Ha << 18) ^ (La >>> 18 | Ha << 14) ^ (La << 23 | Ha >>> 9), Js = Fo[Ra], Ea = Js.high, $s = Js.low, Ua = EA + NA + ((ca = Ba + ga) >>> 0 < Ba >>> 0 ? 1 : 0), ka = $a + na;
-        EA = Wa, Ba = nA, Wa = AA, nA = Fa, AA = Ha, Fa = La, Ha = pA + (Ua = (Ua = (Ua = Ua + Hs + ((ca += zs) >>> 0 < zs >>> 0 ? 1 : 0)) + Ea + ((ca += $s) >>> 0 < $s >>> 0 ? 1 : 0)) + Za + ((ca += Ka) >>> 0 < Ka >>> 0 ? 1 : 0)) + ((La = aA + ca | 0) >>> 0 < aA >>> 0 ? 1 : 0) | 0, pA = Ca, aA = Ya, Ca = ja, Ya = ua, ja = Bs, ua = ha, Bs = Ua + (ra + pa + (ka >>> 0 < $a >>> 0 ? 1 : 0)) + ((ha = ca + ka | 0) >>> 0 < ca >>> 0 ? 1 : 0) | 0;
+        var ca, Hs = Ha & AA ^ ~Ha & Wa, zs = Na & Fa ^ ~Na & nA, pa = Bs & ja ^ Bs & Ca ^ ja & Ca, na = ha & ua ^ ha & Ya ^ ua & Ya, ra = (Bs >>> 28 | ha << 4) ^ (Bs << 30 | ha >>> 2) ^ (Bs << 25 | ha >>> 7), $a = (ha >>> 28 | Bs << 4) ^ (ha << 30 | Bs >>> 2) ^ (ha << 25 | Bs >>> 7), LA = (Ha >>> 14 | Na << 18) ^ (Ha >>> 18 | Na << 14) ^ (Ha << 23 | Na >>> 9), ga = (Na >>> 14 | Ha << 18) ^ (Na >>> 18 | Ha << 14) ^ (Na << 23 | Ha >>> 9), Js = Fo[Ra], Ea = Js.high, $s = Js.low, Ua = EA + LA + ((ca = Ba + ga) >>> 0 < Ba >>> 0 ? 1 : 0), ka = $a + na;
+        EA = Wa, Ba = nA, Wa = AA, nA = Fa, AA = Ha, Fa = Na, Ha = pA + (Ua = (Ua = (Ua = Ua + Hs + ((ca += zs) >>> 0 < zs >>> 0 ? 1 : 0)) + Ea + ((ca += $s) >>> 0 < $s >>> 0 ? 1 : 0)) + Za + ((ca += Ka) >>> 0 < Ka >>> 0 ? 1 : 0)) + ((Na = aA + ca | 0) >>> 0 < aA >>> 0 ? 1 : 0) | 0, pA = Ca, aA = Ya, Ca = ja, Ya = ua, ja = Bs, ua = ha, Bs = Ua + (ra + pa + (ka >>> 0 < $a >>> 0 ? 1 : 0)) + ((ha = ca + ka | 0) >>> 0 < ca >>> 0 ? 1 : 0) | 0;
       }
-      ws = is.low = ws + ha, is.high = Is + Bs + (ws >>> 0 < ha >>> 0 ? 1 : 0), bs = as.low = bs + ua, as.high = vs + ja + (bs >>> 0 < ua >>> 0 ? 1 : 0), Cs = os.low = Cs + Ya, os.high = Rs + Ca + (Cs >>> 0 < Ya >>> 0 ? 1 : 0), ks = us.low = ks + aA, us.high = Gs + pA + (ks >>> 0 < aA >>> 0 ? 1 : 0), ea = As.low = ea + La, As.high = Vs + Ha + (ea >>> 0 < La >>> 0 ? 1 : 0), Xs = ds.low = Xs + Fa, ds.high = _s + AA + (Xs >>> 0 < Fa >>> 0 ? 1 : 0), Ls = ps.low = Ls + nA, ps.high = Zs + Wa + (Ls >>> 0 < nA >>> 0 ? 1 : 0), Ds = hs.low = Ds + Ba, hs.high = Ns + EA + (Ds >>> 0 < Ba >>> 0 ? 1 : 0);
+      ws = is.low = ws + ha, is.high = Is + Bs + (ws >>> 0 < ha >>> 0 ? 1 : 0), bs = as.low = bs + ua, as.high = vs + ja + (bs >>> 0 < ua >>> 0 ? 1 : 0), Cs = os.low = Cs + Ya, os.high = Rs + Ca + (Cs >>> 0 < Ya >>> 0 ? 1 : 0), ks = us.low = ks + aA, us.high = Gs + pA + (ks >>> 0 < aA >>> 0 ? 1 : 0), ea = As.low = ea + Na, As.high = Vs + Ha + (ea >>> 0 < Na >>> 0 ? 1 : 0), Xs = ds.low = Xs + Fa, ds.high = _s + AA + (Xs >>> 0 < Fa >>> 0 ? 1 : 0), Ns = ps.low = Ns + nA, ps.high = Zs + Wa + (Ns >>> 0 < nA >>> 0 ? 1 : 0), Ds = hs.low = Ds + Ba, hs.high = Ls + EA + (Ds >>> 0 < Ba >>> 0 ? 1 : 0);
     }, _doFinalize: function() {
       var Jo = this._data, $o = Jo.words, ts = 8 * this._nDataBytes, is = 8 * Jo.sigBytes;
       return $o[is >>> 5] |= 128 << 24 - is % 32, $o[30 + (is + 128 >>> 10 << 5)] = Math.floor(ts / 4294967296), $o[31 + (is + 128 >>> 10 << 5)] = ts, Jo.sigBytes = 4 * $o.length, this._process(), this._hash.toX32();
@@ -4433,8 +4450,8 @@ var ee = Q(function(Oo, jo) {
           var Zs = Jo[Wo[Vs]];
           Zs.high = Is, Zs.low = ws;
         }
-        var Ls = Jo[0], Ns = as[0];
-        for (Ls.high = Ns.high, Ls.low = Ns.low, hs = 0; hs < 5; hs++) for (vs = 0; vs < 5; vs++) {
+        var Ns = Jo[0], Ls = as[0];
+        for (Ns.high = Ls.high, Ns.low = Ls.low, hs = 0; hs < 5; hs++) for (vs = 0; vs < 5; vs++) {
           var Ds = as[Vs = hs + 5 * vs], Bs = Jo[Vs], ha = Jo[(hs + 1) % 5 + 5 * vs], ja = Jo[(hs + 2) % 5 + 5 * vs];
           Ds.high = Bs.high ^ ~ha.high & ja.high, Ds.low = Bs.low ^ ~ha.low & ja.low;
         }
@@ -4466,9 +4483,9 @@ var ee = Q(function(Oo, jo) {
         var ws = hs + Is, vs = ps[ws];
         ps[ws] = 16711935 & (vs << 8 | vs >>> 24) | 4278255360 & (vs << 24 | vs >>> 8);
       }
-      var bs, Rs, Cs, Gs, ks, Vs, ea, _s, Xs, Zs, Ls, Ns = this._hash.words, Ds = Jo.words, Bs = $o.words, ha = Go.words, ja = Fo.words, ua = Wo.words, Ca = Ko.words;
-      for (Vs = bs = Ns[0], ea = Rs = Ns[1], _s = Cs = Ns[2], Xs = Gs = Ns[3], Zs = ks = Ns[4], Is = 0; Is < 80; Is += 1) Ls = bs + ps[hs + ha[Is]] | 0, Ls += Is < 16 ? is(Rs, Cs, Gs) + Ds[0] : Is < 32 ? as(Rs, Cs, Gs) + Ds[1] : Is < 48 ? os(Rs, Cs, Gs) + Ds[2] : Is < 64 ? us(Rs, Cs, Gs) + Ds[3] : As(Rs, Cs, Gs) + Ds[4], Ls = (Ls = ds(Ls |= 0, ua[Is])) + ks | 0, bs = ks, ks = Gs, Gs = ds(Cs, 10), Cs = Rs, Rs = Ls, Ls = Vs + ps[hs + ja[Is]] | 0, Ls += Is < 16 ? As(ea, _s, Xs) + Bs[0] : Is < 32 ? us(ea, _s, Xs) + Bs[1] : Is < 48 ? os(ea, _s, Xs) + Bs[2] : Is < 64 ? as(ea, _s, Xs) + Bs[3] : is(ea, _s, Xs) + Bs[4], Ls = (Ls = ds(Ls |= 0, Ca[Is])) + Zs | 0, Vs = Zs, Zs = Xs, Xs = ds(_s, 10), _s = ea, ea = Ls;
-      Ls = Ns[1] + Cs + Xs | 0, Ns[1] = Ns[2] + Gs + Zs | 0, Ns[2] = Ns[3] + ks + Vs | 0, Ns[3] = Ns[4] + bs + ea | 0, Ns[4] = Ns[0] + Rs + _s | 0, Ns[0] = Ls;
+      var bs, Rs, Cs, Gs, ks, Vs, ea, _s, Xs, Zs, Ns, Ls = this._hash.words, Ds = Jo.words, Bs = $o.words, ha = Go.words, ja = Fo.words, ua = Wo.words, Ca = Ko.words;
+      for (Vs = bs = Ls[0], ea = Rs = Ls[1], _s = Cs = Ls[2], Xs = Gs = Ls[3], Zs = ks = Ls[4], Is = 0; Is < 80; Is += 1) Ns = bs + ps[hs + ha[Is]] | 0, Ns += Is < 16 ? is(Rs, Cs, Gs) + Ds[0] : Is < 32 ? as(Rs, Cs, Gs) + Ds[1] : Is < 48 ? os(Rs, Cs, Gs) + Ds[2] : Is < 64 ? us(Rs, Cs, Gs) + Ds[3] : As(Rs, Cs, Gs) + Ds[4], Ns = (Ns = ds(Ns |= 0, ua[Is])) + ks | 0, bs = ks, ks = Gs, Gs = ds(Cs, 10), Cs = Rs, Rs = Ns, Ns = Vs + ps[hs + ja[Is]] | 0, Ns += Is < 16 ? As(ea, _s, Xs) + Bs[0] : Is < 32 ? us(ea, _s, Xs) + Bs[1] : Is < 48 ? os(ea, _s, Xs) + Bs[2] : Is < 64 ? as(ea, _s, Xs) + Bs[3] : is(ea, _s, Xs) + Bs[4], Ns = (Ns = ds(Ns |= 0, Ca[Is])) + Zs | 0, Vs = Zs, Zs = Xs, Xs = ds(_s, 10), _s = ea, ea = Ns;
+      Ns = Ls[1] + Cs + Xs | 0, Ls[1] = Ls[2] + Gs + Zs | 0, Ls[2] = Ls[3] + ks + Vs | 0, Ls[3] = Ls[4] + bs + ea | 0, Ls[4] = Ls[0] + Rs + _s | 0, Ls[0] = Ns;
     }, _doFinalize: function() {
       var ps = this._data, hs = ps.words, Is = 8 * this._nDataBytes, ws = 8 * ps.sigBytes;
       hs[ws >>> 5] |= 128 << 24 - ws % 32, hs[14 + (ws + 64 >>> 9 << 4)] = 16711935 & (Is << 8 | Is >>> 24) | 4278255360 & (Is << 24 | Is >>> 8), ps.sigBytes = 4 * (hs.length + 1), this._process();
@@ -9905,7 +9922,7 @@ class LiveMonitorCore {
       hasPlayerFactory: !!jo.playerFactory,
       baseURL: jo.baseURL,
       alreadyInitialized: this.initialized
-    }), this.initialized) {
+    }), reportFeatureUse("live_monitor"), this.initialized) {
       log$5.info("LiveMonitorCore", "Already initialized, skipping playerFactory setup");
       return;
     }
@@ -11336,15 +11353,15 @@ function useRiskControlState(Oo) {
   useEffect(() => (ds.current = !0, reportFeatureUse("risk_control"), getModerationMode().then(async (Xs) => {
     if (!ds.current) return;
     Vo(Xs);
-    const Zs = Xs === "cloud", Ls = Zs ? getInteractionModerationList : getCustomModerationList;
+    const Zs = Xs === "cloud", Ns = Zs ? getInteractionModerationList : getCustomModerationList;
     try {
-      const Ns = await Ls({ pageSize: No, liveId: jo });
-      ds.current && (Yo(!0), Fo(Ns.list || []), $o(Ns.total || 0)), reportCapability(Zs ? "text_moderation" : "text_moderation_custom"), reportCapability(Zs ? "moderation" : "moderation_custom");
+      const Ls = await Ns({ pageSize: No, liveId: jo });
+      ds.current && (Yo(!0), Fo(Ls.list || []), $o(Ls.total || 0)), reportCapability(Zs ? "text_moderation" : "text_moderation_custom"), reportCapability(Zs ? "moderation" : "moderation_custom");
     } catch {
       ds.current && Yo(!1);
     }
-    Xs === "custom" && getCustomModerationToggle().then((Ns) => {
-      ds.current && Xo(Ns.Enabled);
+    Xs === "custom" && getCustomModerationToggle().then((Ls) => {
+      ds.current && Xo(Ls.Enabled);
     }).catch(() => {
     });
   }), () => {
@@ -11423,19 +11440,19 @@ function useRiskControlState(Oo) {
   }, [jo]), ks = useCallback(async (Xs) => {
     try {
       const Zs = Xs.items ?? (() => {
-        const Ls = Go;
-        return Xs.ids.map((Ns) => {
-          const Ds = Ls.find((Bs) => Bs.id === Ns);
+        const Ns = Go;
+        return Xs.ids.map((Ls) => {
+          const Ds = Ns.find((Bs) => Bs.id === Ls);
           return {
-            id: Ns,
-            content: Ds?.content ?? Ns,
+            id: Ls,
+            content: Ds?.content ?? Ls,
             userId: Ds?.userId ?? ""
           };
         });
       })();
       if (Qo === "custom") {
-        const Ls = await approveCustomModerationItems({ ids: Xs.ids, items: Zs, liveId: Xs.liveId ?? jo });
-        reportBusinessOp("moderation", "approve", !0, String(Ls.success)), Ls.failed > 0 && log$2.warn("useRiskControlState", `部分放行失败: 成功 ${Ls.success}, 失败 ${Ls.failed}`);
+        const Ns = await approveCustomModerationItems({ ids: Xs.ids, items: Zs, liveId: Xs.liveId ?? jo });
+        reportBusinessOp("moderation", "approve", !0, String(Ns.success)), Ns.failed > 0 && log$2.warn("useRiskControlState", `部分放行失败: 成功 ${Ns.success}, 失败 ${Ns.failed}`);
       } else
         await approveTextModerationItems({ ids: Xs.ids, items: Zs, liveId: Xs.liveId ?? jo }), reportBusinessOp("moderation", "approve", !0, String(Xs.ids.length));
     } catch (Zs) {
@@ -11552,7 +11569,7 @@ function useLiveMonitorState() {
   }, []), Go = useCallback(async (as) => {
     try {
       const os = await globalCore.createLive(as);
-      return reportBusinessOp("live_crud", "create", !0, os.liveId), os;
+      return reportBusinessOp("live_crud", "create", !0, os.liveId), reportFeatureUse("create_live"), os;
     } catch (os) {
       throw reportBusinessOp("live_crud", "create", !1), os;
     }
@@ -13727,11 +13744,11 @@ function requireSvga_min() {
           var Oa, Ks = xs.state;
           return Ks.window === null && (Ks.wsize = 1 << Ks.wbits, Ks.wnext = 0, Ks.whave = 0, Ks.window = new Jo.Buf8(Ks.wsize)), ta >= Ks.wsize ? (Jo.arraySet(Ks.window, Ws, ls - Ks.wsize, Ks.wsize, 0), Ks.wnext = 0, Ks.whave = Ks.wsize) : ((Oa = Ks.wsize - Ks.wnext) > ta && (Oa = ta), Jo.arraySet(Ks.window, Ws, ls - ta, Oa, Ks.wnext), (ta -= Oa) ? (Jo.arraySet(Ks.window, Ws, ls - ta, ta, 0), Ks.wnext = ta, Ks.whave = Ks.wsize) : (Ks.wnext += Oa, Ks.wnext === Ks.wsize && (Ks.wnext = 0), Ks.whave < Ks.wsize && (Ks.whave += Oa))), 0;
         }
-        var Wo, Ko, Jo = No(8), $o = No(53), ts = No(54), is = No(55), as = No(56), os = 0, us = 1, As = 2, ds = 4, ps = 5, hs = 6, Is = 0, ws = 1, vs = 2, bs = -2, Rs = -3, Cs = -4, Gs = -5, ks = 8, Vs = 1, ea = 2, _s = 3, Xs = 4, Zs = 5, Ls = 6, Ns = 7, Ds = 8, Bs = 9, ha = 10, ja = 11, ua = 12, Ca = 13, Ya = 14, pA = 15, aA = 16, Ha = 17, La = 18, AA = 19, Fa = 20, Wa = 21, nA = 22, EA = 23, Ba = 24, Ra = 25, iA = 26, Za = 27, Ka = 28, fA = 29, aa = 30, Ja = 31, MA = 32, bA = 852, BA = 592, uA = 15, _a = !0;
+        var Wo, Ko, Jo = No(8), $o = No(53), ts = No(54), is = No(55), as = No(56), os = 0, us = 1, As = 2, ds = 4, ps = 5, hs = 6, Is = 0, ws = 1, vs = 2, bs = -2, Rs = -3, Cs = -4, Gs = -5, ks = 8, Vs = 1, ea = 2, _s = 3, Xs = 4, Zs = 5, Ns = 6, Ls = 7, Ds = 8, Bs = 9, ha = 10, ja = 11, ua = 12, Ca = 13, Ya = 14, pA = 15, aA = 16, Ha = 17, Na = 18, AA = 19, Fa = 20, Wa = 21, nA = 22, EA = 23, Ba = 24, Ra = 25, iA = 26, Za = 27, Ka = 28, fA = 29, aa = 30, Ja = 31, MA = 32, bA = 852, BA = 592, uA = 15, _a = !0;
         jo.inflateReset = Vo, jo.inflateReset2 = qo, jo.inflateResetKeep = Qo, jo.inflateInit = function(xs) {
           return Xo(xs, uA);
         }, jo.inflateInit2 = Xo, jo.inflate = function(xs, Ws) {
-          var ls, ta, Oa, Ks, Da, qs, ca, Hs, zs, pa, na, ra, $a, NA, ga, Js, Ea, $s, Ua, ka, ya, Ga, eA, Va, xa = 0, Ta = new Jo.Buf8(4), cf = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
+          var ls, ta, Oa, Ks, Da, qs, ca, Hs, zs, pa, na, ra, $a, LA, ga, Js, Ea, $s, Ua, ka, ya, Ga, eA, Va, xa = 0, Ta = new Jo.Buf8(4), cf = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
           if (!xs || !xs.state || !xs.output || !xs.input && xs.avail_in !== 0) return bs;
           (ls = xs.state).mode === ua && (ls.mode = Ca), Da = xs.next_out, Oa = xs.output, ca = xs.avail_out, Ks = xs.next_in, ta = xs.input, qs = xs.avail_in, Hs = ls.hold, zs = ls.bits, pa = qs, na = ca, Ga = Is;
           e: for (; ; ) switch (ls.mode) {
@@ -13797,11 +13814,11 @@ function requireSvga_min() {
                 }
                 ls.length = Hs, ls.head && (ls.head.extra_len = Hs), 512 & ls.flags && (Ta[0] = 255 & Hs, Ta[1] = Hs >>> 8 & 255, ls.check = ts(ls.check, Ta, 2, 0)), Hs = 0, zs = 0;
               } else ls.head && (ls.head.extra = null);
-              ls.mode = Ls;
-            case Ls:
-              if (1024 & ls.flags && ((ra = ls.length) > qs && (ra = qs), ra && (ls.head && (ya = ls.head.extra_len - ls.length, ls.head.extra || (ls.head.extra = new Array(ls.head.extra_len)), Jo.arraySet(ls.head.extra, ta, Ks, ra, ya)), 512 & ls.flags && (ls.check = ts(ls.check, ta, ra, Ks)), qs -= ra, Ks += ra, ls.length -= ra), ls.length)) break e;
-              ls.length = 0, ls.mode = Ns;
+              ls.mode = Ns;
             case Ns:
+              if (1024 & ls.flags && ((ra = ls.length) > qs && (ra = qs), ra && (ls.head && (ya = ls.head.extra_len - ls.length, ls.head.extra || (ls.head.extra = new Array(ls.head.extra_len)), Jo.arraySet(ls.head.extra, ta, Ks, ra, ya)), 512 & ls.flags && (ls.check = ts(ls.check, ta, ra, Ks)), qs -= ra, Ks += ra, ls.length -= ra), ls.length)) break e;
+              ls.length = 0, ls.mode = Ls;
+            case Ls:
               if (2048 & ls.flags) {
                 if (qs === 0) break e;
                 ra = 0;
@@ -13902,8 +13919,8 @@ function requireSvga_min() {
                 xs.msg = "too many length or distance symbols", ls.mode = aa;
                 break;
               }
-              ls.have = 0, ls.mode = La;
-            case La:
+              ls.have = 0, ls.mode = Na;
+            case Na:
               for (; ls.have < ls.ncode; ) {
                 for (; zs < 3; ) {
                   if (qs === 0) break e;
@@ -14046,11 +14063,11 @@ function requireSvga_min() {
                   xs.msg = "invalid distance too far back", ls.mode = aa;
                   break;
                 }
-                ra > ls.wnext ? (ra -= ls.wnext, $a = ls.wsize - ra) : $a = ls.wnext - ra, ra > ls.length && (ra = ls.length), NA = ls.window;
-              } else NA = Oa, $a = Da - ls.offset, ra = ls.length;
+                ra > ls.wnext ? (ra -= ls.wnext, $a = ls.wsize - ra) : $a = ls.wnext - ra, ra > ls.length && (ra = ls.length), LA = ls.window;
+              } else LA = Oa, $a = Da - ls.offset, ra = ls.length;
               ra > ca && (ra = ca), ca -= ra, ls.length -= ra;
               do
-                Oa[Da++] = NA[$a++];
+                Oa[Da++] = LA[$a++];
               while (--ra);
               ls.length === 0 && (ls.mode = Wa);
               break;
@@ -14223,29 +14240,29 @@ function requireSvga_min() {
       }, function(Oo, jo, No) {
         var Ho = No(8), Yo = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0], Qo = [16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 16, 72, 78], Vo = [1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577, 0, 0], qo = [16, 16, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 64, 64];
         Oo.exports = function(Xo, Go, Fo, Wo, Ko, Jo, $o, ts) {
-          var is, as, os, us, As, ds, ps, hs, Is, ws = ts.bits, vs = 0, bs = 0, Rs = 0, Cs = 0, Gs = 0, ks = 0, Vs = 0, ea = 0, _s = 0, Xs = 0, Zs = null, Ls = 0, Ns = new Ho.Buf16(16), Ds = new Ho.Buf16(16), Bs = null, ha = 0;
-          for (vs = 0; vs <= 15; vs++) Ns[vs] = 0;
-          for (bs = 0; bs < Wo; bs++) Ns[Go[Fo + bs]]++;
-          for (Gs = ws, Cs = 15; Cs >= 1 && Ns[Cs] === 0; Cs--) ;
+          var is, as, os, us, As, ds, ps, hs, Is, ws = ts.bits, vs = 0, bs = 0, Rs = 0, Cs = 0, Gs = 0, ks = 0, Vs = 0, ea = 0, _s = 0, Xs = 0, Zs = null, Ns = 0, Ls = new Ho.Buf16(16), Ds = new Ho.Buf16(16), Bs = null, ha = 0;
+          for (vs = 0; vs <= 15; vs++) Ls[vs] = 0;
+          for (bs = 0; bs < Wo; bs++) Ls[Go[Fo + bs]]++;
+          for (Gs = ws, Cs = 15; Cs >= 1 && Ls[Cs] === 0; Cs--) ;
           if (Gs > Cs && (Gs = Cs), Cs === 0) return Ko[Jo++] = 20971520, Ko[Jo++] = 20971520, ts.bits = 1, 0;
-          for (Rs = 1; Rs < Cs && Ns[Rs] === 0; Rs++) ;
-          for (Gs < Rs && (Gs = Rs), ea = 1, vs = 1; vs <= 15; vs++) if (ea <<= 1, (ea -= Ns[vs]) < 0) return -1;
+          for (Rs = 1; Rs < Cs && Ls[Rs] === 0; Rs++) ;
+          for (Gs < Rs && (Gs = Rs), ea = 1, vs = 1; vs <= 15; vs++) if (ea <<= 1, (ea -= Ls[vs]) < 0) return -1;
           if (ea > 0 && (Xo === 0 || Cs !== 1)) return -1;
-          for (Ds[1] = 0, vs = 1; vs < 15; vs++) Ds[vs + 1] = Ds[vs] + Ns[vs];
+          for (Ds[1] = 0, vs = 1; vs < 15; vs++) Ds[vs + 1] = Ds[vs] + Ls[vs];
           for (bs = 0; bs < Wo; bs++) Go[Fo + bs] !== 0 && ($o[Ds[Go[Fo + bs]]++] = bs);
-          if (Xo === 0 ? (Zs = Bs = $o, ds = 19) : Xo === 1 ? (Zs = Yo, Ls -= 257, Bs = Qo, ha -= 257, ds = 256) : (Zs = Vo, Bs = qo, ds = -1), Xs = 0, bs = 0, vs = Rs, As = Jo, ks = Gs, Vs = 0, os = -1, us = (_s = 1 << Gs) - 1, Xo === 1 && _s > 852 || Xo === 2 && _s > 592) return 1;
+          if (Xo === 0 ? (Zs = Bs = $o, ds = 19) : Xo === 1 ? (Zs = Yo, Ns -= 257, Bs = Qo, ha -= 257, ds = 256) : (Zs = Vo, Bs = qo, ds = -1), Xs = 0, bs = 0, vs = Rs, As = Jo, ks = Gs, Vs = 0, os = -1, us = (_s = 1 << Gs) - 1, Xo === 1 && _s > 852 || Xo === 2 && _s > 592) return 1;
           for (; ; ) {
-            ps = vs - Vs, $o[bs] < ds ? (hs = 0, Is = $o[bs]) : $o[bs] > ds ? (hs = Bs[ha + $o[bs]], Is = Zs[Ls + $o[bs]]) : (hs = 96, Is = 0), is = 1 << vs - Vs, Rs = as = 1 << ks;
+            ps = vs - Vs, $o[bs] < ds ? (hs = 0, Is = $o[bs]) : $o[bs] > ds ? (hs = Bs[ha + $o[bs]], Is = Zs[Ns + $o[bs]]) : (hs = 96, Is = 0), is = 1 << vs - Vs, Rs = as = 1 << ks;
             do
               Ko[As + (Xs >> Vs) + (as -= is)] = ps << 24 | hs << 16 | Is | 0;
             while (as !== 0);
             for (is = 1 << vs - 1; Xs & is; ) is >>= 1;
-            if (is !== 0 ? (Xs &= is - 1, Xs += is) : Xs = 0, bs++, --Ns[vs] == 0) {
+            if (is !== 0 ? (Xs &= is - 1, Xs += is) : Xs = 0, bs++, --Ls[vs] == 0) {
               if (vs === Cs) break;
               vs = Go[Fo + $o[bs]];
             }
             if (vs > Gs && (Xs & us) !== os) {
-              for (Vs === 0 && (Vs = Gs), As += Rs, ea = 1 << (ks = vs - Vs); ks + Vs < Cs && !((ea -= Ns[ks + Vs]) <= 0); ) ks++, ea <<= 1;
+              for (Vs === 0 && (Vs = Gs), As += Rs, ea = 1 << (ks = vs - Vs); ks + Vs < Cs && !((ea -= Ls[ks + Vs]) <= 0); ) ks++, ea <<= 1;
               if (_s += 1 << ks, Xo === 1 && _s > 852 || Xo === 2 && _s > 592) return 1;
               Ko[os = Xs & us] = Gs << 24 | ks << 16 | As - Jo | 0;
             }

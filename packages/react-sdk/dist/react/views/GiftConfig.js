@@ -5,16 +5,16 @@ import { useNavigate as we } from "react-router-dom";
 import { Dialog as S, Input as V, InputNumber as se, Textarea as Be, Button as _, Select as Ee, Card as Ve } from "tdesign-react";
 import { useUIKit as X, i18next as ce } from "@tencentcloud/uikit-base-component-react";
 import { A as he, F as Ye } from "../../chunks/ActionButtons.Cfkno1zE.js";
-import { M as m, u as Xe, a as Q } from "../../chunks/useAsyncAction.BQ2CRmHy.js";
+import { M as N, u as Xe, a as Q } from "../../chunks/useAsyncAction.R1AlIQqh.js";
 /* empty css                                */
-import { h as De, m as re, ao as j, I as i, B as Ie } from "../../chunks/layout.QDR0rddX.js";
-import { x as O, g, y as N, v as T, w as $, aa as He, b as We, a as z, aQ as $e, a_ as ze, L as je, F as qe, bj as de, z as ge } from "../../chunks/main-layout.BgP9Ncvl.js";
-import { f as Ke, e as Je, b as Qe } from "../../chunks/upload.B9g98mEN.js";
+import { h as He, n as re, ar as q, I as i, C as Ie } from "../../chunks/shared-state.Bf8CkvaR.js";
+import { z as O, g, F as m, x as T, y as $, ab as De, b as We, a as z, aL as $e, aT as ze, L as qe, I as Ke, ba as de, H as ge } from "../../chunks/main-layout.OEkSp6vd.js";
+import { f as je, e as Je, b as Qe } from "../../chunks/upload.BUq-1ot2.js";
 import { F as _e, a as C } from "../../chunks/FormField.D0eRD3uO.js";
-import { I as ue } from "../../chunks/ImageUpload.HpnOoYqK.js";
-import { g as Ze } from "../../chunks/columns.BKd5KjpN.js";
-import { b as ei } from "../../chunks/useT.D-THYezc.js";
-import { S as pe } from "../../chunks/SlotRenderer.BP46Gx6z.js";
+import { I as ue } from "../../chunks/ImageUpload.DB6Sd-EZ.js";
+import { g as Ze } from "../../chunks/columns.DzP4VQm6.js";
+import { b as ei } from "../../chunks/useT.CDh8p6A1.js";
+import { S as pe } from "../../chunks/SlotRenderer.C2--beKA.js";
 const R = 0, P = 2147483647, w = 0, B = 99, fe = {
   id: "",
   name: "",
@@ -25,7 +25,7 @@ const R = 0, P = 2147483647, w = 0, B = 99, fe = {
   description: "",
   extensionInfo: "",
   enabled: !0
-}, ii = De("GiftFormDialog");
+}, ii = He("GiftFormDialog");
 function ni({
   visible: s,
   isEdit: u,
@@ -38,60 +38,60 @@ function ni({
 }) {
   const { t } = X();
   re().components?.giftConfig;
-  const h = Z(null), A = Z(null), [b, y] = L(!1), [D, v] = L(!1), [H, F] = L(!1), [M, f] = L(!1), I = () => {
+  const h = Z(null), A = Z(null), [b, y] = L(!1), [H, v] = L(!1), [D, F] = L(!1), [M, f] = L(!1), I = () => {
     h.current?.reset(), A.current?.reset(), y(!1), v(!1);
   }, U = () => {
     I(), E();
   }, [x, k] = L(!1), ee = async () => {
     if (!e.id.trim()) {
-      m.error(t(i.ENTER_GIFT_ID));
+      N.error(t(i.ENTER_GIFT_ID));
       return;
     }
     if (g(e.id) > O) {
-      m.error(t(i.MAX_BYTES, { field: t(i.GIFT_ID), max: O }));
+      N.error(t(i.MAX_BYTES, { field: t(i.GIFT_ID), max: O }));
       return;
     }
     if (!e.name.trim()) {
-      m.error(t(i.ENTER_GIFT_NAME));
+      N.error(t(i.ENTER_GIFT_NAME));
       return;
     }
-    if (g(e.name) > N) {
-      m.error(t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: N }));
+    if (g(e.name) > m) {
+      N.error(t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: m }));
       return;
     }
     if (e.description && g(e.description) > T) {
-      m.error(t(i.MAX_BYTES, { field: t(i.DESCRIPTION), max: T }));
+      N.error(t(i.MAX_BYTES, { field: t(i.DESCRIPTION), max: T }));
       return;
     }
     const o = parseInt(e.level);
     if (e.level && !isNaN(o) && (o < w || o > B)) {
-      m.error(t(i.GIFT_LEVEL_RANGE, { min: w, max: B }));
+      N.error(t(i.GIFT_LEVEL_RANGE, { min: w, max: B }));
       return;
     }
     if (e.price < R || e.price > P) {
-      m.error(t(i.GIFT_PRICE_RANGE, { min: R, max: P }));
+      N.error(t(i.GIFT_PRICE_RANGE, { min: R, max: P }));
       return;
     }
-    const q = h.current?.isUrlInputMode ?? !0, ie = q && (h.current?.urlInputValue?.trim?.() || "");
+    const K = h.current?.isUrlInputMode ?? !0, ie = K && (h.current?.urlInputValue?.trim?.() || "");
     if (!b && !e.iconUrl.trim() && !ie) {
-      q && h.current?.setUrlError(t(i.ENTER_THUMBNAIL_URL)), m.error(t(i.UPLOAD_THUMBNAIL_OR_ENTER_URL));
+      K && h.current?.setUrlError(t(i.ENTER_THUMBNAIL_URL)), N.error(t(i.UPLOAD_THUMBNAIL_OR_ENTER_URL));
       return;
     }
     if (e.extensionInfo.trim()) {
       try {
         JSON.parse(e.extensionInfo.trim());
       } catch {
-        m.error(t(i.EXTENSION_INFO_JSON_FORMAT));
+        N.error(t(i.EXTENSION_INFO_JSON_FORMAT));
         return;
       }
       if (new TextEncoder().encode(e.extensionInfo.trim()).length > 100) {
-        m.error(t(i.MAX_BYTES, { field: t(i.CUSTOM_EXTENSION_INFO), max: 100 }));
+        N.error(t(i.MAX_BYTES, { field: t(i.CUSTOM_EXTENSION_INFO), max: 100 }));
         return;
       }
     }
     k(!0);
     try {
-      const [G, K] = await Ke([
+      const [G, j] = await je([
         {
           handle: h.current,
           hasPendingFile: b,
@@ -100,16 +100,16 @@ function ni({
         },
         {
           handle: A.current,
-          hasPendingFile: D,
+          hasPendingFile: H,
           fallbackUrl: e.animationUrl,
           label: t(i.GIFT_MATERIAL)
         }
-      ]), ne = { ...e, iconUrl: G, animationUrl: K };
+      ]), ne = { ...e, iconUrl: G, animationUrl: j };
       r(ne);
-      const te = He(e, G, K);
+      const te = De(e, G, j);
       await p(te);
     } catch (G) {
-      ii.error("GiftFormDialog", `Image upload failed: ${G?.message || t(i.UNKNOWN_HOST)}`, G), m.error(Je(G, t(i.THUMBNAIL)));
+      ii.error("GiftFormDialog", `Image upload failed: ${G?.message || t(i.UNKNOWN_HOST)}`, G), N.error(Je(G, t(i.THUMBNAIL)));
     } finally {
       k(!1);
     }
@@ -121,7 +121,7 @@ function ni({
       visible: s,
       header: t(u ? i.EDIT_GIFT : i.CREATE_GIFT),
       onClose: U,
-      width: j.GIFT_FORM,
+      width: q.GIFT_FORM,
       placement: "center",
       className: "gift-modal",
       footer: /* @__PURE__ */ a(Y, { children: [
@@ -132,7 +132,7 @@ function ni({
             shape: "round",
             theme: "primary",
             onClick: ee,
-            disabled: x || !u && !e.id.trim() || !e.name.trim() || h.current?.isValidating || A.current?.isValidating || H || M,
+            disabled: x || !u && !e.id.trim() || !e.name.trim() || h.current?.isValidating || A.current?.isValidating || D || M,
             children: t(x ? u ? i.SAVING : i.CREATING : u ? i.SAVE : i.CREATE)
           }
         )
@@ -254,15 +254,15 @@ function ni({
               value: e.name,
               onChange: (o) => r({ ...e, name: String(o) }),
               placeholder: t(i.ENTER_GIFT_NAME),
-              status: g(e.name) > N ? "error" : "default",
-              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > N ? " byte-overflow" : ""}`, children: [
+              status: g(e.name) > m ? "error" : "default",
+              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > m ? " byte-overflow" : ""}`, children: [
                 g(e.name),
                 "/",
-                N
+                m
               ] })
             }
           ),
-          g(e.name) > N && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: N }) })
+          g(e.name) > m && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: m }) })
         ] }) }),
         /* @__PURE__ */ n(C, { label: t(i.DESCRIPTION), children: /* @__PURE__ */ a("div", { className: "form-field__input-wrapper", children: [
           /* @__PURE__ */ n(
@@ -321,7 +321,7 @@ function ti({
       visible: s,
       header: p(i.GIFT_MULTILINGUAL_CONFIG),
       onClose: e,
-      width: j.GIFT_LANG_CONFIG,
+      width: q.GIFT_LANG_CONFIG,
       className: "gift-lang-config-dialog",
       footer: /* @__PURE__ */ n(_, { shape: "round", theme: "primary", onClick: e, children: p(i.CLOSE) }),
       children: /* @__PURE__ */ a("div", { className: "gift-lang-config-container", children: [
@@ -390,7 +390,7 @@ function ri({
       visible: s && !!c,
       header: c ? t(i.EDIT_GIFT_LANGUAGE_INFO, { lang: t(z[c].label) }) : "",
       onClose: E,
-      width: j.GIFT_EDIT,
+      width: q.GIFT_EDIT,
       className: "gift-lang-edit-modal",
       footer: /* @__PURE__ */ a(Y, { children: [
         /* @__PURE__ */ n(_, { shape: "round", variant: "outline", disabled: d, onClick: E, children: t(i.CANCEL) }),
@@ -406,15 +406,15 @@ function ri({
                 r({ ...e, name: String(h) });
               },
               placeholder: c ? t(i.ENTER_LANGUAGE_GIFT_NAME, { lang: t(z[c].label) }) : "",
-              status: g(e.name) > N ? "error" : "default",
-              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > N ? " byte-overflow" : ""}`, children: [
+              status: g(e.name) > m ? "error" : "default",
+              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > m ? " byte-overflow" : ""}`, children: [
                 g(e.name),
                 "/",
-                N
+                m
               ] })
             }
           ),
-          g(e.name) > N && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: N }) })
+          g(e.name) > m && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: m }) })
         ] }) }),
         /* @__PURE__ */ n(C, { label: t(i.DESCRIPTION), children: /* @__PURE__ */ a("div", { className: "form-field__input-wrapper", children: [
           /* @__PURE__ */ n(
@@ -455,9 +455,9 @@ function ai({
   categoryRemoveLoading: A,
   onRemoveCategory: b,
   onAddCategoryConfirm: y,
-  onSelectCategory: D,
+  onSelectCategory: H,
   onToggleAddPop: v,
-  onConfirmRemoveCategory: H,
+  onConfirmRemoveCategory: D,
   onClose: F,
   onCloseDeleteDialog: M
 }) {
@@ -469,7 +469,7 @@ function ai({
         visible: s && !!u,
         header: f(i.EDIT_GIFT_CATEGORY),
         onClose: F,
-        width: j.GIFT_EDIT,
+        width: q.GIFT_EDIT,
         className: "gift-category-edit-modal",
         footer: /* @__PURE__ */ n(_, { shape: "round", theme: "primary", onClick: F, children: f(i.CLOSE) }),
         children: /* @__PURE__ */ a("div", { className: "gift-category-edit-tags", children: [
@@ -501,7 +501,7 @@ function ai({
             Ee,
             {
               value: r,
-              onChange: (I) => D(String(I)),
+              onChange: (I) => H(String(I)),
               placeholder: f(i.SELECT_CATEGORY_LOWERCASE),
               style: { width: "100%" },
               children: d.map((I) => /* @__PURE__ */ n(li, { value: I.id, label: I.name }, I.id))
@@ -521,7 +521,7 @@ function ai({
         placement: "center",
         footer: /* @__PURE__ */ a(Y, { children: [
           /* @__PURE__ */ n(_, { shape: "round", variant: "outline", disabled: A, onClick: M, children: f(i.CANCEL) }),
-          /* @__PURE__ */ n(_, { shape: "round", theme: "primary", loading: A, onClick: H, children: f(i.CONFIRM) })
+          /* @__PURE__ */ n(_, { shape: "round", theme: "primary", loading: A, onClick: D, children: f(i.CONFIRM) })
         ] }),
         children: /* @__PURE__ */ n("p", { children: f(i.REMOVE_CATEGORY_DESCRIPTION) })
       }
@@ -542,7 +542,7 @@ function oi({
       visible: s && !!u,
       header: r(i.CONFIRM_ACTION_TITLE, { action: r(i.GIFT_DELETE_OPERATION) }),
       onClose: d,
-      width: j.GIFT_DELETE,
+      width: q.GIFT_DELETE,
       footer: /* @__PURE__ */ a(Y, { children: [
         /* @__PURE__ */ n(_, { shape: "round", variant: "outline", disabled: c, onClick: d, children: r(i.CANCEL) }),
         /* @__PURE__ */ n(_, { shape: "round", theme: "primary", loading: c, onClick: e, children: r(i.DELETE) })
@@ -579,7 +579,7 @@ function si(s, u, c) {
     case "languageList":
       return (e) => /* @__PURE__ */ a("div", { className: "gift-lang-tags", children: [
         e.languageList && e.languageList.length > 0 ? e.languageList.map((d) => {
-          const r = ze(d), p = je[r], E = p ? z[p] : null;
+          const r = ze(d), p = qe[r], E = p ? z[p] : null;
           return /* @__PURE__ */ n(
             "span",
             {
@@ -638,10 +638,10 @@ function ci() {
 }
 function yi() {
   const { t: s } = X(), u = Xe(), c = we(), e = ci(), d = Z(null);
-  d.current || (d.current = new qe({
+  d.current || (d.current = new Ke({
     actions: u,
     t: s,
-    toast: m,
+    toast: N,
     onNavigateToCategoryManagement: () => c("/gift-category")
   }));
   const r = d.current;
@@ -680,13 +680,13 @@ function yi() {
     onSuccess: () => {
       U(!1);
     }
-  }), { loading: D, execute: v } = Q({
+  }), { loading: H, execute: v } = Q({
     toast: { action: i.GIFT_CATEGORY_REMOVE_OPERATION },
     operationName: s(i.GIFT_CATEGORY_REMOVE_OPERATION),
     action: async () => {
       await r.confirmRemoveCategory();
     }
-  }), [H, F] = L(!1);
+  }), [D, F] = L(!1);
   J(() => {
     Qe().then(F);
   }, []);
@@ -694,14 +694,14 @@ function yi() {
     loading: k,
     displayList: ee,
     searchInput: o,
-    dialogVisible: q,
+    dialogVisible: K,
     isEdit: ie,
     editingId: G,
-    langConfigVisible: K,
+    langConfigVisible: j,
     giftLangConfig: ne,
     langEditVisible: te,
-    editingLang: me,
-    editingGiftForLang: Ne,
+    editingLang: Ne,
+    editingGiftForLang: me,
     langEditForm: Te,
     categoryEditVisible: Ce,
     editingCategoryGift: Ae,
@@ -751,7 +751,7 @@ function yi() {
             onChange: (l) => r.setSearchInput(String(l ?? "")),
             onEnter: () => {
               if (r.isSearchInputTooLong()) {
-                m.error(s(i.INPUT_TOO_LONG));
+                N.error(s(i.INPUT_TOO_LONG));
                 return;
               }
               r.search();
@@ -792,11 +792,11 @@ function yi() {
     /* @__PURE__ */ n(
       ni,
       {
-        visible: q,
+        visible: K,
         isEdit: ie,
         editingId: G,
         formData: M,
-        uploadEnabled: H,
+        uploadEnabled: D,
         onFormDataChange: f,
         onSubmitGift: async (l) => {
           await r.submitGift(l);
@@ -807,7 +807,7 @@ function yi() {
     /* @__PURE__ */ n(
       ti,
       {
-        visible: K,
+        visible: j,
         editingId: G,
         giftLangConfig: ne,
         onClose: () => r.closeGiftLangConfigDialog(),
@@ -823,8 +823,8 @@ function yi() {
       ri,
       {
         visible: te,
-        editingGiftForLang: Ne,
-        editingLang: me,
+        editingGiftForLang: me,
+        editingLang: Ne,
         langEditForm: Te,
         saving: h,
         onFormChange: (l) => r.setLangEditForm(l),
@@ -845,7 +845,7 @@ function yi() {
         categoryDeleteVisible: ve,
         deletingCategoryId: Le,
         categoryAddLoading: b,
-        categoryRemoveLoading: D,
+        categoryRemoveLoading: H,
         onRemoveCategory: (l) => r.requestRemoveCategory(l),
         onAddCategoryConfirm: Fe,
         onSelectCategory: (l) => r.setSelectedCategoryId(l),
