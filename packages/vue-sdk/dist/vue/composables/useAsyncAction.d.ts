@@ -1,4 +1,4 @@
-import { type Ref } from '../../vue';
+import { type Ref } from 'vue';
 import type { I18nKey } from '../../common/i18n';
 export interface UseAsyncActionOptions<T = any> {
     /**
@@ -34,6 +34,11 @@ export interface UseAsyncActionOptions<T = any> {
      * 是否自动弹错误 toast，默认 true。
      */
     showError?: boolean;
+    /**
+     * 是否自动弹成功 toast，默认 true。
+     * 设为 false 后即使传了 toast/operationName 也不弹成功 toast。
+     */
+    showSuccess?: boolean;
 }
 export interface UseAsyncActionReturn<T = any> {
     loading: Ref<boolean>;

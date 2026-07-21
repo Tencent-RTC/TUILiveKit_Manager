@@ -1,41 +1,41 @@
-import { g as $, a7 as ne, a5 as z, a4 as a, I as ae, a6 as se, L as ie, x as ce, z as N, aj as ue } from "./chunks/layout.CKxcF5ct.js";
-import { a1 as He, a8 as Qe, a9 as Ze } from "./chunks/layout.CKxcF5ct.js";
+import { h as z, a8 as ne, a6 as N, a5 as a, I as ae, a7 as se, L as ie, y as ce, A as O, ak as ue } from "./chunks/layout.QDR0rddX.js";
+import { a2 as He, a9 as Qe, aa as Ze } from "./chunks/layout.QDR0rddX.js";
 import { useState as d, useRef as W, useEffect as F, useCallback as o, Component as le } from "react";
-import { c7 as O, aZ as U, c8 as V, c9 as de, aH as fe, aF as ge, m as me, u as he, ca as pe, cb as ve, bO as be, bM as Me, cc as ye, a7 as we, cd as Se, ae as Le, ce as Ce, bz as ke, V as xe, U as Pe } from "./chunks/main-layout.D1ZA8pmk.js";
+import { c7 as U, aZ as V, c8 as $, c9 as de, aH as fe, aF as ge, m as me, u as he, ca as pe, cb as ve, bO as be, bM as ye, cc as Me, a7 as we, cd as Se, ae as Le, ce as Ce, bz as ke, V as xe, U as Pe } from "./chunks/main-layout.BgP9Ncvl.js";
 import "tdesign-react";
-import { a as Ie, M as Te } from "./chunks/useAsyncAction.BEfuTbHp.js";
-import { u as Xe } from "./chunks/useAsyncAction.BEfuTbHp.js";
-import { u as et, a as tt, b as rt } from "./chunks/useT.BpiWhAmu.js";
+import { a as Ie, M as Te } from "./chunks/useAsyncAction.BQ2CRmHy.js";
+import { u as Xe } from "./chunks/useAsyncAction.BQ2CRmHy.js";
+import { u as et, a as tt, b as rt } from "./chunks/useT.D-THYezc.js";
 import { jsx as D, jsxs as _e } from "react/jsx-runtime";
-const h = $("RiskControl");
-function Oe(i) {
-  const { liveId: e, pageSize: f } = i, [m, p] = d(!1), [c, g] = d("cloud"), [v, w] = d(!0), [b, x] = d([]), [P, I] = d(1), [T, C] = d(0), [R, A] = d(!1), [n, u] = d([]), [M, j] = d([]), y = W(!0);
-  F(() => (y.current = !0, ne("risk_control"), O().then(async (t) => {
-    if (!y.current) return;
+const h = z("RiskControl");
+function Ue(i) {
+  const { liveId: e, pageSize: f } = i, [m, p] = d(!1), [c, g] = d("cloud"), [v, w] = d(!0), [b, x] = d([]), [P, I] = d(1), [T, C] = d(0), [R, A] = d(!1), [n, u] = d([]), [y, K] = d([]), M = W(!0);
+  F(() => (M.current = !0, ne("risk_control"), U().then(async (t) => {
+    if (!M.current) return;
     g(t);
-    const r = t === "cloud", S = r ? U : V;
+    const r = t === "cloud", S = r ? V : $;
     try {
       const L = await S({ pageSize: f, liveId: e });
-      y.current && (p(!0), x(L.list || []), C(L.total || 0)), z(r ? "text_moderation" : "text_moderation_custom"), z(r ? "moderation" : "moderation_custom");
+      M.current && (p(!0), x(L.list || []), C(L.total || 0)), N(r ? "text_moderation" : "text_moderation_custom"), N(r ? "moderation" : "moderation_custom");
     } catch {
-      y.current && p(!1);
+      M.current && p(!1);
     }
     t === "custom" && de().then((L) => {
-      y.current && w(L.Enabled);
+      M.current && w(L.Enabled);
     }).catch(() => {
     });
   }), () => {
-    y.current = !1;
+    M.current = !1;
   }), []);
-  const K = o(async (t = {}) => {
+  const j = o(async (t = {}) => {
     A(!0);
     try {
       let r;
-      return c === "custom" ? r = await V({ pageSize: f, liveId: e, ...t }) : r = await U({ pageSize: f, liveId: e, ...t }), y.current && (x(r.list || []), I(t.pageNum || 1), C(r.total || 0)), r;
+      return c === "custom" ? r = await $({ pageSize: f, liveId: e, ...t }) : r = await V({ pageSize: f, liveId: e, ...t }), M.current && (x(r.list || []), I(t.pageNum || 1), C(r.total || 0)), r;
     } catch (r) {
       throw h.error("useRiskControlState", "fetchTextModerationList failed:", r), r;
     } finally {
-      y.current && A(!1);
+      M.current && A(!1);
     }
   }, [f, e, c]), _ = o(async () => {
     if (!e) return [];
@@ -49,7 +49,7 @@ function Oe(i) {
     if (!e) return [];
     try {
       const t = await ge(e);
-      return j(t), t;
+      return K(t), t;
     } catch (t) {
       throw h.error("useRiskControlState", "fetchBannedList failed:", t), t;
     }
@@ -92,7 +92,7 @@ function Oe(i) {
   }, [e]), X = o(async (t) => {
     if (!e) throw new Error("liveId is required");
     try {
-      const r = await Me(e, t);
+      const r = await ye(e, t);
       return a("risk_control", "send_admin_message", !0, e), r;
     } catch (r) {
       throw a("risk_control", "send_admin_message", !1), h.error("useRiskControlState", "sendAdminMessage failed:", r), r;
@@ -111,7 +111,7 @@ function Oe(i) {
         });
       })();
       if (c === "custom") {
-        const S = await ye({ ids: t.ids, items: r, liveId: t.liveId ?? e });
+        const S = await Me({ ids: t.ids, items: r, liveId: t.liveId ?? e });
         a("moderation", "approve", !0, String(S.success)), S.failed > 0 && h.warn("useRiskControlState", `部分放行失败: 成功 ${S.success}, 失败 ${S.failed}`);
       } else
         await we({ ids: t.ids, items: r, liveId: t.liveId ?? e }), a("moderation", "approve", !0, String(t.ids.length));
@@ -121,7 +121,7 @@ function Oe(i) {
   }, [e, b, c]), ee = o(async (t) => {
     try {
       const r = await Se(t);
-      return y.current && w(r.Enabled), a("moderation", "toggle", !0), r.Enabled;
+      return M.current && w(r.Enabled), a("moderation", "toggle", !0), r.Enabled;
     } catch (r) {
       throw a("moderation", "toggle", !1), h.error("useRiskControlState", "updateCustomModerationToggleEnabled failed:", r), r;
     }
@@ -133,7 +133,7 @@ function Oe(i) {
     }
   }, [e]), re = o(async (t) => {
     try {
-      await O() === "custom" ? await Ce(t) : await ke(t), a("moderation", "delete", !0, String(t.length));
+      await U() === "custom" ? await Ce(t) : await ke(t), a("moderation", "delete", !0, String(t.length));
     } catch (r) {
       throw a("moderation", "delete", !1), h.error("useRiskControlState", "deleteModerationItems failed:", r), r;
     }
@@ -147,7 +147,7 @@ function Oe(i) {
     textModerationPageNum: P,
     textModerationTotal: T,
     textModerationLoading: R,
-    fetchTextModerationList: K,
+    fetchTextModerationList: j,
     approveTextModerationItems: Y,
     bypassCorrectionKeyword: te,
     muteMember: G,
@@ -158,12 +158,12 @@ function Oe(i) {
     sendAdminMessage: X,
     deleteModerationItems: re,
     mutedList: n,
-    bannedList: M,
+    bannedList: y,
     fetchMutedList: _,
     fetchBannedList: E
   };
 }
-$("LiveMonitor");
+z("LiveMonitor");
 let l = null, Ee = !0, s = null;
 const k = /* @__PURE__ */ new Set(), B = /* @__PURE__ */ new Set();
 function Re() {
@@ -179,12 +179,12 @@ function Re() {
     }
   }), s);
 }
-function Ue(i) {
+function Ve(i) {
   return k.add(i), s && i(s.getSnapshot()), () => {
     k.delete(i);
   };
 }
-function Ve() {
+function $e() {
   const [i, e] = d([]), [f, m] = d(!0), [p, c] = d(null), g = W(!0);
   l || (l = new xe({
     onStateChange: (n) => {
@@ -193,12 +193,12 @@ function Ve() {
     getActive: () => Ee
   })), Re(), F(() => {
     g.current = !0;
-    const n = (M) => {
-      g.current && (M.liveList !== void 0 && e(M.liveList), M.hasMore !== void 0 && m(M.hasMore), M.currentLive !== void 0 && c(M.currentLive));
+    const n = (y) => {
+      g.current && (y.liveList !== void 0 && e(y.liveList), y.hasMore !== void 0 && m(y.hasMore), y.currentLive !== void 0 && c(y.currentLive));
     };
     B.add(n);
-    const u = (M) => {
-      g.current && e([...M.list]);
+    const u = (y) => {
+      g.current && e([...y.list]);
     };
     return k.add(u), s && u(s.getSnapshot()), () => {
       g.current = !1, B.delete(n), k.delete(u);
@@ -262,7 +262,7 @@ function Ve() {
     stopPlay: R
   };
 }
-function $e() {
+function ze() {
   const [i, e] = d(
     () => s?.getSnapshot() ?? { list: [], currentPage: 1, hasMoreData: !0, loading: !1, pageCursors: /* @__PURE__ */ new Map([[1, ""]]) }
   );
@@ -351,7 +351,7 @@ function Ae({ message: i, onRetry: e }) {
     }
   );
 }
-class je extends le {
+class Ke extends le {
   constructor() {
     super(...arguments), this.state = { error: null }, this.handleRetry = () => {
       this.setState({ error: null });
@@ -367,18 +367,18 @@ class je extends le {
       msg: p,
       componentStack: f.componentStack,
       original: c
-    }), import("./chunks/layout.CKxcF5ct.js").then((v) => v.b3).then(({ reportBusinessOp: v }) => {
+    }), import("./chunks/layout.QDR0rddX.js").then((v) => v.b4).then(({ reportBusinessOp: v }) => {
       v("reactRenderError", "render", !1, m ? String(m) : void 0);
     }).catch(() => {
     });
-    const g = N(m, p);
+    const g = O(m, p);
     g && Te.error(g);
   }
   render() {
     return this.state.error ? this.props.fallback ? this.props.fallback(this.state.error, this.handleRetry) : /* @__PURE__ */ D(
       Ae,
       {
-        message: N(
+        message: O(
           this.state.error.code ?? 0,
           this.state.error.message
         ),
@@ -389,21 +389,21 @@ class je extends le {
 }
 ue("react");
 export {
-  je as AppErrorBoundary,
+  Ke as AppErrorBoundary,
   Te as Message,
   He as measureAndReport,
   a as reportBusinessOp,
   se as reportEvent,
   Qe as reportPageView,
   Ze as reportTime,
-  Ue as subscribeToPagination,
+  Ve as subscribeToPagination,
   Ie as useAsyncAction,
   We as useConfirmAction,
   Xe as useGiftState,
-  Ve as useLiveMonitorState,
-  $e as usePaginatedList,
+  $e as useLiveMonitorState,
+  ze as usePaginatedList,
   et as usePreviewUrl,
-  Oe as useRiskControlState,
+  Ue as useRiskControlState,
   tt as useSvgaPlayer,
   rt as useT
 };

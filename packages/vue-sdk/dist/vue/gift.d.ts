@@ -5,7 +5,7 @@
  * 内部使用 GiftStateManager（框架无关）管理状态和 API 调用，
  * 消除与 React 版本的逻辑重复。
  */
-import { type Ref } from '../vue';
+import { type Ref } from 'vue';
 import type { GiftItem, GiftCategoryItem, CreateGiftParams, UpdateGiftParams, GiftLanguageQueryParams, GiftLanguageSetParams, CreateGiftCategoryParams, UpdateGiftCategoryParams, AddGiftCategoryRelationsParams, DeleteGiftCategoryRelationsParams, GiftListQueryParams, GiftListResult, GiftLanguageInfo } from '../types/gift';
 /** useGiftState() 返回值（与 API 文档一致） */
 export interface UseGiftStateReturn {

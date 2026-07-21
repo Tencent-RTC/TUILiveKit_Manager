@@ -7,7 +7,7 @@ export type { LiveManagerConfig, LiveManagerLanguage, ServerConfig, } from './co
 export { configureLiveManager, createLiveManagerAppConfig, getActiveAppConfig, getDefaultRoutePath, getRouteTitleKey, getCoreRouteFeature, isCoreRouteEnabled, resolveAccount, performLogout, getDefaultLanguageBySdkAppId, getDefaultLanguage, getSavedLanguage, getCurrentLanguage, getApiLanguage, getCurrentApiLanguageCode, findLocalizedValues, toggleLanguage, setDocumentLanguage, getMenuKeyFromPath, getFormLabelWidth, isLeavingLivePage, } from './common/layout';
 export type { CoreRouteKey, LiveManagerAppConfig, MenuKey, SdkAccount, SupportedLanguage } from './common/layout';
 export { initHttpClient, getHttpClient } from './common/client';
-export { getDefaultAuthState, setAuthStoreAdapter } from './common/auth-store';
+export { getDefaultAuthState, setAuthStoreAdapter, applyPatch } from './common/auth-store';
 export type { AuthState, AuthStoreAdapter } from './common/auth-store';
 export { isLoggedIn, saveCredentials, getCurrentUserId, isProxyMode } from './common/auth-actions';
 export { checkServerConfig, login, getUserProfilePortrait, batchGetUserProfilePortrait, loginWithSecret } from './api/auth';

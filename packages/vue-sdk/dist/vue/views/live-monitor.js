@@ -1,17 +1,17 @@
-import { defineComponent as Ce, resolveComponent as de, openBlock as _, createElementBlock as A, createElementVNode as i, toDisplayString as y, unref as a, createVNode as L, withCtx as U, createTextVNode as ue, ref as m, computed as O, onMounted as me, watch as G, onBeforeUnmount as Qe, normalizeClass as Te, normalizeStyle as he, createCommentVNode as ae, Fragment as se, renderList as pe, createBlock as ie, withModifiers as Pe, nextTick as ye, onUnmounted as be, inject as Ze } from "vue";
-import { useRouter as Re } from "vue-router";
+import { defineComponent as ye, resolveComponent as de, openBlock as _, createElementBlock as A, createElementVNode as i, toDisplayString as C, unref as a, createVNode as L, withCtx as U, createTextVNode as ue, ref as m, computed as O, onMounted as me, watch as W, onBeforeUnmount as Qe, normalizeClass as Te, normalizeStyle as he, createCommentVNode as ae, Fragment as se, renderList as pe, createBlock as ie, withModifiers as Pe, nextTick as Ce, onUnmounted as Re, inject as Ze } from "vue";
+import { useRouter as be } from "vue-router";
 import { SearchIcon as ea, RefreshIcon as aa, FullscreenIcon as Oe, CloseIcon as ta, SoundMuteIcon as na, SoundIcon as oa, NotificationIcon as ra, StopCircleIcon as la } from "tdesign-icons-vue-next";
 import { MessagePlugin as Y } from "tdesign-vue-next";
 import { useUIKit as Ne } from "@tencentcloud/uikit-base-component-vue3";
 import { useLiveMonitorState as Se, usePaginatedList as sa, useConfirmAction as ia } from "../../vue.js";
-import { I as l, g as we, ax as Ae, c as ke, b as ca, x as K, aB as ua, aA as da, l as va, ab as ga, V as fa, ac as ha } from "../../chunks/layout.CKxcF5ct.js";
-import { g as Ie, P as _e, s as Le, p as ma, d as pa, t as Ia, f as _a, c6 as Ca, bD as ya, bE as Na, bN as Sa, bJ as wa, bF as Ea, bG as Ma } from "../../chunks/main-layout.D1ZA8pmk.js";
+import { I as l, h as we, ay as Ae, d as ke, c as ca, y as K, aC as ua, aB as da, m as va, ac as ga, W as fa, ad as ha } from "../../chunks/layout.QDR0rddX.js";
+import { g as Ie, P as _e, s as Le, p as ma, d as pa, t as Ia, f as _a, c6 as ya, bD as Ca, bE as Na, bN as Sa, bJ as wa, bF as Ea, bG as Ma } from "../../chunks/main-layout.BgP9Ncvl.js";
 import { _ as De } from "../../chunks/_plugin-vue_export-helper.CHgC5LLL.js";
-import { _ as Ta } from "../../chunks/AnchorAvatar.vue_vue_type_script_setup_true_lang.CWsKFHJI.js";
-import { _ as Pa } from "../../chunks/MonitorPagination.vue_vue_type_script_setup_true_lang.Bp9dPcfS.js";
-import { A as Aa, s as La, V as ba } from "../../chunks/adaptive-tags-runtime._Y7qzTuv.js";
-import { c as Ra } from "../../chunks/mock.Bnui3Fqh.js";
-const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" }, Da = { class: "monitor-title" }, Fa = { class: "monitor-header-actions" }, Va = /* @__PURE__ */ Ce({
+import { _ as Ta } from "../../chunks/AnchorAvatar.vue_vue_type_script_setup_true_lang.CG8Q8evK.js";
+import { _ as Pa } from "../../chunks/MonitorPagination.vue_vue_type_script_setup_true_lang.Dmj_Wt1g.js";
+import { A as Aa, s as La, V as Ra } from "../../chunks/adaptive-tags-runtime.Nrz95dSj.js";
+import { c as ba } from "../../chunks/mock.Bnui3Fqh.js";
+const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" }, Da = { class: "monitor-title" }, Fa = { class: "monitor-header-actions" }, Va = /* @__PURE__ */ ye({
   __name: "MonitorHeader",
   props: {
     searchInput: {},
@@ -23,7 +23,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
       f("update:searchInput", String(E ?? ""));
     }, h = () => {
       f("search");
-    }, W = () => {
+    }, G = () => {
       f("clearSearch");
     }, F = () => {
       f("refresh");
@@ -32,7 +32,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
       const g = de("t-input"), v = de("t-button");
       return _(), A("div", Oa, [
         i("div", ka, [
-          i("h2", Da, y(a(t)(a(l).LIVE_MONITOR)), 1)
+          i("h2", Da, C(a(t)(a(l).LIVE_MONITOR)), 1)
         ]),
         i("div", Fa, [
           L(g, {
@@ -44,7 +44,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
             tips: a(Ie)(n.searchInput) > a(_e) ? a(t)(a(l).INPUT_EXCEEDS_LENGTH_LIMIT) : "",
             "onUpdate:modelValue": p,
             onEnter: h,
-            onClear: W
+            onClear: G
           }, {
             "suffix-icon": U(() => [
               L(a(ea), {
@@ -65,7 +65,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
               L(a(aa))
             ]),
             default: U(() => [
-              ue(" " + y(a(t)(a(l).REFRESH)), 1)
+              ue(" " + C(a(t)(a(l).REFRESH)), 1)
             ]),
             _: 1
           }, 8, ["loading"])
@@ -73,10 +73,10 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
       ]);
     };
   }
-}), xa = /* @__PURE__ */ De(Va, [["__scopeId", "data-v-85dc322f"]]), $a = ["id"], Ua = ["src", "alt"], Ga = ["id"], Wa = ["title"], Ha = {
+}), xa = /* @__PURE__ */ De(Va, [["__scopeId", "data-v-85dc322f"]]), $a = ["id"], Ua = ["src", "alt"], Wa = ["id"], Ga = ["title"], Ha = {
   key: 0,
   class: "tag-more-wrapper"
-}, Ba = { class: "live-card-tag-dropdown" }, za = { class: "overlay-btn primary" }, Ka = { class: "live-card-info" }, ja = ["title"], qa = { class: "live-card-meta" }, Ya = { class: "live-card-anchor" }, Xa = ["title"], Ja = ["title"], Qa = /* @__PURE__ */ Ce({
+}, Ba = { class: "live-card-tag-dropdown" }, za = { class: "overlay-btn primary" }, Ka = { class: "live-card-info" }, ja = ["title"], qa = { class: "live-card-meta" }, Ya = { class: "live-card-anchor" }, Xa = ["title"], Ja = ["title"], Qa = /* @__PURE__ */ ye({
   __name: "LiveCard",
   props: {
     card: {},
@@ -89,9 +89,9 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
   },
   emits: ["viewDetails", "violationWarning", "forceStop", "toggleMute", "exitFullscreen", "hover", "playError"],
   setup(n, { emit: N }) {
-    const f = we("LiveCard"), t = n, p = N, { t: h } = Ne(), { startPlay: W, stopPlay: F } = Se(), E = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, S = m(!1), g = m("");
+    const f = we("LiveCard"), t = n, p = N, { t: h } = Ne(), { startPlay: G, stopPlay: F } = Se(), E = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, S = m(!1), g = m("");
     let v = 0;
-    const w = O(() => t.isFullscreen && t.fullscreenLiveId === t.card.liveId), b = O(() => t.card.tags.slice(0, t.adaptiveResult.visibleCount)), T = O(() => t.card.tags.slice(t.adaptiveResult.visibleCount)), R = O(() => t.card.stats?.viewCount ?? 0), I = O(() => `live_monitor_view_${t.card.liveId}`), H = m(null), V = O(() => E ? Ae : t.card.backgroundUrl || t.card.coverUrl || ""), P = O(() => {
+    const w = O(() => t.isFullscreen && t.fullscreenLiveId === t.card.liveId), R = O(() => t.card.tags.slice(0, t.adaptiveResult.visibleCount)), T = O(() => t.card.tags.slice(t.adaptiveResult.visibleCount)), b = O(() => t.card.stats?.viewCount ?? 0), I = O(() => `live_monitor_view_${t.card.liveId}`), H = m(null), V = O(() => E ? Ae : t.card.backgroundUrl || t.card.coverUrl || ""), P = O(() => {
       const d = V.value;
       return d ? { backgroundImage: `url(${d})` } : {};
     });
@@ -101,7 +101,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
     }
     me(() => {
       j();
-    }), G(V, () => {
+    }), W(V, () => {
       j();
     });
     const D = async () => {
@@ -111,12 +111,12 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
         return;
       }
       const e = ++v;
-      if (await ye(), e !== v) {
+      if (await Ce(), e !== v) {
         f.info("startPlay", "Version mismatch, aborting", { currentVersion: e, playVersion: v });
         return;
       }
       try {
-        f.info("startPlay", "Calling startPlay", { liveId: d, containerId: I.value }), await W({ liveId: d, containerId: I.value }), e === v && (g.value = d, f.info("startPlay", "startPlay success", { liveId: d }));
+        f.info("startPlay", "Calling startPlay", { liveId: d, containerId: I.value }), await G({ liveId: d, containerId: I.value }), e === v && (g.value = d, f.info("startPlay", "startPlay success", { liveId: d }));
       } catch (o) {
         f.error("startPlay", "startPlay failed", { liveId: d, error: o }), e === v && p("playError", o, d);
       }
@@ -126,7 +126,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
     };
     me(() => {
       D();
-    }), G(
+    }), W(
       () => t.card.liveId,
       async (d, e) => {
         e && e !== d && await x(e), D();
@@ -184,21 +184,21 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
           i("div", {
             id: I.value,
             class: "live-video-player"
-          }, null, 8, Ga),
+          }, null, 8, Wa),
           i("div", {
             class: "live-id-badge",
             style: he({ maxWidth: n.adaptiveResult.idMaxWidth })
           }, [
             i("span", {
               title: n.card.liveId
-            }, y(`${a(h)(a(l).LIVE_ID)}: ${n.card.liveId}`), 9, Wa)
+            }, C(`${a(h)(a(l).LIVE_ID)}: ${n.card.liveId}`), 9, Ga)
           ], 4),
           n.card.tags && n.card.tags.length > 0 ? (_(), A("div", {
             key: 1,
             class: "live-card-tags-overlay",
             style: he({ maxWidth: n.adaptiveResult.tagsMaxWidth })
           }, [
-            (_(!0), A(se, null, pe(b.value, (u) => (_(), A("span", {
+            (_(!0), A(se, null, pe(R.value, (u) => (_(), A("span", {
               key: u,
               class: "live-card-tag-overlay"
             }, [
@@ -223,7 +223,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
                   "font-weight": "bold"
                 }, "!")
               ], -1)),
-              ue(" " + y(a(h)(u)), 1)
+              ue(" " + C(a(h)(u)), 1)
             ]))), 128)),
             n.adaptiveResult.showMore ? (_(), A("div", Ha, [
               e[2] || (e[2] = i("span", { class: "live-card-tag-overlay live-card-tag-more" }, "...", -1)),
@@ -253,7 +253,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
                       "font-weight": "bold"
                     }, "!")
                   ], -1)),
-                  ue(" " + y(a(h)(u)), 1)
+                  ue(" " + C(a(h)(u)), 1)
                 ]))), 128))
               ])
             ])) : ae("", !0)
@@ -264,7 +264,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
           }, [
             i("div", za, [
               L(a(Oe)),
-              ue(" " + y(a(h)(a(l).VIEW_DETAILS)), 1)
+              ue(" " + C(a(h)(a(l).VIEW_DETAILS)), 1)
             ])
           ]),
           w.value ? (_(), A(se, { key: 2 }, [
@@ -286,7 +286,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
           i("div", {
             class: "live-card-title",
             title: n.card.liveName || a(h)(a(l).UNNAMED_LIVE)
-          }, y(n.card.liveName || a(h)(a(l).UNNAMED_LIVE)), 9, ja),
+          }, C(n.card.liveName || a(h)(a(l).UNNAMED_LIVE)), 9, ja),
           i("div", qa, [
             i("div", Ya, [
               L(Ta, {
@@ -298,12 +298,12 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
               i("span", {
                 class: "anchor-name",
                 title: n.anchorName
-              }, y(n.anchorName), 9, Xa)
+              }, C(n.anchorName), 9, Xa)
             ]),
             i("span", {
               class: "meta-viewer-count",
-              title: String(R.value)
-            }, y(`${R.value}${a(h)(a(l).VIEWS)}`), 9, Ja)
+              title: String(b.value)
+            }, C(`${b.value}${a(h)(a(l).VIEWS)}`), 9, Ja)
           ])
         ]),
         i("div", {
@@ -319,7 +319,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
               L(a(ra))
             ]),
             default: U(() => [
-              i("span", null, y(a(h)(a(l).VIOLATION_WARNING)), 1)
+              i("span", null, C(a(h)(a(l).VIOLATION_WARNING)), 1)
             ]),
             _: 1
           }),
@@ -333,7 +333,7 @@ const Oa = { class: "monitor-header" }, ka = { class: "monitor-title-section" },
               L(a(la))
             ]),
             default: U(() => [
-              i("span", null, y(a(h)(a(l).FORCE_STOP)), 1)
+              i("span", null, C(a(h)(a(l).FORCE_STOP)), 1)
             ]),
             _: 1
           })
@@ -352,8 +352,8 @@ function Za(n, N) {
     const v = f.value.get(g);
     if (v) return v;
     const w = t.getResult(g);
-    return t.cache.has(g) || ye(() => {
-      const T = n()?.find((R) => R.liveId === g);
+    return t.cache.has(g) || Ce(() => {
+      const T = n()?.find((b) => b.liveId === g);
       T && T.tags && (t.compute(g, { liveId: g, tags: T.tags }), p());
     }), w;
   };
@@ -384,10 +384,10 @@ function Za(n, N) {
 }
 const $ = we("LiveMonitorData");
 function et(n, N) {
-  const { t: f, stopPlay: t } = N, { opSuccess: p, opFailed: h } = ke(f), W = Re(), F = m(!1), E = m(!1), S = m(!1), g = m(!1), v = m(""), w = m(null), b = m(/* @__PURE__ */ new Map()), T = m(/* @__PURE__ */ new Map()), R = m(/* @__PURE__ */ new Set()), I = m(!1), H = Le(), V = Le();
+  const { t: f, stopPlay: t } = N, { opSuccess: p, opFailed: h } = ke(f), G = be(), F = m(!1), E = m(!1), S = m(!1), g = m(!1), v = m(""), w = m(null), R = m(/* @__PURE__ */ new Map()), T = m(/* @__PURE__ */ new Map()), b = m(/* @__PURE__ */ new Set()), I = m(!1), H = Le(), V = Le();
   ma(
     H,
-    Ca((e) => e.length > 0),
+    ya((e) => e.length > 0),
     La((e) => _a(ca(e))),
     Ia(V),
     pa(
@@ -402,7 +402,7 @@ function et(n, N) {
         $.error("useLiveMonitorData", `Fastrx profile fetch failed (ErrorCode: ${K(e).code || "N/A"}):`, e);
       }
     )
-  ), G(
+  ), W(
     () => n.pageData.value,
     (e) => {
       if (!e || e.length === 0) return;
@@ -412,7 +412,7 @@ function et(n, N) {
       u.length !== 0 && H.next(u);
     },
     { immediate: !0 }
-  ), G(
+  ), W(
     () => document.documentElement.lang,
     () => {
       T.value = /* @__PURE__ */ new Map();
@@ -438,28 +438,28 @@ function et(n, N) {
       startTime: u(o),
       endTime: u(e)
     };
-  }, x = new ba({
+  }, x = new Ra({
     getTimeRange: D,
     isSearchMode: () => g.value,
     isUnmounted: () => I.value,
     onUpdate: (e, o) => {
-      const u = new Map(b.value);
+      const u = new Map(R.value);
       e.forEach((c) => {
         u.set(c, o.get(c) || []);
-      }), b.value = u;
+      }), R.value = u;
     },
     onError: (e) => {
       $.warn("LiveMonitor", "获取直播间违规标签失败:", e);
     }
   });
-  x.ensureStarted(), G(
+  x.ensureStarted(), W(
     () => [...n.pageData.value || []].map((e) => [e.liveId, e.liveName, e.activityStatus].join(":")).join("|"),
     (e, o) => {
       if (!e || I.value || g.value) return;
       const u = n.pageData.value || [];
       u.length !== 0 && x.feed(u);
     }
-  ), G(
+  ), W(
     () => [n.loading.value, n.pageData.value?.length],
     ([e, o]) => {
       e || (F.value = (o || 0) > 0);
@@ -478,7 +478,7 @@ function et(n, N) {
       try {
         await n.prevPage();
         const e = n.pageData.value || [];
-        R.value = new Set(e.map((o) => o.liveId));
+        b.value = new Set(e.map((o) => o.liveId));
       } catch (e) {
         $.error("prevPage 失败", `(ErrorCode: ${K(e).code || "N/A"})`, e);
       }
@@ -487,7 +487,7 @@ function et(n, N) {
       try {
         await n.nextPage();
         const e = n.pageData.value || [];
-        R.value = new Set(e.map((o) => o.liveId));
+        b.value = new Set(e.map((o) => o.liveId));
       } catch (e) {
         $.error("nextPage 失败", `(ErrorCode: ${K(e).code || "N/A"})`, e);
       }
@@ -496,7 +496,7 @@ function et(n, N) {
       try {
         await n.goToFirstPage();
         const e = n.pageData.value || [];
-        R.value = new Set(e.map((o) => o.liveId));
+        b.value = new Set(e.map((o) => o.liveId));
       } catch (e) {
         $.error("goToFirstPage 失败", `(ErrorCode: ${K(e).code || "N/A"})`, e);
       }
@@ -519,7 +519,7 @@ function et(n, N) {
       }
       g.value = !0, w.value = [k];
       const q = k.liveId;
-      if (R.value.add(q), I.value) {
+      if (b.value.add(q), I.value) {
         await t(q);
         return;
       }
@@ -528,7 +528,7 @@ function et(n, N) {
       $.error("搜索直播间失败", `(ErrorCode: ${K(c).code || "N/A"})`, c);
       const k = c;
       if (c === 2025 || c === 70005 || typeof k != "number" && k.message?.includes("USER_SIG_ILLEGAL")) {
-        ua(), da(), localStorage.removeItem("tuiLiveMonitor-userInfo"), W.push("/config-required");
+        ua(), da(), localStorage.removeItem("tuiLiveMonitor-userInfo"), G.push("/config-required");
         return;
       }
       Y.error(f(l.NO_SEARCH_RESULTS_FOR, { keyword: o })), v.value = "", w.value = null, await n.goToFirstPage();
@@ -558,7 +558,7 @@ function et(n, N) {
       }
     }
   }, Z = O(() => n.loading.value), ee = O(() => n.currentPage.value), d = O(() => n.hasMore.value);
-  return be(() => {
+  return Re(() => {
     I.value = !0, x.stop(), V.next();
   }), {
     // 分页状态（响应式 computed）
@@ -572,9 +572,9 @@ function et(n, N) {
     isSearchMode: g,
     searchInput: v,
     searchResults: w,
-    liveViolationLabelMap: b,
+    liveViolationLabelMap: R,
     userProfileMap: T,
-    playingLiveIds: R,
+    playingLiveIds: b,
     isUnmounted: I,
     // 方法
     handlePrevPage: te,
@@ -594,19 +594,19 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
 }, ot = {
   key: 1,
   class: "monitor-empty"
-}, rt = { class: "empty-icon" }, lt = { style: { display: "none" } }, st = /* @__PURE__ */ Ce({
+}, rt = { class: "empty-icon" }, lt = { style: { display: "none" } }, st = /* @__PURE__ */ ye({
   __name: "live-monitor",
   setup(n) {
-    const N = we("LiveMonitor"), f = Re(), { t } = Ne(), { opSuccess: p, opFailed: h } = ke(t);
+    const N = we("LiveMonitor"), f = be(), { t } = Ne(), { opSuccess: p, opFailed: h } = ke(t);
     va().components?.liveMonitor;
-    const W = (r) => {
+    const G = (r) => {
       const s = r.anchor?.userId || "";
       if (s && B.value) {
         const M = B.value.get(s) || B.value.get(s.toLowerCase());
         if (M?.avatarUrl)
           return M.avatarUrl;
       }
-      return r.anchor?.avatarUrl || r.avatarUrl || ya(r);
+      return r.anchor?.avatarUrl || r.avatarUrl || Ca(r);
     }, F = (r) => {
       const s = r.anchor?.userId || "";
       if (s && B.value) {
@@ -615,7 +615,7 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
           return M.nick;
       }
       return r.anchor?.nick || Na(r, t(l.UNKNOWN_HOST));
-    }, { init: E, liveList: S, endLive: g, stopPlay: v } = Se(), w = sa(), b = Ze("sdkReady", null), T = m(!1), R = m(""), I = m(!1), H = m(null), V = m(0), P = m({
+    }, { init: E, liveList: S, endLive: g, stopPlay: v } = Se(), w = sa(), R = Ze("sdkReady", null), T = m(!1), b = m(""), I = m(!1), H = m(null), V = m(0), P = m({
       visible: !1,
       liveId: "",
       liveName: "",
@@ -663,22 +663,22 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
       handleSearch: xe,
       handleClearSearch: $e,
       handleRefresh: Ue,
-      handleCloseLiveSuccess: Ge,
-      mergeTags: We
+      handleCloseLiveSuccess: We,
+      mergeTags: Ge
     } = et(
       w,
       { stopPlay: v, t }
     ), le = O(() => (u.value && k.value ? k.value : S.value || []).map((s) => {
-      const M = s.tags || [], C = We(M, q.value.get(s.liveId));
+      const M = s.tags || [], y = Ge(M, q.value.get(s.liveId));
       return {
         ...s,
-        tags: C
+        tags: y
       };
     }));
-    G(
+    W(
       () => q.value.size,
       (r) => {
-        r !== 0 && ye(() => {
+        r !== 0 && Ce(() => {
           Q(le.value || []);
         });
       },
@@ -696,7 +696,7 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
         r.createdAt
       ].join(":")).join("|")
     );
-    G(He, () => {
+    W(He, () => {
       V.value += 1;
     });
     const Be = (r, s) => {
@@ -708,7 +708,7 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
       if (r) {
         P.value.closing = !0;
         try {
-          await v(r), ve.value.delete(r), await g(r), P.value = { visible: !1, liveId: "", liveName: "", closing: !1 }, Y.success(p(l.FORCE_STOP, l.LIVE)), await Ge(Z, ee, (S.value || []).length);
+          await v(r), ve.value.delete(r), await g(r), P.value = { visible: !1, liveId: "", liveName: "", closing: !1 }, Y.success(p(l.FORCE_STOP, l.LIVE)), await We(Z, ee, (S.value || []).length);
         } catch (s) {
           N.error("封禁直播失败", "", s), P.value.closing = !1;
         }
@@ -729,7 +729,7 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
     }, Ye = () => {
       document.fullscreenElement && document.exitFullscreen();
     }, Ee = async () => {
-      document.fullscreenElement ? T.value = !0 : (T.value = !1, R.value = "");
+      document.fullscreenElement ? T.value = !0 : (T.value = !1, b.value = "");
     };
     let z = null, ce = null, Me = null;
     const Xe = async () => {
@@ -748,10 +748,10 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
                 userId: s.userId,
                 password: s.userSig
               },
-              playerFactory: M ? Ra() : void 0
-            }), N.info("LiveMonitor", "Calling goToFirstPage, sdkReady:", b, ", sdkReady?.value:", b?.value), !b || b.value) {
-              const C = Ma();
-              C.pageToLoad > 1 ? (N.info("LiveMonitor", "Restoring pagination state, page:", C.pageToLoad), await w.goToPage(C.pageToLoad, C.pageCursors), N.info("LiveMonitor", "Pagination state restored to page", C.pageToLoad)) : await w.goToFirstPage(), I.value = !0;
+              playerFactory: M ? ba() : void 0
+            }), N.info("LiveMonitor", "Calling goToFirstPage, sdkReady:", R, ", sdkReady?.value:", R?.value), !R || R.value) {
+              const y = Ma();
+              y.pageToLoad > 1 ? (N.info("LiveMonitor", "Restoring pagination state, page:", y.pageToLoad), await w.goToPage(y.pageToLoad, y.pageCursors), N.info("LiveMonitor", "Pagination state restored to page", y.pageToLoad)) : await w.goToFirstPage(), I.value = !0;
             } else
               I.value = !0;
           } catch (M) {
@@ -763,11 +763,11 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
         N.error("LiveMonitor", "initSDK outer error:", r), I.value = !0;
       }
     };
-    return b && G(() => b.value, (r) => {
+    return R && W(() => R.value, (r) => {
       r && w.goToFirstPage();
     }), me(() => {
       document.addEventListener("fullscreenchange", Ee), oe(), Q(le.value || []), Xe();
-    }), be(() => {
+    }), Re(() => {
       ge.value = !0, document.removeEventListener("fullscreenchange", Ee), re();
     }), (r, s) => {
       const M = de("t-dialog");
@@ -775,7 +775,7 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
         L(xa, {
           "search-input": a(c),
           refreshing: a(o),
-          "onUpdate:searchInput": s[0] || (s[0] = (C) => c.value = C),
+          "onUpdate:searchInput": s[0] || (s[0] = (y) => c.value = y),
           onSearch: a(xe),
           onClearSearch: a($e),
           onRefresh: a(Ue)
@@ -783,18 +783,18 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
         i("div", tt, [
           a(d) || !I.value ? (_(), A("div", nt, [
             s[3] || (s[3] = i("div", { class: "loading-spinner" }, null, -1)),
-            i("span", null, y(a(t)(a(l).LOADING)), 1)
+            i("span", null, C(a(t)(a(l).LOADING)), 1)
           ])) : a(e) ? (_(), A(se, { key: 2 }, [
-            i("div", lt, "debug: liveList.length=" + y((a(S) || []).length) + ", mergedMonitorList.length=" + y(le.value.length) + ", hasLiveData=" + y(a(e)), 1),
-            (_(!0), A(se, null, pe(le.value, (C) => (_(), ie(Qa, {
-              key: `${V.value}:${C.liveId}`,
-              card: C,
-              "adaptive-result": a(ne)(C.liveId),
-              "is-muted": C.isMuted ?? !1,
+            i("div", lt, "debug: liveList.length=" + C((a(S) || []).length) + ", mergedMonitorList.length=" + C(le.value.length) + ", hasLiveData=" + C(a(e)), 1),
+            (_(!0), A(se, null, pe(le.value, (y) => (_(), ie(Qa, {
+              key: `${V.value}:${y.liveId}`,
+              card: y,
+              "adaptive-result": a(ne)(y.liveId),
+              "is-muted": y.isMuted ?? !1,
               "is-fullscreen": T.value,
-              "fullscreen-live-id": R.value,
-              "anchor-avatar": W(C),
-              "anchor-name": F(C),
+              "fullscreen-live-id": b.value,
+              "anchor-avatar": G(y),
+              "anchor-name": F(y),
               onViewDetails: qe,
               onViolationWarning: Be,
               onForceStop: ze,
@@ -805,7 +805,7 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
             i("div", rt, [
               L(a(Oe))
             ]),
-            i("p", null, y(a(t)(a(l).NO_LIVE_RIGHT_NOW)), 1)
+            i("p", null, C(a(t)(a(l).NO_LIVE_RIGHT_NOW)), 1)
           ]))
         ]),
         a(u) ? ae("", !0) : (_(), ie(Pa, {
@@ -819,7 +819,7 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
         }, null, 8, ["current-page", "has-more-data", "loading", "onGoToFirstPage", "onPrevPage", "onNextPage"])),
         L(M, {
           visible: P.value.visible,
-          "onUpdate:visible": s[2] || (s[2] = (C) => P.value.visible = C),
+          "onUpdate:visible": s[2] || (s[2] = (y) => P.value.visible = y),
           header: a(t)(a(l).CONFIRM_ACTION_TITLE, { action: a(t)(a(l).FORCE_STOP) }),
           "confirm-btn": { content: P.value.closing ? a(t)(a(l).CLOSING) : a(t)(a(l).CONFIRM_BAN_LIVE), loading: P.value.closing, theme: "primary", shape: "round" },
           "cancel-btn": { content: a(t)(a(l).CANCEL), disabled: P.value.closing, shape: "round" },
@@ -827,7 +827,7 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
           onCancel: je
         }, {
           default: U(() => [
-            i("p", null, y(a(t)(a(l).FORCE_STOP_CONFIRM_CONTENT)), 1)
+            i("p", null, C(a(t)(a(l).FORCE_STOP_CONFIRM_CONTENT)), 1)
           ]),
           _: 1
         }, 8, ["visible", "header", "confirm-btn", "cancel-btn"]),
@@ -850,14 +850,14 @@ const at = { class: "live-monitor-page" }, tt = { class: "live-monitor-grid" }, 
           onClose: a(X)
         }, {
           default: U(() => [
-            i("p", null, y(a(D).content), 1)
+            i("p", null, C(a(D).content), 1)
           ]),
           _: 1
         }, 8, ["visible", "header", "confirm-btn", "cancel-btn", "onConfirm", "onCancel", "onClose"])) : ae("", !0)
       ]);
     };
   }
-}), yt = /* @__PURE__ */ De(st, [["__scopeId", "data-v-fcf109bd"]]);
+}), Ct = /* @__PURE__ */ De(st, [["__scopeId", "data-v-fcf109bd"]]);
 export {
-  yt as default
+  Ct as default
 };

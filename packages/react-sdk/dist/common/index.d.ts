@@ -43,7 +43,7 @@ export { defaultCoverUrl, defaultAvatarUrl, setActiveBrandConfig, getActiveBrand
 export { PAGINATION_DEFAULTS, getPageSize, calculateTotalPages, validatePageNumber, calculateOffset, calculatePageRange, type PaginationType, } from './config/pagination';
 export { clearCache, setServerConfigured, isServerConfigured, } from './auth-actions';
 export { clearCredentials, getAuthToken, getCurrentUserName, getCurrentDomain, getSdkAppId, isProxyMode, } from './auth-actions';
-export { getDefaultAuthState, setAuthStoreAdapter } from './auth-store';
+export { getDefaultAuthState, setAuthStoreAdapter, applyPatch } from './auth-store';
 export type { AuthState, AuthStoreAdapter } from './auth-store';
 export { saveCredentials, getCredentials, isLoggedIn, isServerConfiguredMode, getCurrentUserId, getCurrentUserSig, } from './auth-actions';
 export { getUserProfilePortrait, batchGetUserProfilePortrait, setUserProfileRole, checkServerConfig, login, } from '../api/auth';

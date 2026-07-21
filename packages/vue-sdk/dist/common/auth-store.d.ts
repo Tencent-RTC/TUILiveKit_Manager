@@ -16,6 +16,10 @@ export interface AuthStoreAdapter {
     reset(): void;
 }
 export declare function getDefaultAuthState(): AuthState;
+/**
+ * 应用 patch 时自动同步 credentials 与顶层凭证字段
+ */
+export declare function applyPatch(prev: AuthState, patch: Partial<AuthState>): AuthState;
 export declare function setAuthStoreAdapter(nextAdapter?: AuthStoreAdapter): void;
 export declare function getAuthStateSnapshot(): AuthState;
 export declare function updateAuthState(patch: Partial<AuthState>): AuthState;

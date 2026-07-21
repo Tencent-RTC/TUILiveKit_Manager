@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import {
+  applyPatch,
   getDefaultAuthState,
   setAuthStoreAdapter,
   type AuthState,
@@ -30,19 +31,9 @@ function getSnapshot(): AuthState {
 export const reactAuthStoreAdapter: AuthStoreAdapter = {
   getState: getSnapshot,
   setState: (patch) => {
-    // 同步 credentials 到顶层字段（与 SDK applyPatch 行为一致）
-    // 仅在 credentials 存在时才同步，避免 undefined 覆盖已有值
-    const creds = patch.credentials;
-    useAuthStore.getState().setAuthState(
-      creds
-        ? {
-            ...patch,
-            sdkAppId: creds.sdkAppId ?? 0,
-            userId: creds.userId ?? '',
-            userSig: creds.userSig ?? '',
-          }
-        : patch,
-    );
+    const prev = getSnapshot();
+    const next = applyPatch(prev, patch);
+    useAuthStore.getState().setAuthState(next);
   },
   reset: () => {
     useAuthStore.getState().resetAuthState();

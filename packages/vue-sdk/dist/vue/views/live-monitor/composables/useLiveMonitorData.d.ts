@@ -1,4 +1,4 @@
-import { type Ref } from '../../../../vue';
+import { type Ref } from 'vue';
 import type { MonitorLiveInfo, UserPortraitProfile } from '../../../../types/live';
 import type { ModerationType } from '../../../../types/interaction';
 import type { VuePaginatedListBinding } from '../../../live-monitor';

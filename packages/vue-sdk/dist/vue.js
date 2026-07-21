@@ -1,15 +1,15 @@
-import { g as $, a7 as Q, a5 as O, a4 as n, I as Z, a6 as J, aj as X } from "./chunks/layout.CKxcF5ct.js";
-import { a1 as Ke, a8 as Be, a9 as Ge } from "./chunks/layout.CKxcF5ct.js";
+import { h as $, a8 as Q, a6 as O, a5 as n, I as Z, a7 as J, ak as X } from "./chunks/layout.QDR0rddX.js";
+import { a2 as Ke, a9 as Be, aa as Ge } from "./chunks/layout.QDR0rddX.js";
 import { ref as u, onUnmounted as T, onMounted as Y, watch as ee } from "vue";
-import { c7 as V, aZ as q, c8 as z, c9 as te, aF as re, aH as oe, ce as ne, bz as ae, bM as ie, bO as se, cb as le, ca as ue, u as ce, m as de, ae as fe, cc as ve, a7 as ge, cd as me, V as he, U as Me } from "./chunks/main-layout.D1ZA8pmk.js";
-import { a as Le } from "./chunks/useAsyncAction.DiFeo1OL.js";
-import { u as je } from "./chunks/useAsyncAction.DiFeo1OL.js";
-import { u as Ze, a as Je } from "./chunks/useSvgaPlayer.C9V9FZsV.js";
+import { c7 as V, aZ as q, c8 as z, c9 as te, aF as re, aH as oe, ce as ne, bz as ae, bM as ie, bO as se, cb as le, ca as ue, u as ce, m as de, ae as fe, cc as ve, a7 as me, cd as ge, V as he, U as Me } from "./chunks/main-layout.BgP9Ncvl.js";
+import { a as Le } from "./chunks/useAsyncAction.hiF1kgA5.js";
+import { u as je } from "./chunks/useAsyncAction.hiF1kgA5.js";
+import { u as Ze, a as Je } from "./chunks/useSvgaPlayer.DyvgknyL.js";
 import { useUIKit as we } from "@tencentcloud/uikit-base-component-vue3";
 import { c as be } from "./chunks/t.QkUmzvcB.js";
 const d = $("RiskControl");
 function Oe(l) {
-  const { liveId: o, pageSize: M } = l, L = u(!1), f = u("cloud"), w = u(!0), g = u([]), h = u(0), y = u(1), C = u(!1), S = u([]), r = u([]);
+  const { liveId: o, pageSize: M } = l, L = u(!1), f = u("cloud"), w = u(!0), m = u([]), h = u(0), y = u(1), C = u(!1), S = u([]), r = u([]);
   let a = !0;
   Q("risk_control"), V().then(async (e) => {
     if (!a) return;
@@ -17,7 +17,7 @@ function Oe(l) {
     const t = e === "cloud", p = t ? q : z;
     try {
       const v = await p({ pageSize: M, liveId: o });
-      a && (L.value = !0, g.value = v.list || [], h.value = v.total || 0), O(t ? "text_moderation" : "text_moderation_custom"), O(t ? "moderation" : "moderation_custom");
+      a && (L.value = !0, m.value = v.list || [], h.value = v.total || 0), O(t ? "text_moderation" : "text_moderation_custom"), O(t ? "moderation" : "moderation_custom");
     } catch {
       a && (L.value = !1);
     }
@@ -32,7 +32,7 @@ function Oe(l) {
     C.value = !0;
     try {
       let t;
-      return f.value === "custom" ? t = await z({ pageSize: M, liveId: o, ...e }) : t = await q({ pageSize: M, liveId: o, ...e }), a && (g.value = t.list || [], h.value = t.total || 0, y.value = e.pageNum || 1), t;
+      return f.value === "custom" ? t = await z({ pageSize: M, liveId: o, ...e }) : t = await q({ pageSize: M, liveId: o, ...e }), a && (m.value = t.list || [], h.value = t.total || 0, y.value = e.pageNum || 1), t;
     } catch (t) {
       throw d.error("useRiskControlState", "fetchTextModerationList failed:", t), t;
     } finally {
@@ -42,28 +42,28 @@ function Oe(l) {
     try {
       let t = e.ids, p = e.items;
       if (!p) {
-        const v = g.value, D = t.map((m) => {
-          const b = v.find((I) => I.id === m);
+        const v = m.value, D = t.map((g) => {
+          const b = v.find((I) => I.id === g);
           return {
-            id: m,
-            content: b?.content ?? m,
+            id: g,
+            content: b?.content ?? g,
             userId: b?.userId ?? "",
             createdAtMs: b?.createdAtMs ?? 0
           };
-        }).sort((m, b) => m.createdAtMs - b.createdAtMs);
-        t = D.map((m) => m.id), p = D.map(({ id: m, content: b, userId: I }) => ({ id: m, content: b, userId: I }));
+        }).sort((g, b) => g.createdAtMs - b.createdAtMs);
+        t = D.map((g) => g.id), p = D.map(({ id: g, content: b, userId: I }) => ({ id: g, content: b, userId: I }));
       }
       if (f.value === "custom") {
         const v = await ve({ ids: t, items: p, liveId: e.liveId ?? o });
         n("moderation", "approve", !0, String(v.success)), v.failed > 0 && d.warn("useRiskControlState", `部分放行失败: 成功 ${v.success}, 失败 ${v.failed}`);
       } else
-        await ge({ ids: t, items: p, liveId: e.liveId ?? o }), n("moderation", "approve", !0, String(e.ids.length));
+        await me({ ids: t, items: p, liveId: e.liveId ?? o }), n("moderation", "approve", !0, String(e.ids.length));
     } catch (t) {
       throw n("moderation", "approve", !1), d.error("useRiskControlState", "approveTextModerationItems failed:", t), t;
     }
   }, G = async (e) => {
     try {
-      const t = await me(e);
+      const t = await ge(e);
       return a && (w.value = t.Enabled), n("moderation", "toggle", !0), t.Enabled;
     } catch (t) {
       throw n("moderation", "toggle", !1), d.error("useRiskControlState", "updateCustomModerationToggleEnabled failed:", t), t;
@@ -102,7 +102,7 @@ function Oe(l) {
     moderationMode: f,
     customModerationToggleEnabled: w,
     updateCustomModerationToggleEnabled: G,
-    textModerationList: g,
+    textModerationList: m,
     textModerationTotal: h,
     textModerationPageNum: y,
     textModerationLoading: C,
@@ -297,7 +297,7 @@ function ze() {
     prevPage: () => s?.prevPage() ?? Promise.resolve(),
     goToFirstPage: () => s?.goToFirstPage() ?? Promise.resolve(),
     refreshCurrentPage: () => s?.refresh() ?? Promise.resolve(),
-    goToPage: (g, h) => s?.goToPage(g, h) ?? Promise.resolve(),
+    goToPage: (m, h) => s?.goToPage(m, h) ?? Promise.resolve(),
     getSnapshot: () => s?.getSnapshot() ?? {
       list: [],
       currentPage: 1,
@@ -314,12 +314,12 @@ function Ne() {
 function Ue(l) {
   const { confirm: o, onSuccess: M, ...L } = l, f = u(null), w = (a) => {
     f.value = null, M?.(a);
-  }, { loading: g, execute: h, reset: y } = Le({
+  }, { loading: m, execute: h, reset: y } = Le({
     ...L,
     onSuccess: w
   });
   return {
-    loading: g,
+    loading: m,
     confirmDialog: f,
     requestConfirm: () => {
       f.value = {

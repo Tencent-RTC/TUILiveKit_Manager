@@ -6,6 +6,7 @@
  */
 import { reactive, readonly } from 'vue';
 import {
+  applyPatch,
   getDefaultAuthState,
   setAuthStoreAdapter,
   type AuthState,
@@ -27,28 +28,6 @@ function assignState(next: AuthState): void {
   Object.assign(state, next, {
     credentials: next.credentials ? { ...next.credentials } : null,
   });
-}
-
-function applyPatch(prev: AuthState, patch: Partial<AuthState>): AuthState {
-  const next: AuthState = {
-    ...prev,
-    ...patch,
-    credentials:
-      patch.credentials === undefined
-        ? prev.credentials
-        : patch.credentials
-        ? { ...patch.credentials }
-        : null,
-  };
-
-  if (patch.credentials !== undefined) {
-    const creds = next.credentials;
-    next.sdkAppId = creds?.sdkAppId ?? 0;
-    next.userId = creds?.userId ?? '';
-    next.userSig = creds?.userSig ?? '';
-  }
-
-  return next;
 }
 
 export function useAuthStore() {

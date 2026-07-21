@@ -1,4 +1,4 @@
-import { type Ref } from '../../../../vue';
+import { type Ref } from 'vue';
 import type { AdaptiveTagResult } from '../../../../common';
 /**
  * 自适应标签 composable（Vue 薄包装）

@@ -5,16 +5,16 @@ import { useNavigate as we } from "react-router-dom";
 import { Dialog as S, Input as V, InputNumber as se, Textarea as Be, Button as _, Select as Ee, Card as Ve } from "tdesign-react";
 import { useUIKit as X, i18next as ce } from "@tencentcloud/uikit-base-component-react";
 import { A as he, F as Ye } from "../../chunks/ActionButtons.Cfkno1zE.js";
-import { M as N, u as Xe, a as Q } from "../../chunks/useAsyncAction.BEfuTbHp.js";
+import { M as m, u as Xe, a as Q } from "../../chunks/useAsyncAction.BQ2CRmHy.js";
 /* empty css                                */
-import { g as De, l as re, an as j, I as i, A as Ie } from "../../chunks/layout.CKxcF5ct.js";
-import { x as O, g, y as m, v as T, w as $, aa as He, b as We, a as z, aQ as $e, a_ as ze, L as je, F as qe, bj as de, z as ge } from "../../chunks/main-layout.D1ZA8pmk.js";
-import { f as Ke, e as Je, b as Qe } from "../../chunks/upload.GtMjhtad.js";
+import { h as De, m as re, ao as j, I as i, B as Ie } from "../../chunks/layout.QDR0rddX.js";
+import { x as O, g, y as N, v as T, w as $, aa as He, b as We, a as z, aQ as $e, a_ as ze, L as je, F as qe, bj as de, z as ge } from "../../chunks/main-layout.BgP9Ncvl.js";
+import { f as Ke, e as Je, b as Qe } from "../../chunks/upload.B9g98mEN.js";
 import { F as _e, a as C } from "../../chunks/FormField.D0eRD3uO.js";
-import { I as ue } from "../../chunks/ImageUpload.DQvjjI1R.js";
-import { g as Ze } from "../../chunks/columns.CTKJZk4D.js";
-import { b as ei } from "../../chunks/useT.BpiWhAmu.js";
-import { S as pe } from "../../chunks/SlotRenderer.Cso_TRGI.js";
+import { I as ue } from "../../chunks/ImageUpload.HpnOoYqK.js";
+import { g as Ze } from "../../chunks/columns.BKd5KjpN.js";
+import { b as ei } from "../../chunks/useT.D-THYezc.js";
+import { S as pe } from "../../chunks/SlotRenderer.BP46Gx6z.js";
 const R = 0, P = 2147483647, w = 0, B = 99, fe = {
   id: "",
   name: "",
@@ -44,48 +44,48 @@ function ni({
     I(), E();
   }, [x, k] = L(!1), ee = async () => {
     if (!e.id.trim()) {
-      N.error(t(i.ENTER_GIFT_ID));
+      m.error(t(i.ENTER_GIFT_ID));
       return;
     }
     if (g(e.id) > O) {
-      N.error(t(i.MAX_BYTES, { field: t(i.GIFT_ID), max: O }));
+      m.error(t(i.MAX_BYTES, { field: t(i.GIFT_ID), max: O }));
       return;
     }
     if (!e.name.trim()) {
-      N.error(t(i.ENTER_GIFT_NAME));
+      m.error(t(i.ENTER_GIFT_NAME));
       return;
     }
-    if (g(e.name) > m) {
-      N.error(t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: m }));
+    if (g(e.name) > N) {
+      m.error(t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: N }));
       return;
     }
     if (e.description && g(e.description) > T) {
-      N.error(t(i.MAX_BYTES, { field: t(i.DESCRIPTION), max: T }));
+      m.error(t(i.MAX_BYTES, { field: t(i.DESCRIPTION), max: T }));
       return;
     }
     const o = parseInt(e.level);
     if (e.level && !isNaN(o) && (o < w || o > B)) {
-      N.error(t(i.GIFT_LEVEL_RANGE, { min: w, max: B }));
+      m.error(t(i.GIFT_LEVEL_RANGE, { min: w, max: B }));
       return;
     }
     if (e.price < R || e.price > P) {
-      N.error(t(i.GIFT_PRICE_RANGE, { min: R, max: P }));
+      m.error(t(i.GIFT_PRICE_RANGE, { min: R, max: P }));
       return;
     }
     const q = h.current?.isUrlInputMode ?? !0, ie = q && (h.current?.urlInputValue?.trim?.() || "");
     if (!b && !e.iconUrl.trim() && !ie) {
-      q && h.current?.setUrlError(t(i.ENTER_THUMBNAIL_URL)), N.error(t(i.UPLOAD_THUMBNAIL_OR_ENTER_URL));
+      q && h.current?.setUrlError(t(i.ENTER_THUMBNAIL_URL)), m.error(t(i.UPLOAD_THUMBNAIL_OR_ENTER_URL));
       return;
     }
     if (e.extensionInfo.trim()) {
       try {
         JSON.parse(e.extensionInfo.trim());
       } catch {
-        N.error(t(i.EXTENSION_INFO_JSON_FORMAT));
+        m.error(t(i.EXTENSION_INFO_JSON_FORMAT));
         return;
       }
       if (new TextEncoder().encode(e.extensionInfo.trim()).length > 100) {
-        N.error(t(i.MAX_BYTES, { field: t(i.CUSTOM_EXTENSION_INFO), max: 100 }));
+        m.error(t(i.MAX_BYTES, { field: t(i.CUSTOM_EXTENSION_INFO), max: 100 }));
         return;
       }
     }
@@ -109,7 +109,7 @@ function ni({
       const te = He(e, G, K);
       await p(te);
     } catch (G) {
-      ii.error("GiftFormDialog", `Image upload failed: ${G?.message || t(i.UNKNOWN_HOST)}`, G), N.error(Je(G, t(i.THUMBNAIL)));
+      ii.error("GiftFormDialog", `Image upload failed: ${G?.message || t(i.UNKNOWN_HOST)}`, G), m.error(Je(G, t(i.THUMBNAIL)));
     } finally {
       k(!1);
     }
@@ -254,15 +254,15 @@ function ni({
               value: e.name,
               onChange: (o) => r({ ...e, name: String(o) }),
               placeholder: t(i.ENTER_GIFT_NAME),
-              status: g(e.name) > m ? "error" : "default",
-              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > m ? " byte-overflow" : ""}`, children: [
+              status: g(e.name) > N ? "error" : "default",
+              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > N ? " byte-overflow" : ""}`, children: [
                 g(e.name),
                 "/",
-                m
+                N
               ] })
             }
           ),
-          g(e.name) > m && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: m }) })
+          g(e.name) > N && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: N }) })
         ] }) }),
         /* @__PURE__ */ n(C, { label: t(i.DESCRIPTION), children: /* @__PURE__ */ a("div", { className: "form-field__input-wrapper", children: [
           /* @__PURE__ */ n(
@@ -406,15 +406,15 @@ function ri({
                 r({ ...e, name: String(h) });
               },
               placeholder: c ? t(i.ENTER_LANGUAGE_GIFT_NAME, { lang: t(z[c].label) }) : "",
-              status: g(e.name) > m ? "error" : "default",
-              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > m ? " byte-overflow" : ""}`, children: [
+              status: g(e.name) > N ? "error" : "default",
+              suffix: /* @__PURE__ */ a("span", { className: `input-suffix-count${g(e.name) > N ? " byte-overflow" : ""}`, children: [
                 g(e.name),
                 "/",
-                m
+                N
               ] })
             }
           ),
-          g(e.name) > m && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: m }) })
+          g(e.name) > N && /* @__PURE__ */ n("div", { className: "form-field__error-tip", children: t(i.MAX_BYTES, { field: t(i.GIFT_NAME), max: N }) })
         ] }) }),
         /* @__PURE__ */ n(C, { label: t(i.DESCRIPTION), children: /* @__PURE__ */ a("div", { className: "form-field__input-wrapper", children: [
           /* @__PURE__ */ n(
@@ -641,7 +641,7 @@ function yi() {
   d.current || (d.current = new qe({
     actions: u,
     t: s,
-    toast: N,
+    toast: m,
     onNavigateToCategoryManagement: () => c("/gift-category")
   }));
   const r = d.current;
@@ -700,8 +700,8 @@ function yi() {
     langConfigVisible: K,
     giftLangConfig: ne,
     langEditVisible: te,
-    editingLang: Ne,
-    editingGiftForLang: me,
+    editingLang: me,
+    editingGiftForLang: Ne,
     langEditForm: Te,
     categoryEditVisible: Ce,
     editingCategoryGift: Ae,
@@ -751,7 +751,7 @@ function yi() {
             onChange: (l) => r.setSearchInput(String(l ?? "")),
             onEnter: () => {
               if (r.isSearchInputTooLong()) {
-                N.error(s(i.INPUT_TOO_LONG));
+                m.error(s(i.INPUT_TOO_LONG));
                 return;
               }
               r.search();
@@ -823,8 +823,8 @@ function yi() {
       ri,
       {
         visible: te,
-        editingGiftForLang: me,
-        editingLang: Ne,
+        editingGiftForLang: Ne,
+        editingLang: me,
         langEditForm: Te,
         saving: h,
         onFormChange: (l) => r.setLangEditForm(l),
