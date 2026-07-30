@@ -1,6 +1,9 @@
-import { configureLiveManager, initHttpClient } from 'tuikit-live-manager-sdk-react';
+import { configureLiveManager, initHttpClient, setReportSource } from 'tuikit-live-manager-sdk-react';
 import type { ComponentType, LazyExoticComponent } from 'react';
 import axios from 'axios';
+
+// 标记当前为 release 项目接入（clone 仓库直接使用），用于 RUM 上报区分接入方式
+setReportSource('release');
 
 export const liveManagerConfig = configureLiveManager<
   ComponentType<Record<string, never>> | LazyExoticComponent<ComponentType<any>>

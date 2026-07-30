@@ -42,6 +42,7 @@ export declare const I18N: {
     readonly NEXT_PAGE: "Next Page";
     readonly PAGE: "Page {{page}}";
     readonly NO_SEARCH_RESULTS_FOR: "No search results for: {{keyword}}";
+    readonly SEARCH_EXACT_ID_HINT: "Search requires the complete Live ID; fuzzy search is not supported.";
     readonly LIVE_HOST: "Live Host";
     readonly BASIC_INFORMATION: "Basic Information";
     readonly LIVE_INFORMATION: "Live Information";
@@ -405,5 +406,25 @@ export declare const I18N: {
     readonly CREDENTIAL_LOGIN_FAILED: "Login failed";
     readonly SDK_APP_ID_REQUIRED: "SDKAppID is required";
     readonly SECRET_KEY_REQUIRED: "SecretKey is required";
+    /** SDKAppID 气泡：链接文字（无前缀） */
+    readonly SDK_APP_ID_HELP_LINK: "How to get SDKAppID";
+    /** SecretKey 气泡：链接文字（前缀复用 SECRET_KEY_MEMORY_ONLY） */
+    readonly SECRET_KEY_HELP_LINK: "How to get";
+    /** 用户 ID 气泡：前缀文字 */
+    readonly USER_ID_HELP_PREFIX: "To use other admin accounts, please refer to";
+    /** 用户 ID 气泡：链接文字 */
+    readonly USER_ID_HELP_LINK: "Admin Account Management";
+    readonly EMPTY_LIVE_LIST_TITLE: "No Live Rooms Yet";
+    readonly EMPTY_LIVE_LIST_DESC: "Create your first live room to get started";
+    readonly EMPTY_LIVE_MONITOR_TITLE: "No Ongoing Live";
+    readonly EMPTY_LIVE_MONITOR_DESC: "Create a live room and monitor it in real-time here";
+    readonly GO_CREATE_LIVE: "Go Create Live Room";
+    readonly TRY_DEMO_MODE: "Try Demo Mode";
+    readonly DEMO_MODE_DESC: "Explore the full experience with sample data, no credentials needed";
+    readonly EMPTY_GIFT_TITLE: "No Gifts Yet";
+    readonly EMPTY_GIFT_DESC: "Add your first gift to get started";
+    readonly WHAT_IS_ANCHOR_ID: "What is Anchor ID?";
+    readonly ANCHOR_ID_HELP_TEXT: "Anchor ID is the UserID of the TUILiveKit account, ";
+    readonly ANCHOR_ID_NOT_FOUND_TIP: "Anchor ID does not exist. Anchor ID is the UserID of the TUILiveKit account, ";
 };
 export type I18nKey = (typeof I18N)[keyof typeof I18N];

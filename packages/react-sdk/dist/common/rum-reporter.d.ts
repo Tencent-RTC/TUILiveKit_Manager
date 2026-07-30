@@ -22,6 +22,15 @@ export declare function reportBusinessOp(category: string, action: string, succe
 export declare function measureAndReport(name: string, fn: () => Promise<any>): Promise<any>;
 /** 设置当前运行平台（React/Vue 入口模块加载时调用） */
 export declare function setReportPlatform(platform: 'react' | 'vue'): void;
+/** 上报来源类型 */
+export type ReportSource = 'demo' | 'release' | 'sdk';
+/**
+ * 显式设置上报来源。
+ * release 项目入口（packages/vue3、packages/react）加载时调用 setReportSource('release')。
+ * SDK 接入的客户项目无需调用，默认为 'sdk'。
+ * demo 页面通过 URL 自动识别，优先级高于显式设置。
+ */
+export declare function setReportSource(source: ReportSource): void;
 export declare function reportAppInit(version?: string): void;
 /** 能力类型 */
 export type CapabilityType = 'moderation' | 'av_moderation' | 'text_moderation' | 'moderation_custom' | 'text_moderation_custom';

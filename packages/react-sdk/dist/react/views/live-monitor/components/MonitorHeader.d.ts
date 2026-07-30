@@ -6,6 +6,7 @@ interface MonitorHeaderProps {
     onClearSearch: () => void;
     onRefresh: () => void;
     refreshing: boolean;
+    searching?: boolean;
 }
 /**
  * 监控页面头部组件

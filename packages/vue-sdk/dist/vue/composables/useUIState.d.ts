@@ -45,7 +45,7 @@ export interface AudienceDropdownState extends DropdownPosition {
  * UI 状态管理
  */
 export declare function useUIState(): {
-    confirmDialog: import("../../vue").Ref<{
+    confirmDialog: import("vue").Ref<{
         visible: boolean;
         title: string;
         content: string;
@@ -72,10 +72,10 @@ export declare function useUIState(): {
         x: number;
         y: number;
     };
-    mutedModalVisible: import("../../vue").Ref<boolean, boolean>;
-    bannedModalVisible: import("../../vue").Ref<boolean, boolean>;
-    successMsg: import("../../vue").Ref<string, string>;
-    errorMsg: import("../../vue").Ref<string, string>;
+    mutedModalVisible: import("vue").Ref<boolean, boolean>;
+    bannedModalVisible: import("vue").Ref<boolean, boolean>;
+    successMsg: import("vue").Ref<string, string>;
+    errorMsg: import("vue").Ref<string, string>;
     showConfirmDialog: (config: Omit<ConfirmDialogConfig, "visible">) => void;
     hideConfirmDialog: () => void;
     showModerationDropdown: (x: number, y: number, itemId?: string, content?: string) => void;

@@ -20,8 +20,17 @@ export declare function getDefaultAuthState(): AuthState;
  * 应用 patch 时自动同步 credentials 与顶层凭证字段
  */
 export declare function applyPatch(prev: AuthState, patch: Partial<AuthState>): AuthState;
+/** 认证状态变化监听器 */
+export type AuthStateListener = (state: AuthState) => void;
 export declare function setAuthStoreAdapter(nextAdapter?: AuthStoreAdapter): void;
 export declare function getAuthStateSnapshot(): AuthState;
+/**
+ * 订阅认证状态变化（供框架适配层桥接响应式系统）
+ *
+ * - 所有经 updateAuthState / resetAuthState 的写入都会触发通知
+ * - 返回取消订阅函数
+ */
+export declare function subscribeAuthState(listener: AuthStateListener): () => void;
 export declare function updateAuthState(patch: Partial<AuthState>): AuthState;
 export declare function resetAuthState(): void;
 export type { AuthState, AuthMode, StoredCredentials };

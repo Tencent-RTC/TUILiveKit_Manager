@@ -33,3 +33,5 @@ export interface UploadResult {
     /** UI 兼容：文件名 */
     filename?: string;
 }
+/** 上传资源类型（与底层 API 对齐，可扩展） */
+export type UploadResourceType = 'cover' | 'gift-icon' | 'gift-animation';

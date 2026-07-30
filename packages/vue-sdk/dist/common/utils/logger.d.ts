@@ -48,6 +48,21 @@ declare class Logger {
      */
     error(context: string, ...args: unknown[]): void;
     /**
+     * 桥接到 Kibana 日志队列
+     *
+     * 把普通 Logger 的 info/warn/error 推到 loggerManager 队列，由其定时批量上报到 Kibana。
+     * debug 不推（避免日志爆炸）；如需更严格的上报级别，可调用
+     * `loggerManager.setLogLevelToUpload(LOG_LEVEL.WARN)` 提升 Kibana 队列入队门槛。
+     *
+     * 使用 enqueue 而非 log，避免双份 console 输出：
+     * - console 输出由普通 Logger 自己负责（带时间戳和模块全名前缀）
+     * - Kibana Logger 只负责入队上报，不打 console
+     *
+     * 入队格式：`E|abbr|context|message`（竖线分隔，模块名已缩写）
+     * 例如：`E|LMC|createLive|createLive failed: Error(...)`
+     */
+    private forwardToKibana;
+    /**
      * 统一日志输出
      */
     private log;

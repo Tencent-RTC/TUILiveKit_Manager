@@ -13,26 +13,68 @@
 
       <div class="login-form-wrapper login-form-wrapper--tdesign">
         <div class="login-field login-field--horizontal">
-          <label class="login-field__label">{{ $t(I18N.SDK_APP_ID_LABEL) }}</label>
+          <label class="login-field__label">
+            {{ $t(I18N.SDK_APP_ID_LABEL) }}
+            <t-tooltip placement="top">
+              <template #content>
+                <div class="login-help-tooltip">
+                  <a :href="helpLinks.sdkAppId" target="_blank" rel="noopener noreferrer">{{ $t(I18N.SDK_APP_ID_HELP_LINK) }}</a>
+                </div>
+              </template>
+              <HelpCircleIcon size="14px" class="login-help-icon" />
+            </t-tooltip>
+          </label>
           <t-input class="login-tdesign-input" :value="sdkAppId" @change="onSdkAppIdChange" @enter="handleLogin" :placeholder="$t(I18N.SDK_APP_ID_PLACEHOLDER)" :disabled="loading" clearable />
         </div>
 
         <div class="login-field login-field--horizontal">
-          <label class="login-field__label">{{ $t(I18N.SECRET_KEY_LABEL) }}</label>
+          <label class="login-field__label">
+            {{ $t(I18N.SECRET_KEY_LABEL) }}
+            <t-tooltip placement="top">
+              <template #content>
+                <div class="login-help-tooltip">
+                  <span>{{ $t(I18N.SECRET_KEY_MEMORY_ONLY) }} </span>
+                  <a :href="helpLinks.secretKey" target="_blank" rel="noopener noreferrer">{{ $t(I18N.SECRET_KEY_HELP_LINK) }}</a>
+                </div>
+              </template>
+              <HelpCircleIcon size="14px" class="login-help-icon" />
+            </t-tooltip>
+          </label>
           <t-input class="login-tdesign-input" type="password" v-model="secretKey" @enter="handleLogin" :placeholder="$t(I18N.SECRET_KEY_PLACEHOLDER)" :disabled="loading" clearable />
         </div>
 
         <div class="login-field login-field--horizontal">
-          <label class="login-field__label">{{ $t(I18N.USER_ID_LABEL) }}</label>
+          <label class="login-field__label">
+            {{ $t(I18N.USER_ID_LABEL) }}
+            <t-tooltip placement="top">
+              <template #content>
+                <div class="login-help-tooltip">
+                  <span>{{ $t(I18N.USER_ID_HELP_PREFIX) }} </span>
+                  <a :href="helpLinks.userId" target="_blank" rel="noopener noreferrer">{{ $t(I18N.USER_ID_HELP_LINK) }}</a>
+                </div>
+              </template>
+              <HelpCircleIcon size="14px" class="login-help-icon" />
+            </t-tooltip>
+          </label>
           <t-input class="login-tdesign-input" v-model="userId" @enter="handleLogin" :placeholder="$t(I18N.USER_ID_PLACEHOLDER)" :disabled="loading" clearable />
         </div>
 
         <t-button block theme="primary" :loading="loading" :disabled="loading" @click="handleLogin">{{ $t(I18N.LOGIN_BTN) }}</t-button>
 
-        <div class="credential-hint">{{ $t(I18N.SECRET_KEY_MEMORY_ONLY) }}</div>
-
-        <div v-if="showServerConfigLink" class="server-config-link">
+        <div v-if="showServerConfigLink && !demoModeEnabled" class="server-config-link">
           <button type="button" class="server-config-btn" :disabled="loading" @click="handleServerConfig">{{ $t(I18N.TOGGLE_LOGIN_MODE) }}</button>
+        </div>
+
+        <div v-if="demoModeEnabled" style="margin-top: 16px; text-align: center;">
+          <div style="height: 1px; background: #e5e7eb; margin: 16px 0;" />
+          <p style="font-size: 13px; color: #6b7280; margin: 0 0 12px;">{{ $t(I18N.DEMO_MODE_DESC) }}</p>
+          <button
+            type="button"
+            style="background: none; border: 1px solid #1C66E5; color: #1C66E5; padding: 6px 20px; border-radius: 999px; font-size: 13px; cursor: pointer;"
+            @click="enterDemoMode"
+          >
+            {{ $t(I18N.TRY_DEMO_MODE) }}
+          </button>
         </div>
       </div>
     </div>
@@ -40,9 +82,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { TranslateIcon } from 'tdesign-icons-vue-next';
+import { TranslateIcon, HelpCircleIcon } from 'tdesign-icons-vue-next';
 import {
   loginWithSecret,
   saveCredentials,
@@ -50,6 +92,8 @@ import {
   getDefaultLanguage,
   toggleLanguage,
   setDocumentLanguage,
+  resolveDemoTargetPath,
+  getHelpLinks,
   enResource,
   zhResource,
   I18N,
@@ -67,6 +111,7 @@ const userId = ref('administrator');
 const loading = ref(false);
 const currentLanguage = ref<SupportedLanguage>(getDefaultLanguage());
 const defaultRoutePath = getDefaultRoutePath();
+const helpLinks = computed(() => getHelpLinks('vue', currentLanguage.value));
 
 const $t = (key: string): string => {
   const resource = currentLanguage.value === 'zh-CN' ? zhResource : enResource;
@@ -103,6 +148,11 @@ async function handleLogin() {
 }
 
 function handleServerConfig() { router.push({ name: 'config-required' }); }
+
+const demoModeEnabled = typeof __DEMO_MODE__ !== 'undefined' ? __DEMO_MODE__ : false;
+const enterDemoMode = demoModeEnabled
+  ? () => { window.location.href = resolveDemoTargetPath('vue'); }
+  : () => {};
 </script>
 
 <style scoped>

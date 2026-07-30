@@ -1,21 +1,21 @@
-import { jsxs as s, jsx as e, Fragment as se } from "react/jsx-runtime";
-import { I as n, aC as ze, h as Ce, m as He, ar as ge, d as fe, z as ue, B as Le, s as Re, af as Ke, aI as qe, aT as je, aW as Ye, n as Je, aR as Xe } from "../../chunks/shared-state.Bf8CkvaR.js";
+import { jsxs as i, jsx as e, Fragment as ie } from "react/jsx-runtime";
+import { I as t, p as ze, c as pe, _ as He, D as ge, u as fe, ak as ue, am as Le, ab as Re, b5 as Ke, x as qe, Z as je, a1 as Ye, a as Je, S as Xe } from "../../chunks/shared-state.LwLSW33A.js";
 import Be, { useState as w, useCallback as y, useEffect as V, useRef as j, useMemo as le } from "react";
-import { useParams as Ze, useNavigate as Qe, useLocation as en } from "react-router-dom";
-import { Dialog as Ee, Tooltip as oe, Button as Q, Tabs as be, Switch as xe, Loading as nn } from "tdesign-react";
-import { CheckCircleIcon as Ae, ChatOffIcon as Fe, UserCheckedIcon as tn, UserBlockedIcon as Ve, MoreIcon as rn, InfoCircleIcon as de, CloseCircleIcon as an, RefreshIcon as on, ChevronLeftIcon as sn, ChevronRightIcon as cn, ArrowLeftIcon as ln, NotificationIcon as dn, StopCircleIcon as un } from "tdesign-icons-react";
+import { useParams as Ze, useNavigate as Qe, useLocation as et } from "react-router-dom";
+import { Dialog as Ee, Tooltip as oe, Button as Q, Tabs as ve, Switch as xe, Loading as tt } from "tdesign-react";
+import { CheckCircleIcon as be, ChatOffIcon as Fe, UserCheckedIcon as nt, UserBlockedIcon as Ve, MoreIcon as rt, InfoCircleIcon as de, CloseCircleIcon as at, RefreshIcon as ot, ChevronLeftIcon as st, ChevronRightIcon as it, ArrowLeftIcon as ct, NotificationIcon as lt, StopCircleIcon as dt } from "tdesign-icons-react";
 import { useUIKit as ye } from "@tencentcloud/uikit-base-component-react";
-import { LiveView as mn, useLiveAudienceState as ve, BarrageList as fn, BarrageInput as hn, LiveAudienceList as Nn, useLiveListState as gn, useLoginState as En, useLivePlayerState as Cn, LiveListEvent as De } from "tuikit-atomicx-react";
-import { b7 as pn, b0 as Ie, b2 as we, n as Ln, bd as Ue, D as Tn, bE as An, a7 as vn, bu as bn, _ as Te, al as Mn, ax as In, bO as he, ah as _n, b3 as On, bB as yn, bt as Sn, bs as Rn } from "../../chunks/main-layout.OEkSp6vd.js";
+import { LiveView as ut, useLiveAudienceState as Ae, BarrageList as mt, BarrageInput as ft, LiveAudienceList as ht, useLiveListState as Nt, useLoginState as gt, useLivePlayerState as Et, LiveListEvent as De } from "tuikit-atomicx-react";
+import { bb as pt, b3 as Ie, b5 as we, r as Ct, bh as Ue, D as Lt, bK as Tt, a9 as bt, bz as At, a0 as Te, an as vt, az as Mt, bU as he, aj as It, b6 as _t, bH as Ot, by as yt, bx as St } from "../../chunks/main-layout.BxLEuh4E.js";
 import { useRiskControlState as We, useConfirmAction as me, useLiveMonitorState as Se } from "../../react.js";
-import { u as Dn, M as q, a as wn } from "../../chunks/useAsyncAction.R1AlIQqh.js";
-import { S as $e } from "../../chunks/SlotRenderer.C2--beKA.js";
-import { c as Un, C as kn } from "../../chunks/user-action-dropdown.C8Wr7xmv.js";
-import { A as _e } from "../../chunks/AnchorAvatar.CiD-Uid4.js";
-import { createPortal as Pn } from "react-dom";
-import { p as Bn, g as xn, b as Fn } from "../../chunks/columns.B8HdBl39.js";
-import { A as Oe, F as Vn } from "../../chunks/ActionButtons.Cfkno1zE.js";
-function Wn() {
+import { u as Rt, M as q, a as Dt } from "../../chunks/useAsyncAction.DDER13aa.js";
+import { S as $e } from "../../chunks/SlotRenderer.BMGbSEqN.js";
+import { c as wt, C as Ut } from "../../chunks/user-action-dropdown.CwDm2P6F.js";
+import { A as _e } from "../../chunks/AnchorAvatar.BVRcXDw9.js";
+import { createPortal as kt } from "react-dom";
+import { p as Pt, g as Bt, b as xt } from "../../chunks/columns.CsxSWq0J.js";
+import { A as Oe, F as Ft } from "../../chunks/ActionButtons.Cfkno1zE.js";
+function Vt() {
   const [a, r] = w(""), [c, d] = w(""), L = y((u, m) => {
     u === "success" ? (r(m), setTimeout(() => r(""), 3e3)) : (d(m), setTimeout(() => d(""), 3e3));
   }, []);
@@ -25,7 +25,7 @@ function Wn() {
     showMessage: L
   };
 }
-function $n({
+function Wt({
   liveControlSlots: a,
   liveInfo: r,
   currentLive: c,
@@ -36,9 +36,9 @@ function $n({
   liveEndedOverlayVisible: l,
   t: h
 }) {
-  return /* @__PURE__ */ s("section", { className: "video-monitor-area", children: [
+  return /* @__PURE__ */ i("section", { className: "video-monitor-area", children: [
     /* @__PURE__ */ e($e, { slot: a?.beforeLiveInfo, props: { liveInfo: r } }),
-    /* @__PURE__ */ s("div", { className: "live-header-external", children: [
+    /* @__PURE__ */ i("div", { className: "live-header-external", children: [
       /* @__PURE__ */ e(
         _e,
         {
@@ -48,9 +48,9 @@ function $n({
           title: L
         }
       ),
-      /* @__PURE__ */ e("span", { className: "live-title-text", children: l ? h(n.LIVE_ENDED) : c?.liveName || r?.liveName || h(n.LOADING) })
+      /* @__PURE__ */ e("span", { className: "live-title-text", children: l ? h(t.LIVE_ENDED) : c?.liveName || r?.liveName || h(t.LOADING) })
     ] }),
-    /* @__PURE__ */ e("div", { className: "video-stage", children: /* @__PURE__ */ s("div", { className: `player-container${u ? " player-container-voice" : ""}`, children: [
+    /* @__PURE__ */ e("div", { className: "video-stage", children: /* @__PURE__ */ i("div", { className: `player-container${u ? " player-container-voice" : ""}`, children: [
       m ? r?.coverUrl ? /* @__PURE__ */ e("div", { className: "mock-cover-preview", children: /* @__PURE__ */ e(
         "img",
         {
@@ -61,9 +61,9 @@ function $n({
             _.currentTarget.src = ze;
           }
         }
-      ) }) : null : /* @__PURE__ */ e(mn, {}),
-      l && /* @__PURE__ */ e("div", { className: "live-state-overlay live-state-overlay--ended", children: /* @__PURE__ */ s("div", { className: "live-state-overlay-content", children: [
-        /* @__PURE__ */ e("img", { src: Un, alt: "", className: "live-state-overlay-icon" }),
+      ) }) : null : /* @__PURE__ */ e(ut, {}),
+      l && /* @__PURE__ */ e("div", { className: "live-state-overlay live-state-overlay--ended", children: /* @__PURE__ */ i("div", { className: "live-state-overlay-content", children: [
+        /* @__PURE__ */ e("img", { src: wt, alt: "", className: "live-state-overlay-icon" }),
         /* @__PURE__ */ e(
           "div",
           {
@@ -75,14 +75,14 @@ function $n({
               fontWeight: 500,
               lineHeight: "24px"
             },
-            children: h(n.LIVE_ENDED)
+            children: h(t.LIVE_ENDED)
           }
         )
       ] }) })
     ] }) })
   ] });
 }
-const ke = Ce("MessageList"), Gn = 12 * 1024, ce = { current: { giftList: [] } }, zn = Be.memo(
+const ke = pe("MessageList"), $t = 12 * 1024, ce = { current: { giftList: [] } }, Gt = Be.memo(
   ({ message: a, style: r }) => {
     const c = a.sender.userId, d = c === ce.current.anchorUserId, L = a.sender.nameCard || a.sender.userName || c;
     let u;
@@ -101,8 +101,8 @@ const ke = Ce("MessageList"), Gn = 12 * 1024, ce = { current: { giftList: [] } }
       }
     else
       u = a.data || "";
-    const m = Bn(u);
-    return /* @__PURE__ */ s(
+    const m = Pt(u);
+    return /* @__PURE__ */ i(
       "div",
       {
         className: `message-item${d ? " host" : ""}`,
@@ -111,8 +111,8 @@ const ke = Ce("MessageList"), Gn = 12 * 1024, ce = { current: { giftList: [] } }
           ce.current.onMessageClick?.(h, a);
         },
         children: [
-          d && /* @__PURE__ */ e("span", { className: "message-badge", children: ce.current.t?.(n.HOST) || n.HOST }),
-          /* @__PURE__ */ s("span", { className: "message-username", children: [
+          d && /* @__PURE__ */ e("span", { className: "message-badge", children: ce.current.t?.(t.HOST) || t.HOST }),
+          /* @__PURE__ */ i("span", { className: "message-username", children: [
             L,
             ": "
           ] }),
@@ -132,128 +132,128 @@ const ke = Ce("MessageList"), Gn = 12 * 1024, ce = { current: { giftList: [] } }
     );
   },
   (a, r) => a.message.liveId === r.message.liveId && a.message.sequence === r.message.sequence && a.style === r.style
-), Hn = ({ liveId: a, anchorUserId: r, onMuteUser: c, onBanUser: d, mutedList: L = [], bannedList: u = [], roomJoined: m }) => {
-  const { t: l } = ye(), { audienceList: h, disableSendMessage: _ } = ve(), { giftList: g, fetchGiftList: I } = Dn();
+), zt = ({ liveId: a, anchorUserId: r, onMuteUser: c, onBanUser: d, mutedList: L = [], bannedList: u = [], roomJoined: m }) => {
+  const { t: l } = ye(), { audienceList: h, disableSendMessage: _ } = Ae(), { giftList: g, fetchGiftList: I } = Rt();
   V(() => {
     I().catch(() => {
     });
   }, [I]), ce.current.giftList = g;
-  const [E, N] = w(!1), [A, x] = w({ top: 0, left: 0 }), [b, H] = w(null), $ = j(null), U = j(null), O = r;
+  const [E, N] = w(!1), [b, x] = w({ top: 0, left: 0 }), [v, H] = w(null), $ = j(null), U = j(null), O = r;
   ce.current.t = l;
-  const M = (p) => h?.find((v) => v.userId === p), P = (p) => {
-    const v = M(p);
-    if (v)
-      return v.isMessageDisabled === !0;
-    const R = L.find((f) => f.userId === p);
+  const M = (C) => h?.find((A) => A.userId === C), P = (C) => {
+    const A = M(C);
+    if (A)
+      return A.isMessageDisabled === !0;
+    const R = L.find((f) => f.userId === C);
     return R ? R.endTime > Date.now() / 1e3 : !1;
-  }, z = (p) => {
-    const v = u.find((R) => R.userId === p);
-    return v ? v.endTime > Date.now() / 1e3 : !1;
+  }, z = (C) => {
+    const A = u.find((R) => R.userId === C);
+    return A ? A.endTime > Date.now() / 1e3 : !1;
   };
   V(() => {
     if (!E) return;
-    const p = (v) => {
+    const C = (A) => {
       setTimeout(() => {
-        U.current && U.current.contains(v.target) || (N(!1), H(null));
+        U.current && U.current.contains(A.target) || (N(!1), H(null));
       }, 100);
     };
-    return document.addEventListener("mousedown", p), () => {
-      document.removeEventListener("mousedown", p);
+    return document.addEventListener("mousedown", C), () => {
+      document.removeEventListener("mousedown", C);
     };
   }, [E]);
-  const k = y((p, v) => {
-    if (p.stopPropagation(), Number(v.sender.userRole) !== 2 || pn(a || "", v.sender.userId))
+  const k = y((C, A) => {
+    if (C.stopPropagation(), Number(A.sender.userRole) !== 2 || pt(a || "", A.sender.userId))
       return;
-    const f = p.target.closest(".message-item");
+    const f = C.target.closest(".message-item");
     if (!f)
       return;
     const W = f.getBoundingClientRect(), re = W.bottom + 4, F = Math.min(W.left, window.innerWidth - 160);
-    x({ top: re, left: Math.max(0, F) }), H(v), N(!0);
+    x({ top: re, left: Math.max(0, F) }), H(A), N(!0);
   }, [a]);
   V(() => {
     ce.current.anchorUserId = O, ce.current.onMessageClick = k;
   });
   const S = () => {
-    if (b && d) {
-      const p = b.sender.userId;
-      if (O && p === Ie(O)) {
+    if (v && d) {
+      const C = v.sender.userId;
+      if (O && C === Ie(O)) {
         N(!1), H(null);
         return;
       }
-      if (we(p, h)) {
+      if (we(C, h)) {
         N(!1), H(null);
         return;
       }
-      const v = b.sender.userName || b.sender.nameCard || b.sender.userId, R = z(p);
-      d(p, v, R);
+      const A = v.sender.userName || v.sender.nameCard || v.sender.userId, R = z(C);
+      d(C, A, R);
     }
     N(!1), H(null);
   }, K = async () => {
-    if (!b) return;
-    const p = b.sender.userId;
-    if (O && p === Ie(O)) {
+    if (!v) return;
+    const C = v.sender.userId;
+    if (O && C === Ie(O)) {
       N(!1), H(null);
       return;
     }
-    if (we(p, h)) {
+    if (we(C, h)) {
       N(!1), H(null);
       return;
     }
-    const v = b.sender.userName || b.sender.nameCard || b.sender.userId, R = P(p);
+    const A = v.sender.userName || v.sender.nameCard || v.sender.userId, R = P(C);
     try {
-      _ ? (await _({ userId: p, isDisable: !R }), ke.info("toggleMute", R ? "Unmute successful" : "Mute successful")) : c && c(p, v, R);
+      _ ? (await _({ userId: C, isDisable: !R }), ke.debug("toggleMute", R ? "Unmute successful" : "Mute successful")) : c && c(C, A, R);
     } catch (f) {
-      ke.error("general", "SDK mute failed, using fallback method:", f), c && c(p, v, R);
+      ke.error("general", "SDK mute failed, using fallback method:", f), c && c(C, A, R);
     }
     N(!1), H(null);
   };
-  return /* @__PURE__ */ s(
+  return /* @__PURE__ */ i(
     "div",
     {
       className: "message-list-container",
       ref: $,
       children: [
         /* @__PURE__ */ e("div", { className: "message-list-scroll-area barrage-list-wrapper", children: /* @__PURE__ */ e(
-          fn,
+          mt,
           {
-            Message: zn
+            Message: Gt
           }
         ) }),
         m && /* @__PURE__ */ e(
-          hn,
+          ft,
           {
-            placeholder: l(n.ENTER_MESSAGE_TO_SEND_AS_ADMIN),
+            placeholder: l(t.ENTER_MESSAGE_TO_SEND_AS_ADMIN),
             disabled: !a,
-            maxLength: Gn,
+            maxLength: $t,
             autoFocus: !1
           }
         ),
-        E && b && Pn(
-          /* @__PURE__ */ s(
+        E && v && kt(
+          /* @__PURE__ */ i(
             "div",
             {
               ref: U,
               className: "user-action-dropdown",
               style: {
                 position: "fixed",
-                top: A.top,
-                left: A.left,
+                top: b.top,
+                left: b.left,
                 zIndex: 9999
               },
               children: [
-                /* @__PURE__ */ e("button", { className: "dropdown-item", onClick: K, children: P(b.sender.userId) ? /* @__PURE__ */ s(se, { children: [
-                  /* @__PURE__ */ e(Ae, { size: 14 }),
-                  /* @__PURE__ */ e("span", { children: l(n.UNMUTE) })
-                ] }) : /* @__PURE__ */ s(se, { children: [
+                /* @__PURE__ */ e("button", { className: "dropdown-item", onClick: K, children: P(v.sender.userId) ? /* @__PURE__ */ i(ie, { children: [
+                  /* @__PURE__ */ e(be, { size: 14 }),
+                  /* @__PURE__ */ e("span", { children: l(t.UNMUTE) })
+                ] }) : /* @__PURE__ */ i(ie, { children: [
                   /* @__PURE__ */ e(Fe, { size: 14 }),
-                  /* @__PURE__ */ e("span", { children: l(n.MUTE) })
+                  /* @__PURE__ */ e("span", { children: l(t.MUTE) })
                 ] }) }),
-                /* @__PURE__ */ e("button", { className: "dropdown-item danger", onClick: S, children: z(b.sender.userId) ? /* @__PURE__ */ s(se, { children: [
-                  /* @__PURE__ */ e(tn, { size: 14 }),
-                  /* @__PURE__ */ e("span", { children: l(n.UNBAN) })
-                ] }) : /* @__PURE__ */ s(se, { children: [
+                /* @__PURE__ */ e("button", { className: "dropdown-item danger", onClick: S, children: z(v.sender.userId) ? /* @__PURE__ */ i(ie, { children: [
+                  /* @__PURE__ */ e(nt, { size: 14 }),
+                  /* @__PURE__ */ e("span", { children: l(t.UNBAN) })
+                ] }) : /* @__PURE__ */ i(ie, { children: [
                   /* @__PURE__ */ e(Ve, { size: 14 }),
-                  /* @__PURE__ */ e("span", { children: l(n.BAN) })
+                  /* @__PURE__ */ e("span", { children: l(t.BAN) })
                 ] }) })
               ]
             }
@@ -263,8 +263,8 @@ const ke = Ce("MessageList"), Gn = 12 * 1024, ce = { current: { giftList: [] } }
       ]
     }
   );
-}, Kn = Be.memo(Hn);
-function qn({
+}, Ht = Be.memo(zt);
+function Kt({
   mutedModalVisible: a,
   bannedModalVisible: r,
   mutedList: c,
@@ -280,49 +280,49 @@ function qn({
   onUnbanFromList: E,
   t: N
 }) {
-  return /* @__PURE__ */ s(se, { children: [
+  return /* @__PURE__ */ i(ie, { children: [
     /* @__PURE__ */ e(
       Ee,
       {
         visible: a,
-        header: N(n.MUTED_LIST),
+        header: N(t.MUTED_LIST),
         onClose: _,
         width: ge.WIDE,
-        footer: /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", onClick: _, children: N(n.CLOSE) }),
-        children: /* @__PURE__ */ e("div", { className: "member-list-panel-modal", children: L ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(n.LOADING) }) : c.length === 0 ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(n.NO_MUTED_MEMBERS) }) : /* @__PURE__ */ s("table", { className: "member-list-table", children: [
-          /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ s("tr", { children: [
-            /* @__PURE__ */ e("th", { children: N(n.USER) }),
-            /* @__PURE__ */ e("th", { children: N(n.UNMUTE_TIME) }),
-            /* @__PURE__ */ e("th", { children: N(n.ACTIONS) })
+        footer: /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", onClick: _, children: N(t.CLOSE) }),
+        children: /* @__PURE__ */ e("div", { className: "member-list-panel-modal", children: L ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(t.LOADING) }) : c.length === 0 ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(t.NO_MUTED_MEMBERS) }) : /* @__PURE__ */ i("table", { className: "member-list-table", children: [
+          /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ i("tr", { children: [
+            /* @__PURE__ */ e("th", { children: N(t.USER) }),
+            /* @__PURE__ */ e("th", { children: N(t.UNMUTE_TIME) }),
+            /* @__PURE__ */ e("th", { children: N(t.ACTIONS) })
           ] }) }),
-          /* @__PURE__ */ e("tbody", { children: c.map((A) => {
-            const x = h(A.userId), b = u === A.userId;
-            return /* @__PURE__ */ s("tr", { children: [
-              /* @__PURE__ */ e("td", { className: "member-table-user", children: /* @__PURE__ */ s("div", { className: "member-table-user-cell", children: [
+          /* @__PURE__ */ e("tbody", { children: c.map((b) => {
+            const x = h(b.userId), v = u === b.userId;
+            return /* @__PURE__ */ i("tr", { children: [
+              /* @__PURE__ */ e("td", { className: "member-table-user", children: /* @__PURE__ */ i("div", { className: "member-table-user-cell", children: [
                 /* @__PURE__ */ e(
                   _e,
                   {
                     className: "member-table-avatar",
-                    src: l(A.userId),
+                    src: l(b.userId),
                     name: x
                   }
                 ),
                 /* @__PURE__ */ e(oe, { content: x, placement: "top", showArrow: !1, children: /* @__PURE__ */ e("span", { className: "member-table-user-name", children: x }) })
               ] }) }),
-              /* @__PURE__ */ e("td", { className: "member-table-time", children: A.endTime > 0 ? new Date(A.endTime * 1e3).toLocaleString() : "-" }),
-              /* @__PURE__ */ e("td", { className: "member-table-action", children: b ? /* @__PURE__ */ e("button", { className: "list-action-button", disabled: !0, children: N(n.UNMUTING) }) : /* @__PURE__ */ e(
+              /* @__PURE__ */ e("td", { className: "member-table-time", children: b.endTime > 0 ? new Date(b.endTime * 1e3).toLocaleString() : "-" }),
+              /* @__PURE__ */ e("td", { className: "member-table-action", children: v ? /* @__PURE__ */ e("button", { className: "list-action-button", disabled: !0, children: N(t.UNMUTING) }) : /* @__PURE__ */ e(
                 Oe,
                 {
                   actions: [
                     {
                       key: "unmute",
-                      label: N(n.UNMUTE),
-                      onClick: () => I(A.userId, x)
+                      label: N(t.UNMUTE),
+                      onClick: () => I(b.userId, x)
                     }
                   ]
                 }
               ) })
-            ] }, A.userId);
+            ] }, b.userId);
           }) })
         ] }) })
       }
@@ -331,52 +331,52 @@ function qn({
       Ee,
       {
         visible: r,
-        header: N(n.BANNED_LIST),
+        header: N(t.BANNED_LIST),
         onClose: g,
         width: ge.WIDE,
-        footer: /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", onClick: g, children: N(n.CLOSE) }),
-        children: /* @__PURE__ */ e("div", { className: "member-list-panel-modal", children: L ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(n.LOADING) }) : d.length === 0 ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(n.NO_BANNED_MEMBERS) }) : /* @__PURE__ */ s("table", { className: "member-list-table", children: [
-          /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ s("tr", { children: [
-            /* @__PURE__ */ e("th", { children: N(n.USER) }),
-            /* @__PURE__ */ e("th", { children: N(n.BAN_LIFT_TIME) }),
-            /* @__PURE__ */ e("th", { children: N(n.ACTIONS) })
+        footer: /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", onClick: g, children: N(t.CLOSE) }),
+        children: /* @__PURE__ */ e("div", { className: "member-list-panel-modal", children: L ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(t.LOADING) }) : d.length === 0 ? /* @__PURE__ */ e("div", { className: "member-list-empty", children: N(t.NO_BANNED_MEMBERS) }) : /* @__PURE__ */ i("table", { className: "member-list-table", children: [
+          /* @__PURE__ */ e("thead", { children: /* @__PURE__ */ i("tr", { children: [
+            /* @__PURE__ */ e("th", { children: N(t.USER) }),
+            /* @__PURE__ */ e("th", { children: N(t.BAN_LIFT_TIME) }),
+            /* @__PURE__ */ e("th", { children: N(t.ACTIONS) })
           ] }) }),
-          /* @__PURE__ */ e("tbody", { children: d.map((A) => {
-            const x = h(A.userId), b = m === A.userId;
-            return /* @__PURE__ */ s("tr", { children: [
-              /* @__PURE__ */ e("td", { className: "member-table-user", children: /* @__PURE__ */ s("div", { className: "member-table-user-cell", children: [
+          /* @__PURE__ */ e("tbody", { children: d.map((b) => {
+            const x = h(b.userId), v = m === b.userId;
+            return /* @__PURE__ */ i("tr", { children: [
+              /* @__PURE__ */ e("td", { className: "member-table-user", children: /* @__PURE__ */ i("div", { className: "member-table-user-cell", children: [
                 /* @__PURE__ */ e(
                   _e,
                   {
                     className: "member-table-avatar",
-                    src: l(A.userId),
+                    src: l(b.userId),
                     name: x
                   }
                 ),
                 /* @__PURE__ */ e(oe, { content: x, placement: "top", showArrow: !1, children: /* @__PURE__ */ e("span", { className: "member-table-user-name", children: x }) })
               ] }) }),
-              /* @__PURE__ */ e("td", { className: "member-table-time", children: A.endTime > 0 ? new Date(A.endTime * 1e3).toLocaleString() : "-" }),
-              /* @__PURE__ */ e("td", { className: "member-table-action", children: b ? /* @__PURE__ */ e("button", { className: "list-action-button", disabled: !0, children: N(n.UNBANNING) }) : /* @__PURE__ */ e(
+              /* @__PURE__ */ e("td", { className: "member-table-time", children: b.endTime > 0 ? new Date(b.endTime * 1e3).toLocaleString() : "-" }),
+              /* @__PURE__ */ e("td", { className: "member-table-action", children: v ? /* @__PURE__ */ e("button", { className: "list-action-button", disabled: !0, children: N(t.UNBANNING) }) : /* @__PURE__ */ e(
                 Oe,
                 {
                   actions: [
                     {
                       key: "unban",
-                      label: N(n.UNBAN),
-                      onClick: () => E(A.userId, x)
+                      label: N(t.UNBAN),
+                      onClick: () => E(b.userId, x)
                     }
                   ]
                 }
               ) })
-            ] }, A.userId);
+            ] }, b.userId);
           }) })
         ] }) })
       }
     )
   ] });
 }
-const Pe = Ce("MemberMgmt");
-function jn(a, r, c, d) {
+const Pe = pe("MemberMgmt");
+function qt(a, r, c, d) {
   const { opSuccess: L } = fe(r), {
     mutedList: u,
     bannedList: m,
@@ -386,73 +386,73 @@ function jn(a, r, c, d) {
     unmuteMember: g,
     banMember: I,
     unbanMember: E
-  } = We({ liveId: a || "", pageSize: 20 }), [N, A] = w([]), [x, b] = w([]), [H, $] = w(!1), [U, O] = w(null), [M, P] = w(null), z = j(null), k = j(null), [S, K] = w(null), [p, v] = w(null);
+  } = We({ liveId: a || "", pageSize: 20 }), [N, b] = w([]), [x, v] = w([]), [H, $] = w(!1), [U, O] = w(null), [M, P] = w(null), z = j(null), k = j(null), [S, K] = w(null), [C, A] = w(null);
   V(() => {
-    Array.isArray(u) && A(u);
+    Array.isArray(u) && b(u);
   }, [u]), V(() => {
-    Array.isArray(m) && b(m);
+    Array.isArray(m) && v(m);
   }, [m]);
-  const R = (o, t) => {
-    o === "success" ? q.success(t) : q.error(t);
-  }, f = y(async (o, t) => {
+  const R = (o, n) => {
+    o === "success" ? q.success(n) : q.error(n);
+  }, f = y(async (o, n) => {
     try {
-      await g({ memberAccounts: [o] }), R("success", L(n.UNMUTE, t)), await l();
-    } catch (i) {
-      const { code: D, info: Z } = ue(i), X = D ? Le(D, Z) : (i instanceof Error ? i.message : "") || r(n.UNKNOWN_HOST);
-      R("error", `【${r(n.UNMUTE)}】${r(n.OPERATION_FAILED, { error: X })}`);
+      await g({ memberAccounts: [o] }), R("success", L(t.UNMUTE, n)), await l();
+    } catch (s) {
+      const { code: D, info: Z } = ue(s), X = D ? Le(D, Z) : (s instanceof Error ? s.message : "") || r(t.UNKNOWN_HOST);
+      R("error", `【${r(t.UNMUTE)}】${r(t.OPERATION_FAILED, { error: X })}`);
     }
   }, [g, r, l]), W = me({
-    operationName: r(n.MUTE),
+    operationName: r(t.MUTE),
     action: async () => {
       const o = z.current;
       if (!o) throw new Error("No target");
-      await _({ memberAccounts: [o.userId], muteTime: Ln });
+      await _({ memberAccounts: [o.userId], muteTime: Ct });
     },
     confirm: {
-      title: r(n.CONFIRM_ACTION_TITLE, { action: r(n.MUTE) }),
-      content: z.current ? r(n.MUTE_CONFIRM_CONTENT, { name: z.current.userName }) : ""
+      title: r(t.CONFIRM_ACTION_TITLE, { action: r(t.MUTE) }),
+      content: z.current ? r(t.MUTE_CONFIRM_CONTENT, { name: z.current.userName }) : ""
     },
     onSuccess: async () => {
       const o = z.current;
-      R("success", L(n.MUTE, o?.userName || "")), await ae(), z.current = null, K(null);
+      R("success", L(t.MUTE, o?.userName || "")), await ae(), z.current = null, K(null);
     }
-  }), re = y((o, t, i) => {
+  }), re = y((o, n, s) => {
     if (a) {
       if (d) {
-        q.warning(r(n.LIVE_ENDED));
+        q.warning(r(t.LIVE_ENDED));
         return;
       }
-      Ue(o, c) || (i ? f(o, t) : (z.current = { userId: o, userName: t }, K({ userId: o, userName: t })));
+      Ue(o, c) || (s ? f(o, n) : (z.current = { userId: o, userName: n }, K({ userId: o, userName: n })));
     }
-  }, [a, c, f, d, r]), F = y(async (o, t) => {
+  }, [a, c, f, d, r]), F = y(async (o, n) => {
     try {
-      await E({ memberAccounts: [o] }), R("success", L(n.UNBAN, t)), await h();
-    } catch (i) {
-      const { code: D, info: Z } = ue(i), X = D ? Le(D, Z) : (i instanceof Error ? i.message : "") || r(n.UNKNOWN_HOST);
-      R("error", `【${r(n.UNBAN)}】${r(n.OPERATION_FAILED, { error: X })}`);
+      await E({ memberAccounts: [o] }), R("success", L(t.UNBAN, n)), await h();
+    } catch (s) {
+      const { code: D, info: Z } = ue(s), X = D ? Le(D, Z) : (s instanceof Error ? s.message : "") || r(t.UNKNOWN_HOST);
+      R("error", `【${r(t.UNBAN)}】${r(t.OPERATION_FAILED, { error: X })}`);
     }
   }, [E, r, h]), J = me({
-    operationName: r(n.BAN),
+    operationName: r(t.BAN),
     action: async () => {
       const o = k.current;
       if (!o) throw new Error("No target");
-      await I({ memberAccounts: [o.userId], duration: Tn });
+      await I({ memberAccounts: [o.userId], duration: Lt });
     },
     confirm: {
-      title: r(n.CONFIRM_ACTION_TITLE, { action: r(n.BAN) }),
-      content: k.current ? r(n.BAN_CONFIRM_CONTENT, { name: k.current.userName }) : ""
+      title: r(t.CONFIRM_ACTION_TITLE, { action: r(t.BAN) }),
+      content: k.current ? r(t.BAN_CONFIRM_CONTENT, { name: k.current.userName }) : ""
     },
     onSuccess: async () => {
       const o = k.current;
-      R("success", L(n.BAN, o?.userName || "")), await ie(), k.current = null, v(null);
+      R("success", L(t.BAN, o?.userName || "")), await se(), k.current = null, A(null);
     }
-  }), C = y((o, t, i) => {
+  }), p = y((o, n, s) => {
     if (a) {
       if (d) {
-        q.warning(r(n.LIVE_ENDED));
+        q.warning(r(t.LIVE_ENDED));
         return;
       }
-      Ue(o, c) || (i ? F(o, t) : (k.current = { userId: o, userName: t }, v({ userId: o, userName: t })));
+      Ue(o, c) || (s ? F(o, n) : (k.current = { userId: o, userName: n }, A({ userId: o, userName: n })));
     }
   }, [a, c, F, d, r]), B = j(W);
   B.current = W;
@@ -460,33 +460,33 @@ function jn(a, r, c, d) {
   Y.current = J, V(() => {
     S && B.current.requestConfirm();
   }, [S]), V(() => {
-    p && Y.current.requestConfirm();
-  }, [p]);
-  const ne = y(async (o, t) => {
+    C && Y.current.requestConfirm();
+  }, [C]);
+  const te = y(async (o, n) => {
     if (a) {
       if (d) {
-        q.warning(r(n.LIVE_ENDED));
+        q.warning(r(t.LIVE_ENDED));
         return;
       }
       if (!U) {
         O(o);
         try {
-          await f(o, t || o);
+          await f(o, n || o);
         } finally {
           O(null);
         }
       }
     }
-  }, [a, f, d, r, U]), ee = y(async (o, t) => {
+  }, [a, f, d, r, U]), ee = y(async (o, n) => {
     if (a) {
       if (d) {
-        q.warning(r(n.LIVE_ENDED));
+        q.warning(r(t.LIVE_ENDED));
         return;
       }
       if (!M) {
         P(o);
         try {
-          await F(o, t || o);
+          await F(o, n || o);
         } finally {
           P(null);
         }
@@ -497,30 +497,30 @@ function jn(a, r, c, d) {
       $(!0);
       try {
         const o = await l();
-        A(Array.isArray(o) ? o : []);
+        b(Array.isArray(o) ? o : []);
       } catch (o) {
         Pe.error("fetchMutedList", "获取禁言列表失败", o);
-        const { code: t, info: i } = ue(o), D = t ? Le(t, i) : (o instanceof Error ? o.message : "") || r(n.UNKNOWN_HOST);
-        R("error", r(n.FETCH_MUTED_LIST_FAILED, { error: D }));
+        const { code: n, info: s } = ue(o), D = n ? Le(n, s) : (o instanceof Error ? o.message : "") || r(t.UNKNOWN_HOST);
+        R("error", r(t.FETCH_MUTED_LIST_FAILED, { error: D }));
       } finally {
         $(!1);
       }
     }
-  }, [a, r, l]), ie = y(async () => {
+  }, [a, r, l]), se = y(async () => {
     if (a) {
       $(!0);
       try {
         const o = await h();
-        b(Array.isArray(o) ? o : []);
+        v(Array.isArray(o) ? o : []);
       } catch (o) {
         Pe.error("fetchBannedList", "获取封禁列表失败", o);
-        const { code: t, info: i } = ue(o), D = t ? Le(t, i) : (o instanceof Error ? o.message : "") || r(n.UNKNOWN_HOST);
-        R("error", r(n.FETCH_BANNED_LIST_FAILED, { error: D }));
+        const { code: n, info: s } = ue(o), D = n ? Le(n, s) : (o instanceof Error ? o.message : "") || r(t.UNKNOWN_HOST);
+        R("error", r(t.FETCH_BANNED_LIST_FAILED, { error: D }));
       } finally {
         $(!1);
       }
     }
-  }, [a, r, h]), T = y((o) => N.some((t) => t.userId === o), [N]);
+  }, [a, r, h]), T = y((o) => N.some((n) => n.userId === o), [N]);
   return {
     mutedList: N,
     bannedList: x,
@@ -528,10 +528,10 @@ function jn(a, r, c, d) {
     unmutingUserId: U,
     unbanningUserId: M,
     fetchMutedList: ae,
-    fetchBannedList: ie,
+    fetchBannedList: se,
     handleMuteAudience: re,
-    handleBanAudience: C,
-    handleUnmuteFromList: ne,
+    handleBanAudience: p,
+    handleUnmuteFromList: te,
     handleUnbanFromList: ee,
     isUserMuted: T,
     muteConfirmDialog: W.confirmDialog,
@@ -540,8 +540,8 @@ function jn(a, r, c, d) {
     banAction: J
   };
 }
-const Yn = 160;
-function Jn({
+const jt = 160;
+function Yt({
   liveId: a,
   activeTab: r,
   onActiveTabChange: c,
@@ -549,62 +549,62 @@ function Jn({
   currentUserId: L,
   roomJoined: u = !1
 }) {
-  const { t: m } = ye(), { currentLive: l, updateLive: h } = Se(), _ = l?.liveOwner?.userId || "", g = jn(a, m, _, d), { audienceList: I } = ve(), E = l?.isMessageDisabled === !0, [N, A] = w(!1), [x, b] = w(!1), H = y((C) => {
-    if (!d && C !== E) {
-      if (!C) {
-        A(!0), h({ liveId: a, isMessageDisabled: !1 }).finally(() => A(!1));
+  const { t: m } = ye(), { currentLive: l, updateLive: h } = Se(), _ = l?.liveOwner?.userId || "", g = qt(a, m, _, d), { audienceList: I } = Ae(), E = l?.isMessageDisabled === !0, [N, b] = w(!1), [x, v] = w(!1), H = y((p) => {
+    if (!d && p !== E) {
+      if (!p) {
+        b(!0), h({ liveId: a, isMessageDisabled: !1 }).finally(() => b(!1));
         return;
       }
-      b(!0);
+      v(!0);
     }
   }, [d, E, a, h]), $ = y(() => {
-    A(!0), h({ liveId: a, isMessageDisabled: !0 }).then(() => b(!1)).finally(() => A(!1));
-  }, [a, h]), [U, O] = w(null), M = j(null), P = y((C, B, Y) => {
-    C.stopPropagation();
-    const ne = C.currentTarget.getBoundingClientRect();
-    O({ userId: B, userName: Y, x: ne.right, y: ne.bottom + 4 });
+    b(!0), h({ liveId: a, isMessageDisabled: !0 }).then(() => v(!1)).finally(() => b(!1));
+  }, [a, h]), [U, O] = w(null), M = j(null), P = y((p, B, Y) => {
+    p.stopPropagation();
+    const te = p.currentTarget.getBoundingClientRect();
+    O({ userId: B, userName: Y, x: te.right, y: te.bottom + 4 });
   }, []), z = y(() => {
     O(null);
   }, []);
   V(() => {
     if (!U) return;
-    const C = (B) => {
+    const p = (B) => {
       M.current && !M.current.contains(B.target) && O(null);
     };
-    return document.addEventListener("mousedown", C), () => document.removeEventListener("mousedown", C);
+    return document.addEventListener("mousedown", p), () => document.removeEventListener("mousedown", p);
   }, [U]);
-  const [k, S] = w(!1), [K, p] = w(!1), v = j(g.fetchMutedList);
-  v.current = g.fetchMutedList;
+  const [k, S] = w(!1), [K, C] = w(!1), A = j(g.fetchMutedList);
+  A.current = g.fetchMutedList;
   const R = j(g.fetchBannedList);
   R.current = g.fetchBannedList;
   const f = y(() => {
-    v.current(), S(!0);
+    A.current(), S(!0);
   }, []), W = y(() => {
-    R.current(), p(!0);
+    R.current(), C(!0);
   }, []);
   V(() => {
-    r === "audience" && a && (v.current(), R.current());
+    r === "audience" && a && (A.current(), R.current());
   }, [r, a]);
-  function re(C) {
-    const B = I.find((Y) => Y.userId === C);
+  function re(p) {
+    const B = I.find((Y) => Y.userId === p);
     if (B && "avatarUrl" in B && typeof B.avatarUrl == "string")
       return B.avatarUrl;
   }
-  function F(C) {
-    const B = I.find((Y) => Y.userId === C);
-    return B?.userName ? B.userName : C;
+  function F(p) {
+    const B = I.find((Y) => Y.userId === p);
+    return B?.userName ? B.userName : p;
   }
-  function J(C, B) {
-    return C ? /* @__PURE__ */ e(
+  function J(p, B) {
+    return p ? /* @__PURE__ */ e(
       Ee,
       {
         visible: !0,
-        header: m(C.title),
+        header: m(p.title),
         onClose: () => B.cancelConfirm(),
         width: ge.CONFIRM,
         zIndex: 2600,
-        footer: /* @__PURE__ */ s(se, { children: [
-          /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", disabled: B.loading, onClick: () => B.cancelConfirm(), children: m(n.CANCEL) }),
+        footer: /* @__PURE__ */ i(ie, { children: [
+          /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", disabled: B.loading, onClick: () => B.cancelConfirm(), children: m(t.CANCEL) }),
           /* @__PURE__ */ e(
             Q,
             {
@@ -612,43 +612,43 @@ function Jn({
               theme: "primary",
               loading: B.loading,
               onClick: () => B.executeWithConfirm(),
-              children: m(C.confirmText ?? n.CONFIRM)
+              children: m(p.confirmText ?? t.CONFIRM)
             }
           )
         ] }),
-        children: /* @__PURE__ */ e("p", { dangerouslySetInnerHTML: { __html: m(C.content) } })
+        children: /* @__PURE__ */ e("p", { dangerouslySetInnerHTML: { __html: m(p.content) } })
       },
-      C.title
+      p.title
     ) : null;
   }
-  return /* @__PURE__ */ s("div", { className: "left-interaction-card", children: [
-    /* @__PURE__ */ s("div", { className: "interaction-tabs-header", children: [
-      /* @__PURE__ */ s(
-        be,
+  return /* @__PURE__ */ i("div", { className: "left-interaction-card", children: [
+    /* @__PURE__ */ i("div", { className: "interaction-tabs-header", children: [
+      /* @__PURE__ */ i(
+        ve,
         {
           value: r,
-          onChange: (C) => c(C),
+          onChange: (p) => c(p),
           className: "interaction-tabs",
           children: [
-            /* @__PURE__ */ e(be.TabPanel, { value: "chat", label: m(n.MESSAGE_LIST) }),
-            /* @__PURE__ */ e(be.TabPanel, { value: "audience", label: m(n.AUDIENCE_LIST) })
+            /* @__PURE__ */ e(ve.TabPanel, { value: "chat", label: m(t.MESSAGE_LIST) }),
+            /* @__PURE__ */ e(ve.TabPanel, { value: "audience", label: m(t.AUDIENCE_LIST) })
           ]
         }
       ),
-      /* @__PURE__ */ s("div", { className: "all-mute-control-row", children: [
+      /* @__PURE__ */ i("div", { className: "all-mute-control-row", children: [
         /* @__PURE__ */ e(
           xe,
           {
             value: E,
             disabled: N || d,
-            onChange: (C) => H(!!C)
+            onChange: (p) => H(!!p)
           }
         ),
-        /* @__PURE__ */ e("span", { className: "all-mute-label", children: m(n.ALL_MEMBER_MUTE) })
+        /* @__PURE__ */ e("span", { className: "all-mute-label", children: m(t.ALL_MEMBER_MUTE) })
       ] })
     ] }),
-    /* @__PURE__ */ s("div", { className: "interaction-body", children: [
-      /* @__PURE__ */ s(
+    /* @__PURE__ */ i("div", { className: "interaction-body", children: [
+      /* @__PURE__ */ i(
         "div",
         {
           className: "chat-stream-sidebar",
@@ -658,12 +658,12 @@ function Jn({
             flexDirection: "column"
           },
           children: [
-            E && /* @__PURE__ */ s("div", { className: "all-mute-banner", children: [
+            E && /* @__PURE__ */ i("div", { className: "all-mute-banner", children: [
               /* @__PURE__ */ e("span", { className: "all-mute-banner-icon", children: "!" }),
-              /* @__PURE__ */ e("span", { children: m(n.ALL_MEMBER_MUTE_ENABLED_BANNER) })
+              /* @__PURE__ */ e("span", { children: m(t.ALL_MEMBER_MUTE_ENABLED_BANNER) })
             ] }),
             /* @__PURE__ */ e(
-              Kn,
+              Ht,
               {
                 liveId: a,
                 anchorUserId: _,
@@ -677,45 +677,45 @@ function Jn({
           ]
         }
       ),
-      /* @__PURE__ */ s(
+      /* @__PURE__ */ i(
         "div",
         {
           className: "audience-tab-wrapper",
           style: { display: r === "audience" ? "flex" : "none" },
           children: [
-            /* @__PURE__ */ e("div", { className: "audience-list-area", children: /* @__PURE__ */ e(Nn, { height: "99%", children: ({ audience: C }) => {
-              if (C.userId === L)
-                return /* @__PURE__ */ e("span", { className: "audience-me-tag", children: m(n.ME) });
+            /* @__PURE__ */ e("div", { className: "audience-list-area", children: /* @__PURE__ */ e(ht, { height: "99%", children: ({ audience: p }) => {
+              if (p.userId === L)
+                return /* @__PURE__ */ e("span", { className: "audience-me-tag", children: m(t.ME) });
               const B = Ie(_);
-              return C.userRole === 0 || C.userId === B ? null : /* @__PURE__ */ s("div", { className: "audience-row-actions", children: [
-                g.isUserMuted(C.userId) && /* @__PURE__ */ e("span", { className: "audience-muted-badge", children: m(n.MUTED) }),
+              return p.userRole === 0 || p.userId === B ? null : /* @__PURE__ */ i("div", { className: "audience-row-actions", children: [
+                g.isUserMuted(p.userId) && /* @__PURE__ */ e("span", { className: "audience-muted-badge", children: m(t.MUTED) }),
                 /* @__PURE__ */ e(
                   "button",
                   {
                     className: "audience-more-btn",
-                    title: m(n.MORE_ACTIONS),
+                    title: m(t.MORE_ACTIONS),
                     disabled: d,
                     onClick: (Y) => {
                       Y.stopPropagation(), P(
                         Y,
-                        C.userId,
-                        C.userName || C.userId
+                        p.userId,
+                        p.userName || p.userId
                       );
                     },
-                    children: /* @__PURE__ */ e(rn, { size: 18 })
+                    children: /* @__PURE__ */ e(rt, { size: 18 })
                   }
                 )
               ] });
             } }) }),
-            /* @__PURE__ */ s("div", { className: "audience-bottom-actions", children: [
-              /* @__PURE__ */ s("button", { className: "audience-bottom-btn", disabled: d, onClick: f, children: [
-                m(n.MUTED_LIST),
+            /* @__PURE__ */ i("div", { className: "audience-bottom-actions", children: [
+              /* @__PURE__ */ i("button", { className: "audience-bottom-btn", disabled: d, onClick: f, children: [
+                m(t.MUTED_LIST),
                 " (",
                 g.mutedList.length,
                 ")"
               ] }),
-              /* @__PURE__ */ s("button", { className: "audience-bottom-btn", disabled: d, onClick: W, children: [
-                m(n.BANNED_LIST),
+              /* @__PURE__ */ i("button", { className: "audience-bottom-btn", disabled: d, onClick: W, children: [
+                m(t.BANNED_LIST),
                 " (",
                 g.bannedList.length,
                 ")"
@@ -725,7 +725,7 @@ function Jn({
         }
       )
     ] }),
-    U && /* @__PURE__ */ s(
+    U && /* @__PURE__ */ i(
       "div",
       {
         ref: M,
@@ -733,12 +733,12 @@ function Jn({
         style: {
           position: "fixed",
           top: U.y,
-          left: U.x - Yn
+          left: U.x - jt
         },
         children: [
           /* @__PURE__ */ e("div", { className: "dropdown-header", children: U.userName }),
           /* @__PURE__ */ e("div", { className: "dropdown-divider" }),
-          g.isUserMuted(U.userId) ? /* @__PURE__ */ s(
+          g.isUserMuted(U.userId) ? /* @__PURE__ */ i(
             "button",
             {
               className: "dropdown-item",
@@ -747,11 +747,11 @@ function Jn({
                 g.handleMuteAudience(U.userId, U.userName, !0), z();
               },
               children: [
-                /* @__PURE__ */ e(Ae, { size: 14 }),
-                m(n.UNMUTE)
+                /* @__PURE__ */ e(be, { size: 14 }),
+                m(t.UNMUTE)
               ]
             }
-          ) : /* @__PURE__ */ s(
+          ) : /* @__PURE__ */ i(
             "button",
             {
               className: "dropdown-item",
@@ -761,11 +761,11 @@ function Jn({
               },
               children: [
                 /* @__PURE__ */ e(Fe, { size: 14 }),
-                m(n.MUTE)
+                m(t.MUTE)
               ]
             }
           ),
-          /* @__PURE__ */ s(
+          /* @__PURE__ */ i(
             "button",
             {
               className: "dropdown-item danger",
@@ -775,7 +775,7 @@ function Jn({
               },
               children: [
                 /* @__PURE__ */ e(Ve, { size: 14 }),
-                m(n.BAN)
+                m(t.BAN)
               ]
             }
           )
@@ -788,19 +788,19 @@ function Jn({
       Ee,
       {
         visible: !0,
-        header: m(n.ENABLE_ALL_MEMBER_MUTE),
-        onClose: () => b(!1),
+        header: m(t.ENABLE_ALL_MEMBER_MUTE),
+        onClose: () => v(!1),
         width: ge.CONFIRM,
         zIndex: 2600,
-        footer: /* @__PURE__ */ s(se, { children: [
-          /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", onClick: () => b(!1), children: m(n.CANCEL) }),
-          /* @__PURE__ */ e(Q, { shape: "round", theme: "primary", loading: N, onClick: $, children: m(n.CONFIRM_ENABLE) })
+        footer: /* @__PURE__ */ i(ie, { children: [
+          /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", onClick: () => v(!1), children: m(t.CANCEL) }),
+          /* @__PURE__ */ e(Q, { shape: "round", theme: "primary", loading: N, onClick: $, children: m(t.CONFIRM_ENABLE) })
         ] }),
-        children: /* @__PURE__ */ e("p", { dangerouslySetInnerHTML: { __html: m(n.ENABLE_ALL_MEMBER_MUTE_CONFIRM_CONTENT) } })
+        children: /* @__PURE__ */ e("p", { dangerouslySetInnerHTML: { __html: m(t.ENABLE_ALL_MEMBER_MUTE_CONFIRM_CONTENT) } })
       }
     ),
     /* @__PURE__ */ e(
-      qn,
+      Kt,
       {
         mutedModalVisible: k,
         bannedModalVisible: K,
@@ -812,7 +812,7 @@ function Jn({
         getUserAvatar: re,
         getUserNameFromCache: F,
         onMutedModalClose: () => S(!1),
-        onBannedModalClose: () => p(!1),
+        onBannedModalClose: () => C(!1),
         onUnmuteFromList: g.handleUnmuteFromList,
         onUnbanFromList: g.handleUnbanFromList,
         t: m
@@ -820,8 +820,8 @@ function Jn({
     )
   ] });
 }
-const G = Ce("LiveControl");
-function Xn() {
+const G = pe("LiveControl");
+function Jt() {
   try {
     if (typeof window < "u" && window.__IDENTITY_MODE__ === "admin")
       return "admin";
@@ -829,7 +829,7 @@ function Xn() {
   }
   return "audience";
 }
-function Zn({
+function Xt({
   liveControlSlots: a,
   liveInfo: r,
   liveId: c,
@@ -839,37 +839,37 @@ function Zn({
   onLiveEnded: m,
   t: l
 }) {
-  const { currentLive: h, setCurrentLive: _ } = Se(), { joinLive: g, leaveLive: I, subscribeEvent: E, unsubscribeEvent: N } = gn(), { fetchAudienceList: A } = ve(), { login: x, loginUserInfo: b } = En(), { hideControlBar: H, showControlBar: $, setAutoHideDelay: U } = Cn(), [O, M] = w(!1), [P, z] = w(""), [k, S] = w(!1), [K, p] = w(0), v = j(""), R = j(!1), f = j(null), W = j(null), re = b?.userId || P, F = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, J = j(Xn()).current, C = 5, B = 2e3;
+  const { currentLive: h, setCurrentLive: _ } = Se(), { joinLive: g, leaveLive: I, subscribeEvent: E, unsubscribeEvent: N } = Nt(), { fetchAudienceList: b } = Ae(), { login: x, loginUserInfo: v } = gt(), { hideControlBar: H, showControlBar: $, setAutoHideDelay: U } = Et(), [O, M] = w(!1), [P, z] = w(""), [k, S] = w(!1), [K, C] = w(0), A = j(""), R = j(!1), f = j(null), W = j(null), re = v?.userId || P, F = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, J = j(Jt()).current, p = 5, B = 2e3;
   V(() => {
     if (F) {
-      G.info("LiveControlLeftPanel", "Mock mode, skipping TUILogin"), M(!0);
+      G.debug("LiveControlLeftPanel", "Mock mode, skipping TUILogin"), M(!0);
       return;
     }
     if (O) return;
     const o = async () => {
       try {
-        let i;
-        if (J === "audience" ? (G.info("LiveControlLeftPanel", "Audience mode, creating basic account..."), i = await bn("audience")) : (G.info("LiveControlLeftPanel", "Admin mode, resolving account..."), i = await Ke()), !i || i.sdkAppId === 0) {
-          G.warn("LiveControlLeftPanel", "No valid credentials, will retry"), t();
+        let s;
+        if (J === "audience" ? (G.debug("LiveControlLeftPanel", "Audience mode, creating basic account..."), s = await At("audience")) : (G.debug("LiveControlLeftPanel", "Admin mode, resolving account..."), s = await Ke()), !s || s.sdkAppId === 0) {
+          G.warn("LiveControlLeftPanel", "No valid credentials, will retry"), n();
           return;
         }
-        z(i.userId), G.info("LiveControlLeftPanel", "TUILogin as:", J, "userId:", i.userId), await x({
-          SDKAppID: i.sdkAppId,
-          userID: i.userId,
-          userSig: i.userSig
-        }), G.info("LiveControlLeftPanel", "TUILogin success"), M(!0), p(0);
-      } catch (i) {
-        i?.code === 2025 || i?.message?.includes("重复登录") ? (G.info("LiveControlLeftPanel", "Already logged in"), M(!0), p(0)) : (G.error("LiveControlLeftPanel", "TUILogin failed:", i), t());
+        z(s.userId), G.debug("LiveControlLeftPanel", "TUILogin as:", J, "userId:", s.userId), await x({
+          SDKAppID: s.sdkAppId,
+          userID: s.userId,
+          userSig: s.userSig
+        }), G.info("LiveControlLeftPanel", "TUILogin success"), M(!0), C(0);
+      } catch (s) {
+        s?.code === 2025 || s?.message?.includes("重复登录") ? (G.debug("LiveControlLeftPanel", "Already logged in"), M(!0), C(0)) : (G.error("LiveControlLeftPanel", "TUILogin failed:", s), n());
       }
-    }, t = () => {
-      if (K >= C) {
-        G.error("LiveControlLeftPanel", `Login failed after ${C} retries, giving up`);
+    }, n = () => {
+      if (K >= p) {
+        G.error("LiveControlLeftPanel", `Login failed after ${p} retries, giving up`);
         return;
       }
-      const i = B * (K + 1);
-      G.info("LiveControlLeftPanel", `Scheduling login retry #${K + 1} in ${i}ms`), W.current = setTimeout(() => {
-        p((D) => D + 1);
-      }, i);
+      const s = B * (K + 1);
+      G.debug("LiveControlLeftPanel", `Scheduling login retry #${K + 1} in ${s}ms`), W.current = setTimeout(() => {
+        C((D) => D + 1);
+      }, s);
     };
     return o(), () => {
       W.current && (clearTimeout(W.current), W.current = null);
@@ -877,59 +877,59 @@ function Zn({
   }, [F, O, x, K]), V(() => {
     if (F || !O || !P || J !== "audience") return;
     const o = Re() === "en-US" ? "admin" : "管理员";
-    An(P, o).catch((t) => {
-      G.warn("LiveControlLeftPanel", "setMonitorNickname before join failed:", t);
+    Tt(P, o).catch((n) => {
+      G.warn("LiveControlLeftPanel", "setMonitorNickname before join failed:", n);
     });
   }, [F, O, P]), V(() => {
     if (c)
-      return G.info("LiveControlLeftPanel", "Setting current live:", c), _(c), () => {
-        G.info("LiveControlLeftPanel", "Clearing current live"), _(null);
+      return G.debug("LiveControlLeftPanel", "Setting current live:", c), _(c), () => {
+        G.debug("LiveControlLeftPanel", "Clearing current live"), _(null);
       };
   }, [c, _]);
   const Y = y(async () => {
     if (!(!c || !h || !O)) {
       if (d) {
-        G.info("LiveControlLeftPanel", "Live already ended, skipping join");
+        G.debug("LiveControlLeftPanel", "Live already ended, skipping join");
         return;
       }
-      if (v.current === c) {
-        G.info("LiveControlLeftPanel", "Already joined live:", c);
+      if (A.current === c) {
+        G.debug("LiveControlLeftPanel", "Already joined live:", c);
         return;
       }
       try {
-        G.info("LiveControlLeftPanel", "Joining live:", c, "as:", J);
+        G.debug("LiveControlLeftPanel", "Joining live:", c, "as:", J);
         const o = Re();
-        if (kn.callExperimentalAPI(JSON.stringify({
+        if (Ut.callExperimentalAPI(JSON.stringify({
           api: "setCurrentLanguage",
           params: { language: o === "en-US" ? "en" : o === "zh-CN" ? "zh-Hans" : o }
         })).catch(() => {
-        }), await g({ liveId: c }), v.current = c, S(!0), await A().catch((t) => {
-          G.warn("LiveControlLeftPanel", "fetchAudienceList after join failed:", t);
+        }), await g({ liveId: c }), A.current = c, S(!0), await b().catch((n) => {
+          G.warn("LiveControlLeftPanel", "fetchAudienceList after join failed:", n);
         }), H(), U(0), !R.current && E) {
-          const t = () => {
+          const n = () => {
             G.info("LiveControlLeftPanel", "Live ended event received"), _(null), m?.();
           };
-          f.current = t, E(De.ON_LIVE_ENDED, t), R.current = !0;
+          f.current = n, E(De.ON_LIVE_ENDED, n), R.current = !0;
         }
-        G.info("LiveControlLeftPanel", "Successfully joined live:", c), console.log("[LiveControlLeftPanel] adding live admin:", P, "room:", c), vn(c, P).catch((t) => {
-          console.error("[LiveControlLeftPanel] addLiveAdmin failed:", t), G.warn("LiveControlLeftPanel", "addLiveAdmin failed:", t);
+        G.info("LiveControlLeftPanel", "Successfully joined live:", c), console.log("[LiveControlLeftPanel] adding live admin:", P, "room:", c), bt(c, P).catch((n) => {
+          console.error("[LiveControlLeftPanel] addLiveAdmin failed:", n), G.warn("LiveControlLeftPanel", "addLiveAdmin failed:", n);
         });
       } catch (o) {
         G.error("LiveControlLeftPanel", "Failed to join live:", o);
       }
     }
-  }, [c, h, O, g, A, E, J, _, d, m]);
+  }, [c, h, O, g, b, E, J, _, d, m]);
   V(() => {
     Y();
   }, [Y]), V(() => {
-    v.current = "", S(!1);
+    A.current = "", S(!1);
   }, [c]);
-  const ne = j(!1);
+  const te = j(!1);
   V(() => () => {
-    if (ne.current = !0, G.info("LiveControlLeftPanel", "Component unmounting, cleaning up"), R.current && N && f.current && (N(De.ON_LIVE_ENDED, f.current), R.current = !1, f.current = null), v.current) {
-      const o = v.current;
-      v.current = "", I().catch((t) => {
-        G.warn("LiveControlLeftPanel", "leaveLive on unmount failed for", o, t);
+    if (te.current = !0, G.debug("LiveControlLeftPanel", "Component unmounting, cleaning up"), R.current && N && f.current && (N(De.ON_LIVE_ENDED, f.current), R.current = !1, f.current = null), A.current) {
+      const o = A.current;
+      A.current = "", I().catch((n) => {
+        G.warn("LiveControlLeftPanel", "leaveLive on unmount failed for", o, n);
       });
     }
     $();
@@ -938,29 +938,29 @@ function Zn({
     () => r?.anchor.avatarUrl || h?.liveOwner?.avatarUrl || "",
     [r?.anchor.avatarUrl, h?.liveOwner?.avatarUrl]
   ), ae = le(
-    () => r?.anchor.nick || h?.liveOwner?.userName || l(n.UNKNOWN_ANCHOR),
+    () => r?.anchor.nick || h?.liveOwner?.userName || l(t.UNKNOWN_ANCHOR),
     [r?.anchor.nick, h?.liveOwner?.userName, l]
-  ), ie = le(
+  ), se = le(
     () => h?.liveType === "Voice",
     [h?.liveType]
   );
-  return /* @__PURE__ */ s("div", { className: "left-content-area", children: [
+  return /* @__PURE__ */ i("div", { className: "left-content-area", children: [
     /* @__PURE__ */ e(
-      $n,
+      Wt,
       {
         liveControlSlots: a,
         liveInfo: r,
         currentLive: h,
         liveAnchorAvatar: ee,
         liveAnchorName: ae,
-        isVoiceLive: ie,
+        isVoiceLive: se,
         isMockMode: F,
         liveEndedOverlayVisible: d || !h && !F,
         t: l
       }
     ),
     /* @__PURE__ */ e(
-      Jn,
+      Yt,
       {
         liveId: c,
         activeTab: L,
@@ -972,13 +972,13 @@ function Zn({
     )
   ] });
 }
-const Qn = (a, r, c) => {
+const Zt = (a, r, c) => {
   const d = Array.from({ length: r }, () => 0);
   return a.forEach((L, u) => {
     const m = u % r;
     d[m] = Math.max(d[m], L);
   }), d.reduce((L, u) => L + u, 0) + c * (r - 1);
-}, et = (a) => {
+}, Qt = (a) => {
   const r = Array.from(a.querySelectorAll(":scope > .stat-bar-item")), c = document.createElement("div");
   c.style.position = "absolute", c.style.left = "-99999px", c.style.top = "0", c.style.visibility = "hidden", c.style.pointerEvents = "none", c.style.width = "max-content", document.body.appendChild(c);
   const d = r.map((L) => {
@@ -986,21 +986,21 @@ const Qn = (a, r, c) => {
     return u.style.width = "max-content", u.style.maxWidth = "none", c.appendChild(u), Math.ceil(u.getBoundingClientRect().width);
   });
   return c.remove(), d;
-}, nt = (a) => {
+}, en = (a) => {
   if (a.clientWidth <= 0) return;
-  const r = et(a);
+  const r = Qt(a);
   if (!r.length) return;
-  const c = parseFloat(getComputedStyle(a).columnGap) || 0, d = a.clientWidth, L = [7, 4, 3, 2, 1].find((u) => Qn(r, u, c) <= d + 1) || 1;
+  const c = parseFloat(getComputedStyle(a).columnGap) || 0, d = a.clientWidth, L = [7, 4, 3, 2, 1].find((u) => Zt(r, u, c) <= d + 1) || 1;
   a.style.setProperty("--stats-columns", String(L));
-}, tt = (a) => a >= 1e4 ? (a / 1e4).toFixed(1) + "w" : a.toLocaleString(), rt = (a, r) => {
+}, tn = (a) => a >= 1e4 ? (a / 1e4).toFixed(1) + "w" : a.toLocaleString(), nn = (a, r) => {
   a < 0 && (a = 0);
   const c = Math.floor(a / 86400), d = Math.floor(a % 86400 / 3600), L = Math.floor(a % 3600 / 60), u = a % 60, m = `${d.toString().padStart(2, "0")}:${L.toString().padStart(2, "0")}:${u.toString().padStart(2, "0")}`;
-  return c > 0 ? `${c}${r(n.DAYS)} ${m}` : m;
-}, at = (a) => {
+  return c > 0 ? `${c}${r(t.DAYS)} ${m}` : m;
+}, rn = (a) => {
   const r = new Date(a), c = String(r.getMonth() + 1).padStart(2, "0"), d = String(r.getDate()).padStart(2, "0"), L = String(r.getHours()).padStart(2, "0"), u = String(r.getMinutes()).padStart(2, "0"), m = String(r.getSeconds()).padStart(2, "0");
   return `${c}-${d} ${L}:${u}:${m}`;
 };
-function ot({
+function an({
   liveInfo: a,
   audienceCount: r,
   liveDuration: c,
@@ -1015,7 +1015,7 @@ function ot({
     let h = null;
     const _ = () => {
       h !== null && cancelAnimationFrame(h), h = requestAnimationFrame(() => {
-        h = null, nt(l);
+        h = null, en(l);
       });
     }, g = new ResizeObserver(_);
     g.observe(l);
@@ -1023,72 +1023,72 @@ function ot({
     return I.observe(l, { childList: !0, subtree: !0, characterData: !0 }), _(), () => {
       g.disconnect(), I.disconnect(), h !== null && cancelAnimationFrame(h);
     };
-  }, []), /* @__PURE__ */ s("div", { className: "sidebar-stats-card", children: [
-    /* @__PURE__ */ s("div", { className: "stats-card-header", children: [
-      /* @__PURE__ */ s("div", { className: "stats-header-left", children: [
-        /* @__PURE__ */ e("h3", { children: u(n.LIVE_DATA_CONTROL) }),
-        /* @__PURE__ */ s("span", { className: "live-status-tag", children: [
+  }, []), /* @__PURE__ */ i("div", { className: "sidebar-stats-card", children: [
+    /* @__PURE__ */ i("div", { className: "stats-card-header", children: [
+      /* @__PURE__ */ i("div", { className: "stats-header-left", children: [
+        /* @__PURE__ */ e("h3", { children: u(t.LIVE_DATA_CONTROL) }),
+        /* @__PURE__ */ i("span", { className: "live-status-tag", children: [
           /* @__PURE__ */ e("span", { className: "live-status-dot" }),
-          u(n.LIVE_NOW),
-          /* @__PURE__ */ e("span", { className: "live-duration-text", children: rt(c, u) })
+          u(t.LIVE_NOW),
+          /* @__PURE__ */ e("span", { className: "live-duration-text", children: nn(c, u) })
         ] })
       ] }),
-      /* @__PURE__ */ e("span", { className: "update-time", children: u(n.UPDATED_AT, { time: L }) })
+      /* @__PURE__ */ e("span", { className: "update-time", children: u(t.UPDATED_AT, { time: L }) })
     ] }),
-    /* @__PURE__ */ s("div", { ref: m, className: "stats-bar-design", children: [
-      /* @__PURE__ */ s("div", { className: "stat-bar-item", children: [
-        /* @__PURE__ */ s("div", { className: "stat-label", children: [
-          u(n.CURRENT_VIEWERS),
-          /* @__PURE__ */ e(oe, { content: u(n.CURRENT_VIEWERS_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
+    /* @__PURE__ */ i("div", { ref: m, className: "stats-bar-design", children: [
+      /* @__PURE__ */ i("div", { className: "stat-bar-item", children: [
+        /* @__PURE__ */ i("div", { className: "stat-label", children: [
+          u(t.CURRENT_VIEWERS),
+          /* @__PURE__ */ e(oe, { content: u(t.CURRENT_VIEWERS_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
         ] }),
-        /* @__PURE__ */ e("div", { className: "stat-value", children: tt(a?.onlineCount ?? r ?? 0) })
+        /* @__PURE__ */ e("div", { className: "stat-value", children: tn(a?.onlineCount ?? r ?? 0) })
       ] }),
-      /* @__PURE__ */ s("div", { className: "stat-bar-item", children: [
-        /* @__PURE__ */ s("div", { className: "stat-label", children: [
-          u(n.COMMENT_COUNT),
-          /* @__PURE__ */ e(oe, { content: u(n.COMMENT_COUNT_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
+      /* @__PURE__ */ i("div", { className: "stat-bar-item", children: [
+        /* @__PURE__ */ i("div", { className: "stat-label", children: [
+          u(t.COMMENT_COUNT),
+          /* @__PURE__ */ e(oe, { content: u(t.COMMENT_COUNT_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
         ] }),
         /* @__PURE__ */ e("div", { className: "stat-value", children: a?.stats?.commentCount?.toLocaleString() ?? "0" })
       ] }),
-      /* @__PURE__ */ s("div", { className: "stat-bar-item", children: [
-        /* @__PURE__ */ s("div", { className: "stat-label", children: [
-          u(n.COMMENT_USERS),
-          /* @__PURE__ */ e(oe, { content: u(n.COMMENT_USERS_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
+      /* @__PURE__ */ i("div", { className: "stat-bar-item", children: [
+        /* @__PURE__ */ i("div", { className: "stat-label", children: [
+          u(t.COMMENT_USERS),
+          /* @__PURE__ */ e(oe, { content: u(t.COMMENT_USERS_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
         ] }),
         /* @__PURE__ */ e("div", { className: "stat-value", children: a?.stats?.viewCount?.toLocaleString() ?? "0" })
       ] }),
-      /* @__PURE__ */ s("div", { className: "stat-bar-item", children: [
-        /* @__PURE__ */ s("div", { className: "stat-label", children: [
-          u(n.INTERACTION_RATE),
-          /* @__PURE__ */ e(oe, { content: u(n.INTERACTION_RATE_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
+      /* @__PURE__ */ i("div", { className: "stat-bar-item", children: [
+        /* @__PURE__ */ i("div", { className: "stat-label", children: [
+          u(t.INTERACTION_RATE),
+          /* @__PURE__ */ e(oe, { content: u(t.INTERACTION_RATE_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
         ] }),
         /* @__PURE__ */ e("div", { className: "stat-value", children: d })
       ] }),
-      /* @__PURE__ */ s("div", { className: "stat-bar-item", children: [
-        /* @__PURE__ */ s("div", { className: "stat-label", children: [
-          u(n.TOTAL_GIFT_AMOUNT),
-          /* @__PURE__ */ e(oe, { content: u(n.TOTAL_GIFT_AMOUNT_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
+      /* @__PURE__ */ i("div", { className: "stat-bar-item", children: [
+        /* @__PURE__ */ i("div", { className: "stat-label", children: [
+          u(t.TOTAL_GIFT_AMOUNT),
+          /* @__PURE__ */ e(oe, { content: u(t.TOTAL_GIFT_AMOUNT_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
         ] }),
         /* @__PURE__ */ e("div", { className: "stat-value", children: a?.stats?.giftAmount?.toFixed(2) ?? "0.00" })
       ] }),
-      /* @__PURE__ */ s("div", { className: "stat-bar-item", children: [
-        /* @__PURE__ */ s("div", { className: "stat-label", children: [
-          u(n.GIFT_COUNT),
-          /* @__PURE__ */ e(oe, { content: u(n.GIFT_COUNT_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
+      /* @__PURE__ */ i("div", { className: "stat-bar-item", children: [
+        /* @__PURE__ */ i("div", { className: "stat-label", children: [
+          u(t.GIFT_COUNT),
+          /* @__PURE__ */ e(oe, { content: u(t.GIFT_COUNT_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
         ] }),
         /* @__PURE__ */ e("div", { className: "stat-value", children: a?.stats?.giftCount ?? 0 })
       ] }),
-      /* @__PURE__ */ s("div", { className: "stat-bar-item", children: [
-        /* @__PURE__ */ s("div", { className: "stat-label", children: [
-          u(n.GIFT_SENDERS),
-          /* @__PURE__ */ e(oe, { content: u(n.GIFT_SENDERS_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
+      /* @__PURE__ */ i("div", { className: "stat-bar-item", children: [
+        /* @__PURE__ */ i("div", { className: "stat-label", children: [
+          u(t.GIFT_SENDERS),
+          /* @__PURE__ */ e(oe, { content: u(t.GIFT_SENDERS_TOOLTIP), placement: "top", children: /* @__PURE__ */ e(de, { size: 14, className: "info-icon" }) })
         ] }),
         /* @__PURE__ */ e("div", { className: "stat-value", children: a?.stats?.giftUserCount ?? 0 })
       ] })
     ] })
   ] });
 }
-function it({
+function on({
   moderationMode: a = "cloud",
   moderationList: r,
   moderationLoading: c,
@@ -1103,9 +1103,9 @@ function it({
   disabled: I = !1,
   onRefresh: E,
   onPageChange: N,
-  onBulkApprove: A,
+  onBulkApprove: b,
   onBulkDelete: x,
-  onToggleSelectOne: b,
+  onToggleSelectOne: v,
   onToggleSelectAll: H,
   onRelease: $,
   onDelete: U,
@@ -1113,7 +1113,7 @@ function it({
   t: M
 }) {
   const P = a === "custom", z = le(
-    () => xn({ hideTypeColumn: P }).map((k) => ({
+    () => Bt({ hideTypeColumn: P }).map((k) => ({
       ...k,
       title: k.i18nKey ? M(k.i18nKey) : "",
       ...k.key === "check" ? {
@@ -1136,7 +1136,7 @@ function it({
                 type: "checkbox",
                 checked: m.includes(S.id),
                 disabled: I,
-                onChange: () => b(S.id)
+                onChange: () => v(S.id)
               }
             );
           case "userId":
@@ -1146,14 +1146,14 @@ function it({
           case "type":
             return (S) => /* @__PURE__ */ e("span", { className: "moderation-type-text", children: M(S.type) });
           case "createdAtMs":
-            return (S) => at(S.createdAtMs);
+            return (S) => rn(S.createdAtMs);
           case "action":
             return (S) => {
               const K = [
-                { key: "approve", label: M(n.APPROVE), onClick: () => $(S) },
-                { key: "delete", label: M(n.DELETE), danger: !0, onClick: () => U(S) }
+                { key: "approve", label: M(t.APPROVE), onClick: () => $(S) },
+                { key: "delete", label: M(t.DELETE), danger: !0, onClick: () => U(S) }
               ];
-              return P || K.push({ key: "more", label: M(n.MORE), suffixCaret: !0, onClick: (p) => O(p, S) }), /* @__PURE__ */ e(
+              return P || K.push({ key: "more", label: M(t.MORE), suffixCaret: !0, onClick: (C) => O(C, S) }), /* @__PURE__ */ e(
                 Oe,
                 {
                   disabled: I,
@@ -1166,13 +1166,13 @@ function it({
         }
       })()
     })),
-    [M, l, I, m, H, b, $, U, O, P]
+    [M, l, I, m, H, v, $, U, O, P]
   );
-  return /* @__PURE__ */ s("div", { className: "moderation-card", children: [
-    /* @__PURE__ */ s("div", { className: "moderation-card-header", children: [
-      /* @__PURE__ */ s("div", { className: "moderation-header-left", children: [
-        !P && /* @__PURE__ */ e("h3", { children: M(n.CONTENT_MODERATION) }),
-        P && /* @__PURE__ */ s("label", { className: "moderation-toggle-label", style: { display: "inline-flex", alignItems: "center", gap: 8, marginLeft: 12 }, children: [
+  return /* @__PURE__ */ i("div", { className: "moderation-card", children: [
+    /* @__PURE__ */ i("div", { className: "moderation-card-header", children: [
+      /* @__PURE__ */ i("div", { className: "moderation-header-left", children: [
+        !P && /* @__PURE__ */ e("h3", { children: M(t.CONTENT_MODERATION) }),
+        P && /* @__PURE__ */ i("label", { className: "moderation-toggle-label", style: { display: "inline-flex", alignItems: "center", gap: 8, marginLeft: 12 }, children: [
           /* @__PURE__ */ e(
             xe,
             {
@@ -1182,17 +1182,17 @@ function it({
               onChange: (k) => _(k)
             }
           ),
-          /* @__PURE__ */ e("span", { style: { fontSize: 13 }, children: M(n.CUSTOM_MODERATION_TOGGLE) })
+          /* @__PURE__ */ e("span", { style: { fontSize: 13 }, children: M(t.CUSTOM_MODERATION_TOGGLE) })
         ] }),
         /* @__PURE__ */ e(
           Q,
           {
             theme: "primary",
             shape: "round",
-            onClick: A,
+            onClick: b,
             disabled: I || m.length <= 1,
-            icon: /* @__PURE__ */ e(Ae, { style: { width: 14, height: 14 } }),
-            children: M(n.BULK_APPROVE)
+            icon: /* @__PURE__ */ e(be, { style: { width: 14, height: 14 } }),
+            children: M(t.BULK_APPROVE)
           }
         ),
         /* @__PURE__ */ e(
@@ -1202,31 +1202,31 @@ function it({
             shape: "round",
             onClick: x,
             disabled: I || m.length <= 1,
-            icon: /* @__PURE__ */ e(an, { style: { width: 14, height: 14 } }),
-            children: M(n.BULK_DELETE)
+            icon: /* @__PURE__ */ e(at, { style: { width: 14, height: 14 } }),
+            children: M(t.BULK_DELETE)
           }
         )
       ] }),
-      /* @__PURE__ */ s("div", { className: "moderation-toolbar", children: [
-        /* @__PURE__ */ e("span", { className: "update-time", children: M(n.UPDATED_AT, { time: g }) }),
+      /* @__PURE__ */ i("div", { className: "moderation-toolbar", children: [
+        /* @__PURE__ */ e("span", { className: "update-time", children: M(t.UPDATED_AT, { time: g }) }),
         /* @__PURE__ */ e(
           Q,
           {
             theme: "primary",
             variant: "outline",
             shape: "round",
-            icon: /* @__PURE__ */ e(on, {}),
+            icon: /* @__PURE__ */ e(ot, {}),
             loading: c,
             disabled: I,
             onClick: E,
-            children: M(n.REFRESH)
+            children: M(t.REFRESH)
           }
         )
       ] })
     ] }),
-    /* @__PURE__ */ s("div", { className: "moderation-table-wrapper", children: [
+    /* @__PURE__ */ i("div", { className: "moderation-table-wrapper", children: [
       /* @__PURE__ */ e(
-        Vn,
+        Ft,
         {
           columns: z,
           data: r,
@@ -1234,23 +1234,23 @@ function it({
           tableClassName: "moderation-table",
           headerClassName: "moderation-header-fixed",
           bodyClassName: "moderation-table-scroll",
-          emptyNode: /* @__PURE__ */ e("div", { className: "moderation-empty", children: /* @__PURE__ */ e("span", { children: M(n.MODERATION_EMPTY) }) })
+          emptyNode: /* @__PURE__ */ e("div", { className: "moderation-empty", children: /* @__PURE__ */ e("span", { children: M(t.MODERATION_EMPTY) }) })
         }
       ),
-      r.length > 0 && /* @__PURE__ */ s("div", { className: "moderation-pagination", children: [
-        /* @__PURE__ */ e("span", { children: M(n.TOTAL_ITEMS, { count: L, total: L }) }),
-        /* @__PURE__ */ s("div", { className: "pagination-pages", children: [
+      r.length > 0 && /* @__PURE__ */ i("div", { className: "moderation-pagination", children: [
+        /* @__PURE__ */ e("span", { children: M(t.TOTAL_ITEMS, { count: L, total: L }) }),
+        /* @__PURE__ */ i("div", { className: "pagination-pages", children: [
           /* @__PURE__ */ e(
             "button",
             {
               className: "page-num page-nav",
               disabled: I || d <= 1,
               onClick: () => N(d - 1),
-              "aria-label": M(n.PREVIOUS_PAGE),
-              children: /* @__PURE__ */ e(sn, { style: { width: 14 } })
+              "aria-label": M(t.PREVIOUS_PAGE),
+              children: /* @__PURE__ */ e(st, { style: { width: 14 } })
             }
           ),
-          Fn(d, u).map(
+          xt(d, u).map(
             (k, S) => k === "..." ? /* @__PURE__ */ e("span", { className: "page-ellipsis", children: "..." }, `ellipsis-${S}`) : /* @__PURE__ */ e(
               "button",
               {
@@ -1268,8 +1268,8 @@ function it({
               className: "page-num page-nav",
               disabled: d >= u,
               onClick: () => N(d + 1),
-              "aria-label": M(n.NEXT_PAGE),
-              children: /* @__PURE__ */ e(cn, { style: { width: 14 } })
+              "aria-label": M(t.NEXT_PAGE),
+              children: /* @__PURE__ */ e(it, { style: { width: 14 } })
             }
           )
         ] })
@@ -1277,8 +1277,8 @@ function it({
     ] })
   ] });
 }
-const Me = Ce("Moderation");
-function st(a, r, c, d) {
+const Me = pe("Moderation");
+function sn(a, r, c, d) {
   const {
     moderationMode: L,
     customModerationToggleEnabled: u,
@@ -1287,32 +1287,32 @@ function st(a, r, c, d) {
     approveTextModerationItems: h,
     bypassCorrectionKeyword: _,
     deleteModerationItems: g
-  } = We({ liveId: a || "", pageSize: Te }), I = L === "custom", [E, N] = w([]), [A, x] = w(!1), [b, H] = w(1), [$, U] = w(0), [O, M] = w([]), [P, z] = w(null), [k, S] = w(null), K = le(() => qe($, Te), [$]), p = y(
+  } = We({ liveId: a || "", pageSize: Te }), I = L === "custom", [E, N] = w([]), [b, x] = w(!1), [v, H] = w(1), [$, U] = w(0), [O, M] = w([]), [P, z] = w(null), [k, S] = w(null), K = le(() => qe($, Te), [$]), C = y(
     async (T = 1) => {
       if (a) {
         x(!0);
         try {
-          const o = Math.max(1, T), t = Mn(d), i = await l({
+          const o = Math.max(1, T), n = vt(d), s = await l({
             pageNum: o,
             pageSize: Te,
-            startTime: t,
+            startTime: n,
             violationOnly: !I
             // custom 模式不过滤 violationOnly
           });
-          let D = i.list || [];
+          let D = s.list || [];
           if (I) {
-            const Z = [...D].sort((X, te) => te.createdAtMs - X.createdAtMs);
-            N(Z), U(i.total || 0);
+            const Z = [...D].sort((X, ne) => ne.createdAtMs - X.createdAtMs);
+            N(Z), U(s.total || 0);
           } else {
             D = await je(D);
-            const Z = await Ye(), te = [...In(D)].sort((pe, Ge) => Ge.createdAtMs - pe.createdAtMs);
-            N(te), U(Math.max(0, (i.total || 0) - Z));
+            const Z = await Ye(), ne = [...Mt(D)].sort((Ce, Ge) => Ge.createdAtMs - Ce.createdAtMs);
+            N(ne), U(Math.max(0, (s.total || 0) - Z));
           }
-          H(o), M((Z) => he(Z.filter((X) => D.some((te) => te.id === X))));
+          H(o), M((Z) => he(Z.filter((X) => D.some((ne) => ne.id === X))));
         } catch (o) {
           Me.error("moderation", `load failed (ErrorCode: ${o?.ErrorCode ?? o?.code ?? o?.errorCode ?? "N/A"}):`, o);
-          const t = ue(o).info || o.message || r(n.UNKNOWN_ERROR);
-          q.error(`【${r(n.REFRESH)}${r(n.CONTENT_MODERATION)}】${r(n.OPERATION_FAILED, { error: t })}`);
+          const n = ue(o).info || o.message || r(t.UNKNOWN_ERROR);
+          q.error(`【${r(t.REFRESH)}${r(t.CONTENT_MODERATION)}】${r(t.OPERATION_FAILED, { error: n })}`);
         } finally {
           x(!1);
         }
@@ -1321,29 +1321,29 @@ function st(a, r, c, d) {
     [a, r, l, d, I]
   );
   V(() => {
-    a && d != null && p(1);
+    a && d != null && C(1);
   }, [a, d]);
-  const v = y(async (T = !1) => {
-    c || (await p(b), T || q.success(fe(r).opSuccess(n.REFRESH)));
-  }, [p, b, r, c]), R = y(
+  const A = y(async (T = !1) => {
+    c || (await C(v), T || q.success(fe(r).opSuccess(t.REFRESH)));
+  }, [C, v, r, c]), R = y(
     (T) => {
-      T < 1 || T > K || T === b || p(T);
+      T < 1 || T > K || T === v || C(T);
     },
-    [p, b, K]
+    [C, v, K]
   ), f = y(
     async (T) => {
-      M((t) => t.filter((i) => !T.includes(i))), N((t) => t.filter((i) => !T.includes(i.id))), U((t) => Math.max(0, t - T.length));
-      const o = _n(
-        b,
+      M((n) => n.filter((s) => !T.includes(s))), N((n) => n.filter((s) => !T.includes(s.id))), U((n) => Math.max(0, n - T.length));
+      const o = It(
+        v,
         $,
         T.length,
         Te
       );
-      await p(o);
+      await C(o);
     },
-    [p, b, $]
+    [C, v, $]
   ), W = me({
-    operationName: r(n.RELEASE_AND_RESEND),
+    operationName: r(t.RELEASE_AND_RESEND),
     action: async () => {
       if (!P || !a) throw new Error("liveId is required");
       await h({
@@ -1353,47 +1353,47 @@ function st(a, r, c, d) {
       });
     },
     confirm: {
-      title: r(n.CONFIRM_ACTION_TITLE, { action: r(n.RELEASE_AND_RESEND) }),
-      content: r(n.RELEASE_AND_RESEND_DESCRIPTION)
+      title: r(t.CONFIRM_ACTION_TITLE, { action: r(t.RELEASE_AND_RESEND) }),
+      content: r(t.RELEASE_AND_RESEND_DESCRIPTION)
     },
     onSuccess: async () => {
       P && await f([P.id]), z(null);
     }
   }), re = y((T) => {
     if (c) {
-      q.warning(r(n.LIVE_ENDED));
+      q.warning(r(t.LIVE_ENDED));
       return;
     }
     z(T), W.requestConfirm();
   }, [W, c, r]), F = me({
-    operationName: r(n.BYPASS_CORRECTION),
+    operationName: r(t.BYPASS_CORRECTION),
     action: async () => {
       if (!k) throw new Error("No target item");
       await _({ content: k.content });
     },
     confirm: {
-      title: r(n.BYPASS_CORRECTION_DIALOG_TITLE),
-      content: r(n.BYPASS_CORRECTION_DESCRIPTION)
+      title: r(t.BYPASS_CORRECTION_DIALOG_TITLE),
+      content: r(t.BYPASS_CORRECTION_DESCRIPTION)
     },
     onSuccess: async () => {
       k && await f([k.id]), S(null);
     }
   }), J = y((T) => {
     if (c) {
-      q.warning(r(n.LIVE_ENDED));
+      q.warning(r(t.LIVE_ENDED));
       return;
     }
     S(T), F.requestConfirm();
-  }, [F, c, r]), C = me({
-    operationName: r(n.BULK_APPROVE),
+  }, [F, c, r]), p = me({
+    operationName: r(t.BULK_APPROVE),
     action: async () => {
       if (!a) throw new Error("liveId is required");
-      const T = E.filter((i) => O.includes(i.id)).sort((i, D) => i.createdAtMs - D.createdAtMs), o = T.map((i) => i.id), t = T.map((i) => ({ id: i.id, content: i.content, userId: i.userId }));
-      await h({ ids: o, items: t, liveId: a });
+      const T = E.filter((s) => O.includes(s.id)).sort((s, D) => s.createdAtMs - D.createdAtMs), o = T.map((s) => s.id), n = T.map((s) => ({ id: s.id, content: s.content, userId: s.userId }));
+      await h({ ids: o, items: n, liveId: a });
     },
     confirm: {
-      title: r(n.CONFIRM_ACTION_TITLE, { action: r(n.BULK_APPROVE) }),
-      content: r(n.BULK_APPROVE_CONFIRM_CONTENT)
+      title: r(t.CONFIRM_ACTION_TITLE, { action: r(t.BULK_APPROVE) }),
+      content: r(t.BULK_APPROVE_CONFIRM_CONTENT)
     },
     onSuccess: async () => {
       const T = [...O];
@@ -1401,71 +1401,71 @@ function st(a, r, c, d) {
     }
   }), B = y(() => {
     if (c) {
-      q.warning(r(n.LIVE_ENDED));
+      q.warning(r(t.LIVE_ENDED));
       return;
     }
     if (O.length === 0) {
-      q.warning(r(n.PLEASE_SELECT_AT_LEAST_ONE_ITEM));
+      q.warning(r(t.PLEASE_SELECT_AT_LEAST_ONE_ITEM));
       return;
     }
-    C.requestConfirm();
-  }, [C, O, c, r]), Y = y(
+    p.requestConfirm();
+  }, [p, O, c, r]), Y = y(
     async (T) => {
       if (c) {
-        q.warning(r(n.LIVE_ENDED));
+        q.warning(r(t.LIVE_ENDED));
         return;
       }
       try {
-        await g([T.id]), q.info(fe(r).opSuccess(n.DELETE)), await f([T.id]);
+        await g([T.id]), q.info(fe(r).opSuccess(t.DELETE)), await f([T.id]);
       } catch (o) {
         Me.error("moderation", `delete failed (ErrorCode: ${o?.ErrorCode ?? o?.code ?? o?.errorCode ?? "N/A"}):`, o);
-        const t = ue(o).info || o.message || r(n.UNKNOWN_ERROR);
-        q.error(`【${r(n.DELETE)}${r(n.CONTENT_MODERATION)}】${fe(r).opFailed(n.DELETE, null, t)}`);
+        const n = ue(o).info || o.message || r(t.UNKNOWN_ERROR);
+        q.error(`【${r(t.DELETE)}${r(t.CONTENT_MODERATION)}】${fe(r).opFailed(t.DELETE, null, n)}`);
       }
     },
     [f, r, c]
-  ), ne = y(async () => {
+  ), te = y(async () => {
     if (c) {
-      q.warning(r(n.LIVE_ENDED));
+      q.warning(r(t.LIVE_ENDED));
       return;
     }
     if (O.length === 0) {
-      q.warning(r(n.PLEASE_SELECT_AT_LEAST_ONE_ITEM));
+      q.warning(r(t.PLEASE_SELECT_AT_LEAST_ONE_ITEM));
       return;
     }
     const T = [...O];
     try {
-      await g(T), q.info(fe(r).opSuccess(n.DELETE)), await f(T);
+      await g(T), q.info(fe(r).opSuccess(t.DELETE)), await f(T);
     } catch (o) {
       Me.error("moderation", `bulk delete failed (ErrorCode: ${o?.ErrorCode ?? o?.code ?? o?.errorCode ?? "N/A"}):`, o);
-      const t = ue(o).info || o.message || r(n.UNKNOWN_ERROR);
-      q.error(`【${r(n.BULK_DELETE)}${r(n.CONTENT_MODERATION)}】${r(n.OPERATION_FAILED, { error: t })}`);
+      const n = ue(o).info || o.message || r(t.UNKNOWN_ERROR);
+      q.error(`【${r(t.BULK_DELETE)}${r(t.CONTENT_MODERATION)}】${r(t.OPERATION_FAILED, { error: n })}`);
     }
   }, [O, f, r, c]), ee = y((T) => {
-    M((o) => o.includes(T) ? he(o.filter((t) => t !== T)) : he([...o, T]));
+    M((o) => o.includes(T) ? he(o.filter((n) => n !== T)) : he([...o, T]));
   }, []), ae = y(() => {
     M((T) => {
-      const o = he(E.map((t) => t.id));
+      const o = he(E.map((n) => n.id));
       return T.length >= o.length ? [] : o;
     });
-  }, [E]), ie = le(() => {
+  }, [E]), se = le(() => {
     const T = he(E.map((o) => o.id));
-    return On(O, T);
+    return _t(O, T);
   }, [E, O]);
   return {
     moderationMode: L,
     customModerationToggleEnabled: u,
     updateCustomModerationToggleEnabled: m,
     moderationList: E,
-    moderationLoading: A,
-    moderationPage: b,
+    moderationLoading: b,
+    moderationPage: v,
     moderationTotal: $,
     moderationTotalPages: K,
     moderationSelectedIds: O,
-    isAllOnPageSelected: ie,
+    isAllOnPageSelected: se,
     releaseConfirmDialog: W.confirmDialog,
     bypassConfirmDialog: F.confirmDialog,
-    bulkApproveConfirmDialog: C.confirmDialog,
+    bulkApproveConfirmDialog: p.confirmDialog,
     releaseAction: {
       executeWithConfirm: W.executeWithConfirm,
       cancelConfirm: W.cancelConfirm,
@@ -1477,160 +1477,160 @@ function st(a, r, c, d) {
       loading: F.loading
     },
     bulkApproveAction: {
-      executeWithConfirm: C.executeWithConfirm,
-      cancelConfirm: C.cancelConfirm,
-      loading: C.loading
+      executeWithConfirm: p.executeWithConfirm,
+      cancelConfirm: p.cancelConfirm,
+      loading: p.loading
     },
-    handleRefreshModeration: v,
+    handleRefreshModeration: A,
     goToModerationPage: R,
     handleRelease: re,
     handleBypassCorrection: J,
     handleDeleteModeration: Y,
     handleBulkApprove: B,
-    handleBulkDelete: ne,
+    handleBulkDelete: te,
     toggleSelectOne: ee,
     toggleSelectAll: ae
   };
 }
-const Ne = Ce("LiveControl");
-function Mt() {
+const Ne = pe("LiveControl");
+function Mn() {
   const { liveId: a } = Ze();
-  V(() => (Ne.info("LiveControl", "✅ Component MOUNTED, liveId:", a), () => {
-    Ne.info("LiveControl", "❌ Component UNMOUNTED, liveId:", a);
+  V(() => (Ne.debug("LiveControl", "✅ Component MOUNTED, liveId:", a), () => {
+    Ne.debug("LiveControl", "❌ Component UNMOUNTED, liveId:", a);
   }), []);
-  const r = Qe(), L = en().state?.from === "live-list" ? "/live-list" : "/live-monitor", m = Je().components?.liveControl, { t: l } = ye(), {
+  const r = Qe(), L = et().state?.from === "live-list" ? "/live-list" : "/live-monitor", m = Je().components?.liveControl, { t: l } = ye(), {
     fetchLiveDetail: h,
     fetchLiveStats: _,
     endLive: g
-  } = Se(), { audienceCount: I } = ve();
+  } = Se(), { audienceCount: I } = Ae();
   V(() => {
-    I > 0 && N((t) => t && { ...t, onlineCount: I });
+    I > 0 && N((n) => n && { ...n, onlineCount: I });
   }, [I]);
-  const [E, N] = w(null), A = le(() => !E || Number(E?.activityStatus) === 2, [E?.activityStatus, E]), [x, b] = w("chat"), [H, $] = w(!0), { successMsg: U, errorMsg: O } = Wn(), M = me({
-    operationName: l(n.FORCE_STOP),
+  const [E, N] = w(null), b = le(() => !E || Number(E?.activityStatus) === 2, [E?.activityStatus, E]), [x, v] = w("chat"), [H, $] = w(!0), { successMsg: U, errorMsg: O } = Vt(), M = me({
+    operationName: l(t.FORCE_STOP),
     action: async () => {
       if (!E) throw new Error("liveInfo is null");
       return g(E.id || E.liveId);
     },
     confirm: {
-      title: l(n.CONFIRM_ACTION_TITLE, { action: l(n.FORCE_STOP) }),
-      content: l(n.FORCE_STOP_CONFIRM_CONTENT),
-      confirmText: l(n.CONFIRM)
+      title: l(t.CONFIRM_ACTION_TITLE, { action: l(t.FORCE_STOP) }),
+      content: l(t.FORCE_STOP_CONFIRM_CONTENT),
+      confirmText: l(t.CONFIRM)
     },
     onSuccess: () => {
       r(L);
     }
   }), P = me({
-    operationName: l(n.SEND_VIOLATION_WARNING),
+    operationName: l(t.SEND_VIOLATION_WARNING),
     action: async () => {
       if (!a) throw new Error("liveId is required");
-      const t = E?.liveName || a;
-      await yn(a, {
-        violationType: l(n.VIOLATION_TYPE_WARNING),
-        violationContent: l(n.VIOLATION_WARNING_CONTENT_TEMPLATE, { liveName: t }),
-        handleSuggestion: l(n.VIOLATION_WARNING_DEFAULT_SUGGESTION)
+      const n = E?.liveName || a;
+      await Ot(a, {
+        violationType: l(t.VIOLATION_TYPE_WARNING),
+        violationContent: l(t.VIOLATION_WARNING_CONTENT_TEMPLATE, { liveName: n }),
+        handleSuggestion: l(t.VIOLATION_WARNING_DEFAULT_SUGGESTION)
       });
     },
     confirm: {
-      title: l(n.CONFIRM_ACTION_TITLE, { action: l(n.SEND_VIOLATION_WARNING) }),
-      content: l(n.VIOLATION_WARNING_CONFIRM_CONTENT),
-      confirmText: l(n.CONFIRM)
+      title: l(t.CONFIRM_ACTION_TITLE, { action: l(t.SEND_VIOLATION_WARNING) }),
+      content: l(t.VIOLATION_WARNING_CONFIRM_CONTENT),
+      confirmText: l(t.CONFIRM)
     },
-    errorMessage: fe(l).opFailed(n.OP_SEND)
+    errorMessage: fe(l).opFailed(t.OP_SEND)
   }), z = y(() => {
-    N((t) => t && { ...t, activityStatus: 2 });
+    N((n) => n && { ...n, activityStatus: 2 });
   }, []), k = () => {
     P.requestConfirm();
-  }, S = j(null), [K, p] = w(0), [v, R] = w(null), f = st(a, l, A, E?.createdAt);
+  }, S = j(null), [K, C] = w(0), [A, R] = w(null), f = sn(a, l, b, E?.createdAt);
   V(() => () => {
     a && Ne.info("LiveControl", "Component unmounting, liveId:", a);
   }, [a]);
-  const W = wn({
+  const W = Dt({
     showError: !1,
     action: async () => a ? await h(a) : null,
-    errorMessage: l(n.GET_ERROR_MESSAGE),
+    errorMessage: l(t.GET_ERROR_MESSAGE),
     onError: () => {
       $(!1);
     },
-    onSuccess: (t) => {
-      if ($(!1), !t) return;
-      const i = t.anchor?.userId, D = Sn(t, i || "-"), Z = Rn(t);
+    onSuccess: (n) => {
+      if ($(!1), !n) return;
+      const s = n.anchor?.userId, D = yt(n, s || "-"), Z = St(n);
       if (N({
-        liveId: t.liveId,
-        id: t.liveId,
-        liveName: t.liveName || l(n.UNNAMED_LIVE_SHORT),
-        coverUrl: t.coverUrl || Xe,
+        liveId: n.liveId,
+        id: n.liveId,
+        liveName: n.liveName || l(t.UNNAMED_LIVE_SHORT),
+        coverUrl: n.coverUrl || Xe,
         anchor: {
-          userId: i || "",
+          userId: s || "",
           nick: D,
           avatarUrl: Z
         },
-        onlineCount: t.onlineCount || 0,
-        createdAt: t.createdAt ?? 0,
-        isMessageDisabled: t.isMessageDisabled === !0,
-        liveType: t.liveType || "Live",
-        isSeatEnabled: t.isSeatEnabled || !1,
-        maxSeatCount: t.maxSeatCount || 9,
-        maxMemberCount: t.maxMemberCount || 1e3,
-        category: t.category || [],
-        activityStatus: Number(t.activityStatus ?? 0),
-        endedAt: t.endedAt,
-        isPublicVisible: t.isPublicVisible !== void 0 ? t.isPublicVisible : !0,
-        isLikeEnabled: t.isLikeEnabled !== void 0 ? t.isLikeEnabled : !0,
-        stats: t.stats
-      }), t.createdAt && Number(t.activityStatus) !== 2) {
-        const X = t.createdAt > 1e12 ? t.createdAt : t.createdAt * 1e3;
+        onlineCount: n.onlineCount || 0,
+        createdAt: n.createdAt ?? 0,
+        isMessageDisabled: n.isMessageDisabled === !0,
+        liveType: n.liveType || "Live",
+        isSeatEnabled: n.isSeatEnabled || !1,
+        maxSeatCount: n.maxSeatCount || 9,
+        maxMemberCount: n.maxMemberCount || 1e3,
+        category: n.category || [],
+        activityStatus: Number(n.activityStatus ?? 0),
+        endedAt: n.endedAt,
+        isPublicVisible: n.isPublicVisible !== void 0 ? n.isPublicVisible : !0,
+        isLikeEnabled: n.isLikeEnabled !== void 0 ? n.isLikeEnabled : !0,
+        stats: n.stats
+      }), n.createdAt && Number(n.activityStatus) !== 2) {
+        const X = n.createdAt > 1e12 ? n.createdAt : n.createdAt * 1e3;
         if (X > 1e12) {
-          const te = Math.floor((Date.now() - X) / 1e3);
-          p(te > 0 ? te : 0);
+          const ne = Math.floor((Date.now() - X) / 1e3);
+          C(ne > 0 ? ne : 0);
         }
       }
-      C();
+      p();
     }
   }), re = y(async () => {
     await W.execute();
   }, [W.execute]), [F, J] = w(() => {
-    const t = /* @__PURE__ */ new Date();
-    return `${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`;
-  }), C = y(() => {
-    const t = /* @__PURE__ */ new Date();
-    J(`${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`);
+    const n = /* @__PURE__ */ new Date();
+    return `${String(n.getHours()).padStart(2, "0")}:${String(n.getMinutes()).padStart(2, "0")}`;
+  }), p = y(() => {
+    const n = /* @__PURE__ */ new Date();
+    J(`${String(n.getHours()).padStart(2, "0")}:${String(n.getMinutes()).padStart(2, "0")}`);
   }, []), B = y(async () => {
     if (a)
       try {
-        const t = await _(a);
-        N((i) => i && {
-          ...i,
-          stats: t
-        }), C();
-      } catch (t) {
-        Ne.error("LiveControl", "fetchStats failed:", t);
+        const n = await _(a);
+        N((s) => s && {
+          ...s,
+          stats: n
+        }), p();
+      } catch (n) {
+        Ne.error("LiveControl", "fetchStats failed:", n);
       }
-  }, [a, C]), Y = le(() => {
-    const t = E?.stats?.viewCount ?? 0, i = E?.stats?.commentCount ?? 0;
-    if (t <= 0) return "0%";
-    const D = i / t * 100;
+  }, [a, p]), Y = le(() => {
+    const n = E?.stats?.viewCount ?? 0, s = E?.stats?.commentCount ?? 0;
+    if (n <= 0) return "0%";
+    const D = s / n * 100;
     return Math.min(D, 100).toFixed(1) + "%";
-  }, [E?.stats?.viewCount, E?.stats?.commentCount]), ne = 30, ee = j(null), ae = j(!0), ie = y(() => {
+  }, [E?.stats?.viewCount, E?.stats?.commentCount]), te = 30, ee = j(null), ae = j(!0), se = y(() => {
     r(L);
   }, [r, L]), T = y(() => {
     R(null);
-  }, []), o = y((t, i) => {
-    t.preventDefault(), t.stopPropagation();
-    const D = t.currentTarget.getBoundingClientRect();
+  }, []), o = y((n, s) => {
+    n.preventDefault(), n.stopPropagation();
+    const D = n.currentTarget.getBoundingClientRect();
     R({
-      item: i,
+      item: s,
       x: D.right,
       y: D.bottom + 4
     });
   }, []);
   return V(() => {
-    const t = E?.createdAt;
-    if (!t || t < 1e9 || Number(E?.activityStatus) === 2)
+    const n = E?.createdAt;
+    if (!n || n < 1e9 || Number(E?.activityStatus) === 2)
       return;
-    const i = t > 1e12 ? t : t * 1e3, D = () => {
-      const X = Math.floor((Date.now() - i) / 1e3);
-      p(X > 0 ? X : 0);
+    const s = n > 1e12 ? n : n * 1e3, D = () => {
+      const X = Math.floor((Date.now() - s) / 1e3);
+      C(X > 0 ? X : 0);
     };
     D();
     const Z = window.setInterval(D, 1e3);
@@ -1638,81 +1638,81 @@ function Mt() {
       window.clearInterval(Z);
     };
   }, [E?.createdAt, E?.activityStatus]), V(() => {
-    if (!v) return;
-    const t = (i) => {
-      S.current && !S.current.contains(i.target) && T();
+    if (!A) return;
+    const n = (s) => {
+      S.current && !S.current.contains(s.target) && T();
     };
-    return document.addEventListener("mousedown", t), () => document.removeEventListener("mousedown", t);
-  }, [T, v]), V(() => {
+    return document.addEventListener("mousedown", n), () => document.removeEventListener("mousedown", n);
+  }, [T, A]), V(() => {
     if (x !== "audience") return;
-    const t = () => {
+    const n = () => {
       document.querySelectorAll(".uikit-liveAudienceList__name").forEach((X) => {
-        const te = X, pe = te.textContent || "";
-        te.title !== pe && (te.title = pe);
+        const ne = X, Ce = ne.textContent || "";
+        ne.title !== Ce && (ne.title = Ce);
       });
     };
-    t();
-    const i = document.querySelector(".audience-list-area");
-    if (!i) return;
-    const D = new MutationObserver(t);
-    return D.observe(i, { childList: !0, subtree: !0 }), () => D.disconnect();
+    n();
+    const s = document.querySelector(".audience-list-area");
+    if (!s) return;
+    const D = new MutationObserver(n);
+    return D.observe(s, { childList: !0, subtree: !0 }), () => D.disconnect();
   }, [x]), V(() => {
     if (a)
       return Ne.info("LiveControl", "Fetching room info for:", a), ae.current = !0, re(), () => {
         ae.current = !1;
       };
   }, [a]), V(() => {
-    if (!a || ne === 0 || A) {
+    if (!a || te === 0 || b) {
       ee.current && (clearInterval(ee.current), ee.current = null);
       return;
     }
     return ee.current = window.setInterval(() => {
       ae.current && (B(), f.moderationMode === "custom" && !f.customModerationToggleEnabled || f.handleRefreshModeration(!0));
-    }, ne * 1e3), () => {
+    }, te * 1e3), () => {
       ee.current && (clearInterval(ee.current), ee.current = null);
     };
-  }, [a, ne, A, B, f.handleRefreshModeration, f.moderationMode, f.customModerationToggleEnabled]), H ? /* @__PURE__ */ e("div", { className: "loading-container", children: /* @__PURE__ */ e(nn, { loading: !0, text: l(n.LOADING) }) }) : /* @__PURE__ */ s("div", { className: "live-control-container", children: [
-    /* @__PURE__ */ s("div", { className: "toast-area", children: [
+  }, [a, te, b, B, f.handleRefreshModeration, f.moderationMode, f.customModerationToggleEnabled]), H ? /* @__PURE__ */ e("div", { className: "loading-container", children: /* @__PURE__ */ e(tt, { loading: !0, text: l(t.LOADING) }) }) : /* @__PURE__ */ i("div", { className: "live-control-container", children: [
+    /* @__PURE__ */ i("div", { className: "toast-area", children: [
       U && /* @__PURE__ */ e("div", { className: "status-success", children: U }),
       O && /* @__PURE__ */ e("div", { className: "status-error", children: O })
     ] }),
-    /* @__PURE__ */ s("header", { className: "live-control-navbar", children: [
-      /* @__PURE__ */ s("div", { className: "nav-left", children: [
-        /* @__PURE__ */ e(Q, { shape: "circle", variant: "outline", className: "back-btn", onClick: ie, title: l(n.BACK_TO_LIST), icon: /* @__PURE__ */ e(ln, { fill: "transparent", stroke: "currentColor", strokeWidth: 2 }) }),
-        /* @__PURE__ */ e("h1", { children: l(n.LIVE_DETAILS) })
+    /* @__PURE__ */ i("header", { className: "live-control-navbar", children: [
+      /* @__PURE__ */ i("div", { className: "nav-left", children: [
+        /* @__PURE__ */ e(Q, { shape: "circle", variant: "outline", className: "back-btn", onClick: se, title: l(t.BACK_TO_LIST), icon: /* @__PURE__ */ e(ct, { fill: "transparent", stroke: "currentColor", strokeWidth: 2 }) }),
+        /* @__PURE__ */ e("h1", { children: l(t.LIVE_DETAILS) })
       ] }),
-      /* @__PURE__ */ s("div", { className: "nav-right", children: [
+      /* @__PURE__ */ i("div", { className: "nav-right", children: [
         /* @__PURE__ */ e(
           Q,
           {
             variant: "text",
             theme: "warning",
-            icon: /* @__PURE__ */ e(dn, { size: 16 }),
-            disabled: A,
+            icon: /* @__PURE__ */ e(lt, { size: 16 }),
+            disabled: b,
             onClick: k,
-            children: l(n.VIOLATION_WARNING)
+            children: l(t.VIOLATION_WARNING)
           }
         ),
-        /* @__PURE__ */ e(Q, { variant: "text", theme: "danger", disabled: A, onClick: () => M.requestConfirm(), icon: /* @__PURE__ */ e(un, {}), children: l(n.FORCE_STOP) })
+        /* @__PURE__ */ e(Q, { variant: "text", theme: "danger", disabled: b, onClick: () => M.requestConfirm(), icon: /* @__PURE__ */ e(dt, {}), children: l(t.FORCE_STOP) })
       ] })
     ] }),
-    /* @__PURE__ */ s("main", { className: "live-control-viewport", children: [
+    /* @__PURE__ */ i("main", { className: "live-control-viewport", children: [
       /* @__PURE__ */ e(
-        Zn,
+        Xt,
         {
           liveControlSlots: m,
           liveInfo: E,
           liveId: a || "",
-          initialIsLiveEnded: A,
+          initialIsLiveEnded: b,
           activeTab: x,
-          onActiveTabChange: b,
+          onActiveTabChange: v,
           onLiveEnded: z,
           t: l
         }
       ),
-      /* @__PURE__ */ s("aside", { className: "right-sidebar", children: [
+      /* @__PURE__ */ i("aside", { className: "right-sidebar", children: [
         /* @__PURE__ */ e(
-          ot,
+          an,
           {
             liveInfo: E,
             audienceCount: I,
@@ -1724,7 +1724,7 @@ function Mt() {
         ),
         /* @__PURE__ */ e($e, { slot: m?.customControlPanel, props: { liveInfo: E } }),
         /* @__PURE__ */ e(
-          it,
+          on,
           {
             moderationMode: f.moderationMode,
             moderationList: f.moderationList,
@@ -1737,9 +1737,9 @@ function Mt() {
             customModerationToggleEnabled: f.customModerationToggleEnabled,
             onCustomToggleChange: f.updateCustomModerationToggleEnabled,
             updateTimeText: F,
-            disabled: A,
+            disabled: b,
             onRefresh: async () => {
-              await f.handleRefreshModeration(), C();
+              await f.handleRefreshModeration(), p();
             },
             onPageChange: f.goToModerationPage,
             onBulkApprove: f.handleBulkApprove,
@@ -1754,35 +1754,35 @@ function Mt() {
         )
       ] })
     ] }),
-    v && f.moderationMode !== "custom" && /* @__PURE__ */ e(
+    A && f.moderationMode !== "custom" && /* @__PURE__ */ e(
       "div",
       {
         ref: S,
         className: "user-action-dropdown moderation-action-dropdown",
         style: {
           position: "fixed",
-          top: v.y,
-          left: v.x - 160
+          top: A.y,
+          left: A.x - 160
         },
-        children: /* @__PURE__ */ s(
+        children: /* @__PURE__ */ i(
           "button",
           {
             className: "dropdown-item",
-            disabled: A,
+            disabled: b,
             onClick: () => {
-              const t = v.item;
-              T(), f.handleBypassCorrection(t);
+              const n = A.item;
+              T(), f.handleBypassCorrection(n);
             },
             children: [
-              /* @__PURE__ */ e(Ae, { size: 14 }),
-              l(n.BYPASS_CORRECTION)
+              /* @__PURE__ */ e(be, { size: 14 }),
+              l(t.BYPASS_CORRECTION)
             ]
           }
         )
       }
     ),
     (() => {
-      const i = [
+      const s = [
         { key: "forceStop", dialog: M.confirmDialog, action: M },
         { key: "violationWarning", dialog: P.confirmDialog, action: P },
         { key: "release", dialog: f.releaseConfirmDialog, action: f.releaseAction },
@@ -1791,33 +1791,33 @@ function Mt() {
         ] : [],
         { key: "bulkApprove", dialog: f.bulkApproveConfirmDialog, action: f.bulkApproveAction }
       ].find((D) => !!D.dialog);
-      return !i || !i.dialog ? null : /* @__PURE__ */ e(
+      return !s || !s.dialog ? null : /* @__PURE__ */ e(
         Ee,
         {
           visible: !0,
-          header: l(i.dialog.title),
-          onClose: () => i.action.cancelConfirm(),
+          header: l(s.dialog.title),
+          onClose: () => s.action.cancelConfirm(),
           width: ge.CONFIRM,
           zIndex: 2600,
-          footer: /* @__PURE__ */ s(se, { children: [
-            /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", disabled: i.action.loading, onClick: () => i.action.cancelConfirm(), children: l(n.CANCEL) }),
+          footer: /* @__PURE__ */ i(ie, { children: [
+            /* @__PURE__ */ e(Q, { shape: "round", variant: "outline", disabled: s.action.loading, onClick: () => s.action.cancelConfirm(), children: l(t.CANCEL) }),
             /* @__PURE__ */ e(
               Q,
               {
                 shape: "round",
                 theme: "primary",
-                loading: i.action.loading,
-                onClick: () => i.action.executeWithConfirm(),
-                children: l(i.dialog.confirmText ?? n.CONFIRM)
+                loading: s.action.loading,
+                onClick: () => s.action.executeWithConfirm(),
+                children: l(s.dialog.confirmText ?? t.CONFIRM)
               }
             )
           ] }),
-          children: /* @__PURE__ */ e("p", { dangerouslySetInnerHTML: { __html: l(i.dialog.content) } })
+          children: /* @__PURE__ */ e("p", { dangerouslySetInnerHTML: { __html: l(s.dialog.content) } })
         }
       );
     })()
   ] });
 }
 export {
-  Mt as default
+  Mn as default
 };

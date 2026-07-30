@@ -1,4 +1,5 @@
 import type { StoredCredentials } from './types/auth';
+import type { LoginParams, LoginResponse } from '../types/auth';
 export declare const CREDENTIAL_KEYS: {
     readonly CONFIGURED: "server_configured";
 };
@@ -53,3 +54,13 @@ export declare function setServerConfigured(configured: boolean): void;
 export declare function isServerConfigured(): boolean;
 /** 清除兼容旧版本的模式缓存 */
 export declare function clearCache(): void;
+/**
+ * 执行登录（统一入口，自动判断模式）并保存凭证。
+ *
+ * 业务逻辑：
+ * 1. 调用 api/auth.login（根据参数自动判断 server / proxy / 直接凭证模式）
+ * 2. 登录成功（code === 0）时自动保存凭证到 auth-store
+ *
+ * React/Vue 的 useAuthState 应调用此函数，而非直接调用 api/auth.login。
+ */
+export declare function performLogin(params?: LoginParams): Promise<LoginResponse>;

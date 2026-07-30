@@ -1,275 +1,304 @@
-import { h as U, aa as V, a8 as W, a7 as a, I as ae, ba as se, a9 as ie, L as ce, z as ue, B as $, an as le } from "./chunks/shared-state.Bf8CkvaR.js";
-import { a4 as He, ab as Xe, ac as Qe } from "./chunks/shared-state.Bf8CkvaR.js";
-import { useState as d, useRef as K, useEffect as q, useCallback as o, Component as de } from "react";
-import { bW as N, aS as z, bX as O, bY as fe, aD as ge, aB as me, m as he, u as pe, bZ as be, b_ as ve, bC as ye, bA as Me, b$ as we, a8 as Se, c0 as Le, af as Ce, c1 as ke, X as xe, W as Pe } from "./chunks/main-layout.OEkSp6vd.js";
+import { a5 as ie, aS as ce, F as ue, t as le, aw as de, y as fe, bi as ge, c as W, a$ as O, aZ as G, aY as s, I as me, aW as he, a_ as pe, m as be, ak as ve, am as N, be as ye } from "./chunks/shared-state.LwLSW33A.js";
+import { aR as ft, b0 as gt, b1 as mt, bf as ht } from "./chunks/shared-state.LwLSW33A.js";
+import { useSyncExternalStore as z, useCallback as o, useState as g, useRef as K, useEffect as F, Component as Me } from "react";
+import { c0 as q, aV as $, c1 as V, c2 as Se, aF as we, aD as Ce, m as Le, u as ke, c3 as Pe, c4 as xe, bI as Ie, bG as Te, c5 as _e, aa as Re, c6 as Ee, ah as Ae, c7 as Ue, Z as De, Y as Fe } from "./chunks/main-layout.BxLEuh4E.js";
 import "tdesign-react";
-import { a as Ie, M as _e } from "./chunks/useAsyncAction.R1AlIQqh.js";
-import { u as Ze } from "./chunks/useAsyncAction.R1AlIQqh.js";
-import { u as et, a as tt, b as rt } from "./chunks/useT.CDh8p6A1.js";
-import { jsx as D, jsxs as Te } from "react/jsx-runtime";
-const h = U("RiskControl");
-function Ne(i) {
-  const { liveId: e, pageSize: f } = i, [m, p] = d(!1), [c, g] = d("cloud"), [b, w] = d(!0), [v, x] = d([]), [P, I] = d(1), [_, C] = d(0), [R, A] = d(!1), [n, u] = d([]), [y, j] = d([]), M = K(!0);
-  q(() => (M.current = !0, V("risk_control"), N().then(async (t) => {
+import { a as Be, M as Ge } from "./chunks/useAsyncAction.DDER13aa.js";
+import { u as bt } from "./chunks/useAsyncAction.DDER13aa.js";
+import { s as Ne, g as qe, a as $e, p as Ve } from "./chunks/demo.DEOn6ZLp.js";
+import { r as yt } from "./chunks/demo.DEOn6ZLp.js";
+import { u as St, a as wt, b as Ct } from "./chunks/useT.BMh2aeYA.js";
+import { jsx as A, jsxs as We } from "react/jsx-runtime";
+let j = ie();
+function Oe(n) {
+  return ge((e) => {
+    j = e, n();
+  });
+}
+function ze() {
+  return j;
+}
+function rt() {
+  const n = z(Oe, ze), e = n.mode === "server" || n.mode === "proxy" && !!n.credentials, l = o(async (m = {}) => ce(m), []), d = o(() => {
+    ue();
+  }, []);
+  return {
+    authState: n,
+    isLoggedIn: e,
+    currentUserId: n.userId || "",
+    currentUserName: n.userName || "",
+    sdkAppId: n.sdkAppId || 0,
+    authMode: n.mode,
+    checkServerConfig: fe,
+    login: l,
+    logout: d,
+    getUserProfilePortrait: de,
+    batchGetUserProfilePortrait: le
+  };
+}
+const p = W("RiskControl");
+function ot(n) {
+  const { liveId: e, pageSize: l } = n, [d, m] = g(!1), [c, h] = g("cloud"), [b, S] = g(!0), [v, P] = g([]), [x, I] = g(1), [T, L] = g(0), [U, E] = g(!1), [a, u] = g([]), [y, H] = g([]), M = K(!0);
+  F(() => (M.current = !0, O("risk_control"), q().then(async (t) => {
     if (!M.current) return;
-    g(t);
-    const r = t === "cloud", S = r ? z : O;
+    h(t);
+    const r = t === "cloud", w = r ? $ : V;
     try {
-      const L = await S({ pageSize: f, liveId: e });
-      M.current && (p(!0), x(L.list || []), C(L.total || 0)), W(r ? "text_moderation" : "text_moderation_custom"), W(r ? "moderation" : "moderation_custom");
+      const C = await w({ pageSize: l, liveId: e });
+      M.current && (m(!0), P(C.list || []), L(C.total || 0)), G(r ? "text_moderation" : "text_moderation_custom"), G(r ? "moderation" : "moderation_custom");
     } catch {
-      M.current && p(!1);
+      M.current && m(!1);
     }
-    t === "custom" && fe().then((L) => {
-      M.current && w(L.Enabled);
+    t === "custom" && Se().then((C) => {
+      M.current && S(C.Enabled);
     }).catch(() => {
     });
   }), () => {
     M.current = !1;
   }), []);
-  const G = o(async (t = {}) => {
-    A(!0);
+  const Y = o(async (t = {}) => {
+    E(!0);
     try {
       let r;
-      return c === "custom" ? r = await O({ pageSize: f, liveId: e, ...t }) : r = await z({ pageSize: f, liveId: e, ...t }), M.current && (x(r.list || []), I(t.pageNum || 1), C(r.total || 0)), r;
+      return c === "custom" ? r = await V({ pageSize: l, liveId: e, ...t }) : r = await $({ pageSize: l, liveId: e, ...t }), M.current && (P(r.list || []), I(t.pageNum || 1), L(r.total || 0)), r;
     } catch (r) {
-      throw h.error("useRiskControlState", "fetchTextModerationList failed:", r), r;
+      throw p.error("useRiskControlState", "fetchTextModerationList failed:", r), r;
     } finally {
-      M.current && A(!1);
+      M.current && E(!1);
     }
-  }, [f, e, c]), T = o(async () => {
+  }, [l, e, c]), _ = o(async () => {
     if (!e) return [];
     try {
-      const t = await ge(e);
+      const t = await we(e);
       return u(t), t;
     } catch (t) {
-      throw h.error("useRiskControlState", "fetchMutedList failed:", t), t;
+      throw p.error("useRiskControlState", "fetchMutedList failed:", t), t;
     }
-  }, [e]), E = o(async () => {
+  }, [e]), R = o(async () => {
     if (!e) return [];
     try {
-      const t = await me(e);
-      return j(t), t;
+      const t = await Ce(e);
+      return H(t), t;
     } catch (t) {
-      throw h.error("useRiskControlState", "fetchBannedList failed:", t), t;
+      throw p.error("useRiskControlState", "fetchBannedList failed:", t), t;
     }
-  }, [e]), H = o(async (t) => {
+  }, [e]), Z = o(async (t) => {
     if (!e) throw new Error("liveId is required");
     try {
-      await he(e, t.memberAccounts, t.muteTime), await T(), a("risk_control", "mute", !0, e);
+      await Le(e, t.memberAccounts, t.muteTime), await _(), s("risk_control", "mute", !0, e);
     } catch (r) {
-      throw a("risk_control", "mute", !1), h.error("useRiskControlState", "muteMember failed:", r), r;
+      throw s("risk_control", "mute", !1), p.error("useRiskControlState", "muteMember failed:", r), r;
     }
-  }, [e, T]), X = o(async (t) => {
+  }, [e, _]), Q = o(async (t) => {
     if (!e) throw new Error("liveId is required");
     try {
-      await pe(e, t.memberAccounts), await T(), a("risk_control", "unmute", !0, e);
+      await ke(e, t.memberAccounts), await _(), s("risk_control", "unmute", !0, e);
     } catch (r) {
-      throw a("risk_control", "unmute", !1), h.error("useRiskControlState", "unmuteMember failed:", r), r;
+      throw s("risk_control", "unmute", !1), p.error("useRiskControlState", "unmuteMember failed:", r), r;
     }
-  }, [e, T]), Q = o(async (t) => {
+  }, [e, _]), J = o(async (t) => {
     if (!e) throw new Error("liveId is required");
     try {
-      await be(e, t.memberAccounts, t.duration, t.reason), await E(), a("risk_control", "ban", !0, e);
+      await Pe(e, t.memberAccounts, t.duration, t.reason), await R(), s("risk_control", "ban", !0, e);
     } catch {
-      a("risk_control", "ban", !1);
+      s("risk_control", "ban", !1);
     }
-  }, [e, E]), Y = o(async (t) => {
+  }, [e, R]), X = o(async (t) => {
     if (!e) throw new Error("liveId is required");
     try {
-      await ve(e, t.memberAccounts), await E(), a("risk_control", "unban", !0, e);
+      await xe(e, t.memberAccounts), await R(), s("risk_control", "unban", !0, e);
     } catch {
-      a("risk_control", "unban", !1);
+      s("risk_control", "unban", !1);
     }
-  }, [e, E]), Z = o(async () => {
+  }, [e, R]), ee = o(async () => {
     if (!e) throw new Error("liveId is required");
     try {
-      const t = await ye(e, "default", ae.VIOLATION_SUGGESTION_DEFAULT);
-      return a("risk_control", "violation_warning", !0, e), t;
+      const t = await Ie(e, "default", me.VIOLATION_SUGGESTION_DEFAULT);
+      return s("risk_control", "violation_warning", !0, e), t;
     } catch (t) {
-      throw a("risk_control", "violation_warning", !1), h.error("useRiskControlState", "sendViolationWarning failed:", t), t;
+      throw s("risk_control", "violation_warning", !1), p.error("useRiskControlState", "sendViolationWarning failed:", t), t;
     }
-  }, [e]), J = o(async (t) => {
+  }, [e]), te = o(async (t) => {
     if (!e) throw new Error("liveId is required");
     try {
-      const r = await Me(e, t);
-      return a("risk_control", "send_admin_message", !0, e), r;
+      const r = await Te(e, t);
+      return s("risk_control", "send_admin_message", !0, e), r;
     } catch (r) {
-      throw a("risk_control", "send_admin_message", !1), h.error("useRiskControlState", "sendAdminMessage failed:", r), r;
+      throw s("risk_control", "send_admin_message", !1), p.error("useRiskControlState", "sendAdminMessage failed:", r), r;
     }
-  }, [e]), ee = o(async (t) => {
+  }, [e]), re = o(async (t) => {
     try {
       const r = t.items ?? (() => {
-        const S = v;
-        return t.ids.map((L) => {
-          const F = S.find((ne) => ne.id === L);
+        const w = v;
+        return t.ids.map((C) => {
+          const B = w.find((se) => se.id === C);
           return {
-            id: L,
-            content: F?.content ?? L,
-            userId: F?.userId ?? ""
+            id: C,
+            content: B?.content ?? C,
+            userId: B?.userId ?? ""
           };
         });
       })();
       if (c === "custom") {
-        const S = await we({ ids: t.ids, items: r, liveId: t.liveId ?? e });
-        a("moderation", "approve", !0, String(S.success)), S.failed > 0 && h.warn("useRiskControlState", `部分放行失败: 成功 ${S.success}, 失败 ${S.failed}`);
+        const w = await _e({ ids: t.ids, items: r, liveId: t.liveId ?? e });
+        s("moderation", "approve", !0, String(w.success)), w.failed > 0 && p.warn("useRiskControlState", `部分放行失败: 成功 ${w.success}, 失败 ${w.failed}`);
       } else
-        await Se({ ids: t.ids, items: r, liveId: t.liveId ?? e }), a("moderation", "approve", !0, String(t.ids.length));
+        await Re({ ids: t.ids, items: r, liveId: t.liveId ?? e }), s("moderation", "approve", !0, String(t.ids.length));
     } catch (r) {
-      throw a("moderation", "approve", !1), h.error("useRiskControlState", "approveTextModerationItems failed:", r), r;
+      throw s("moderation", "approve", !1), p.error("useRiskControlState", "approveTextModerationItems failed:", r), r;
     }
-  }, [e, v, c]), te = o(async (t) => {
+  }, [e, v, c]), oe = o(async (t) => {
     try {
-      const r = await Le(t);
-      return M.current && w(r.Enabled), a("moderation", "toggle", !0), r.Enabled;
+      const r = await Ee(t);
+      return M.current && S(r.Enabled), s("moderation", "toggle", !0), r.Enabled;
     } catch (r) {
-      throw a("moderation", "toggle", !1), h.error("useRiskControlState", "updateCustomModerationToggleEnabled failed:", r), r;
+      throw s("moderation", "toggle", !1), p.error("useRiskControlState", "updateCustomModerationToggleEnabled failed:", r), r;
     }
-  }, []), re = o(async (t) => {
+  }, []), ne = o(async (t) => {
     try {
-      await Ce({ content: t.content, liveId: t.liveId ?? e }), a("moderation", "bypass", !0, String(t.content.length));
+      await Ae({ content: t.content, liveId: t.liveId ?? e }), s("moderation", "bypass", !0, String(t.content.length));
     } catch (r) {
-      throw a("moderation", "bypass", !1), h.error("useRiskControlState", "bypassCorrectionKeyword failed:", r), r;
+      throw s("moderation", "bypass", !1), p.error("useRiskControlState", "bypassCorrectionKeyword failed:", r), r;
     }
-  }, [e]), oe = o(async (t) => {
+  }, [e]), ae = o(async (t) => {
     try {
-      await N() === "custom" ? await ke(t) : await se(t), a("moderation", "delete", !0, String(t.length));
+      await q() === "custom" ? await Ue(t) : await he(t), s("moderation", "delete", !0, String(t.length));
     } catch (r) {
-      throw a("moderation", "delete", !1), h.error("useRiskControlState", "deleteModerationItems failed:", r), r;
+      throw s("moderation", "delete", !1), p.error("useRiskControlState", "deleteModerationItems failed:", r), r;
     }
   }, []);
   return {
-    textModerationAvailable: m,
+    textModerationAvailable: d,
     moderationMode: c,
     customModerationToggleEnabled: b,
-    updateCustomModerationToggleEnabled: te,
+    updateCustomModerationToggleEnabled: oe,
     textModerationList: v,
-    textModerationPageNum: P,
-    textModerationTotal: _,
-    textModerationLoading: R,
-    fetchTextModerationList: G,
-    approveTextModerationItems: ee,
-    bypassCorrectionKeyword: re,
-    muteMember: H,
-    unmuteMember: X,
-    banMember: Q,
-    unbanMember: Y,
-    sendViolationWarning: Z,
-    sendAdminMessage: J,
-    deleteModerationItems: oe,
-    mutedList: n,
+    textModerationPageNum: x,
+    textModerationTotal: T,
+    textModerationLoading: U,
+    fetchTextModerationList: Y,
+    approveTextModerationItems: re,
+    bypassCorrectionKeyword: ne,
+    muteMember: Z,
+    unmuteMember: Q,
+    banMember: J,
+    unbanMember: X,
+    sendViolationWarning: ee,
+    sendAdminMessage: te,
+    deleteModerationItems: ae,
+    mutedList: a,
     bannedList: y,
-    fetchMutedList: T,
-    fetchBannedList: E
+    fetchMutedList: _,
+    fetchBannedList: R
   };
 }
-U("LiveMonitor");
-let l = null, Ee = !0, s = null;
-const k = /* @__PURE__ */ new Set(), B = /* @__PURE__ */ new Set();
-function Re() {
-  return s || (s = new Pe({
+W("LiveMonitor");
+let f = null, Ke = !0, i = null;
+const k = /* @__PURE__ */ new Set(), D = /* @__PURE__ */ new Set();
+function je() {
+  return i || (i = new Fe({
     pageSize: 8
-  }), s.subscribe(() => {
-    const i = s.getSnapshot();
-    k.forEach((e) => e(i));
-  }), s.subscribe(() => {
-    if (l) {
-      const i = s.getSnapshot();
-      l.liveList = [...i.list];
+  }), i.subscribe(() => {
+    const n = i.getSnapshot();
+    k.forEach((e) => e(n));
+  }), i.subscribe(() => {
+    if (f) {
+      const n = i.getSnapshot();
+      f.liveList = [...n.list];
     }
-  }), s);
+  }), i);
 }
-function ze(i) {
-  return k.add(i), s && i(s.getSnapshot()), () => {
-    k.delete(i);
+function nt(n) {
+  return k.add(n), i && n(i.getSnapshot()), () => {
+    k.delete(n);
   };
 }
-function Oe() {
-  const [i, e] = d([]), [f, m] = d(!0), [p, c] = d(null), g = K(!0);
-  l || (l = new xe({
-    onStateChange: (n) => {
-      B.forEach((u) => u(n));
+function at() {
+  const [n, e] = g([]), [l, d] = g(!0), [m, c] = g(null), h = K(!0);
+  f || (f = new De({
+    onStateChange: (a) => {
+      D.forEach((u) => u(a));
     },
-    getActive: () => Ee
-  })), Re(), q(() => {
-    g.current = !0;
-    const n = (y) => {
-      g.current && (y.liveList !== void 0 && e(y.liveList), y.hasMore !== void 0 && m(y.hasMore), y.currentLive !== void 0 && c(y.currentLive));
+    getActive: () => Ke
+  })), je(), F(() => {
+    h.current = !0;
+    const a = (y) => {
+      h.current && (y.liveList !== void 0 && e(y.liveList), y.hasMore !== void 0 && d(y.hasMore), y.currentLive !== void 0 && c(y.currentLive));
     };
-    B.add(n);
+    D.add(a);
     const u = (y) => {
-      g.current && e([...y.list]);
+      h.current && e([...y.list]);
     };
-    return k.add(u), s && u(s.getSnapshot()), () => {
-      g.current = !1, B.delete(n), k.delete(u);
+    return k.add(u), i && u(i.getSnapshot()), () => {
+      h.current = !1, D.delete(a), k.delete(u);
     };
   }, []);
-  const b = o((n) => {
-    l?.init(n);
-  }, []), w = o(async (n) => {
-    if (!s) return [];
-    switch (n?.action) {
+  const b = o((a) => {
+    f?.init(a);
+  }, []), S = o(async (a) => {
+    if (!i) return [];
+    switch (a?.action) {
       case "first":
-        await s.goToFirstPage();
+        await i.goToFirstPage();
         break;
       case "prev":
-        await s.prevPage();
+        await i.prevPage();
         break;
       default:
-        await s.nextPage();
+        await i.nextPage();
         break;
     }
-    return s.getSnapshot().list;
-  }, []), v = o(async (n) => {
+    return i.getSnapshot().list;
+  }, []), v = o(async (a) => {
     try {
-      const u = await l.createLive(n);
-      return a("live_crud", "create", !0, u.liveId), V("create_live"), u;
+      const u = await f.createLive(a);
+      return s("live_crud", "create", !0, u.liveId), O("create_live"), u;
     } catch (u) {
-      throw a("live_crud", "create", !1), u;
+      throw s("live_crud", "create", !1), u;
     }
-  }, []), x = o(async (n) => {
+  }, []), P = o(async (a) => {
     try {
-      await l.updateLive(n), a("live_crud", "update", !0, n.liveId);
+      await f.updateLive(a), s("live_crud", "update", !0, a.liveId);
     } catch (u) {
-      throw a("live_crud", "update", !1, n.liveId), u;
+      throw s("live_crud", "update", !1, a.liveId), u;
     }
-  }, []), P = o(async (n) => {
+  }, []), x = o(async (a) => {
     try {
-      await l.endLive(n), a("live_crud", "delete", !0, n), ie("force_stop");
+      await f.endLive(a), s("live_crud", "delete", !0, a), pe("force_stop");
     } catch (u) {
-      throw a("live_crud", "delete", !1), u;
+      throw s("live_crud", "delete", !1), u;
     }
-  }, []), I = o(async (n) => l.fetchLiveDetail(n), []), _ = o(async (n) => l.fetchLiveStats(n), []), C = o((n) => {
-    l?.setCurrentLive(n);
-  }, []), R = o(async (n) => l.stopPlay(n), []);
+  }, []), I = o(async (a) => f.fetchLiveDetail(a), []), T = o(async (a) => f.fetchLiveStats(a), []), L = o((a) => {
+    f?.setCurrentLive(a);
+  }, []), U = o(async (a) => f.stopPlay(a), []);
   o(() => {
-    l?.reset();
+    f?.reset();
   }, []);
-  const A = o(async (n) => l.startPlay(n), [R]);
+  const E = o(async (a) => f.startPlay(a), []);
   return {
     init: b,
-    liveList: i,
-    hasMore: f,
-    currentLive: p,
-    setCurrentLive: C,
-    fetchLiveList: w,
+    liveList: n,
+    hasMore: l,
+    currentLive: m,
+    setCurrentLive: L,
+    fetchLiveList: S,
     createLive: v,
-    updateLive: x,
-    endLive: P,
+    updateLive: P,
+    endLive: x,
     fetchLiveDetail: I,
-    fetchLiveStats: _,
-    startPlay: A,
-    stopPlay: R
+    fetchLiveStats: T,
+    startPlay: E,
+    stopPlay: U
   };
 }
-function Ue() {
-  const [i, e] = d(
-    () => s?.getSnapshot() ?? { list: [], currentPage: 1, hasMoreData: !0, loading: !1, pageCursors: /* @__PURE__ */ new Map([[1, ""]]) }
+function st() {
+  const [n, e] = g(
+    () => i?.getSnapshot() ?? { list: [], currentPage: 1, hasMoreData: !0, loading: !1, pageCursors: /* @__PURE__ */ new Map([[1, ""]]) }
   );
-  q(() => (k.add(e), s && e(s.getSnapshot()), () => {
+  F(() => (k.add(e), i && e(i.getSnapshot()), () => {
     k.delete(e);
   }), []);
-  const f = o(() => s?.nextPage() ?? Promise.resolve(), []), m = o(() => s?.prevPage() ?? Promise.resolve(), []), p = o(() => s?.goToFirstPage() ?? Promise.resolve(), []), c = o(() => s?.refresh() ?? Promise.resolve(), []), g = o((w, v) => s?.goToPage(w, v) ?? Promise.resolve(), []), b = o(() => s?.getSnapshot() ?? {
+  const l = o(() => i?.nextPage() ?? Promise.resolve(), []), d = o(() => i?.prevPage() ?? Promise.resolve(), []), m = o(() => i?.goToFirstPage() ?? Promise.resolve(), []), c = o(() => i?.refresh() ?? Promise.resolve(), []), h = o((S, v) => i?.goToPage(S, v) ?? Promise.resolve(), []), b = o(() => i?.getSnapshot() ?? {
     list: [],
     currentPage: 1,
     hasMoreData: !0,
@@ -277,28 +306,37 @@ function Ue() {
     pageCursors: /* @__PURE__ */ new Map([[1, ""]])
   }, []);
   return {
-    pageData: i.list,
-    currentPage: i.currentPage,
-    hasMore: i.hasMoreData,
-    loading: i.loading,
-    nextPage: f,
-    prevPage: m,
-    goToFirstPage: p,
+    pageData: n.list,
+    currentPage: n.currentPage,
+    hasMore: n.hasMoreData,
+    loading: n.loading,
+    nextPage: l,
+    prevPage: d,
+    goToFirstPage: m,
     refreshCurrentPage: c,
-    goToPage: g,
+    goToPage: h,
     getSnapshot: b
   };
 }
-function Ve(i) {
-  const { confirm: e, onSuccess: f, ...m } = i, [p, c] = d(null), g = o((C) => {
-    c(null), f?.(C);
-  }, [f]), b = o((C) => {
+function it() {
+  const n = z(Ne, qe);
+  return {
+    uploading: n.uploading,
+    uploadProgress: n.uploadProgress,
+    getUploadConfig: Ve,
+    uploadResource: $e
+  };
+}
+function ct(n) {
+  const { confirm: e, onSuccess: l, ...d } = n, [m, c] = g(null), h = o((L) => {
+    c(null), l?.(L);
+  }, [l]), b = o((L) => {
     c(null);
-  }, []), { loading: w, execute: v, reset: x } = Ie({
-    ...m,
-    onSuccess: g,
+  }, []), { loading: S, execute: v, reset: P } = Be({
+    ...d,
+    onSuccess: h,
     onError: b
-  }), P = o(() => {
+  }), x = o(() => {
     c({
       visible: !0,
       title: e.title,
@@ -307,18 +345,18 @@ function Ve(i) {
     });
   }, [e]), I = o(() => {
     c(null);
-  }, []), _ = o(async () => v(), [v]);
+  }, []), T = o(async () => v(), [v]);
   return {
-    loading: w,
-    confirmDialog: p,
-    requestConfirm: P,
+    loading: S,
+    confirmDialog: m,
+    requestConfirm: x,
     cancelConfirm: I,
-    executeWithConfirm: _,
-    reset: x
+    executeWithConfirm: T,
+    reset: P
   };
 }
-function Ae({ message: i, onRetry: e }) {
-  return /* @__PURE__ */ Te(
+function He({ message: n, onRetry: e }) {
+  return /* @__PURE__ */ We(
     "div",
     {
       style: {
@@ -331,9 +369,9 @@ function Ae({ message: i, onRetry: e }) {
         gap: 16
       },
       children: [
-        /* @__PURE__ */ D("div", { style: { fontSize: 48, opacity: 0.3 }, children: "⚠" }),
-        /* @__PURE__ */ D("div", { style: { fontSize: 16, color: "#666", textAlign: "center", maxWidth: 400 }, children: i }),
-        /* @__PURE__ */ D(
+        /* @__PURE__ */ A("div", { style: { fontSize: 48, opacity: 0.3 }, children: "⚠" }),
+        /* @__PURE__ */ A("div", { style: { fontSize: 16, color: "#666", textAlign: "center", maxWidth: 400 }, children: n }),
+        /* @__PURE__ */ A(
           "button",
           {
             onClick: e,
@@ -351,34 +389,34 @@ function Ae({ message: i, onRetry: e }) {
     }
   );
 }
-class Ke extends de {
+class ut extends Me {
   constructor() {
     super(...arguments), this.state = { error: null }, this.handleRetry = () => {
       this.setState({ error: null });
     };
   }
   static getDerivedStateFromError(e) {
-    return { error: ce.from(e) };
+    return { error: be.from(e) };
   }
-  componentDidCatch(e, f) {
-    const { code: m, info: p, original: c } = ue(e);
+  componentDidCatch(e, l) {
+    const { code: d, info: m, original: c } = ve(e);
     console.error("[AppErrorBoundary] Render error:", {
-      code: m,
-      msg: p,
-      componentStack: f.componentStack,
+      code: d,
+      msg: m,
+      componentStack: l.componentStack,
       original: c
-    }), import("./chunks/shared-state.Bf8CkvaR.js").then((b) => b.bu).then(({ reportBusinessOp: b }) => {
-      b("reactRenderError", "render", !1, m ? String(m) : void 0);
+    }), import("./chunks/shared-state.LwLSW33A.js").then((b) => b.bG).then(({ reportBusinessOp: b }) => {
+      b("reactRenderError", "render", !1, d ? String(d) : void 0);
     }).catch(() => {
     });
-    const g = $(m, p);
-    g && _e.error(g);
+    const h = N(d, m);
+    h && Ge.error(h);
   }
   render() {
-    return this.state.error ? this.props.fallback ? this.props.fallback(this.state.error, this.handleRetry) : /* @__PURE__ */ D(
-      Ae,
+    return this.state.error ? this.props.fallback ? this.props.fallback(this.state.error, this.handleRetry) : /* @__PURE__ */ A(
+      He,
       {
-        message: $(
+        message: N(
           this.state.error.code ?? 0,
           this.state.error.message
         ),
@@ -387,23 +425,27 @@ class Ke extends de {
     ) : this.props.children;
   }
 }
-le("react");
+ye("react");
 export {
-  Ke as AppErrorBoundary,
-  _e as Message,
-  He as measureAndReport,
-  a as reportBusinessOp,
-  ie as reportEvent,
-  Xe as reportPageView,
-  Qe as reportTime,
-  ze as subscribeToPagination,
-  Ie as useAsyncAction,
-  Ve as useConfirmAction,
-  Ze as useGiftState,
-  Oe as useLiveMonitorState,
-  Ue as usePaginatedList,
-  et as usePreviewUrl,
-  Ne as useRiskControlState,
-  tt as useSvgaPlayer,
-  rt as useT
+  ut as AppErrorBoundary,
+  Ge as Message,
+  ft as measureAndReport,
+  s as reportBusinessOp,
+  pe as reportEvent,
+  gt as reportPageView,
+  mt as reportTime,
+  yt as resolveDemoTargetPath,
+  ht as setReportSource,
+  nt as subscribeToPagination,
+  Be as useAsyncAction,
+  rt as useAuthState,
+  ct as useConfirmAction,
+  bt as useGiftState,
+  at as useLiveMonitorState,
+  st as usePaginatedList,
+  St as usePreviewUrl,
+  ot as useRiskControlState,
+  wt as useSvgaPlayer,
+  Ct as useT,
+  it as useUploadState
 };

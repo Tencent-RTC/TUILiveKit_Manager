@@ -40,6 +40,14 @@ export interface CustomInfoValidationError {
 export declare const LIVE_ID_PREFIX = "live_";
 export declare const ANCHOR_ID_MAX_BYTES = 32;
 export declare const LIVE_TITLE_MAX_BYTES = 100;
+/** 主播 ID 帮助文档 URL（中文） */
+export declare const ANCHOR_ID_HELP_URL_ZH = "https://cloud.tencent.com/document/product/647/117216";
+/** 主播 ID 帮助文档 URL（英文） */
+export declare const ANCHOR_ID_HELP_URL_EN = "https://trtc.io/document/69881?product=live&menulabel=uikit";
+/** "主播 ID 不存在" 服务端错误码 */
+export declare const ANCHOR_ID_NOT_FOUND_ERROR_CODE = 100002;
+/** "主播 ID 不存在" 服务端错误信息关键字（小写匹配） */
+export declare const ANCHOR_ID_NOT_FOUND_ERROR_HINT = "invalid owner account";
 export declare const DEFAULT_SEAT_TEMPLATE: SeatTemplate;
 export declare const DEFAULT_MAX_SEAT_COUNT = 8;
 export declare const PORTRAIT_COVER_ASPECT_RATIO: number;
@@ -69,3 +77,17 @@ export declare function buildCreateLiveParams(options: {
 }): CreateLiveSubmitParams;
 export declare function customInfoRecordToList(customInfo: unknown): CustomInfo[];
 export declare function detectImageAspectRatio(url: string): Promise<number>;
+/**
+ * 根据当前语言获取主播 ID 帮助文档 URL
+ *
+ * React/Vue 两端 CreateLiveModal 共用，避免在组件中硬编码文档地址。
+ */
+export declare function getAnchorIdHelpUrl(language: 'zh-CN' | 'en-US' | string): string;
+/**
+ * 判断错误是否为"主播 ID 不存在"
+ *
+ * 服务端在主播账号无效时返回错误码 {@link ANCHOR_ID_NOT_FOUND_ERROR_CODE}，
+ * 且 ErrorInfo 包含 {@link ANCHOR_ID_NOT_FOUND_ERROR_HINT}。
+ * 集中判断避免 React/Vue 两端各自复制魔法数字与字符串。
+ */
+export declare function isAnchorIdNotFoundError(err: unknown): boolean;

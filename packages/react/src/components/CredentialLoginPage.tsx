@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { i18next } from '@tencentcloud/uikit-base-component-react';
-import { TranslateIcon } from 'tdesign-icons-react';
-import { Input, Button } from 'tdesign-react';
+import { TranslateIcon, HelpCircleIcon } from 'tdesign-icons-react';
+import { Input, Button, Tooltip } from 'tdesign-react';
 import { Message } from 'tuikit-live-manager-sdk-react';
 import {
   loginWithSecret,
@@ -11,6 +11,8 @@ import {
   getDefaultLanguage,
   toggleLanguage,
   setDocumentLanguage,
+  resolveDemoTargetPath,
+  getHelpLinks,
   I18N,
 } from 'tuikit-live-manager-sdk-react';
 import type { SupportedLanguage } from 'tuikit-live-manager-sdk-react';
@@ -35,6 +37,10 @@ export default function CredentialLoginPage({ showServerConfigLink = true }: Cre
   const [userId, setUserId] = useState('administrator');
   const [loading, setLoading] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState<SupportedLanguage>(getDefaultLanguage());
+  const helpLinks = getHelpLinks('react', currentLanguage);
+  // Vite define 对 __DEMO_MODE__ 在 dev 下替换不稳定（与 router/index.tsx 一致），
+  // 使用 typeof 守卫避免 ReferenceError；非 demo 构建时回落为 false。
+  const demoModeEnabled = typeof __DEMO_MODE__ !== 'undefined' ? __DEMO_MODE__ : false;
 
   const handleToggleLanguage = () => {
     const nextLang = toggleLanguage(currentLanguage);
@@ -97,7 +103,16 @@ export default function CredentialLoginPage({ showServerConfigLink = true }: Cre
 
         <div className="login-form-wrapper login-form-wrapper--tdesign">
           <div className="login-field login-field--horizontal">
-            <label className="login-field__label">{t(I18N.SDK_APP_ID_LABEL)}</label>
+            <label className="login-field__label">
+              {t(I18N.SDK_APP_ID_LABEL)}
+              <Tooltip placement="top" content={
+                <div className="login-help-tooltip">
+                  <a href={helpLinks.sdkAppId} target="_blank" rel="noopener noreferrer">{t(I18N.SDK_APP_ID_HELP_LINK)}</a>
+                </div>
+              }>
+                <HelpCircleIcon size="14px" className="login-help-icon" />
+              </Tooltip>
+            </label>
             <Input
               className="login-tdesign-input"
               value={sdkAppId}
@@ -110,7 +125,17 @@ export default function CredentialLoginPage({ showServerConfigLink = true }: Cre
           </div>
 
           <div className="login-field login-field--horizontal">
-            <label className="login-field__label">{t(I18N.SECRET_KEY_LABEL)}</label>
+            <label className="login-field__label">
+              {t(I18N.SECRET_KEY_LABEL)}
+              <Tooltip placement="top" content={
+                <div className="login-help-tooltip">
+                  <span>{t(I18N.SECRET_KEY_MEMORY_ONLY)} </span>
+                  <a href={helpLinks.secretKey} target="_blank" rel="noopener noreferrer">{t(I18N.SECRET_KEY_HELP_LINK)}</a>
+                </div>
+              }>
+                <HelpCircleIcon size="14px" className="login-help-icon" />
+              </Tooltip>
+            </label>
             <Input
               className="login-tdesign-input"
               type="password"
@@ -124,7 +149,17 @@ export default function CredentialLoginPage({ showServerConfigLink = true }: Cre
           </div>
 
           <div className="login-field login-field--horizontal">
-            <label className="login-field__label">{t(I18N.USER_ID_LABEL)}</label>
+            <label className="login-field__label">
+              {t(I18N.USER_ID_LABEL)}
+              <Tooltip placement="top" content={
+                <div className="login-help-tooltip">
+                  <span>{t(I18N.USER_ID_HELP_PREFIX)} </span>
+                  <a href={helpLinks.userId} target="_blank" rel="noopener noreferrer">{t(I18N.USER_ID_HELP_LINK)}</a>
+                </div>
+              }>
+                <HelpCircleIcon size="14px" className="login-help-icon" />
+              </Tooltip>
+            </label>
             <Input
               className="login-tdesign-input"
               value={userId}
@@ -146,11 +181,7 @@ export default function CredentialLoginPage({ showServerConfigLink = true }: Cre
             {loading ? t(I18N.LOGGING_IN) : t(I18N.LOGIN_BTN)}
           </Button>
 
-          <div className="credential-hint">
-            {t(I18N.SECRET_KEY_MEMORY_ONLY)}
-          </div>
-
-          {showServerConfigLink && (
+          {showServerConfigLink && !demoModeEnabled && (
             <div className="server-config-link">
               <button
                 type="button"
@@ -159,6 +190,28 @@ export default function CredentialLoginPage({ showServerConfigLink = true }: Cre
                 disabled={loading}
               >
                 {t(I18N.TOGGLE_LOGIN_MODE)}
+              </button>
+            </div>
+          )}
+
+          {demoModeEnabled && (
+            <div style={{ marginTop: '16px', textAlign: 'center' }}>
+              <div style={{ height: '1px', background: '#e5e7eb', margin: '16px 0' }} />
+              <p style={{ fontSize: '13px', color: '#6b7280', margin: '0 0 12px' }}>{t(I18N.DEMO_MODE_DESC)}</p>
+              <button
+                type="button"
+                style={{
+                  background: 'none',
+                  border: '1px solid #1C66E5',
+                  color: '#1C66E5',
+                  padding: '6px 20px',
+                  borderRadius: '999px',
+                  fontSize: '13px',
+                  cursor: 'pointer',
+                }}
+                onClick={() => { window.location.href = resolveDemoTargetPath('react'); }}
+              >
+                {t(I18N.TRY_DEMO_MODE)}
               </button>
             </div>
           )}

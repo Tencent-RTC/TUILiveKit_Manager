@@ -67,6 +67,44 @@ export interface PushInfo {
     /** 推流密钥（包含 liveId、sdkAppId、userId、userSig） */
     streamKey: string;
 }
+/** OBS 搭建流程状态 */
+export type ObsSetupStatus = '' | 'creating' | 'seating' | 'ready' | 'error';
+/** OBS 搭建错误文案（可用于国际化覆盖默认文案） */
+export interface ObsSetupMessages {
+    getStreamInfoFailed?: string;
+    importAccountFailed?: string;
+    addRobotFailed?: string;
+    pickSeatFailed?: string;
+    setupFailed?: string;
+}
+/** 搭建 OBS 推流参数（底层 API，liveId / anchorId 均必填） */
+export interface SetupObsStreamingOptions {
+    liveId: string;
+    anchorId: string;
+    onStatusChange?: (status: ObsSetupStatus) => void;
+    messages?: ObsSetupMessages;
+}
+/** 搭建 OBS 推流结果 */
+export interface SetupObsStreamingResult {
+    robotId: string;
+    streamInfo: PushInfo | null;
+    streamInfoError: string;
+    setupError: string;
+    status: ObsSetupStatus;
+    configuredSuccessfully: boolean;
+}
+/** OBS 推流详情状态：ready（已搭建）| none（未搭建）| error（查询失败） */
+export type ObsLiveDetailStatus = 'ready' | 'none' | 'error';
+/** OBS 推流详情查询结果 */
+export interface GetObsLiveDetailResult {
+    robotId: string;
+    hasRobot: boolean;
+    onSeat: boolean;
+    streamInfo: PushInfo | null;
+    streamInfoError: string;
+    status: ObsLiveDetailStatus;
+    errorMessage: string;
+}
 export type SeatTemplate = 'VideoDynamicGrid9Seats' | 'VideoDynamicFloat7Seats' | 'VideoFixedGrid9Seats' | 'VideoFixedFloat7Seats' | 'VideoLandscape4Seat' | 'AudioSalon' | 'Karaoke';
 export interface CreateLiveParams {
     /** 主播 ID */

@@ -1,22 +1,22 @@
-import { defineComponent as le, openBlock as u, createElementBlock as T, toDisplayString as c, createCommentVNode as K, resolveComponent as be, createElementVNode as i, createVNode as g, unref as e, withCtx as y, createTextVNode as V, Fragment as Fe, createBlock as G, computed as $, ref as I, h as Se, watch as ve, onUnmounted as ye, Teleport as Ze, normalizeStyle as et, renderList as tt, onMounted as Lt, withDirectives as vt, vShow as mt, withModifiers as rn, nextTick as Ve, mergeProps as ft, normalizeClass as cn, reactive as Xe } from "vue";
+import { defineComponent as le, openBlock as u, createElementBlock as T, toDisplayString as c, createCommentVNode as K, resolveComponent as be, createElementVNode as i, createVNode as g, unref as e, withCtx as y, createTextVNode as V, Fragment as Fe, createBlock as G, computed as $, ref as I, h as Se, watch as ve, onUnmounted as ye, Teleport as Qe, normalizeStyle as et, renderList as tt, onMounted as Lt, withDirectives as vt, vShow as mt, withModifiers as rn, nextTick as Ve, mergeProps as ft, normalizeClass as cn, reactive as Xe } from "vue";
 import { useRoute as dn, useRouter as un } from "vue-router";
 import { Tooltip as Ne, MessagePlugin as A } from "tdesign-vue-next";
 import { useUIKit as me } from "@tencentcloud/uikit-base-component-vue3";
 import { LiveView as vn, useLiveAudienceState as je, LiveAudienceList as mn, useLoginState as fn, useLiveListState as gn, useLivePlayerState as bn } from "tuikit-atomicx-vue3";
-import { _ as Ct } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.m6h4dX42.js";
+import { _ as Ct } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.CTZnYVPd.js";
 import { ArrowLeftIcon as hn, NotificationIcon as En, StopCircleIcon as In, CheckCircleIcon as ze, ChatOffIcon as Tt, UserCheckedIcon as Mt, UserBlockedIcon as yt, MoreIcon as _n, InfoCircleIcon as Me, CloseCircleIcon as Nn, RefreshIcon as Ln, ChevronDownIcon as gt } from "tdesign-icons-vue-next";
-import { I as t, aC as Cn, h as He, m as Tn, d as At, z as ae, t as Ot, s as bt, af as Mn, n as yn, aI as An, aT as On, aW as pn, aR as Rn } from "../../chunks/shared-state.Bf8CkvaR.js";
-import { b7 as wn, b0 as Pe, b2 as ht, n as Sn, D as Dn, bE as Un, bu as kn, a7 as $n, bO as Ke, b3 as xn, bt as Et, bs as It, aJ as Bn, _ as qe, al as Pn, ax as _t, bB as Fn, ah as Vn } from "../../chunks/main-layout.OEkSp6vd.js";
+import { I as t, p as Cn, c as He, _ as Tn, u as At, ak as ae, ac as Ot, ab as bt, b5 as Mn, a as yn, x as An, Z as On, a1 as pn, S as Rn } from "../../chunks/shared-state.LwLSW33A.js";
+import { bb as wn, b3 as Pe, b5 as ht, r as Sn, D as Dn, bK as Un, bz as kn, a9 as $n, bU as Ke, b6 as xn, by as Et, bx as It, aL as Bn, a0 as qe, an as Pn, az as _t, bH as Fn, aj as Vn } from "../../chunks/main-layout.BxLEuh4E.js";
 import { BarrageList as Gn, BarrageInput as Wn, LiveListEvent as Kn } from "tuikit-atomicx-vue3/live";
-import { _ as nt } from "../../chunks/AnchorAvatar.vue_vue_type_script_setup_true_lang.B4aLgOes.js";
-import { c as qn, C as jn } from "../../chunks/user-action-dropdown.C8Wr7xmv.js";
+import { _ as nt } from "../../chunks/AnchorAvatar.vue_vue_type_script_setup_true_lang.B0W14Fct.js";
+import { c as qn, C as jn } from "../../chunks/user-action-dropdown.CwDm2P6F.js";
 import { useLiveMonitorState as at, useRiskControlState as pt, useConfirmAction as Je } from "../../vue.js";
-import { u as zn } from "../../chunks/useAsyncAction.DYLXidOr.js";
-import { p as Hn, b as Yn, g as Jn } from "../../chunks/columns.B8HdBl39.js";
+import { u as zn } from "../../chunks/useAsyncAction.Btr7ihji.js";
+import { p as Hn, b as Yn, g as Jn } from "../../chunks/columns.CsxSWq0J.js";
 import { a as ot, _ as Xn } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
 import "../../chunks/action-buttons.ChAJrOyM.js";
-import { _ as Qn } from "../../chunks/_plugin-vue_export-helper.CHgC5LLL.js";
-const Zn = { class: "toast-area" }, ea = {
+import { _ as Zn } from "../../chunks/_plugin-vue_export-helper.CHgC5LLL.js";
+const Qn = { class: "toast-area" }, ea = {
   key: 0,
   class: "status-success"
 }, ta = {
@@ -29,7 +29,7 @@ const Zn = { class: "toast-area" }, ea = {
     errorMsg: {}
   },
   setup(a) {
-    return (l, d) => (u(), T("div", Zn, [
+    return (l, d) => (u(), T("div", Qn, [
       a.successMsg ? (u(), T("div", ea, c(a.successMsg), 1)) : K("", !0),
       a.errorMsg ? (u(), T("div", ta, c(a.errorMsg), 1)) : K("", !0)
     ]));
@@ -189,7 +189,7 @@ const Zn = { class: "toast-area" }, ea = {
     const l = He("MessageList"), { t: d } = me(), { giftList: o, fetchGiftList: m } = zn();
     m().catch(() => {
     });
-    const v = a, { currentLive: f } = at(), { audienceList: s, disableSendMessage: p } = je(), b = $(() => v.currentLive || f.value), N = I(!1), x = I({ top: 0, left: 0 }), C = I(null), te = I(null), z = I(null), S = I(null), P = (_) => s.value.find((B) => B.userId === _), Z = (_) => {
+    const v = a, { currentLive: f } = at(), { audienceList: s, disableSendMessage: p } = je(), b = $(() => v.currentLive || f.value), N = I(!1), x = I({ top: 0, left: 0 }), C = I(null), te = I(null), z = I(null), S = I(null), P = (_) => s.value.find((B) => B.userId === _), Q = (_) => {
       const B = P(_);
       if (B)
         return B.isMessageDisabled === !0;
@@ -234,9 +234,9 @@ const Zn = { class: "toast-area" }, ea = {
         N.value = !1, C.value = null;
         return;
       }
-      const B = C.value.sender.userName || C.value.sender.nameCard || C.value.sender.userId, W = Z(_);
+      const B = C.value.sender.userName || C.value.sender.nameCard || C.value.sender.userId, W = Q(_);
       try {
-        await p({ userId: _, isDisable: !W }), l.info("muteOperation", W ? "解除禁言成功" : "禁言成功");
+        await p({ userId: _, isDisable: !W }), l.debug("muteOperation", W ? "解除禁言成功" : "禁言成功");
       } catch (q) {
         l.error("SDK 禁言失败，使用备用方法", "", q), v.onMuteUser && v.onMuteUser(_, B, W);
       }
@@ -319,7 +319,7 @@ const Zn = { class: "toast-area" }, ea = {
         maxLength: _a,
         autoFocus: !1
       }, null, 8, ["placeholder", "disabled"])) : K("", !0),
-      (u(), G(Ze, { to: "body" }, [
+      (u(), G(Qe, { to: "body" }, [
         N.value && C.value ? (u(), T("div", {
           key: 0,
           ref_key: "dropdownRef",
@@ -335,8 +335,8 @@ const Zn = { class: "toast-area" }, ea = {
             class: "dropdown-item",
             onClick: X
           }, [
-            Z(C.value.sender.userId) ? (u(), G(e(ze), { key: 0 })) : (u(), G(e(Tt), { key: 1 })),
-            i("span", null, c(Z(C.value.sender.userId) ? e(d)(e(t).UNMUTE) : e(d)(e(t).MUTE)), 1)
+            Q(C.value.sender.userId) ? (u(), G(e(ze), { key: 0 })) : (u(), G(e(Tt), { key: 1 })),
+            i("span", null, c(Q(C.value.sender.userId) ? e(d)(e(t).UNMUTE) : e(d)(e(t).MUTE)), 1)
           ]),
           i("button", {
             class: "dropdown-item danger",
@@ -349,7 +349,7 @@ const Zn = { class: "toast-area" }, ea = {
       ]))
     ], 512));
   }
-}), La = ["innerHTML"], Qe = /* @__PURE__ */ le({
+}), La = ["innerHTML"], Ze = /* @__PURE__ */ le({
   __name: "ConfirmDialog",
   props: {
     visible: { type: Boolean },
@@ -594,7 +594,7 @@ const Zn = { class: "toast-area" }, ea = {
     }, p = () => {
       v("ban"), v("close");
     };
-    return (b, N) => (u(), G(Ze, { to: "body" }, [
+    return (b, N) => (u(), G(Qe, { to: "body" }, [
       a.visible ? (u(), T("div", {
         key: 0,
         ref_key: "dropdownRef",
@@ -633,7 +633,7 @@ const Zn = { class: "toast-area" }, ea = {
       ], 4)) : K("", !0)
     ]));
   }
-}), za = { class: "left-interaction-card" }, Ha = { class: "interaction-tabs-header" }, Ya = { class: "all-mute-control-row" }, Ja = { class: "all-mute-label" }, Xa = { class: "interaction-body" }, Qa = { class: "chat-stream-sidebar" }, Za = {
+}), za = { class: "left-interaction-card" }, Ha = { class: "interaction-tabs-header" }, Ya = { class: "all-mute-control-row" }, Ja = { class: "all-mute-label" }, Xa = { class: "interaction-body" }, Za = { class: "chat-stream-sidebar" }, Qa = {
   key: 0,
   class: "all-mute-banner"
 }, eo = { class: "audience-tab-wrapper" }, to = { class: "audience-list-area" }, no = {
@@ -670,7 +670,7 @@ const Zn = { class: "toast-area" }, ea = {
       unbanMember: te,
       fetchMutedList: z,
       fetchBannedList: S
-    } = pt({ liveId: v.liveId, pageSize: 100 }), { updateLive: P } = at(), { audienceList: Z } = je(), J = $(() => v.currentLive?.isMessageDisabled === !0), H = I(!1), ee = I(!1), X = I(null), re = I(!1);
+    } = pt({ liveId: v.liveId, pageSize: 100 }), { updateLive: P } = at(), { audienceList: Q } = je(), J = $(() => v.currentLive?.isMessageDisabled === !0), H = I(!1), ee = I(!1), X = I(null), re = I(!1);
     function oe(h) {
       X.value = { ...h, visible: !0 };
     }
@@ -694,8 +694,8 @@ const Zn = { class: "toast-area" }, ea = {
         A.warning(o(t.LIVE_ENDED));
         return;
       }
-      const Q = Pe(v.anchorUserId);
-      if (h !== Q) {
+      const Z = Pe(v.anchorUserId);
+      if (h !== Z) {
         if (O) {
           x({ memberAccounts: [h] }).then(() => {
             A.success(m(t.UNMUTE, E));
@@ -720,8 +720,8 @@ const Zn = { class: "toast-area" }, ea = {
         A.warning(o(t.LIVE_ENDED));
         return;
       }
-      const Q = Pe(v.anchorUserId);
-      if (h !== Q) {
+      const Z = Pe(v.anchorUserId);
+      if (h !== Z) {
         if (O) {
           te({ memberAccounts: [h] }).then(() => {
             A.success(m(t.UNBAN, E));
@@ -752,8 +752,8 @@ const Zn = { class: "toast-area" }, ea = {
           H.value = !0, P({ liveId: v.liveId, isMessageDisabled: !1 }).then(() => {
             A.success(m(t.OP_DISABLE, t.ALL_MEMBER_MUTE));
           }).catch((O) => {
-            const Q = ae(O).info || O?.message || o(t.UNKNOWN_ERROR);
-            A.error(`【${o(t.ALL_MEMBER_MUTE)}】${o(t.OPERATION_FAILED, { error: Q })}`);
+            const Z = ae(O).info || O?.message || o(t.UNKNOWN_ERROR);
+            A.error(`【${o(t.ALL_MEMBER_MUTE)}】${o(t.OPERATION_FAILED, { error: Z })}`);
           }).finally(() => {
             H.value = !1;
           });
@@ -777,8 +777,8 @@ const Zn = { class: "toast-area" }, ea = {
     const D = I(null);
     function j(h, E, O) {
       h.stopPropagation();
-      const Q = h.currentTarget.getBoundingClientRect();
-      D.value = { userId: E, userName: O, x: Q.right, y: Q.bottom + 4 };
+      const Z = h.currentTarget.getBoundingClientRect();
+      D.value = { userId: E, userName: O, x: Z.right, y: Z.bottom + 4 };
     }
     function ne() {
       D.value = null;
@@ -800,12 +800,12 @@ const Zn = { class: "toast-area" }, ea = {
       return b.value.some((E) => E.userId === h);
     }
     function Le(h) {
-      const E = Z.value.find((O) => O.userId === h);
+      const E = Q.value.find((O) => O.userId === h);
       if (E && "avatarUrl" in E && typeof E.avatarUrl == "string")
         return E.avatarUrl;
     }
     function De(h) {
-      const E = Z.value.find((O) => O.userId === h);
+      const E = Q.value.find((O) => O.userId === h);
       return E?.userName ? E.userName : h;
     }
     const Ce = I(null), Y = I(null);
@@ -881,8 +881,8 @@ const Zn = { class: "toast-area" }, ea = {
             ee.value = !1;
           });
           const E = () => {
-            document.querySelectorAll(".viewer-name").forEach((Q) => {
-              const ce = Q, w = ce.textContent || "";
+            document.querySelectorAll(".viewer-name").forEach((Z) => {
+              const ce = Z, w = ce.textContent || "";
               ce.title !== w && (ce.title = w);
             });
           };
@@ -901,10 +901,10 @@ const Zn = { class: "toast-area" }, ea = {
     }), ye(() => {
       ge?.disconnect(), ge = null;
     }), (h, E) => {
-      const O = be("t-tab-panel"), Q = be("t-tabs"), ce = be("t-switch");
+      const O = be("t-tab-panel"), Z = be("t-tabs"), ce = be("t-switch");
       return u(), T("div", za, [
         i("div", Ha, [
-          g(Q, {
+          g(Z, {
             modelValue: s.value,
             "onUpdate:modelValue": E[0] || (E[0] = (w) => s.value = w),
             class: "interaction-tabs"
@@ -931,8 +931,8 @@ const Zn = { class: "toast-area" }, ea = {
           ])
         ]),
         i("div", Xa, [
-          vt(i("div", Qa, [
-            J.value ? (u(), T("div", Za, [
+          vt(i("div", Za, [
+            J.value ? (u(), T("div", Qa, [
               E[4] || (E[4] = i("span", { class: "all-mute-banner-icon" }, "!", -1)),
               i("span", null, c(e(o)(e(t).ALL_MEMBER_MUTE_ENABLED_BANNER)), 1)
             ])) : K("", !0),
@@ -984,7 +984,7 @@ const Zn = { class: "toast-area" }, ea = {
             [mt, a.activeTab === "audience"]
           ])
         ]),
-        X.value ? (u(), G(Qe, {
+        X.value ? (u(), G(Ze, {
           key: 0,
           visible: X.value.visible,
           "onUpdate:visible": E[1] || (E[1] = (w) => X.value.visible = w),
@@ -1051,7 +1051,7 @@ const Zn = { class: "toast-area" }, ea = {
       }
       return "audience";
     }
-    const P = I(!1), Z = I(""), J = I(!1), H = I(""), ee = I(!1), X = I(!1), re = I(!1), oe = I(0), _ = S(), B = $(
+    const P = I(!1), Q = I(""), J = I(!1), H = I(""), ee = I(!1), X = I(!1), re = I(!1), oe = I(0), _ = S(), B = $(
       () => f.value?.userId || H.value || o.currentUserId || Ot() || ""
     ), W = $(
       () => o.liveEndedOverlayVisible || ee.value && !o.currentLive && !o.isMockMode
@@ -1071,11 +1071,11 @@ const Zn = { class: "toast-area" }, ea = {
         X.value = !0;
         try {
           let M;
-          if (_ === "audience" ? (d.info("LiveControlLeftPanel", "Audience mode (internal), creating basic account..."), M = await kn("audience")) : (d.info("LiveControlLeftPanel", "Admin mode, resolving account..."), M = await Mn()), !M || M.sdkAppId === 0 || !M.userId || !M.userSig) {
+          if (_ === "audience" ? (d.debug("LiveControlLeftPanel", "Audience mode (internal), creating basic account..."), M = await kn("audience")) : (d.debug("LiveControlLeftPanel", "Admin mode, resolving account..."), M = await Mn()), !M || M.sdkAppId === 0 || !M.userId || !M.userSig) {
             d.warn("LiveControlLeftPanel", "No valid account obtained, will retry"), ne();
             return;
           }
-          d.info("LiveControlLeftPanel", "Logging in as:", _, "userId:", M.userId), await v({ sdkAppId: M.sdkAppId, userId: M.userId, userSig: M.userSig }), await Ve(), P.value = !0, H.value = M.userId, oe.value = 0;
+          d.debug("LiveControlLeftPanel", "Logging in as:", _, "userId:", M.userId), await v({ sdkAppId: M.sdkAppId, userId: M.userId, userSig: M.userSig }), await Ve(), P.value = !0, H.value = M.userId, oe.value = 0;
         } catch (M) {
           if (M?.code === 2025 || M?.message?.includes("重复登录")) {
             await Ve(), P.value = !0, H.value = H.value || "recovered", oe.value = 0;
@@ -1092,22 +1092,22 @@ const Zn = { class: "toast-area" }, ea = {
         return;
       }
       const M = vo * (oe.value + 1);
-      d.info("LiveControlLeftPanel", `Scheduling login retry #${oe.value + 1} in ${M}ms`), setTimeout(() => {
+      d.debug("LiveControlLeftPanel", `Scheduling login retry #${oe.value + 1} in ${M}ms`), setTimeout(() => {
         !P.value && !o.isMockMode && oe.value++;
       }, M);
     }, fe = async () => {
-      if (!(!o.liveId || !o.currentLive || !P.value || Z.value === o.liveId) && !re.value) {
+      if (!(!o.liveId || !o.currentLive || !P.value || Q.value === o.liveId) && !re.value) {
         re.value = !0;
         try {
-          d.info("LiveControlLeftPanel", "Joining live:", o.liveId, "as:", _);
+          d.debug("LiveControlLeftPanel", "Joining live:", o.liveId, "as:", _);
           const M = bt();
           jn.callExperimentalAPI(JSON.stringify({
             api: "setCurrentLanguage",
             params: { language: M === "en-US" ? "en" : M === "zh-CN" ? "zh-Hans" : M }
           })).catch(() => {
-          }), await s({ liveId: o.liveId }), Z.value = o.liveId, await x().catch((U) => {
+          }), await s({ liveId: o.liveId }), Q.value = o.liveId, await x().catch((U) => {
             d.warn("LiveControlLeftPanel", "fetchAudienceList after join failed:", U);
-          }), C(), z(0), !J.value && b && ie && (d.info("LiveControlLeftPanel", "Subscribing to live ended event:", ie), b(ie, D), J.value = !0), m("joined-live"), console.log("[LiveControlLeftPanel] adding live admin:", H.value, "room:", o.liveId), $n(o.liveId, H.value).catch((U) => {
+          }), C(), z(0), !J.value && b && ie && (d.debug("LiveControlLeftPanel", "Subscribing to live ended event:", ie), b(ie, D), J.value = !0), m("joined-live"), console.log("[LiveControlLeftPanel] adding live admin:", H.value, "room:", o.liveId), $n(o.liveId, H.value).catch((U) => {
             console.error("[LiveControlLeftPanel] addLiveAdmin failed:", U), d.warn("LiveControlLeftPanel", "addLiveAdmin failed:", U);
           });
         } catch (M) {
@@ -1134,10 +1134,10 @@ const Zn = { class: "toast-area" }, ea = {
     ), ve(
       () => o.liveId,
       () => {
-        Z.value = "", ee.value = !1;
+        Q.value = "", ee.value = !1;
       }
     ), ye(() => {
-      J.value && N && ie && (N(ie, D), J.value = !1), Z.value && p?.().catch?.((M) => {
+      J.value && N && ie && (N(ie, D), J.value = !1), Q.value && p?.().catch?.((M) => {
         d.error("LiveControlLeftPanel", "leaveLive on unmount failed:", M);
       }), te();
     }), (M, U) => (u(), T("div", uo, [
@@ -1326,7 +1326,7 @@ const Zn = { class: "toast-area" }, ea = {
 }), Go = { class: "moderation-card" }, Wo = { class: "moderation-card-header" }, Ko = { class: "moderation-header-left" }, qo = { key: 0 }, jo = {
   key: 2,
   style: { "font-size": "13px", "margin-left": "8px" }
-}, zo = { class: "moderation-toolbar" }, Ho = { class: "update-time" }, Yo = { class: "moderation-table-wrapper" }, Jo = ["checked", "disabled"], Xo = ["checked", "disabled", "onChange"], Qo = { class: "moderation-user-cell" }, Zo = { class: "moderation-user-id" }, ei = ["title"], ti = { class: "moderation-type-text" }, ni = { class: "moderation-empty" }, ai = {
+}, zo = { class: "moderation-toolbar" }, Ho = { class: "update-time" }, Yo = { class: "moderation-table-wrapper" }, Jo = ["checked", "disabled"], Xo = ["checked", "disabled", "onChange"], Zo = { class: "moderation-user-cell" }, Qo = { class: "moderation-user-id" }, ei = ["title"], ti = { class: "moderation-type-text" }, ni = { class: "moderation-empty" }, ai = {
   key: 0,
   class: "moderation-pagination"
 }, oi = { class: "pagination-pages" }, ii = ["disabled"], si = {
@@ -1467,8 +1467,8 @@ const Zn = { class: "toast-area" }, ea = {
               }, null, 40, Xo)
             ]),
             "cell-userId": y(({ row: f }) => [
-              i("div", Qo, [
-                i("span", Zo, c(f.userId), 1)
+              i("div", Zo, [
+                i("span", Qo, c(f.userId), 1)
               ])
             ]),
             "cell-content": y(({ row: f }) => [
@@ -1552,7 +1552,7 @@ const Zn = { class: "toast-area" }, ea = {
     const s = () => {
       v("release"), v("close");
     };
-    return (p, b) => (u(), G(Ze, { to: "body" }, [
+    return (p, b) => (u(), G(Qe, { to: "body" }, [
       a.visible ? (u(), T("div", {
         key: 0,
         ref_key: "dropdownRef",
@@ -1608,14 +1608,14 @@ function ui() {
     hideConfirmDialog: () => {
       a.value.visible = !1;
     },
-    showModerationDropdown: (S, P, Z, J) => {
-      l.visible = !0, l.x = S, l.y = P, l.itemId = Z, l.content = J;
+    showModerationDropdown: (S, P, Q, J) => {
+      l.visible = !0, l.x = S, l.y = P, l.itemId = Q, l.content = J;
     },
     hideModerationDropdown: () => {
       l.visible = !1;
     },
-    showAudienceDropdown: (S, P, Z, J) => {
-      d.visible = !0, d.x = S, d.y = P, d.userId = Z, d.userName = J;
+    showAudienceDropdown: (S, P, Q, J) => {
+      d.visible = !0, d.x = S, d.y = P, d.userId = Q, d.userName = J;
     },
     hideAudienceDropdown: () => {
       d.visible = !1;
@@ -1635,7 +1635,7 @@ function ui() {
 const vi = { class: "live-control-container" }, mi = { class: "live-control-viewport" }, fi = { class: "right-sidebar" }, gi = /* @__PURE__ */ le({
   __name: "live-control",
   setup(a) {
-    const l = He("LiveControl"), d = dn(), o = un(), m = $(() => d.params.liveId), v = $(() => d.query.from === "live-list" ? "/live-list" : "/live-monitor"), f = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, { t: s } = me(), { opSuccess: p, opFailed: b } = At(s), { currentLive: N, fetchLiveDetail: x, fetchLiveStats: C, setCurrentLive: te, endLive: z, updateLive: S } = at(), { audienceCount: P } = je(), Z = yn().components?.liveControl, {
+    const l = He("LiveControl"), d = dn(), o = un(), m = $(() => d.params.liveId), v = $(() => d.query.from === "live-list" ? "/live-list" : "/live-monitor"), f = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, { t: s } = me(), { opSuccess: p, opFailed: b } = At(s), { currentLive: N, fetchLiveDetail: x, fetchLiveStats: C, setCurrentLive: te, endLive: z, updateLive: S } = at(), { audienceCount: P } = je(), Q = yn().components?.liveControl, {
       moderationMode: J,
       customModerationToggleEnabled: H,
       updateCustomModerationToggleEnabled: ee,
@@ -1676,10 +1676,10 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       },
       { immediate: !0 }
     );
-    const O = I([]), Q = I(1), ce = _, w = I(0), F = I([]), Ye = $(
+    const O = I([]), Z = I(1), ce = _, w = I(0), F = I([]), Ye = $(
       () => An(w.value, qe)
     ), Rt = $(
-      () => Yn(Q.value, Ye.value)
+      () => Yn(Z.value, Ye.value)
     ), wt = $(() => {
       if (O.value.length === 0) return !1;
       const n = Ke(O.value.map((r) => r.id));
@@ -1710,7 +1710,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
             const de = _t(R), we = await pn();
             O.value = de.map(it), w.value = Math.max(0, re.value - we);
           }
-          Q.value = r, F.value = Ke(
+          Z.value = r, F.value = Ke(
             F.value.filter(
               (de) => R.some((we) => we.id === de)
             )
@@ -1720,9 +1720,9 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
           l.error("moderation", `load failed (ErrorCode: ${ae(r).code || "N/A"}):`, r), A.error(`【${s(t.REFRESH)}${s(t.CONTENT_MODERATION)}】${s(t.OPERATION_FAILED, { error: L })}`);
         }
     }, st = async (n = !1) => {
-      se.value || (await $e(Q.value), n || A.success(p(t.REFRESH)));
+      se.value || (await $e(Z.value), n || A.success(p(t.REFRESH)));
     }, Dt = (n) => {
-      n !== "..." && (n < 1 || n > Ye.value || n === Q.value || $e(n));
+      n !== "..." && (n < 1 || n > Ye.value || n === Z.value || $e(n));
     }, xe = async (n) => {
       F.value = F.value.filter(
         (L) => !n.includes(L)
@@ -1730,7 +1730,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
         (L) => !n.includes(L.id)
       ), w.value = Math.max(0, w.value - n.length);
       const r = Vn(
-        Q.value,
+        Z.value,
         w.value,
         n.length,
         qe
@@ -1931,20 +1931,20 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
     let ue = null, _e = null;
     const Xt = $(
       () => N.value?.liveOwner?.userId || Y.value?.anchor.userId || ""
-    ), Qt = $(
+    ), Zt = $(
       () => Oe.value?.nick || Et(
         N.value?.liveOwner,
         Y.value?.anchor.nick || s(t.UNKNOWN_HOST)
       )
-    ), Zt = $(
+    ), Qt = $(
       () => Oe.value?.avatarUrl || It(N.value?.liveOwner) || Y.value?.anchor.avatarUrl
     ), en = $(() => ({
       liveInfo: Y.value,
-      liveAnchorAvatar: Zt.value,
-      liveAnchorName: Qt.value,
+      liveAnchorAvatar: Qt.value,
+      liveAnchorName: Zt.value,
       currentLive: N.value,
       isMockMode: f,
-      liveControlSlots: Z,
+      liveControlSlots: Q,
       handleLeaveLive: dt
     })), tn = $(() => ({
       liveId: m.value,
@@ -2054,7 +2054,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
     ), ve(P, (n) => {
       k.onlineCount = n;
     }), ye(() => {
-      m.value && l.info("LiveControl", "Component unmounting, liveId:", m.value), ue && clearInterval(ue), _e && clearInterval(_e);
+      m.value && l.debug("LiveControl", "Component unmounting, liveId:", m.value), ue && clearInterval(ue), _e && clearInterval(_e);
     }), (n, r) => {
       const L = be("t-dialog");
       return u(), T("div", vi, [
@@ -2092,14 +2092,14 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
               "format-duration": an
             }, null, 8, ["stats", "live-duration", "update-time-text", "interaction-rate"]),
             g(Ct, {
-              "slot-component": e(Z)?.customControlPanel,
+              "slot-component": e(Q)?.customControlPanel,
               "slot-props": { liveInfo: Y.value, stats: k }
             }, null, 8, ["slot-component", "slot-props"]),
             g(e(ci), {
               "moderation-mode": e(J),
               "moderation-list": O.value,
               "moderation-loading": e(ce),
-              "moderation-page": Q.value,
+              "moderation-page": Z.value,
               "moderation-total": w.value,
               "moderation-total-pages": Ye.value,
               "moderation-page-numbers": Rt.value,
@@ -2121,7 +2121,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
             }, null, 8, ["moderation-mode", "moderation-list", "moderation-loading", "moderation-page", "moderation-total", "moderation-total-pages", "moderation-page-numbers", "moderation-selected-ids", "moderation-columns", "is-all-on-page-selected", "custom-moderation-toggle-enabled", "on-custom-toggle-change", "update-time-text", "disabled", "format-moderation-time"])
           ])
         ]),
-        Re.value ? (u(), G(e(Qe), {
+        Re.value ? (u(), G(e(Ze), {
           key: 0,
           visible: Re.value.visible,
           "onUpdate:visible": r[2] || (r[2] = (R) => Re.value.visible = R),
@@ -2132,7 +2132,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
           "on-confirm": Ht,
           "on-close": Yt
         }, null, 8, ["visible", "title", "content", "confirm-text", "loading"])) : K("", !0),
-        U.value ? (u(), G(e(Qe), {
+        U.value ? (u(), G(e(Ze), {
           key: 1,
           visible: U.value,
           "onUpdate:visible": r[3] || (r[3] = (R) => U.value = R),
@@ -2187,7 +2187,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       ]);
     };
   }
-}), Ui = /* @__PURE__ */ Qn(gi, [["__scopeId", "data-v-403d58e3"]]);
+}), Ui = /* @__PURE__ */ Zn(gi, [["__scopeId", "data-v-a7572862"]]);
 export {
   Ui as default
 };

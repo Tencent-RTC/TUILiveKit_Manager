@@ -1,22 +1,19 @@
-import type { CheckConfigResponse, LoginResponse, UserSigResponse } from '../types/auth';
+import type { CheckConfigResponse, LoginResponse, UserSigResponse, LoginParams } from '../types/auth';
 import type { UserPortraitProfile } from '../types/live';
 export declare function checkServerConfig(): Promise<CheckConfigResponse>;
-export declare function login(params?: {
-    userId?: string;
-    userSig?: string;
-    sdkAppId?: number;
-}): Promise<LoginResponse>;
 /**
- * 前端自主凭证模式登录
+ * 登录（统一入口，自动判断模式）
  *
- * 用户在前端输入 sdkAppId + secretKey + userId，
- * 前端本地计算 userSig 后发送到后端登录。
- * 登录成功后，secretKey 会保存在内存中用于后续临时账号的 userSig 计算。
+ * - 不传参数或空对象：server 模式，由服务端 .env 配置自动登录
+ * - 传 `secretKey`：proxy 模式，前端本地计算 userSig 后发送到后端登录
+ * - 传 `userSig` + `sdkAppId`：直接用已有凭证登录
  *
- * @param sdkAppId - 腾讯云 SDK App ID
- * @param secretKey - SDK Secret Key（仅存内存，不持久化）
- * @param userId - 登录用户 ID（默认 administrator）
- * @param expireTime - userSig 有效期（秒），默认 604800（7 天）
+ * @param params - 登录参数，空对象表示 server 模式
+ */
+export declare function login(params?: LoginParams): Promise<LoginResponse>;
+/**
+ * 前端自主凭证模式登录（已废弃，请使用 login({ sdkAppId, secretKey, userId?, expireTime? }) 代替）
+ * @deprecated 请使用 `login({ sdkAppId, secretKey, userId?, expireTime? })` 代替
  */
 export declare function loginWithSecret(sdkAppId: number, secretKey: string, userId?: string, expireTime?: number): Promise<LoginResponse>;
 export declare function getUserSig(userId: string): Promise<UserSigResponse>;

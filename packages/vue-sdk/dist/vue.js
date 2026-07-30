@@ -1,303 +1,334 @@
-import { h as B, aa as K, a8 as W, ba as Q, a7 as n, I as Y, a9 as Z, bj as J, an as ee } from "./chunks/shared-state.Bf8CkvaR.js";
-import { a4 as Be, ab as Ke, ac as Ue } from "./chunks/shared-state.Bf8CkvaR.js";
-import { ref as u, onUnmounted as T, onMounted as te, watch as re } from "vue";
-import { bW as q, aS as O, bX as V, bY as oe, aB as ne, aD as ae, c1 as ie, bA as se, bC as le, b_ as ue, bZ as ce, u as de, m as fe, af as ve, b$ as ge, a8 as me, c0 as he, X as Me, W as be } from "./chunks/main-layout.OEkSp6vd.js";
-import { a as Le } from "./chunks/useAsyncAction.DYLXidOr.js";
-import { u as He } from "./chunks/useAsyncAction.DYLXidOr.js";
-import { u as Xe, a as Qe } from "./chunks/useSvgaPlayer.CQQmaBMu.js";
-import { useUIKit as we } from "@tencentcloud/uikit-base-component-vue3";
-const d = B("RiskControl");
-function De(l) {
-  const { liveId: o, pageSize: M } = l, b = u(!1), f = u("cloud"), L = u(!0), g = u([]), h = u(0), y = u(1), C = u(!1), S = u([]), r = u([]);
-  let a = !0;
-  K("risk_control"), q().then(async (e) => {
-    if (!a) return;
-    f.value = e;
-    const t = e === "cloud", p = t ? O : V;
+import { a5 as re, t as oe, aw as ne, y as ae, bi as ie, F as se, aS as ue, c as j, a$ as Y, aZ as N, aW as le, aY as n, I as ce, a_ as de, bw as fe, be as ve } from "./chunks/shared-state.LwLSW33A.js";
+import { aR as ct, b0 as dt, b1 as ft, bf as vt } from "./chunks/shared-state.LwLSW33A.js";
+import { ref as l, computed as S, onUnmounted as A, onMounted as ge, watch as me } from "vue";
+import { c0 as V, aV as q, c1 as O, c2 as pe, aD as he, aF as be, c7 as Me, bG as Le, bI as we, c4 as Se, c3 as ye, u as Ce, m as Pe, ah as ke, c5 as Ie, aa as _e, c6 as Te, Z as xe, Y as Ae } from "./chunks/main-layout.BxLEuh4E.js";
+import { a as Ee } from "./chunks/useAsyncAction.Btr7ihji.js";
+import { u as mt } from "./chunks/useAsyncAction.Btr7ihji.js";
+import { g as Z, a as Re, p as Fe, s as Ue } from "./chunks/demo.DEOn6ZLp.js";
+import { r as ht } from "./chunks/demo.DEOn6ZLp.js";
+import { u as Mt, a as Lt } from "./chunks/useSvgaPlayer.DV00KYFV.js";
+import { useUIKit as De } from "@tencentcloud/uikit-base-component-vue3";
+const w = l(re());
+let W = !1;
+function $e() {
+  W || (W = !0, ie((a) => {
+    w.value = a;
+  }));
+}
+function et() {
+  $e();
+  const a = S(() => {
+    const f = w.value;
+    return f.mode === "server" ? !0 : f.mode === "proxy" && !!f.credentials;
+  }), o = S(() => w.value.userId || ""), p = S(() => w.value.userName || ""), h = S(() => w.value.sdkAppId || 0), d = S(() => w.value.mode);
+  return {
+    authState: w,
+    isLoggedIn: a,
+    currentUserId: o,
+    currentUserName: p,
+    sdkAppId: h,
+    authMode: d,
+    checkServerConfig: ae,
+    login: async (f = {}) => ue(f),
+    logout: () => {
+      se();
+    },
+    getUserProfilePortrait: ne,
+    batchGetUserProfilePortrait: oe
+  };
+}
+const v = j("RiskControl");
+function tt(a) {
+  const { liveId: o, pageSize: p } = a, h = l(!1), d = l("cloud"), M = l(!0), m = l([]), f = l(0), C = l(1), P = l(!1), k = l([]), r = l([]);
+  let i = !0;
+  Y("risk_control"), V().then(async (e) => {
+    if (!i) return;
+    d.value = e;
+    const t = e === "cloud", y = t ? q : O;
     try {
-      const v = await p({ pageSize: M, liveId: o });
-      a && (b.value = !0, g.value = v.list || [], h.value = v.total || 0), W(t ? "text_moderation" : "text_moderation_custom"), W(t ? "moderation" : "moderation_custom");
+      const g = await y({ pageSize: p, liveId: o });
+      i && (h.value = !0, m.value = g.list || [], f.value = g.total || 0), N(t ? "text_moderation" : "text_moderation_custom"), N(t ? "moderation" : "moderation_custom");
     } catch {
-      a && (b.value = !1);
+      i && (h.value = !1);
     }
-    e === "custom" && oe().then((v) => {
-      a && (L.value = v.Enabled);
+    e === "custom" && pe().then((g) => {
+      i && (M.value = g.Enabled);
     }).catch(() => {
     });
-  }), T(() => {
-    a = !1;
+  }), A(() => {
+    i = !1;
   });
-  const U = async (e = {}) => {
-    C.value = !0;
+  const Q = async (e = {}) => {
+    P.value = !0;
     try {
       let t;
-      return f.value === "custom" ? t = await V({ pageSize: M, liveId: o, ...e }) : t = await O({ pageSize: M, liveId: o, ...e }), a && (g.value = t.list || [], h.value = t.total || 0, y.value = e.pageNum || 1), t;
+      return d.value === "custom" ? t = await O({ pageSize: p, liveId: o, ...e }) : t = await q({ pageSize: p, liveId: o, ...e }), i && (m.value = t.list || [], f.value = t.total || 0, C.value = e.pageNum || 1), t;
     } catch (t) {
-      throw d.error("useRiskControlState", "fetchTextModerationList failed:", t), t;
+      throw v.error("useRiskControlState", "fetchTextModerationList failed:", t), t;
     } finally {
-      a && (C.value = !1);
+      i && (P.value = !1);
     }
-  }, G = async (e) => {
+  }, J = async (e) => {
     try {
-      let t = e.ids, p = e.items;
-      if (!p) {
-        const v = g.value, D = t.map((m) => {
-          const w = v.find((I) => I.id === m);
+      let t = e.ids, y = e.items;
+      if (!y) {
+        const g = m.value, G = t.map((b) => {
+          const L = g.find((x) => x.id === b);
           return {
-            id: m,
-            content: w?.content ?? m,
-            userId: w?.userId ?? "",
-            createdAtMs: w?.createdAtMs ?? 0
+            id: b,
+            content: L?.content ?? b,
+            userId: L?.userId ?? "",
+            createdAtMs: L?.createdAtMs ?? 0
           };
-        }).sort((m, w) => m.createdAtMs - w.createdAtMs);
-        t = D.map((m) => m.id), p = D.map(({ id: m, content: w, userId: I }) => ({ id: m, content: w, userId: I }));
+        }).sort((b, L) => b.createdAtMs - L.createdAtMs);
+        t = G.map((b) => b.id), y = G.map(({ id: b, content: L, userId: x }) => ({ id: b, content: L, userId: x }));
       }
-      if (f.value === "custom") {
-        const v = await ge({ ids: t, items: p, liveId: e.liveId ?? o });
-        n("moderation", "approve", !0, String(v.success)), v.failed > 0 && d.warn("useRiskControlState", `部分放行失败: 成功 ${v.success}, 失败 ${v.failed}`);
+      if (d.value === "custom") {
+        const g = await Ie({ ids: t, items: y, liveId: e.liveId ?? o });
+        n("moderation", "approve", !0, String(g.success)), g.failed > 0 && v.warn("useRiskControlState", `部分放行失败: 成功 ${g.success}, 失败 ${g.failed}`);
       } else
-        await me({ ids: t, items: p, liveId: e.liveId ?? o }), n("moderation", "approve", !0, String(e.ids.length));
+        await _e({ ids: t, items: y, liveId: e.liveId ?? o }), n("moderation", "approve", !0, String(e.ids.length));
     } catch (t) {
-      throw n("moderation", "approve", !1), d.error("useRiskControlState", "approveTextModerationItems failed:", t), t;
-    }
-  }, H = async (e) => {
-    try {
-      const t = await he(e);
-      return a && (L.value = t.Enabled), n("moderation", "toggle", !0), t.Enabled;
-    } catch (t) {
-      throw n("moderation", "toggle", !1), d.error("useRiskControlState", "updateCustomModerationToggleEnabled failed:", t), t;
-    }
-  }, j = async (e) => {
-    try {
-      await ve({ content: e.content, liveId: e.liveId ?? o }), n("moderation", "bypass", !0, String(e.content.length));
-    } catch (t) {
-      throw n("moderation", "bypass", !1), d.error("useRiskControlState", "bypassCorrectionKeyword failed:", t), t;
+      throw n("moderation", "approve", !1), v.error("useRiskControlState", "approveTextModerationItems failed:", t), t;
     }
   }, X = async (e) => {
     try {
-      await q() === "custom" ? await ie(e) : await Q(e), n("moderation", "delete", !0, String(e.length));
+      const t = await Te(e);
+      return i && (M.value = t.Enabled), n("moderation", "toggle", !0), t.Enabled;
     } catch (t) {
-      throw n("moderation", "delete", !1), d.error("useRiskControlState", "deleteModerationItems failed:", t), t;
+      throw n("moderation", "toggle", !1), v.error("useRiskControlState", "updateCustomModerationToggleEnabled failed:", t), t;
     }
-  }, k = async () => {
-    if (!o) return [];
+  }, ee = async (e) => {
     try {
-      const e = await ae(o);
-      return S.value = e, e;
-    } catch (e) {
-      throw d.error("useRiskControlState", "fetchMutedList failed:", e), e;
+      await ke({ content: e.content, liveId: e.liveId ?? o }), n("moderation", "bypass", !0, String(e.content.length));
+    } catch (t) {
+      throw n("moderation", "bypass", !1), v.error("useRiskControlState", "bypassCorrectionKeyword failed:", t), t;
+    }
+  }, te = async (e) => {
+    try {
+      await V() === "custom" ? await Me(e) : await le(e), n("moderation", "delete", !0, String(e.length));
+    } catch (t) {
+      throw n("moderation", "delete", !1), v.error("useRiskControlState", "deleteModerationItems failed:", t), t;
     }
   }, _ = async () => {
     if (!o) return [];
     try {
-      const e = await ne(o);
+      const e = await be(o);
+      return k.value = e, e;
+    } catch (e) {
+      throw v.error("useRiskControlState", "fetchMutedList failed:", e), e;
+    }
+  }, T = async () => {
+    if (!o) return [];
+    try {
+      const e = await he(o);
       return r.value = e, e;
     } catch (e) {
-      throw d.error("useRiskControlState", "fetchBannedList failed:", e), e;
+      throw v.error("useRiskControlState", "fetchBannedList failed:", e), e;
     }
   };
   return {
-    textModerationAvailable: b,
-    moderationMode: f,
-    customModerationToggleEnabled: L,
-    updateCustomModerationToggleEnabled: H,
-    textModerationList: g,
-    textModerationTotal: h,
-    textModerationPageNum: y,
-    textModerationLoading: C,
-    fetchTextModerationList: U,
-    approveTextModerationItems: G,
-    bypassCorrectionKeyword: j,
+    textModerationAvailable: h,
+    moderationMode: d,
+    customModerationToggleEnabled: M,
+    updateCustomModerationToggleEnabled: X,
+    textModerationList: m,
+    textModerationTotal: f,
+    textModerationPageNum: C,
+    textModerationLoading: P,
+    fetchTextModerationList: Q,
+    approveTextModerationItems: J,
+    bypassCorrectionKeyword: ee,
     muteMember: async (e) => {
       if (!o) throw new Error("liveId is required");
       try {
-        await fe(o, e.memberAccounts, e.muteTime), await k(), n("risk_control", "mute", !0, o);
+        await Pe(o, e.memberAccounts, e.muteTime), await _(), n("risk_control", "mute", !0, o);
       } catch (t) {
-        throw n("risk_control", "mute", !1), d.error("useRiskControlState", "muteMember failed:", t), t;
+        throw n("risk_control", "mute", !1), v.error("useRiskControlState", "muteMember failed:", t), t;
       }
     },
     unmuteMember: async (e) => {
       if (!o) throw new Error("liveId is required");
       try {
-        await de(o, e.memberAccounts), await k(), n("risk_control", "unmute", !0, o);
+        await Ce(o, e.memberAccounts), await _(), n("risk_control", "unmute", !0, o);
       } catch (t) {
-        throw n("risk_control", "unmute", !1), d.error("useRiskControlState", "unmuteMember failed:", t), t;
+        throw n("risk_control", "unmute", !1), v.error("useRiskControlState", "unmuteMember failed:", t), t;
       }
     },
     banMember: async (e) => {
       if (!o) throw new Error("liveId is required");
       try {
-        await ce(o, e.memberAccounts, e.duration, e.reason), await _(), n("risk_control", "ban", !0, o);
+        await ye(o, e.memberAccounts, e.duration, e.reason), await T(), n("risk_control", "ban", !0, o);
       } catch (t) {
-        throw n("risk_control", "ban", !1), d.error("useRiskControlState", "banMember failed:", t), t;
+        throw n("risk_control", "ban", !1), v.error("useRiskControlState", "banMember failed:", t), t;
       }
     },
     unbanMember: async (e) => {
       if (!o) throw new Error("liveId is required");
       try {
-        await ue(o, e.memberAccounts), await _(), n("risk_control", "unban", !0, o);
+        await Se(o, e.memberAccounts), await T(), n("risk_control", "unban", !0, o);
       } catch (t) {
-        throw n("risk_control", "unban", !1), d.error("useRiskControlState", "unbanMember failed:", t), t;
+        throw n("risk_control", "unban", !1), v.error("useRiskControlState", "unbanMember failed:", t), t;
       }
     },
     sendViolationWarning: async () => {
       if (!o) throw new Error("liveId is required");
       try {
-        const e = await le(o, "default", Y.VIOLATION_SUGGESTION_DEFAULT);
+        const e = await we(o, "default", ce.VIOLATION_SUGGESTION_DEFAULT);
         return n("risk_control", "violation_warning", !0, o), e;
       } catch (e) {
-        throw n("risk_control", "violation_warning", !1), d.error("useRiskControlState", "sendViolationWarning failed:", e), e;
+        throw n("risk_control", "violation_warning", !1), v.error("useRiskControlState", "sendViolationWarning failed:", e), e;
       }
     },
     sendAdminMessage: async (e) => {
       if (!o) throw new Error("liveId is required");
       try {
-        const t = await se(o, e);
+        const t = await Le(o, e);
         return n("risk_control", "send_admin_message", !0, o), t;
       } catch (t) {
-        throw n("risk_control", "send_admin_message", !1), d.error("useRiskControlState", "sendAdminMessage failed:", t), t;
+        throw n("risk_control", "send_admin_message", !1), v.error("useRiskControlState", "sendAdminMessage failed:", t), t;
       }
     },
-    deleteModerationItems: X,
-    mutedList: S,
+    deleteModerationItems: te,
+    mutedList: k,
     bannedList: r,
-    fetchMutedList: k,
-    fetchBannedList: _
+    fetchMutedList: _,
+    fetchBannedList: T
   };
 }
-const c = B("LiveMonitor"), We = {
+const c = j("LiveMonitor"), rt = {
   LIVE_LIST_CHANGED: "LIVE_LIST_CHANGED"
 };
-let i = null, pe = !0;
-const x = u([]), $ = u(!0), N = u(null), ye = u({}), Ce = u(null);
-let s = null;
-const P = u([]), A = u(1), R = u(!0), F = u(!1);
-function E() {
-  return s || (s = new be({ pageSize: 8 }), s.subscribe(() => {
-    const l = s.getSnapshot();
-    P.value = l.list, A.value = l.currentPage, R.value = l.hasMoreData, F.value = l.loading, x.value = [...l.list];
-  }), s);
+let s = null, Ge = !0;
+const E = l([]), z = l(!0), K = l(null), Ne = l({}), Ve = l(null);
+let u = null;
+const I = l([]), U = l(1), D = l(!0), $ = l(!1);
+function R() {
+  return u || (u = new Ae({ pageSize: 8 }), u.subscribe(() => {
+    const a = u.getSnapshot();
+    I.value = a.list, U.value = a.currentPage, D.value = a.hasMoreData, $.value = a.loading, E.value = [...a.list];
+  }), u);
 }
-let z = typeof document < "u" ? document.documentElement.lang : "";
+let B = typeof document < "u" ? document.documentElement.lang : "";
 typeof MutationObserver < "u" && new MutationObserver(() => {
-  const l = document.documentElement.lang;
-  l !== z && (z = l, s && (c.info("LiveMonitor", "语言切换（module observer），重新获取直播列表"), s.goToFirstPage()));
+  const a = document.documentElement.lang;
+  a !== B && (B = a, u && (c.debug("LiveMonitor", "语言切换（module observer），重新获取直播列表"), u.goToFirstPage()));
 }).observe(document.documentElement, { attributes: !0, attributeFilter: ["lang"] });
-function qe() {
-  const l = () => {
-    i || (i = new Me({
+function ot() {
+  const a = () => {
+    s || (s = new xe({
       onStateChange: (r) => {
-        r.liveList !== void 0 && (x.value = r.liveList), r.hasMore !== void 0 && ($.value = r.hasMore), r.currentLive !== void 0 && (N.value = r.currentLive), r.loading !== void 0 && (ye.value = r.loading), r.error !== void 0 && (Ce.value = r.error);
+        r.liveList !== void 0 && (E.value = r.liveList), r.hasMore !== void 0 && (z.value = r.hasMore), r.currentLive !== void 0 && (K.value = r.currentLive), r.loading !== void 0 && (Ne.value = r.loading), r.error !== void 0 && (Ve.value = r.error);
       },
-      getActive: () => pe
-    }), c.info("useLiveMonitorState", "Core initialized (singleton)"));
+      getActive: () => Ge
+    }), c.debug("useLiveMonitorState", "Core initialized (singleton)"));
   };
-  return T(() => {
-    c.info("useLiveMonitorState", "Component unmounted, core kept for other consumers");
-  }), te(() => {
-    if (l(), E(), s) {
-      const a = s.getSnapshot();
-      P.value = a.list, A.value = a.currentPage, R.value = a.hasMoreData, F.value = a.loading;
+  return A(() => {
+    c.debug("useLiveMonitorState", "Component unmounted, core kept for other consumers");
+  }), ge(() => {
+    if (a(), R(), u) {
+      const i = u.getSnapshot();
+      I.value = i.list, U.value = i.currentPage, D.value = i.hasMoreData, $.value = i.loading;
     }
-    const r = re(
+    const r = me(
       () => document.documentElement.lang,
       () => {
-        c.info("useLiveMonitorState", "语言切换，重新获取直播列表"), s && s.goToFirstPage();
+        c.debug("useLiveMonitorState", "语言切换，重新获取直播列表"), u && u.goToFirstPage();
       }
     );
-    T(() => r());
-  }), i || l(), E(), {
+    A(() => r());
+  }), s || a(), R(), {
     init: (r) => {
-      if (c.info("useLiveMonitorState", "init called", { hasCore: !!i, configKeys: Object.keys(r) }), i || (c.warn("useLiveMonitorState", "core is null, initializing..."), l(), c.info("useLiveMonitorState", "after initCore, hasCore:", !!i)), !i) {
+      if (c.debug("useLiveMonitorState", "init called", { hasCore: !!s, configKeys: Object.keys(r) }), s || (c.warn("useLiveMonitorState", "core is null, initializing..."), a(), c.debug("useLiveMonitorState", "after initCore, hasCore:", !!s)), !s) {
         c.error("useLiveMonitorState", "core is still null after initCore! Cannot initialize.");
         return;
       }
-      i.init(r);
+      s.init(r);
     },
-    liveList: x,
-    hasMore: $,
-    currentLive: N,
+    liveList: E,
+    hasMore: z,
+    currentLive: K,
     setCurrentLive: (r) => {
-      i?.setCurrentLive(r);
+      s?.setCurrentLive(r);
     },
     fetchLiveList: async (r) => {
-      if (!s)
+      if (!u)
         return c.warn("useLiveMonitorState", "fetchLiveList: controller is null, returning empty list"), [];
       switch (r?.action) {
         case "first":
-          await s.goToFirstPage();
+          await u.goToFirstPage();
           break;
         case "prev":
-          await s.prevPage();
+          await u.prevPage();
           break;
         default:
-          await s.nextPage();
+          await u.nextPage();
           break;
       }
-      return P.value;
+      return I.value;
     },
     createLive: async (r) => {
-      if (!i)
+      if (!s)
         throw c.warn("useLiveMonitorState", "createLive: core is null, cannot create"), new Error("LiveMonitorCore not initialized");
       try {
-        const a = await i.createLive(r);
-        return n("live_crud", "create", !0, a.liveId), K("create_live"), a;
-      } catch (a) {
-        throw n("live_crud", "create", !1), a;
+        const i = await s.createLive(r);
+        return n("live_crud", "create", !0, i.liveId), Y("create_live"), i;
+      } catch (i) {
+        throw n("live_crud", "create", !1), i;
       }
     },
     updateLive: async (r) => {
-      if (!i) {
+      if (!s) {
         c.warn("useLiveMonitorState", "updateLive: core is null, skipping");
         return;
       }
       try {
-        await i.updateLive(r), n("live_crud", "update", !0, r.liveId);
-      } catch (a) {
-        throw n("live_crud", "update", !1, r.liveId), a;
+        await s.updateLive(r), n("live_crud", "update", !0, r.liveId);
+      } catch (i) {
+        throw n("live_crud", "update", !1, r.liveId), i;
       }
     },
     endLive: async (r) => {
-      if (!i) {
+      if (!s) {
         c.warn("useLiveMonitorState", "endLive: core is null, skipping");
         return;
       }
       try {
-        await i.endLive(r), n("live_crud", "delete", !0, r), Z("force_stop");
-      } catch (a) {
-        throw n("live_crud", "delete", !1), a;
+        await s.endLive(r), n("live_crud", "delete", !0, r), de("force_stop");
+      } catch (i) {
+        throw n("live_crud", "delete", !1), i;
       }
     },
-    fetchLiveDetail: async (r) => i ? i.fetchLiveDetail(r) : (c.warn("useLiveMonitorState", "fetchLiveDetail: core is null, returning null"), null),
-    fetchLiveStats: async (r) => i ? i.fetchLiveStats(r) : (c.warn("useLiveMonitorState", "fetchLiveStats: core is null, returning empty object"), {}),
+    fetchLiveDetail: async (r) => s ? s.fetchLiveDetail(r) : (c.warn("useLiveMonitorState", "fetchLiveDetail: core is null, returning null"), null),
+    fetchLiveStats: async (r) => s ? s.fetchLiveStats(r) : (c.warn("useLiveMonitorState", "fetchLiveStats: core is null, returning empty object"), {}),
     startPlay: async (r) => {
-      if (!i) {
+      if (!s) {
         c.warn("useLiveMonitorState", "startPlay: core is null, skipping");
         return;
       }
-      return i.startPlay(r);
+      return s.startPlay(r);
     },
     stopPlay: async (r) => {
-      if (!i) {
+      if (!s) {
         c.warn("useLiveMonitorState", "stopPlay: core is null, skipping", r);
         return;
       }
-      return i.stopPlay(r);
+      return s.stopPlay(r);
     }
   };
 }
-function Oe() {
-  return E(), {
-    pageData: P,
-    currentPage: A,
-    hasMore: R,
-    loading: F,
-    nextPage: () => s?.nextPage() ?? Promise.resolve(),
-    prevPage: () => s?.prevPage() ?? Promise.resolve(),
-    goToFirstPage: () => s?.goToFirstPage() ?? Promise.resolve(),
-    refreshCurrentPage: () => s?.refresh() ?? Promise.resolve(),
-    goToPage: (g, h) => s?.goToPage(g, h) ?? Promise.resolve(),
-    getSnapshot: () => s?.getSnapshot() ?? {
+function nt() {
+  return R(), {
+    pageData: I,
+    currentPage: U,
+    hasMore: D,
+    loading: $,
+    nextPage: () => u?.nextPage() ?? Promise.resolve(),
+    prevPage: () => u?.prevPage() ?? Promise.resolve(),
+    goToFirstPage: () => u?.goToFirstPage() ?? Promise.resolve(),
+    refreshCurrentPage: () => u?.refresh() ?? Promise.resolve(),
+    goToPage: (m, f) => u?.goToPage(m, f) ?? Promise.resolve(),
+    getSnapshot: () => u?.getSnapshot() ?? {
       list: [],
       currentPage: 1,
       hasMoreData: !0,
@@ -306,22 +337,39 @@ function Oe() {
     }
   };
 }
-function Ve() {
-  const { t: l } = we();
-  return { t: J(l) };
+const F = l(Z());
+let H = !1;
+function qe() {
+  H || (H = !0, Ue(() => {
+    F.value = Z();
+  }));
 }
-function $e(l) {
-  const { confirm: o, onSuccess: M, ...b } = l, f = u(null), L = (a) => {
-    f.value = null, M?.(a);
-  }, { loading: g, execute: h, reset: y } = Le({
-    ...b,
-    onSuccess: L
+function at() {
+  qe();
+  const a = S(() => F.value.uploading), o = S(() => F.value.uploadProgress);
+  return {
+    uploading: a,
+    uploadProgress: o,
+    getUploadConfig: Fe,
+    uploadResource: Re
+  };
+}
+function it() {
+  const { t: a } = De();
+  return { t: fe(a) };
+}
+function st(a) {
+  const { confirm: o, onSuccess: p, ...h } = a, d = l(null), M = (i) => {
+    d.value = null, p?.(i);
+  }, { loading: m, execute: f, reset: C } = Ee({
+    ...h,
+    onSuccess: M
   });
   return {
-    loading: g,
-    confirmDialog: f,
+    loading: m,
+    confirmDialog: d,
     requestConfirm: () => {
-      f.value = {
+      d.value = {
         visible: !0,
         title: o.title,
         content: o.content,
@@ -329,33 +377,37 @@ function $e(l) {
       };
     },
     cancelConfirm: () => {
-      f.value = null;
+      d.value = null;
     },
     executeWithConfirm: async () => {
       try {
-        return await h();
+        return await f();
       } finally {
-        f.value = null;
+        d.value = null;
       }
     },
-    reset: y
+    reset: C
   };
 }
-ee("vue");
+ve("vue");
 export {
-  We as LiveListEvent,
-  Be as measureAndReport,
+  rt as LiveListEvent,
+  ct as measureAndReport,
   n as reportBusinessOp,
-  Z as reportEvent,
-  Ke as reportPageView,
-  Ue as reportTime,
-  Le as useAsyncAction,
-  $e as useConfirmAction,
-  He as useGiftState,
-  qe as useLiveMonitorState,
-  Oe as usePaginatedList,
-  Xe as usePreviewUrl,
-  De as useRiskControlState,
-  Qe as useSvgaPlayer,
-  Ve as useT
+  de as reportEvent,
+  dt as reportPageView,
+  ft as reportTime,
+  ht as resolveDemoTargetPath,
+  vt as setReportSource,
+  Ee as useAsyncAction,
+  et as useAuthState,
+  st as useConfirmAction,
+  mt as useGiftState,
+  ot as useLiveMonitorState,
+  nt as usePaginatedList,
+  Mt as usePreviewUrl,
+  tt as useRiskControlState,
+  Lt as useSvgaPlayer,
+  it as useT,
+  at as useUploadState
 };

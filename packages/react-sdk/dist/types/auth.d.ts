@@ -54,8 +54,19 @@ export interface CredentialLoginParams {
     sdkAppId: number;
     domain?: string;
 }
-/** 统一登录参数类型 */
-export type LoginParams = AutoLoginParams | CredentialLoginParams;
+/** 登录参数（前端自主凭证模式 - 用 secretKey 在前端本地计算 userSig） */
+export interface SecretLoginParams {
+    /** 腾讯云 SDK App ID */
+    sdkAppId: number;
+    /** SDK Secret Key（仅存内存，不持久化） */
+    secretKey: string;
+    /** 登录用户 ID，默认 `administrator` */
+    userId?: string;
+    /** userSig 有效期（秒），默认 604800（7 天） */
+    expireTime?: number;
+}
+/** 统一登录参数类型（空对象 = server 模式自动登录） */
+export type LoginParams = AutoLoginParams | CredentialLoginParams | SecretLoginParams;
 /** 持久化存储的凭证 */
 export interface StoredCredentials {
     userId: string;

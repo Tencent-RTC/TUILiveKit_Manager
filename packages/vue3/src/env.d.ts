@@ -1,5 +1,7 @@
 /// <reference types="vite/client" />
 
+declare const __DEMO_MODE__: boolean;
+
 declare var process: {
   env: {
     NODE_ENV: string;

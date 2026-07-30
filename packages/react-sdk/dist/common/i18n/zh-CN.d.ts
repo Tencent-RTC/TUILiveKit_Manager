@@ -306,6 +306,7 @@ export declare const resource: {
     Clear: string;
     "Gift Name": string;
     "No search results for: {{keyword}}": string;
+    "Search requires the complete Live ID; fuzzy search is not supported.": string;
     "Please enter anchor ID": string;
     "OBS is ready. Please copy the streaming info below.": string;
     "Failed to get gift list": string;
@@ -434,4 +435,20 @@ export declare const resource: {
     "Login failed": string;
     "SDKAppID is required": string;
     "SecretKey is required": string;
+    "How to get SDKAppID": string;
+    "How to get": string;
+    "To use other admin accounts, please refer to": string;
+    "Admin Account Management": string;
+    "No Live Rooms Yet": string;
+    "Create your first live room to get started": string;
+    "No Ongoing Live": string;
+    "Create a live room and monitor it in real-time here": string;
+    "Go Create Live Room": string;
+    "Try Demo Mode": string;
+    "Explore the full experience with sample data, no credentials needed": string;
+    "No Gifts Yet": string;
+    "Add your first gift to get started": string;
+    "What is Anchor ID?": string;
+    "Anchor ID is the UserID of the TUILiveKit account, ": string;
+    "Anchor ID does not exist. Anchor ID is the UserID of the TUILiveKit account, ": string;
 };

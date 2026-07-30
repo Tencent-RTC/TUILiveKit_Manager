@@ -1,42 +1,49 @@
-import { defineComponent as ut, shallowRef as gt, computed as m, ref as S, reactive as ft, onMounted as mt, onBeforeUnmount as pt, resolveComponent as A, openBlock as _, createElementBlock as v, createElementVNode as r, toDisplayString as s, unref as e, createVNode as d, withCtx as i, createTextVNode as p, Fragment as x, renderList as z, createBlock as Te, normalizeClass as V, createCommentVNode as q, nextTick as _t } from "vue";
-import { useRouter as vt } from "vue-router";
-import { SearchIcon as Et, AdjustmentIcon as It, EditIcon as Ce, CopyIcon as Tt } from "tdesign-icons-vue-next";
+import { defineComponent as gt, shallowRef as ft, computed as m, ref as S, reactive as mt, onMounted as pt, onBeforeUnmount as _t, resolveComponent as A, openBlock as _, createElementBlock as v, createElementVNode as r, toDisplayString as s, unref as e, createVNode as d, withCtx as i, createTextVNode as p, Fragment as x, renderList as q, createBlock as Ce, normalizeClass as k, createCommentVNode as J, nextTick as vt } from "vue";
+import { useRouter as Et } from "vue-router";
+import { SearchIcon as It, AdjustmentIcon as Tt, AddIcon as he, EditIcon as be, CopyIcon as Ct } from "tdesign-icons-vue-next";
 import { MessagePlugin as E } from "tdesign-vue-next";
-import { useUIKit as Ct, i18next as he } from "@tencentcloud/uikit-base-component-vue3";
-import { h as ht, n as bt, I as l, C as be, d as Nt } from "../../chunks/shared-state.Bf8CkvaR.js";
-import { I as At, ba as Ne, H as Ae, aL as Gt, aV as Lt, aT as oe, aW as yt, g, z as F, F as I, x as T, y as Y, b as Rt, a as W, ab as Ot } from "../../chunks/main-layout.OEkSp6vd.js";
-import { b as Ut, f as Ft, e as Dt } from "../../chunks/upload.BUq-1ot2.js";
-import { g as Mt } from "../../chunks/columns.DzP4VQm6.js";
-import { u as St, a as ne } from "../../chunks/useAsyncAction.DYLXidOr.js";
-import { I as Ge } from "../../chunks/ImageUpload.D2_AUcUv.js";
-import { _ as xt, a as Le } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
-import { _ as ie } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.m6h4dX42.js";
+import { useUIKit as ht, i18next as Ne } from "@tencentcloud/uikit-base-component-vue3";
+import { c as bt, a as Nt, I as l, g as Ae, u as At } from "../../chunks/shared-state.LwLSW33A.js";
+import { K as Gt, be as Ge, J as ye, aN as yt, aY as Lt, aW as oe, aZ as Rt, g, H as F, I, z as T, F as X, b as Ot, a as W, ad as Ut } from "../../chunks/main-layout.BxLEuh4E.js";
+import { d as Ft, b as Dt } from "../../chunks/image-upload-resolve.CM9TaFWN.js";
+import { g as Mt } from "../../chunks/PreviewUrlController.ChqehaBQ.js";
+import { g as St } from "../../chunks/columns.STT1P7CJ.js";
+import { u as xt, a as ne } from "../../chunks/useAsyncAction.Btr7ihji.js";
+import { I as Le } from "../../chunks/ImageUpload.DUXRho-X.js";
+import { _ as kt, a as Re } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
+import { _ as ie } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.CTZnYVPd.js";
 /* empty css                                */
-const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-header" }, Pt = { class: "gift-config-title" }, Bt = { class: "gift-config-actions" }, wt = { class: "gift-search-input" }, Yt = { class: "gift-id" }, Xt = { class: "gift-id-text" }, Ht = { class: "gift-thumbnail" }, $t = ["src", "alt"], zt = { key: 1 }, qt = ["onClick"], Wt = { class: "gift-lang-tags" }, jt = ["onClick"], Jt = {
+const Vt = { class: "gift-config-container" }, Pt = { class: "gift-config-page-header" }, Bt = { class: "gift-config-title" }, wt = { class: "gift-config-actions" }, Yt = { class: "gift-search-input" }, Xt = { class: "gift-id" }, Ht = { class: "gift-id-text" }, $t = { class: "gift-thumbnail" }, zt = ["src", "alt"], qt = { key: 1 }, Jt = ["onClick"], Wt = { class: "gift-lang-tags" }, jt = ["onClick"], Zt = {
   key: 1,
   class: "gift-lang-empty"
-}, Qt = { class: "gift-loading-container" }, Zt = { class: "gift-loading-text" }, Kt = { class: "gift-empty-container" }, el = { class: "gift-empty-text" }, tl = { class: "textarea-count-wrapper" }, ll = {
+}, Qt = { class: "gift-loading-container" }, Kt = { class: "gift-loading-text" }, el = {
+  key: 0,
+  class: "gift-empty-container"
+}, tl = { class: "gift-empty-text" }, ll = {
+  key: 1,
+  class: "gift-empty-container"
+}, al = { class: "empty-guide-icon" }, ol = { class: "empty-guide-title" }, nl = { class: "empty-guide-desc" }, il = { class: "empty-guide-actions" }, sl = { class: "textarea-count-wrapper" }, rl = {
   key: 0,
   class: "form-field__error-tip"
-}, al = { class: "gift-lang-config-container" }, ol = { class: "gift-lang-config-info-banner" }, nl = {
+}, dl = { class: "gift-lang-config-container" }, cl = { class: "gift-lang-config-info-banner" }, ul = {
   width: "16",
   height: "16",
   viewBox: "0 0 16 16",
   fill: "none",
   style: { "flex-shrink": "0" }
-}, il = { class: "gift-lang-config-table" }, sl = { class: "gift-lang-table-cell-name" }, rl = {
+}, gl = { class: "gift-lang-config-table" }, fl = { class: "gift-lang-table-cell-name" }, ml = {
   key: 1,
   class: "gift-lang-table-empty"
-}, dl = { class: "gift-lang-table-cell-desc" }, cl = {
+}, pl = { class: "gift-lang-table-cell-desc" }, _l = {
   key: 1,
   class: "gift-lang-table-empty"
-}, ul = { class: "gift-category-edit-tags" }, gl = ["onClick"], fl = { class: "gift-category-add-wrapper" }, ml = { class: "category-select-list" }, pl = {
+}, vl = { class: "gift-category-edit-tags" }, El = ["onClick"], Il = { class: "gift-category-add-wrapper" }, Tl = { class: "category-select-list" }, Cl = {
   key: 0,
   class: "category-select-empty"
-}, _l = { class: "category-select-footer" }, X = 0, j = 2147483647, k = 0, P = 99, Dl = /* @__PURE__ */ ut({
+}, hl = { class: "category-select-footer" }, H = 0, j = 2147483647, V = 0, P = 99, Bl = /* @__PURE__ */ gt({
   __name: "gift-config",
-  setup(vl) {
-    const ye = ht("GiftConfig"), Re = vt(), J = bt().components?.giftConfig, Oe = Mt(), { t } = Ct(), G = St(), u = new At({
+  setup(bl) {
+    const Oe = bt("GiftConfig"), Ue = Et(), Z = Nt().components?.giftConfig, Fe = St(), { t } = ht(), G = xt(), u = new Gt({
       actions: {
         fetchGiftList: G.fetchGiftList,
         createGift: G.createGift,
@@ -53,16 +60,16 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
         success: (o) => E.success(o),
         error: (o) => E.error(o)
       },
-      onNavigateToCategoryManagement: () => Re.push("/gift-category")
-    }), f = gt(u.getState()), Ue = u.subscribe(() => {
+      onNavigateToCategoryManagement: () => Ue.push("/gift-category")
+    }), f = ft(u.getState()), De = u.subscribe(() => {
       f.value = u.getState();
-    }), Fe = m(() => f.value.loading), De = m(() => f.value.displayList), Q = m(() => f.value.searchInput), R = m(() => f.value.isEdit), H = m(() => f.value.editingId);
+    }), Me = m(() => f.value.loading), Se = m(() => f.value.displayList), B = m(() => f.value.searchInput), R = m(() => f.value.isEdit), $ = m(() => f.value.editingId);
     m(() => f.value.giftList), m(() => f.value.categoryList);
     const D = m(() => f.value.giftLangConfig), M = m(() => f.value.editingLang);
     m(() => f.value.editingGiftForLang);
     const b = m(() => f.value.langEditForm);
     m(() => f.value.editingCategoryGift);
-    const Me = m(() => f.value.allCategories), Z = m(() => f.value.giftCategoryIds);
+    const xe = m(() => f.value.allCategories), Q = m(() => f.value.giftCategoryIds);
     m(() => f.value.deletingCategoryId), m(() => f.value.deletingItem);
     const se = m({
       get: () => f.value.dialogVisible,
@@ -101,8 +108,8 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
       get: () => f.value.selectedCategoryId,
       set: (o) => u.setSelectedCategoryId(o)
     }), ge = m(
-      () => Me.value.filter((o) => !Z.value.includes(o.id))
-    ), B = S(!1), w = S(!1), C = S(null), L = S(null), $ = S(!1), le = S(!1), a = ft({
+      () => xe.value.filter((o) => !Q.value.includes(o.id))
+    ), w = S(!1), Y = S(!1), C = S(null), y = S(null), z = S(!1), le = S(!1), a = mt({
       id: "",
       name: "",
       iconUrl: "",
@@ -112,55 +119,55 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
       description: "",
       extensionInfo: "",
       enabled: !0
-    }), Se = (o) => {
-      a.price = Number(o) || X;
-    }, xe = (o) => {
+    }), ke = (o) => {
+      a.price = Number(o) || H;
+    }, Ve = (o) => {
       if (o === "" || o === null || o === void 0) {
         a.levelNum = void 0;
         return;
       }
       a.levelNum = Number(o);
-    }, Ve = (o) => {
-      u.setLangEditForm({ name: String(o ?? "") });
-    }, ke = (o) => {
-      u.setLangEditForm({ description: String(o ?? "") });
     }, Pe = (o) => {
+      u.setLangEditForm({ name: String(o ?? "") });
+    }, Be = (o) => {
+      u.setLangEditForm({ description: String(o ?? "") });
+    }, we = (o) => {
       u.setSearchInput(String(o ?? ""));
-    }, fe = () => u.search(), Be = () => u.clearSearch(), we = (o) => {
+    }, fe = () => u.search(), Ye = () => u.clearSearch(), Xe = (o) => {
       u.copyGiftId(o);
-    }, Ye = () => u.goToCategoryManagement(), Xe = (o) => [
+    }, He = () => u.goToCategoryManagement(), $e = (o) => [
       {
         key: "edit",
         label: t(l.EDIT),
-        onClick: () => qe(o)
+        onClick: () => Je(o)
       },
       {
         key: "delete",
         label: t(l.DELETE),
         danger: !0,
-        onClick: () => nt(o)
+        onClick: () => it(o)
       }
-    ], He = (o) => [
+    ], ze = (o) => [
       {
         key: "edit",
         label: t(l.EDIT),
-        onClick: () => H.value && _e(H.value, o)
+        onClick: () => $.value && ve($.value, o)
       },
       {
         key: "clear",
         label: t(l.CLEAR),
         danger: !0,
         disabled: !D.value[o].name && !D.value[o].description,
-        onClick: () => H.value && u.clearLang(H.value, o)
+        onClick: () => $.value && u.clearLang($.value, o)
       }
-    ], $e = (o) => u.getCategoryName(o), me = (o) => {
-      C.value?.reset(), L.value?.reset(), u.closeDialog();
-    }, ze = () => {
-      We(), C.value?.reset(), L.value?.reset(), u.openCreateDialog();
-    }, qe = async (o) => {
-      C.value?.reset(), L.value?.reset(), a.id = o.id, a.name = o.name, a.iconUrl = o.iconUrl, a.price = o.price, a.animationUrl = o.animationUrl || "", a.levelNum = o.level != null ? parseInt(o.level) : void 0, a.description = o.description || "", a.extensionInfo = o.extensionInfo || "", a.enabled = o.enabled ?? !0, u.openEditDialog(o), await _t(), o.iconUrl && C.value && C.value.switchToUrlMode(), o.animationUrl && L.value && L.value.switchToUrlMode();
+    ], qe = (o) => u.getCategoryName(o), me = (o) => {
+      C.value?.reset(), y.value?.reset(), u.closeDialog();
+    }, pe = () => {
+      We(), C.value?.reset(), y.value?.reset(), u.openCreateDialog();
+    }, Je = async (o) => {
+      C.value?.reset(), y.value?.reset(), a.id = o.id, a.name = o.name, a.iconUrl = o.iconUrl, a.price = o.price, a.animationUrl = o.animationUrl || "", a.levelNum = o.level != null ? parseInt(o.level) : void 0, a.description = o.description || "", a.extensionInfo = o.extensionInfo || "", a.enabled = o.enabled ?? !0, u.openEditDialog(o), await vt(), o.iconUrl && C.value && C.value.switchToUrlMode(), o.animationUrl && y.value && y.value.switchToUrlMode();
     }, We = () => {
-      a.id = "", a.name = "", a.iconUrl = "", a.price = 0, a.animationUrl = "", a.levelNum = void 0, a.description = "", a.extensionInfo = "", a.enabled = !0, $.value = !1, le.value = !1;
+      a.id = "", a.name = "", a.iconUrl = "", a.price = 0, a.animationUrl = "", a.levelNum = void 0, a.description = "", a.extensionInfo = "", a.enabled = !0, z.value = !1, le.value = !1;
     }, je = async () => {
       if (!a.id.trim() && !R.value) {
         E.error(t(l.ENTER_GIFT_ID));
@@ -179,7 +186,7 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
         return;
       }
       const o = C.value?.isUrlInputMode ?? !0, c = o && (C.value?.urlInputValue?.trim?.() || "");
-      if (!$.value && !a.iconUrl.trim() && !c) {
+      if (!z.value && !a.iconUrl.trim() && !c) {
         o && C.value?.setUrlError(t(l.ENTER_THUMBNAIL_URL)), E.error(t(l.UPLOAD_THUMBNAIL_OR_ENTER_URL));
         return;
       }
@@ -187,8 +194,8 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
         E.error(t(l.MAX_BYTES, { field: t(l.DESCRIPTION), max: T }));
         return;
       }
-      if (a.levelNum !== void 0 && (a.levelNum < k || a.levelNum > P)) {
-        E.error(t(l.GIFT_LEVEL_RANGE, { min: k, max: P }));
+      if (a.levelNum !== void 0 && (a.levelNum < V || a.levelNum > P)) {
+        E.error(t(l.GIFT_LEVEL_RANGE, { min: V, max: P }));
         return;
       }
       if (a.extensionInfo.trim()) {
@@ -203,35 +210,35 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
           return;
         }
       }
-      B.value = !0;
+      w.value = !0;
       try {
-        const [h, y] = await Ft([
+        const [h, L] = await Ft([
           {
             handle: C.value,
-            hasPendingFile: $.value,
+            hasPendingFile: z.value,
             fallbackUrl: a.iconUrl,
             label: t(l.THUMBNAIL)
           },
           {
-            handle: L.value,
+            handle: y.value,
             hasPendingFile: le.value,
             fallbackUrl: a.animationUrl,
             label: t(l.GIFT_MATERIAL)
           }
-        ]), ae = Ot(
+        ]), ae = Ut(
           { ...a, level: a.levelNum != null ? String(a.levelNum) : void 0 },
           h,
-          y
+          L
         );
         await u.submitGift(ae);
       } catch (h) {
-        ye.error("GiftConfig", `Image upload failed: ${h?.message || t(l.UNKNOWN_HOST)}`, h), E.error(Dt(h, t(l.THUMBNAIL)));
+        Oe.error("GiftConfig", `Image upload failed: ${h?.message || t(l.UNKNOWN_HOST)}`, h), E.error(Dt(h, t(l.THUMBNAIL)));
       } finally {
-        B.value = !1;
+        w.value = !1;
       }
-    }, Je = (o) => {
+    }, Ze = (o) => {
       u.openGiftLangConfigDialog(o);
-    }, pe = () => u.closeGiftLangConfigDialog(), _e = (o, c) => {
+    }, _e = () => u.closeGiftLangConfigDialog(), ve = (o, c) => {
       c && u.openLangEditDialog(o, c);
     }, Qe = async () => {
       const o = b.value;
@@ -244,61 +251,61 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
         return;
       }
       try {
-        await u.saveLangEdit(), E.success(Nt(t).opSuccess(l.GIFT_MULTILINGUAL_SAVE));
+        await u.saveLangEdit(), E.success(At(t).opSuccess(l.GIFT_MULTILINGUAL_SAVE));
       } catch {
       }
-    }, Ze = (o) => {
-      u.openCategoryEditDialog(o);
     }, Ke = (o) => {
+      u.openCategoryEditDialog(o);
+    }, et = (o) => {
       u.requestRemoveCategory(o);
-    }, { execute: et } = ne({
+    }, { execute: tt } = ne({
       toast: { action: l.GIFT_CATEGORY_REMOVE_OPERATION },
       operationName: t(l.GIFT_CATEGORY_REMOVE_OPERATION),
       action: async () => {
         await u.confirmRemoveCategory();
       }
-    }), tt = () => {
-      et();
-    }, lt = () => u.openCategorySelectDialog(), { execute: at } = ne({
+    }), lt = () => {
+      tt();
+    }, at = () => u.openCategorySelectDialog(), { execute: ot } = ne({
       toast: { action: l.GIFT_CATEGORY_ADD_OPERATION },
       operationName: t(l.GIFT_CATEGORY_ADD_OPERATION),
       action: async () => {
         await u.confirmAddCategory();
       }
-    }), ot = () => {
-      at();
-    }, nt = (o) => u.requestDelete(o), { execute: it } = ne({
+    }), nt = () => {
+      ot();
+    }, it = (o) => u.requestDelete(o), { execute: st } = ne({
       toast: { action: l.LABEL_DELETED, entity: l.GIFT },
       operationName: t(l.GIFT_DELETE_OPERATION),
       action: async () => {
         await u.confirmDelete();
       }
-    }), st = () => {
-      it();
-    }, ve = () => u.onLanguageChanged();
-    return mt(async () => {
-      w.value = await Ut(), he.on("languageChanged", ve), await u.init();
-    }), pt(() => {
-      he.off("languageChanged", ve), Ue(), u.dispose();
+    }), rt = () => {
+      st();
+    }, Ee = () => u.onLanguageChanged();
+    return pt(async () => {
+      Y.value = await Mt(), Ne.on("languageChanged", Ee), await u.init();
+    }), _t(() => {
+      Ne.off("languageChanged", Ee), De(), u.dispose();
     }), (o, c) => {
-      const h = A("t-input"), y = A("t-button"), ae = A("t-card"), N = A("t-form-item"), Ee = A("t-input-number"), rt = A("t-textarea"), Ie = A("t-form"), O = A("t-dialog"), dt = A("t-option"), ct = A("t-select");
+      const h = A("t-input"), L = A("t-button"), ae = A("t-card"), N = A("t-form-item"), Ie = A("t-input-number"), dt = A("t-textarea"), Te = A("t-form"), O = A("t-dialog"), ct = A("t-option"), ut = A("t-select");
       return _(), v("div", Vt, [
-        r("div", kt, [
-          r("h1", Pt, s(e(t)(e(l).GIFT_MANAGEMENT)), 1),
-          r("div", Bt, [
-            r("div", wt, [
+        r("div", Pt, [
+          r("h1", Bt, s(e(t)(e(l).GIFT_MANAGEMENT)), 1),
+          r("div", wt, [
+            r("div", Yt, [
               d(h, {
-                "model-value": Q.value,
+                "model-value": B.value,
                 placeholder: e(t)(e(l).SEARCH_GIFT_PLACEHOLDER),
                 clearable: "",
-                status: e(Ne)(Q.value, e(Ae)) ? "error" : "default",
-                tips: e(Ne)(Q.value, e(Ae)) ? e(t)(e(l).INPUT_EXCEEDS_LENGTH_LIMIT) : "",
-                "onUpdate:modelValue": Pe,
+                status: e(Ge)(B.value, e(ye)) ? "error" : "default",
+                tips: e(Ge)(B.value, e(ye)) ? e(t)(e(l).INPUT_EXCEEDS_LENGTH_LIMIT) : "",
+                "onUpdate:modelValue": we,
                 onEnter: fe,
-                onClear: Be
+                onClear: Ye
               }, {
                 suffixIcon: i(() => [
-                  d(e(Et), {
+                  d(e(It), {
                     class: "search-icon",
                     onClick: fe
                   })
@@ -306,24 +313,24 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                 _: 1
               }, 8, ["model-value", "placeholder", "status", "tips"])
             ]),
-            d(y, {
+            d(L, {
               variant: "outline",
               shape: "round",
-              onClick: Ye,
+              onClick: He,
               theme: "primary"
             }, {
               icon: i(() => [
-                d(e(It))
+                d(e(Tt))
               ]),
               default: i(() => [
                 p(" " + s(e(t)(e(l).CATEGORY_MANAGEMENT)), 1)
               ]),
               _: 1
             }),
-            d(y, {
+            d(L, {
               theme: "primary",
               shape: "round",
-              onClick: ze
+              onClick: pe
             }, {
               default: i(() => [
                 p(" ＋ " + s(e(t)(e(l).ADD_GIFT)), 1)
@@ -334,11 +341,11 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
         ]),
         d(ae, { class: "gift-list-card" }, {
           default: i(() => [
-            d(xt, {
-              columns: e(Oe),
-              data: De.value,
+            d(kt, {
+              columns: e(Fe),
+              data: Se.value,
               "row-key": "id",
-              loading: Fe.value,
+              loading: Me.value,
               "table-class-name": "gift-table",
               "body-class-name": "gift-list-content",
               "row-class-name": "gift-row"
@@ -374,22 +381,22 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                 p(s(e(t)(e(l).ACTIONS)), 1)
               ]),
               "cell-id": i(({ row: n }) => [
-                r("div", Yt, [
-                  r("span", Xt, s(n.id || "-"), 1),
-                  d(e(Tt), {
+                r("div", Xt, [
+                  r("span", Ht, s(n.id || "-"), 1),
+                  d(e(Ct), {
                     class: "copy-icon",
                     size: "14",
-                    onClick: (U) => we(n.id)
+                    onClick: (U) => Xe(n.id)
                   }, null, 8, ["onClick"])
                 ])
               ]),
               "cell-iconUrl": i(({ row: n }) => [
-                r("div", Ht, [
+                r("div", $t, [
                   n.iconUrl ? (_(), v("img", {
                     key: 0,
                     src: n.iconUrl,
                     alt: n.name
-                  }, null, 8, $t)) : (_(), v("span", zt, "🎁"))
+                  }, null, 8, zt)) : (_(), v("span", qt, "🎁"))
                 ])
               ]),
               "cell-name": i(({ row: n }) => [
@@ -401,26 +408,26 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
               "cell-categories": i(({ row: n }) => [
                 r("div", {
                   class: "gift-category-cell",
-                  onClick: (U) => Ze(n)
+                  onClick: (U) => Ke(n)
                 }, [
                   r("span", null, s(n.categories?.join(", ") || "-"), 1),
-                  d(e(Ce), {
+                  d(e(be), {
                     class: "gift-category-edit-icon",
                     size: "14"
                   })
-                ], 8, qt)
+                ], 8, Jt)
               ]),
               "cell-languageList": i(({ row: n }) => [
                 r("div", Wt, [
-                  n.languageList && n.languageList.length > 0 ? (_(!0), v(x, { key: 0 }, z(n.languageList, (U) => (_(), v("span", {
+                  n.languageList && n.languageList.length > 0 ? (_(!0), v(x, { key: 0 }, q(n.languageList, (U) => (_(), v("span", {
                     key: e(oe)(U),
                     class: "gift-lang-tag",
-                    onClick: (El) => _e(n.id, e(Lt)(e(oe)(U)))
-                  }, s(e(t)(e(yt)(e(oe)(U)))), 9, jt))), 128)) : (_(), v("span", Jt, "-")),
-                  d(e(Ce), {
+                    onClick: (Nl) => ve(n.id, e(Lt)(e(oe)(U)))
+                  }, s(e(t)(e(Rt)(e(oe)(U)))), 9, jt))), 128)) : (_(), v("span", Zt, "-")),
+                  d(e(be), {
                     class: "gift-lang-edit-icon",
                     size: "14",
-                    onClick: (U) => Je(n.id)
+                    onClick: (U) => Ze(n.id)
                   }, null, 8, ["onClick"])
                 ])
               ]),
@@ -431,33 +438,55 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                 p(s(n.price ?? 0), 1)
               ]),
               "cell-createdAt": i(({ row: n }) => [
-                p(s(e(Gt)(n.createdAt)), 1)
+                p(s(e(yt)(n.createdAt)), 1)
               ]),
               "cell-customer-extra": i(({ row: n }) => [
                 d(ie, {
-                  "slot-component": e(J)?.giftTableExtraColumns,
+                  "slot-component": e(Z)?.giftTableExtraColumns,
                   "slot-props": { gift: n }
                 }, null, 8, ["slot-component", "slot-props"])
               ]),
               "cell-actions": i(({ row: n }) => [
-                d(Le, {
-                  actions: Xe(n)
+                d(Re, {
+                  actions: $e(n)
                 }, null, 8, ["actions"]),
                 d(ie, {
-                  "slot-component": e(J)?.giftRowActions,
+                  "slot-component": e(Z)?.giftRowActions,
                   "slot-props": { gift: n }
                 }, null, 8, ["slot-component", "slot-props"])
               ]),
               loading: i(() => [
                 r("div", Qt, [
                   c[18] || (c[18] = r("div", { class: "gift-loading-spinner" }, null, -1)),
-                  r("span", Zt, s(e(t)(e(l).LOADING)), 1)
+                  r("span", Kt, s(e(t)(e(l).LOADING)), 1)
                 ])
               ]),
               empty: i(() => [
-                r("div", Kt, [
-                  r("span", el, s(e(t)(e(l).NO_GIFT_DATA)), 1)
-                ])
+                B.value ? (_(), v("div", el, [
+                  r("span", tl, s(e(t)(e(l).NO_GIFT_FOUND, { keyword: B.value })), 1)
+                ])) : (_(), v("div", ll, [
+                  r("div", al, [
+                    d(e(he), { size: "40px" })
+                  ]),
+                  r("p", ol, s(e(t)(e(l).EMPTY_GIFT_TITLE)), 1),
+                  r("p", nl, s(e(t)(e(l).EMPTY_GIFT_DESC)), 1),
+                  r("div", il, [
+                    d(L, {
+                      theme: "primary",
+                      shape: "round",
+                      class: "empty-guide-cta",
+                      onClick: pe
+                    }, {
+                      icon: i(() => [
+                        d(e(he))
+                      ]),
+                      default: i(() => [
+                        p(" " + s(e(t)(e(l).ADD_GIFT)), 1)
+                      ]),
+                      _: 1
+                    })
+                  ])
+                ]))
               ]),
               _: 1
             }, 8, ["columns", "data", "loading"])
@@ -474,7 +503,7 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
           "on-close": () => me()
         }, {
           footer: i(() => [
-            d(y, {
+            d(L, {
               variant: "outline",
               shape: "round",
               onClick: c[0] || (c[0] = (n) => me())
@@ -484,28 +513,28 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
               ]),
               _: 1
             }),
-            d(y, {
+            d(L, {
               theme: "primary",
               shape: "round",
-              disabled: B.value || !R.value && !a.id.trim() || !a.name.trim() || C.value?.isValidating || L.value?.isValidating || C.value?.hasUrlError || L.value?.hasUrlError,
-              loading: B.value,
+              disabled: w.value || !R.value && !a.id.trim() || !a.name.trim() || C.value?.isValidating || y.value?.isValidating || C.value?.hasUrlError || y.value?.hasUrlError,
+              loading: w.value,
               onClick: je
             }, {
               default: i(() => [
-                p(s(B.value ? R.value ? e(t)(e(l).SAVING) : e(t)(e(l).CREATING) : R.value ? e(t)(e(l).SAVE) : e(t)(e(l).CREATE)), 1)
+                p(s(w.value ? R.value ? e(t)(e(l).SAVING) : e(t)(e(l).CREATING) : R.value ? e(t)(e(l).SAVE) : e(t)(e(l).CREATE)), 1)
               ]),
               _: 1
             }, 8, ["disabled", "loading"])
           ]),
           default: i(() => [
-            d(Ie, {
+            d(Te, {
               class: "gift-modal-body",
               "label-align": "right",
-              "label-width": e(be)(110),
+              "label-width": e(Ae)(110),
               colon: !1
             }, {
               default: i(() => [
-                R.value ? q("", !0) : (_(), Te(N, {
+                R.value ? J("", !0) : (_(), Ce(N, {
                   key: 0,
                   label: e(t)(e(l).GIFT_ID),
                   "required-mark": ""
@@ -520,7 +549,7 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                     }, {
                       suffix: i(() => [
                         r("span", {
-                          class: V(["input-suffix-count", { "byte-overflow": e(g)(a.id) > e(F) }])
+                          class: k(["input-suffix-count", { "byte-overflow": e(g)(a.id) > e(F) }])
                         }, s(e(g)(a.id)) + "/" + s(e(F)), 3)
                       ]),
                       _: 1
@@ -533,16 +562,16 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                   "required-mark": ""
                 }, {
                   default: i(() => [
-                    d(Ee, {
+                    d(Ie, {
                       "model-value": a.price,
-                      min: X,
+                      min: H,
                       max: j,
                       "decimal-places": 0,
-                      status: a.price < X || a.price > j ? "error" : "default",
-                      tips: a.price < X || a.price > j ? e(t)(e(l).GIFT_PRICE_RANGE, { min: X, max: j }) : "",
+                      status: a.price < H || a.price > j ? "error" : "default",
+                      tips: a.price < H || a.price > j ? e(t)(e(l).GIFT_PRICE_RANGE, { min: H, max: j }) : "",
                       style: { width: "100%" },
                       placeholder: e(t)(e(l).ENTER_GIFT_PRICE),
-                      "onUpdate:modelValue": Se
+                      "onUpdate:modelValue": ke
                     }, null, 8, ["model-value", "status", "tips", "placeholder"])
                   ]),
                   _: 1
@@ -551,15 +580,15 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                   label: e(t)(e(l).GIFT_LEVEL)
                 }, {
                   default: i(() => [
-                    d(Ee, {
+                    d(Ie, {
                       "model-value": a.levelNum,
-                      min: a.levelNum != null ? k : void 0,
+                      min: a.levelNum != null ? V : void 0,
                       max: a.levelNum != null ? P : void 0,
-                      status: (a.levelNum ?? 0) > 0 && ((a.levelNum ?? 0) < k || (a.levelNum ?? 0) > P) ? "error" : "default",
-                      tips: (a.levelNum ?? 0) > 0 && ((a.levelNum ?? 0) < k || (a.levelNum ?? 0) > P) ? e(t)(e(l).GIFT_LEVEL_RANGE, { min: k, max: P }) : "",
+                      status: (a.levelNum ?? 0) > 0 && ((a.levelNum ?? 0) < V || (a.levelNum ?? 0) > P) ? "error" : "default",
+                      tips: (a.levelNum ?? 0) > 0 && ((a.levelNum ?? 0) < V || (a.levelNum ?? 0) > P) ? e(t)(e(l).GIFT_LEVEL_RANGE, { min: V, max: P }) : "",
                       style: { width: "100%" },
                       placeholder: e(t)(e(l).ENTER_GIFT_LEVEL),
-                      "onUpdate:modelValue": xe
+                      "onUpdate:modelValue": Ve
                     }, null, 8, ["model-value", "min", "max", "status", "tips", "placeholder"])
                   ]),
                   _: 1
@@ -569,13 +598,13 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                   "required-mark": ""
                 }, {
                   default: i(() => [
-                    d(Ge, {
+                    d(Le, {
                       ref_key: "iconUploadRef",
                       ref: C,
                       modelValue: a.iconUrl,
                       "onUpdate:modelValue": c[2] || (c[2] = (n) => a.iconUrl = n),
                       type: "gift-icon",
-                      "upload-enabled": w.value,
+                      "upload-enabled": Y.value,
                       "crop-enabled": !0,
                       "aspect-ratio": 1,
                       placeholder: e(t)(e(l).CLICK_OR_DRAG_TO_UPLOAD_THUMBNAIL),
@@ -583,8 +612,8 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                       "preview-height": 120,
                       "max-size": 5,
                       "max-bytes": 200,
-                      "defer-upload": w.value,
-                      onFileReady: c[3] || (c[3] = (n) => $.value = !!n)
+                      "defer-upload": Y.value,
+                      onFileReady: c[3] || (c[3] = (n) => z.value = !!n)
                     }, null, 8, ["modelValue", "upload-enabled", "placeholder", "defer-upload"])
                   ]),
                   _: 1
@@ -593,13 +622,13 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                   label: e(t)(e(l).GIFT_MATERIAL)
                 }, {
                   default: i(() => [
-                    d(Ge, {
+                    d(Le, {
                       ref_key: "animUploadRef",
-                      ref: L,
+                      ref: y,
                       modelValue: a.animationUrl,
                       "onUpdate:modelValue": c[4] || (c[4] = (n) => a.animationUrl = n),
                       type: "gift-animation",
-                      "upload-enabled": w.value,
+                      "upload-enabled": Y.value,
                       "crop-enabled": !1,
                       placeholder: e(t)(e(l).CLICK_OR_DRAG_TO_UPLOAD_MATERIAL),
                       "url-placeholder": e(t)(e(l).ENTER_FILE_URL),
@@ -609,7 +638,7 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                       accept: "video/mp4,.svga",
                       "accept-hint": e(t)(e(l).SUPPORT_MP4_SVGA_MAX_10MB),
                       "max-bytes": 200,
-                      "defer-upload": w.value,
+                      "defer-upload": Y.value,
                       "skip-svga-validation": !0,
                       onFileReady: c[5] || (c[5] = (n) => le.value = !!n)
                     }, null, 8, ["modelValue", "upload-enabled", "placeholder", "url-placeholder", "accept-hint", "defer-upload"])
@@ -630,7 +659,7 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                     }, {
                       suffix: i(() => [
                         r("span", {
-                          class: V(["input-suffix-count", { "byte-overflow": e(g)(a.name) > e(I) }])
+                          class: k(["input-suffix-count", { "byte-overflow": e(g)(a.name) > e(I) }])
                         }, s(e(g)(a.name)) + "/" + s(e(I)), 3)
                       ]),
                       _: 1
@@ -651,7 +680,7 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                     }, {
                       suffix: i(() => [
                         r("span", {
-                          class: V(["input-suffix-count", { "byte-overflow": e(g)(a.description) > e(T) }])
+                          class: k(["input-suffix-count", { "byte-overflow": e(g)(a.description) > e(T) }])
                         }, s(e(g)(a.description)) + "/" + s(e(T)), 3)
                       ]),
                       _: 1
@@ -660,26 +689,26 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                   _: 1
                 }, 8, ["label"]),
                 d(ie, {
-                  "slot-component": e(J)?.giftFormExtraFields,
+                  "slot-component": e(Z)?.giftFormExtraFields,
                   "slot-props": { mode: R.value ? "edit" : "create", formData: { ...a } }
                 }, null, 8, ["slot-component", "slot-props"]),
                 d(N, {
                   label: e(t)(e(l).CUSTOM_EXTENSION_INFO)
                 }, {
                   default: i(() => [
-                    r("div", tl, [
-                      d(rt, {
+                    r("div", sl, [
+                      d(dt, {
                         modelValue: a.extensionInfo,
                         "onUpdate:modelValue": c[8] || (c[8] = (n) => a.extensionInfo = n),
                         placeholder: e(t)(e(l).EXTENSION_INFO_JSON_FORMAT),
                         autosize: { minRows: 3 },
-                        status: e(g)(a.extensionInfo) > e(Y) ? "error" : "default"
+                        status: e(g)(a.extensionInfo) > e(X) ? "error" : "default"
                       }, null, 8, ["modelValue", "placeholder", "status"]),
                       r("span", {
-                        class: V(["textarea-suffix-count", { "byte-overflow": e(g)(a.extensionInfo) > e(Y) }])
-                      }, s(e(g)(a.extensionInfo)) + "/" + s(e(Y)), 3)
+                        class: k(["textarea-suffix-count", { "byte-overflow": e(g)(a.extensionInfo) > e(X) }])
+                      }, s(e(g)(a.extensionInfo)) + "/" + s(e(X)), 3)
                     ]),
-                    e(g)(a.extensionInfo) > e(Y) ? (_(), v("div", ll, s(e(t)(e(l).MAX_BYTES, { field: e(t)(e(l).CUSTOM_EXTENSION_INFO), max: e(Y) })), 1)) : q("", !0)
+                    e(g)(a.extensionInfo) > e(X) ? (_(), v("div", rl, s(e(t)(e(l).MAX_BYTES, { field: e(t)(e(l).CUSTOM_EXTENSION_INFO), max: e(X) })), 1)) : J("", !0)
                   ]),
                   _: 1
                 }, 8, ["label"])
@@ -698,13 +727,13 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
           class: "gift-lang-config-dialog",
           "confirm-btn": { content: e(t)(e(l).CLOSE), shape: "round" },
           "cancel-btn": null,
-          "on-close": pe,
-          onConfirm: pe
+          "on-close": _e,
+          onConfirm: _e
         }, {
           default: i(() => [
-            r("div", al, [
-              r("div", ol, [
-                (_(), v("svg", nl, [...c[19] || (c[19] = [
+            r("div", dl, [
+              r("div", cl, [
+                (_(), v("svg", ul, [...c[19] || (c[19] = [
                   r("circle", {
                     cx: "8",
                     cy: "8",
@@ -727,7 +756,7 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                 ])])),
                 r("span", null, s(e(t)(e(l).MULTILINGUAL_CONFIG_TIP)), 1)
               ]),
-              r("table", il, [
+              r("table", gl, [
                 r("thead", null, [
                   r("tr", null, [
                     r("th", null, s(e(t)(e(l).LANGUAGE_TYPE)), 1),
@@ -737,21 +766,21 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                   ])
                 ]),
                 r("tbody", null, [
-                  (_(!0), v(x, null, z(e(Rt), (n) => (_(), v("tr", { key: n }, [
+                  (_(!0), v(x, null, q(e(Ot), (n) => (_(), v("tr", { key: n }, [
                     r("td", null, s(e(t)(e(W)[n].label)), 1),
-                    r("td", sl, [
+                    r("td", fl, [
                       D.value[n].name ? (_(), v(x, { key: 0 }, [
                         p(s(D.value[n].name), 1)
-                      ], 64)) : (_(), v("span", rl, s(e(t)(e(l).NOT_CONFIGURED)), 1))
+                      ], 64)) : (_(), v("span", ml, s(e(t)(e(l).NOT_CONFIGURED)), 1))
                     ]),
-                    r("td", dl, [
+                    r("td", pl, [
                       D.value[n].description ? (_(), v(x, { key: 0 }, [
                         p(s(D.value[n].description), 1)
-                      ], 64)) : (_(), v("span", cl, s(e(t)(e(l).NOT_CONFIGURED)), 1))
+                      ], 64)) : (_(), v("span", _l, s(e(t)(e(l).NOT_CONFIGURED)), 1))
                     ]),
                     r("td", null, [
-                      d(Le, {
-                        actions: He(n)
+                      d(Re, {
+                        actions: ze(n)
                       }, null, 8, ["actions"])
                     ])
                   ]))), 128))
@@ -773,10 +802,10 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
           onConfirm: Qe
         }, {
           default: i(() => [
-            d(Ie, {
+            d(Te, {
               class: "gift-modal-body",
               "label-align": "right",
-              "label-width": e(be)(110),
+              "label-width": e(Ae)(110),
               colon: !1
             }, {
               default: i(() => [
@@ -789,11 +818,11 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                       placeholder: M.value ? e(t)(e(l).ENTER_LANGUAGE_GIFT_NAME, { lang: e(t)(e(W)[M.value].label) }) : "",
                       status: e(g)(b.value.name) > e(I) ? "error" : "default",
                       tips: e(g)(b.value.name) > e(I) ? e(t)(e(l).MAX_BYTES, { field: e(t)(e(l).GIFT_NAME), max: e(I) }) : "",
-                      "onUpdate:modelValue": Ve
+                      "onUpdate:modelValue": Pe
                     }, {
                       suffix: i(() => [
                         r("span", {
-                          class: V(["input-suffix-count", { "byte-overflow": e(g)(b.value.name) > e(I) }])
+                          class: k(["input-suffix-count", { "byte-overflow": e(g)(b.value.name) > e(I) }])
                         }, s(e(g)(b.value.name)) + "/" + s(e(I)), 3)
                       ]),
                       _: 1
@@ -810,11 +839,11 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                       placeholder: M.value ? e(t)(e(l).ENTER_LANGUAGE_GIFT_DESCRIPTION, { lang: e(t)(e(W)[M.value].label) }) : "",
                       status: e(g)(b.value.description) > e(T) ? "error" : "default",
                       tips: e(g)(b.value.description) > e(T) ? e(t)(e(l).MAX_BYTES, { field: e(t)(e(l).DESCRIPTION), max: e(T) }) : "",
-                      "onUpdate:modelValue": ke
+                      "onUpdate:modelValue": Be
                     }, {
                       suffix: i(() => [
                         r("span", {
-                          class: V(["input-suffix-count", { "byte-overflow": e(g)(b.value.description) > e(T) }])
+                          class: k(["input-suffix-count", { "byte-overflow": e(g)(b.value.description) > e(T) }])
                         }, s(e(g)(b.value.description)) + "/" + s(e(T)), 3)
                       ]),
                       _: 1
@@ -840,15 +869,15 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
           onConfirm: c[13] || (c[13] = (n) => K.value = !1)
         }, {
           default: i(() => [
-            r("div", ul, [
-              Z.value.length > 0 ? (_(!0), v(x, { key: 0 }, z(Z.value, (n) => (_(), v("span", {
+            r("div", vl, [
+              Q.value.length > 0 ? (_(!0), v(x, { key: 0 }, q(Q.value, (n) => (_(), v("span", {
                 key: n,
                 class: "gift-category-edit-tag"
               }, [
-                p(s($e(n)) + " ", 1),
+                p(s(qe(n)) + " ", 1),
                 r("button", {
                   class: "gift-category-edit-tag-close",
-                  onClick: (U) => Ke(n)
+                  onClick: (U) => et(n)
                 }, [...c[20] || (c[20] = [
                   r("svg", {
                     width: "12",
@@ -864,14 +893,14 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                       "stroke-linejoin": "round"
                     })
                   ], -1)
-                ])], 8, gl)
-              ]))), 128)) : q("", !0),
-              r("div", fl, [
-                d(y, {
+                ])], 8, El)
+              ]))), 128)) : J("", !0),
+              r("div", Il, [
+                d(L, {
                   size: "small",
                   variant: "text",
                   theme: "primary",
-                  onClick: lt
+                  onClick: at
                 }, {
                   default: i(() => [
                     p(" + " + s(e(t)(e(l).ADD)), 1)
@@ -891,7 +920,7 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
           placement: "center",
           "confirm-btn": { theme: "primary", content: e(t)(e(l).CONFIRM), shape: "round" },
           "cancel-btn": { content: e(t)(e(l).CANCEL), shape: "round" },
-          onConfirm: st
+          onConfirm: rt
         }, {
           default: i(() => [
             r("p", null, s(e(t)(e(l).CANNOT_UNDO_AFTER_DELETE)), 1)
@@ -906,7 +935,7 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
           placement: "center",
           "confirm-btn": { theme: "primary", content: e(t)(e(l).CONFIRM), shape: "round" },
           "cancel-btn": { content: e(t)(e(l).CANCEL), shape: "round" },
-          onConfirm: tt
+          onConfirm: lt
         }, {
           default: i(() => [
             r("p", null, s(e(t)(e(l).REMOVE_CATEGORY_DESCRIPTION)), 1)
@@ -923,15 +952,15 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
           "on-close": () => ee.value = !1
         }, {
           default: i(() => [
-            r("div", ml, [
-              d(ct, {
+            r("div", Tl, [
+              d(ut, {
                 modelValue: te.value,
                 "onUpdate:modelValue": c[16] || (c[16] = (n) => te.value = n),
                 placeholder: e(t)(e(l).SELECT_CATEGORY_LOWERCASE),
                 style: { width: "100%" }
               }, {
                 default: i(() => [
-                  (_(!0), v(x, null, z(ge.value, (n) => (_(), Te(dt, {
+                  (_(!0), v(x, null, q(ge.value, (n) => (_(), Ce(ct, {
                     key: n.id,
                     value: n.id,
                     label: n.name
@@ -939,14 +968,14 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
                 ]),
                 _: 1
               }, 8, ["modelValue", "placeholder"]),
-              ge.value.length === 0 ? (_(), v("div", pl, s(e(t)(e(l).NO_AVAILABLE_CATEGORIES)), 1)) : q("", !0)
+              ge.value.length === 0 ? (_(), v("div", Cl, s(e(t)(e(l).NO_AVAILABLE_CATEGORIES)), 1)) : J("", !0)
             ]),
-            r("div", _l, [
-              d(y, {
+            r("div", hl, [
+              d(L, {
                 theme: "primary",
                 shape: "round",
                 disabled: !te.value,
-                onClick: ot
+                onClick: nt
               }, {
                 default: i(() => [
                   p(s(e(t)(e(l).CONFIRM)), 1)
@@ -962,5 +991,5 @@ const Vt = { class: "gift-config-container" }, kt = { class: "gift-config-page-h
   }
 });
 export {
-  Dl as default
+  Bl as default
 };
