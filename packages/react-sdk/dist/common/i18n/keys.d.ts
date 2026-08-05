@@ -177,6 +177,7 @@ export declare const I18N: {
     readonly CREATE: "Create";
     readonly SAVE: "Save";
     readonly ENTER_GIFT_ID: "Enter gift ID";
+    readonly RANDOM_GENERATE_ID: "Random generate ID";
     readonly ENTER_GIFT_NAME: "Enter gift name";
     readonly ENTER_GIFT_DESCRIPTION: "Enter gift description";
     readonly ENTER_GIFT_LEVEL: "Enter gift level";
@@ -390,13 +391,16 @@ export declare const I18N: {
     readonly TRADITIONAL_CHINESE: "Traditional Chinese";
     readonly ENGLISH: "English";
     readonly CREDENTIAL_LOGIN_TITLE: "Credential Login";
-    readonly CREDENTIAL_LOGIN_SUBTITLE: "Enter your Tencent Cloud SDK credentials";
+    readonly CREDENTIAL_LOGIN_SUBTITLE: "Login credentials for Tencent Cloud API access and TRTC service authentication";
     readonly SDK_APP_ID_LABEL: "SDKAppID";
     readonly SDK_APP_ID_PLACEHOLDER: "e.g. 1400000000";
+    readonly SDK_APP_ID_DESC: "Unique identifier for your Tencent Cloud IM application";
     readonly SECRET_KEY_LABEL: "SecretKey";
     readonly SECRET_KEY_PLACEHOLDER: "Enter your SecretKey";
+    readonly SECRET_KEY_DESC: "Key used to generate login signatures. Never share it.";
     readonly USER_ID_LABEL: "User ID";
     readonly USER_ID_PLACEHOLDER: "e.g. administrator";
+    readonly USER_ID_DESC: "Admin account for the management console. Defaults to administrator";
     readonly LOGIN_BTN: "Login";
     readonly LOGGING_IN: "Logging in...";
     readonly SECRET_KEY_MEMORY_ONLY: "SecretKey is stored in memory only. It will be lost when the page is refreshed.";
@@ -406,6 +410,44 @@ export declare const I18N: {
     readonly CREDENTIAL_LOGIN_FAILED: "Login failed";
     readonly SDK_APP_ID_REQUIRED: "SDKAppID is required";
     readonly SECRET_KEY_REQUIRED: "SecretKey is required";
+    /** SDKAppID 包含非数字字符 */
+    readonly SDK_APP_ID_INVALID_FORMAT: "SDKAppID must contain only digits";
+    /** SDKAppID 位数不正确（非 8 或 10 位） */
+    readonly SDK_APP_ID_INVALID_LENGTH: "SDKAppID must be 8 or 10 digits";
+    /** SDKAppID 不在有效号段内 */
+    readonly SDK_APP_ID_INVALID_RANGE: "SDKAppID is not in a valid range";
+    /** SecretKey 长度不足 */
+    readonly SECRET_KEY_TOO_SHORT: "SecretKey is too short (minimum 8 characters)";
+    /** User ID 为空 */
+    readonly USER_ID_REQUIRED: "User ID is required";
+    /** User ID 过长（超过 TRTC 32 字节限制） */
+    readonly USER_ID_TOO_LONG: "User ID is too long (max 32 bytes)";
+    /** 正在验证凭证是否有效 */
+    readonly CREDENTIAL_VERIFYING: "Verifying credentials...";
+    /** 凭证验证失败（调 TRTC API 返回错误） */
+    readonly CREDENTIAL_VERIFICATION_FAILED: "Credential verification failed. Please check your SDKAppID and SecretKey.";
+    /** 演示环境提示 */
+    readonly LOGIN_DEMO_NOTICE: "This is an online demo environment for trial purposes only.";
+    /** 演示环境 - 集成文档链接文字 */
+    readonly LOGIN_DEMO_INTEGRATION_DOC: "Integration Guide";
+    /** 服务端未配置提示 */
+    readonly LOGIN_SERVER_NOT_CONFIGURED_NOTICE: "Server credentials not configured. You may log in manually below, but SecretKey is never persisted — re-entry is required on every refresh. Configure server-side credentials to skip this login screen entirely.";
+    /** 服务端配置 - 部署文档链接文字 */
+    readonly LOGIN_SERVER_SETUP_GUIDE: "Setup Guide";
+    /** 弹框标题 */
+    readonly CREDENTIAL_VERIFY_DIALOG_TITLE: "Login Failed";
+    /** SDKAppID 号段说明 */
+    readonly CREDENTIAL_VERIFY_DIALOG_SDKAPPID_HINT: "Valid SDKAppID ranges:";
+    /** 国内站号段 */
+    readonly CREDENTIAL_VERIFY_DIALOG_DOMESTIC: "Domestic: 1400000000–1699999999 (10 digits)";
+    /** 国际站号段 */
+    readonly CREDENTIAL_VERIFY_DIALOG_INTERNATIONAL: "International: 20000000–99999999 (8 digits)";
+    /** 跨站号段 */
+    readonly CREDENTIAL_VERIFY_DIALOG_CROSS_SITE: "Cross-site: 1720000000–1799999999 (10 digits)";
+    /** SecretKey 提示 */
+    readonly CREDENTIAL_VERIFY_DIALOG_SECRETKEY_HINT: "You can get your SecretKey from the Tencent Cloud IM Console.";
+    /** 文档链接文字 */
+    readonly CREDENTIAL_VERIFY_DIALOG_DOC_LINK: "View Documentation";
     /** SDKAppID 气泡：链接文字（无前缀） */
     readonly SDK_APP_ID_HELP_LINK: "How to get SDKAppID";
     /** SecretKey 气泡：链接文字（前缀复用 SECRET_KEY_MEMORY_ONLY） */
@@ -426,5 +468,6 @@ export declare const I18N: {
     readonly WHAT_IS_ANCHOR_ID: "What is Anchor ID?";
     readonly ANCHOR_ID_HELP_TEXT: "Anchor ID is the UserID of the TUILiveKit account, ";
     readonly ANCHOR_ID_NOT_FOUND_TIP: "Anchor ID does not exist. Anchor ID is the UserID of the TUILiveKit account, ";
+    readonly UPLOAD_NOT_CONFIGURED_HINT: "Upload service is not configured. You can only enter a URL for this field.";
 };
 export type I18nKey = (typeof I18N)[keyof typeof I18N];

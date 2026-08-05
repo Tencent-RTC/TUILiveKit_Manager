@@ -18,6 +18,8 @@ export { ViolationLabelsPoller } from './utils/violation-labels-poller';
 export type { ViolationLabelsPollerOptions } from './utils/violation-labels-poller';
 export { toNumber, toBoolean, parseCustomInfo } from './utils/live';
 export type { EmojiSegment } from './utils';
+export { validateSdkAppId, validateSecretKey, validateUserId, validateCredentialLogin, isValidSdkAppIdFormat, } from './utils/credential-validator';
+export type { CredentialValidationResult } from './utils/credential-validator';
 export { isVideoUrl, isSvgaUrl, isSvgaFile, isVideoFile, getByteLength, readFileAsDataURL, initSvgaParser, getSvgaParserIfInited, validateSvgaUrl, validateSvgaFile, validateImageUrl, validateImageFile, validateVideoFile, validateFileType, validateFileSize, validateFileLoad, UrlValidationController, getCroppedImg, cropCanvasToBlob, canvasToBlob, ObjectURLManager, createPreviewUrl, revokePreviewUrl, replacePreviewUrl, extractFileFromDragEvent, createDragDropHandler, preventDefaultDrag, } from './utils/image-upload';
 export type { UrlValidationCallbacks, FileTypeValidationResult, CropArea, } from './utils/image-upload';
 export { resolveImageUploadUrl, resolveMultipleImageUploads, getUploadErrorMessage, ImageUploadResolveError, } from './utils/image-upload-resolve';
@@ -52,7 +54,8 @@ export { clearCredentials, getAuthToken, getCurrentUserName, getCurrentDomain, g
 export { getDefaultAuthState, setAuthStoreAdapter, applyPatch, getAuthStateSnapshot, updateAuthState, resetAuthState, subscribeAuthState } from './auth-store';
 export type { AuthState, AuthStoreAdapter, AuthStateListener } from './auth-store';
 export { saveCredentials, getCredentials, isLoggedIn, isServerConfiguredMode, getCurrentUserId, getCurrentUserSig, performLogin, } from './auth-actions';
-export { getUserProfilePortrait, batchGetUserProfilePortrait, setUserProfileRole, checkServerConfig, login, } from '../api/auth';
+export { getUserProfilePortrait, batchGetUserProfilePortrait, setUserProfileRole, checkServerConfig, login, verifyCredentials, } from '../api/auth';
+export type { CredentialVerificationResult } from '../api/auth';
 export { CREDENTIAL_KEYS } from './auth-actions';
 export { zhResource, enResource } from './i18n';
 export type { GiftItem, CategoryLanguageDetail } from './types';

@@ -9,13 +9,5 @@
     "deploy:server": "pnpm --filter livekit-manager-server run deploy",
     "start:moderation-server": "pnpm --filter custom-moderation-server start",
     "deploy:moderation-server": "pnpm --filter custom-moderation-server run deploy"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "core-js",
-      "esbuild",
-      "vue-demi"
-    ]
   }
 }

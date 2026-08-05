@@ -59,7 +59,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
   const location = useLocation();
   
   const isMockMode = typeof __MOCK_MODE__ !== 'undefined' ? __MOCK_MODE__ :
-    (import.meta.env.VITE_API_BASE_URL === '' || !import.meta.env.VITE_API_BASE_URL)
+    import.meta.env.VITE_API_BASE_URL === ''
     || (typeof window !== 'undefined' && (window as any).__PLAYWRIGHT_MOCK__ === true);
   
   // Mock 模式：跳过登录检查
@@ -85,7 +85,7 @@ const ConfigRequiredRoute: React.FC = () => {
   
   // Mock 模式检测：优先使用 __MOCK_MODE__，其次检查 VITE_API_BASE_URL
   const isMockMode = typeof __MOCK_MODE__ !== 'undefined' ? __MOCK_MODE__ :
-    (import.meta.env.VITE_API_BASE_URL === '' || !import.meta.env.VITE_API_BASE_URL)
+    import.meta.env.VITE_API_BASE_URL === ''
     || (typeof window !== 'undefined' && (window as any).__PLAYWRIGHT_MOCK__ === true);
 
   // Mock 模式：在 useEffect 中重定向，避免在渲染期间导航
@@ -218,7 +218,7 @@ const extraChildren: AppRouteObject[] = (appConfig.routes?.extraRoutes ?? []).ma
 
 // Mock 模式检测（使用 vite 定义的全局变量）
 const isMockMode = typeof __MOCK_MODE__ !== 'undefined' ? __MOCK_MODE__ : 
-  (import.meta.env.VITE_API_BASE_URL === '' || !import.meta.env.VITE_API_BASE_URL)
+  import.meta.env.VITE_API_BASE_URL === ''
   || (typeof window !== 'undefined' && (window as any).__PLAYWRIGHT_MOCK__ === true);
 
 const routes: AppRouteObject[] = [

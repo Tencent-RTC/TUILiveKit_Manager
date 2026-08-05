@@ -11,8 +11,11 @@ export type { CoreRouteKey, LiveManagerAppConfig, MenuKey, SdkAccount, Supported
 export { initHttpClient, getHttpClient } from './common/client';
 export { getDefaultAuthState, setAuthStoreAdapter, applyPatch } from './common/auth-store';
 export type { AuthState, AuthStoreAdapter } from './common/auth-store';
-export { isLoggedIn, saveCredentials, getCurrentUserId, isProxyMode } from './common/auth-actions';
-export { checkServerConfig, login, getUserProfilePortrait, batchGetUserProfilePortrait, loginWithSecret } from './api/auth';
+export { isLoggedIn, saveCredentials, getCurrentUserId, isProxyMode, clearCredentials } from './common/auth-actions';
+export { validateSdkAppId, validateSecretKey, validateUserId, validateCredentialLogin, isValidSdkAppIdFormat, } from './common/utils/credential-validator';
+export type { CredentialValidationResult } from './common/utils/credential-validator';
+export { checkServerConfig, login, getUserProfilePortrait, batchGetUserProfilePortrait, loginWithSecret, verifyCredentials } from './api/auth';
+export type { CredentialVerificationResult } from './api/auth';
 export { LiveManagerError };
 export { I18N, zhResource, enResource, bindI18nHelpers } from './common/i18n';
 export type { I18nKey, I18nHelpers } from './common/i18n';

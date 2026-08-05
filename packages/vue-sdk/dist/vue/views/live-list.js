@@ -1,36 +1,45 @@
-import { defineComponent as Ie, computed as U, ref as T, watch as xe, resolveComponent as V, openBlock as m, createElementBlock as C, Fragment as me, createVNode as n, unref as e, withCtx as i, createBlock as X, createElementVNode as o, normalizeClass as pe, toDisplayString as s, createTextVNode as g, createCommentVNode as x, renderList as he, shallowRef as Ae, onMounted as Ze, onBeforeUnmount as Je, createSlots as el } from "vue";
+import { defineComponent as Ce, computed as k, ref as x, watch as we, resolveComponent as D, openBlock as v, createElementBlock as f, Fragment as W, createVNode as n, unref as e, withCtx as r, createBlock as P, createElementVNode as t, normalizeClass as re, toDisplayString as i, createTextVNode as I, createCommentVNode as O, renderList as he, shallowRef as Oe, onMounted as Ze, onBeforeUnmount as Je, createSlots as el } from "vue";
 import { useRouter as ll } from "vue-router";
-import { HelpCircleIcon as tl, ChevronDownIcon as De, ChevronRightIcon as we, CloseIcon as $e, AddIcon as fe, CopyIcon as re, SearchIcon as ol, RefreshIcon as al } from "tdesign-icons-vue-next";
-import { Tooltip as sl, MessagePlugin as S } from "tdesign-vue-next";
+import { HelpCircleIcon as ye, ChevronDownIcon as Fe, ChevronRightIcon as $e, CloseIcon as Be, AddIcon as _e, CopyIcon as ue, SearchIcon as tl, RefreshIcon as ol } from "tdesign-icons-vue-next";
+import { Tooltip as ge, MessagePlugin as S } from "tdesign-vue-next";
 import { useUIKit as be } from "@tencentcloud/uikit-base-component-vue3";
-import { a6 as nl, as as Oe, g as oe, aP as il, bc as j, b4 as rl, aR as ul, k as te, U as D, C as M, b7 as dl, ac as cl, bM as vl, aq as _l, at as Ve, a3 as Ne, aA as ml, ay as Ue, bX as pl, am as fl, aS as El, X as Il, bf as Me, T as ke, aK as hl, af as bl } from "../../chunks/main-layout.BxLEuh4E.js";
-import { a as Ce } from "../../chunks/useAsyncAction.Btr7ihji.js";
-import { c as Fe, u as Cl, I as l, g as Be, m as yl, am as gl, a as Tl, S as Sl } from "../../chunks/shared-state.LwLSW33A.js";
-import { g as Ll } from "../../chunks/PreviewUrlController.ChqehaBQ.js";
-import { g as Rl } from "../../chunks/columns.D75h9FA-.js";
-import { useLiveMonitorState as ye } from "../../vue.js";
-import { _ as Al } from "../../chunks/MonitorPagination.vue_vue_type_script_setup_true_lang.DFDpp_mH.js";
-import { r as Ke, I as Pe } from "../../chunks/image-upload-resolve.CM9TaFWN.js";
-import { I as Ye } from "../../chunks/ImageUpload.DUXRho-X.js";
-import { _ as He } from "../../chunks/_plugin-vue_export-helper.CHgC5LLL.js";
-import { _ as _e } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.CTZnYVPd.js";
-import { _ as Ol, a as Vl } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
-const Nl = { style: { display: "inline-flex", "align-items": "center" } }, Ul = ["href"], Ml = {
+import { as as Ve, g as te, aP as al, bc as Z, b4 as sl, aR as il, k as le, U as M, a6 as nl, C as V, b7 as rl, ac as ul, bM as dl, aq as cl, at as De, a3 as Ne, aA as vl, ay as ke, bX as pl, am as ml, aS as _l, X as fl, bf as Ue, T as Me, aK as El, af as hl } from "../../chunks/main-layout.Dt5HcQRZ.js";
+import { a as Te } from "../../chunks/useAsyncAction.B32IGkkC.js";
+import { c as Pe, u as Il, I as l, g as Ke, m as yl, am as gl, a as Cl, S as bl } from "../../chunks/shared-state.CsnQDWhV.js";
+import { g as Tl } from "../../chunks/PreviewUrlController.DT5-ZoYh.js";
+import { g as xl } from "../../chunks/columns.BMaQrQj6.js";
+import { useLiveMonitorState as xe } from "../../vue.js";
+import { _ as Sl } from "../../chunks/MonitorPagination.vue_vue_type_script_setup_true_lang.BkpQ2ANo.js";
+import { r as He, I as Ye } from "../../chunks/image-upload-resolve.OmVEPf3w.js";
+import { I as Xe } from "../../chunks/ImageUpload.Eo0DZ7YF.js";
+import { _ as Ge } from "../../chunks/_plugin-vue_export-helper.CHgC5LLL.js";
+import { _ as me } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.CfI37jOH.js";
+import { _ as Ll, a as Rl } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
+const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = ["href"], Vl = {
   key: 0,
   class: "form-field__error-tip"
-}, kl = ["href"], xl = { class: "custom-info-section" }, Dl = {
+}, Dl = ["href"], Nl = { style: { display: "inline-flex", "align-items": "center" } }, kl = {
+  href: "https://cloud.tencent.com/document/product/647/123012#159bb20a-d83d-4fde-a37b-1ff99632ee2c",
+  target: "_blank",
+  rel: "noopener noreferrer",
+  style: { color: "#6ea1ff", "text-decoration": "underline" }
+}, Ul = { class: "seat-template-group" }, Ml = ["title", "onClick"], wl = {
+  class: "seat-template-icon",
+  viewBox: "0 0 72 48",
+  xmlns: "http://www.w3.org/2000/svg"
+}, Fl = { class: "seat-template-label" }, $l = { class: "custom-info-section" }, Bl = {
   key: 2,
   class: "custom-info-count"
-}, wl = {
+}, Pl = {
   key: 0,
   class: "custom-info-container"
-}, $l = { class: "custom-input-wrap" }, Fl = { class: "custom-input-wrap custom-value-wrap" }, Bl = {
+}, Kl = { class: "custom-input-wrap" }, Hl = { class: "custom-input-wrap custom-value-wrap" }, Yl = {
   key: 1,
   class: "create-success-content"
-}, Kl = { class: "create-success-summary" }, Pl = {
+}, Xl = { class: "create-success-summary" }, Gl = {
   key: 0,
   class: "create-success-section"
-}, Yl = { class: "create-success-section-title" }, Hl = { class: "stream-info-items" }, Xl = { class: "stream-info-item" }, Gl = { class: "stream-info-label" }, Wl = { class: "stream-info-value" }, zl = { class: "stream-info-item" }, ql = { class: "stream-info-label" }, Ql = { class: "stream-info-value" }, jl = { class: "dialog-footer" }, Zl = { style: { "font-size": "14px", "line-height": "22px", color: "rgba(0,0,0,0.6)" } }, Jl = ["href"], et = /* @__PURE__ */ Ie({
+}, Wl = { class: "create-success-section-title" }, zl = { class: "stream-info-items" }, ql = { class: "stream-info-item" }, Ql = { class: "stream-info-label" }, jl = { class: "stream-info-value" }, Zl = { class: "stream-info-item" }, Jl = { class: "stream-info-label" }, et = { class: "stream-info-value" }, lt = { class: "dialog-footer" }, tt = { style: { "font-size": "14px", "line-height": "22px", color: "rgba(0,0,0,0.6)" } }, ot = ["href"], at = /* @__PURE__ */ Ce({
   __name: "CreateLiveModal",
   props: {
     visible: { type: Boolean },
@@ -38,183 +47,180 @@ const Nl = { style: { display: "inline-flex", "align-items": "center" } }, Ul = 
     extraFieldsSlot: { default: void 0 }
   },
   emits: ["update:visible", "success"],
-  setup(H, { emit: v }) {
-    const Z = Fe("CreateLive"), { t, language: ue } = be(), { opSuccess: w, opFailed: r } = Cl(t), u = H, { extraFieldsSlot: ae } = u, { createLive: se } = ye(), K = v, q = U({
-      get: () => u.visible,
-      set: (p) => K("update:visible", p)
-    }), A = U(() => nl.map((p) => ({
-      value: p.value,
-      label: t(p.labelKey)
-    }))), O = (p) => oe(p), a = (p) => oe(p), P = (p) => {
-      c.value.maxSeatCount = Number(p) || 1;
-    }, c = T(Oe()), L = T([]), k = T(!1), d = T(!1), F = T(!1), J = T(""), de = T(""), N = T(null), Q = T(""), ee = T(null), le = T(!1), G = T(!1), { loading: h, execute: I } = Ce({
-      operationName: t(l.CREATE_LIVE),
+  setup(B, { emit: _ }) {
+    const J = Pe("CreateLive"), { t: o, language: oe } = be(), { opSuccess: w, opFailed: u } = Il(o), d = B, { extraFieldsSlot: ae } = d, { createLive: se } = xe(), K = _, j = k({
+      get: () => d.visible,
+      set: (h) => K("update:visible", h)
+    }), L = (h) => te(h), A = (h) => te(h), s = (h) => {
+      m.value.maxSeatCount = Number(h) || 1;
+    }, m = x(Ve()), y = x([]), H = x(!1), U = x(!1), c = x(!1), z = x(""), de = x(""), Y = x(null), F = x(""), ee = x(null), ce = x(!1), X = x(!1), { loading: ve, execute: g } = Te({
+      operationName: o(l.CREATE_LIVE),
       showSuccess: !1,
       action: async () => {
-        let p = "";
+        let h = "";
         try {
-          p = await Ke({
+          h = await He({
             handle: ee.value,
-            hasPendingFile: le.value,
-            fallbackUrl: c.value.coverUrl,
-            label: t(l.COVER_IMAGE)
+            hasPendingFile: ce.value,
+            fallbackUrl: m.value.coverUrl,
+            label: o(l.COVER_IMAGE)
           });
         } catch (R) {
-          Z.error("CreateLive", `Cover processing failed: ${R instanceof Error ? R.message : String(R)}`, R);
-          const ve = R instanceof Pe ? R.message : `${t(l.COVER_PROCESSING_FAILED)}: ${R instanceof Error ? R.message : String(R) || t(l.UNKNOWN_ERROR)}`;
-          S.error(ve);
+          J.error("CreateLive", `Cover processing failed: ${R instanceof Error ? R.message : String(R)}`, R);
+          const pe = R instanceof Ye ? R.message : `${o(l.COVER_PROCESSING_FAILED)}: ${R instanceof Error ? R.message : String(R) || o(l.UNKNOWN_ERROR)}`;
+          S.error(pe);
           return;
         }
-        if (L.value.some(j)) {
-          S.error(t(l.CUSTOM_INFO_KEY_REQUIRED));
+        if (y.value.some(Z)) {
+          S.error(o(l.CUSTOM_INFO_KEY_REQUIRED));
           return;
         }
-        const _ = cl({
-          formData: c.value,
-          coverUrl: p,
-          customInfos: L.value,
-          useObsStreaming: F.value
-        }), z = _.liveId, $ = _.anchorId;
-        if (await se(_), N.value = null, Q.value = "", F.value, F.value) {
-          const R = await vl({
-            liveId: z,
+        const a = ul({
+          formData: m.value,
+          coverUrl: h,
+          customInfos: y.value,
+          useObsStreaming: c.value
+        }), Q = a.liveId, $ = a.anchorId;
+        if (await se(a), Y.value = null, F.value = "", c.value, c.value) {
+          const R = await dl({
+            liveId: Q,
             anchorId: $,
-            onStatusChange: (ve) => {
-              J.value = ve;
+            onStatusChange: (pe) => {
+              z.value = pe;
             },
             messages: {
-              getStreamInfoFailed: r(l.OP_GET_STREAM_INFO),
-              importAccountFailed: r(l.OP_IMPORT, l.LIVE),
-              addRobotFailed: r(l.OP_ADD, l.LIVE),
-              pickSeatFailed: r(l.OP_PICK, l.LIVE),
-              setupFailed: r(l.OP_OBS_SETUP_ACT, l.LIVE)
+              getStreamInfoFailed: u(l.OP_GET_STREAM_INFO),
+              importAccountFailed: u(l.OP_IMPORT, l.LIVE),
+              addRobotFailed: u(l.OP_ADD, l.LIVE),
+              pickSeatFailed: u(l.OP_PICK, l.LIVE),
+              setupFailed: u(l.OP_OBS_SETUP_ACT, l.LIVE)
             }
           });
-          N.value = R.streamInfo, Q.value = R.streamInfoError, de.value = R.setupError, R.configuredSuccessfully;
+          Y.value = R.streamInfo, F.value = R.streamInfoError, de.value = R.setupError, R.configuredSuccessfully;
         }
-        d.value = !0;
+        U.value = !0;
       },
-      onError: (p) => {
-        dl(p) && (G.value = !0);
+      onError: (h) => {
+        rl(h) && (X.value = !0);
       }
-    }), b = U(() => oe(c.value.anchorId)), B = U(() => il(ue.value)), E = U(() => oe(c.value.liveName));
-    U(() => L.value.filter((p) => p.key.trim()).length);
-    const Y = U(() => L.value.some(j));
-    xe(() => c.value.anchorId, () => {
-      G.value && (G.value = !1);
+    }), E = k(() => te(m.value.anchorId)), b = k(() => al(oe.value)), N = k(() => te(m.value.liveName));
+    k(() => y.value.filter((h) => h.key.trim()).length);
+    const T = k(() => y.value.some(Z));
+    we(() => m.value.anchorId, () => {
+      X.value && (X.value = !1);
     });
-    const W = U(() => {
-      const p = rl(c.value.seatTemplate), _ = t(p?.descKey || "");
-      return p?.orientation === "landscape" ? `${_}，${t(l.LANDSCAPE_BROADCASTING_HINT)}` : _;
-    }), y = U(() => ul(c.value.seatTemplate)), ce = U(() => F.value ? J.value === "error" ? `OBS 配置失败：${de.value}` : N.value ? "OBS 已配置完成，可直接复制下方推流信息。" : Q.value ? `OBS 已配置完成，但推流信息生成失败：${Q.value}` : "OBS 已配置完成。" : ""), ne = U(() => J.value === "error" || !!Q.value), Xe = (p) => {
-      le.value = !!p;
-    }, ge = async (p, _) => {
+    const G = k(() => {
+      const h = sl(m.value.seatTemplate), a = o(h?.descKey || "");
+      return h?.orientation === "landscape" ? `${a}，${o(l.LANDSCAPE_BROADCASTING_HINT)}` : a;
+    }), q = k(() => il(m.value.seatTemplate)), C = k(() => c.value ? z.value === "error" ? `OBS 配置失败：${de.value}` : Y.value ? "OBS 已配置完成，可直接复制下方推流信息。" : F.value ? `OBS 已配置完成，但推流信息生成失败：${F.value}` : "OBS 已配置完成。" : ""), fe = k(() => z.value === "error" || !!F.value), ie = (h) => {
+      ce.value = !!h;
+    }, Se = async (h, a) => {
       try {
-        await _l(p), S.success(w(l.COPY, _));
-      } catch (z) {
-        const $ = z, R = $.ErrorInfo || ($ instanceof Error ? $.message : String($)) || t(l.UNKNOWN_ERROR);
-        Z.error("CreateLive", `Copy failed: ${R}`, z), S.error(r(l.COPY, null, R));
+        await cl(h), S.success(w(l.COPY, a));
+      } catch (Q) {
+        const $ = Q, R = $.ErrorInfo || ($ instanceof Error ? $.message : String($)) || o(l.UNKNOWN_ERROR);
+        J.error("CreateLive", `Copy failed: ${R}`, Q), S.error(u(l.COPY, null, R));
       }
-    }, Ge = () => {
-      if (L.value.length >= M.maxCount) {
-        S.error(t(l.CUSTOM_INFO_MAX_COUNT_EXCEEDED, { max: M.maxCount }));
+    }, We = () => {
+      if (y.value.length >= V.maxCount) {
+        S.error(o(l.CUSTOM_INFO_MAX_COUNT_EXCEEDED, { max: V.maxCount }));
         return;
       }
-      L.value.push({ key: "", value: "" });
-    }, We = (p) => {
-      L.value.splice(p, 1);
-    }, Te = () => {
-      c.value = Oe(), L.value = [], k.value = !1, d.value = !1, F.value = !1, J.value = "", de.value = "", N.value = null, Q.value = "", le.value = !1, G.value = !1, ee.value?.reset();
-    }, Se = () => {
-      Te(), K("update:visible", !1);
-    }, ze = async () => {
-      if (!c.value.anchorId.trim()) {
-        S.error(t(l.PLEASE_ENTER_ANCHOR_ID));
+      y.value.push({ key: "", value: "" });
+    }, ze = (h) => {
+      y.value.splice(h, 1);
+    }, Le = () => {
+      m.value = Ve(), y.value = [], H.value = !1, U.value = !1, c.value = !1, z.value = "", de.value = "", Y.value = null, F.value = "", ce.value = !1, X.value = !1, ee.value?.reset();
+    }, Re = () => {
+      Le(), K("update:visible", !1);
+    }, qe = async () => {
+      if (!m.value.anchorId.trim()) {
+        S.error(o(l.PLEASE_ENTER_ANCHOR_ID));
         return;
       }
-      if (b.value > te) {
-        S.error(t(l.MAX_BYTES_WITH_CURRENT, { field: t(l.ANCHOR_ID), max: te, current: b.value }));
+      if (E.value > le) {
+        S.error(o(l.MAX_BYTES_WITH_CURRENT, { field: o(l.ANCHOR_ID), max: le, current: E.value }));
         return;
       }
-      if (E.value > D) {
-        S.error(t(l.MAX_BYTES_WITH_CURRENT, { field: t(l.LIVE_TITLE), max: D, current: E.value }));
+      if (N.value > M) {
+        S.error(o(l.MAX_BYTES_WITH_CURRENT, { field: o(l.LIVE_TITLE), max: M, current: N.value }));
         return;
       }
-      if (L.value.some(j)) {
-        S.error(t(l.CUSTOM_INFO_KEY_REQUIRED));
+      if (y.value.some(Z)) {
+        S.error(o(l.CUSTOM_INFO_KEY_REQUIRED));
         return;
       }
-      J.value = "", await I();
-    }, qe = () => {
-      Te(), K("success"), K("update:visible", !1);
+      z.value = "", await g();
+    }, Qe = () => {
+      Le(), K("success"), K("update:visible", !1);
     };
-    return (p, _) => {
-      const z = V("t-input"), $ = V("t-form-item"), R = V("t-select"), ve = V("t-input-number"), Qe = V("t-checkbox"), ie = V("t-button"), je = V("t-form"), Le = V("t-dialog");
-      return m(), C(me, null, [
-        n(Le, {
-          visible: q.value,
-          "onUpdate:visible": _[8] || (_[8] = (f) => q.value = f),
-          header: d.value ? e(w)(e(l).CREATE, e(l).LIVE) : e(t)(e(l).CREATE_LIVE),
-          width: 560,
+    return (h, a) => {
+      const Q = D("t-input"), $ = D("t-form-item"), R = D("t-input-number"), pe = D("t-checkbox"), ne = D("t-button"), je = D("t-form"), Ae = D("t-dialog");
+      return v(), f(W, null, [
+        n(Ae, {
+          visible: j.value,
+          "onUpdate:visible": a[7] || (a[7] = (p) => j.value = p),
+          header: U.value ? e(w)(e(l).CREATE, e(l).LIVE) : e(o)(e(l).CREATE_LIVE),
+          width: e(oe)?.startsWith("en") ? 680 : 620,
           placement: "center",
           class: "create-live-modal",
-          onClose: Se
+          onClose: Re
         }, {
-          footer: i(() => [
-            o("div", jl, [
-              d.value ? (m(), X(ie, {
+          footer: r(() => [
+            t("div", lt, [
+              U.value ? (v(), P(ne, {
                 key: 1,
                 theme: "primary",
                 shape: "round",
-                onClick: qe
+                onClick: Qe
               }, {
-                default: i(() => [
-                  g(s(e(t)(e(l).COMPLETE)), 1)
+                default: r(() => [
+                  I(i(e(o)(e(l).COMPLETE)), 1)
                 ]),
                 _: 1
-              })) : (m(), C(me, { key: 0 }, [
-                n(ie, {
+              })) : (v(), f(W, { key: 0 }, [
+                n(ne, {
                   variant: "outline",
                   shape: "round",
-                  onClick: Se
+                  onClick: Re
                 }, {
-                  default: i(() => [
-                    g(s(e(t)(e(l).CANCEL)), 1)
+                  default: r(() => [
+                    I(i(e(o)(e(l).CANCEL)), 1)
                   ]),
                   _: 1
                 }),
-                n(ie, {
+                n(ne, {
                   theme: "primary",
                   shape: "round",
-                  loading: e(h),
-                  disabled: e(h) || !c.value.anchorId.trim() || ee.value?.isValidating || ee.value?.hasUrlError || Y.value,
-                  onClick: ze
+                  loading: e(ve),
+                  disabled: e(ve) || !m.value.anchorId.trim() || ee.value?.isValidating || ee.value?.hasUrlError || T.value,
+                  onClick: qe
                 }, {
-                  default: i(() => [
-                    g(s(e(h) ? e(t)(e(l).CREATING) : e(t)(e(l).CREATE)), 1)
+                  default: r(() => [
+                    I(i(e(ve) ? e(o)(e(l).CREATING) : e(o)(e(l).CREATE)), 1)
                   ]),
                   _: 1
                 }, 8, ["loading", "disabled"])
               ], 64))
             ])
           ]),
-          default: i(() => [
-            d.value ? (m(), C("div", Bl, [
-              o("div", Kl, [
-                _[11] || (_[11] = o("div", { class: "create-success-icon" }, [
-                  o("svg", {
+          default: r(() => [
+            U.value ? (v(), f("div", Yl, [
+              t("div", Xl, [
+                a[34] || (a[34] = t("div", { class: "create-success-icon" }, [
+                  t("svg", {
                     width: "48",
                     height: "48",
                     viewBox: "0 0 48 48",
                     fill: "none"
                   }, [
-                    o("circle", {
+                    t("circle", {
                       cx: "24",
                       cy: "24",
                       r: "24",
                       fill: "#E8F5E9"
                     }),
-                    o("path", {
+                    t("path", {
                       d: "M14 24L21 31L34 18",
                       stroke: "#07C160",
                       "stroke-width": "3",
@@ -223,297 +229,550 @@ const Nl = { style: { display: "inline-flex", "align-items": "center" } }, Ul = 
                     })
                   ])
                 ], -1)),
-                o("h3", null, s(e(w)(e(l).LABEL_CREATED, e(l).LIVE)), 1),
-                ce.value ? (m(), C("p", {
+                t("h3", null, i(e(w)(e(l).LABEL_CREATED, e(l).LIVE)), 1),
+                C.value ? (v(), f("p", {
                   key: 0,
-                  class: pe(["create-success-description", { "is-error": ne.value }])
-                }, s(ce.value), 3)) : x("", !0)
+                  class: re(["create-success-description", { "is-error": fe.value }])
+                }, i(C.value), 3)) : O("", !0)
               ]),
-              N.value ? (m(), C("div", Pl, [
-                o("div", Yl, s(e(t)(e(l).STREAM_INFO)), 1),
-                o("div", Hl, [
-                  o("div", Xl, [
-                    o("div", Gl, [
-                      o("span", null, s(e(t)(e(l).SERVER_URL)), 1),
-                      o("button", {
+              Y.value ? (v(), f("div", Gl, [
+                t("div", Wl, i(e(o)(e(l).STREAM_INFO)), 1),
+                t("div", zl, [
+                  t("div", ql, [
+                    t("div", Ql, [
+                      t("span", null, i(e(o)(e(l).SERVER_URL)), 1),
+                      t("button", {
                         class: "action-link",
-                        onClick: _[6] || (_[6] = (f) => ge(N.value.serverUrl, e(t)(e(l).SERVER_URL)))
+                        onClick: a[5] || (a[5] = (p) => Se(Y.value.serverUrl, e(o)(e(l).SERVER_URL)))
                       }, [
-                        n(e(re)),
-                        g(" " + s(e(t)(e(l).COPY)), 1)
+                        n(e(ue)),
+                        I(" " + i(e(o)(e(l).COPY)), 1)
                       ])
                     ]),
-                    o("code", Wl, s(N.value.serverUrl), 1)
+                    t("code", jl, i(Y.value.serverUrl), 1)
                   ]),
-                  o("div", zl, [
-                    o("div", ql, [
-                      o("span", null, s(e(t)(e(l).STREAM_KEY)), 1),
-                      o("button", {
+                  t("div", Zl, [
+                    t("div", Jl, [
+                      t("span", null, i(e(o)(e(l).STREAM_KEY)), 1),
+                      t("button", {
                         class: "action-link",
-                        onClick: _[7] || (_[7] = (f) => ge(N.value.streamKey, e(t)(e(l).STREAM_KEY)))
+                        onClick: a[6] || (a[6] = (p) => Se(Y.value.streamKey, e(o)(e(l).STREAM_KEY)))
                       }, [
-                        n(e(re)),
-                        g(" " + s(e(t)(e(l).COPY)), 1)
+                        n(e(ue)),
+                        I(" " + i(e(o)(e(l).COPY)), 1)
                       ])
                     ]),
-                    o("code", Ql, s(N.value.streamKey), 1)
+                    t("code", et, i(Y.value.streamKey), 1)
                   ])
                 ])
-              ])) : x("", !0)
-            ])) : (m(), X(je, {
+              ])) : O("", !0)
+            ])) : (v(), P(je, {
               key: 0,
               class: "create-live-form",
-              "label-width": e(Be)(100),
+              "label-width": e(Ke)(100),
               colon: !1
             }, {
-              default: i(() => [
+              default: r(() => [
                 n($, { "required-mark": !0 }, {
-                  label: i(() => [
-                    o("span", Nl, [
-                      g(s(e(t)(e(l).LIVE_HOST)) + " ", 1),
-                      n(e(sl), { placement: "top" }, {
-                        content: i(() => [
-                          o("span", null, [
-                            g(s(e(t)(e(l).ANCHOR_ID_HELP_TEXT)) + " ", 1),
-                            o("a", {
-                              href: B.value,
+                  label: r(() => [
+                    t("span", Al, [
+                      I(i(e(o)(e(l).LIVE_HOST)) + " ", 1),
+                      n(e(ge), { placement: "top" }, {
+                        content: r(() => [
+                          t("span", null, [
+                            I(i(e(o)(e(l).ANCHOR_ID_HELP_TEXT)) + " ", 1),
+                            t("a", {
+                              href: b.value,
                               target: "_blank",
                               rel: "noopener noreferrer",
                               style: { color: "#6ea1ff", "text-decoration": "underline" }
-                            }, s(e(t)(e(l).VIEW_DETAILS)), 9, Ul)
+                            }, i(e(o)(e(l).VIEW_DETAILS)), 9, Ol)
                           ])
                         ]),
-                        default: i(() => [
-                          n(e(tl), { style: { "margin-left": "4px", cursor: "pointer", color: "rgba(0,0,0,0.4)" } })
+                        default: r(() => [
+                          n(e(ye), { style: { "margin-left": "4px", cursor: "pointer", color: "rgba(0,0,0,0.4)" } })
                         ]),
                         _: 1
                       })
                     ])
                   ]),
-                  default: i(() => [
-                    n(z, {
-                      modelValue: c.value.anchorId,
-                      "onUpdate:modelValue": _[0] || (_[0] = (f) => c.value.anchorId = f),
-                      placeholder: e(t)(e(l).ENTER_ANCHOR_ID),
-                      status: G.value || b.value > e(te) ? "error" : "default",
-                      tips: !G.value && b.value > e(te) ? e(t)(e(l).MAX_BYTES, { field: e(t)(e(l).ANCHOR_ID), max: e(te) }) : ""
+                  default: r(() => [
+                    n(Q, {
+                      modelValue: m.value.anchorId,
+                      "onUpdate:modelValue": a[0] || (a[0] = (p) => m.value.anchorId = p),
+                      placeholder: e(o)(e(l).ENTER_ANCHOR_ID),
+                      status: X.value || E.value > e(le) ? "error" : "default",
+                      tips: !X.value && E.value > e(le) ? e(o)(e(l).MAX_BYTES, { field: e(o)(e(l).ANCHOR_ID), max: e(le) }) : ""
                     }, {
-                      suffix: i(() => [
-                        o("span", {
-                          class: pe(["input-suffix-count", { "byte-overflow": b.value > e(te) }])
-                        }, s(b.value) + "/" + s(e(te)), 3)
+                      suffix: r(() => [
+                        t("span", {
+                          class: re(["input-suffix-count", { "byte-overflow": E.value > e(le) }])
+                        }, i(E.value) + "/" + i(e(le)), 3)
                       ]),
                       _: 1
                     }, 8, ["modelValue", "placeholder", "status", "tips"]),
-                    G.value ? (m(), C("div", Ml, [
-                      g(s(e(t)(e(l).ANCHOR_ID_NOT_FOUND_TIP)) + " ", 1),
-                      o("a", {
-                        href: B.value,
+                    X.value ? (v(), f("div", Vl, [
+                      I(i(e(o)(e(l).ANCHOR_ID_NOT_FOUND_TIP)) + " ", 1),
+                      t("a", {
+                        href: b.value,
                         target: "_blank",
                         rel: "noopener noreferrer",
                         style: { color: "#1C66E5" }
-                      }, s(e(t)(e(l).VIEW_DETAILS)), 9, kl)
-                    ])) : x("", !0)
+                      }, i(e(o)(e(l).VIEW_DETAILS)), 9, Dl)
+                    ])) : O("", !0)
                   ]),
                   _: 1
                 }),
                 n($, {
-                  label: e(t)(e(l).LIVE_TITLE)
+                  label: e(o)(e(l).LIVE_TITLE)
                 }, {
-                  default: i(() => [
-                    n(z, {
-                      modelValue: c.value.liveName,
-                      "onUpdate:modelValue": _[1] || (_[1] = (f) => c.value.liveName = f),
-                      placeholder: e(t)(e(l).ENTER_LIVE_TITLE),
-                      status: E.value > e(D) ? "error" : "default",
-                      tips: E.value > e(D) ? e(t)(e(l).MAX_BYTES, { field: e(t)(e(l).LIVE_TITLE), max: e(D) }) : ""
+                  default: r(() => [
+                    n(Q, {
+                      modelValue: m.value.liveName,
+                      "onUpdate:modelValue": a[1] || (a[1] = (p) => m.value.liveName = p),
+                      placeholder: e(o)(e(l).ENTER_LIVE_TITLE),
+                      status: N.value > e(M) ? "error" : "default",
+                      tips: N.value > e(M) ? e(o)(e(l).MAX_BYTES, { field: e(o)(e(l).LIVE_TITLE), max: e(M) }) : ""
                     }, {
-                      suffix: i(() => [
-                        o("span", {
-                          class: pe(["input-suffix-count", { "byte-overflow": E.value > e(D) }])
-                        }, s(E.value) + "/" + s(e(D)), 3)
+                      suffix: r(() => [
+                        t("span", {
+                          class: re(["input-suffix-count", { "byte-overflow": N.value > e(M) }])
+                        }, i(N.value) + "/" + i(e(M)), 3)
                       ]),
                       _: 1
                     }, 8, ["modelValue", "placeholder", "status", "tips"])
                   ]),
                   _: 1
                 }, 8, ["label"]),
-                n($, {
-                  label: e(t)(e(l).COVER_IMAGE)
-                }, {
-                  default: i(() => [
-                    n(Ye, {
+                n($, null, {
+                  label: r(() => [
+                    t("span", Nl, [
+                      I(i(e(o)(e(l).COVER_IMAGE)) + " ", 1),
+                      B.uploadEnabled ? O("", !0) : (v(), P(e(ge), {
+                        key: 0,
+                        placement: "top"
+                      }, {
+                        content: r(() => [
+                          t("span", null, [
+                            I(i(e(o)(e(l).UPLOAD_NOT_CONFIGURED_HINT)) + " ", 1),
+                            t("a", kl, i(e(o)(e(l).VIEW_DETAILS)), 1)
+                          ])
+                        ]),
+                        default: r(() => [
+                          n(e(ye), {
+                            size: "14px",
+                            style: { "margin-left": "4px", cursor: "pointer", color: "rgba(0,0,0,0.4)" }
+                          })
+                        ]),
+                        _: 1
+                      }))
+                    ])
+                  ]),
+                  default: r(() => [
+                    n(Xe, {
                       ref_key: "coverUploadRef",
                       ref: ee,
-                      modelValue: c.value.coverUrl,
-                      "onUpdate:modelValue": _[2] || (_[2] = (f) => c.value.coverUrl = f),
+                      modelValue: m.value.coverUrl,
+                      "onUpdate:modelValue": a[2] || (a[2] = (p) => m.value.coverUrl = p),
                       type: "cover",
-                      "upload-enabled": H.uploadEnabled,
+                      "upload-enabled": B.uploadEnabled,
                       "crop-enabled": !0,
-                      "aspect-ratio": y.value,
-                      placeholder: e(t)(e(l).CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE),
+                      "aspect-ratio": q.value,
+                      placeholder: e(o)(e(l).CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE),
                       "preview-height": 140,
                       "max-bytes": 200,
-                      "defer-upload": H.uploadEnabled,
-                      onFileReady: Xe
+                      "defer-upload": B.uploadEnabled,
+                      onFileReady: ie
                     }, null, 8, ["modelValue", "upload-enabled", "aspect-ratio", "placeholder", "defer-upload"])
                   ]),
                   _: 1
-                }, 8, ["label"]),
+                }),
                 n($, {
-                  label: e(t)(e(l).LAYOUT_TEMPLATE),
+                  label: e(o)(e(l).LAYOUT_TEMPLATE),
                   "required-mark": !0,
-                  help: W.value
+                  help: G.value
                 }, {
-                  default: i(() => [
-                    n(R, {
-                      modelValue: c.value.seatTemplate,
-                      "onUpdate:modelValue": _[3] || (_[3] = (f) => c.value.seatTemplate = f),
-                      options: A.value,
-                      style: { width: "100%" }
-                    }, null, 8, ["modelValue", "options"])
+                  default: r(() => [
+                    t("div", Ul, [
+                      (v(!0), f(W, null, he(e(nl), (p) => (v(), f("button", {
+                        key: p.value,
+                        type: "button",
+                        class: re(["seat-template-btn", { "seat-template-btn--selected": m.value.seatTemplate === p.value, "seat-template-btn--landscape": p.value === "VideoLandscape4Seat" }]),
+                        title: e(o)(p.descKey),
+                        onClick: (Ie) => m.value.seatTemplate = p.value
+                      }, [
+                        (v(), f("svg", wl, [
+                          p.value === "VideoDynamicGrid9Seats" ? (v(), f(W, { key: 0 }, [
+                            a[10] || (a[10] = t("rect", {
+                              x: "14",
+                              y: "4",
+                              width: "18",
+                              height: "18",
+                              rx: "2",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[11] || (a[11] = t("rect", {
+                              x: "40",
+                              y: "4",
+                              width: "18",
+                              height: "18",
+                              rx: "2",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[12] || (a[12] = t("rect", {
+                              x: "14",
+                              y: "24",
+                              width: "18",
+                              height: "18",
+                              rx: "2",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[13] || (a[13] = t("rect", {
+                              x: "40",
+                              y: "24",
+                              width: "18",
+                              height: "18",
+                              rx: "2",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1))
+                          ], 64)) : p.value === "VideoFixedGrid9Seats" ? (v(), f(W, { key: 1 }, [
+                            a[14] || (a[14] = t("rect", {
+                              x: "15",
+                              y: "4",
+                              width: "12",
+                              height: "10",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[15] || (a[15] = t("rect", {
+                              x: "30",
+                              y: "4",
+                              width: "12",
+                              height: "10",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[16] || (a[16] = t("rect", {
+                              x: "45",
+                              y: "4",
+                              width: "12",
+                              height: "10",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[17] || (a[17] = t("rect", {
+                              x: "15",
+                              y: "17",
+                              width: "12",
+                              height: "10",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[18] || (a[18] = t("rect", {
+                              x: "30",
+                              y: "17",
+                              width: "12",
+                              height: "10",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[19] || (a[19] = t("rect", {
+                              x: "45",
+                              y: "17",
+                              width: "12",
+                              height: "10",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[20] || (a[20] = t("rect", {
+                              x: "15",
+                              y: "30",
+                              width: "12",
+                              height: "10",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[21] || (a[21] = t("rect", {
+                              x: "30",
+                              y: "30",
+                              width: "12",
+                              height: "10",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[22] || (a[22] = t("rect", {
+                              x: "45",
+                              y: "30",
+                              width: "12",
+                              height: "10",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1))
+                          ], 64)) : p.value === "VideoDynamicFloat7Seats" ? (v(), f(W, { key: 2 }, [
+                            a[23] || (a[23] = t("rect", {
+                              x: "18",
+                              y: "2",
+                              width: "36",
+                              height: "44",
+                              rx: "3",
+                              fill: "#F5F7FA",
+                              stroke: "#DCE0E8",
+                              "stroke-width": "1"
+                            }, null, -1)),
+                            a[24] || (a[24] = t("rect", {
+                              x: "28",
+                              y: "16",
+                              width: "16",
+                              height: "16",
+                              rx: "3",
+                              fill: "#C8D6E5",
+                              opacity: "0.7"
+                            }, null, -1))
+                          ], 64)) : p.value === "VideoFixedFloat7Seats" ? (v(), f(W, { key: 3 }, [
+                            a[25] || (a[25] = t("rect", {
+                              x: "9",
+                              y: "2",
+                              width: "36",
+                              height: "44",
+                              rx: "3",
+                              fill: "#F5F7FA",
+                              stroke: "#DCE0E8",
+                              "stroke-width": "1"
+                            }, null, -1)),
+                            a[26] || (a[26] = t("rect", {
+                              x: "49",
+                              y: "3",
+                              width: "14",
+                              height: "10",
+                              rx: "2",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[27] || (a[27] = t("rect", {
+                              x: "49",
+                              y: "15",
+                              width: "14",
+                              height: "10",
+                              rx: "2",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[28] || (a[28] = t("rect", {
+                              x: "49",
+                              y: "27",
+                              width: "14",
+                              height: "10",
+                              rx: "2",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[29] || (a[29] = t("rect", {
+                              x: "49",
+                              y: "39",
+                              width: "14",
+                              height: "10",
+                              rx: "2",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1))
+                          ], 64)) : p.value === "VideoLandscape4Seat" ? (v(), f(W, { key: 4 }, [
+                            a[30] || (a[30] = t("rect", {
+                              x: "2",
+                              y: "2",
+                              width: "68",
+                              height: "44",
+                              rx: "4",
+                              fill: "#F5F7FA",
+                              stroke: "#DCE0E8",
+                              "stroke-width": "1"
+                            }, null, -1)),
+                            a[31] || (a[31] = t("rect", {
+                              x: "52",
+                              y: "4",
+                              width: "16",
+                              height: "12",
+                              rx: "2",
+                              fill: "#C8D6E5",
+                              opacity: "0.7"
+                            }, null, -1)),
+                            a[32] || (a[32] = t("rect", {
+                              x: "5",
+                              y: "27",
+                              width: "9",
+                              height: "8",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1)),
+                            a[33] || (a[33] = t("rect", {
+                              x: "5",
+                              y: "36",
+                              width: "9",
+                              height: "8",
+                              rx: "1.5",
+                              fill: "#C8D6E5",
+                              opacity: "0.6"
+                            }, null, -1))
+                          ], 64)) : O("", !0)
+                        ])),
+                        t("span", Fl, i(e(o)(p.labelKey)), 1)
+                      ], 10, Ml))), 128))
+                    ])
                   ]),
                   _: 1
                 }, 8, ["label", "help"]),
-                c.value.seatTemplate === "AudioSalon" || c.value.seatTemplate === "Karaoke" ? (m(), X($, {
+                m.value.seatTemplate === "AudioSalon" || m.value.seatTemplate === "Karaoke" ? (v(), P($, {
                   key: 0,
-                  label: e(t)(e(l).MAX_SEATS),
-                  help: e(t)(e(l).MAX_SEATS_HELP)
+                  label: e(o)(e(l).MAX_SEATS),
+                  help: e(o)(e(l).MAX_SEATS_HELP)
                 }, {
-                  default: i(() => [
-                    n(ve, {
-                      "model-value": c.value.maxSeatCount,
-                      "onUpdate:modelValue": P,
+                  default: r(() => [
+                    n(R, {
+                      "model-value": m.value.maxSeatCount,
+                      "onUpdate:modelValue": s,
                       min: 1,
                       max: 16,
-                      status: c.value.maxSeatCount < 1 || c.value.maxSeatCount > 16 ? "error" : "default",
-                      tips: c.value.maxSeatCount < 1 || c.value.maxSeatCount > 16 ? e(t)(e(l).SEAT_COUNT_RANGE_1_16) : "",
-                      placeholder: e(t)(e(l).ENTER_MAX_SEAT_COUNT),
+                      status: m.value.maxSeatCount < 1 || m.value.maxSeatCount > 16 ? "error" : "default",
+                      tips: m.value.maxSeatCount < 1 || m.value.maxSeatCount > 16 ? e(o)(e(l).SEAT_COUNT_RANGE_1_16) : "",
+                      placeholder: e(o)(e(l).ENTER_MAX_SEAT_COUNT),
                       theme: "normal",
                       style: { width: "100%" }
                     }, null, 8, ["model-value", "status", "tips", "placeholder"])
                   ]),
                   _: 1
-                }, 8, ["label", "help"])) : x("", !0),
+                }, 8, ["label", "help"])) : O("", !0),
                 n($, {
-                  label: e(t)(e(l).STREAMING_METHOD),
-                  help: e(t)(e(l).OBS_STREAMING_INFO_WILL_BE_DISPLAYED)
+                  label: e(o)(e(l).STREAMING_METHOD),
+                  help: e(o)(e(l).OBS_STREAMING_INFO_WILL_BE_DISPLAYED)
                 }, {
-                  default: i(() => [
-                    n(Qe, {
-                      modelValue: F.value,
-                      "onUpdate:modelValue": _[4] || (_[4] = (f) => F.value = f)
+                  default: r(() => [
+                    n(pe, {
+                      modelValue: c.value,
+                      "onUpdate:modelValue": a[3] || (a[3] = (p) => c.value = p)
                     }, {
-                      default: i(() => [
-                        g(s(e(t)(e(l).USE_OBS_STREAMING)), 1)
+                      default: r(() => [
+                        I(i(e(o)(e(l).USE_OBS_STREAMING)), 1)
                       ]),
                       _: 1
                     }, 8, ["modelValue"])
                   ]),
                   _: 1
                 }, 8, ["label", "help"]),
-                o("div", xl, [
-                  o("div", {
+                t("div", $l, [
+                  t("div", {
                     class: "custom-info-toggle",
-                    onClick: _[5] || (_[5] = (f) => k.value = !k.value)
+                    onClick: a[4] || (a[4] = (p) => H.value = !H.value)
                   }, [
-                    k.value ? (m(), X(e(De), {
+                    H.value ? (v(), P(e(Fe), {
                       key: 0,
                       size: "16"
-                    })) : (m(), X(e(we), {
+                    })) : (v(), P(e($e), {
                       key: 1,
                       size: "16"
                     })),
-                    o("span", null, s(e(t)(e(l).CUSTOM_INFORMATION)), 1),
-                    L.value.length > 0 ? (m(), C("span", Dl, s(L.value.length), 1)) : x("", !0)
+                    t("span", null, i(e(o)(e(l).CUSTOM_INFORMATION)), 1),
+                    y.value.length > 0 ? (v(), f("span", Bl, i(y.value.length), 1)) : O("", !0)
                   ]),
-                  k.value ? (m(), C("div", wl, [
-                    (m(!0), C(me, null, he(L.value, (f, Re) => (m(), C("div", {
-                      key: Re,
+                  H.value ? (v(), f("div", Pl, [
+                    (v(!0), f(W, null, he(y.value, (p, Ie) => (v(), f("div", {
+                      key: Ie,
                       class: "custom-info-row"
                     }, [
-                      o("div", $l, [
-                        n(z, {
-                          modelValue: f.key,
-                          "onUpdate:modelValue": (Ee) => f.key = Ee,
-                          placeholder: e(t)(e(l).ENTER_KEY),
-                          status: O(f.key) > e(M).maxKeyBytes || e(j)(f) ? "error" : "default",
-                          tips: O(f.key) > e(M).maxKeyBytes ? e(t)(e(l).MAX_BYTES, { field: "Key", max: e(M).maxKeyBytes }) : e(j)(f) ? e(t)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
+                      t("div", Kl, [
+                        n(Q, {
+                          modelValue: p.key,
+                          "onUpdate:modelValue": (Ee) => p.key = Ee,
+                          placeholder: e(o)(e(l).ENTER_KEY),
+                          status: L(p.key) > e(V).maxKeyBytes || e(Z)(p) ? "error" : "default",
+                          tips: L(p.key) > e(V).maxKeyBytes ? e(o)(e(l).MAX_BYTES, { field: "Key", max: e(V).maxKeyBytes }) : e(Z)(p) ? e(o)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
                         }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
                       ]),
-                      o("div", Fl, [
-                        n(z, {
-                          modelValue: f.value,
-                          "onUpdate:modelValue": (Ee) => f.value = Ee,
-                          placeholder: e(t)(e(l).ENTER_VALUE),
-                          status: a(f.value) > e(M).maxValueBytes ? "error" : "default",
-                          tips: a(f.value) > e(M).maxValueBytes ? e(t)(e(l).VALUE_EXCEEDS_2KB_LIMIT) : ""
+                      t("div", Hl, [
+                        n(Q, {
+                          modelValue: p.value,
+                          "onUpdate:modelValue": (Ee) => p.value = Ee,
+                          placeholder: e(o)(e(l).ENTER_VALUE),
+                          status: A(p.value) > e(V).maxValueBytes ? "error" : "default",
+                          tips: A(p.value) > e(V).maxValueBytes ? e(o)(e(l).VALUE_EXCEEDS_2KB_LIMIT) : ""
                         }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
                       ]),
-                      n(ie, {
+                      n(ne, {
                         variant: "text",
                         shape: "circle",
-                        onClick: (Ee) => We(Re)
+                        onClick: (Ee) => ze(Ie)
                       }, {
-                        default: i(() => [
-                          n(e($e))
+                        default: r(() => [
+                          n(e(Be))
                         ]),
                         _: 1
                       }, 8, ["onClick"])
                     ]))), 128)),
-                    L.value.length < e(M).maxCount ? (m(), X(ie, {
+                    y.value.length < e(V).maxCount ? (v(), P(ne, {
                       key: 0,
                       style: { width: "80px" },
                       variant: "text",
                       shape: "round",
-                      onClick: Ge,
+                      onClick: We,
                       theme: "primary"
                     }, {
-                      icon: i(() => [
-                        n(e(fe))
+                      icon: r(() => [
+                        n(e(_e))
                       ]),
-                      default: i(() => [
-                        g(" " + s(e(t)(e(l).ADD)), 1)
+                      default: r(() => [
+                        I(" " + i(e(o)(e(l).ADD)), 1)
                       ]),
                       _: 1
-                    })) : x("", !0)
-                  ])) : x("", !0)
+                    })) : O("", !0)
+                  ])) : O("", !0)
                 ])
               ]),
               _: 1
             }, 8, ["label-width"]))
           ]),
           _: 1
-        }, 8, ["visible", "header"]),
-        n(Le, {
-          visible: p.showAnchorIdErrorDialog,
-          "onUpdate:visible": _[10] || (_[10] = (f) => p.showAnchorIdErrorDialog = f),
-          header: e(t)(e(l).ANCHOR_ID_NOT_FOUND),
+        }, 8, ["visible", "header", "width"]),
+        n(Ae, {
+          visible: h.showAnchorIdErrorDialog,
+          "onUpdate:visible": a[9] || (a[9] = (p) => h.showAnchorIdErrorDialog = p),
+          header: e(o)(e(l).ANCHOR_ID_NOT_FOUND),
           width: 420,
           placement: "center",
           class: "anchor-id-error-dialog"
         }, {
-          footer: i(() => [
-            n(ie, {
+          footer: r(() => [
+            n(ne, {
               theme: "primary",
               shape: "round",
-              onClick: _[9] || (_[9] = (f) => p.showAnchorIdErrorDialog = !1)
+              onClick: a[8] || (a[8] = (p) => h.showAnchorIdErrorDialog = !1)
             }, {
-              default: i(() => [
-                g(s(e(t)(e(l).CLOSE)), 1)
+              default: r(() => [
+                I(i(e(o)(e(l).CLOSE)), 1)
               ]),
               _: 1
             })
           ]),
-          default: i(() => [
-            o("div", Zl, [
-              g(s(e(t)(e(l).ANCHOR_ID_NOT_FOUND_DESC)) + " ", 1),
-              o("a", {
-                href: B.value,
+          default: r(() => [
+            t("div", tt, [
+              I(i(e(o)(e(l).ANCHOR_ID_NOT_FOUND_DESC)) + " ", 1),
+              t("a", {
+                href: b.value,
                 target: "_blank",
                 rel: "noopener noreferrer",
                 style: { color: "#1C66E5" }
-              }, s(e(t)(e(l).HERE)), 9, Jl)
+              }, i(e(o)(e(l).HERE)), 9, ot)
             ])
           ]),
           _: 1
@@ -521,16 +780,21 @@ const Nl = { style: { display: "inline-flex", "align-items": "center" } }, Ul = 
       ], 64);
     };
   }
-}), lt = /* @__PURE__ */ He(et, [["__scopeId", "data-v-fd442bc6"]]), tt = {
+}), st = /* @__PURE__ */ Ge(at, [["__scopeId", "data-v-134d4927"]]), it = {
   key: 0,
   class: "edit-live-error"
-}, ot = { class: "custom-info-section" }, at = {
+}, nt = { style: { display: "inline-flex", "align-items": "center" } }, rt = {
+  href: "https://cloud.tencent.com/document/product/647/123012#159bb20a-d83d-4fde-a37b-1ff99632ee2c",
+  target: "_blank",
+  rel: "noopener noreferrer",
+  style: { color: "#6ea1ff", "text-decoration": "underline" }
+}, ut = { class: "custom-info-section" }, dt = {
   key: 2,
   class: "custom-info-count"
-}, st = {
+}, ct = {
   key: 0,
   class: "custom-info-container"
-}, nt = { class: "custom-input-wrap" }, it = { class: "custom-input-wrap custom-value-wrap" }, rt = { class: "dialog-footer" }, ut = /* @__PURE__ */ Ie({
+}, vt = { class: "custom-input-wrap" }, pt = { class: "custom-input-wrap custom-value-wrap" }, mt = { class: "dialog-footer" }, _t = /* @__PURE__ */ Ce({
   __name: "EditLiveModal",
   props: {
     visible: { type: Boolean },
@@ -539,277 +803,298 @@ const Nl = { style: { display: "inline-flex", "align-items": "center" } }, Ul = 
     extraFieldsSlot: {}
   },
   emits: ["update:visible", "success"],
-  setup(H, { emit: v }) {
-    const Z = Fe("EditLive"), { t } = be(), { fetchLiveDetail: ue, updateLive: w } = ye(), r = H, u = U(() => r.live?.liveId || r.live?.id || ""), ae = v, se = U({
-      get: () => r.visible,
-      set: (h) => ae("update:visible", h)
-    }), K = (h) => oe(h), q = (h) => oe(h), A = T(Ve()), O = T(""), a = T([]), P = T(!1), c = T([]), L = T(Ne), k = T(null), d = T(!1), { loading: F, execute: J } = Ce({
+  setup(B, { emit: _ }) {
+    const J = Pe("EditLive"), { t: o } = be(), { fetchLiveDetail: oe, updateLive: w } = xe(), u = B, d = k(() => u.live?.liveId || u.live?.id || ""), ae = _, se = k({
+      get: () => u.visible,
+      set: (g) => ae("update:visible", g)
+    }), K = (g) => te(g), j = (g) => te(g), L = x(De()), A = x(""), s = x([]), m = x(!1), y = x([]), H = x(Ne), U = x(null), c = x(!1), { loading: z, execute: de } = Te({
       toast: { action: l.EDIT, entity: l.LIVE },
-      action: async (h) => {
-        const I = r.live?.liveId || r.live?.id || "";
+      action: async (g) => {
+        const E = u.live?.liveId || u.live?.id || "";
         return w({
-          liveId: I,
-          ...h
+          liveId: E,
+          ...g
         });
       },
       showSuccess: !0,
       onSuccess: () => {
         ae("success", {
-          liveName: A.value.liveName.trim(),
-          coverUrl: A.value.coverUrl
-        }), le();
+          liveName: L.value.liveName.trim(),
+          coverUrl: L.value.coverUrl
+        }), X();
       }
-    }), de = (h) => {
-      d.value = !!h;
-    }, N = U(() => oe(A.value.liveName));
-    U(() => a.value.filter((h) => h.key.trim()).length), xe([() => r.live?.liveId || r.live?.id, () => r.visible], async ([h, I]) => {
-      const b = r.live;
-      if (b && I) {
-        A.value = {
+    }), Y = (g) => {
+      c.value = !!g;
+    }, F = k(() => te(L.value.liveName));
+    k(() => s.value.filter((g) => g.key.trim()).length), we([() => u.live?.liveId || u.live?.id, () => u.visible], async ([g, E]) => {
+      const b = u.live;
+      if (b && E) {
+        L.value = {
           liveName: b.liveName || "",
           coverUrl: b.coverUrl || ""
-        }, b.coverUrl ? L.value = await ml(b.coverUrl) : L.value = Ne;
-        const B = b.liveId || b.id || "";
+        }, b.coverUrl ? H.value = await vl(b.coverUrl) : H.value = Ne;
+        const N = b.liveId || b.id || "";
         try {
-          const E = await ue(B), Y = Ue(E?.customInfo);
-          a.value = Y, P.value = Y.length > 0, c.value = Y.map((W) => W.key);
-        } catch (E) {
-          E instanceof yl && (O.value = gl(E.code ?? 0, "", t(l.LIVE_NOT_FOUND)));
-          const Y = b.customInfo, W = Ue(Y);
-          a.value = W, P.value = W.length > 0, c.value = W.map((y) => y.key);
+          const T = await oe(N), G = ke(T?.customInfo);
+          s.value = G, m.value = G.length > 0, y.value = G.map((q) => q.key);
+        } catch (T) {
+          T instanceof yl && (A.value = gl(T.code ?? 0, "", o(l.LIVE_NOT_FOUND)));
+          const G = b.customInfo, q = ke(G);
+          s.value = q, m.value = q.length > 0, y.value = q.map((C) => C.key);
         }
       }
     }, { immediate: !0 });
-    const Q = () => {
-      if (a.value.length >= M.maxCount) {
-        S.error(t(l.CUSTOM_INFO_MAX_COUNT_EXCEEDED, { max: M.maxCount }));
+    const ee = () => {
+      if (s.value.length >= V.maxCount) {
+        S.error(o(l.CUSTOM_INFO_MAX_COUNT_EXCEEDED, { max: V.maxCount }));
         return;
       }
-      a.value.push({ key: "", value: "" });
-    }, ee = (h) => {
-      a.value.splice(h, 1);
-    }, le = () => {
-      O.value = "", a.value = [], P.value = !1, c.value = [], d.value = !1, k.value?.reset(), A.value = Ve(), ae("update:visible", !1);
-    }, G = async () => {
-      if (r.live) {
-        if (!A.value.liveName.trim()) {
-          S.error(t(l.PLEASE_ENTER_LIVE_TITLE));
+      s.value.push({ key: "", value: "" });
+    }, ce = (g) => {
+      s.value.splice(g, 1);
+    }, X = () => {
+      A.value = "", s.value = [], m.value = !1, y.value = [], c.value = !1, U.value?.reset(), L.value = De(), ae("update:visible", !1);
+    }, ve = async () => {
+      if (u.live) {
+        if (!L.value.liveName.trim()) {
+          S.error(o(l.PLEASE_ENTER_LIVE_TITLE));
           return;
         }
-        if (N.value > D) {
-          S.error(t(l.MAX_BYTES_WITH_CURRENT, { field: t(l.LIVE_TITLE), max: D, current: N.value }));
+        if (F.value > M) {
+          S.error(o(l.MAX_BYTES_WITH_CURRENT, { field: o(l.LIVE_TITLE), max: M, current: F.value }));
           return;
         }
-        if (a.value.some(j)) {
-          S.error(t(l.CUSTOM_INFO_KEY_REQUIRED));
+        if (s.value.some(Z)) {
+          S.error(o(l.CUSTOM_INFO_KEY_REQUIRED));
           return;
         }
         try {
-          let h = "";
+          let g = "";
           try {
-            h = await Ke({
-              handle: k.value,
-              hasPendingFile: d.value,
-              fallbackUrl: A.value.coverUrl,
-              label: t(l.COVER_IMAGE)
+            g = await He({
+              handle: U.value,
+              hasPendingFile: c.value,
+              fallbackUrl: L.value.coverUrl,
+              label: o(l.COVER_IMAGE)
             });
-          } catch (E) {
-            Z.error("EditLive", `Cover processing failed: ${E instanceof Error ? E.message : String(E)}`, E);
-            const Y = E instanceof Pe ? E.message : `${t(l.COVER_PROCESSING_FAILED)}: ${E instanceof Error ? E.message : String(E) || t(l.UNKNOWN_ERROR)}`;
-            S.error(Y);
+          } catch (T) {
+            J.error("EditLive", `Cover processing failed: ${T instanceof Error ? T.message : String(T)}`, T);
+            const G = T instanceof Ye ? T.message : `${o(l.COVER_PROCESSING_FAILED)}: ${T instanceof Error ? T.message : String(T) || o(l.UNKNOWN_ERROR)}`;
+            S.error(G);
             return;
           }
-          const I = pl(a.value);
-          if (I) {
-            I.type === "key-too-long" ? S.error(t(l.MAX_BYTES, { field: `Key ${I.key}`, max: I.max })) : I.type === "value-too-long" ? S.error(t(l.KEY_VALUE_EXCEEDS_2KB, { key: I.key })) : I.type === "max-count" ? S.error(t(l.CUSTOM_INFO_MAX_COUNT, { max: I.max })) : S.error(t(l.TOTAL_VALUE_SIZE_EXCEEDS_16KB));
+          const E = pl(s.value);
+          if (E) {
+            E.type === "key-too-long" ? S.error(o(l.MAX_BYTES, { field: `Key ${E.key}`, max: E.max })) : E.type === "value-too-long" ? S.error(o(l.KEY_VALUE_EXCEEDS_2KB, { key: E.key })) : E.type === "max-count" ? S.error(o(l.CUSTOM_INFO_MAX_COUNT, { max: E.max })) : S.error(o(l.TOTAL_VALUE_SIZE_EXCEEDS_16KB));
             return;
           }
-          const b = fl(a.value), B = El(c.value, b);
-          await J({
-            liveName: A.value.liveName.trim(),
-            coverUrl: h || void 0,
+          const b = ml(s.value), N = _l(y.value, b);
+          await de({
+            liveName: L.value.liveName.trim(),
+            coverUrl: g || void 0,
             customInfo: Object.keys(b).length > 0 ? b : void 0,
-            deleteKeys: B.length > 0 ? B : void 0
+            deleteKeys: N.length > 0 ? N : void 0
           });
-        } catch (h) {
-          Z.error("EditLiveModal", "Update failed:", h);
+        } catch (g) {
+          J.error("EditLiveModal", "Update failed:", g);
         }
       }
     };
-    return (h, I) => {
-      const b = V("t-input"), B = V("t-form-item"), E = V("t-button"), Y = V("t-form"), W = V("t-dialog");
-      return m(), X(W, {
+    return (g, E) => {
+      const b = D("t-input"), N = D("t-form-item"), T = D("t-button"), G = D("t-form"), q = D("t-dialog");
+      return v(), P(q, {
         visible: se.value,
-        "onUpdate:visible": I[3] || (I[3] = (y) => se.value = y),
-        header: e(t)(e(l).EDIT_LIVE),
+        "onUpdate:visible": E[3] || (E[3] = (C) => se.value = C),
+        header: e(o)(e(l).EDIT_LIVE),
         width: 560,
         placement: "center",
         class: "edit-live-modal",
-        onClose: le
+        onClose: X
       }, {
-        footer: i(() => [
-          o("div", rt, [
-            n(E, {
+        footer: r(() => [
+          t("div", mt, [
+            n(T, {
               variant: "outline",
               shape: "round",
-              onClick: le
+              onClick: X
             }, {
-              default: i(() => [
-                g(s(e(t)(e(l).CANCEL)), 1)
+              default: r(() => [
+                I(i(e(o)(e(l).CANCEL)), 1)
               ]),
               _: 1
             }),
-            n(E, {
+            n(T, {
               theme: "primary",
               shape: "round",
-              loading: e(F),
-              disabled: e(F) || !A.value.liveName.trim() || k.value?.isValidating || k.value?.hasUrlError,
-              onClick: G
+              loading: e(z),
+              disabled: e(z) || !L.value.liveName.trim() || U.value?.isValidating || U.value?.hasUrlError,
+              onClick: ve
             }, {
-              default: i(() => [
-                g(s(e(F) ? e(t)(e(l).SAVING) : e(t)(e(l).SAVE)), 1)
+              default: r(() => [
+                I(i(e(z) ? e(o)(e(l).SAVING) : e(o)(e(l).SAVE)), 1)
               ]),
               _: 1
             }, 8, ["loading", "disabled"])
           ])
         ]),
-        default: i(() => [
-          n(Y, {
+        default: r(() => [
+          n(G, {
             class: "edit-live-form",
-            "label-width": e(Be)(100),
+            "label-width": e(Ke)(100),
             colon: !1
           }, {
-            default: i(() => [
-              O.value ? (m(), C("div", tt, [
-                I[4] || (I[4] = o("span", { class: "edit-live-error-icon" }, "!", -1)),
-                o("span", null, s(O.value), 1)
-              ])) : x("", !0),
-              n(B, {
-                label: e(t)(e(l).LIVE_ID)
+            default: r(() => [
+              A.value ? (v(), f("div", it, [
+                E[4] || (E[4] = t("span", { class: "edit-live-error-icon" }, "!", -1)),
+                t("span", null, i(A.value), 1)
+              ])) : O("", !0),
+              n(N, {
+                label: e(o)(e(l).LIVE_ID)
               }, {
-                default: i(() => [
+                default: r(() => [
                   n(b, {
-                    value: u.value,
+                    value: d.value,
                     disabled: "",
                     readonly: ""
                   }, null, 8, ["value"])
                 ]),
                 _: 1
               }, 8, ["label"]),
-              n(B, {
-                label: e(t)(e(l).LIVE_TITLE),
+              n(N, {
+                label: e(o)(e(l).LIVE_TITLE),
                 "required-mark": !0
               }, {
-                default: i(() => [
+                default: r(() => [
                   n(b, {
-                    modelValue: A.value.liveName,
-                    "onUpdate:modelValue": I[0] || (I[0] = (y) => A.value.liveName = y),
-                    placeholder: e(t)(e(l).ENTER_LIVE_TITLE),
-                    status: N.value > e(D) ? "error" : "default",
-                    tips: N.value > e(D) ? e(t)(e(l).MAX_BYTES, { field: e(t)(e(l).LIVE_TITLE), max: e(D) }) : ""
+                    modelValue: L.value.liveName,
+                    "onUpdate:modelValue": E[0] || (E[0] = (C) => L.value.liveName = C),
+                    placeholder: e(o)(e(l).ENTER_LIVE_TITLE),
+                    status: F.value > e(M) ? "error" : "default",
+                    tips: F.value > e(M) ? e(o)(e(l).MAX_BYTES, { field: e(o)(e(l).LIVE_TITLE), max: e(M) }) : ""
                   }, {
-                    suffix: i(() => [
-                      o("span", {
-                        class: pe(["input-suffix-count", { "byte-overflow": N.value > e(D) }])
-                      }, s(N.value) + "/" + s(e(D)), 3)
+                    suffix: r(() => [
+                      t("span", {
+                        class: re(["input-suffix-count", { "byte-overflow": F.value > e(M) }])
+                      }, i(F.value) + "/" + i(e(M)), 3)
                     ]),
                     _: 1
                   }, 8, ["modelValue", "placeholder", "status", "tips"])
                 ]),
                 _: 1
               }, 8, ["label"]),
-              n(B, {
-                label: e(t)(e(l).COVER_IMAGE)
-              }, {
-                default: i(() => [
-                  n(Ye, {
+              n(N, null, {
+                label: r(() => [
+                  t("span", nt, [
+                    I(i(e(o)(e(l).COVER_IMAGE)) + " ", 1),
+                    B.uploadEnabled ? O("", !0) : (v(), P(e(ge), {
+                      key: 0,
+                      placement: "top"
+                    }, {
+                      content: r(() => [
+                        t("span", null, [
+                          I(i(e(o)(e(l).UPLOAD_NOT_CONFIGURED_HINT)) + " ", 1),
+                          t("a", rt, i(e(o)(e(l).VIEW_DETAILS)), 1)
+                        ])
+                      ]),
+                      default: r(() => [
+                        n(e(ye), {
+                          size: "14px",
+                          style: { "margin-left": "4px", cursor: "pointer", color: "rgba(0,0,0,0.4)" }
+                        })
+                      ]),
+                      _: 1
+                    }))
+                  ])
+                ]),
+                default: r(() => [
+                  n(Xe, {
                     ref_key: "coverUploadRef",
-                    ref: k,
-                    modelValue: A.value.coverUrl,
-                    "onUpdate:modelValue": I[1] || (I[1] = (y) => A.value.coverUrl = y),
+                    ref: U,
+                    modelValue: L.value.coverUrl,
+                    "onUpdate:modelValue": E[1] || (E[1] = (C) => L.value.coverUrl = C),
                     type: "cover",
-                    "upload-enabled": H.uploadEnabled,
+                    "upload-enabled": B.uploadEnabled,
                     "crop-enabled": !0,
-                    "aspect-ratio": L.value,
-                    placeholder: e(t)(e(l).CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE),
+                    "aspect-ratio": H.value,
+                    placeholder: e(o)(e(l).CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE),
                     "preview-height": 140,
                     "max-bytes": 200,
-                    "defer-upload": H.uploadEnabled,
-                    onFileReady: de
+                    "defer-upload": B.uploadEnabled,
+                    onFileReady: Y
                   }, null, 8, ["modelValue", "upload-enabled", "aspect-ratio", "placeholder", "defer-upload"])
                 ]),
                 _: 1
-              }, 8, ["label"]),
-              n(_e, {
-                "slot-component": H.extraFieldsSlot,
-                "slot-props": { mode: "edit", live: H.live, formData: { ...A.value }, customInfos: [...a.value] }
+              }),
+              n(me, {
+                "slot-component": B.extraFieldsSlot,
+                "slot-props": { mode: "edit", live: B.live, formData: { ...L.value }, customInfos: [...s.value] }
               }, null, 8, ["slot-component", "slot-props"]),
-              o("div", ot, [
-                o("div", {
+              t("div", ut, [
+                t("div", {
                   class: "custom-info-toggle",
-                  onClick: I[2] || (I[2] = (y) => P.value = !P.value)
+                  onClick: E[2] || (E[2] = (C) => m.value = !m.value)
                 }, [
-                  P.value ? (m(), X(e(De), {
+                  m.value ? (v(), P(e(Fe), {
                     key: 0,
                     size: "16"
-                  })) : (m(), X(e(we), {
+                  })) : (v(), P(e($e), {
                     key: 1,
                     size: "16"
                   })),
-                  o("span", null, s(e(t)(e(l).CUSTOM_INFORMATION)), 1),
-                  a.value.length > 0 ? (m(), C("span", at, s(a.value.length), 1)) : x("", !0)
+                  t("span", null, i(e(o)(e(l).CUSTOM_INFORMATION)), 1),
+                  s.value.length > 0 ? (v(), f("span", dt, i(s.value.length), 1)) : O("", !0)
                 ]),
-                P.value ? (m(), C("div", st, [
-                  (m(!0), C(me, null, he(a.value, (y, ce) => (m(), C("div", {
-                    key: ce,
+                m.value ? (v(), f("div", ct, [
+                  (v(!0), f(W, null, he(s.value, (C, fe) => (v(), f("div", {
+                    key: fe,
                     class: "custom-info-row"
                   }, [
-                    o("div", nt, [
+                    t("div", vt, [
                       n(b, {
-                        modelValue: y.key,
-                        "onUpdate:modelValue": (ne) => y.key = ne,
-                        placeholder: e(t)(e(l).ENTER_KEY),
-                        status: K(y.key) > e(M).maxKeyBytes || e(j)(y) ? "error" : "default",
-                        tips: K(y.key) > e(M).maxKeyBytes ? e(t)(e(l).MAX_BYTES, { field: "Key", max: e(M).maxKeyBytes }) : e(j)(y) ? e(t)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
+                        modelValue: C.key,
+                        "onUpdate:modelValue": (ie) => C.key = ie,
+                        placeholder: e(o)(e(l).ENTER_KEY),
+                        status: K(C.key) > e(V).maxKeyBytes || e(Z)(C) ? "error" : "default",
+                        tips: K(C.key) > e(V).maxKeyBytes ? e(o)(e(l).MAX_BYTES, { field: "Key", max: e(V).maxKeyBytes }) : e(Z)(C) ? e(o)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
                     ]),
-                    o("div", it, [
+                    t("div", pt, [
                       n(b, {
-                        modelValue: y.value,
-                        "onUpdate:modelValue": (ne) => y.value = ne,
-                        placeholder: e(t)(e(l).ENTER_VALUE),
-                        status: q(y.value) > e(M).maxValueBytes ? "error" : "default",
-                        tips: q(y.value) > e(M).maxValueBytes ? e(t)(e(l).VALUE_EXCEEDS_2KB_LIMIT) : ""
+                        modelValue: C.value,
+                        "onUpdate:modelValue": (ie) => C.value = ie,
+                        placeholder: e(o)(e(l).ENTER_VALUE),
+                        status: j(C.value) > e(V).maxValueBytes ? "error" : "default",
+                        tips: j(C.value) > e(V).maxValueBytes ? e(o)(e(l).VALUE_EXCEEDS_2KB_LIMIT) : ""
                       }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
                     ]),
-                    n(E, {
+                    n(T, {
                       variant: "text",
                       shape: "circle",
-                      onClick: (ne) => ee(ce)
+                      onClick: (ie) => ce(fe)
                     }, {
-                      default: i(() => [
-                        n(e($e))
+                      default: r(() => [
+                        n(e(Be))
                       ]),
                       _: 1
                     }, 8, ["onClick"])
                   ]))), 128)),
-                  a.value.length < e(M).maxCount ? (m(), X(E, {
+                  s.value.length < e(V).maxCount ? (v(), P(T, {
                     key: 0,
                     style: { width: "80px" },
                     variant: "text",
                     shape: "round",
-                    onClick: Q,
+                    onClick: ee,
                     theme: "primary"
                   }, {
-                    icon: i(() => [
-                      n(e(fe))
+                    icon: r(() => [
+                      n(e(_e))
                     ]),
-                    default: i(() => [
-                      g(" " + s(e(t)(e(l).ADD)), 1)
+                    default: r(() => [
+                      I(" " + i(e(o)(e(l).ADD)), 1)
                     ]),
                     _: 1
-                  })) : x("", !0)
-                ])) : x("", !0)
+                  })) : O("", !0)
+                ])) : O("", !0)
               ])
             ]),
             _: 1
@@ -819,202 +1104,202 @@ const Nl = { style: { display: "inline-flex", "align-items": "center" } }, Ul = 
       }, 8, ["visible", "header"]);
     };
   }
-}), dt = /* @__PURE__ */ He(ut, [["__scopeId", "data-v-5c6350d0"]]), ct = { class: "live-list-page" }, vt = { class: "live-list-header" }, _t = { class: "live-list-title" }, mt = { class: "header-actions" }, pt = { class: "live-list-id-cell" }, ft = { class: "live-list-id-text" }, Et = { class: "live-list-cover-cell" }, It = ["src", "alt"], ht = { class: "live-list-text" }, bt = { class: "live-list-text" }, Ct = { class: "live-list-loading-container" }, yt = { class: "live-list-loading-text" }, gt = {
+}), ft = /* @__PURE__ */ Ge(_t, [["__scopeId", "data-v-2491c474"]]), Et = { class: "live-list-page" }, ht = { class: "live-list-header" }, It = { class: "live-list-title" }, yt = { class: "header-actions" }, gt = { class: "live-list-id-cell" }, Ct = { class: "live-list-id-text" }, bt = { class: "live-list-cover-cell" }, Tt = ["src", "alt"], xt = { class: "live-list-text" }, St = { class: "live-list-text" }, Lt = { class: "live-list-loading-container" }, Rt = { class: "live-list-loading-text" }, At = {
   key: 0,
   class: "live-list-empty-container"
-}, Tt = { class: "live-list-empty-text" }, St = {
+}, Ot = { class: "live-list-empty-text" }, Vt = {
   key: 1,
   class: "live-list-empty-container"
-}, Lt = { class: "empty-guide-icon" }, Rt = { class: "empty-guide-title" }, At = { class: "empty-guide-desc" }, Ot = { class: "empty-guide-actions" }, Vt = { class: "live-info-form" }, Nt = {
+}, Dt = { class: "empty-guide-icon" }, Nt = { class: "empty-guide-title" }, kt = { class: "empty-guide-desc" }, Ut = { class: "empty-guide-actions" }, Mt = { class: "live-info-form" }, wt = {
   key: 0,
   class: "live-info-error"
-}, Ut = { class: "live-info-section" }, Mt = { class: "live-info-section-title" }, kt = { class: "live-info-card" }, xt = { class: "live-info-row" }, Dt = { class: "live-info-label" }, wt = { class: "live-info-value-area" }, $t = { class: "live-info-value" }, Ft = { class: "live-info-row" }, Bt = { class: "live-info-label" }, Kt = { class: "live-info-value-area" }, Pt = { class: "live-info-value" }, Yt = { class: "live-info-row" }, Ht = { class: "live-info-label" }, Xt = { class: "live-info-value-area" }, Gt = { class: "live-info-value" }, Wt = { class: "live-info-row" }, zt = { class: "live-info-label" }, qt = { class: "live-info-value-area" }, Qt = { class: "live-info-value live-info-value-url" }, jt = {
+}, Ft = { class: "live-info-section" }, $t = { class: "live-info-section-title" }, Bt = { class: "live-info-card" }, Pt = { class: "live-info-row" }, Kt = { class: "live-info-label" }, Ht = { class: "live-info-value-area" }, Yt = { class: "live-info-value" }, Xt = { class: "live-info-row" }, Gt = { class: "live-info-label" }, Wt = { class: "live-info-value-area" }, zt = { class: "live-info-value" }, qt = { class: "live-info-row" }, Qt = { class: "live-info-label" }, jt = { class: "live-info-value-area" }, Zt = { class: "live-info-value" }, Jt = { class: "live-info-row" }, eo = { class: "live-info-label" }, lo = { class: "live-info-value-area" }, to = { class: "live-info-value live-info-value-url" }, oo = {
   key: 1,
   class: "live-info-section"
-}, Zt = { class: "live-info-section-title" }, Jt = { class: "live-info-card" }, eo = { class: "live-info-row" }, lo = { class: "live-info-label" }, to = { class: "live-info-value-area" }, oo = { class: "live-info-value live-info-value-url" }, ao = { class: "live-info-row" }, so = { class: "live-info-label" }, no = { class: "live-info-value-area" }, io = { class: "live-info-value live-info-value-url" }, ro = {
+}, ao = { class: "live-info-section-title" }, so = { class: "live-info-card" }, io = { class: "live-info-row" }, no = { class: "live-info-label" }, ro = { class: "live-info-value-area" }, uo = { class: "live-info-value live-info-value-url" }, co = { class: "live-info-row" }, vo = { class: "live-info-label" }, po = { class: "live-info-value-area" }, mo = { class: "live-info-value live-info-value-url" }, _o = {
   key: 1,
   class: "live-info-row"
-}, uo = {
+}, fo = {
   class: "live-info-label",
   style: { width: "auto" }
-}, co = { class: "dialog-footer" }, Oo = /* @__PURE__ */ Ie({
+}, Eo = { class: "dialog-footer" }, Uo = /* @__PURE__ */ Ce({
   __name: "live-list",
-  setup(H) {
-    const { t: v } = be(), Z = ll(), { endLive: t, fetchLiveDetail: ue } = ye(), w = Tl().components?.liveList, r = new Il({
-      endLive: t,
-      onEnterLive: (O) => {
-        Z.push({ path: `/live-control/${O}`, query: { from: "live-list" } });
+  setup(B) {
+    const { t: _ } = be(), J = ll(), { endLive: o, fetchLiveDetail: oe } = xe(), w = Cl().components?.liveList, u = new fl({
+      endLive: o,
+      onEnterLive: (A) => {
+        J.push({ path: `/live-control/${A}`, query: { from: "live-list" } });
       },
-      t: v,
+      t: _,
       toast: {
-        success: (O) => S.success(O),
-        error: (O) => S.error(O)
+        success: (A) => S.success(A),
+        error: (A) => S.error(A)
       },
-      fetchLiveDetail: ue
-    }), u = Ae(r.getState()), ae = r.subscribe(() => {
-      u.value = r.getState();
-    }), { execute: se } = Ce({
+      fetchLiveDetail: oe
+    }), d = Oe(u.getState()), ae = u.subscribe(() => {
+      d.value = u.getState();
+    }), { execute: se } = Te({
       toast: { action: l.DISSOLVE, entity: l.LIVE },
-      operationName: v(l.DISSOLVE),
+      operationName: _(l.DISSOLVE),
       action: async () => {
-        await r.confirmDelete();
+        await u.confirmDelete();
       }
-    }), K = Ae(!1);
+    }), K = Oe(!1);
     Ze(async () => {
-      K.value = await Ll(), await r.init();
+      K.value = await Tl(), await u.init();
     }), Je(() => {
-      ae(), r.dispose();
+      ae(), u.dispose();
     });
-    const q = U(() => Rl({ hasExtraColumn: !!w?.tableExtraColumns }).map((a) => ({
-      ...a,
-      title: a.i18nKey ? v(a.i18nKey) : ""
-    }))), A = (O) => bl({
-      live: O,
-      t: v,
-      onEnter: (a) => r.enterLive(a),
-      onDetail: (a) => r.showDetail(a),
-      onEdit: (a) => r.openEditModal(a),
-      onDelete: (a) => r.requestDelete(a)
+    const j = k(() => xl({ hasExtraColumn: !!w?.tableExtraColumns }).map((s) => ({
+      ...s,
+      title: s.i18nKey ? _(s.i18nKey) : ""
+    }))), L = (A) => hl({
+      live: A,
+      t: _,
+      onEnter: (s) => u.enterLive(s),
+      onDetail: (s) => u.showDetail(s),
+      onEdit: (s) => u.openEditModal(s),
+      onDelete: (s) => u.requestDelete(s)
     });
-    return (O, a) => {
-      const P = V("t-input"), c = V("t-button"), L = V("t-card"), k = V("t-dialog");
-      return m(), C("div", ct, [
-        o("div", vt, [
-          o("h1", _t, s(e(v)(e(l).LIVE_LIST)), 1),
-          n(_e, {
+    return (A, s) => {
+      const m = D("t-input"), y = D("t-button"), H = D("t-card"), U = D("t-dialog");
+      return v(), f("div", Et, [
+        t("div", ht, [
+          t("h1", It, i(e(_)(e(l).LIVE_LIST)), 1),
+          n(me, {
             "slot-component": e(w)?.beforeToolbar,
-            "slot-props": { lives: u.value.lives, loading: u.value.loading }
+            "slot-props": { lives: d.value.lives, loading: d.value.loading }
           }, null, 8, ["slot-component", "slot-props"]),
-          o("div", mt, [
-            n(P, {
-              "model-value": u.value.searchInput,
-              placeholder: e(v)(e(l).ENTER_LIVE_ID_TO_SEARCH),
+          t("div", yt, [
+            n(m, {
+              "model-value": d.value.searchInput,
+              placeholder: e(_)(e(l).ENTER_LIVE_ID_TO_SEARCH),
               class: "gift-search-input",
               style: { width: "220px" },
               clearable: "",
-              status: e(Me)(u.value.searchInput, e(ke)) ? "error" : "default",
-              tips: e(Me)(u.value.searchInput, e(ke)) ? e(v)(e(l).INPUT_EXCEEDS_LENGTH_LIMIT) : "",
-              "onUpdate:modelValue": a[1] || (a[1] = (d) => e(r).setSearchInput(String(d ?? ""))),
-              onEnter: a[2] || (a[2] = () => e(r).search()),
-              onClear: a[3] || (a[3] = () => e(r).clearSearch())
+              status: e(Ue)(d.value.searchInput, e(Me)) ? "error" : "default",
+              tips: e(Ue)(d.value.searchInput, e(Me)) ? e(_)(e(l).INPUT_EXCEEDS_LENGTH_LIMIT) : "",
+              "onUpdate:modelValue": s[1] || (s[1] = (c) => e(u).setSearchInput(String(c ?? ""))),
+              onEnter: s[2] || (s[2] = () => e(u).search()),
+              onClear: s[3] || (s[3] = () => e(u).clearSearch())
             }, {
-              suffixIcon: i(() => [
-                n(e(ol), {
+              suffixIcon: r(() => [
+                n(e(tl), {
                   style: { cursor: "pointer" },
-                  onClick: a[0] || (a[0] = () => e(r).search())
+                  onClick: s[0] || (s[0] = () => e(u).search())
                 })
               ]),
               _: 1
             }, 8, ["model-value", "placeholder", "status", "tips"]),
-            n(c, {
+            n(y, {
               variant: "outline",
               shape: "round",
-              disabled: u.value.refreshing || u.value.loading,
-              onClick: a[4] || (a[4] = () => e(r).refresh())
+              disabled: d.value.refreshing || d.value.loading,
+              onClick: s[4] || (s[4] = () => e(u).refresh())
             }, {
-              icon: i(() => [
-                n(e(al), {
-                  class: pe({ spinning: u.value.refreshing })
+              icon: r(() => [
+                n(e(ol), {
+                  class: re({ spinning: d.value.refreshing })
                 }, null, 8, ["class"])
               ]),
-              default: i(() => [
-                g(" " + s(e(v)(e(l).REFRESH)), 1)
+              default: r(() => [
+                I(" " + i(e(_)(e(l).REFRESH)), 1)
               ]),
               _: 1
             }, 8, ["disabled"]),
-            n(c, {
+            n(y, {
               theme: "primary",
               shape: "round",
-              onClick: a[5] || (a[5] = () => e(r).openCreateModal())
+              onClick: s[5] || (s[5] = () => e(u).openCreateModal())
             }, {
-              icon: i(() => [
-                n(e(fe))
+              icon: r(() => [
+                n(e(_e))
               ]),
-              default: i(() => [
-                g(" " + s(e(v)(e(l).CREATE_LIVE)), 1)
+              default: r(() => [
+                I(" " + i(e(_)(e(l).CREATE_LIVE)), 1)
               ]),
               _: 1
             })
           ]),
-          n(_e, {
+          n(me, {
             "slot-component": e(w)?.afterToolbar,
-            "slot-props": { lives: u.value.lives, loading: u.value.loading }
+            "slot-props": { lives: d.value.lives, loading: d.value.loading }
           }, null, 8, ["slot-component", "slot-props"])
         ]),
-        n(L, { class: "live-list-card" }, {
-          default: i(() => [
-            n(Ol, {
-              columns: q.value,
-              data: u.value.lives,
+        n(H, { class: "live-list-card" }, {
+          default: r(() => [
+            n(Ll, {
+              columns: j.value,
+              data: d.value.lives,
               "row-key": "liveId",
-              loading: u.value.loading,
+              loading: d.value.loading,
               "table-class-name": "live-list-table",
               "body-class-name": "live-list-content",
               "row-class-name": "live-list-row"
             }, el({
-              "cell-liveId": i(({ row: d }) => [
-                o("div", pt, [
-                  o("span", ft, s(d.liveId), 1),
-                  n(e(re), {
+              "cell-liveId": r(({ row: c }) => [
+                t("div", gt, [
+                  t("span", Ct, i(c.liveId), 1),
+                  n(e(ue), {
                     class: "copy-icon",
-                    onClick: (F) => e(r).copyText(d.liveId, e(v)(e(l).LIVE_ID))
+                    onClick: (z) => e(u).copyText(c.liveId, e(_)(e(l).LIVE_ID))
                   }, null, 8, ["onClick"])
                 ])
               ]),
-              "cell-liveName": i(({ row: d }) => [
-                g(s(d.liveName || "-"), 1)
+              "cell-liveName": r(({ row: c }) => [
+                I(i(c.liveName || "-"), 1)
               ]),
-              "cell-coverUrl": i(({ row: d }) => [
-                o("div", Et, [
-                  o("img", {
-                    src: d.coverUrl || e(Sl),
-                    alt: d.liveName,
+              "cell-coverUrl": r(({ row: c }) => [
+                t("div", bt, [
+                  t("img", {
+                    src: c.coverUrl || e(bl),
+                    alt: c.liveName,
                     class: "live-list-cover-image"
-                  }, null, 8, It)
+                  }, null, 8, Tt)
                 ])
               ]),
-              "cell-anchor": i(({ row: d }) => [
-                o("span", ht, s(d.anchor?.userId || "-"), 1)
+              "cell-anchor": r(({ row: c }) => [
+                t("span", xt, i(c.anchor?.userId || "-"), 1)
               ]),
-              "cell-createdAt": i(({ row: d }) => [
-                o("span", bt, s(e(hl)(d.createdAt)), 1)
+              "cell-createdAt": r(({ row: c }) => [
+                t("span", St, i(e(El)(c.createdAt)), 1)
               ]),
-              "cell-actions": i(({ row: d }) => [
-                n(Vl, {
-                  actions: A(d)
+              "cell-actions": r(({ row: c }) => [
+                n(Rl, {
+                  actions: L(c)
                 }, null, 8, ["actions"]),
-                n(_e, {
+                n(me, {
                   "slot-component": e(w)?.rowActions,
-                  "slot-props": { live: d }
+                  "slot-props": { live: c }
                 }, null, 8, ["slot-component", "slot-props"])
               ]),
-              loading: i(() => [
-                o("div", Ct, [
-                  a[20] || (a[20] = o("div", { class: "live-list-loading-spinner" }, null, -1)),
-                  o("span", yt, s(e(v)(e(l).LOADING)), 1)
+              loading: r(() => [
+                t("div", Lt, [
+                  s[20] || (s[20] = t("div", { class: "live-list-loading-spinner" }, null, -1)),
+                  t("span", Rt, i(e(_)(e(l).LOADING)), 1)
                 ])
               ]),
-              empty: i(() => [
-                u.value.searchInput ? (m(), C("div", gt, [
-                  o("span", Tt, s(e(v)(e(l).NO_SEARCH_RESULTS_FOR, { keyword: u.value.searchInput })), 1)
-                ])) : (m(), C("div", St, [
-                  o("div", Lt, [
-                    n(e(fe), { size: "40px" })
+              empty: r(() => [
+                d.value.searchInput ? (v(), f("div", At, [
+                  t("span", Ot, i(e(_)(e(l).NO_SEARCH_RESULTS_FOR, { keyword: d.value.searchInput })), 1)
+                ])) : (v(), f("div", Vt, [
+                  t("div", Dt, [
+                    n(e(_e), { size: "40px" })
                   ]),
-                  o("p", Rt, s(e(v)(e(l).EMPTY_LIVE_LIST_TITLE)), 1),
-                  o("p", At, s(e(v)(e(l).EMPTY_LIVE_LIST_DESC)), 1),
-                  o("div", Ot, [
-                    n(c, {
+                  t("p", Nt, i(e(_)(e(l).EMPTY_LIVE_LIST_TITLE)), 1),
+                  t("p", kt, i(e(_)(e(l).EMPTY_LIVE_LIST_DESC)), 1),
+                  t("div", Ut, [
+                    n(y, {
                       theme: "primary",
                       shape: "round",
                       class: "empty-guide-cta",
-                      onClick: a[6] || (a[6] = () => e(r).openCreateModal())
+                      onClick: s[6] || (s[6] = () => e(u).openCreateModal())
                     }, {
-                      icon: i(() => [
-                        n(e(fe))
+                      icon: r(() => [
+                        n(e(_e))
                       ]),
-                      default: i(() => [
-                        g(" " + s(e(v)(e(l).CREATE_LIVE)), 1)
+                      default: r(() => [
+                        I(" " + i(e(_)(e(l).CREATE_LIVE)), 1)
                       ]),
                       _: 1
                     })
@@ -1023,18 +1308,18 @@ const Nl = { style: { display: "inline-flex", "align-items": "center" } }, Ul = 
               ]),
               _: 2
             }, [
-              he(q.value, (d) => ({
-                name: `header-${d.key}`,
-                fn: i(() => [
-                  g(s(d.title), 1)
+              he(j.value, (c) => ({
+                name: `header-${c.key}`,
+                fn: r(() => [
+                  I(i(c.title), 1)
                 ])
               })),
               e(w)?.tableExtraColumns ? {
                 name: "cell-customer-extra",
-                fn: i(({ row: d }) => [
-                  n(_e, {
+                fn: r(({ row: c }) => [
+                  n(me, {
                     "slot-component": e(w).tableExtraColumns,
-                    "slot-props": { live: d }
+                    "slot-props": { live: c }
                   }, null, 8, ["slot-component", "slot-props"])
                 ]),
                 key: "0"
@@ -1043,143 +1328,143 @@ const Nl = { style: { display: "inline-flex", "align-items": "center" } }, Ul = 
           ]),
           _: 1
         }),
-        n(Al, {
-          "current-page": u.value.currentPage,
-          "has-more-data": u.value.hasMoreData,
+        n(Sl, {
+          "current-page": d.value.currentPage,
+          "has-more-data": d.value.hasMoreData,
           loading: !1,
-          onGoToFirstPage: a[7] || (a[7] = () => e(r).goToPage(1)),
-          onPrevPage: a[8] || (a[8] = () => e(r).goToPage(u.value.currentPage - 1)),
-          onNextPage: a[9] || (a[9] = () => e(r).goToPage(u.value.currentPage + 1))
+          onGoToFirstPage: s[7] || (s[7] = () => e(u).goToPage(1)),
+          onPrevPage: s[8] || (s[8] = () => e(u).goToPage(d.value.currentPage - 1)),
+          onNextPage: s[9] || (s[9] = () => e(u).goToPage(d.value.currentPage + 1))
         }, null, 8, ["current-page", "has-more-data"]),
-        n(lt, {
-          visible: u.value.isCreateModalVisible,
+        n(st, {
+          visible: d.value.isCreateModalVisible,
           "upload-enabled": K.value,
-          "onUpdate:visible": a[10] || (a[10] = (d) => d ? e(r).openCreateModal() : e(r).closeCreateModal()),
-          onSuccess: a[11] || (a[11] = () => e(r).onLiveCreated())
+          "onUpdate:visible": s[10] || (s[10] = (c) => c ? e(u).openCreateModal() : e(u).closeCreateModal()),
+          onSuccess: s[11] || (s[11] = () => e(u).onLiveCreated())
         }, null, 8, ["visible", "upload-enabled"]),
-        n(dt, {
-          visible: u.value.isEditModalVisible,
-          live: u.value.editingLive,
+        n(ft, {
+          visible: d.value.isEditModalVisible,
+          live: d.value.editingLive,
           "upload-enabled": K.value,
           "extra-fields-slot": e(w)?.roomFormExtraFields,
-          "onUpdate:visible": a[12] || (a[12] = (d) => {
-            d || e(r).closeEditModal();
+          "onUpdate:visible": s[12] || (s[12] = (c) => {
+            c || e(u).closeEditModal();
           }),
-          onSuccess: a[13] || (a[13] = (d) => e(r).onLiveEdited(d))
+          onSuccess: s[13] || (s[13] = (c) => e(u).onLiveEdited(c))
         }, null, 8, ["visible", "live", "upload-enabled", "extra-fields-slot"]),
-        n(k, {
-          visible: u.value.confirmDialog.visible,
-          header: u.value.confirmDialog.title,
-          "confirm-btn": { content: e(v)(e(l).CONFIRM), theme: "primary", shape: "round" },
+        n(U, {
+          visible: d.value.confirmDialog.visible,
+          header: d.value.confirmDialog.title,
+          "confirm-btn": { content: e(_)(e(l).CONFIRM), theme: "primary", shape: "round" },
           "cancel-btn": { shape: "round" },
-          "onUpdate:visible": a[14] || (a[14] = (d) => {
-            d || e(r).cancelDelete();
+          "onUpdate:visible": s[14] || (s[14] = (c) => {
+            c || e(u).cancelDelete();
           }),
           onConfirm: e(se)
         }, {
-          default: i(() => [
-            o("p", null, s(u.value.confirmDialog.content), 1)
+          default: r(() => [
+            t("p", null, i(d.value.confirmDialog.content), 1)
           ]),
           _: 1
         }, 8, ["visible", "header", "confirm-btn", "onConfirm"]),
-        n(k, {
-          visible: u.value.obsModal.visible && !!u.value.obsModal.live,
-          header: e(v)(e(l).LIVE_INFORMATION),
+        n(U, {
+          visible: d.value.obsModal.visible && !!d.value.obsModal.live,
+          header: e(_)(e(l).LIVE_INFORMATION),
           width: 560,
           class: "live-info-modal",
-          "onUpdate:visible": a[19] || (a[19] = (d) => {
-            d || e(r).closeDetail();
+          "onUpdate:visible": s[19] || (s[19] = (c) => {
+            c || e(u).closeDetail();
           })
         }, {
-          footer: i(() => [
-            o("div", co, [
-              n(c, {
+          footer: r(() => [
+            t("div", Eo, [
+              n(y, {
                 variant: "outline",
                 shape: "round",
-                onClick: a[18] || (a[18] = () => e(r).closeDetail())
+                onClick: s[18] || (s[18] = () => e(u).closeDetail())
               }, {
-                default: i(() => [
-                  g(s(e(v)(e(l).CLOSE)), 1)
+                default: r(() => [
+                  I(i(e(_)(e(l).CLOSE)), 1)
                 ]),
                 _: 1
               })
             ])
           ]),
-          default: i(() => [
-            o("div", Vt, [
-              u.value.obsModal.errorMessage ? (m(), C("div", Nt, [
-                a[21] || (a[21] = o("span", { class: "live-info-error-icon" }, "!", -1)),
-                o("span", null, s(u.value.obsModal.errorMessage), 1)
-              ])) : x("", !0),
-              o("div", Ut, [
-                o("div", Mt, s(e(v)(e(l).BASIC_INFORMATION)), 1),
-                o("div", kt, [
-                  o("div", xt, [
-                    o("span", Dt, s(e(v)(e(l).ANCHOR_ID)), 1),
-                    o("div", wt, [
-                      o("span", $t, s(u.value.obsModal.live?.anchor?.userId || "-"), 1),
-                      u.value.obsModal.live?.anchor?.userId ? (m(), C("button", {
+          default: r(() => [
+            t("div", Mt, [
+              d.value.obsModal.errorMessage ? (v(), f("div", wt, [
+                s[21] || (s[21] = t("span", { class: "live-info-error-icon" }, "!", -1)),
+                t("span", null, i(d.value.obsModal.errorMessage), 1)
+              ])) : O("", !0),
+              t("div", Ft, [
+                t("div", $t, i(e(_)(e(l).BASIC_INFORMATION)), 1),
+                t("div", Bt, [
+                  t("div", Pt, [
+                    t("span", Kt, i(e(_)(e(l).ANCHOR_ID)), 1),
+                    t("div", Ht, [
+                      t("span", Yt, i(d.value.obsModal.live?.anchor?.userId || "-"), 1),
+                      d.value.obsModal.live?.anchor?.userId ? (v(), f("button", {
                         key: 0,
                         class: "live-info-copy-btn",
-                        onClick: a[15] || (a[15] = (d) => e(r).copyText(u.value.obsModal.live.anchor.userId, e(v)(e(l).LIVE_HOST)))
+                        onClick: s[15] || (s[15] = (c) => e(u).copyText(d.value.obsModal.live.anchor.userId, e(_)(e(l).LIVE_HOST)))
                       }, [
-                        n(e(re))
-                      ])) : x("", !0)
+                        n(e(ue))
+                      ])) : O("", !0)
                     ])
                   ]),
-                  o("div", Ft, [
-                    o("span", Bt, s(e(v)(e(l).LIVE_ID)), 1),
-                    o("div", Kt, [
-                      o("span", Pt, s(u.value.obsModal.live?.liveId || "-"), 1)
+                  t("div", Xt, [
+                    t("span", Gt, i(e(_)(e(l).LIVE_ID)), 1),
+                    t("div", Wt, [
+                      t("span", zt, i(d.value.obsModal.live?.liveId || "-"), 1)
                     ])
                   ]),
-                  o("div", Yt, [
-                    o("span", Ht, s(e(v)(e(l).LIVE_TITLE)), 1),
-                    o("div", Xt, [
-                      o("span", Gt, s(u.value.obsModal.live?.liveName || "-"), 1)
+                  t("div", qt, [
+                    t("span", Qt, i(e(_)(e(l).LIVE_TITLE)), 1),
+                    t("div", jt, [
+                      t("span", Zt, i(d.value.obsModal.live?.liveName || "-"), 1)
                     ])
                   ]),
-                  o("div", Wt, [
-                    o("span", zt, s(e(v)(e(l).LIVE_COVER)), 1),
-                    o("div", qt, [
-                      o("span", Qt, s(u.value.obsModal.live?.coverUrl || "-"), 1)
+                  t("div", Jt, [
+                    t("span", eo, i(e(_)(e(l).LIVE_COVER)), 1),
+                    t("div", lo, [
+                      t("span", to, i(d.value.obsModal.live?.coverUrl || "-"), 1)
                     ])
                   ])
                 ])
               ]),
-              u.value.obsModal.streamInfo || u.value.obsModal.actionLoading === "stream" ? (m(), C("div", jt, [
-                o("div", Zt, s(e(v)(e(l).PUSH_STREAM_INFO)), 1),
-                o("div", Jt, [
-                  u.value.obsModal.streamInfo ? (m(), C(me, { key: 0 }, [
-                    o("div", eo, [
-                      o("span", lo, s(e(v)(e(l).SERVER_URL)), 1),
-                      o("div", to, [
-                        o("span", oo, s(u.value.obsModal.streamInfo.serverUrl), 1),
-                        o("button", {
+              d.value.obsModal.streamInfo || d.value.obsModal.actionLoading === "stream" ? (v(), f("div", oo, [
+                t("div", ao, i(e(_)(e(l).PUSH_STREAM_INFO)), 1),
+                t("div", so, [
+                  d.value.obsModal.streamInfo ? (v(), f(W, { key: 0 }, [
+                    t("div", io, [
+                      t("span", no, i(e(_)(e(l).SERVER_URL)), 1),
+                      t("div", ro, [
+                        t("span", uo, i(d.value.obsModal.streamInfo.serverUrl), 1),
+                        t("button", {
                           class: "live-info-copy-btn",
-                          onClick: a[16] || (a[16] = (d) => e(r).copyText(u.value.obsModal.streamInfo.serverUrl, e(v)(e(l).SERVER_URL)))
+                          onClick: s[16] || (s[16] = (c) => e(u).copyText(d.value.obsModal.streamInfo.serverUrl, e(_)(e(l).SERVER_URL)))
                         }, [
-                          n(e(re))
+                          n(e(ue))
                         ])
                       ])
                     ]),
-                    o("div", ao, [
-                      o("span", so, s(e(v)(e(l).STREAM_KEY)), 1),
-                      o("div", no, [
-                        o("span", io, s(u.value.obsModal.streamInfo.streamKey), 1),
-                        o("button", {
+                    t("div", co, [
+                      t("span", vo, i(e(_)(e(l).STREAM_KEY)), 1),
+                      t("div", po, [
+                        t("span", mo, i(d.value.obsModal.streamInfo.streamKey), 1),
+                        t("button", {
                           class: "live-info-copy-btn",
-                          onClick: a[17] || (a[17] = (d) => e(r).copyText(u.value.obsModal.streamInfo.streamKey, e(v)(e(l).STREAM_KEY)))
+                          onClick: s[17] || (s[17] = (c) => e(u).copyText(d.value.obsModal.streamInfo.streamKey, e(_)(e(l).STREAM_KEY)))
                         }, [
-                          n(e(re))
+                          n(e(ue))
                         ])
                       ])
                     ])
-                  ], 64)) : (m(), C("div", ro, [
-                    o("span", uo, s(e(v)(e(l).GETTING_STREAM_INFO)), 1)
+                  ], 64)) : (v(), f("div", _o, [
+                    t("span", fo, i(e(_)(e(l).GETTING_STREAM_INFO)), 1)
                   ]))
                 ])
-              ])) : x("", !0)
+              ])) : O("", !0)
             ])
           ]),
           _: 1
@@ -1189,5 +1474,5 @@ const Nl = { style: { display: "inline-flex", "align-items": "center" } }, Ul = 
   }
 });
 export {
-  Oo as default
+  Uo as default
 };

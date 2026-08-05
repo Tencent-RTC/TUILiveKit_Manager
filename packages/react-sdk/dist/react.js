@@ -1,13 +1,13 @@
-import { a5 as ie, aS as ce, F as ue, t as le, aw as de, y as fe, bi as ge, c as W, a$ as O, aZ as G, aY as s, I as me, aW as he, a_ as pe, m as be, ak as ve, am as N, be as ye } from "./chunks/shared-state.LwLSW33A.js";
-import { aR as ft, b0 as gt, b1 as mt, bf as ht } from "./chunks/shared-state.LwLSW33A.js";
+import { a5 as ie, aS as ce, F as ue, t as le, aw as de, y as fe, bi as ge, c as W, a$ as O, aZ as N, aY as s, I as me, aW as he, a_ as pe, m as be, ak as ve, am as q, be as ye } from "./chunks/shared-state.CsnQDWhV.js";
+import { aR as ft, b0 as gt, b1 as mt, bf as ht } from "./chunks/shared-state.CsnQDWhV.js";
 import { useSyncExternalStore as z, useCallback as o, useState as g, useRef as K, useEffect as F, Component as Me } from "react";
-import { c0 as q, aV as $, c1 as V, c2 as Se, aF as we, aD as Ce, m as Le, u as ke, c3 as Pe, c4 as xe, bI as Ie, bG as Te, c5 as _e, aa as Re, c6 as Ee, ah as Ae, c7 as Ue, Z as De, Y as Fe } from "./chunks/main-layout.BxLEuh4E.js";
+import { c0 as G, aV as $, c1 as V, c2 as Se, aF as we, aD as Ce, m as Le, u as ke, c3 as Pe, c4 as xe, bI as Ie, bG as Te, c5 as _e, aa as Re, c6 as Ee, ah as Ae, c7 as Ue, Z as De, Y as Fe } from "./chunks/main-layout.Dt5HcQRZ.js";
 import "tdesign-react";
-import { a as Be, M as Ge } from "./chunks/useAsyncAction.DDER13aa.js";
-import { u as bt } from "./chunks/useAsyncAction.DDER13aa.js";
-import { s as Ne, g as qe, a as $e, p as Ve } from "./chunks/demo.DEOn6ZLp.js";
-import { r as yt } from "./chunks/demo.DEOn6ZLp.js";
-import { u as St, a as wt, b as Ct } from "./chunks/useT.BMh2aeYA.js";
+import { a as Be, M as Ne } from "./chunks/useAsyncAction.CDjDvvEN.js";
+import { u as bt } from "./chunks/useAsyncAction.CDjDvvEN.js";
+import { s as qe, g as Ge, a as $e, p as Ve } from "./chunks/demo.PB193BsM.js";
+import { r as yt } from "./chunks/demo.PB193BsM.js";
+import { u as St, a as wt, b as Ct } from "./chunks/useT.DgDOvX7Z.js";
 import { jsx as A, jsxs as We } from "react/jsx-runtime";
 let j = ie();
 function Oe(n) {
@@ -39,13 +39,13 @@ function rt() {
 const p = W("RiskControl");
 function ot(n) {
   const { liveId: e, pageSize: l } = n, [d, m] = g(!1), [c, h] = g("cloud"), [b, S] = g(!0), [v, P] = g([]), [x, I] = g(1), [T, L] = g(0), [U, E] = g(!1), [a, u] = g([]), [y, H] = g([]), M = K(!0);
-  F(() => (M.current = !0, O("risk_control"), q().then(async (t) => {
+  F(() => (M.current = !0, O("risk_control"), G().then(async (t) => {
     if (!M.current) return;
     h(t);
     const r = t === "cloud", w = r ? $ : V;
     try {
       const C = await w({ pageSize: l, liveId: e });
-      M.current && (m(!0), P(C.list || []), L(C.total || 0)), G(r ? "text_moderation" : "text_moderation_custom"), G(r ? "moderation" : "moderation_custom");
+      M.current && (m(!0), P(C.list || []), L(C.total || 0)), N(r ? "text_moderation" : "text_moderation_custom"), N(r ? "moderation" : "moderation_custom");
     } catch {
       M.current && m(!1);
     }
@@ -162,7 +162,7 @@ function ot(n) {
     }
   }, [e]), ae = o(async (t) => {
     try {
-      await q() === "custom" ? await Ue(t) : await he(t), s("moderation", "delete", !0, String(t.length));
+      await G() === "custom" ? await Ue(t) : await he(t), s("moderation", "delete", !0, String(t.length));
     } catch (r) {
       throw s("moderation", "delete", !1), p.error("useRiskControlState", "deleteModerationItems failed:", r), r;
     }
@@ -319,7 +319,7 @@ function st() {
   };
 }
 function it() {
-  const n = z(Ne, qe);
+  const n = z(qe, Ge);
   return {
     uploading: n.uploading,
     uploadProgress: n.uploadProgress,
@@ -405,18 +405,18 @@ class ut extends Me {
       msg: m,
       componentStack: l.componentStack,
       original: c
-    }), import("./chunks/shared-state.LwLSW33A.js").then((b) => b.bG).then(({ reportBusinessOp: b }) => {
+    }), import("./chunks/shared-state.CsnQDWhV.js").then((b) => b.bH).then(({ reportBusinessOp: b }) => {
       b("reactRenderError", "render", !1, d ? String(d) : void 0);
     }).catch(() => {
     });
-    const h = N(d, m);
-    h && Ge.error(h);
+    const h = q(d, m);
+    h && Ne.error(h);
   }
   render() {
     return this.state.error ? this.props.fallback ? this.props.fallback(this.state.error, this.handleRetry) : /* @__PURE__ */ A(
       He,
       {
-        message: N(
+        message: q(
           this.state.error.code ?? 0,
           this.state.error.message
         ),
@@ -428,7 +428,7 @@ class ut extends Me {
 ye("react");
 export {
   ut as AppErrorBoundary,
-  Ge as Message,
+  Ne as Message,
   ft as measureAndReport,
   s as reportBusinessOp,
   pe as reportEvent,

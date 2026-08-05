@@ -48,3 +48,17 @@ export declare function setUserProfileRole(role: number): Promise<{
 }>;
 export declare function getUserProfilePortrait(userId: string): Promise<UserPortraitProfile | null>;
 export declare function batchGetUserProfilePortrait(userIds: string[]): Promise<Map<string, UserPortraitProfile>>;
+export interface CredentialVerificationResult {
+    valid: boolean;
+    error?: string;
+}
+/**
+ * 登录成功后验证凭证是否有效
+ *
+ * 通过调用一个轻量 TRTC API（portrait_get）来验证 userSig 是否有效。
+ * - 成功：凭证有效，可以安全跳转
+ * - 失败：凭证无效（sdkAppId 或 secretKey 错误），建议用户重新输入
+ *
+ * 调用时机：saveCredentials 之后、页面跳转之前
+ */
+export declare function verifyCredentials(): Promise<CredentialVerificationResult>;

@@ -1,5 +1,11 @@
 packages:
   - 'packages/*'
+allowBuilds:
+  '@parcel/watcher': true
+  core-js: true
+  esbuild: true
+  vue-demi: true
+
 catalog:
   tuikit-atomicx-vue3: 6.4.0
   tuikit-atomicx-react: 6.2.0
