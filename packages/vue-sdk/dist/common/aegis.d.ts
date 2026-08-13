@@ -25,4 +25,12 @@ export declare function updateUinFromSdkAppId(): boolean;
 export declare function enableAutoUpdateUin(): void;
 export declare function disableAutoUpdateUin(): void;
 export declare function isAegisInited(): boolean;
+/**
+ * 立即 flush Aegis 的事件管道，绕过节流批量窗口。
+ *
+ * Aegis 的 reportEvent 走节流批量管道（约 10s），不是即时发送；
+ * app_init 这类「登录一次性」关键事件在页面快速跳转/刷新时，
+ * 可能因节流窗口未到而丢失。因此上报后应立即 flush 确保落盘。
+ */
+export declare function flushAegisEvents(): void;
 export { Aegis };

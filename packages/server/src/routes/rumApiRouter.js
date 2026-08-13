@@ -284,6 +284,10 @@ rumApiRouter.get('/debug/events/:sdkAppId', asyncHandler(async (req, res) => {
                 tags: s.tags || {},
                 name: s.name || r.name || null,
                 total,
+                // 原始 values 仅供调试参考。注意：Type='ext1' 分组是聚合查询，
+                // values 时间戳恒为 0（仅总数），并非时序。前端钻取改用
+                // Type='allcount' + Granularity 单独查询真实时序。
+                values: s.values || [],
               });
             }
           }

@@ -4332,14 +4332,14 @@ function reportAppInit(Oo = SDK_VERSION) {
   const No = getCurrentSdkAppId();
   if (!No) return;
   const jo = _platform || "unknown", Go = detectReportSource(), Ho = `${No}:${jo}:${Go}:${Oo}`;
-  reportedAppInits.has(Ho) || (reportedAppInits.add(Ho), reportEvent("app_init", jo, Go), flushPendingFeatures());
+  reportedAppInits.has(Ho) || (reportedAppInits.add(Ho), reportEvent("app_init", jo, Go), flushPendingFeatures(), flushAegisEvents());
 }
 const reportedCapabilities = /* @__PURE__ */ new Set();
 function reportCapability(Oo) {
   const No = getCurrentSdkAppId();
   if (!No) return;
   const jo = `${No}:${Oo}`;
-  reportedCapabilities.has(jo) || (reportedCapabilities.add(jo), reportEvent("capability", Oo, "on"));
+  reportedCapabilities.has(jo) || (reportedCapabilities.add(jo), reportEvent("capability", Oo, "on"), flushAegisEvents());
 }
 const reportedFeatures = /* @__PURE__ */ new Set(), pendingFeatures = [];
 let pendingFeaturesFlushed = !1;
@@ -4441,6 +4441,15 @@ function disableAutoUpdateUin() {
 }
 function isAegisInited() {
   return getStore().instance !== null;
+}
+function flushAegisEvents() {
+  const Oo = getStore().instance;
+  if (!Oo) return;
+  const No = Oo;
+  try {
+    typeof No.publishThrottlePipeLogs == "function" ? No.publishThrottlePipeLogs(Oo) : typeof No.eventPipeline == "function" && No.eventPipeline([]);
+  } catch {
+  }
 }
 function isAxiosResponse(Oo) {
   return !!Oo && typeof Oo == "object" && "data" in Oo && "status" in Oo && "headers" in Oo;

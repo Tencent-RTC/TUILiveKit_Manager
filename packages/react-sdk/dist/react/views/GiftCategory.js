@@ -6,10 +6,10 @@ import { ArrowLeftIcon as K, FileCopyIcon as Z } from "tdesign-icons-react";
 import { useUIKit as J, i18next as x } from "@tencentcloud/uikit-base-component-react";
 import { F, a as p } from "../../chunks/FormField.D0eRD3uO.js";
 import { F as Q, A as k } from "../../chunks/ActionButtons.Cfkno1zE.js";
-import { u as ee, M as N, a as D } from "../../chunks/useAsyncAction.jPDjgEh7.js";
-import { I as a, D as G, g as w } from "../../chunks/shared-state.BkuXD95c.js";
-import { G as ae, L as te, a as y, g as c, b as ie } from "../../chunks/main-layout.CW0IWNsf.js";
-import { M as b, g as re, C as _, a as d, b as g } from "../../chunks/constants.CsFsO9sF.js";
+import { u as ee, M as N, a as D } from "../../chunks/useAsyncAction.DMAyL8UQ.js";
+import { I as a, D as G, g as w } from "../../chunks/shared-state.2k2VlnY1.js";
+import { G as ae, L as te, a as y, g as c, b as ie } from "../../chunks/main-layout.B_9sQtkU.js";
+import { M as b, g as re, C as _, a as d, b as g } from "../../chunks/constants.ChiFm2XO.js";
 /* empty css                                  */
 function pe() {
   const { t: e } = J(), I = j(), s = ee(), O = M(null);
