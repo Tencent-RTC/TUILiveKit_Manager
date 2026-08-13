@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import type { RouteComponent, RouteRecordRaw } from 'vue-router';
-import { isLoggedIn, saveCredentials, login, reportPageView } from 'tuikit-live-manager-sdk-vue';
+import { isLoggedIn, saveCredentials, login, reportPageView, reportBusinessOp } from 'tuikit-live-manager-sdk-vue';
 import {
   type CoreRouteKey,
   getActiveAppConfig,
@@ -199,6 +199,8 @@ router.beforeEach(async (to, _from, next) => {
         const loginRes = await login({});
         if (loginRes.code === 0 && loginRes.data) {
           saveCredentials(loginRes.data);
+          // 自动登录也上报 credential_login，保证转化漏斗覆盖该路径
+          reportBusinessOp('credential_login', 'login', true);
           next();
           return;
         } else {

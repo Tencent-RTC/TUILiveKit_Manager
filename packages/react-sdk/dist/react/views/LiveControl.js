@@ -1,22 +1,22 @@
 import { jsxs as i, jsx as e, Fragment as ie } from "react/jsx-runtime";
-import { I as t, p as ze, c as pe, _ as He, D as ge, u as fe, ak as ue, am as Le, ab as Re, b5 as Ke, x as qe, Z as je, a1 as Ye, a as Je, S as Xe } from "../../chunks/shared-state.CsnQDWhV.js";
-import Be, { useState as w, useCallback as y, useEffect as V, useRef as j, useMemo as le } from "react";
+import { I as t, p as ze, c as pe, _ as He, D as ge, u as fe, ak as ue, am as Le, ab as Re, b5 as Ke, x as qe, Z as je, a1 as Ye, a as Je, S as Xe } from "../../chunks/shared-state.BkuXD95c.js";
+import Be, { useState as w, useCallback as S, useEffect as V, useRef as j, useMemo as le } from "react";
 import { useParams as Ze, useNavigate as Qe, useLocation as et } from "react-router-dom";
 import { Dialog as Ee, Tooltip as oe, Button as Q, Tabs as ve, Switch as xe, Loading as tt } from "tdesign-react";
 import { CheckCircleIcon as be, ChatOffIcon as Fe, UserCheckedIcon as nt, UserBlockedIcon as Ve, MoreIcon as rt, InfoCircleIcon as de, CloseCircleIcon as at, RefreshIcon as ot, ChevronLeftIcon as st, ChevronRightIcon as it, ArrowLeftIcon as ct, NotificationIcon as lt, StopCircleIcon as dt } from "tdesign-icons-react";
 import { useUIKit as ye } from "@tencentcloud/uikit-base-component-react";
 import { LiveView as ut, useLiveAudienceState as Ae, BarrageList as mt, BarrageInput as ft, LiveAudienceList as ht, useLiveListState as Nt, useLoginState as gt, useLivePlayerState as Et, LiveListEvent as De } from "tuikit-atomicx-react";
-import { bb as pt, b3 as Ie, b5 as we, r as Ct, bh as Ue, D as Lt, bK as Tt, a9 as bt, bz as At, a0 as Te, an as vt, az as Mt, bU as he, aj as It, b6 as _t, bH as Ot, by as yt, bx as St } from "../../chunks/main-layout.Dt5HcQRZ.js";
+import { bb as pt, b3 as Ie, b5 as we, r as Ct, bh as Ue, D as Lt, bK as Tt, a9 as bt, bz as At, a0 as Te, an as vt, az as Mt, bU as he, aj as It, b6 as _t, bH as Ot, by as yt, bx as St } from "../../chunks/main-layout.CW0IWNsf.js";
 import { useRiskControlState as We, useConfirmAction as me, useLiveMonitorState as Se } from "../../react.js";
-import { u as Rt, M as q, a as Dt } from "../../chunks/useAsyncAction.CDjDvvEN.js";
-import { S as $e } from "../../chunks/SlotRenderer.CkhSIE9k.js";
-import { c as wt, C as Ut } from "../../chunks/user-action-dropdown.D1uQo8a2.js";
-import { A as _e } from "../../chunks/AnchorAvatar.CcNwe1Jn.js";
+import { u as Rt, M as q, a as Dt } from "../../chunks/useAsyncAction.jPDjgEh7.js";
+import { S as $e } from "../../chunks/SlotRenderer.C6HRizAC.js";
+import { c as wt, C as Ut } from "../../chunks/user-action-dropdown.BSmbg_mK.js";
+import { A as _e } from "../../chunks/AnchorAvatar.CaDt8Gt2.js";
 import { createPortal as kt } from "react-dom";
-import { p as Pt, g as Bt, b as xt } from "../../chunks/columns.DOXpciUj.js";
+import { p as Pt, g as Bt, b as xt } from "../../chunks/columns.BcBBOd2H.js";
 import { A as Oe, F as Ft } from "../../chunks/ActionButtons.Cfkno1zE.js";
 function Vt() {
-  const [a, r] = w(""), [c, d] = w(""), L = y((u, m) => {
+  const [a, r] = w(""), [c, d] = w(""), L = S((u, m) => {
     u === "success" ? (r(m), setTimeout(() => r(""), 3e3)) : (d(m), setTimeout(() => d(""), 3e3));
   }, []);
   return {
@@ -161,7 +161,7 @@ const ke = pe("MessageList"), $t = 12 * 1024, ce = { current: { giftList: [] } }
       document.removeEventListener("mousedown", C);
     };
   }, [E]);
-  const k = y((C, A) => {
+  const k = S((C, A) => {
     if (C.stopPropagation(), Number(A.sender.userRole) !== 2 || pt(a || "", A.sender.userId))
       return;
     const f = C.target.closest(".message-item");
@@ -173,7 +173,7 @@ const ke = pe("MessageList"), $t = 12 * 1024, ce = { current: { giftList: [] } }
   V(() => {
     ce.current.anchorUserId = O, ce.current.onMessageClick = k;
   });
-  const S = () => {
+  const y = () => {
     if (v && d) {
       const C = v.sender.userId;
       if (O && C === Ie(O)) {
@@ -248,7 +248,7 @@ const ke = pe("MessageList"), $t = 12 * 1024, ce = { current: { giftList: [] } }
                   /* @__PURE__ */ e(Fe, { size: 14 }),
                   /* @__PURE__ */ e("span", { children: l(t.MUTE) })
                 ] }) }),
-                /* @__PURE__ */ e("button", { className: "dropdown-item danger", onClick: S, children: z(v.sender.userId) ? /* @__PURE__ */ i(ie, { children: [
+                /* @__PURE__ */ e("button", { className: "dropdown-item danger", onClick: y, children: z(v.sender.userId) ? /* @__PURE__ */ i(ie, { children: [
                   /* @__PURE__ */ e(nt, { size: 14 }),
                   /* @__PURE__ */ e("span", { children: l(t.UNBAN) })
                 ] }) : /* @__PURE__ */ i(ie, { children: [
@@ -386,7 +386,7 @@ function qt(a, r, c, d) {
     unmuteMember: g,
     banMember: I,
     unbanMember: E
-  } = We({ liveId: a || "", pageSize: 20 }), [N, b] = w([]), [x, v] = w([]), [H, $] = w(!1), [U, O] = w(null), [M, P] = w(null), z = j(null), k = j(null), [S, K] = w(null), [C, A] = w(null);
+  } = We({ liveId: a || "", pageSize: 20 }), [N, b] = w([]), [x, v] = w([]), [H, $] = w(!1), [U, O] = w(null), [M, P] = w(null), z = j(null), k = j(null), [y, K] = w(null), [C, A] = w(null);
   V(() => {
     Array.isArray(u) && b(u);
   }, [u]), V(() => {
@@ -394,7 +394,7 @@ function qt(a, r, c, d) {
   }, [m]);
   const R = (o, n) => {
     o === "success" ? q.success(n) : q.error(n);
-  }, f = y(async (o, n) => {
+  }, f = S(async (o, n) => {
     try {
       await g({ memberAccounts: [o] }), R("success", L(t.UNMUTE, n)), await l();
     } catch (s) {
@@ -416,7 +416,7 @@ function qt(a, r, c, d) {
       const o = z.current;
       R("success", L(t.MUTE, o?.userName || "")), await ae(), z.current = null, K(null);
     }
-  }), re = y((o, n, s) => {
+  }), re = S((o, n, s) => {
     if (a) {
       if (d) {
         q.warning(r(t.LIVE_ENDED));
@@ -424,7 +424,7 @@ function qt(a, r, c, d) {
       }
       Ue(o, c) || (s ? f(o, n) : (z.current = { userId: o, userName: n }, K({ userId: o, userName: n })));
     }
-  }, [a, c, f, d, r]), F = y(async (o, n) => {
+  }, [a, c, f, d, r]), F = S(async (o, n) => {
     try {
       await E({ memberAccounts: [o] }), R("success", L(t.UNBAN, n)), await h();
     } catch (s) {
@@ -446,7 +446,7 @@ function qt(a, r, c, d) {
       const o = k.current;
       R("success", L(t.BAN, o?.userName || "")), await se(), k.current = null, A(null);
     }
-  }), p = y((o, n, s) => {
+  }), p = S((o, n, s) => {
     if (a) {
       if (d) {
         q.warning(r(t.LIVE_ENDED));
@@ -458,11 +458,11 @@ function qt(a, r, c, d) {
   B.current = W;
   const Y = j(J);
   Y.current = J, V(() => {
-    S && B.current.requestConfirm();
-  }, [S]), V(() => {
+    y && B.current.requestConfirm();
+  }, [y]), V(() => {
     C && Y.current.requestConfirm();
   }, [C]);
-  const te = y(async (o, n) => {
+  const te = S(async (o, n) => {
     if (a) {
       if (d) {
         q.warning(r(t.LIVE_ENDED));
@@ -477,7 +477,7 @@ function qt(a, r, c, d) {
         }
       }
     }
-  }, [a, f, d, r, U]), ee = y(async (o, n) => {
+  }, [a, f, d, r, U]), ee = S(async (o, n) => {
     if (a) {
       if (d) {
         q.warning(r(t.LIVE_ENDED));
@@ -492,7 +492,7 @@ function qt(a, r, c, d) {
         }
       }
     }
-  }, [a, F, d, r, M]), ae = y(async () => {
+  }, [a, F, d, r, M]), ae = S(async () => {
     if (a) {
       $(!0);
       try {
@@ -506,7 +506,7 @@ function qt(a, r, c, d) {
         $(!1);
       }
     }
-  }, [a, r, l]), se = y(async () => {
+  }, [a, r, l]), se = S(async () => {
     if (a) {
       $(!0);
       try {
@@ -520,7 +520,7 @@ function qt(a, r, c, d) {
         $(!1);
       }
     }
-  }, [a, r, h]), T = y((o) => N.some((n) => n.userId === o), [N]);
+  }, [a, r, h]), T = S((o) => N.some((n) => n.userId === o), [N]);
   return {
     mutedList: N,
     bannedList: x,
@@ -549,7 +549,7 @@ function Yt({
   currentUserId: L,
   roomJoined: u = !1
 }) {
-  const { t: m } = ye(), { currentLive: l, updateLive: h } = Se(), _ = l?.liveOwner?.userId || "", g = qt(a, m, _, d), { audienceList: I } = Ae(), E = l?.isMessageDisabled === !0, [N, b] = w(!1), [x, v] = w(!1), H = y((p) => {
+  const { t: m } = ye(), { currentLive: l, updateLive: h } = Se(), _ = l?.liveOwner?.userId || "", g = qt(a, m, _, d), { audienceList: I } = Ae(), E = l?.isMessageDisabled === !0, [N, b] = w(!1), [x, v] = w(!1), H = S((p) => {
     if (!d && p !== E) {
       if (!p) {
         b(!0), h({ liveId: a, isMessageDisabled: !1 }).finally(() => b(!1));
@@ -557,13 +557,13 @@ function Yt({
       }
       v(!0);
     }
-  }, [d, E, a, h]), $ = y(() => {
+  }, [d, E, a, h]), $ = S(() => {
     b(!0), h({ liveId: a, isMessageDisabled: !0 }).then(() => v(!1)).finally(() => b(!1));
-  }, [a, h]), [U, O] = w(null), M = j(null), P = y((p, B, Y) => {
+  }, [a, h]), [U, O] = w(null), M = j(null), P = S((p, B, Y) => {
     p.stopPropagation();
     const te = p.currentTarget.getBoundingClientRect();
     O({ userId: B, userName: Y, x: te.right, y: te.bottom + 4 });
-  }, []), z = y(() => {
+  }, []), z = S(() => {
     O(null);
   }, []);
   V(() => {
@@ -573,13 +573,13 @@ function Yt({
     };
     return document.addEventListener("mousedown", p), () => document.removeEventListener("mousedown", p);
   }, [U]);
-  const [k, S] = w(!1), [K, C] = w(!1), A = j(g.fetchMutedList);
+  const [k, y] = w(!1), [K, C] = w(!1), A = j(g.fetchMutedList);
   A.current = g.fetchMutedList;
   const R = j(g.fetchBannedList);
   R.current = g.fetchBannedList;
-  const f = y(() => {
-    A.current(), S(!0);
-  }, []), W = y(() => {
+  const f = S(() => {
+    A.current(), y(!0);
+  }, []), W = S(() => {
     R.current(), C(!0);
   }, []);
   V(() => {
@@ -811,7 +811,7 @@ function Yt({
         unbanningUserId: g.unbanningUserId,
         getUserAvatar: re,
         getUserNameFromCache: F,
-        onMutedModalClose: () => S(!1),
+        onMutedModalClose: () => y(!1),
         onBannedModalClose: () => C(!1),
         onUnmuteFromList: g.handleUnmuteFromList,
         onUnbanFromList: g.handleUnbanFromList,
@@ -839,10 +839,10 @@ function Xt({
   onLiveEnded: m,
   t: l
 }) {
-  const { currentLive: h, setCurrentLive: _ } = Se(), { joinLive: g, leaveLive: I, subscribeEvent: E, unsubscribeEvent: N } = Nt(), { fetchAudienceList: b } = Ae(), { login: x, loginUserInfo: v } = gt(), { hideControlBar: H, showControlBar: $, setAutoHideDelay: U } = Et(), [O, M] = w(!1), [P, z] = w(""), [k, S] = w(!1), [K, C] = w(0), A = j(""), R = j(!1), f = j(null), W = j(null), re = v?.userId || P, F = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, J = j(Jt()).current, p = 5, B = 2e3;
+  const { currentLive: h, setCurrentLive: _ } = Se(), { joinLive: g, leaveLive: I, subscribeEvent: E, unsubscribeEvent: N } = Nt(), { fetchAudienceList: b } = Ae(), { login: x, loginUserInfo: v } = gt(), { hideControlBar: H, showControlBar: $, setAutoHideDelay: U } = Et(), [O, M] = w(!1), [P, z] = w(""), [k, y] = w(!1), [K, C] = w(0), A = j(""), R = j(!1), f = j(null), W = j(null), re = v?.userId || P, F = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, J = j(Jt()).current, p = 5, B = 2e3;
   V(() => {
     if (F) {
-      G.debug("LiveControlLeftPanel", "Mock mode, skipping TUILogin"), M(!0);
+      G.debug("LiveControlLeftPanel", "Mock mode, skipping TUILogin"), M(!0), y(!0);
       return;
     }
     if (O) return;
@@ -886,7 +886,7 @@ function Xt({
         G.debug("LiveControlLeftPanel", "Clearing current live"), _(null);
       };
   }, [c, _]);
-  const Y = y(async () => {
+  const Y = S(async () => {
     if (!(!c || !h || !O)) {
       if (d) {
         G.debug("LiveControlLeftPanel", "Live already ended, skipping join");
@@ -903,7 +903,7 @@ function Xt({
           api: "setCurrentLanguage",
           params: { language: o === "en-US" ? "en" : o === "zh-CN" ? "zh-Hans" : o }
         })).catch(() => {
-        }), await g({ liveId: c }), A.current = c, S(!0), await b().catch((n) => {
+        }), await g({ liveId: c }), A.current = c, y(!0), await b().catch((n) => {
           G.warn("LiveControlLeftPanel", "fetchAudienceList after join failed:", n);
         }), H(), U(0), !R.current && E) {
           const n = () => {
@@ -922,7 +922,7 @@ function Xt({
   V(() => {
     Y();
   }, [Y]), V(() => {
-    A.current = "", S(!1);
+    A.current = "", y(!1);
   }, [c]);
   const te = j(!1);
   V(() => () => {
@@ -1130,30 +1130,30 @@ function on({
       render: (() => {
         switch (k.key) {
           case "check":
-            return (S) => /* @__PURE__ */ e(
+            return (y) => /* @__PURE__ */ e(
               "input",
               {
                 type: "checkbox",
-                checked: m.includes(S.id),
+                checked: m.includes(y.id),
                 disabled: I,
-                onChange: () => v(S.id)
+                onChange: () => v(y.id)
               }
             );
           case "userId":
-            return (S) => /* @__PURE__ */ e("div", { className: "moderation-user-cell", children: /* @__PURE__ */ e("span", { className: "moderation-user-id", children: S.userId }) });
+            return (y) => /* @__PURE__ */ e("div", { className: "moderation-user-cell", children: /* @__PURE__ */ e("span", { className: "moderation-user-id", children: y.userId }) });
           case "content":
-            return (S) => /* @__PURE__ */ e("span", { title: S.content, children: S.content });
+            return (y) => /* @__PURE__ */ e("span", { title: y.content, children: y.content });
           case "type":
-            return (S) => /* @__PURE__ */ e("span", { className: "moderation-type-text", children: M(S.type) });
+            return (y) => /* @__PURE__ */ e("span", { className: "moderation-type-text", children: M(y.type) });
           case "createdAtMs":
-            return (S) => rn(S.createdAtMs);
+            return (y) => rn(y.createdAtMs);
           case "action":
-            return (S) => {
+            return (y) => {
               const K = [
-                { key: "approve", label: M(t.APPROVE), onClick: () => $(S) },
-                { key: "delete", label: M(t.DELETE), danger: !0, onClick: () => U(S) }
+                { key: "approve", label: M(t.APPROVE), onClick: () => $(y) },
+                { key: "delete", label: M(t.DELETE), danger: !0, onClick: () => U(y) }
               ];
-              return P || K.push({ key: "more", label: M(t.MORE), suffixCaret: !0, onClick: (C) => O(C, S) }), /* @__PURE__ */ e(
+              return P || K.push({ key: "more", label: M(t.MORE), suffixCaret: !0, onClick: (C) => O(C, y) }), /* @__PURE__ */ e(
                 Oe,
                 {
                   disabled: I,
@@ -1251,7 +1251,7 @@ function on({
             }
           ),
           xt(d, u).map(
-            (k, S) => k === "..." ? /* @__PURE__ */ e("span", { className: "page-ellipsis", children: "..." }, `ellipsis-${S}`) : /* @__PURE__ */ e(
+            (k, y) => k === "..." ? /* @__PURE__ */ e("span", { className: "page-ellipsis", children: "..." }, `ellipsis-${y}`) : /* @__PURE__ */ e(
               "button",
               {
                 className: `page-num ${k === d ? "active" : ""}`,
@@ -1287,7 +1287,7 @@ function sn(a, r, c, d) {
     approveTextModerationItems: h,
     bypassCorrectionKeyword: _,
     deleteModerationItems: g
-  } = We({ liveId: a || "", pageSize: Te }), I = L === "custom", [E, N] = w([]), [b, x] = w(!1), [v, H] = w(1), [$, U] = w(0), [O, M] = w([]), [P, z] = w(null), [k, S] = w(null), K = le(() => qe($, Te), [$]), C = y(
+  } = We({ liveId: a || "", pageSize: Te }), I = L === "custom", [E, N] = w([]), [b, x] = w(!1), [v, H] = w(1), [$, U] = w(0), [O, M] = w([]), [P, z] = w(null), [k, y] = w(null), K = le(() => qe($, Te), [$]), C = S(
     async (T = 1) => {
       if (a) {
         x(!0);
@@ -1323,14 +1323,14 @@ function sn(a, r, c, d) {
   V(() => {
     a && d != null && C(1);
   }, [a, d]);
-  const A = y(async (T = !1) => {
+  const A = S(async (T = !1) => {
     c || (await C(v), T || q.success(fe(r).opSuccess(t.REFRESH)));
-  }, [C, v, r, c]), R = y(
+  }, [C, v, r, c]), R = S(
     (T) => {
       T < 1 || T > K || T === v || C(T);
     },
     [C, v, K]
-  ), f = y(
+  ), f = S(
     async (T) => {
       M((n) => n.filter((s) => !T.includes(s))), N((n) => n.filter((s) => !T.includes(s.id))), U((n) => Math.max(0, n - T.length));
       const o = It(
@@ -1359,7 +1359,7 @@ function sn(a, r, c, d) {
     onSuccess: async () => {
       P && await f([P.id]), z(null);
     }
-  }), re = y((T) => {
+  }), re = S((T) => {
     if (c) {
       q.warning(r(t.LIVE_ENDED));
       return;
@@ -1376,14 +1376,14 @@ function sn(a, r, c, d) {
       content: r(t.BYPASS_CORRECTION_DESCRIPTION)
     },
     onSuccess: async () => {
-      k && await f([k.id]), S(null);
+      k && await f([k.id]), y(null);
     }
-  }), J = y((T) => {
+  }), J = S((T) => {
     if (c) {
       q.warning(r(t.LIVE_ENDED));
       return;
     }
-    S(T), F.requestConfirm();
+    y(T), F.requestConfirm();
   }, [F, c, r]), p = me({
     operationName: r(t.BULK_APPROVE),
     action: async () => {
@@ -1399,7 +1399,7 @@ function sn(a, r, c, d) {
       const T = [...O];
       await f(T);
     }
-  }), B = y(() => {
+  }), B = S(() => {
     if (c) {
       q.warning(r(t.LIVE_ENDED));
       return;
@@ -1409,7 +1409,7 @@ function sn(a, r, c, d) {
       return;
     }
     p.requestConfirm();
-  }, [p, O, c, r]), Y = y(
+  }, [p, O, c, r]), Y = S(
     async (T) => {
       if (c) {
         q.warning(r(t.LIVE_ENDED));
@@ -1424,7 +1424,7 @@ function sn(a, r, c, d) {
       }
     },
     [f, r, c]
-  ), te = y(async () => {
+  ), te = S(async () => {
     if (c) {
       q.warning(r(t.LIVE_ENDED));
       return;
@@ -1441,9 +1441,9 @@ function sn(a, r, c, d) {
       const n = ue(o).info || o.message || r(t.UNKNOWN_ERROR);
       q.error(`【${r(t.BULK_DELETE)}${r(t.CONTENT_MODERATION)}】${r(t.OPERATION_FAILED, { error: n })}`);
     }
-  }, [O, f, r, c]), ee = y((T) => {
+  }, [O, f, r, c]), ee = S((T) => {
     M((o) => o.includes(T) ? he(o.filter((n) => n !== T)) : he([...o, T]));
-  }, []), ae = y(() => {
+  }, []), ae = S(() => {
     M((T) => {
       const o = he(E.map((n) => n.id));
       return T.length >= o.length ? [] : o;
@@ -1537,11 +1537,11 @@ function Mn() {
       confirmText: l(t.CONFIRM)
     },
     errorMessage: fe(l).opFailed(t.OP_SEND)
-  }), z = y(() => {
+  }), z = S(() => {
     N((n) => n && { ...n, activityStatus: 2 });
   }, []), k = () => {
     P.requestConfirm();
-  }, S = j(null), [K, C] = w(0), [A, R] = w(null), f = sn(a, l, b, E?.createdAt);
+  }, y = j(null), [K, C] = w(0), [A, R] = w(null), f = sn(a, l, b, E?.createdAt);
   V(() => () => {
     a && Ne.info("LiveControl", "Component unmounting, liveId:", a);
   }, [a]);
@@ -1587,15 +1587,15 @@ function Mn() {
       }
       p();
     }
-  }), re = y(async () => {
+  }), re = S(async () => {
     await W.execute();
   }, [W.execute]), [F, J] = w(() => {
     const n = /* @__PURE__ */ new Date();
     return `${String(n.getHours()).padStart(2, "0")}:${String(n.getMinutes()).padStart(2, "0")}`;
-  }), p = y(() => {
+  }), p = S(() => {
     const n = /* @__PURE__ */ new Date();
     J(`${String(n.getHours()).padStart(2, "0")}:${String(n.getMinutes()).padStart(2, "0")}`);
-  }, []), B = y(async () => {
+  }, []), B = S(async () => {
     if (a)
       try {
         const n = await _(a);
@@ -1611,11 +1611,11 @@ function Mn() {
     if (n <= 0) return "0%";
     const D = s / n * 100;
     return Math.min(D, 100).toFixed(1) + "%";
-  }, [E?.stats?.viewCount, E?.stats?.commentCount]), te = 30, ee = j(null), ae = j(!0), se = y(() => {
+  }, [E?.stats?.viewCount, E?.stats?.commentCount]), te = 30, ee = j(null), ae = j(!0), se = S(() => {
     r(L);
-  }, [r, L]), T = y(() => {
+  }, [r, L]), T = S(() => {
     R(null);
-  }, []), o = y((n, s) => {
+  }, []), o = S((n, s) => {
     n.preventDefault(), n.stopPropagation();
     const D = n.currentTarget.getBoundingClientRect();
     R({
@@ -1640,7 +1640,7 @@ function Mn() {
   }, [E?.createdAt, E?.activityStatus]), V(() => {
     if (!A) return;
     const n = (s) => {
-      S.current && !S.current.contains(s.target) && T();
+      y.current && !y.current.contains(s.target) && T();
     };
     return document.addEventListener("mousedown", n), () => document.removeEventListener("mousedown", n);
   }, [T, A]), V(() => {
@@ -1757,7 +1757,7 @@ function Mn() {
     A && f.moderationMode !== "custom" && /* @__PURE__ */ e(
       "div",
       {
-        ref: S,
+        ref: y,
         className: "user-action-dropdown moderation-action-dropdown",
         style: {
           position: "fixed",

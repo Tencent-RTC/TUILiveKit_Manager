@@ -3,8 +3,8 @@ import TRTC from "trtc-sdk-v5";
 import { useUIKit } from "@tencentcloud/uikit-base-component-vue3";
 import { MessagePlugin } from "tdesign-vue-next";
 class LiveManagerError extends Error {
-  constructor(No, jo, Go, Qo) {
-    super(No), this.name = "LiveManagerError", this.code = jo, this.originalError = Go, this.context = Qo;
+  constructor(No, jo, Go, Ho) {
+    super(No), this.name = "LiveManagerError", this.code = jo, this.originalError = Go, this.context = Ho;
   }
   /**
    * 从任意错误创建 LiveManagerError 实例
@@ -21,7 +21,7 @@ function apiError(Oo, No) {
     No
   );
 }
-const SDK_VERSION = "1.0.0";
+const SDK_VERSION = "1.0.1";
 let currentConfig = null;
 function defineLiveManagerConfig(Oo) {
   return Oo;
@@ -50,7 +50,1124 @@ function getHelpLinks(Oo, No) {
     userId: Go
   };
 }
-const CUSTOMER_EXTENSION_PROTOCOL_VERSION = "1";
+const I18N = {
+  // ========== Live List ==========
+  LIVE_LIST: "Live List",
+  LIVE_COVER: "Live Cover",
+  CREATE_LIVE: "Create Live",
+  ENTER_LIVE_ID_TO_SEARCH: "Enter Live ID to search",
+  INPUT_EXCEEDS_LENGTH_LIMIT: "Input exceeds length limit",
+  INPUT_TOO_LONG: "Input Too Long",
+  LIVE_NOT_FOUND: "Live Not Found",
+  LIVE_ID: "Live ID",
+  LIVE_ID_AUTO: "Live ID (Auto)",
+  LIVE_TITLE: "Live Title",
+  COVER_IMAGE: "Cover Image",
+  ANCHOR_ID: "Anchor ID",
+  CREATE_TIME: "Create Time",
+  ACTIONS: "Actions",
+  ENTER_LIVE: "Enter Live",
+  EDIT: "Edit",
+  DISSOLVE: "Dissolve",
+  DISSOLVE_CONFIRMATION: "Confirm dissolving this live?",
+  DISSOLVE_DESCRIPTION: 'Streaming will stop after dissolving. Are you sure to dissolve "{{liveId}}"?',
+  CANCEL: "Cancel",
+  CONFIRM: "Confirm",
+  CLOSE: "Close",
+  DELETE: "Delete",
+  ADD: "Add",
+  LOADING: "Loading...",
+  // 过去分词 label（用于 ENTITY_ACTION_SUCCESS 模板）
+  LABEL_CREATED: "created",
+  LABEL_UPDATED: "updated",
+  LABEL_DELETED: "deleted",
+  NO_LIVE_DATA: "No Live Data",
+  FIRST_PAGE: "First Page",
+  PREVIOUS_PAGE: "Previous Page",
+  NEXT_PAGE: "Next Page",
+  PAGE: "Page {{page}}",
+  NO_SEARCH_RESULTS_FOR: "No search results for: {{keyword}}",
+  SEARCH_EXACT_ID_HINT: "Search requires the complete Live ID; fuzzy search is not supported.",
+  LIVE_HOST: "Live Host",
+  BASIC_INFORMATION: "Basic Information",
+  LIVE_INFORMATION: "Live Information",
+  STREAM_INFO: "Stream Info",
+  SERVER_URL: "Server URL",
+  STREAM_KEY: "Stream Key",
+  GETTING_STREAM_INFO: "Getting Stream Info...",
+  PUSH_STREAM_INFO: "Push Stream Info",
+  // ========== Live Monitor ==========
+  LIVE_MONITOR: "Live Monitor",
+  LIVE_ROOM_MANAGEMENT: "Live Room Management",
+  MONITOR_ALL_LIVES_IN_REAL_TIME: "Monitor all lives in real-time",
+  NO_LIVE_RIGHT_NOW: "No Live right now",
+  CLOSING: "Closing...",
+  VIOLATION_WARNING: "Violation Warning",
+  SEND_VIOLATION_WARNING: "Send Violation Warning",
+  UNNAMED_LIVE: "Unnamed Live",
+  CURRENT_VIEWERS: "Real-time Online Viewers",
+  CURRENT_VIEWERS_TOOLTIP: "The number of viewers currently online in real-time",
+  COMMENT_COUNT: "Total Comments",
+  COMMENT_COUNT_TOOLTIP: "The total number of comments received in the stream",
+  LIVE_DATA_CONTROL: "Live Data Control",
+  LIVE_NOW: "Live Now",
+  UPDATED_AT: "Updated At: {{time}}",
+  LIVE_DURATION: "Live Duration",
+  // ========== Live Control ==========
+  LIVE_CONTROL: "Live Control",
+  ROOM_DETAILS: "Room Details",
+  LIVE_DETAILS: "Live Details",
+  BACK_TO_LIST: "Back to List",
+  FORCE_STOP: "Force Stop",
+  FORCE_STOP_CONFIRM_CONTENT: "The live room will be immediately dismissed after this action. The host and viewers will be exited and cannot be recovered.",
+  CONFIRM_ACTION_TITLE: "Confirm {{action}}",
+  CONFIRM_ACTION_CONTENT: "Are you sure to {{action}} this live?",
+  ANCHOR_IS_NOT_STREAMING: "Anchor is not streaming",
+  LIVE_DATA: "Live Data",
+  VIEWER_COUNT: "Viewer Count",
+  MESSAGE_COUNT: "Message Count",
+  START_TIME: "Start Time",
+  DURATION: "Duration",
+  MUTE_ALL: "Mute All",
+  UNMUTE_ALL: "Unmute All",
+  AUDIENCE_LIST: "Audience List",
+  MUTED_LIST: "Muted List",
+  BANNED_LIST: "Banned List",
+  CHAT: "Chat",
+  AUDIENCE: "Audience",
+  CONFIRM_BAN_LIVE: "Confirm End Live",
+  LIVE_BANNED: "Live Banned",
+  UNNAMED_LIVE_SHORT: "Unnamed",
+  CONTENT_MODERATION: "Content Moderation",
+  BULK_APPROVE: "Bulk Approve",
+  BULK_DELETE: "Bulk Delete",
+  CUSTOM_MODERATION_TOGGLE: "Content Review All",
+  ACTION: "Action",
+  MORE_ACTIONS: "More Actions",
+  ME: "Me",
+  USER: "User",
+  USERID: "Sender ID",
+  CREATED_AT: "Created At",
+  COMMENT_USERS: "Total Views",
+  COMMENT_USERS_TOOLTIP: "Cumulative view count",
+  INTERACTION_RATE: "Interaction Rate",
+  INTERACTION_RATE_TOOLTIP: "Ratio of total comments to total viewers, reflecting audience engagement",
+  GIFT_COUNT: "Gift Count",
+  GIFT_COUNT_TOOLTIP: "The total number of gifts sent during the stream",
+  GIFT_SENDERS: "Gift Senders",
+  GIFT_SENDERS_TOOLTIP: "The number of unique users who sent gifts during the stream",
+  MUTED: "Muted",
+  NO_MUTED_MEMBERS: "No muted members",
+  UNMUTE_TIME: "Unmute Time",
+  BAN_LIFT_TIME: "Ban Lift Time",
+  ALL_MEMBER_MUTE: "All Member Mute",
+  ALL_MEMBER_MUTE_ENABLED_BANNER: "All Member Mute Enabled，Audience members cannot send messages",
+  BAN: "Ban",
+  APPROVE: "Approve",
+  BYPASS_CORRECTION: "Add to Audit Whitelist",
+  BYPASS_CORRECTION_DIALOG_TITLE: "Confirm adding this comment to audit whitelist?",
+  BYPASS_CORRECTION_CONFIRM: "Confirm Add to Audit Whitelist",
+  RELEASE_AND_RESEND: "Release & Resend",
+  BYPASS_CORRECTION_DESCRIPTION: 'Takes effect within 5 minutes, after which comments with the same content will no longer be flagged as sensitive. For details, see <a href="https://cloud.tencent.com/document/product/269/106615" target="_blank">Correction Feature</a>',
+  MODERATION_EMPTY: "No moderation content",
+  SENSITIVE_TYPE: "Recognition Type",
+  COMMENT_CONTENT: "Comment Content",
+  MESSAGE_LIST: "Message List",
+  TOTAL_ITEMS: "{{total}} items total",
+  ENTER_MESSAGE_TO_SEND_AS_ADMIN: "Enter message to send as admin",
+  FETCH_MUTED_LIST_FAILED: "Fetch muted list failed: {{error}}",
+  FETCH_BANNED_LIST_FAILED: "Fetch banned list failed: {{error}}",
+  USER_ACTION_WARNING: "Are you sure to {{action}} {{name}}?",
+  // ========== Mute / Ban Confirm Dialogs ==========
+  // ========== Mute / Ban Confirm Dialogs ==========
+  MUTE_CONFIRM_CONTENT: "After being muted, this user will be unable to send messages for 10 minutes. Are you sure you want to mute {{name}}?",
+  BAN_CONFIRM_CONTENT: "After being banned, this user will be unable to enter the room for 1 hour. Are you sure you want to ban {{name}}?",
+  NORMAL: "Normal",
+  PORN: "Porn",
+  SENSITIVE: "Sensitive",
+  POLITICAL: "Political",
+  ADVERTISING: "Advertising",
+  ABUSE: "Abuse",
+  ILLEGAL: "Illegal",
+  VIOLENCE: "Violence",
+  SEXY: "Sexy",
+  SPAM: "Spam",
+  MOAN: "Moan",
+  UNKNOWN: "Unknown",
+  // ========== Create/Edit Live ==========
+  EDIT_LIVE: "Edit Live",
+  ENTER_ANCHOR_ID: "Enter Anchor ID",
+  PLEASE_ENTER_HOST_ID_FIRST: "Please enter host ID first",
+  ENTER_LIVE_TITLE: "Enter live title",
+  CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE: "Click or drag to upload cover image",
+  LAYOUT_TEMPLATE: "Layout Template",
+  MAX_SEATS: "Max Seats",
+  MAX_SEATS_HELP: "Max Seats Help",
+  SEAT_COUNT_RANGE_1_16: "Seat count range 1-16",
+  ENTER_MAX_SEAT_COUNT: "Enter max seat count",
+  STREAMING_METHOD: "Streaming Method",
+  USE_OBS_STREAMING: "Use OBS Streaming",
+  OBS_STREAMING_INFO_WILL_BE_DISPLAYED: "OBS streaming info will be displayed after creation",
+  LIVE_CREATED_SUCCESSFULLY_OBS: "Live Created Successfully OBS",
+  PLEASE_ENTER_LIVE_TITLE: "Please enter live title",
+  COPY_ID: "Copy ID",
+  COPY_NAME: "Copy Name",
+  NETWORK_ERROR: "Network error, please check your connection",
+  NETWORK_TIMEOUT: "Request timeout, please check your network",
+  // ========== Gift Management ==========
+  GIFT_MANAGEMENT: "Gift Management",
+  GIFT_MATERIAL_CONFIG: "Gift Material Config",
+  ADD_GIFT: "Add Gift",
+  SEARCH_GIFT_PLACEHOLDER: "Search gift ID, name, description...",
+  CREATE_GIFT: "Create Gift",
+  EDIT_GIFT: "Edit Gift",
+  GET_GIFT_LIST_FAILED: "Failed to get gift list",
+  // @deprecated 迁移至 opFailed(I18N.OP_GET_LIST, I18N.GIFT)
+  DELETE_FAILED: "Delete failed",
+  // @deprecated 迁移至 opFailed(I18N.DELETE)
+  CREATING: "Creating...",
+  SAVING: "Saving...",
+  CREATE: "Create",
+  SAVE: "Save",
+  // Gift Form Fields
+  ENTER_GIFT_ID: "Enter gift ID",
+  RANDOM_GENERATE_ID: "Random generate ID",
+  ENTER_GIFT_NAME: "Enter gift name",
+  ENTER_GIFT_DESCRIPTION: "Enter gift description",
+  ENTER_GIFT_LEVEL: "Enter gift level",
+  ENTER_GIFT_PRICE: "Enter gift price",
+  GIFT_LEVEL: "Gift Level",
+  GIFT_PRICE: "Gift Price",
+  GIFT_MATERIAL: "Gift Material",
+  CUSTOM_EXTENSION_INFO: "Custom Extension Info",
+  // Gift Validation Messages (byte limit messages use MAX_BYTES / MAX_BYTES_WITH_CURRENT)
+  GIFT_LEVEL_RANGE: "Gift level range: {{min}}-{{max}}",
+  GIFT_PRICE_RANGE: "Gift price range: {{min}}-{{max}}",
+  EXTENSION_INFO_JSON_FORMAT: "Extension info must be valid JSON format",
+  // Gift Upload
+  CLICK_OR_DRAG_TO_UPLOAD_THUMBNAIL: "Click or drag to upload thumbnail",
+  CLICK_OR_DRAG_TO_UPLOAD_MATERIAL: "Click or drag to upload material",
+  SUPPORT_MP4_SVGA_MAX_10MB: "Support MP4 / SVGA format, max 10MB",
+  ENTER_THUMBNAIL_URL: "Enter thumbnail URL",
+  UPLOAD_THUMBNAIL_OR_ENTER_URL: "Upload thumbnail or enter URL",
+  ENTER_FILE_URL: "Enter file URL",
+  // ========== Category Management ==========
+  CATEGORY_MANAGEMENT: "Category Management",
+  GIFT_CATEGORY: "Gift Category",
+  ADD_CATEGORY: "Add Category",
+  CREATE_CATEGORY: "Create Category",
+  EDIT_CATEGORY: "Edit Category",
+  EDIT_GIFT_CATEGORY: "Edit Gift Category",
+  REMOVE_CATEGORY_DESCRIPTION: "Are you sure to remove this category from the gift?",
+  CATEGORY_ADDED: "Category added",
+  CATEGORY_REMOVED: "Category removed",
+  GET_CATEGORY_LIST_FAILED: "Failed to get category list",
+  CATEGORY_LIMIT_REACHED: "Category limit reached",
+  CREATE_CATEGORY_FIRST: "Create category first",
+  NO_AVAILABLE_CATEGORIES: "No available categories",
+  // Category Form Fields
+  CATEGORY_ID: "Category ID",
+  CATEGORY_NAME: "Category Name",
+  CATEGORY_DESCRIPTION: "Category Description",
+  ENTER_CATEGORY_ID: "Enter category ID",
+  ENTER_CATEGORY_NAME: "Enter category name",
+  ENTER_CATEGORY_DESCRIPTION: "Enter category description",
+  SELECT_CATEGORY: "Select Category",
+  SELECT_CATEGORY_LOWERCASE: "Select category",
+  // Category Multilingual
+  CATEGORY_MULTILINGUAL_CONFIG: "Category Multilingual Config",
+  CATEGORY_MULTILINGUAL_CONFIG_TIP: "Configure category names and descriptions for different languages. These will be displayed to users based on their language settings.",
+  EDIT_CATEGORY_LANGUAGE_INFO: "Edit {{lang}} category language info",
+  EDIT_GIFT_LANGUAGE_INFO: "Edit {{lang}} gift language info",
+  ENTER_LANGUAGE_CATEGORY_NAME: "Enter {{lang}} category name",
+  ENTER_LANGUAGE_CATEGORY_DESCRIPTION: "Enter {{lang}} category description",
+  ENTER_LANGUAGE_GIFT_NAME: "Enter {{lang}} gift name",
+  ENTER_LANGUAGE_GIFT_DESCRIPTION: "Enter {{lang}} gift description",
+  // ========== Image Upload ==========
+  FILE_SIZE_EXCEEDS_MB: "File size exceeds {{max}}MB",
+  SUPPORTS_IMAGE_FORMATS_MAX_MB: "Supports JPG/PNG/GIF/WebP, max {{max}}MB",
+  // ========== Message List ==========
+  MESSAGE_CONTENT_TOO_LONG: "Message content too long, max {{max}} characters",
+  // ========== Custom Info ==========
+  VALUE_EXCEEDS_2KB_LIMIT: "Value exceeds 2KB limit",
+  CUSTOM_INFO_MAX_COUNT: "Custom info max {{max}} entries",
+  // ========== Page Titles ==========
+  LIVE_ROOM_MANAGEMENT_PLATFORM: "Live Room Management Platform",
+  // ========== Common ==========
+  NO_DATA: "No data",
+  NO_GIFT_DATA: "No gift data",
+  GIFT_ID: "Gift ID",
+  GIFT_NAME: "Gift Name",
+  THUMBNAIL: "Thumbnail",
+  NAME: "Name",
+  DESCRIPTION: "Description",
+  CATEGORY: "Category",
+  LEVEL: "Level",
+  PRICE: "Price",
+  MULTILINGUAL_CONFIG: "Multilingual Config",
+  MULTILINGUAL_CONFIG_TIP: "Configure gift names and descriptions for different languages. These will be displayed to users based on their language settings.",
+  GIFT_MULTILINGUAL_CONFIG: "Gift Multilingual Config",
+  LANGUAGE_TYPE: "Language Type",
+  REFRESH: "Refresh",
+  VIEW_DETAILS: "View Details",
+  VIEWS: " views",
+  UNKNOWN_HOST: "Unknown Host",
+  // ========== Additional Constants ==========
+  UNMUTE: "Unmute",
+  UNMUTING: "Unmuting",
+  UNBAN: "Unban",
+  UNBANNING: "Unbanning",
+  MUTE: "Mute",
+  SENDING: "Sending",
+  SEND_MESSAGE: "Send Message",
+  MESSAGE_CONTENT_REQUIRED: "Message Content Required",
+  LIVE_ENDED: "Live Ended",
+  NO_BANNED_MEMBERS: "No banned members",
+  PLEASE_SELECT_AT_LEAST_ONE_ITEM: "Please select at least one item",
+  RELEASE_AND_RESEND_DESCRIPTION: "The user's content will be released and resent",
+  BULK_APPROVE_CONFIRM_CONTENT: "The selected comments will be released and resent",
+  UNKNOWN_ERROR: "Unknown error",
+  SEND_FAILED: "Send Failed",
+  NOT_CONFIGURED: "Not configured",
+  DYNAMIC_GRID_LAYOUT: "Dynamic Grid Layout",
+  FLOATING_WINDOW_LAYOUT: "Floating Window Layout",
+  FIXED_GRID_LAYOUT: "Fixed Grid Layout",
+  FIXED_WINDOW_LAYOUT: "Fixed Window Layout",
+  LANDSCAPE_BROADCASTING: "Landscape Broadcasting",
+  DYNAMIC_GRID_LAYOUT_DESC: "Dynamically adjust grid size based on number of co-hosts",
+  FLOATING_WINDOW_DESC: "Co-hosts displayed as floating windows",
+  FIXED_GRID_DESC: "Each co-host occupies a fixed grid",
+  FIXED_WINDOW_DESC: "Co-hosts displayed as fixed windows",
+  LANDSCAPE_BROADCASTING_DESC: "1 host video + 3 audio seats",
+  LANDSCAPE_BROADCASTING_HINT: "Only available for web or OBS broadcasting",
+  ENTER_IMAGE_URL: "Enter Image URL",
+  CUSTOM_INFORMATION: "Custom Information",
+  TOTAL_GIFT_AMOUNT: "Total Gift Amount",
+  TOTAL_GIFT_AMOUNT_TOOLTIP: "The cumulative value of all gifts sent by users during the stream",
+  HOST: "Host",
+  MONITOR: "Monitor",
+  MORE: "More",
+  DAYS: "Days",
+  ENABLE_ALL_MEMBER_MUTE: "Enable All Member Mute",
+  ENABLE_ALL_MEMBER_MUTE_CONFIRM_CONTENT: "Viewers will not be able to send comments. Are you sure you want to enable?",
+  CONFIRM_ENABLE: "Confirm Enable",
+  VIOLATION_WARNING_SEND_CONFIRM: "Confirm Send Violation Warning",
+  VIOLATION_WARNING_CONFIRM_CONTENT: "The current live room has potential violation risks. Do you want to send a violation warning to the host?",
+  VIOLATION_WARNING_CONTENT_TEMPLATE: 'Live room "{{liveName}}" received a violation warning, please rectify immediately',
+  VIOLATION_WARNING_DEFAULT_SUGGESTION: "Please comply with platform rules and remove violating content",
+  VIOLATION_TYPE_WARNING: "Warning",
+  VIOLATION_SUGGESTION_PORN: "Please remove inappropriate content immediately. Multiple violations will result in room ban.",
+  VIOLATION_SUGGESTION_POLITICAL: "Please do not discuss politically sensitive topics. Comply with relevant laws and regulations.",
+  VIOLATION_SUGGESTION_ABUSE: "Please use civil language and stop abusive behavior.",
+  VIOLATION_SUGGESTION_ADVERTISING: "Please do not post unapproved advertising content.",
+  VIOLATION_SUGGESTION_ILLEGAL: "Please do not engage in illegal activities.",
+  VIOLATION_SUGGESTION_SEXY: "Please keep the live room content appropriate and avoid vulgar content.",
+  VIOLATION_SUGGESTION_VIOLENCE: "Please do not display violent or gory content.",
+  VIOLATION_SUGGESTION_DEFAULT: "Your content is suspected of violating platform rules. Please rectify immediately.",
+  UPLOAD_IMAGE: "Upload Image",
+  ENTER_URL: "Enter URL",
+  UPLOAD_SUCCESS: "Upload Success",
+  UPLOAD_FAILED: "Upload Failed",
+  UPLOADING: "Uploading",
+  VALIDATING: "Validating",
+  PENDING_UPLOAD: "Pending Upload",
+  RE_UPLOAD: "Re-upload",
+  RETURN_TO_LIVE_LIST: "Return to Live List",
+  REFRESH_OFF: "Refresh Off",
+  NUMBER_OF_GIFTS: "Number of Gifts",
+  TOTAL_VALUE_SIZE_EXCEEDS_16KB: "Total value size exceeds 16KB",
+  ONE_MINUTE: "1 Minute",
+  FIVE_MINUTES: "5 Minutes",
+  TEN_SECONDS: "10 Seconds",
+  THIRTY_SECONDS: "30 Seconds",
+  COMPLETE: "Complete",
+  CLEAR: "Clear",
+  // ========== Live Creation / Member / Common ==========
+  PLEASE_ENTER_ANCHOR_ID: "Please enter anchor ID",
+  OBS_READY_COPY_INFO: "OBS is ready. Please copy the streaming info below.",
+  COPY: "Copy",
+  HOST_AVATAR: "Host Avatar",
+  GET_ERROR_MESSAGE: "Get error message",
+  CREATE_FAILED: "Create failed",
+  REQUEST_FAILED: "Request failed",
+  REFRESH_FAILED: "Refresh failed",
+  CANNOT_UNDO_AFTER_DELETE: "Cannot undo after delete",
+  CLICK_OR_DRAG_TO_UPLOAD_IMAGE: "Click or drag to upload image",
+  IMAGE_URL_INVALID: "Image URL invalid",
+  IMAGE_LOAD_FAILED: "Image load failed",
+  IMAGE_LOADING: "Image loading...",
+  FILE_LOAD_FAILED: "File load failed",
+  COVER_PROCESSING_FAILED: "Cover processing failed",
+  CROP_IMAGE: "Crop Image",
+  CROP_FAILED: "Crop failed",
+  CONFIRM_CROP: "Confirm Crop",
+  ENTER_KEY: "Enter key",
+  ENTER_VALUE: "Enter value",
+  CUSTOM_INFO_KEY_REQUIRED: "Custom info key is required",
+  REFRESH_SUCCESS: "Refresh Success",
+  OPERATION_FAILED: "Operation failed: {{error}}",
+  // ========== Composable Templates ==========
+  // 字节限制校验模板（替换了 13 个独立 GIFT_ID_MAX_BYTES / CATEGORY_NAME_MAX_BYTES 等 key）
+  MAX_BYTES: "{{field}} cannot exceed {{max}} bytes",
+  MAX_BYTES_WITH_CURRENT: "{{field}} cannot exceed {{max}} bytes (current {{current}})",
+  // 统一操作结果模板（entity 可选，error 可选）
+  // 注意：中英文模板参数顺序不同
+  //   中文: {{entity}}已{{action}} / {{action}}{{entity}}失败
+  //   英文: {{action}} {{entity}} successfully / {{action}} {{entity}} failed
+  // 使用 bindI18nHelpers 包装，不要直接拼接模板
+  // 示例: opSuccess(I18N.LABEL_CREATED, I18N.GIFT) → 中文"礼物已创建" / 英文"created Gift successfully"
+  OP_SUCCESS: "{{action}} {{entity}} successfully",
+  OP_FAILED: "{{action}} {{entity}} failed",
+  // 操作名词（供模板组合使用）
+  OP_SEARCH: "Search",
+  OP_UPLOAD: "Upload",
+  OP_SEND: "Send",
+  OP_UPDATE: "Update",
+  OP_REQUEST: "Request",
+  OP_LOGIN: "Login Operation",
+  OP_READY: "Ready",
+  OP_ENABLE: "Enable",
+  OP_DISABLE: "Disable",
+  // 短动词
+  OP_LOAD: "Load",
+  OP_LOAD_LIVE_LIST: "Load Live List",
+  OP_GET_STREAM_INFO: "Get Stream Info",
+  OP_IMPORT: "Import Account",
+  OP_ADD: "Add Robot",
+  OP_PICK: "Pick Seat",
+  OP_GET_LIST: "Get List",
+  OP_GET_SEATS: "Get Seats",
+  OP_GET_MUTED: "Get Muted",
+  OP_GET_BANNED: "Get Banned",
+  OP_GET_STREAM: "Get Stream",
+  OP_OBS_SETUP_ACT: "OBS Config",
+  OP_CROP_ACT: "Crop",
+  // 实体（供模板组合使用）
+  GIFT: "Gift",
+  LIVE: "Live Room",
+  IMAGE: "Image",
+  LANGUAGE_CONFIG: "Language Config",
+  GLOBAL_MUTE_TOGGLE: "Global Mute Toggle",
+  FETCH_LIVE_INFO: "Fetch Live Info",
+  SEND_ADMIN_MESSAGE: "Send Admin Message",
+  GIFT_SAVE: "Save Gift",
+  GIFT_DELETE_OPERATION: "Delete Gift",
+  GIFT_MULTILINGUAL_SAVE: "Save Gift Multilingual",
+  GIFT_CATEGORY_ADD_OPERATION: "Add Category to Gift",
+  GIFT_CATEGORY_REMOVE_OPERATION: "Remove Category from Gift",
+  CATEGORY_SAVE: "Save Category",
+  CATEGORY_MULTILINGUAL_SAVE: "Save Category Multilingual",
+  CATEGORY_DELETE_OPERATION: "Delete Category",
+  // ========== Direct string keys (纳入 I18N 常量体系) ==========
+  // 原来以 t('xxx') 形式直接使用的字符串，现统一纳入 I18N 常量
+  UNKNOWN_ANCHOR: "Unknown Anchor",
+  AVATAR_ALT: "{{name}}'s avatar",
+  FOUND_RESULTS: "Found {{count}} results",
+  NO_GIFT_FOUND: "No gift found for: {{keyword}}",
+  CUSTOM_INFO_MAX_COUNT_EXCEEDED: "Custom info exceeds the max count ({{max}})",
+  KEY_VALUE_EXCEEDS_2KB: "Value of key {{key}} exceeds 2KB",
+  SIMPLIFIED_CHINESE: "Simplified Chinese",
+  TRADITIONAL_CHINESE: "Traditional Chinese",
+  ENGLISH: "English",
+  // ========== 凭证登录页 ==========
+  CREDENTIAL_LOGIN_TITLE: "Credential Login",
+  CREDENTIAL_LOGIN_SUBTITLE: "Login credentials for Tencent Cloud API access and TRTC service authentication",
+  SDK_APP_ID_LABEL: "SDKAppID",
+  SDK_APP_ID_PLACEHOLDER: "e.g. 1400000000",
+  SDK_APP_ID_DESC: "Tencent Cloud application identifier for API access and TRTC service authentication",
+  SECRET_KEY_LABEL: "SecretKey",
+  SECRET_KEY_PLACEHOLDER: "Enter your SecretKey",
+  SECRET_KEY_DESC: "Key used to generate login signatures. Never share it.",
+  USER_ID_LABEL: "User ID",
+  USER_ID_PLACEHOLDER: "e.g. administrator",
+  USER_ID_DESC: "Admin account for the management console. Defaults to administrator",
+  // ========== 凭证登录页 ==========
+  LOGIN_BTN: "Login",
+  LOGGING_IN: "Logging in...",
+  SECRET_KEY_MEMORY_ONLY: "SecretKey is stored in memory only. It will be lost when the page is refreshed.",
+  SHOW_SECRET: "Show",
+  HIDE_SECRET: "Hide",
+  TOGGLE_LOGIN_MODE: "Server Config",
+  CREDENTIAL_LOGIN_FAILED: "Login failed",
+  SDK_APP_ID_REQUIRED: "SDKAppID is required",
+  SECRET_KEY_REQUIRED: "SecretKey is required",
+  // ========== 凭证字段校验错误提示 ==========
+  /** SDKAppID 包含非数字字符 */
+  SDK_APP_ID_INVALID_FORMAT: "SDKAppID must contain only digits",
+  /** SDKAppID 位数不正确（非 8 或 10 位） */
+  SDK_APP_ID_INVALID_LENGTH: "SDKAppID must be 8 or 10 digits",
+  /** SDKAppID 不在有效号段内 */
+  SDK_APP_ID_INVALID_RANGE: "SDKAppID is not in a valid range",
+  /** SecretKey 长度不足 */
+  SECRET_KEY_TOO_SHORT: "SecretKey is too short (minimum 8 characters)",
+  /** User ID 为空 */
+  USER_ID_REQUIRED: "User ID is required",
+  /** User ID 过长（超过 TRTC 32 字节限制） */
+  USER_ID_TOO_LONG: "User ID is too long (max 32 bytes)",
+  // ========== 登录后凭证校验 ==========
+  /** 正在验证凭证是否有效 */
+  CREDENTIAL_VERIFYING: "Verifying credentials...",
+  /** 凭证验证失败（调 TRTC API 返回错误） */
+  CREDENTIAL_VERIFICATION_FAILED: "Credential verification failed. Please check your SDKAppID and SecretKey.",
+  // ========== 登录页顶部说明文案 ==========
+  /** 演示环境提示 */
+  LOGIN_DEMO_NOTICE: "This is an online demo environment for trial purposes only.",
+  /** 演示环境 - 集成文档链接文字 */
+  LOGIN_DEMO_INTEGRATION_DOC: "Integration Guide",
+  /** 服务端未配置提示 */
+  LOGIN_SERVER_NOT_CONFIGURED_NOTICE: "Server credentials not configured. You may log in manually below, but SecretKey is never persisted — re-entry is required on every refresh. Configure server-side credentials to skip this login screen entirely.",
+  /** 服务端配置 - 部署文档链接文字 */
+  LOGIN_SERVER_SETUP_GUIDE: "Setup Guide",
+  // ========== 凭证验证失败弹框内容 ==========
+  /** 弹框标题 */
+  CREDENTIAL_VERIFY_DIALOG_TITLE: "Login Failed",
+  /** SDKAppID 号段说明 */
+  CREDENTIAL_VERIFY_DIALOG_SDKAPPID_HINT: "Valid SDKAppID ranges:",
+  /** 国内站号段 */
+  CREDENTIAL_VERIFY_DIALOG_DOMESTIC: "Domestic: 1400000000–1699999999 (10 digits)",
+  /** 国际站号段 */
+  CREDENTIAL_VERIFY_DIALOG_INTERNATIONAL: "International: 20000000–99999999 (8 digits)",
+  /** 跨站号段 */
+  CREDENTIAL_VERIFY_DIALOG_CROSS_SITE: "Cross-site: 1720000000–1799999999 (10 digits)",
+  /** SecretKey 提示 */
+  CREDENTIAL_VERIFY_DIALOG_SECRETKEY_HINT: "You can get your SecretKey from the Tencent Cloud IM Console.",
+  /** 文档链接文字 */
+  CREDENTIAL_VERIFY_DIALOG_DOC_LINK: "View Documentation",
+  // ========== 登录字段帮助提示（气泡内容） ==========
+  /** SDKAppID 气泡：链接文字（无前缀） */
+  SDK_APP_ID_HELP_LINK: "How to get SDKAppID",
+  /** SecretKey 气泡：链接文字（前缀复用 SECRET_KEY_MEMORY_ONLY） */
+  SECRET_KEY_HELP_LINK: "How to get",
+  /** 用户 ID 气泡：前缀文字 */
+  USER_ID_HELP_PREFIX: "To use other admin accounts, please refer to",
+  /** 用户 ID 气泡：链接文字 */
+  USER_ID_HELP_LINK: "Admin Account Management",
+  // ========== Empty State Guide ==========
+  EMPTY_LIVE_LIST_TITLE: "No Live Rooms Yet",
+  EMPTY_LIVE_LIST_DESC: "Create your first live room to get started",
+  EMPTY_LIVE_MONITOR_TITLE: "No Ongoing Live",
+  EMPTY_LIVE_MONITOR_DESC: "Create a live room and monitor it in real-time here",
+  GO_CREATE_LIVE: "Go Create Live Room",
+  // ========== Demo Mode (online demo only, tree-shaken in release) ==========
+  TRY_DEMO_MODE: "Try Demo Mode",
+  DEMO_MODE_DESC: "Explore the full experience with sample data, no credentials needed",
+  DEMO_MARQUEE_BANNER: "This is an online demo. All data shown is simulated sample data",
+  DEMO_DEPLOYMENT_GUIDE: "Deployment Guide",
+  DEMO_PRODUCT_NAME: "Tencent Live Manager",
+  DEMO_GITHUB_TEXT: "Want more features? Submit an issue on GitHub",
+  DEMO_MARQUEE_CLOSE: "Close banner",
+  DEMO_BUILD_MARQUEE_PREFIX: "This demo site is for experience only. To integrate with your application, please refer to ",
+  DEMO_INTEGRATION_DOC: "Integration Documentation",
+  // ========== Header ==========
+  HEADER_LOGOUT: "Logout",
+  // ========== Gift Empty State ==========
+  EMPTY_GIFT_TITLE: "No Gifts Yet",
+  EMPTY_GIFT_DESC: "Add your first gift to get started",
+  // ========== Anchor ID Hint ==========
+  WHAT_IS_ANCHOR_ID: "What is Anchor ID?",
+  ANCHOR_ID_HELP_TEXT: "Anchor ID is the UserID of the TUILiveKit account, ",
+  ANCHOR_ID_NOT_FOUND_TIP: "Anchor ID does not exist. Anchor ID is the UserID of the TUILiveKit account, ",
+  // ========== Upload Hint ==========
+  UPLOAD_NOT_CONFIGURED_HINT: "Upload service is not configured. You can only enter a URL for this field."
+}, resource$1 = {
+  // ========== 直播列表 ==========
+  [I18N.LIVE_LIST]: "直播列表",
+  [I18N.LIVE_COVER]: "直播封面",
+  [I18N.CREATE_LIVE]: "新建直播间",
+  [I18N.ENTER_LIVE_ID_TO_SEARCH]: "输入直播间ID搜索",
+  [I18N.INPUT_EXCEEDS_LENGTH_LIMIT]: "输入超出长度限制",
+  [I18N.INPUT_TOO_LONG]: "输入过长",
+  [I18N.LIVE_NOT_FOUND]: "直播未找到",
+  [I18N.LIVE_ID]: "直播间 ID",
+  [I18N.LIVE_ID_AUTO]: "直播间 ID（自动生成）",
+  [I18N.LIVE_TITLE]: "直播标题",
+  [I18N.COVER_IMAGE]: "封面图片",
+  [I18N.ANCHOR_ID]: "主播ID",
+  [I18N.CREATE_TIME]: "创建时间",
+  [I18N.ACTIONS]: "操作",
+  [I18N.ENTER_LIVE]: "进入房间",
+  [I18N.EDIT]: "编辑",
+  [I18N.DISSOLVE]: "解散",
+  [I18N.DISSOLVE_CONFIRMATION]: "确认解散吗？",
+  [I18N.DISSOLVE_DESCRIPTION]: '解散后将停止直播，确定要解散"{{liveId}}"吗？',
+  [I18N.CANCEL]: "取消",
+  [I18N.CONFIRM]: "确认",
+  [I18N.CLOSE]: "关闭",
+  [I18N.DELETE]: "删除",
+  [I18N.ADD]: "添加",
+  [I18N.LOADING]: "加载中...",
+  [I18N.NO_LIVE_DATA]: "暂无直播数据",
+  [I18N.FIRST_PAGE]: "首页",
+  [I18N.PREVIOUS_PAGE]: "上一页",
+  [I18N.NEXT_PAGE]: "下一页",
+  [I18N.PAGE]: "第 {{page}} 页",
+  [I18N.LIVE_HOST]: "主播",
+  [I18N.BASIC_INFORMATION]: "基本信息",
+  [I18N.LIVE_INFORMATION]: "直播间信息",
+  [I18N.STREAM_INFO]: "推流信息",
+  [I18N.SERVER_URL]: "服务器地址",
+  [I18N.STREAM_KEY]: "推流密钥",
+  [I18N.GETTING_STREAM_INFO]: "获取推流信息中...",
+  [I18N.PUSH_STREAM_INFO]: "推流信息",
+  // ========== 直播监控 ==========
+  [I18N.LIVE_MONITOR]: "直播监控",
+  [I18N.LIVE_ROOM_MANAGEMENT]: "直播间管理",
+  [I18N.MONITOR_ALL_LIVES_IN_REAL_TIME]: "实时监控所有直播",
+  [I18N.NO_LIVE_RIGHT_NOW]: "当前没有直播",
+  [I18N.CLOSING]: "关闭中...",
+  [I18N.VIOLATION_WARNING]: "违规警告",
+  [I18N.SEND_VIOLATION_WARNING]: "发送违规警告",
+  [I18N.UNNAMED_LIVE]: "未命名直播",
+  [I18N.CURRENT_VIEWERS]: "实时在线人数",
+  [I18N.CURRENT_VIEWERS_TOOLTIP]: "实时在线的观众人数",
+  [I18N.COMMENT_COUNT]: "总评论数",
+  [I18N.COMMENT_COUNT_TOOLTIP]: "直播间累计收到的评论总数",
+  [I18N.LIVE_DATA_CONTROL]: "直播数据中控",
+  [I18N.LIVE_NOW]: "直播中",
+  [I18N.UPDATED_AT]: "更新于：{{time}}",
+  [I18N.LIVE_DURATION]: "直播时长",
+  // ========== 直播控制 ==========
+  [I18N.LIVE_CONTROL]: "直播控制",
+  [I18N.ROOM_DETAILS]: "房间详情",
+  [I18N.LIVE_DETAILS]: "直播间详情",
+  [I18N.BACK_TO_LIST]: "返回列表",
+  [I18N.FORCE_STOP]: "强制关播",
+  [I18N.FORCE_STOP_CONFIRM_CONTENT]: "操作后将立即解散直播间，主播及观众将被退出，且无法恢复。",
+  [I18N.CONFIRM_ACTION_TITLE]: "确定要{{action}}吗？",
+  [I18N.CONFIRM_ACTION_CONTENT]: "确定要{{action}}该直播吗？",
+  [I18N.ANCHOR_IS_NOT_STREAMING]: "主播未开播",
+  [I18N.LIVE_DATA]: "直播数据",
+  [I18N.VIEWER_COUNT]: "观众数",
+  [I18N.MESSAGE_COUNT]: "消息数",
+  [I18N.START_TIME]: "开始时间",
+  [I18N.DURATION]: "时长",
+  [I18N.MUTE_ALL]: "全部静音",
+  [I18N.UNMUTE_ALL]: "取消静音",
+  [I18N.AUDIENCE_LIST]: "观众列表",
+  [I18N.MUTED_LIST]: "已禁言列表",
+  [I18N.BANNED_LIST]: "已封禁列表",
+  [I18N.CHAT]: "聊天",
+  [I18N.AUDIENCE]: "观众",
+  [I18N.CONFIRM_BAN_LIVE]: "确认",
+  [I18N.LIVE_BANNED]: "直播已封禁",
+  [I18N.UNNAMED_LIVE_SHORT]: "未命名",
+  [I18N.CONTENT_MODERATION]: "互动内容审核",
+  [I18N.BULK_APPROVE]: "批量放行",
+  [I18N.BULK_DELETE]: "批量删除",
+  [I18N.CUSTOM_MODERATION_TOGGLE]: "全员内容审核",
+  [I18N.ACTION]: "操作",
+  [I18N.MORE_ACTIONS]: "更多操作",
+  [I18N.ME]: "我",
+  [I18N.USER]: "用户",
+  [I18N.USERID]: "发送方ID",
+  [I18N.CREATED_AT]: "创建时间",
+  [I18N.COMMENT_USERS]: "累计观看",
+  [I18N.COMMENT_USERS_TOOLTIP]: "累计观看次数",
+  [I18N.INTERACTION_RATE]: "互动率",
+  [I18N.INTERACTION_RATE_TOOLTIP]: "评论数占累计观看人数的比例，反映观众互动活跃度",
+  [I18N.GIFT_COUNT]: "打赏次数",
+  [I18N.GIFT_COUNT_TOOLTIP]: "直播期间礼物赠送的总次数",
+  [I18N.GIFT_SENDERS]: "打赏人数",
+  [I18N.GIFT_SENDERS_TOOLTIP]: "直播期间赠送过礼物的独立用户数",
+  [I18N.MUTED]: "已禁言",
+  [I18N.NO_MUTED_MEMBERS]: "暂无禁言成员",
+  [I18N.UNMUTE_TIME]: "解禁时间",
+  [I18N.BAN_LIFT_TIME]: "解封时间",
+  [I18N.ALL_MEMBER_MUTE]: "全员禁言",
+  [I18N.ALL_MEMBER_MUTE_ENABLED_BANNER]: "当前直播间已开启全员禁言，观众无法发送评论",
+  [I18N.BAN]: "封禁",
+  [I18N.APPROVE]: "放行",
+  [I18N.BYPASS_CORRECTION]: "加入审核白名单",
+  [I18N.BYPASS_CORRECTION_DIALOG_TITLE]: "确认要将该评论内容加入审核白名单？",
+  [I18N.BYPASS_CORRECTION_CONFIRM]: "加入审核白名单",
+  [I18N.RELEASE_AND_RESEND]: "放行并重发",
+  [I18N.BYPASS_CORRECTION_DESCRIPTION]: '预计5分钟内生效，生效后相同内容的评论内容将不会被识别为敏感内容，详细请查看<a href="https://cloud.tencent.com/document/product/269/106615" target="_blank">纠错功能</a>',
+  [I18N.MODERATION_EMPTY]: "暂无审核内容",
+  [I18N.SENSITIVE_TYPE]: "识别类型",
+  [I18N.COMMENT_CONTENT]: "评论内容",
+  [I18N.MESSAGE_LIST]: "消息列表",
+  [I18N.TOTAL_ITEMS]: "共 {{total}} 条",
+  [I18N.ENTER_MESSAGE_TO_SEND_AS_ADMIN]: "请输入管理员消息",
+  [I18N.FETCH_MUTED_LIST_FAILED]: "获取禁言列表失败：{{error}}",
+  [I18N.FETCH_BANNED_LIST_FAILED]: "获取封禁列表失败：{{error}}",
+  [I18N.USER_ACTION_WARNING]: "确定要{{action}}{{name}}吗？",
+  // ========== 禁言/封禁 确认弹框 ==========
+  [I18N.MUTE_CONFIRM_CONTENT]: "禁言后该用户将在 10 分钟内无法发送弹幕消息，确定要禁言 {{name}} 吗？",
+  [I18N.BAN_CONFIRM_CONTENT]: "封禁后该用户将在 1 小时内无法进入房间，确定要封禁 {{name}} 吗？",
+  [I18N.NORMAL]: "正常",
+  [I18N.PORN]: "色情",
+  [I18N.SENSITIVE]: "敏感",
+  [I18N.POLITICAL]: "政治",
+  [I18N.ADVERTISING]: "广告",
+  [I18N.ABUSE]: "谩骂",
+  [I18N.ILLEGAL]: "违法",
+  [I18N.VIOLENCE]: "暴恐",
+  [I18N.SEXY]: "性感",
+  [I18N.SPAM]: "灌水",
+  [I18N.MOAN]: "呻吟",
+  [I18N.UNKNOWN]: "未知",
+  // ========== 创建/编辑直播 ==========
+  [I18N.EDIT_LIVE]: "编辑直播",
+  [I18N.ENTER_ANCHOR_ID]: "输入主播ID",
+  [I18N.PLEASE_ENTER_HOST_ID_FIRST]: "请先输入主播ID",
+  [I18N.ENTER_LIVE_TITLE]: "输入直播标题",
+  [I18N.CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE]: "点击或拖拽上传封面图片",
+  [I18N.LAYOUT_TEMPLATE]: "布局模板",
+  [I18N.MAX_SEATS]: "最大座位数",
+  [I18N.MAX_SEATS_HELP]: "语聊房最大座位数",
+  [I18N.SEAT_COUNT_RANGE_1_16]: "座位数范围1-16",
+  [I18N.ENTER_MAX_SEAT_COUNT]: "输入最大座位数",
+  [I18N.STREAMING_METHOD]: "推流方式",
+  [I18N.USE_OBS_STREAMING]: "使用OBS推流",
+  [I18N.OBS_STREAMING_INFO_WILL_BE_DISPLAYED]: "创建时将显示OBS推流信息",
+  [I18N.LIVE_CREATED_SUCCESSFULLY_OBS]: "直播创建成功，OBS信息如下",
+  [I18N.PLEASE_ENTER_LIVE_TITLE]: "请输入直播标题",
+  [I18N.COPY_ID]: "复制ID",
+  [I18N.COPY_NAME]: "复制名称",
+  [I18N.NETWORK_ERROR]: "网络错误",
+  [I18N.NETWORK_TIMEOUT]: "请求超时，请检查网络",
+  // ========== 礼物管理 ==========
+  [I18N.GIFT_MANAGEMENT]: "礼物管理",
+  [I18N.GIFT_MATERIAL_CONFIG]: "礼物素材配置",
+  [I18N.ADD_GIFT]: "添加礼物",
+  [I18N.SEARCH_GIFT_PLACEHOLDER]: "搜索礼物ID、名称、描述...",
+  [I18N.ENTER_GIFT_ID]: "请输入礼物ID",
+  [I18N.RANDOM_GENERATE_ID]: "随机生成ID",
+  [I18N.ENTER_GIFT_NAME]: "请输入礼物名称",
+  [I18N.ENTER_GIFT_DESCRIPTION]: "请输入礼物描述",
+  [I18N.GIFT_LEVEL]: "礼物等级",
+  [I18N.GIFT_LEVEL_RANGE]: "礼物等级范围：{{min}}-{{max}}",
+  [I18N.GIFT_PRICE]: "礼物价格",
+  [I18N.GIFT_PRICE_RANGE]: "礼物价格范围：{{min}}-{{max}}",
+  [I18N.ENTER_GIFT_PRICE]: "输入礼物价格",
+  [I18N.ENTER_GIFT_LEVEL]: "输入礼物等级",
+  [I18N.ENTER_THUMBNAIL_URL]: "请输入缩略图URL",
+  [I18N.ENTER_FILE_URL]: "请输入文件URL",
+  [I18N.CLICK_OR_DRAG_TO_UPLOAD_THUMBNAIL]: "点击或拖拽上传缩略图",
+  [I18N.CLICK_OR_DRAG_TO_UPLOAD_MATERIAL]: "点击或拖拽上传素材",
+  [I18N.UPLOAD_THUMBNAIL_OR_ENTER_URL]: "请上传缩略图或输入URL",
+  [I18N.EXTENSION_INFO_JSON_FORMAT]: "扩展信息必须是合法的JSON格式",
+  [I18N.OPERATION_FAILED]: "操作失败：{{error}}",
+  [I18N.EDIT_GIFT]: "编辑礼物",
+  [I18N.CREATE_GIFT]: "创建礼物",
+  [I18N.SAVING]: "保存中...",
+  [I18N.CREATING]: "创建中...",
+  [I18N.SAVE]: "保存",
+  [I18N.CREATE]: "创建",
+  [I18N.GIFT_MATERIAL]: "礼物素材",
+  [I18N.CUSTOM_EXTENSION_INFO]: "自定义扩展信息",
+  [I18N.CANNOT_UNDO_AFTER_DELETE]: "删除后无法撤销",
+  // ========== 分类管理 ==========
+  [I18N.CATEGORY_MANAGEMENT]: "分类管理",
+  [I18N.GIFT_CATEGORY]: "礼物分类",
+  [I18N.ADD_CATEGORY]: "添加分类",
+  [I18N.CATEGORY_ID]: "分类ID",
+  [I18N.CATEGORY_NAME]: "分类名称",
+  [I18N.CATEGORY_DESCRIPTION]: "分类描述",
+  [I18N.ENTER_CATEGORY_ID]: "输入分类ID",
+  [I18N.ENTER_CATEGORY_NAME]: "输入分类名称",
+  [I18N.ENTER_CATEGORY_DESCRIPTION]: "输入分类描述",
+  [I18N.SELECT_CATEGORY]: "选择分类",
+  [I18N.SELECT_CATEGORY_LOWERCASE]: "选择分类",
+  [I18N.CATEGORY_ADDED]: "分类已添加",
+  [I18N.CATEGORY_REMOVED]: "分类已移除",
+  [I18N.CATEGORY_MULTILINGUAL_CONFIG]: "分类多语言配置",
+  [I18N.CATEGORY_MULTILINGUAL_CONFIG_TIP]: "为不同语言配置分类名称和描述。这些将根据用户的语言设置显示给用户。",
+  [I18N.EDIT_CATEGORY_LANGUAGE_INFO]: "编辑{{lang}}分类语言信息",
+  [I18N.EDIT_GIFT_LANGUAGE_INFO]: "编辑{{lang}}礼物语言信息",
+  [I18N.ENTER_LANGUAGE_CATEGORY_NAME]: "输入{{lang}}分类名称",
+  [I18N.ENTER_LANGUAGE_CATEGORY_DESCRIPTION]: "输入{{lang}}分类描述",
+  [I18N.ENTER_LANGUAGE_GIFT_NAME]: "输入{{lang}}礼物名称",
+  [I18N.ENTER_LANGUAGE_GIFT_DESCRIPTION]: "输入{{lang}}礼物描述",
+  [I18N.CREATE_CATEGORY]: "创建分类",
+  [I18N.EDIT_CATEGORY]: "编辑分类",
+  [I18N.EDIT_GIFT_CATEGORY]: "编辑礼物分类",
+  [I18N.GET_CATEGORY_LIST_FAILED]: "获取分类列表失败",
+  [I18N.CATEGORY_LIMIT_REACHED]: "已达到分类数量上限",
+  [I18N.REMOVE_CATEGORY_DESCRIPTION]: "确定要从该礼物中移除该分类吗？",
+  [I18N.NO_AVAILABLE_CATEGORIES]: "暂无可用分类",
+  // ========== 图片上传 ==========
+  [I18N.FILE_SIZE_EXCEEDS_MB]: "文件大小超过{{max}}MB",
+  [I18N.SUPPORTS_IMAGE_FORMATS_MAX_MB]: "支持JPG/PNG/GIF/WebP格式，最大{{max}}MB",
+  // ========== 消息列表 ==========
+  [I18N.MESSAGE_CONTENT_TOO_LONG]: "消息内容过长，最多{{max}}字符",
+  // ========== 自定义信息 ==========
+  [I18N.VALUE_EXCEEDS_2KB_LIMIT]: "值超过2KB限制",
+  [I18N.CUSTOM_INFO_MAX_COUNT]: "自定义信息最多{{max}}条",
+  // ========== 直播创建 ==========
+  // ========== 页面标题补充 ==========
+  [I18N.LIVE_ROOM_MANAGEMENT_PLATFORM]: "直播间管理平台",
+  // ========== Common ==========
+  [I18N.NO_DATA]: "暂无数据",
+  [I18N.NO_GIFT_DATA]: "暂无礼物数据",
+  [I18N.GIFT_ID]: "礼物ID",
+  [I18N.THUMBNAIL]: "缩略图",
+  [I18N.NAME]: "名称",
+  [I18N.DESCRIPTION]: "描述",
+  [I18N.CATEGORY]: "分类",
+  [I18N.LEVEL]: "等级",
+  [I18N.PRICE]: "价格",
+  [I18N.MULTILINGUAL_CONFIG]: "多语言配置",
+  [I18N.GIFT_MULTILINGUAL_CONFIG]: "礼物多语言配置",
+  [I18N.MULTILINGUAL_CONFIG_TIP]: "为不同语言配置礼物名称和描述。这些将根据用户的语言设置显示给用户。",
+  [I18N.LANGUAGE_TYPE]: "语言类型",
+  [I18N.SIMPLIFIED_CHINESE]: "简体中文",
+  [I18N.TRADITIONAL_CHINESE]: "繁体中文",
+  [I18N.ENGLISH]: "英语",
+  [I18N.REFRESH]: "刷新",
+  [I18N.VIEW_DETAILS]: "查看详情",
+  [I18N.VIEWS]: "次观看",
+  [I18N.UNKNOWN_HOST]: "未知主播",
+  // ========== 额外常量 ==========
+  [I18N.UNMUTE]: "取消禁言",
+  [I18N.UNMUTING]: "取消中...",
+  [I18N.UNBAN]: "解除封禁",
+  [I18N.UNBANNING]: "解除中...",
+  [I18N.MUTE]: "禁言",
+  [I18N.SENDING]: "发送中...",
+  [I18N.SEND_MESSAGE]: "发送消息",
+  [I18N.MESSAGE_CONTENT_REQUIRED]: "请输入消息内容",
+  [I18N.LIVE_ENDED]: "直播已结束",
+  [I18N.NO_BANNED_MEMBERS]: "暂无封禁成员",
+  [I18N.PLEASE_SELECT_AT_LEAST_ONE_ITEM]: "请至少选择一项",
+  [I18N.RELEASE_AND_RESEND_DESCRIPTION]: "放行该用户的内容并重新发送",
+  [I18N.BULK_APPROVE_CONFIRM_CONTENT]: "将放行并重新发送选中的评论内容",
+  [I18N.REFRESH_SUCCESS]: "刷新成功",
+  [I18N.UNKNOWN_ERROR]: "未知错误",
+  [I18N.SEND_FAILED]: "发送失败",
+  [I18N.NOT_CONFIGURED]: "未配置",
+  [I18N.CREATE_CATEGORY_FIRST]: "请先创建分类",
+  [I18N.DYNAMIC_GRID_LAYOUT]: "动态宫格布局",
+  [I18N.FLOATING_WINDOW_LAYOUT]: "浮动小窗布局",
+  [I18N.FIXED_GRID_LAYOUT]: "固定宫格布局",
+  [I18N.FIXED_WINDOW_LAYOUT]: "固定小窗布局",
+  [I18N.LANDSCAPE_BROADCASTING]: "横屏直播",
+  [I18N.DYNAMIC_GRID_LAYOUT_DESC]: "根据连麦人数动态调整网格大小",
+  [I18N.FLOATING_WINDOW_DESC]: "连麦者以悬浮窗口显示",
+  [I18N.FIXED_GRID_DESC]: "每个连麦者占据固定网格",
+  [I18N.FIXED_WINDOW_DESC]: "连麦者以固定窗口显示",
+  [I18N.LANDSCAPE_BROADCASTING_DESC]: "1个主播视频 + 3个语音座位",
+  [I18N.LANDSCAPE_BROADCASTING_HINT]: "仅适用于web端开播",
+  [I18N.ENTER_IMAGE_URL]: "输入图片URL",
+  [I18N.CUSTOM_INFORMATION]: "自定义信息",
+  [I18N.TOTAL_GIFT_AMOUNT]: "打赏总金额",
+  [I18N.TOTAL_GIFT_AMOUNT_TOOLTIP]: "直播期间所有用户赠送礼物的累计金额",
+  [I18N.HOST]: "主播",
+  [I18N.MONITOR]: "监控",
+  [I18N.MORE]: "更多",
+  [I18N.DAYS]: "天",
+  [I18N.ENABLE_ALL_MEMBER_MUTE]: "开启全员禁言",
+  [I18N.ENABLE_ALL_MEMBER_MUTE_CONFIRM_CONTENT]: "观众将无法发送评论，是否确认开启？",
+  [I18N.CONFIRM_ENABLE]: "确认开启",
+  [I18N.VIOLATION_WARNING_SEND_CONFIRM]: "确认发送违规警告",
+  [I18N.VIOLATION_WARNING_CONFIRM_CONTENT]: "当前直播间存在潜在违规风险，是否向主播发送违规警告？",
+  [I18N.VIOLATION_WARNING_CONTENT_TEMPLATE]: '直播间 "{{liveName}}" 收到违规警告，请立即整改',
+  [I18N.VIOLATION_WARNING_DEFAULT_SUGGESTION]: "请遵守平台规则，删除违规内容",
+  [I18N.VIOLATION_TYPE_WARNING]: "警告",
+  [I18N.VIOLATION_SUGGESTION_PORN]: "请立即删除不当内容，多次违规将导致直播间封禁",
+  [I18N.VIOLATION_SUGGESTION_POLITICAL]: "请勿讨论政治敏感话题，请遵守相关法律法规",
+  [I18N.VIOLATION_SUGGESTION_ABUSE]: "请文明用语，停止辱骂攻击行为",
+  [I18N.VIOLATION_SUGGESTION_ADVERTISING]: "请勿发布未经审核的广告内容",
+  [I18N.VIOLATION_SUGGESTION_ILLEGAL]: "请勿进行违法违规活动",
+  [I18N.VIOLATION_SUGGESTION_SEXY]: "请保持直播间内容健康，避免低俗内容",
+  [I18N.VIOLATION_SUGGESTION_VIOLENCE]: "请勿展示暴力血腥内容",
+  [I18N.VIOLATION_SUGGESTION_DEFAULT]: "您的内容涉嫌违规，请立即整改",
+  [I18N.UPLOAD_IMAGE]: "上传图片",
+  [I18N.ENTER_URL]: "输入 URL",
+  [I18N.UPLOAD_SUCCESS]: "上传成功",
+  [I18N.UPLOAD_FAILED]: "上传失败",
+  [I18N.UPLOADING]: "上传中...",
+  [I18N.VALIDATING]: "验证中...",
+  [I18N.PENDING_UPLOAD]: "待上传",
+  [I18N.RE_UPLOAD]: "重新上传",
+  [I18N.RETURN_TO_LIVE_LIST]: "返回直播列表",
+  [I18N.REFRESH_OFF]: "关闭刷新",
+  [I18N.NUMBER_OF_GIFTS]: "礼物数量",
+  [I18N.TOTAL_VALUE_SIZE_EXCEEDS_16KB]: "总值大小超过16KB",
+  [I18N.ONE_MINUTE]: "1分钟",
+  [I18N.FIVE_MINUTES]: "5分钟",
+  [I18N.TEN_SECONDS]: "10秒",
+  [I18N.THIRTY_SECONDS]: "30秒",
+  [I18N.COMPLETE]: "完成",
+  [I18N.CLEAR]: "清空",
+  // 新增：独立翻译（不与其他键重复）
+  [I18N.GIFT_NAME]: "礼物名称",
+  // ========== 补充翻译：之前缺失的中文翻译 ==========
+  // 直播列表/搜索
+  [I18N.NO_SEARCH_RESULTS_FOR]: "未找到搜索结果：{{keyword}}",
+  [I18N.SEARCH_EXACT_ID_HINT]: "当前搜索必须使用完整的直播间 ID 才能搜索到，暂不支持模糊搜索",
+  // 创建/编辑直播
+  [I18N.PLEASE_ENTER_ANCHOR_ID]: "请输入主播ID",
+  [I18N.OBS_READY_COPY_INFO]: "OBS已就绪，请复制以下推流信息",
+  // 礼物管理
+  [I18N.GET_GIFT_LIST_FAILED]: "获取礼物列表失败",
+  [I18N.DELETE_FAILED]: "删除失败",
+  [I18N.SUPPORT_MP4_SVGA_MAX_10MB]: "支持 MP4/SVGA 格式，最大 10MB",
+  // 多语言配置
+  // 图片上传
+  [I18N.CLICK_OR_DRAG_TO_UPLOAD_IMAGE]: "点击或拖拽上传图片",
+  [I18N.IMAGE_URL_INVALID]: "图片地址无效",
+  [I18N.IMAGE_LOAD_FAILED]: "图片加载失败",
+  [I18N.IMAGE_LOADING]: "图片加载中...",
+  [I18N.FILE_LOAD_FAILED]: "文件加载失败",
+  [I18N.COVER_PROCESSING_FAILED]: "封面处理失败",
+  [I18N.CROP_IMAGE]: "裁剪图片",
+  [I18N.CROP_FAILED]: "裁剪失败",
+  [I18N.CONFIRM_CROP]: "确认裁剪",
+  // 自定义信息
+  [I18N.ENTER_KEY]: "请输入键",
+  [I18N.ENTER_VALUE]: "请输入值",
+  [I18N.CUSTOM_INFO_KEY_REQUIRED]: "请输入自定义信息的键",
+  // 通用
+  [I18N.COPY]: "复制",
+  [I18N.HOST_AVATAR]: "主播头像",
+  [I18N.GET_ERROR_MESSAGE]: "获取错误信息",
+  [I18N.CREATE_FAILED]: "创建失败",
+  [I18N.REQUEST_FAILED]: "请求失败",
+  [I18N.REFRESH_FAILED]: "刷新失败",
+  // ========== 直接使用英文字符串作为键的翻译（已纳入 I18N 常量体系） ==========
+  [I18N.UNKNOWN_ANCHOR]: "未知主播",
+  [I18N.AVATAR_ALT]: "{{name}} 的头像",
+  [I18N.FOUND_RESULTS]: "找到 {{count}} 条结果",
+  [I18N.NO_GIFT_FOUND]: "未找到礼物：{{keyword}}",
+  [I18N.CUSTOM_INFO_MAX_COUNT_EXCEEDED]: "自定义信息条数超过上限（最多 {{max}} 条）",
+  [I18N.KEY_VALUE_EXCEEDS_2KB]: "键 {{key}} 的值超过 2KB",
+  // ========== ChatErrorModal (tuikit-atomicx) ==========
+  // 这些键由 tuikit-atomicx-react 的 ChatErrorModal 组件使用。
+  // 直接注册在此以确保在自动化测试等环境下始终可用，避免模块加载时序问题。
+  // 注意：必须使用嵌套对象结构，因为 i18next 通过遍历嵌套资源树来解析
+  // 点号分隔的键名（如 "ChatErrorModal.title"）。
+  ChatErrorModal: {
+    title: "错误",
+    login_invalid_sdk_app_id: '缺少正确的 SDKAppID，您可以通过<a target="_blank" href="https://console.cloud.tencent.com/im">即时通信 IM 控制台</a>获取。',
+    login_invalid_user_id: "缺少正确的 userID，userID 格式为非空字符串。",
+    login_invalid_secret_key: '缺少正确的 secretKey，您可以通过<a target="_blank" href="https://console.cloud.tencent.com/im">即时通信 IM 控制台</a>获取。',
+    login_invalid_user_sig: '缺少正确的 userSig，您可以通过<a target="_blank" href="https://console.cloud.tencent.com/im/tool-usersig">即时通信 IM 控制台 > 开发工具 > UserSig生成&校验</a>获取。',
+    login_user_sig_expired: 'userSig 已过期，您可以通过<a target="_blank" href="https://console.cloud.tencent.com/im/tool-usersig">即时通信 IM 控制台 > 开发工具 > UserSig生成&校验</a>重新获取。',
+    login_user_sig_invalid: 'UserSig 非法，请使用官网提供的 API 重新生成 UserSig（<a target="_blank" href="https://cloud.tencent.com/document/product/269/32688">文档</a>）。',
+    login_user_id_not_match_user_sig: '请求中的 UserID 与生成 UserSig 时使用的 UserID 不一致，您可以使用<a target="_blank" href="https://console.cloud.tencent.com/im/tool-usersig">即时通信 IM 控制台 > 开发工具 > UserSig生成&校验</a>校验 UserSig。',
+    login_sdk_app_id_not_match_user_sig: '请求中的 SDKAppID 与生成 UserSig 时使用的 SDKAppID 不一致。您可以使用<a target="_blank" href="https://console.cloud.tencent.com/im/tool-usersig">即时通信 IM 控制台 > 开发工具 > UserSig生成&校验</a>校验 UserSig。',
+    login_sdk_app_id_not_found: 'SDKAppID 未找到，请在<a target="_blank" href="https://console.cloud.tencent.com/im">即时通信 IM 控制台</a>确认应用信息。',
+    package_not_purchased: '您未购买套餐包，或套餐包已过期，或购买的套餐包正在配置中暂未生效。请登录<a target="_blank" href="https://buy.cloud.tencent.com/avc">即时通信 IM 购买页面</a>重新购买套餐包。购买后，将在5分钟后生效。',
+    package_group_read_receipt_not_enabled: '您当前购买使用的套餐包暂未开通群消息已读回执功能，您可以升级到套餐为<a target="_blank" href="https://buy.cloud.tencent.com/avc">旗舰版</a>。',
+    package_online_user_list_not_enabled: '您当前购买使用的套餐包暂未开通在线用户列表功能，您可以升级到套餐为<a target="_blank" href="https://buy.cloud.tencent.com/avc">旗舰版</a>。',
+    package_cloud_search_not_enabled: '您当前购买使用的套餐包暂未开通云端搜索功能，您可以开通<a target="_blank" href="https://cloud.tencent.com/document/product/269/101046">云端搜索</a>。',
+    package_text_translation_not_enabled: '您当前购买使用的套餐包暂未开通文本消息翻译功能，您可以开通<a target="_blank" href="https://cloud.tencent.com/document/product/269/92661">文本消息翻译</a>。',
+    package_speech_to_text_not_enabled: '您当前购买使用的套餐包暂未开通语音转文字功能，您可以开通<a target="_blank" href="https://cloud.tencent.com/document/product/269/110626">语音转文字</a>。',
+    call_kit_not_integrated: '检测到您暂未集成TUICallKit，无法体验音视频通话功能，可以参考：<a target="_blank" href="https://cloud.tencent.com/document/product/269/79861">接入 TUICallKit</a>。',
+    search_cloud_rate_limit: "云端搜索请求超过后台频率限制，单用户一秒内允许2次搜索请求，请稍后再试。",
+    message_voice_size_exceeded: "语音大小超出了限制，如果上传语音，最大限制是 20MB。",
+    message_image_invalid_format: "图片消息发送失败，无效的图片格式，图片格式支持：jpg、jpeg、gif、png、bmp、image、webp。",
+    message_image_size_exceeded: "图片大小超出了限制，如果上传文件，最大限制是 20MB。",
+    message_image_sensitive_content: "消息中图片存在敏感内容，发送失败。",
+    message_video_invalid_format: "视频消息发送失败，无效的视频格式，视频格式支持：mp4、quicktime、mov。",
+    message_video_size_exceeded: "视频大小超出了限制，如果上传视频，最大限制是 100MB。",
+    message_file_not_exist: "文件不存在，请检查文件路径是否正确。",
+    message_file_size_exceeded: "文件大小超出了限制，如果上传文件，最大限制是 100MB。",
+    message_file_sending_banned: "文件消息失败，禁止发送违规封禁的文件。",
+    message_text_sensitive_content: "消息或者资料中文本存在敏感内容，发送失败。",
+    message_length_exceeded: "消息长度超出限制，消息长度不要超过 12K。",
+    message_local_audit_blocked: "文本包含本地审核拦截词。",
+    message_recall_time_exceeded: "超过撤回时间限制。消息撤回超过了时间限制（默认2分钟）。",
+    reaction_emoji_limit_reached: "已达到表情回应上限数量。",
+    profile_remark_length_exceeded: "修改备注失败：备注长度不得超过 96 字节。",
+    group_announcement_length_exceeded: "群公告字数超出限制，最大长度为 150。",
+    group_name_invalid: "群名称仅限中文、字母、数字和下划线，2-20个字。",
+    group_id_already_used: "群组 ID 已被使用。请选择其他的群组 ID。"
+  },
+  // ========== 组合模板翻译 ==========
+  [I18N.MAX_BYTES]: "{{field}}不能超过{{max}}字节",
+  [I18N.MAX_BYTES_WITH_CURRENT]: "{{field}}不能超过{{max}}字节（当前 {{current}}）",
+  // 统一操作结果模板
+  // 注意：中英文模板参数顺序不同，i18next 按参数名匹配，可放心使用
+  [I18N.OP_SUCCESS]: "{{entity}}已{{action}}",
+  [I18N.OP_FAILED]: "{{action}}{{entity}}失败",
+  // 操作名词
+  [I18N.OP_SEARCH]: "搜索",
+  [I18N.OP_UPLOAD]: "上传",
+  [I18N.OP_SEND]: "发送",
+  [I18N.OP_UPDATE]: "更新",
+  [I18N.OP_REQUEST]: "请求",
+  [I18N.OP_LOGIN]: "登录",
+  [I18N.OP_READY]: "就绪",
+  [I18N.OP_ENABLE]: "开启",
+  [I18N.OP_DISABLE]: "关闭",
+  // 短动词
+  [I18N.OP_LOAD]: "加载",
+  [I18N.OP_LOAD_LIVE_LIST]: "加载直播列表",
+  [I18N.OP_GET_STREAM_INFO]: "获取推流信息",
+  [I18N.OP_IMPORT]: "导入账号",
+  [I18N.OP_ADD]: "添加机器人",
+  [I18N.OP_PICK]: "上麦",
+  [I18N.OP_GET_LIST]: "获取列表",
+  [I18N.OP_GET_SEATS]: "获取座位列表",
+  [I18N.OP_GET_MUTED]: "获取禁言列表",
+  [I18N.OP_GET_BANNED]: "获取封禁列表",
+  [I18N.OP_GET_STREAM]: "获取推流信息",
+  [I18N.OP_OBS_SETUP_ACT]: "OBS配置",
+  [I18N.OP_CROP_ACT]: "裁剪",
+  // ========== 实体 / 动词 label ==========
+  [I18N.LABEL_CREATED]: "创建",
+  [I18N.LABEL_UPDATED]: "更新",
+  [I18N.LABEL_DELETED]: "删除",
+  [I18N.GIFT]: "礼物",
+  [I18N.LIVE]: "直播间",
+  [I18N.IMAGE]: "图片",
+  [I18N.LANGUAGE_CONFIG]: "语言配置",
+  // ========== 操作名称 ==========
+  [I18N.GLOBAL_MUTE_TOGGLE]: "全局禁言切换",
+  [I18N.FETCH_LIVE_INFO]: "获取直播信息",
+  [I18N.SEND_ADMIN_MESSAGE]: "发送管理员消息",
+  [I18N.GIFT_SAVE]: "礼物保存",
+  [I18N.GIFT_DELETE_OPERATION]: "删除礼物",
+  [I18N.GIFT_MULTILINGUAL_SAVE]: "保存礼物多语言",
+  [I18N.GIFT_CATEGORY_ADD_OPERATION]: "添加礼物类别",
+  [I18N.GIFT_CATEGORY_REMOVE_OPERATION]: "移除礼物类别",
+  [I18N.CATEGORY_SAVE]: "保存类别",
+  [I18N.CATEGORY_MULTILINGUAL_SAVE]: "保存类别多语言",
+  [I18N.CATEGORY_DELETE_OPERATION]: "删除类别",
+  // ========== 凭证登录页 ==========
+  [I18N.CREDENTIAL_LOGIN_TITLE]: "凭证登录",
+  [I18N.CREDENTIAL_LOGIN_SUBTITLE]: "登录凭证用于腾讯云 API 访问以及 TRTC 服务鉴权",
+  [I18N.SDK_APP_ID_LABEL]: "SDKAppID",
+  [I18N.SDK_APP_ID_PLACEHOLDER]: "例如 1400000000",
+  [I18N.SDK_APP_ID_DESC]: "腾讯云应用标识，用于 API 访问及 TRTC 服务鉴权",
+  [I18N.SECRET_KEY_LABEL]: "SecretKey",
+  [I18N.SECRET_KEY_PLACEHOLDER]: "输入您的 SecretKey",
+  [I18N.SECRET_KEY_DESC]: "用于生成登录签名的密钥，请勿泄露",
+  [I18N.USER_ID_LABEL]: "用户 ID",
+  [I18N.USER_ID_PLACEHOLDER]: "例如 administrator",
+  [I18N.USER_ID_DESC]: "登录管理后台的账号，默认为 administrator",
+  [I18N.LOGIN_BTN]: "登录",
+  [I18N.LOGGING_IN]: "登录中...",
+  [I18N.SECRET_KEY_MEMORY_ONLY]: "SecretKey 仅存储在浏览器内存中，刷新页面后需重新输入。",
+  [I18N.SHOW_SECRET]: "显示",
+  [I18N.HIDE_SECRET]: "隐藏",
+  [I18N.TOGGLE_LOGIN_MODE]: "服务端配置",
+  [I18N.CREDENTIAL_LOGIN_FAILED]: "登录失败",
+  [I18N.SDK_APP_ID_REQUIRED]: "请输入 SDKAppID",
+  [I18N.SECRET_KEY_REQUIRED]: "请输入 SecretKey",
+  // ========== 凭证字段校验错误提示 ==========
+  [I18N.SDK_APP_ID_INVALID_FORMAT]: "SDKAppID 只能包含数字",
+  [I18N.SDK_APP_ID_INVALID_LENGTH]: "SDKAppID 需为 8 位或 10 位数字",
+  [I18N.SDK_APP_ID_INVALID_RANGE]: "SDKAppID 不在有效号段范围内",
+  [I18N.SECRET_KEY_TOO_SHORT]: "SecretKey 过短（至少 8 个字符）",
+  [I18N.USER_ID_REQUIRED]: "请输入用户 ID",
+  [I18N.USER_ID_TOO_LONG]: "用户 ID 过长（最多 32 字节）",
+  // ========== 登录后凭证校验 ==========
+  [I18N.CREDENTIAL_VERIFYING]: "正在验证凭证...",
+  [I18N.CREDENTIAL_VERIFICATION_FAILED]: "凭证验证失败，请检查 SDKAppID 和 SecretKey 是否正确。",
+  // ========== 登录页顶部说明文案 ==========
+  [I18N.LOGIN_DEMO_NOTICE]: "当前为在线演示环境，仅供功能体验使用。如需接入您的应用，请参考",
+  [I18N.LOGIN_DEMO_INTEGRATION_DOC]: "集成文档",
+  [I18N.LOGIN_SERVER_NOT_CONFIGURED_NOTICE]: "当前服务端尚未配置登录凭证，你可以通过下方表单手动登录。出于安全考虑，SecretKey 不会保存在浏览器中，每次刷新页面都需重新输入。建议在服务端完成配置，此后将自动跳过登录页面。",
+  [I18N.LOGIN_SERVER_SETUP_GUIDE]: "部署指引",
+  // ========== 凭证验证失败弹框内容 ==========
+  [I18N.CREDENTIAL_VERIFY_DIALOG_TITLE]: "登录失败",
+  [I18N.CREDENTIAL_VERIFY_DIALOG_SDKAPPID_HINT]: "SDKAppID 有效号段：",
+  [I18N.CREDENTIAL_VERIFY_DIALOG_DOMESTIC]: "国内站：1400000000–1699999999（10 位）",
+  [I18N.CREDENTIAL_VERIFY_DIALOG_INTERNATIONAL]: "国际站：20000000–99999999（8 位）",
+  [I18N.CREDENTIAL_VERIFY_DIALOG_CROSS_SITE]: "跨站号段：1720000000–1799999999（10 位）",
+  [I18N.CREDENTIAL_VERIFY_DIALOG_SECRETKEY_HINT]: "SecretKey 可从腾讯云 IM 控制台获取。",
+  [I18N.CREDENTIAL_VERIFY_DIALOG_DOC_LINK]: "查看文档",
+  // ========== 登录字段帮助提示 ==========
+  [I18N.SDK_APP_ID_HELP_LINK]: "如何获取SDKAppID",
+  [I18N.SECRET_KEY_HELP_LINK]: "如何获取",
+  [I18N.USER_ID_HELP_PREFIX]: "如需使用其他管理员账号请参考",
+  [I18N.USER_ID_HELP_LINK]: "管理员账号管理",
+  // ========== 空态引导 ==========
+  [I18N.EMPTY_LIVE_LIST_TITLE]: "还没有直播间",
+  [I18N.EMPTY_LIVE_LIST_DESC]: "立即创建您的第一场直播，开始体验",
+  [I18N.EMPTY_LIVE_MONITOR_TITLE]: "当前没有进行中的直播",
+  [I18N.EMPTY_LIVE_MONITOR_DESC]: "创建直播间后，可在此实时监控直播画面与互动数据",
+  [I18N.GO_CREATE_LIVE]: "去创建直播间",
+  // ========== 演示模式（仅在线 demo，release 中被 tree-shake） ==========
+  [I18N.TRY_DEMO_MODE]: "体验演示模式",
+  [I18N.DEMO_MODE_DESC]: "使用示例数据体验完整功能，无需输入凭证",
+  [I18N.DEMO_MARQUEE_BANNER]: "当前为在线演示版本，所有数据均为模拟数据，仅供功能体验",
+  [I18N.DEMO_DEPLOYMENT_GUIDE]: "部署指引",
+  [I18N.DEMO_PRODUCT_NAME]: "腾讯直播管理系统",
+  [I18N.DEMO_GITHUB_TEXT]: "想要更多功能，可到 GitHub 提交 Issue",
+  [I18N.DEMO_MARQUEE_CLOSE]: "关闭",
+  [I18N.DEMO_BUILD_MARQUEE_PREFIX]: "该演示网站仅供体验使用，如需接入您的应用，请参考",
+  [I18N.DEMO_INTEGRATION_DOC]: "集成文档",
+  // ========== Header ==========
+  [I18N.HEADER_LOGOUT]: "退出登录",
+  // ========== 礼物空态 ==========
+  [I18N.EMPTY_GIFT_TITLE]: "还没有礼物",
+  [I18N.EMPTY_GIFT_DESC]: "立即添加第一个礼物，开始配置",
+  // ========== 主播 ID 提示 ==========
+  [I18N.WHAT_IS_ANCHOR_ID]: "什么是主播 ID？",
+  [I18N.ANCHOR_ID_HELP_TEXT]: "主播 ID 为 TUILiveKit 账号的 UserID，",
+  [I18N.ANCHOR_ID_NOT_FOUND_TIP]: "主播 ID 不存在，主播 ID 为 TUILiveKit 账号的 UserID，",
+  // ========== 上传提示 ==========
+  [I18N.UPLOAD_NOT_CONFIGURED_HINT]: "上传功能未配置，当前仅支持输入链接"
+};
+function createT(Oo) {
+  return (No, jo) => Oo(No, jo);
+}
+const resolve = (Oo, No) => {
+  try {
+    return Oo(No);
+  } catch {
+    return No;
+  }
+};
+function bindI18nHelpers(Oo) {
+  return {
+    opSuccess: (No, jo) => Oo(I18N.OP_SUCCESS, { entity: jo ? resolve(Oo, jo) : "", action: resolve(Oo, No) }),
+    opFailed: (No, jo, Go) => {
+      const Ho = Oo(I18N.OP_FAILED, { entity: jo ? resolve(Oo, jo) : "", action: resolve(Oo, No) });
+      return Go ? `${Ho}: ${Go}` : Ho;
+    }
+  };
+}
+const ChatErrorModal = {
+  title: "Error",
+  login_invalid_sdk_app_id: 'Missing correct SDKAppID. You can obtain it via the <a target="_blank" href="https://console.trtc.io/">Chat Console</a>.',
+  login_invalid_user_id: "Missing correct userID. The userID format should be a non-empty string.",
+  login_invalid_secret_key: 'Missing correct secretKey. You can obtain it via the <a target="_blank" href="https://console.trtc.io/">Chat Console</a>.',
+  login_invalid_user_sig: 'Missing correct userSig. You can obtain it via <a target="_blank" href="https://console.trtc.io/">Chat > Auxiliary Tools > UserSig Tools</a>.',
+  login_user_sig_expired: 'userSig has expired. You can regenerate it via <a target="_blank" href="https://console.trtc.io/">Chat > Auxiliary Tools > UserSig Tools</a>.',
+  login_user_sig_invalid: 'Invalid UserSig. Please use the official API to regenerate UserSig (<a target="_blank" href="https://cloud.tencent.com/document/product/269/32688">Documentation</a>).',
+  login_user_id_not_match_user_sig: 'The UserID in the request does not match the UserID used to generate the userSig. You can use <a target="_blank" href="https://console.trtc.io/">Chat > Auxiliary Tools > UserSig Tools</a>.',
+  login_sdk_app_id_not_match_user_sig: 'The SDKAppID in the request does not match the SDKAppID used to generate the userSig. You can use <a target="_blank" href="https://console.trtc.io/">Chat > Auxiliary Tools > UserSig Tools</a>.',
+  login_sdk_app_id_not_found: 'SDKAppID not found. Please confirm the application information in the <a target="_blank" href="https://console.trtc.io/">Chat Console</a>.',
+  package_not_purchased: 'You have not purchased a plan package, or the package has expired, or the purchased package is being configured and not yet effective. Please log in to the <a target="_blank" href="https://console.trtc.io/subscription/buy/chat?packType=pro">Chat Purchase Page</a> to repurchase the package. It will take effect 5 minutes after purchase.',
+  package_group_read_receipt_not_enabled: 'The plan package you are currently using has not enabled the group message read receipt feature. You can upgrade to the <a target="_blank" href="https://console.trtc.io/subscription/buy/chat?packType=pro">Pro</a>.',
+  package_online_user_list_not_enabled: 'The plan package you are currently using has not enabled the online user list feature. You can upgrade to the <a target="_blank" href="https://console.trtc.io/subscription/buy/chat?packType=pro">Pro</a>.',
+  package_cloud_search_not_enabled: 'The plan package you are currently using has not enabled the cloud search feature. You can enable <a target="_blank" href="https://console.trtc.io/chat/plugin/TUICloudSearch">Cloud Search</a>.',
+  package_text_translation_not_enabled: 'The text message translation feature is currently offered for free. You can contact us through the <a target="_blank" href="https://t.me/+EPk6TMZEZMM5OGY1">Telegram technical exchange group</a> to enable and experience the full feature.',
+  package_speech_to_text_not_enabled: 'The plan package you are currently using has not enabled the speech-to-text feature. You can enable <a target="_blank" href="https://cloud.tencent.com/document/product/269/110626">Speech-to-Text</a>.',
+  call_kit_not_integrated: 'It is detected that you have not integrated TUICallKit, so you cannot experience the audio and video call functionality. You can refer to: <a target="_blank" href="https://trtc.io/zh/document/64468?product=chat&menulabel=uikit&platform=react">integrate TUICallKit</a>.',
+  search_cloud_rate_limit: "Cloud search request exceeds the backend frequency limit. Each user is allowed 2 search requests per second. Please try again later.",
+  message_voice_size_exceeded: "The voice size exceeds the limit. The maximum size for uploading a voice message is 20MB.",
+  message_image_invalid_format: "Image message sending failed. Invalid image format. Supported image formats are: jpg, jpeg, gif, png, bmp, image, webp.",
+  message_image_size_exceeded: "The image size exceeds the limit. The maximum size for uploading an image is 20MB.",
+  message_image_sensitive_content: "The image in the message contains sensitive content. Sending failed.",
+  message_video_invalid_format: "Video message sending failed. Invalid video format. Supported video formats are: mp4, quicktime, mov.",
+  message_video_size_exceeded: "The video size exceeds the limit. The maximum size for uploading a video is 100MB.",
+  message_file_not_exist: "The file does not exist. Please check if the file path is correct.",
+  message_file_size_exceeded: "The file size exceeds the limit. The maximum size for uploading a file is 100MB.",
+  message_file_sending_banned: "File message failed. Sending prohibited or banned files is not allowed.",
+  message_text_sensitive_content: "The text in the message or profile contains sensitive content. Sending failed.",
+  message_length_exceeded: "The message length exceeds the limit. The message length should not exceed 12K.",
+  message_local_audit_blocked: "The text contains locally blocked words for review.",
+  message_recall_time_exceeded: "Exceeded the recall time limit. Message recall has exceeded the time limit (default 2 minutes).",
+  reaction_emoji_limit_reached: "The maximum number of emoji reactions has been reached.",
+  profile_remark_length_exceeded: "Failed to modify the remark: the remark length must not exceed 96 bytes.",
+  group_announcement_length_exceeded: "The group announcement word count exceeds the limit. The maximum length is 150.",
+  group_name_invalid: "The group name can only contain Chinese characters, letters, numbers, and underscores, and must be 2-20 characters long.",
+  group_id_already_used: "The group ID is already in use. Please choose another group ID."
+}, resource = {
+  ChatErrorModal
+}, autoEnResource = {};
+for (const Oo of Object.values(I18N))
+  autoEnResource[Oo] = Oo;
+const enResource = {
+  ...autoEnResource,
+  ...resource
+}, CUSTOMER_EXTENSION_PROTOCOL_VERSION = "1";
 function resolveBrandConfig(Oo, No) {
   return {
     ...Oo,
@@ -70,13 +1187,13 @@ function resolveRuntimeConfig(Oo, No) {
   };
 }
 function resolveMenus(Oo, No, jo) {
-  const Go = new Set(No?.hidden ?? []), Qo = No?.rename ?? {}, Ho = new Map((No?.order ?? []).map((Xo, Fo) => [Xo, Fo])), Vo = Oo.filter((Xo) => !Xo.hidden).filter((Xo) => !Go.has(Xo.key)).filter((Xo) => !Xo.feature || jo?.[Xo.feature] !== !1).map((Xo, Fo) => ({
+  const Go = new Set(No?.hidden ?? []), Ho = No?.rename ?? {}, Qo = new Map((No?.order ?? []).map((Xo, Fo) => [Xo, Fo])), Vo = Oo.filter((Xo) => !Xo.hidden).filter((Xo) => !Go.has(Xo.key)).filter((Xo) => !Xo.feature || jo?.[Xo.feature] !== !1).map((Xo, Fo) => ({
     ...Xo,
-    title: Qo[Xo.key] ?? Xo.title,
-    order: Ho.has(Xo.key) ? Ho.get(Xo.key) : Xo.order ?? Fo
+    title: Ho[Xo.key] ?? Xo.title,
+    order: Qo.has(Xo.key) ? Qo.get(Xo.key) : Xo.order ?? Fo
   })), qo = (No?.extraMenus ?? []).filter((Xo) => !Xo.hidden).filter((Xo) => !Xo.feature || jo?.[Xo.feature] !== !1).map((Xo, Fo) => ({
     ...Xo,
-    order: Ho.has(Xo.key) ? Ho.get(Xo.key) : Xo.order ?? Vo.length + Fo
+    order: Qo.has(Xo.key) ? Qo.get(Xo.key) : Xo.order ?? Vo.length + Fo
   })), Yo = [...Vo, ...qo];
   return assertUniqueMenuKeys(Yo), Yo.sort((Xo, Fo) => {
     const Wo = Xo.order ?? 0, Ko = Fo.order ?? 0;
@@ -92,27 +1209,27 @@ function assertUniqueMenuKeys(Oo) {
   }
 }
 function validateCustomerExtensionContract(Oo, No, jo = {}) {
-  const Go = [], Qo = [];
+  const Go = [], Ho = [];
   Oo.version !== CUSTOMER_EXTENSION_PROTOCOL_VERSION && Go.push(`Unsupported customer extension version: ${Oo.version}`);
   try {
     assertUniqueMenuKeys(No);
   } catch (Yo) {
     Go.push(Yo instanceof Error ? Yo.message : String(Yo));
   }
-  const Ho = new Set((Oo.routes?.extraRoutes ?? []).map((Yo) => Yo.name)), Vo = new Set((Oo.routes?.extraRoutes ?? []).map((Yo) => normalizePath(Yo.path)));
+  const Qo = new Set((Oo.routes?.extraRoutes ?? []).map((Yo) => Yo.name)), Vo = new Set((Oo.routes?.extraRoutes ?? []).map((Yo) => normalizePath(Yo.path)));
   for (const Yo of Oo.menus?.extraMenus ?? []) {
     const Xo = normalizePath(Yo.path);
-    !Ho.has(Yo.key) && !Vo.has(Xo) && Go.push(`Extra menu "${Yo.key}" must match an extra route name or path.`);
+    !Qo.has(Yo.key) && !Vo.has(Xo) && Go.push(`Extra menu "${Yo.key}" must match an extra route name or path.`);
   }
   const qo = new Set(jo.allowedRouteOverrides ?? jo.coreRouteNames ?? []);
   for (const Yo of Object.keys(Oo.routes?.routeOverrides ?? {}))
     qo.has(Yo) || Go.push(`Route override "${Yo}" is not allowed.`);
   for (const Yo of Oo.routes?.extraRoutes ?? [])
-    jo.coreRouteNames?.includes(Yo.name) && Go.push(`Extra route "${Yo.name}" conflicts with a core route.`), typeof Yo.component != "function" && Qo.push(`Extra route "${Yo.name}" should use dynamic import for component loading.`);
+    jo.coreRouteNames?.includes(Yo.name) && Go.push(`Extra route "${Yo.name}" conflicts with a core route.`), typeof Yo.component != "function" && Ho.push(`Extra route "${Yo.name}" should use dynamic import for component loading.`);
   return {
     valid: Go.length === 0,
     errors: Go,
-    warnings: Qo
+    warnings: Ho
   };
 }
 function normalizePath(Oo) {
@@ -158,8 +1275,8 @@ function applyPatch(Oo, No) {
     credentials: jo
   });
   if (No.credentials !== void 0) {
-    const Qo = Go.credentials;
-    Go.sdkAppId = Qo?.sdkAppId ?? 0, Go.userId = Qo?.userId ?? "", Go.userSig = Qo?.userSig ?? "", Go.secretKey = Qo?.secretKey ?? Oo.secretKey ?? "";
+    const Ho = Go.credentials;
+    Go.sdkAppId = Ho?.sdkAppId ?? 0, Go.userId = Ho?.userId ?? "", Go.userSig = Ho?.userSig ?? "", Go.secretKey = Ho?.secretKey ?? Oo.secretKey ?? "";
   }
   return Go;
 }
@@ -189,8 +1306,8 @@ function getAdapter() {
 function setAuthStoreAdapter(Oo) {
   const No = getGlobalStore(), Go = getAdapter().getState();
   No.customAdapter = Oo ?? null;
-  const Qo = getAdapter();
-  Qo.reset(), Qo.setState(Go);
+  const Ho = getAdapter();
+  Ho.reset(), Ho.setState(Go);
 }
 function getAuthStateSnapshot() {
   return getAdapter().getState();
@@ -229,7 +1346,7 @@ function requireAegis_min() {
       Oo.exports = Go();
     })(aegis_min, function() {
       var jo, Go;
-      function Qo(Uo) {
+      function Ho(Uo) {
         this.name = "__st" + (1e9 * Math.random() >>> 0) + jo + "__", Uo?.forEach(this.add, this), jo += 1;
       }
       Array.prototype.find || Object.defineProperty(Array.prototype, "find", { configurable: !0, writable: !0, value: function(Uo) {
@@ -241,14 +1358,14 @@ function requireAegis_min() {
           if (Uo.call(ts, ss, ns, Zo)) return ss;
           ns += 1;
         }
-      } }), window.WeakSet || (jo = Date.now() % 1e9, Qo.prototype.add = function(Uo) {
+      } }), window.WeakSet || (jo = Date.now() % 1e9, Ho.prototype.add = function(Uo) {
         var Zo = this.name;
         return Uo[Zo] || Object.defineProperty(Uo, Zo, { value: !0, writable: !0 }), this;
-      }, Qo.prototype.delete = function(Uo) {
+      }, Ho.prototype.delete = function(Uo) {
         return !!Uo[this.name] && !(Uo[this.name] = void 0);
-      }, Qo.prototype.has = function(Uo) {
+      }, Ho.prototype.has = function(Uo) {
         return !!Uo[this.name];
-      }, Go = Qo, Object.defineProperty(window, "WeakSet", { value: function(Uo) {
+      }, Go = Ho, Object.defineProperty(window, "WeakSet", { value: function(Uo) {
         return new Go(Uo);
       } })), Object.assign || Object.defineProperty(Object, "assign", { enumerable: !1, configurable: !0, writable: !0, value: function(Uo) {
         if (Uo == null) throw new TypeError("Cannot convert first argument to object");
@@ -258,8 +1375,8 @@ function requireAegis_min() {
         }
         return Zo;
       } });
-      var Ho = function(Uo, Zo) {
-        return (Ho = Object.setPrototypeOf || ({ __proto__: [] } instanceof Array ? function($o, ts) {
+      var Qo = function(Uo, Zo) {
+        return (Qo = Object.setPrototypeOf || ({ __proto__: [] } instanceof Array ? function($o, ts) {
           $o.__proto__ = ts;
         } : function($o, ts) {
           for (var ns in ts) Object.prototype.hasOwnProperty.call(ts, ns) && ($o[ns] = ts[ns]);
@@ -558,7 +1675,7 @@ function requireAegis_min() {
           typeof ts == "function" && ts(Zo) === !1 || $o(Zo);
         };
       }
-      var Ms = ["application/xhtml+xml", "application/xml", "application/pdf", "application/pkcs12", "application/javascript", "application/x-javascript", "application/ecmascript", "application/vnd.mspowerpoint", "application/vnd.apple.mpegurl", "application/ogg", "text/css", "text/javascript", "image", "audio", "video", "video/mp2t"], Bs = /\.(json|js|css|jpg|jpeg|png|svg|apng|webp|gif|bmp|mp4|mp3|ts|mpeg|wav|webm|ogg|flv|m3u8|ttf|woff2|otf|eot|woff|html|htm|shtml|shtm|)$/i, ha = ["ret", "retcode", "code", "errcode"], La = function() {
+      var js = ["application/xhtml+xml", "application/xml", "application/pdf", "application/pkcs12", "application/javascript", "application/x-javascript", "application/ecmascript", "application/vnd.mspowerpoint", "application/vnd.apple.mpegurl", "application/ogg", "text/css", "text/javascript", "image", "audio", "video", "video/mp2t"], Bs = /\.(json|js|css|jpg|jpeg|png|svg|apng|webp|gif|bmp|mp4|mp3|ts|mpeg|wav|webm|ogg|flv|m3u8|ttf|woff2|otf|eot|woff|html|htm|shtml|shtm|)$/i, ha = ["ret", "retcode", "code", "errcode"], La = function() {
         var Uo = /* @__PURE__ */ new WeakSet();
         return function(Zo, $o) {
           if ($o instanceof Error) return "Error.message: " + $o.message + ` 
@@ -601,8 +1718,8 @@ function requireAegis_min() {
       }, aA = function(Uo) {
         var Zo = typeof Uo;
         return "" + (Zo == "undefined" || Zo == "symbol" || Zo == "function" ? "null" : Zo == "string" || Zo == "object" ? '"' + Uo + '"' : Uo);
-      }, za = /data:(image|text|application|font)\/.*;base64/, Ma = ((Us = {})[Wo.LOG] = "log", Us[Wo.MEMORY] = "log", Us[Wo.SPEED] = "speed", Us[Wo.PERFORMANCE] = "performance", Us[Wo.VITALS] = "webvitals", Us[Wo.PV] = "pv", Us[Wo.EVENT] = "event", Us[Wo.CUSTOM] = "custom", Us[Wo.SET_DATA] = "miniProgramData", Us[Wo.LOAD_PACKAGE] = "miniProgramData", Us), AA = ((Us = {})[Fo.ERROR] = "jsError", Us[Fo.PROMISE_ERROR] = "jsError", Us[Fo.BLANK_SCREEN] = "whiteScreen", Us[Fo.SCRIPT_ERROR] = "assetsException", Us[Fo.IMAGE_ERROR] = "assetsException", Us[Fo.CSS_ERROR] = "assetsException", Us[Fo.MEDIA_ERROR] = "assetsException", Us), Fa = function(Uo, Zo) {
-        return Uo === Wo.LOG && Zo && AA[Zo] ? AA[Zo] : Ma[Uo] || "";
+      }, za = /data:(image|text|application|font)\/.*;base64/, ja = ((Us = {})[Wo.LOG] = "log", Us[Wo.MEMORY] = "log", Us[Wo.SPEED] = "speed", Us[Wo.PERFORMANCE] = "performance", Us[Wo.VITALS] = "webvitals", Us[Wo.PV] = "pv", Us[Wo.EVENT] = "event", Us[Wo.CUSTOM] = "custom", Us[Wo.SET_DATA] = "miniProgramData", Us[Wo.LOAD_PACKAGE] = "miniProgramData", Us), AA = ((Us = {})[Fo.ERROR] = "jsError", Us[Fo.PROMISE_ERROR] = "jsError", Us[Fo.BLANK_SCREEN] = "whiteScreen", Us[Fo.SCRIPT_ERROR] = "assetsException", Us[Fo.IMAGE_ERROR] = "assetsException", Us[Fo.CSS_ERROR] = "assetsException", Us[Fo.MEDIA_ERROR] = "assetsException", Us), Fa = function(Uo, Zo) {
+        return Uo === Wo.LOG && Zo && AA[Zo] ? AA[Zo] : ja[Uo] || "";
       }, Wa = function(Uo) {
         return Uo == null || !(Uo <= 0) && (100 <= Uo || 100 * Math.random() < Uo);
       }, nA = function(Uo) {
@@ -769,7 +1886,7 @@ function requireAegis_min() {
       function Gs() {
         return window.performance !== void 0 && typeof performance.getEntriesByType == "function" && typeof performance.now == "function";
       }
-      function js(Uo) {
+      function Ms(Uo) {
         var Zo;
         return -1 < ((Zo = (Zo = window.PerformanceObserver) == null ? void 0 : Zo.supportedEntryTypes) == null ? void 0 : Zo.indexOf(Uo));
       }
@@ -1000,7 +2117,7 @@ function requireAegis_min() {
         }
       }, onNewAegis: function(Uo) {
         Uo.bean.aid = this.aid, Uo.config.aid = this.aid;
-      } }), $a = new ta({ name: "reportAssetSpeed" }), jA = $a = new ta({ name: "reportAssetSpeed", collectCur: 0, collectEntryType: "resource", ASSETS_INITIATOR_TYPE: ["img", "css", "script", "link", "audio", "video"], getFromParam: function(Uo) {
+      } }), $a = new ta({ name: "reportAssetSpeed" }), MA = $a = new ta({ name: "reportAssetSpeed", collectCur: 0, collectEntryType: "resource", ASSETS_INITIATOR_TYPE: ["img", "css", "script", "link", "audio", "video"], getFromParam: function(Uo) {
         return Uo.getCurrentPageUrl();
       }, onNewAegis: function(Uo) {
         var Zo = this;
@@ -1225,7 +2342,7 @@ function requireAegis_min() {
       function Ba(ss, Zo, $o) {
         Zo === void 0 && (Zo = "");
         var ts, ns, ss = typeof ((ns = ss.api) == null ? void 0 : ns.resourceTypeHandler) == "function" ? (ns = ss.api) == null ? void 0 : ns.resourceTypeHandler($o) : "";
-        return As.indexOf(ss) === -1 && (ts = Zo === void 0 ? "" : Zo, ns = ($o === void 0 ? "" : $o).split("?")[0], ss = Bs.test(ns) || Ms.some(function(fs) {
+        return As.indexOf(ss) === -1 && (ts = Zo === void 0 ? "" : Zo, ns = ($o === void 0 ? "" : $o).split("?")[0], ss = Bs.test(ns) || js.some(function(fs) {
           return String(ts).indexOf(fs) !== -1;
         }) ? "static" : "fetch"), ss;
       }
@@ -1361,33 +2478,33 @@ res startTime: ` + ms + `
                   return va = va.split(": "), va[0] && va[1] && (da[va[0]] = va[1]), da;
                 }, {}), ia = ka(Aa, la, "res"), oa = _a(ss.aegisXhrReqHeader), la = (Aa = Uo.api) == null ? void 0 : Aa.apiDetail, ba = la ? ws(fs, (Aa = Uo.api) == null ? void 0 : Aa.reqParamHandler, { url: Xs }) : "", Sa = la ? ws(ss.response, (Aa = Uo.api) == null ? void 0 : Aa.resBodyHandler, { url: Xs }) : "";
                 try {
-                  ((da, va, ma, ja) => {
+                  ((da, va, ma, Ma) => {
                     var CA, VA, Qa;
                     try {
                       if (typeof va?.retCodeHandlerAsync == "function") return va.retCodeHandlerAsync(da, ma?.url, ma?.ctx, function(Xa) {
                         var TA = Xa.code;
-                        ja?.({ code: TA === void 0 ? os : TA, isErr: Xa.isErr });
+                        Ma?.({ code: TA === void 0 ? os : TA, isErr: Xa.isErr });
                       });
-                      if (typeof va?.retCodeHandler == "function") return Qa = (VA = va.retCodeHandler(da, ma?.url, ma?.ctx, ma?.payload) || {}).code, ja != null && ja({ code: Qa === void 0 ? os : Qa, isErr: VA.isErr });
-                      if (!(da = typeof da == "string" ? JSON.parse(da) : da)) return ja != null && ja({ code: os, isErr: !1 });
+                      if (typeof va?.retCodeHandler == "function") return Qa = (VA = va.retCodeHandler(da, ma?.url, ma?.ctx, ma?.payload) || {}).code, Ma != null && Ma({ code: Qa === void 0 ? os : Qa, isErr: VA.isErr });
+                      if (!(da = typeof da == "string" ? JSON.parse(da) : da)) return Ma != null && Ma({ code: os, isErr: !1 });
                       typeof ((CA = va?.ret) == null ? void 0 : CA.join) == "function" && (ha = [].concat(va.ret.map(function(Xa) {
                         return Xa.toLowerCase();
                       })));
                       var rf = Object.getOwnPropertyNames(da).filter(function(Xa) {
                         return ha.indexOf(Xa.toLowerCase()) !== -1;
                       });
-                      if (rf.length) return (Qa = da[rf[0]]) !== "未知" && Qa !== "" || (Qa = os), ja != null && ja({ code: "" + Qa, isErr: Qa !== 0 && Qa !== "0" && Qa !== os });
-                      ja?.({ code: os, isErr: !1 });
+                      if (rf.length) return (Qa = da[rf[0]]) !== "未知" && Qa !== "" || (Qa = os), Ma != null && Ma({ code: "" + Qa, isErr: Qa !== 0 && Qa !== "0" && Qa !== os });
+                      Ma?.({ code: os, isErr: !1 });
                     } catch {
-                      ja?.({ code: os, isErr: !1 });
+                      Ma?.({ code: os, isErr: !1 });
                     }
                   })(ss.response, Uo.api, { url: Xs, ctx: ss, payload: fs }, function(ma) {
-                    var va = ma.code, ma = ma.isErr, ja = [Ls ? "AJAX_ERROR: request " + Ls : "", "fetch req url: " + Xs, "res status: " + (Ss.status || 0), "res duration: " + Ss.duration + "ms", "res startTime: " + bs, ra, ia, "req method: " + (Ss.method || "GET"), "res retcode: " + va, ya(ba, "req param"), ya(Sa, "res data")].filter(function(CA) {
+                    var va = ma.code, ma = ma.isErr, Ma = [Ls ? "AJAX_ERROR: request " + Ls : "", "fetch req url: " + Xs, "res status: " + (Ss.status || 0), "res duration: " + Ss.duration + "ms", "res startTime: " + bs, ra, ia, "req method: " + (Ss.method || "GET"), "res retcode: " + va, ya(ba, "req param"), ya(Sa, "res data")].filter(function(CA) {
                       return CA;
                     }).join(`
 
 `);
-                    Ss.ret = va, Ss.isErr = +ma, Ss.payload = fs, Uo.slowApiLog && Va(Ss?.duration, Uo, Ss) ? ts.publishNormalLog({ msg: ja, level: Fo.SLOW_NET_REQUEST, code: va, trace: oa, errorMsg: "", from: cs || ts.getFromParam(Zo), originFrom: ps }, Zo) : ts.publishNormalLog({ msg: ja, level: eA(!!Ls, ma), code: va, trace: oa, errorMsg: "", from: cs || ts.getFromParam(Zo), originFrom: ps }, Zo), ts.publishSpeed(Ss, Zo);
+                    Ss.ret = va, Ss.isErr = +ma, Ss.payload = fs, Uo.slowApiLog && Va(Ss?.duration, Uo, Ss) ? ts.publishNormalLog({ msg: Ma, level: Fo.SLOW_NET_REQUEST, code: va, trace: oa, errorMsg: "", from: cs || ts.getFromParam(Zo), originFrom: ps }, Zo) : ts.publishNormalLog({ msg: Ma, level: eA(!!Ls, ma), code: va, trace: oa, errorMsg: "", from: cs || ts.getFromParam(Zo), originFrom: ps }, Zo), ts.publishSpeed(Ss, Zo);
                   });
                 } catch {
                   Ss.ret = os, ts.publishSpeed(Ss, Zo);
@@ -1782,9 +2899,9 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         };
       }
       function Yf() {
-        return FA < 0 && (FA = Nu(), ju(), YA(function() {
+        return FA < 0 && (FA = Nu(), Mu(), YA(function() {
           setTimeout(function() {
-            FA = Nu(), ju();
+            FA = Nu(), Mu();
           }, 0);
         })), { get firstHiddenTime() {
           return FA;
@@ -1802,8 +2919,8 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
               cs.name === "first-contentful-paint" && (ss.disconnect(), cs.startTime < ts.firstHiddenTime) && (ns.value = Math.max(cs.startTime - kf(), 0), ns.entries.push(cs), $o(!0));
             });
           });
-          ss && ($o = dA(Uo, ns, Mu, Zo.reportAllChanges), YA(function(fs) {
-            ns = lA("FCP"), $o = dA(Uo, ns, Mu, Zo.reportAllChanges), Qf(function() {
+          ss && ($o = dA(Uo, ns, ju, Zo.reportAllChanges), YA(function(fs) {
+            ns = lA("FCP"), $o = dA(Uo, ns, ju, Zo.reportAllChanges), Qf(function() {
               ns.value = performance.now() - fs.timeStamp, $o(!0);
             });
           }));
@@ -1887,7 +3004,7 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         } catch {
         }
       }
-      var RA, _A, Tu, yf, Uf, MA, xu = -1, YA = function(Uo) {
+      var RA, _A, Tu, yf, Uf, jA, xu = -1, YA = function(Uo) {
         addEventListener("pageshow", function(Zo) {
           Zo.persisted && (xu = Zo.timeStamp, Uo(Zo));
         }, !0);
@@ -1900,11 +3017,11 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         return document.visibilityState !== "hidden" || document.prerendering ? 1 / 0 : 0;
       }, bf = function(Uo) {
         document.visibilityState === "hidden" && -1 < FA && (FA = Uo.type === "visibilitychange" ? Uo.timeStamp : 0, Ic());
-      }, ju = function() {
+      }, Mu = function() {
         addEventListener("visibilitychange", bf, !0), addEventListener("prerenderingchange", bf, !0);
       }, Ic = function() {
         removeEventListener("visibilitychange", bf, !0), removeEventListener("prerenderingchange", bf, !0);
-      }, Mu = [1800, 3e3], Du = [0.1, 0.25], $A = { passive: !0, capture: !0 }, mc = /* @__PURE__ */ new Date(), Gu = function(Uo, Zo) {
+      }, ju = [1800, 3e3], Du = [0.1, 0.25], $A = { passive: !0, capture: !0 }, mc = /* @__PURE__ */ new Date(), Gu = function(Uo, Zo) {
         RA || (RA = Zo, _A = Uo, Tu = /* @__PURE__ */ new Date(), Hu(removeEventListener), zu());
       }, zu = function() {
         var Uo;
@@ -2052,7 +3169,7 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         };
       } }), Uu = (new ta({ name: "pagePerformance" }), 3), ef = /* @__PURE__ */ new Map(), wc = new ta({ name: "pagePerformance", performanceMap: {}, onNewAegis: function(Uo) {
         var Zo;
-        Gs() && (ef.set(Uo, { isPagePerformanceReported: !1 }), MA ? this.publish(MA, Uo) : this.startCalcPerformance(Uo), Zo = this.publishWhenObHidden.bind(this, Uo), Ff(Zo, { once: !0 }), Uo.lifeCycle.on("destroy", function() {
+        Gs() && (ef.set(Uo, { isPagePerformanceReported: !1 }), jA ? this.publish(jA, Uo) : this.startCalcPerformance(Uo), Zo = this.publishWhenObHidden.bind(this, Uo), Ff(Zo, { once: !0 }), Uo.lifeCycle.on("destroy", function() {
           var $o = ef.get(Uo);
           $o && ($o.isPagePerformanceReported = !1);
         }));
@@ -2060,12 +3177,12 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         var Zo, $o = ef.get(Uo);
         if ($o == null || !$o.isPagePerformanceReported) {
           if ($o = 0, (Zo = Uo.firstScreenInfo) != null && Zo.timing) $o = Uo.firstScreenInfo.timing;
-          else if (js("paint")) try {
+          else if (Ms("paint")) try {
             var ts, ns = performance.getEntriesByName("first-contentful-paint");
             ns && 0 < ns.length && (ts = ns[0]) && 0 < ts.startTime && ($o = ts.startTime);
           } catch {
           }
-          (MA = this.buildPerformanceLog(Uo, $o, this.getPageUrl(Uo), window.location.href)) && this.publish(MA, Uo, !0);
+          (jA = this.buildPerformanceLog(Uo, $o, this.getPageUrl(Uo), window.location.href)) && this.publish(jA, Uo, !0);
         }
       }, buildPerformanceLog: function(Uo, Zo, $o, ts) {
         var ns = performance.timing;
@@ -2102,7 +3219,7 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         try {
           var $o = this.getPageUrl(Uo), ts = Uo.getOriginFrom();
           this.getFirstScreenTiming(Uo, function(ns) {
-            MA = Zo.buildPerformanceLog(Uo, ns, $o, ts), ns = ef.get(Uo), !MA || ns != null && ns.isPagePerformanceReported || Zo.publish(MA, Uo);
+            jA = Zo.buildPerformanceLog(Uo, ns, $o, ts), ns = ef.get(Uo), !jA || ns != null && ns.isPagePerformanceReported || Zo.publish(jA, Uo);
           });
         } catch {
         }
@@ -2111,7 +3228,7 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
         Uo.lifeCycle.on("destroy", function() {
           ms && clearTimeout(ms);
         });
-        var ts, ns = this, ss = ["script", "style", "link", "br"], fs = [], cs = {}, ps = (js("paint") && (ts = new PerformanceObserver(function(bs) {
+        var ts, ns = this, ss = ["script", "style", "link", "br"], fs = [], cs = {}, ps = (Ms("paint") && (ts = new PerformanceObserver(function(bs) {
           bs.getEntries().forEach(function(Cs) {
             var Rs;
             Cs.entryType === "paint" && Cs.name === "first-contentful-paint" && 0 < (Rs = document.querySelectorAll("[AEGIS-FIRST-SCREEN-TIMING]")).length && Uo.config.id && !$o.performanceMap[Uo.config.id] && ($o.setFirstScreenInfo(Uo, Cs.startTime, Rs[0], Rs), Zo?.(Cs.startTime), ps.disconnect(), ts.disconnect(), ms) && clearTimeout(ms);
@@ -2245,7 +3362,7 @@ message: ` + ns, level: Fo.CONSOLE_LOG, errorMsg: "", originFrom: Zo.getOriginFr
           }
         })()) ? (_f(window[Jf] = $o), $o) : ($o = { sessionId: Zo(), createdAt: Date.now(), lastActivity: Date.now(), source: Uo, version: 1 }, _f(window[Jf] = $o), $o);
       }
-      Ho($f = Ia, Us = Vu = Us), $f.prototype = Us === null ? Object.create(Us) : (qu.prototype = Us.prototype, new qu()), Ia.resolveGzipConfig = function(Uo) {
+      Qo($f = Ia, Us = Vu = Us), $f.prototype = Us === null ? Object.create(Us) : (qu.prototype = Us.prototype, new qu()), Ia.resolveGzipConfig = function(Uo) {
         var Zo, $o = { enable: !0, threshold: 1024, debug: !1, useWorker: !0, workerThreshold: 4096 };
         return Uo === !1 ? Vo(Vo({}, $o), { enable: !1 }) : Uo === !0 || Uo == null ? $o : { enable: Uo.enable !== !1, threshold: (Zo = Uo.threshold) != null ? Zo : $o.threshold, debug: (Zo = Uo.debug) != null ? Zo : $o.debug, useWorker: (Zo = Uo.useWorker) != null ? Zo : $o.useWorker, workerThreshold: (Zo = Uo.workerThreshold) != null ? Zo : $o.workerThreshold };
       }, Ia.prototype.addExtBean = function(Uo, Zo) {
@@ -2842,12 +3959,12 @@ It is recommended that you contact us for feedback and thank you for your suppor
           }
         }
       }, onNewAegis: function(Uo) {
-        var Zo, $o, ts, ns, ss, fs, cs, ps, gs, ms, bs, Cs, Rs, xs, Ls, Ns, Fs, Qs, Xs, Ss, ra, Aa, ia, oa, la, ba, Sa, da, va, ma, ja, CA, VA, Qa, rf, Xa, TA, qA, iu, Of = this;
+        var Zo, $o, ts, ns, ss, fs, cs, ps, gs, ms, bs, Cs, Rs, xs, Ls, Ns, Fs, Qs, Xs, Ss, ra, Aa, ia, oa, la, ba, Sa, da, va, ma, Ma, CA, VA, Qa, rf, Xa, TA, qA, iu, Of = this;
         document.elementFromPoint && (this.pendingTimeouts.forEach(function(wa) {
           clearTimeout(wa);
         }), this.pendingTimeouts = [], this.isDestroyed = !1, this.isAwaitingClientScreenshot = !1, ts = Ju(Uo), ns = ts.everySideSampleNumber, ss = ts.sameElementsPercent, fs = ts.containers, cs = ts.ignoreContainers, ps = ts.containerMatchers, gs = ts.ignoreMatchers, ms = ts.detectStartPosition, bs = ts.ignoreElesWhenDomChange, Cs = ts.reDetectInterval, Rs = ts.disableSameElementsCheck, xs = ts.samePointDepth, Ls = ts.enableScreenshot, Ns = ts.needScreenShotMeta, Fs = ts.onBlankScreenCapture, Qs = ts.clientScreenshotTimeout, Xs = 4 * ns - 3, Ss = Math.floor(Xs * ts.emptyElementsPercent / 100), ra = Math.floor(Xs * ss / 100), Aa = UA.UNKNOWN, oa = null, la = ia = !1, ba = function() {
           return qo(Of, void 0, void 0, function() {
-            var wa, Ga, xA, vA, nc, ic, Cf, nf, zA, ou, WA, of, Tf, oA, xf, sA, su, oc, rA, au, Au, Lf, Nf, sc, LA, sf, af, Af, ff, jf, fu, ZA, Mc = this;
+            var wa, Ga, xA, vA, nc, ic, Cf, nf, zA, ou, WA, of, Tf, oA, xf, sA, su, oc, rA, au, Au, Lf, Nf, sc, LA, sf, af, Af, ff, Mf, fu, ZA, jc = this;
             return Yo(this, function(uf) {
               switch (uf.label) {
                 case 0:
@@ -2855,15 +3972,15 @@ It is recommended that you contact us for feedback and thank you for your suppor
                   for (nc = xA + (Ga - xA) / 2, ic = vA + (wa - vA) / 2, Cf = [], nf = ns + 1, ou = zA = 0, WA = 1; WA < nf; WA++) oA = vA + (wa - vA) * WA / nf, sA = Rf(of = xA + (Ga - xA) * WA / nf, ic), Tf = Rf(nc, oA), xf = Rf(of, oA), of = Rf(of, wa - oA), oA = Pf(sA, fs, cs, ps, gs), oA.isWhitePoint && (zA += 1), Cf.push(oA.selectorPointers), WA !== nf / 2 && (sA = Pf(Tf, fs, cs, ps, gs), oA = sA.isWhitePoint, Tf = sA.selectorPointers, oA && (zA += 1), sA = Pf(xf, fs, cs, ps, gs), oA = sA.isWhitePoint, xf = sA.selectorPointers, oA && (zA += 1), sA = Pf(of, fs, cs, ps, gs), sA.isWhitePoint && (zA += 1), Cf.push(Tf, xf, sA.selectorPointers));
                   return af = Ss <= zA, Af = !1, su = { samePointerMap: {}, maximumSamePointer: {} }, Rs || (rA = Cf.map(function(Pa) {
                     return Pa.slice(0, xs);
-                  }), Mf = rA.map(function(Pa) {
+                  }), jf = rA.map(function(Pa) {
                     return Pa.join(" < ");
                   }).reduce(function(Pa, qa) {
                     return Pa[qa] = Pa[qa] ? Pa[qa] + 1 : 1, Pa;
-                  }, {}), uu = Object.keys(Mf).map(function(Pa) {
-                    return [Pa, Mf[Pa]];
+                  }, {}), uu = Object.keys(jf).map(function(Pa) {
+                    return [Pa, jf[Pa]];
                   }).sort(function(Pa, qa) {
                     return qa[1] - Pa[1];
-                  })[0], ac = uu[0], rA = { samePointerMap: Mf, maximumSamePointerClass: ac, maximumSamePointerCounter: uu[1] }, su = { samePointerMap: rA.samePointerMap, maximumSamePointer: ((ZA = {})[oc = rA.maximumSamePointerClass] = rA = rA.maximumSamePointerCounter, ZA) }, ou = rA, ZA = xc.some(function(Pa) {
+                  })[0], ac = uu[0], rA = { samePointerMap: jf, maximumSamePointerClass: ac, maximumSamePointerCounter: uu[1] }, su = { samePointerMap: rA.samePointerMap, maximumSamePointer: ((ZA = {})[oc = rA.maximumSamePointerClass] = rA = rA.maximumSamePointerCounter, ZA) }, ou = rA, ZA = xc.some(function(Pa) {
                     return oc.startsWith(Pa);
                   }), Af = ra <= rA && !ZA), af || Af ? [3, 1] : (ia = !1, oa = null, [3, 8]);
                 case 1:
@@ -2891,7 +4008,7 @@ linkError: ` + LA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
                 case 2:
                   return [4, this.captureScreenshotWithStrategy()];
                 case 3:
-                  ff = uf.sent(), fu = jf = null, fu = typeof ff == "string" ? (jf = ff, { success: !0, source: "sdk" }) : (jf = null, { success: !1, source: "sdk", error: ff.error, details: ff.details }), sf(jf, fu), uf.label = 4;
+                  ff = uf.sent(), fu = Mf = null, fu = typeof ff == "string" ? (Mf = ff, { success: !0, source: "sdk" }) : (Mf = null, { success: !1, source: "sdk", error: ff.error, details: ff.details }), sf(Mf, fu), uf.label = 4;
                 case 4:
                   return [3, 6];
                 case 5:
@@ -2900,7 +4017,7 @@ linkError: ` + LA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
                   return ia = !1, oa = null, [3, 8];
                 case 7:
                   oa = Vo(Vo({ msg: "blank_screen", level: Fo.BLANK_SCREEN, whitePointCount: zA, samePointCount: ou }, su), Zo ? { linkLogType: Zo?.type, linkLogLevel: Zo?.level, linkErrorMsg: Zo?.errorMsg, linkMsg: Zo?.msg } : {}), ia = !0, $o = setTimeout(function() {
-                    return qo(Mc, void 0, void 0, function() {
+                    return qo(jc, void 0, void 0, function() {
                       return Yo(this, function(Pa) {
                         switch (Pa.label) {
                           case 0:
@@ -2914,7 +4031,7 @@ linkError: ` + LA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
                 case 8:
                   return [2];
               }
-              var Mf, uu, ac;
+              var jf, uu, ac;
             });
           });
         }, Sa = function() {
@@ -2964,7 +4081,7 @@ linkError: ` + LA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
           wa = wa.filter(function(Ga) {
             return Ga.level !== Fo.BLANK_SCREEN;
           }), 0 < wa.length && (Zo = wa[wa.length - 1], da());
-        }), ma = null, window.MutationObserver && (Xa = TA = null, ja = window.cancelAnimationFrame || function(wa) {
+        }), ma = null, window.MutationObserver && (Xa = TA = null, Ma = window.cancelAnimationFrame || function(wa) {
           clearTimeout(wa);
         }, CA = window.requestAnimationFrame || function(wa) {
           return setTimeout(wa, 1e3 / 60);
@@ -2974,7 +4091,7 @@ linkError: ` + LA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
             wa.length === 1 && Ga || da();
           })).observe(document.body, { childList: !0, subtree: !0 });
         }, Qa = function() {
-          TA && (clearTimeout(TA), TA = null), Xa && (ja(Xa), Xa = null);
+          TA && (clearTimeout(TA), TA = null), Xa && (Ma(Xa), Xa = null);
         }, document.body ? VA() : (Xa = CA(rf = function() {
           document.body ? (Qa(), VA()) : Xa = CA(rf);
         }), TA = setTimeout(function() {
@@ -2990,7 +4107,7 @@ linkError: ` + LA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
         this.isDestroyed = !0, this.isAwaitingClientScreenshot = !1, this.pendingTimeouts.forEach(function(Uo) {
           clearTimeout(Uo);
         }), this.pendingTimeouts = [], this.destroyBlanckScreenDetect();
-      } }), jc = (new ta({ name: "lagMonitor" }), new ta({ name: "lagMonitor", observer: null, lagRecords: [], onNewAegis: function(Uo) {
+      } }), Mc = (new ta({ name: "lagMonitor" }), new ta({ name: "lagMonitor", observer: null, lagRecords: [], onNewAegis: function(Uo) {
         var Zo, $o = this.$getConfig(Uo);
         $o && $o.enabled && typeof PerformanceObserver < "u" && PerformanceObserver.supportedEntryTypes && PerformanceObserver.supportedEntryTypes.includes("long-animation-frame") && (Zo = $o.sampleRate || 1, Math.random() < Zo) && this.initLagMonitor(Uo, $o);
       }, initLagMonitor: function(Uo, Zo) {
@@ -3150,7 +4267,7 @@ linkError: ` + LA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
         this.memoryReportTimer && (clearInterval(this.memoryReportTimer), this.memoryReportTimer = null), this.oomCheckTimer && (clearInterval(this.oomCheckTimer), this.oomCheckTimer = null);
       }, destroy: function() {
         this.cleanup(), this.clearMemoryRecords(), this.lastOOMTime = 0;
-      } }), Us.use(hc), Us.use(uc), Us.use(jA), Us.use(wc), Us.use(bc), Us.use(ea), Us.use(aa), Us.use(Rc), Us.use(Tc), Us.use(gc), Us.use(vc), Us.use(jc), Us.use(ta), Us.use(cc), Us.use(GA), Us;
+      } }), Us.use(hc), Us.use(uc), Us.use(MA), Us.use(wc), Us.use(bc), Us.use(ea), Us.use(aa), Us.use(Rc), Us.use(Tc), Us.use(gc), Us.use(vc), Us.use(Mc), Us.use(ta), Us.use(cc), Us.use(GA), Us;
     });
   })(aegis_min$1)), aegis_min$1.exports;
 }
@@ -3167,22 +4284,22 @@ function getCurrentSdkAppId() {
 function reportEvent(Oo, No, jo) {
   const Go = safeAegis();
   if (!Go) return;
-  const Qo = getCurrentSdkAppId();
-  if (!Qo) return;
-  const Ho = { name: Oo, ext1: No, ext2: jo, ext3: Qo };
+  const Ho = getCurrentSdkAppId();
+  if (!Ho) return;
+  const Qo = { name: Oo, ext1: No, ext2: jo, ext3: Ho };
   try {
-    Go.reportEvent?.(Ho);
+    Go.reportEvent?.(Qo);
   } catch {
   }
 }
-function reportTime(Oo, No) {
-  const jo = safeAegis();
-  if (jo) {
+function reportTime(Oo, No, jo, Go) {
+  const Ho = safeAegis();
+  if (Ho) {
     try {
-      jo.reportTime?.({ name: Oo, duration: No });
+      Ho.reportTime?.({ name: Oo, duration: No });
     } catch {
     }
-    reportEvent(Oo, Oo, "ok");
+    reportEvent(Oo, jo ?? Oo, Go ?? "ok");
   }
 }
 function reportBusinessOp(Oo, No, jo, Go) {
@@ -3214,8 +4331,8 @@ function detectReportSource() {
 function reportAppInit(Oo = SDK_VERSION) {
   const No = getCurrentSdkAppId();
   if (!No) return;
-  const jo = _platform || "unknown", Go = detectReportSource(), Qo = `${No}:${jo}:${Go}:${Oo}`;
-  reportedAppInits.has(Qo) || (reportedAppInits.add(Qo), reportEvent("app_init", jo, Go), flushPendingFeatures());
+  const jo = _platform || "unknown", Go = detectReportSource(), Ho = `${No}:${jo}:${Go}:${Oo}`;
+  reportedAppInits.has(Ho) || (reportedAppInits.add(Ho), reportEvent("app_init", jo, Go), flushPendingFeatures());
 }
 const reportedCapabilities = /* @__PURE__ */ new Set();
 function reportCapability(Oo) {
@@ -3420,14 +4537,14 @@ async function compressJSON(Oo) {
   }
 }
 async function httpLog(Oo, No, jo = 5e3) {
-  const Go = new AbortController(), Qo = setTimeout(() => Go.abort(), jo);
+  const Go = new AbortController(), Ho = setTimeout(() => Go.abort(), jo);
   try {
-    const Ho = {};
-    No instanceof ArrayBuffer && (Ho["Content-Encoding"] = "gzip", Ho["Content-Type"] = "application/json");
+    const Qo = {};
+    No instanceof ArrayBuffer && (Qo["Content-Encoding"] = "gzip", Qo["Content-Type"] = "application/json");
     const qo = await (await fetch(Oo, {
       method: "POST",
       body: No,
-      headers: Ho,
+      headers: Qo,
       signal: Go.signal,
       // 日志上报使用低优先级，不抢占业务请求
       priority: "low"
@@ -3438,7 +4555,7 @@ async function httpLog(Oo, No, jo = 5e3) {
       return { data: qo };
     }
   } finally {
-    clearTimeout(Qo);
+    clearTimeout(Ho);
   }
 }
 let Logger$1 = class fc {
@@ -3551,29 +4668,29 @@ class LoggerManager {
     const { logs: jo } = this.getLogsToUpload();
     if (jo.length === 0) return;
     try {
-      const Qo = {
+      const Ho = {
         timestamp: getTimestamp(),
         sdkAppId: No.sdkAppId,
         userId: No.userId,
         version: SDK_VERSION,
         log: jo.map((Vo) => Vo.log).join(`
 `)
-      }, Ho = await compressJSON(Qo);
+      }, Qo = await compressJSON(Ho);
       await this.uploadLogWithRetry(
-        Ho,
+        Qo,
         No.sdkAppId
       ), jo.forEach((Vo) => {
         Vo.uploaded = !0;
       });
     } catch {
     }
-    const Go = jo.filter((Qo) => !Qo.uploaded);
+    const Go = jo.filter((Ho) => !Ho.uploaded);
     Go.length > 0 && (this._queue = Go.concat(this._queue));
   }
   /** 带重试的上报请求 */
   async uploadLogWithRetry(No, jo) {
     let Go;
-    for (let Qo = 0; Qo < LOG_UPLOAD_RETRIES; Qo++)
+    for (let Ho = 0; Ho < LOG_UPLOAD_RETRIES; Ho++)
       try {
         await httpLog(
           getLoggerUrl(jo, LOGGER_CMD_TYPE.LOG),
@@ -3581,8 +4698,8 @@ class LoggerManager {
           LOG_UPLOAD_REQUEST_TIMEOUT
         );
         return;
-      } catch (Ho) {
-        Go = Ho, Qo < LOG_UPLOAD_RETRIES - 1 && await new Promise((Vo) => setTimeout(Vo, 1e3 * (Qo + 1)));
+      } catch (Qo) {
+        Go = Qo, Ho < LOG_UPLOAD_RETRIES - 1 && await new Promise((Vo) => setTimeout(Vo, 1e3 * (Ho + 1)));
       }
     throw Go;
   }
@@ -3627,7 +4744,7 @@ class LoggerManager {
   }
   addLogToQueue(No, jo) {
     const Go = {
-      log: jo.reduce((Qo, Ho) => (Qo + " " + this.logChunkToString(Ho)).trim(), ""),
+      log: jo.reduce((Ho, Qo) => (Ho + " " + this.logChunkToString(Qo)).trim(), ""),
       level: No
     };
     this._isEnableUploadLog && No >= this._logLevelToUpload && this._queue.push(Go);
@@ -3636,8 +4753,8 @@ class LoggerManager {
   log(No, jo) {
     const Go = this.getUploadPrefix(No);
     if (jo.length > 0 && typeof jo[0] == "string" ? this.addLogToQueue(No, [Go + "|" + jo[0], ...jo.slice(1)]) : this.addLogToQueue(No, [Go, ...jo]), No < this._logLevel) return;
-    const Qo = [this.getPrefix(No), ...jo], Ho = LOG_LEVEL_NAME[No]?.toLowerCase() || "info";
-    console[Ho]?.(LOG_PRE_TAG, LOG_PRE_TAG_STYLE, LOG_STYLE, ...Qo);
+    const Ho = [this.getPrefix(No), ...jo], Qo = LOG_LEVEL_NAME[No]?.toLowerCase() || "info";
+    console[Qo]?.(LOG_PRE_TAG, LOG_PRE_TAG_STYLE, LOG_STYLE, ...Ho);
   }
   /**
    * 仅入队上报，不输出 console
@@ -3665,8 +4782,8 @@ class LoggerManager {
   /** 创建模块 Logger（支持父子层级） */
   createLogger(No) {
     if (No.parent instanceof Logger$1) {
-      const { parent: jo, ...Go } = No, Qo = new Logger$1(Go);
-      return Qo.bindParent(jo), Qo;
+      const { parent: jo, ...Go } = No, Ho = new Logger$1(Go);
+      return Ho.bindParent(jo), Ho;
     }
     return new Logger$1(No);
   }
@@ -3782,10 +4899,10 @@ class Logger {
    * 错误日志 - 同时触发 RUM 上报（如启用）
    */
   error(No, ...jo) {
-    const Go = jo[0], Qo = jo.length > 1 ? jo.slice(1) : void 0;
-    if (this.log("error", No, Go, Qo), this.config.enableReport && Qo) {
-      const Ho = Qo.find((Vo) => Vo instanceof Error) ?? Qo[Qo.length - 1];
-      Ho && this.reportToRum(No, Go, Ho);
+    const Go = jo[0], Ho = jo.length > 1 ? jo.slice(1) : void 0;
+    if (this.log("error", No, Go, Ho), this.config.enableReport && Ho) {
+      const Qo = Ho.find((Vo) => Vo instanceof Error) ?? Ho[Ho.length - 1];
+      Qo && this.reportToRum(No, Go, Qo);
     }
   }
   /**
@@ -3802,29 +4919,29 @@ class Logger {
    * 入队格式：`E|abbr|context|message`（竖线分隔，模块名已缩写）
    * 例如：`E|LMC|createLive|createLive failed: Error(...)`
    */
-  forwardToKibana(No, jo, Go, Qo) {
+  forwardToKibana(No, jo, Go, Ho) {
     if (No === "debug") return;
-    const Ho = LEVEL_TO_KIBANA[No], qo = `${abbreviateModule(this.config.prefix || "")}|${jo}|${Go}`, Yo = Qo == null ? "" : sanitizeForUpload(Qo);
-    loggerManager.enqueue(Ho, [qo, Yo]);
+    const Qo = LEVEL_TO_KIBANA[No], qo = `${abbreviateModule(this.config.prefix || "")}|${jo}|${Go}`, Yo = Ho == null ? "" : sanitizeForUpload(Ho);
+    loggerManager.enqueue(Qo, [qo, Yo]);
   }
   /**
    * 统一日志输出
    */
-  log(No, jo, Go, Qo) {
-    if (LOG_LEVEL_WEIGHT[No] < LOG_LEVEL_WEIGHT[globalMinLevel] || this.config.minLevel && LOG_LEVEL_WEIGHT[No] < LOG_LEVEL_WEIGHT[this.config.minLevel] || (this.forwardToKibana(No, jo, Go, Qo), !this.config.enableConsole)) return;
-    const Ho = this.formatTimestamp(), Vo = this.config.prefix ? `[${this.config.prefix}]` : "", qo = `${Ho}${Vo}[${jo}] ${Go}`;
+  log(No, jo, Go, Ho) {
+    if (LOG_LEVEL_WEIGHT[No] < LOG_LEVEL_WEIGHT[globalMinLevel] || this.config.minLevel && LOG_LEVEL_WEIGHT[No] < LOG_LEVEL_WEIGHT[this.config.minLevel] || (this.forwardToKibana(No, jo, Go, Ho), !this.config.enableConsole)) return;
+    const Qo = this.formatTimestamp(), Vo = this.config.prefix ? `[${this.config.prefix}]` : "", qo = `${Qo}${Vo}[${jo}] ${Go}`;
     switch (No) {
       case "debug":
-        console.debug(qo, Qo ?? "");
+        console.debug(qo, Ho ?? "");
         break;
       case "info":
-        console.info(qo, Qo ?? "");
+        console.info(qo, Ho ?? "");
         break;
       case "warn":
-        console.warn(qo, Qo ?? "");
+        console.warn(qo, Ho ?? "");
         break;
       case "error":
-        console.error(qo, Qo ?? "");
+        console.error(qo, Ho ?? "");
         break;
     }
   }
@@ -3832,8 +4949,8 @@ class Logger {
    * 格式化时间戳 HH:MM:SS.mmm
    */
   formatTimestamp() {
-    const No = /* @__PURE__ */ new Date(), jo = String(No.getHours()).padStart(2, "0"), Go = String(No.getMinutes()).padStart(2, "0"), Qo = String(No.getSeconds()).padStart(2, "0"), Ho = String(No.getMilliseconds()).padStart(3, "0");
-    return `[${jo}:${Go}:${Qo}.${Ho}]`;
+    const No = /* @__PURE__ */ new Date(), jo = String(No.getHours()).padStart(2, "0"), Go = String(No.getMinutes()).padStart(2, "0"), Ho = String(No.getSeconds()).padStart(2, "0"), Qo = String(No.getMilliseconds()).padStart(3, "0");
+    return `[${jo}:${Go}:${Ho}.${Qo}]`;
   }
   /**
    * 上报错误到 RUM (Aegis)
@@ -3921,12 +5038,12 @@ const TRTCApi = {
 async function trtcRequest(Oo, No = {}) {
   const jo = Oo.split("/").pop() || "";
   log$f.info("request", `${jo}`, No);
-  const Go = jo ? `/trtc_proxy/${jo}` : "/trtc_proxy", Qo = Date.now();
+  const Go = jo ? `/trtc_proxy/${jo}` : "/trtc_proxy", Ho = Date.now();
   try {
-    const Ho = await post(Go, { apiPath: Oo, body: No });
-    return reportTime("trtc_api_duration", Date.now() - Qo), Ho;
-  } catch (Ho) {
-    throw reportTime("trtc_api_duration", Date.now() - Qo), Ho;
+    const Qo = await post(Go, { apiPath: Oo, body: No });
+    return reportTime("trtc_api_duration", Date.now() - Ho, jo, "ok"), Qo;
+  } catch (Qo) {
+    throw reportTime("trtc_api_duration", Date.now() - Ho, jo, "fail"), Qo;
   }
 }
 async function trtcRequestChecked(Oo, No = {}, jo) {
@@ -3966,15 +5083,15 @@ async function getStreamInfoAsync(Oo, No) {
   if (!No)
     return log$f.warn("getStreamInfoAsync", "anchorId is required"), null;
   let Go;
-  const Qo = getCurrentUserIdFromAuthState();
-  if (No === Qo)
+  const Ho = getCurrentUserIdFromAuthState();
+  if (No === Ho)
     Go = getCurrentUserSigFromAuthState();
   else {
     log$f.debug("getStreamInfoAsync", `Fetching userSig for anchor: ${No}`);
-    const Ho = await fetchUserSig(No);
-    if (!Ho)
+    const Qo = await fetchUserSig(No);
+    if (!Qo)
       return log$f.warn("getStreamInfoAsync", "Failed to fetch userSig for anchor:", No), null;
-    Go = Ho;
+    Go = Qo;
   }
   return Go ? {
     serverUrl: getRtmpPushUrl(jo),
@@ -3994,30 +5111,30 @@ function o() {
   r[45] = 62, r[95] = 63;
 }
 function a(Oo, No, jo) {
-  for (var Go, Qo, Ho = [], Vo = No; Vo < jo; Vo += 3) Go = (Oo[Vo] << 16) + (Oo[Vo + 1] << 8) + Oo[Vo + 2], Ho.push(t[(Qo = Go) >> 18 & 63] + t[Qo >> 12 & 63] + t[Qo >> 6 & 63] + t[63 & Qo]);
-  return Ho.join("");
+  for (var Go, Ho, Qo = [], Vo = No; Vo < jo; Vo += 3) Go = (Oo[Vo] << 16) + (Oo[Vo + 1] << 8) + Oo[Vo + 2], Qo.push(t[(Ho = Go) >> 18 & 63] + t[Ho >> 12 & 63] + t[Ho >> 6 & 63] + t[63 & Ho]);
+  return Qo.join("");
 }
 function s(Oo) {
   var No;
   i || o();
-  for (var jo = Oo.length, Go = jo % 3, Qo = "", Ho = [], Vo = 0, qo = jo - Go; Vo < qo; Vo += 16383) Ho.push(a(Oo, Vo, Vo + 16383 > qo ? qo : Vo + 16383));
-  return Go === 1 ? (No = Oo[jo - 1], Qo += t[No >> 2], Qo += t[No << 4 & 63], Qo += "==") : Go === 2 && (No = (Oo[jo - 2] << 8) + Oo[jo - 1], Qo += t[No >> 10], Qo += t[No >> 4 & 63], Qo += t[No << 2 & 63], Qo += "="), Ho.push(Qo), Ho.join("");
+  for (var jo = Oo.length, Go = jo % 3, Ho = "", Qo = [], Vo = 0, qo = jo - Go; Vo < qo; Vo += 16383) Qo.push(a(Oo, Vo, Vo + 16383 > qo ? qo : Vo + 16383));
+  return Go === 1 ? (No = Oo[jo - 1], Ho += t[No >> 2], Ho += t[No << 4 & 63], Ho += "==") : Go === 2 && (No = (Oo[jo - 2] << 8) + Oo[jo - 1], Ho += t[No >> 10], Ho += t[No >> 4 & 63], Ho += t[No << 2 & 63], Ho += "="), Qo.push(Ho), Qo.join("");
 }
-function h(Oo, No, jo, Go, Qo) {
-  var Ho, Vo, qo = 8 * Qo - Go - 1, Yo = (1 << qo) - 1, Xo = Yo >> 1, Fo = -7, Wo = jo ? Qo - 1 : 0, Ko = jo ? -1 : 1, Jo = Oo[No + Wo];
-  for (Wo += Ko, Ho = Jo & (1 << -Fo) - 1, Jo >>= -Fo, Fo += qo; Fo > 0; Ho = 256 * Ho + Oo[No + Wo], Wo += Ko, Fo -= 8) ;
-  for (Vo = Ho & (1 << -Fo) - 1, Ho >>= -Fo, Fo += Go; Fo > 0; Vo = 256 * Vo + Oo[No + Wo], Wo += Ko, Fo -= 8) ;
-  if (Ho === 0) Ho = 1 - Xo;
+function h(Oo, No, jo, Go, Ho) {
+  var Qo, Vo, qo = 8 * Ho - Go - 1, Yo = (1 << qo) - 1, Xo = Yo >> 1, Fo = -7, Wo = jo ? Ho - 1 : 0, Ko = jo ? -1 : 1, Jo = Oo[No + Wo];
+  for (Wo += Ko, Qo = Jo & (1 << -Fo) - 1, Jo >>= -Fo, Fo += qo; Fo > 0; Qo = 256 * Qo + Oo[No + Wo], Wo += Ko, Fo -= 8) ;
+  for (Vo = Qo & (1 << -Fo) - 1, Qo >>= -Fo, Fo += Go; Fo > 0; Vo = 256 * Vo + Oo[No + Wo], Wo += Ko, Fo -= 8) ;
+  if (Qo === 0) Qo = 1 - Xo;
   else {
-    if (Ho === Yo) return Vo ? NaN : 1 / 0 * (Jo ? -1 : 1);
-    Vo += Math.pow(2, Go), Ho -= Xo;
+    if (Qo === Yo) return Vo ? NaN : 1 / 0 * (Jo ? -1 : 1);
+    Vo += Math.pow(2, Go), Qo -= Xo;
   }
-  return (Jo ? -1 : 1) * Vo * Math.pow(2, Ho - Go);
+  return (Jo ? -1 : 1) * Vo * Math.pow(2, Qo - Go);
 }
-function l(Oo, No, jo, Go, Qo, Ho) {
-  var Vo, qo, Yo, Xo = 8 * Ho - Qo - 1, Fo = (1 << Xo) - 1, Wo = Fo >> 1, Ko = Qo === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0, Jo = Go ? 0 : Ho - 1, es = Go ? 1 : -1, rs = No < 0 || No === 0 && 1 / No < 0 ? 1 : 0;
-  for (No = Math.abs(No), isNaN(No) || No === 1 / 0 ? (qo = isNaN(No) ? 1 : 0, Vo = Fo) : (Vo = Math.floor(Math.log(No) / Math.LN2), No * (Yo = Math.pow(2, -Vo)) < 1 && (Vo--, Yo *= 2), (No += Vo + Wo >= 1 ? Ko / Yo : Ko * Math.pow(2, 1 - Wo)) * Yo >= 2 && (Vo++, Yo /= 2), Vo + Wo >= Fo ? (qo = 0, Vo = Fo) : Vo + Wo >= 1 ? (qo = (No * Yo - 1) * Math.pow(2, Qo), Vo += Wo) : (qo = No * Math.pow(2, Wo - 1) * Math.pow(2, Qo), Vo = 0)); Qo >= 8; Oo[jo + Jo] = 255 & qo, Jo += es, qo /= 256, Qo -= 8) ;
-  for (Vo = Vo << Qo | qo, Xo += Qo; Xo > 0; Oo[jo + Jo] = 255 & Vo, Jo += es, Vo /= 256, Xo -= 8) ;
+function l(Oo, No, jo, Go, Ho, Qo) {
+  var Vo, qo, Yo, Xo = 8 * Qo - Ho - 1, Fo = (1 << Xo) - 1, Wo = Fo >> 1, Ko = Ho === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0, Jo = Go ? 0 : Qo - 1, es = Go ? 1 : -1, rs = No < 0 || No === 0 && 1 / No < 0 ? 1 : 0;
+  for (No = Math.abs(No), isNaN(No) || No === 1 / 0 ? (qo = isNaN(No) ? 1 : 0, Vo = Fo) : (Vo = Math.floor(Math.log(No) / Math.LN2), No * (Yo = Math.pow(2, -Vo)) < 1 && (Vo--, Yo *= 2), (No += Vo + Wo >= 1 ? Ko / Yo : Ko * Math.pow(2, 1 - Wo)) * Yo >= 2 && (Vo++, Yo /= 2), Vo + Wo >= Fo ? (qo = 0, Vo = Fo) : Vo + Wo >= 1 ? (qo = (No * Yo - 1) * Math.pow(2, Ho), Vo += Wo) : (qo = No * Math.pow(2, Wo - 1) * Math.pow(2, Ho), Vo = 0)); Ho >= 8; Oo[jo + Jo] = 255 & qo, Jo += es, qo /= 256, Ho -= 8) ;
+  for (Vo = Vo << Ho | qo, Xo += Ho; Xo > 0; Oo[jo + Jo] = 255 & Vo, Jo += es, Vo /= 256, Xo -= 8) ;
   Oo[jo + Jo - es] |= 128 * rs;
 }
 var f = {}.toString, c = Array.isArray || function(Oo) {
@@ -4040,22 +5157,22 @@ function p(Oo, No, jo) {
 }
 function _(Oo, No, jo, Go) {
   if (typeof No == "number") throw new TypeError('"value" argument must not be a number');
-  return typeof ArrayBuffer < "u" && No instanceof ArrayBuffer ? (function(Qo, Ho, Vo, qo) {
-    if (Ho.byteLength, Vo < 0 || Ho.byteLength < Vo) throw new RangeError("'offset' is out of bounds");
-    if (Ho.byteLength < Vo + (qo || 0)) throw new RangeError("'length' is out of bounds");
-    return Ho = Vo === void 0 && qo === void 0 ? new Uint8Array(Ho) : qo === void 0 ? new Uint8Array(Ho, Vo) : new Uint8Array(Ho, Vo, qo), p.TYPED_ARRAY_SUPPORT ? (Qo = Ho).__proto__ = p.prototype : Qo = w(Qo, Ho), Qo;
-  })(Oo, No, jo, Go) : typeof No == "string" ? (function(Qo, Ho, Vo) {
+  return typeof ArrayBuffer < "u" && No instanceof ArrayBuffer ? (function(Ho, Qo, Vo, qo) {
+    if (Qo.byteLength, Vo < 0 || Qo.byteLength < Vo) throw new RangeError("'offset' is out of bounds");
+    if (Qo.byteLength < Vo + (qo || 0)) throw new RangeError("'length' is out of bounds");
+    return Qo = Vo === void 0 && qo === void 0 ? new Uint8Array(Qo) : qo === void 0 ? new Uint8Array(Qo, Vo) : new Uint8Array(Qo, Vo, qo), p.TYPED_ARRAY_SUPPORT ? (Ho = Qo).__proto__ = p.prototype : Ho = w(Ho, Qo), Ho;
+  })(Oo, No, jo, Go) : typeof No == "string" ? (function(Ho, Qo, Vo) {
     if (typeof Vo == "string" && Vo !== "" || (Vo = "utf8"), !p.isEncoding(Vo)) throw new TypeError('"encoding" must be a valid string encoding');
-    var qo = 0 | m(Ho, Vo), Yo = (Qo = d(Qo, qo)).write(Ho, Vo);
-    return Yo !== qo && (Qo = Qo.slice(0, Yo)), Qo;
-  })(Oo, No, jo) : (function(Qo, Ho) {
-    if (y(Ho)) {
-      var Vo = 0 | b(Ho.length);
-      return (Qo = d(Qo, Vo)).length === 0 || Ho.copy(Qo, 0, 0, Vo), Qo;
+    var qo = 0 | m(Qo, Vo), Yo = (Ho = d(Ho, qo)).write(Qo, Vo);
+    return Yo !== qo && (Ho = Ho.slice(0, Yo)), Ho;
+  })(Oo, No, jo) : (function(Ho, Qo) {
+    if (y(Qo)) {
+      var Vo = 0 | b(Qo.length);
+      return (Ho = d(Ho, Vo)).length === 0 || Qo.copy(Ho, 0, 0, Vo), Ho;
     }
-    if (Ho) {
-      if (typeof ArrayBuffer < "u" && Ho.buffer instanceof ArrayBuffer || "length" in Ho) return typeof Ho.length != "number" || (qo = Ho.length) != qo ? d(Qo, 0) : w(Qo, Ho);
-      if (Ho.type === "Buffer" && c(Ho.data)) return w(Qo, Ho.data);
+    if (Qo) {
+      if (typeof ArrayBuffer < "u" && Qo.buffer instanceof ArrayBuffer || "length" in Qo) return typeof Qo.length != "number" || (qo = Qo.length) != qo ? d(Ho, 0) : w(Ho, Qo);
+      if (Qo.type === "Buffer" && c(Qo.data)) return w(Ho, Qo.data);
     }
     var qo;
     throw new TypeError("First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object.");
@@ -4141,21 +5258,21 @@ function E(Oo, No, jo) {
   var Go = Oo[No];
   Oo[No] = Oo[jo], Oo[jo] = Go;
 }
-function S(Oo, No, jo, Go, Qo) {
+function S(Oo, No, jo, Go, Ho) {
   if (Oo.length === 0) return -1;
-  if (typeof jo == "string" ? (Go = jo, jo = 0) : jo > 2147483647 ? jo = 2147483647 : jo < -2147483648 && (jo = -2147483648), jo = +jo, isNaN(jo) && (jo = Qo ? 0 : Oo.length - 1), jo < 0 && (jo = Oo.length + jo), jo >= Oo.length) {
-    if (Qo) return -1;
+  if (typeof jo == "string" ? (Go = jo, jo = 0) : jo > 2147483647 ? jo = 2147483647 : jo < -2147483648 && (jo = -2147483648), jo = +jo, isNaN(jo) && (jo = Ho ? 0 : Oo.length - 1), jo < 0 && (jo = Oo.length + jo), jo >= Oo.length) {
+    if (Ho) return -1;
     jo = Oo.length - 1;
   } else if (jo < 0) {
-    if (!Qo) return -1;
+    if (!Ho) return -1;
     jo = 0;
   }
-  if (typeof No == "string" && (No = p.from(No, Go)), y(No)) return No.length === 0 ? -1 : x(Oo, No, jo, Go, Qo);
-  if (typeof No == "number") return No &= 255, p.TYPED_ARRAY_SUPPORT && typeof Uint8Array.prototype.indexOf == "function" ? Qo ? Uint8Array.prototype.indexOf.call(Oo, No, jo) : Uint8Array.prototype.lastIndexOf.call(Oo, No, jo) : x(Oo, [No], jo, Go, Qo);
+  if (typeof No == "string" && (No = p.from(No, Go)), y(No)) return No.length === 0 ? -1 : x(Oo, No, jo, Go, Ho);
+  if (typeof No == "number") return No &= 255, p.TYPED_ARRAY_SUPPORT && typeof Uint8Array.prototype.indexOf == "function" ? Ho ? Uint8Array.prototype.indexOf.call(Oo, No, jo) : Uint8Array.prototype.lastIndexOf.call(Oo, No, jo) : x(Oo, [No], jo, Go, Ho);
   throw new TypeError("val must be string, number or Buffer");
 }
-function x(Oo, No, jo, Go, Qo) {
-  var Ho, Vo = 1, qo = Oo.length, Yo = No.length;
+function x(Oo, No, jo, Go, Ho) {
+  var Qo, Vo = 1, qo = Oo.length, Yo = No.length;
   if (Go !== void 0 && ((Go = String(Go).toLowerCase()) === "ucs2" || Go === "ucs-2" || Go === "utf16le" || Go === "utf-16le")) {
     if (Oo.length < 2 || No.length < 2) return -1;
     Vo = 2, qo /= 2, Yo /= 2, jo /= 2;
@@ -4163,27 +5280,27 @@ function x(Oo, No, jo, Go, Qo) {
   function Xo(Jo, es) {
     return Vo === 1 ? Jo[es] : Jo.readUInt16BE(es * Vo);
   }
-  if (Qo) {
+  if (Ho) {
     var Fo = -1;
-    for (Ho = jo; Ho < qo; Ho++) if (Xo(Oo, Ho) === Xo(No, Fo === -1 ? 0 : Ho - Fo)) {
-      if (Fo === -1 && (Fo = Ho), Ho - Fo + 1 === Yo) return Fo * Vo;
-    } else Fo !== -1 && (Ho -= Ho - Fo), Fo = -1;
-  } else for (jo + Yo > qo && (jo = qo - Yo), Ho = jo; Ho >= 0; Ho--) {
-    for (var Wo = !0, Ko = 0; Ko < Yo; Ko++) if (Xo(Oo, Ho + Ko) !== Xo(No, Ko)) {
+    for (Qo = jo; Qo < qo; Qo++) if (Xo(Oo, Qo) === Xo(No, Fo === -1 ? 0 : Qo - Fo)) {
+      if (Fo === -1 && (Fo = Qo), Qo - Fo + 1 === Yo) return Fo * Vo;
+    } else Fo !== -1 && (Qo -= Qo - Fo), Fo = -1;
+  } else for (jo + Yo > qo && (jo = qo - Yo), Qo = jo; Qo >= 0; Qo--) {
+    for (var Wo = !0, Ko = 0; Ko < Yo; Ko++) if (Xo(Oo, Qo + Ko) !== Xo(No, Ko)) {
       Wo = !1;
       break;
     }
-    if (Wo) return Ho;
+    if (Wo) return Qo;
   }
   return -1;
 }
 function R(Oo, No, jo, Go) {
   jo = Number(jo) || 0;
-  var Qo = Oo.length - jo;
-  Go ? (Go = Number(Go)) > Qo && (Go = Qo) : Go = Qo;
-  var Ho = No.length;
-  if (Ho % 2 != 0) throw new TypeError("Invalid hex string");
-  Go > Ho / 2 && (Go = Ho / 2);
+  var Ho = Oo.length - jo;
+  Go ? (Go = Number(Go)) > Ho && (Go = Ho) : Go = Ho;
+  var Qo = No.length;
+  if (Qo % 2 != 0) throw new TypeError("Invalid hex string");
+  Go > Qo / 2 && (Go = Qo / 2);
   for (var Vo = 0; Vo < Go; ++Vo) {
     var qo = parseInt(No.substr(2 * Vo, 2), 16);
     if (isNaN(qo)) return Vo;
@@ -4195,9 +5312,9 @@ function A(Oo, No, jo, Go) {
   return G(q(No, Oo.length - jo), Oo, jo, Go);
 }
 function B(Oo, No, jo, Go) {
-  return G((function(Qo) {
-    for (var Ho = [], Vo = 0; Vo < Qo.length; ++Vo) Ho.push(255 & Qo.charCodeAt(Vo));
-    return Ho;
+  return G((function(Ho) {
+    for (var Qo = [], Vo = 0; Vo < Ho.length; ++Vo) Qo.push(255 & Ho.charCodeAt(Vo));
+    return Qo;
   })(No), Oo, jo, Go);
 }
 function z(Oo, No, jo, Go) {
@@ -4207,8 +5324,8 @@ function L(Oo, No, jo, Go) {
   return G(V(No), Oo, jo, Go);
 }
 function T(Oo, No, jo, Go) {
-  return G((function(Qo, Ho) {
-    for (var Vo, qo, Yo, Xo = [], Fo = 0; Fo < Qo.length && !((Ho -= 2) < 0); ++Fo) Vo = Qo.charCodeAt(Fo), qo = Vo >> 8, Yo = Vo % 256, Xo.push(Yo), Xo.push(qo);
+  return G((function(Ho, Qo) {
+    for (var Vo, qo, Yo, Xo = [], Fo = 0; Fo < Ho.length && !((Qo -= 2) < 0); ++Fo) Vo = Ho.charCodeAt(Fo), qo = Vo >> 8, Yo = Vo % 256, Xo.push(Yo), Xo.push(qo);
     return Xo;
   })(No, Oo.length - jo), Oo, jo, Go);
 }
@@ -4217,22 +5334,22 @@ function M(Oo, No, jo) {
 }
 function C(Oo, No, jo) {
   jo = Math.min(Oo.length, jo);
-  for (var Go = [], Qo = No; Qo < jo; ) {
-    var Ho, Vo, qo, Yo, Xo = Oo[Qo], Fo = null, Wo = Xo > 239 ? 4 : Xo > 223 ? 3 : Xo > 191 ? 2 : 1;
-    if (Qo + Wo <= jo) switch (Wo) {
+  for (var Go = [], Ho = No; Ho < jo; ) {
+    var Qo, Vo, qo, Yo, Xo = Oo[Ho], Fo = null, Wo = Xo > 239 ? 4 : Xo > 223 ? 3 : Xo > 191 ? 2 : 1;
+    if (Ho + Wo <= jo) switch (Wo) {
       case 1:
         Xo < 128 && (Fo = Xo);
         break;
       case 2:
-        (192 & (Ho = Oo[Qo + 1])) == 128 && (Yo = (31 & Xo) << 6 | 63 & Ho) > 127 && (Fo = Yo);
+        (192 & (Qo = Oo[Ho + 1])) == 128 && (Yo = (31 & Xo) << 6 | 63 & Qo) > 127 && (Fo = Yo);
         break;
       case 3:
-        Ho = Oo[Qo + 1], Vo = Oo[Qo + 2], (192 & Ho) == 128 && (192 & Vo) == 128 && (Yo = (15 & Xo) << 12 | (63 & Ho) << 6 | 63 & Vo) > 2047 && (Yo < 55296 || Yo > 57343) && (Fo = Yo);
+        Qo = Oo[Ho + 1], Vo = Oo[Ho + 2], (192 & Qo) == 128 && (192 & Vo) == 128 && (Yo = (15 & Xo) << 12 | (63 & Qo) << 6 | 63 & Vo) > 2047 && (Yo < 55296 || Yo > 57343) && (Fo = Yo);
         break;
       case 4:
-        Ho = Oo[Qo + 1], Vo = Oo[Qo + 2], qo = Oo[Qo + 3], (192 & Ho) == 128 && (192 & Vo) == 128 && (192 & qo) == 128 && (Yo = (15 & Xo) << 18 | (63 & Ho) << 12 | (63 & Vo) << 6 | 63 & qo) > 65535 && Yo < 1114112 && (Fo = Yo);
+        Qo = Oo[Ho + 1], Vo = Oo[Ho + 2], qo = Oo[Ho + 3], (192 & Qo) == 128 && (192 & Vo) == 128 && (192 & qo) == 128 && (Yo = (15 & Xo) << 18 | (63 & Qo) << 12 | (63 & Vo) << 6 | 63 & qo) > 65535 && Yo < 1114112 && (Fo = Yo);
     }
-    Fo === null ? (Fo = 65533, Wo = 1) : Fo > 65535 && (Fo -= 65536, Go.push(Fo >>> 10 & 1023 | 55296), Fo = 56320 | 1023 & Fo), Go.push(Fo), Qo += Wo;
+    Fo === null ? (Fo = 65533, Wo = 1) : Fo > 65535 && (Fo -= 65536, Go.push(Fo >>> 10 & 1023 | 55296), Fo = 56320 | 1023 & Fo), Go.push(Fo), Ho += Wo;
   }
   return (function(Ko) {
     var Jo = Ko.length;
@@ -4246,8 +5363,8 @@ p.TYPED_ARRAY_SUPPORT = e.TYPED_ARRAY_SUPPORT === void 0 || e.TYPED_ARRAY_SUPPOR
 }, p.from = function(Oo, No, jo) {
   return _(null, Oo, No, jo);
 }, p.TYPED_ARRAY_SUPPORT && (p.prototype.__proto__ = Uint8Array.prototype, p.__proto__ = Uint8Array), p.alloc = function(Oo, No, jo) {
-  return (function(Go, Qo, Ho, Vo) {
-    return g(Qo), Qo <= 0 ? d(Go, Qo) : Ho !== void 0 ? typeof Vo == "string" ? d(Go, Qo).fill(Ho, Vo) : d(Go, Qo).fill(Ho) : d(Go, Qo);
+  return (function(Go, Ho, Qo, Vo) {
+    return g(Ho), Ho <= 0 ? d(Go, Ho) : Qo !== void 0 ? typeof Vo == "string" ? d(Go, Ho).fill(Qo, Vo) : d(Go, Ho).fill(Qo) : d(Go, Ho);
   })(null, Oo, No, jo);
 }, p.allocUnsafe = function(Oo) {
   return v(null, Oo);
@@ -4256,8 +5373,8 @@ p.TYPED_ARRAY_SUPPORT = e.TYPED_ARRAY_SUPPORT === void 0 || e.TYPED_ARRAY_SUPPOR
 }, p.isBuffer = $, p.compare = function(Oo, No) {
   if (!y(Oo) || !y(No)) throw new TypeError("Arguments must be Buffers");
   if (Oo === No) return 0;
-  for (var jo = Oo.length, Go = No.length, Qo = 0, Ho = Math.min(jo, Go); Qo < Ho; ++Qo) if (Oo[Qo] !== No[Qo]) {
-    jo = Oo[Qo], Go = No[Qo];
+  for (var jo = Oo.length, Go = No.length, Ho = 0, Qo = Math.min(jo, Go); Ho < Qo; ++Ho) if (Oo[Ho] !== No[Ho]) {
+    jo = Oo[Ho], Go = No[Ho];
     break;
   }
   return jo < Go ? -1 : Go < jo ? 1 : 0;
@@ -4283,11 +5400,11 @@ p.TYPED_ARRAY_SUPPORT = e.TYPED_ARRAY_SUPPORT === void 0 || e.TYPED_ARRAY_SUPPOR
   if (Oo.length === 0) return p.alloc(0);
   var jo;
   if (No === void 0) for (No = 0, jo = 0; jo < Oo.length; ++jo) No += Oo[jo].length;
-  var Go = p.allocUnsafe(No), Qo = 0;
+  var Go = p.allocUnsafe(No), Ho = 0;
   for (jo = 0; jo < Oo.length; ++jo) {
-    var Ho = Oo[jo];
-    if (!y(Ho)) throw new TypeError('"list" argument must be an Array of Buffers');
-    Ho.copy(Go, Qo), Qo += Ho.length;
+    var Qo = Oo[jo];
+    if (!y(Qo)) throw new TypeError('"list" argument must be an Array of Buffers');
+    Qo.copy(Go, Ho), Ho += Qo.length;
   }
   return Go;
 }, p.byteLength = m, p.prototype._isBuffer = !0, p.prototype.swap16 = function() {
@@ -4314,18 +5431,18 @@ p.TYPED_ARRAY_SUPPORT = e.TYPED_ARRAY_SUPPORT === void 0 || e.TYPED_ARRAY_SUPPOR
 }, p.prototype.inspect = function() {
   var Oo = "";
   return this.length > 0 && (Oo = this.toString("hex", 0, 50).match(/.{2}/g).join(" "), this.length > 50 && (Oo += " ... ")), "<Buffer " + Oo + ">";
-}, p.prototype.compare = function(Oo, No, jo, Go, Qo) {
+}, p.prototype.compare = function(Oo, No, jo, Go, Ho) {
   if (!y(Oo)) throw new TypeError("Argument must be a Buffer");
-  if (No === void 0 && (No = 0), jo === void 0 && (jo = Oo ? Oo.length : 0), Go === void 0 && (Go = 0), Qo === void 0 && (Qo = this.length), No < 0 || jo > Oo.length || Go < 0 || Qo > this.length) throw new RangeError("out of range index");
-  if (Go >= Qo && No >= jo) return 0;
-  if (Go >= Qo) return -1;
+  if (No === void 0 && (No = 0), jo === void 0 && (jo = Oo ? Oo.length : 0), Go === void 0 && (Go = 0), Ho === void 0 && (Ho = this.length), No < 0 || jo > Oo.length || Go < 0 || Ho > this.length) throw new RangeError("out of range index");
+  if (Go >= Ho && No >= jo) return 0;
+  if (Go >= Ho) return -1;
   if (No >= jo) return 1;
   if (this === Oo) return 0;
-  for (var Ho = (Qo >>>= 0) - (Go >>>= 0), Vo = (jo >>>= 0) - (No >>>= 0), qo = Math.min(Ho, Vo), Yo = this.slice(Go, Qo), Xo = Oo.slice(No, jo), Fo = 0; Fo < qo; ++Fo) if (Yo[Fo] !== Xo[Fo]) {
-    Ho = Yo[Fo], Vo = Xo[Fo];
+  for (var Qo = (Ho >>>= 0) - (Go >>>= 0), Vo = (jo >>>= 0) - (No >>>= 0), qo = Math.min(Qo, Vo), Yo = this.slice(Go, Ho), Xo = Oo.slice(No, jo), Fo = 0; Fo < qo; ++Fo) if (Yo[Fo] !== Xo[Fo]) {
+    Qo = Yo[Fo], Vo = Xo[Fo];
     break;
   }
-  return Ho < Vo ? -1 : Vo < Ho ? 1 : 0;
+  return Qo < Vo ? -1 : Vo < Qo ? 1 : 0;
 }, p.prototype.includes = function(Oo, No, jo) {
   return this.indexOf(Oo, No, jo) !== -1;
 }, p.prototype.indexOf = function(Oo, No, jo) {
@@ -4339,10 +5456,10 @@ p.TYPED_ARRAY_SUPPORT = e.TYPED_ARRAY_SUPPORT === void 0 || e.TYPED_ARRAY_SUPPOR
     if (!isFinite(No)) throw new Error("Buffer.write(string, encoding, offset[, length]) is no longer supported");
     No |= 0, isFinite(jo) ? (jo |= 0, Go === void 0 && (Go = "utf8")) : (Go = jo, jo = void 0);
   }
-  var Qo = this.length - No;
-  if ((jo === void 0 || jo > Qo) && (jo = Qo), Oo.length > 0 && (jo < 0 || No < 0) || No > this.length) throw new RangeError("Attempt to write outside buffer bounds");
+  var Ho = this.length - No;
+  if ((jo === void 0 || jo > Ho) && (jo = Ho), Oo.length > 0 && (jo < 0 || No < 0) || No > this.length) throw new RangeError("Attempt to write outside buffer bounds");
   Go || (Go = "utf8");
-  for (var Ho = !1; ; ) switch (Go) {
+  for (var Qo = !1; ; ) switch (Go) {
     case "hex":
       return R(this, Oo, No, jo);
     case "utf8":
@@ -4361,8 +5478,8 @@ p.TYPED_ARRAY_SUPPORT = e.TYPED_ARRAY_SUPPORT === void 0 || e.TYPED_ARRAY_SUPPOR
     case "utf-16le":
       return T(this, Oo, No, jo);
     default:
-      if (Ho) throw new TypeError("Unknown encoding: " + Go);
-      Go = ("" + Go).toLowerCase(), Ho = !0;
+      if (Qo) throw new TypeError("Unknown encoding: " + Go);
+      Go = ("" + Go).toLowerCase(), Qo = !0;
   }
 }, p.prototype.toJSON = function() {
   return { type: "Buffer", data: Array.prototype.slice.call(this._arr || this, 0) };
@@ -4371,68 +5488,68 @@ var D = 4096;
 function I(Oo, No, jo) {
   var Go = "";
   jo = Math.min(Oo.length, jo);
-  for (var Qo = No; Qo < jo; ++Qo) Go += String.fromCharCode(127 & Oo[Qo]);
+  for (var Ho = No; Ho < jo; ++Ho) Go += String.fromCharCode(127 & Oo[Ho]);
   return Go;
 }
 function P(Oo, No, jo) {
   var Go = "";
   jo = Math.min(Oo.length, jo);
-  for (var Qo = No; Qo < jo; ++Qo) Go += String.fromCharCode(Oo[Qo]);
+  for (var Ho = No; Ho < jo; ++Ho) Go += String.fromCharCode(Oo[Ho]);
   return Go;
 }
 function O(Oo, No, jo) {
   var Go = Oo.length;
   (!No || No < 0) && (No = 0), (!jo || jo < 0 || jo > Go) && (jo = Go);
-  for (var Qo = "", Ho = No; Ho < jo; ++Ho) Qo += X(Oo[Ho]);
-  return Qo;
+  for (var Ho = "", Qo = No; Qo < jo; ++Qo) Ho += X(Oo[Qo]);
+  return Ho;
 }
 function U(Oo, No, jo) {
-  for (var Go = Oo.slice(No, jo), Qo = "", Ho = 0; Ho < Go.length; Ho += 2) Qo += String.fromCharCode(Go[Ho] + 256 * Go[Ho + 1]);
-  return Qo;
+  for (var Go = Oo.slice(No, jo), Ho = "", Qo = 0; Qo < Go.length; Qo += 2) Ho += String.fromCharCode(Go[Qo] + 256 * Go[Qo + 1]);
+  return Ho;
 }
 function H(Oo, No, jo) {
   if (Oo % 1 != 0 || Oo < 0) throw new RangeError("offset is not uint");
   if (Oo + No > jo) throw new RangeError("Trying to access beyond buffer length");
 }
-function F(Oo, No, jo, Go, Qo, Ho) {
+function F(Oo, No, jo, Go, Ho, Qo) {
   if (!y(Oo)) throw new TypeError('"buffer" argument must be a Buffer instance');
-  if (No > Qo || No < Ho) throw new RangeError('"value" argument is out of bounds');
+  if (No > Ho || No < Qo) throw new RangeError('"value" argument is out of bounds');
   if (jo + Go > Oo.length) throw new RangeError("Index out of range");
 }
 function N(Oo, No, jo, Go) {
   No < 0 && (No = 65535 + No + 1);
-  for (var Qo = 0, Ho = Math.min(Oo.length - jo, 2); Qo < Ho; ++Qo) Oo[jo + Qo] = (No & 255 << 8 * (Go ? Qo : 1 - Qo)) >>> 8 * (Go ? Qo : 1 - Qo);
+  for (var Ho = 0, Qo = Math.min(Oo.length - jo, 2); Ho < Qo; ++Ho) Oo[jo + Ho] = (No & 255 << 8 * (Go ? Ho : 1 - Ho)) >>> 8 * (Go ? Ho : 1 - Ho);
 }
 function Z(Oo, No, jo, Go) {
   No < 0 && (No = 4294967295 + No + 1);
-  for (var Qo = 0, Ho = Math.min(Oo.length - jo, 4); Qo < Ho; ++Qo) Oo[jo + Qo] = No >>> 8 * (Go ? Qo : 3 - Qo) & 255;
+  for (var Ho = 0, Qo = Math.min(Oo.length - jo, 4); Ho < Qo; ++Ho) Oo[jo + Ho] = No >>> 8 * (Go ? Ho : 3 - Ho) & 255;
 }
-function j(Oo, No, jo, Go, Qo, Ho) {
+function j(Oo, No, jo, Go, Ho, Qo) {
   if (jo + Go > Oo.length) throw new RangeError("Index out of range");
   if (jo < 0) throw new RangeError("Index out of range");
 }
-function W(Oo, No, jo, Go, Qo) {
-  return Qo || j(Oo, 0, jo, 4), l(Oo, No, jo, Go, 23, 4), jo + 4;
+function W(Oo, No, jo, Go, Ho) {
+  return Ho || j(Oo, 0, jo, 4), l(Oo, No, jo, Go, 23, 4), jo + 4;
 }
-function Y(Oo, No, jo, Go, Qo) {
-  return Qo || j(Oo, 0, jo, 8), l(Oo, No, jo, Go, 52, 8), jo + 8;
+function Y(Oo, No, jo, Go, Ho) {
+  return Ho || j(Oo, 0, jo, 8), l(Oo, No, jo, Go, 52, 8), jo + 8;
 }
 p.prototype.slice = function(Oo, No) {
   var jo, Go = this.length;
   if ((Oo = ~~Oo) < 0 ? (Oo += Go) < 0 && (Oo = 0) : Oo > Go && (Oo = Go), (No = No === void 0 ? Go : ~~No) < 0 ? (No += Go) < 0 && (No = 0) : No > Go && (No = Go), No < Oo && (No = Oo), p.TYPED_ARRAY_SUPPORT) (jo = this.subarray(Oo, No)).__proto__ = p.prototype;
   else {
-    var Qo = No - Oo;
-    jo = new p(Qo, void 0);
-    for (var Ho = 0; Ho < Qo; ++Ho) jo[Ho] = this[Ho + Oo];
+    var Ho = No - Oo;
+    jo = new p(Ho, void 0);
+    for (var Qo = 0; Qo < Ho; ++Qo) jo[Qo] = this[Qo + Oo];
   }
   return jo;
 }, p.prototype.readUIntLE = function(Oo, No, jo) {
   Oo |= 0, No |= 0, jo || H(Oo, No, this.length);
-  for (var Go = this[Oo], Qo = 1, Ho = 0; ++Ho < No && (Qo *= 256); ) Go += this[Oo + Ho] * Qo;
+  for (var Go = this[Oo], Ho = 1, Qo = 0; ++Qo < No && (Ho *= 256); ) Go += this[Oo + Qo] * Ho;
   return Go;
 }, p.prototype.readUIntBE = function(Oo, No, jo) {
   Oo |= 0, No |= 0, jo || H(Oo, No, this.length);
-  for (var Go = this[Oo + --No], Qo = 1; No > 0 && (Qo *= 256); ) Go += this[Oo + --No] * Qo;
+  for (var Go = this[Oo + --No], Ho = 1; No > 0 && (Ho *= 256); ) Go += this[Oo + --No] * Ho;
   return Go;
 }, p.prototype.readUInt8 = function(Oo, No) {
   return No || H(Oo, 1, this.length), this[Oo];
@@ -4446,12 +5563,12 @@ p.prototype.slice = function(Oo, No) {
   return No || H(Oo, 4, this.length), 16777216 * this[Oo] + (this[Oo + 1] << 16 | this[Oo + 2] << 8 | this[Oo + 3]);
 }, p.prototype.readIntLE = function(Oo, No, jo) {
   Oo |= 0, No |= 0, jo || H(Oo, No, this.length);
-  for (var Go = this[Oo], Qo = 1, Ho = 0; ++Ho < No && (Qo *= 256); ) Go += this[Oo + Ho] * Qo;
-  return Go >= (Qo *= 128) && (Go -= Math.pow(2, 8 * No)), Go;
+  for (var Go = this[Oo], Ho = 1, Qo = 0; ++Qo < No && (Ho *= 256); ) Go += this[Oo + Qo] * Ho;
+  return Go >= (Ho *= 128) && (Go -= Math.pow(2, 8 * No)), Go;
 }, p.prototype.readIntBE = function(Oo, No, jo) {
   Oo |= 0, No |= 0, jo || H(Oo, No, this.length);
-  for (var Go = No, Qo = 1, Ho = this[Oo + --Go]; Go > 0 && (Qo *= 256); ) Ho += this[Oo + --Go] * Qo;
-  return Ho >= (Qo *= 128) && (Ho -= Math.pow(2, 8 * No)), Ho;
+  for (var Go = No, Ho = 1, Qo = this[Oo + --Go]; Go > 0 && (Ho *= 256); ) Qo += this[Oo + --Go] * Ho;
+  return Qo >= (Ho *= 128) && (Qo -= Math.pow(2, 8 * No)), Qo;
 }, p.prototype.readInt8 = function(Oo, No) {
   return No || H(Oo, 1, this.length), 128 & this[Oo] ? -1 * (255 - this[Oo] + 1) : this[Oo];
 }, p.prototype.readInt16LE = function(Oo, No) {
@@ -4476,13 +5593,13 @@ p.prototype.slice = function(Oo, No) {
   return No || H(Oo, 8, this.length), h(this, Oo, !1, 52, 8);
 }, p.prototype.writeUIntLE = function(Oo, No, jo, Go) {
   Oo = +Oo, No |= 0, jo |= 0, Go || F(this, Oo, No, jo, Math.pow(2, 8 * jo) - 1, 0);
-  var Qo = 1, Ho = 0;
-  for (this[No] = 255 & Oo; ++Ho < jo && (Qo *= 256); ) this[No + Ho] = Oo / Qo & 255;
+  var Ho = 1, Qo = 0;
+  for (this[No] = 255 & Oo; ++Qo < jo && (Ho *= 256); ) this[No + Qo] = Oo / Ho & 255;
   return No + jo;
 }, p.prototype.writeUIntBE = function(Oo, No, jo, Go) {
   Oo = +Oo, No |= 0, jo |= 0, Go || F(this, Oo, No, jo, Math.pow(2, 8 * jo) - 1, 0);
-  var Qo = jo - 1, Ho = 1;
-  for (this[No + Qo] = 255 & Oo; --Qo >= 0 && (Ho *= 256); ) this[No + Qo] = Oo / Ho & 255;
+  var Ho = jo - 1, Qo = 1;
+  for (this[No + Ho] = 255 & Oo; --Ho >= 0 && (Qo *= 256); ) this[No + Ho] = Oo / Qo & 255;
   return No + jo;
 }, p.prototype.writeUInt8 = function(Oo, No, jo) {
   return Oo = +Oo, No |= 0, jo || F(this, Oo, No, 1, 255, 0), p.TYPED_ARRAY_SUPPORT || (Oo = Math.floor(Oo)), this[No] = 255 & Oo, No + 1;
@@ -4496,19 +5613,19 @@ p.prototype.slice = function(Oo, No) {
   return Oo = +Oo, No |= 0, jo || F(this, Oo, No, 4, 4294967295, 0), p.TYPED_ARRAY_SUPPORT ? (this[No] = Oo >>> 24, this[No + 1] = Oo >>> 16, this[No + 2] = Oo >>> 8, this[No + 3] = 255 & Oo) : Z(this, Oo, No, !1), No + 4;
 }, p.prototype.writeIntLE = function(Oo, No, jo, Go) {
   if (Oo = +Oo, No |= 0, !Go) {
-    var Qo = Math.pow(2, 8 * jo - 1);
-    F(this, Oo, No, jo, Qo - 1, -Qo);
+    var Ho = Math.pow(2, 8 * jo - 1);
+    F(this, Oo, No, jo, Ho - 1, -Ho);
   }
-  var Ho = 0, Vo = 1, qo = 0;
-  for (this[No] = 255 & Oo; ++Ho < jo && (Vo *= 256); ) Oo < 0 && qo === 0 && this[No + Ho - 1] !== 0 && (qo = 1), this[No + Ho] = (Oo / Vo >> 0) - qo & 255;
+  var Qo = 0, Vo = 1, qo = 0;
+  for (this[No] = 255 & Oo; ++Qo < jo && (Vo *= 256); ) Oo < 0 && qo === 0 && this[No + Qo - 1] !== 0 && (qo = 1), this[No + Qo] = (Oo / Vo >> 0) - qo & 255;
   return No + jo;
 }, p.prototype.writeIntBE = function(Oo, No, jo, Go) {
   if (Oo = +Oo, No |= 0, !Go) {
-    var Qo = Math.pow(2, 8 * jo - 1);
-    F(this, Oo, No, jo, Qo - 1, -Qo);
+    var Ho = Math.pow(2, 8 * jo - 1);
+    F(this, Oo, No, jo, Ho - 1, -Ho);
   }
-  var Ho = jo - 1, Vo = 1, qo = 0;
-  for (this[No + Ho] = 255 & Oo; --Ho >= 0 && (Vo *= 256); ) Oo < 0 && qo === 0 && this[No + Ho + 1] !== 0 && (qo = 1), this[No + Ho] = (Oo / Vo >> 0) - qo & 255;
+  var Qo = jo - 1, Vo = 1, qo = 0;
+  for (this[No + Qo] = 255 & Oo; --Qo >= 0 && (Vo *= 256); ) Oo < 0 && qo === 0 && this[No + Qo + 1] !== 0 && (qo = 1), this[No + Qo] = (Oo / Vo >> 0) - qo & 255;
   return No + jo;
 }, p.prototype.writeInt8 = function(Oo, No, jo) {
   return Oo = +Oo, No |= 0, jo || F(this, Oo, No, 1, 127, -128), p.TYPED_ARRAY_SUPPORT || (Oo = Math.floor(Oo)), Oo < 0 && (Oo = 255 + Oo + 1), this[No] = 255 & Oo, No + 1;
@@ -4534,27 +5651,27 @@ p.prototype.slice = function(Oo, No) {
   if (jo < 0 || jo >= this.length) throw new RangeError("sourceStart out of bounds");
   if (Go < 0) throw new RangeError("sourceEnd out of bounds");
   Go > this.length && (Go = this.length), Oo.length - No < Go - jo && (Go = Oo.length - No + jo);
-  var Qo, Ho = Go - jo;
-  if (this === Oo && jo < No && No < Go) for (Qo = Ho - 1; Qo >= 0; --Qo) Oo[Qo + No] = this[Qo + jo];
-  else if (Ho < 1e3 || !p.TYPED_ARRAY_SUPPORT) for (Qo = 0; Qo < Ho; ++Qo) Oo[Qo + No] = this[Qo + jo];
-  else Uint8Array.prototype.set.call(Oo, this.subarray(jo, jo + Ho), No);
-  return Ho;
+  var Ho, Qo = Go - jo;
+  if (this === Oo && jo < No && No < Go) for (Ho = Qo - 1; Ho >= 0; --Ho) Oo[Ho + No] = this[Ho + jo];
+  else if (Qo < 1e3 || !p.TYPED_ARRAY_SUPPORT) for (Ho = 0; Ho < Qo; ++Ho) Oo[Ho + No] = this[Ho + jo];
+  else Uint8Array.prototype.set.call(Oo, this.subarray(jo, jo + Qo), No);
+  return Qo;
 }, p.prototype.fill = function(Oo, No, jo, Go) {
   if (typeof Oo == "string") {
     if (typeof No == "string" ? (Go = No, No = 0, jo = this.length) : typeof jo == "string" && (Go = jo, jo = this.length), Oo.length === 1) {
-      var Qo = Oo.charCodeAt(0);
-      Qo < 256 && (Oo = Qo);
+      var Ho = Oo.charCodeAt(0);
+      Ho < 256 && (Oo = Ho);
     }
     if (Go !== void 0 && typeof Go != "string") throw new TypeError("encoding must be a string");
     if (typeof Go == "string" && !p.isEncoding(Go)) throw new TypeError("Unknown encoding: " + Go);
   } else typeof Oo == "number" && (Oo &= 255);
   if (No < 0 || this.length < No || this.length < jo) throw new RangeError("Out of range index");
   if (jo <= No) return this;
-  var Ho;
-  if (No >>>= 0, jo = jo === void 0 ? this.length : jo >>> 0, Oo || (Oo = 0), typeof Oo == "number") for (Ho = No; Ho < jo; ++Ho) this[Ho] = Oo;
+  var Qo;
+  if (No >>>= 0, jo = jo === void 0 ? this.length : jo >>> 0, Oo || (Oo = 0), typeof Oo == "number") for (Qo = No; Qo < jo; ++Qo) this[Qo] = Oo;
   else {
     var Vo = y(Oo) ? Oo : q(new p(Oo, Go).toString()), qo = Vo.length;
-    for (Ho = 0; Ho < jo - No; ++Ho) this[Ho + No] = Vo[Ho % qo];
+    for (Qo = 0; Qo < jo - No; ++Qo) this[Qo + No] = Vo[Qo % qo];
   }
   return this;
 };
@@ -4565,53 +5682,53 @@ function X(Oo) {
 function q(Oo, No) {
   var jo;
   No = No || 1 / 0;
-  for (var Go = Oo.length, Qo = null, Ho = [], Vo = 0; Vo < Go; ++Vo) {
+  for (var Go = Oo.length, Ho = null, Qo = [], Vo = 0; Vo < Go; ++Vo) {
     if ((jo = Oo.charCodeAt(Vo)) > 55295 && jo < 57344) {
-      if (!Qo) {
+      if (!Ho) {
         if (jo > 56319) {
-          (No -= 3) > -1 && Ho.push(239, 191, 189);
+          (No -= 3) > -1 && Qo.push(239, 191, 189);
           continue;
         }
         if (Vo + 1 === Go) {
-          (No -= 3) > -1 && Ho.push(239, 191, 189);
+          (No -= 3) > -1 && Qo.push(239, 191, 189);
           continue;
         }
-        Qo = jo;
+        Ho = jo;
         continue;
       }
       if (jo < 56320) {
-        (No -= 3) > -1 && Ho.push(239, 191, 189), Qo = jo;
+        (No -= 3) > -1 && Qo.push(239, 191, 189), Ho = jo;
         continue;
       }
-      jo = 65536 + (Qo - 55296 << 10 | jo - 56320);
-    } else Qo && (No -= 3) > -1 && Ho.push(239, 191, 189);
-    if (Qo = null, jo < 128) {
+      jo = 65536 + (Ho - 55296 << 10 | jo - 56320);
+    } else Ho && (No -= 3) > -1 && Qo.push(239, 191, 189);
+    if (Ho = null, jo < 128) {
       if ((No -= 1) < 0) break;
-      Ho.push(jo);
+      Qo.push(jo);
     } else if (jo < 2048) {
       if ((No -= 2) < 0) break;
-      Ho.push(jo >> 6 | 192, 63 & jo | 128);
+      Qo.push(jo >> 6 | 192, 63 & jo | 128);
     } else if (jo < 65536) {
       if ((No -= 3) < 0) break;
-      Ho.push(jo >> 12 | 224, jo >> 6 & 63 | 128, 63 & jo | 128);
+      Qo.push(jo >> 12 | 224, jo >> 6 & 63 | 128, 63 & jo | 128);
     } else {
       if (!(jo < 1114112)) throw new Error("Invalid code point");
       if ((No -= 4) < 0) break;
-      Ho.push(jo >> 18 | 240, jo >> 12 & 63 | 128, jo >> 6 & 63 | 128, 63 & jo | 128);
+      Qo.push(jo >> 18 | 240, jo >> 12 & 63 | 128, jo >> 6 & 63 | 128, 63 & jo | 128);
     }
   }
-  return Ho;
+  return Qo;
 }
 function V(Oo) {
   return (function(No) {
-    var jo, Go, Qo, Ho, Vo, qo;
+    var jo, Go, Ho, Qo, Vo, qo;
     i || o();
     var Yo = No.length;
     if (Yo % 4 > 0) throw new Error("Invalid string. Length must be a multiple of 4");
-    Vo = No[Yo - 2] === "=" ? 2 : No[Yo - 1] === "=" ? 1 : 0, qo = new n(3 * Yo / 4 - Vo), Qo = Vo > 0 ? Yo - 4 : Yo;
+    Vo = No[Yo - 2] === "=" ? 2 : No[Yo - 1] === "=" ? 1 : 0, qo = new n(3 * Yo / 4 - Vo), Ho = Vo > 0 ? Yo - 4 : Yo;
     var Xo = 0;
-    for (jo = 0, Go = 0; jo < Qo; jo += 4, Go += 3) Ho = r[No.charCodeAt(jo)] << 18 | r[No.charCodeAt(jo + 1)] << 12 | r[No.charCodeAt(jo + 2)] << 6 | r[No.charCodeAt(jo + 3)], qo[Xo++] = Ho >> 16 & 255, qo[Xo++] = Ho >> 8 & 255, qo[Xo++] = 255 & Ho;
-    return Vo === 2 ? (Ho = r[No.charCodeAt(jo)] << 2 | r[No.charCodeAt(jo + 1)] >> 4, qo[Xo++] = 255 & Ho) : Vo === 1 && (Ho = r[No.charCodeAt(jo)] << 10 | r[No.charCodeAt(jo + 1)] << 4 | r[No.charCodeAt(jo + 2)] >> 2, qo[Xo++] = Ho >> 8 & 255, qo[Xo++] = 255 & Ho), qo;
+    for (jo = 0, Go = 0; jo < Ho; jo += 4, Go += 3) Qo = r[No.charCodeAt(jo)] << 18 | r[No.charCodeAt(jo + 1)] << 12 | r[No.charCodeAt(jo + 2)] << 6 | r[No.charCodeAt(jo + 3)], qo[Xo++] = Qo >> 16 & 255, qo[Xo++] = Qo >> 8 & 255, qo[Xo++] = 255 & Qo;
+    return Vo === 2 ? (Qo = r[No.charCodeAt(jo)] << 2 | r[No.charCodeAt(jo + 1)] >> 4, qo[Xo++] = 255 & Qo) : Vo === 1 && (Qo = r[No.charCodeAt(jo)] << 10 | r[No.charCodeAt(jo + 1)] << 4 | r[No.charCodeAt(jo + 2)] >> 2, qo[Xo++] = Qo >> 8 & 255, qo[Xo++] = 255 & Qo), qo;
   })((function(No) {
     if ((No = (function(jo) {
       return jo.trim ? jo.trim() : jo.replace(/^\s+|\s+$/g, "");
@@ -4621,8 +5738,8 @@ function V(Oo) {
   })(Oo));
 }
 function G(Oo, No, jo, Go) {
-  for (var Qo = 0; Qo < Go && !(Qo + jo >= No.length || Qo >= Oo.length); ++Qo) No[Qo + jo] = Oo[Qo];
-  return Qo;
+  for (var Ho = 0; Ho < Go && !(Ho + jo >= No.length || Ho >= Oo.length); ++Ho) No[Ho + jo] = Oo[Ho];
+  return Ho;
 }
 function $(Oo) {
   return Oo != null && (!!Oo._isBuffer || J(Oo) || (function(No) {
@@ -4637,8 +5754,8 @@ function Q(Oo, No) {
 }
 var ee = Q(function(Oo, No) {
   var jo;
-  Oo.exports = (jo = jo || (function(Go, Qo) {
-    var Ho = Object.create || /* @__PURE__ */ (function() {
+  Oo.exports = (jo = jo || (function(Go, Ho) {
+    var Qo = Object.create || /* @__PURE__ */ (function() {
       function is() {
       }
       return function(As) {
@@ -4646,7 +5763,7 @@ var ee = Q(function(Oo, No) {
         return is.prototype = As, os = new is(), is.prototype = null, os;
       };
     })(), Vo = {}, qo = Vo.lib = {}, Yo = qo.Base = { extend: function(is) {
-      var As = Ho(this);
+      var As = Qo(this);
       return is && As.mixIn(is), As.hasOwnProperty("init") && this.init !== As.init || (As.init = function() {
         As.$super.init.apply(this, arguments);
       }), As.init.prototype = As, As.$super = this, As;
@@ -4752,10 +5869,10 @@ var ee = Q(function(Oo, No) {
     return Vo;
   })(Math), jo);
 }), te = (Q(function(Oo, No) {
-  var jo, Go, Qo, Ho, Vo, qo;
-  Oo.exports = (Qo = (Go = jo = ee).lib, Ho = Qo.Base, Vo = Qo.WordArray, (qo = Go.x64 = {}).Word = Ho.extend({ init: function(Yo, Xo) {
+  var jo, Go, Ho, Qo, Vo, qo;
+  Oo.exports = (Ho = (Go = jo = ee).lib, Qo = Ho.Base, Vo = Ho.WordArray, (qo = Go.x64 = {}).Word = Qo.extend({ init: function(Yo, Xo) {
     this.high = Yo, this.low = Xo;
-  } }), qo.WordArray = Ho.extend({ init: function(Yo, Xo) {
+  } }), qo.WordArray = Qo.extend({ init: function(Yo, Xo) {
     Yo = this.words = Yo || [], this.sigBytes = Xo ?? 8 * Yo.length;
   }, toX32: function() {
     for (var Yo = this.words, Xo = Yo.length, Fo = [], Wo = 0; Wo < Xo; Wo++) {
@@ -4764,30 +5881,30 @@ var ee = Q(function(Oo, No) {
     }
     return Vo.create(Fo, this.sigBytes);
   }, clone: function() {
-    for (var Yo = Ho.clone.call(this), Xo = Yo.words = this.words.slice(0), Fo = Xo.length, Wo = 0; Wo < Fo; Wo++) Xo[Wo] = Xo[Wo].clone();
+    for (var Yo = Qo.clone.call(this), Xo = Yo.words = this.words.slice(0), Fo = Xo.length, Wo = 0; Wo < Fo; Wo++) Xo[Wo] = Xo[Wo].clone();
     return Yo;
   } }), jo);
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function() {
     if (typeof ArrayBuffer == "function") {
-      var Go = jo.lib.WordArray, Qo = Go.init;
-      (Go.init = function(Ho) {
-        if (Ho instanceof ArrayBuffer && (Ho = new Uint8Array(Ho)), (Ho instanceof Int8Array || typeof Uint8ClampedArray < "u" && Ho instanceof Uint8ClampedArray || Ho instanceof Int16Array || Ho instanceof Uint16Array || Ho instanceof Int32Array || Ho instanceof Uint32Array || Ho instanceof Float32Array || Ho instanceof Float64Array) && (Ho = new Uint8Array(Ho.buffer, Ho.byteOffset, Ho.byteLength)), Ho instanceof Uint8Array) {
-          for (var Vo = Ho.byteLength, qo = [], Yo = 0; Yo < Vo; Yo++) qo[Yo >>> 2] |= Ho[Yo] << 24 - Yo % 4 * 8;
-          Qo.call(this, qo, Vo);
-        } else Qo.apply(this, arguments);
+      var Go = jo.lib.WordArray, Ho = Go.init;
+      (Go.init = function(Qo) {
+        if (Qo instanceof ArrayBuffer && (Qo = new Uint8Array(Qo)), (Qo instanceof Int8Array || typeof Uint8ClampedArray < "u" && Qo instanceof Uint8ClampedArray || Qo instanceof Int16Array || Qo instanceof Uint16Array || Qo instanceof Int32Array || Qo instanceof Uint32Array || Qo instanceof Float32Array || Qo instanceof Float64Array) && (Qo = new Uint8Array(Qo.buffer, Qo.byteOffset, Qo.byteLength)), Qo instanceof Uint8Array) {
+          for (var Vo = Qo.byteLength, qo = [], Yo = 0; Yo < Vo; Yo++) qo[Yo >>> 2] |= Qo[Yo] << 24 - Yo % 4 * 8;
+          Ho.call(this, qo, Vo);
+        } else Ho.apply(this, arguments);
       }).prototype = Go;
     }
   })(), jo.lib.WordArray);
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function() {
-    var Go = jo, Qo = Go.lib.WordArray, Ho = Go.enc;
+    var Go = jo, Ho = Go.lib.WordArray, Qo = Go.enc;
     function Vo(qo) {
       return qo << 8 & 4278255360 | qo >>> 8 & 16711935;
     }
-    Ho.Utf16 = Ho.Utf16BE = { stringify: function(qo) {
+    Qo.Utf16 = Qo.Utf16BE = { stringify: function(qo) {
       for (var Yo = qo.words, Xo = qo.sigBytes, Fo = [], Wo = 0; Wo < Xo; Wo += 2) {
         var Ko = Yo[Wo >>> 2] >>> 16 - Wo % 4 * 8 & 65535;
         Fo.push(String.fromCharCode(Ko));
@@ -4795,8 +5912,8 @@ var ee = Q(function(Oo, No) {
       return Fo.join("");
     }, parse: function(qo) {
       for (var Yo = qo.length, Xo = [], Fo = 0; Fo < Yo; Fo++) Xo[Fo >>> 1] |= qo.charCodeAt(Fo) << 16 - Fo % 2 * 16;
-      return Qo.create(Xo, 2 * Yo);
-    } }, Ho.Utf16LE = { stringify: function(qo) {
+      return Ho.create(Xo, 2 * Yo);
+    } }, Qo.Utf16LE = { stringify: function(qo) {
       for (var Yo = qo.words, Xo = qo.sigBytes, Fo = [], Wo = 0; Wo < Xo; Wo += 2) {
         var Ko = Vo(Yo[Wo >>> 2] >>> 16 - Wo % 4 * 8 & 65535);
         Fo.push(String.fromCharCode(Ko));
@@ -4804,27 +5921,27 @@ var ee = Q(function(Oo, No) {
       return Fo.join("");
     }, parse: function(qo) {
       for (var Yo = qo.length, Xo = [], Fo = 0; Fo < Yo; Fo++) Xo[Fo >>> 1] |= Vo(qo.charCodeAt(Fo) << 16 - Fo % 2 * 16);
-      return Qo.create(Xo, 2 * Yo);
+      return Ho.create(Xo, 2 * Yo);
     } };
   })(), jo.enc.Utf16);
 }), Q(function(Oo, No) {
-  var jo, Go, Qo;
-  Oo.exports = (Qo = (Go = jo = ee).lib.WordArray, Go.enc.Base64 = { stringify: function(Ho) {
-    var Vo = Ho.words, qo = Ho.sigBytes, Yo = this._map;
-    Ho.clamp();
+  var jo, Go, Ho;
+  Oo.exports = (Ho = (Go = jo = ee).lib.WordArray, Go.enc.Base64 = { stringify: function(Qo) {
+    var Vo = Qo.words, qo = Qo.sigBytes, Yo = this._map;
+    Qo.clamp();
     for (var Xo = [], Fo = 0; Fo < qo; Fo += 3) for (var Wo = (Vo[Fo >>> 2] >>> 24 - Fo % 4 * 8 & 255) << 16 | (Vo[Fo + 1 >>> 2] >>> 24 - (Fo + 1) % 4 * 8 & 255) << 8 | Vo[Fo + 2 >>> 2] >>> 24 - (Fo + 2) % 4 * 8 & 255, Ko = 0; Ko < 4 && Fo + 0.75 * Ko < qo; Ko++) Xo.push(Yo.charAt(Wo >>> 6 * (3 - Ko) & 63));
     var Jo = Yo.charAt(64);
     if (Jo) for (; Xo.length % 4; ) Xo.push(Jo);
     return Xo.join("");
-  }, parse: function(Ho) {
-    var Vo = Ho.length, qo = this._map, Yo = this._reverseMap;
+  }, parse: function(Qo) {
+    var Vo = Qo.length, qo = this._map, Yo = this._reverseMap;
     if (!Yo) {
       Yo = this._reverseMap = [];
       for (var Xo = 0; Xo < qo.length; Xo++) Yo[qo.charCodeAt(Xo)] = Xo;
     }
     var Fo = qo.charAt(64);
     if (Fo) {
-      var Wo = Ho.indexOf(Fo);
+      var Wo = Qo.indexOf(Fo);
       Wo !== -1 && (Vo = Wo);
     }
     return (function(Ko, Jo, es) {
@@ -4832,13 +5949,13 @@ var ee = Q(function(Oo, No) {
         var os = es[Ko.charCodeAt(As - 1)] << As % 4 * 2, us = es[Ko.charCodeAt(As)] >>> 6 - As % 4 * 2;
         rs[is >>> 2] |= (os | us) << 24 - is % 4 * 8, is++;
       }
-      return Qo.create(rs, is);
-    })(Ho, Vo, Yo);
+      return Ho.create(rs, is);
+    })(Qo, Vo, Yo);
   }, _map: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=" }, jo.enc.Base64);
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function(Go) {
-    var Qo = jo, Ho = Qo.lib, Vo = Ho.WordArray, qo = Ho.Hasher, Yo = Qo.algo, Xo = [];
+    var Ho = jo, Qo = Ho.lib, Vo = Qo.WordArray, qo = Qo.Hasher, Yo = Ho.algo, Xo = [];
     (function() {
       for (var rs = 0; rs < 64; rs++) Xo[rs] = 4294967296 * Go.abs(Go.sin(rs + 1)) | 0;
     })();
@@ -4849,8 +5966,8 @@ var ee = Q(function(Oo, No) {
         var os = is + As, us = rs[os];
         rs[os] = 16711935 & (us << 8 | us >>> 24) | 4278255360 & (us << 24 | us >>> 8);
       }
-      var as = this._hash.words, vs = rs[is + 0], Is = rs[is + 1], hs = rs[is + 2], ys = rs[is + 3], Ps = rs[is + 4], ds = rs[is + 5], Es = rs[is + 6], Os = rs[is + 7], ws = rs[is + 8], zs = rs[is + 9], Ys = rs[is + 10], ks = rs[is + 11], _s = rs[is + 12], Js = rs[is + 13], na = rs[is + 14], ca = rs[is + 15], Hs = as[0], Ds = as[1], Ms = as[2], Bs = as[3];
-      Hs = Wo(Hs, Ds, Ms, Bs, vs, 7, Xo[0]), Bs = Wo(Bs, Hs, Ds, Ms, Is, 12, Xo[1]), Ms = Wo(Ms, Bs, Hs, Ds, hs, 17, Xo[2]), Ds = Wo(Ds, Ms, Bs, Hs, ys, 22, Xo[3]), Hs = Wo(Hs, Ds, Ms, Bs, Ps, 7, Xo[4]), Bs = Wo(Bs, Hs, Ds, Ms, ds, 12, Xo[5]), Ms = Wo(Ms, Bs, Hs, Ds, Es, 17, Xo[6]), Ds = Wo(Ds, Ms, Bs, Hs, Os, 22, Xo[7]), Hs = Wo(Hs, Ds, Ms, Bs, ws, 7, Xo[8]), Bs = Wo(Bs, Hs, Ds, Ms, zs, 12, Xo[9]), Ms = Wo(Ms, Bs, Hs, Ds, Ys, 17, Xo[10]), Ds = Wo(Ds, Ms, Bs, Hs, ks, 22, Xo[11]), Hs = Wo(Hs, Ds, Ms, Bs, _s, 7, Xo[12]), Bs = Wo(Bs, Hs, Ds, Ms, Js, 12, Xo[13]), Ms = Wo(Ms, Bs, Hs, Ds, na, 17, Xo[14]), Hs = Ko(Hs, Ds = Wo(Ds, Ms, Bs, Hs, ca, 22, Xo[15]), Ms, Bs, Is, 5, Xo[16]), Bs = Ko(Bs, Hs, Ds, Ms, Es, 9, Xo[17]), Ms = Ko(Ms, Bs, Hs, Ds, ks, 14, Xo[18]), Ds = Ko(Ds, Ms, Bs, Hs, vs, 20, Xo[19]), Hs = Ko(Hs, Ds, Ms, Bs, ds, 5, Xo[20]), Bs = Ko(Bs, Hs, Ds, Ms, Ys, 9, Xo[21]), Ms = Ko(Ms, Bs, Hs, Ds, ca, 14, Xo[22]), Ds = Ko(Ds, Ms, Bs, Hs, Ps, 20, Xo[23]), Hs = Ko(Hs, Ds, Ms, Bs, zs, 5, Xo[24]), Bs = Ko(Bs, Hs, Ds, Ms, na, 9, Xo[25]), Ms = Ko(Ms, Bs, Hs, Ds, ys, 14, Xo[26]), Ds = Ko(Ds, Ms, Bs, Hs, ws, 20, Xo[27]), Hs = Ko(Hs, Ds, Ms, Bs, Js, 5, Xo[28]), Bs = Ko(Bs, Hs, Ds, Ms, hs, 9, Xo[29]), Ms = Ko(Ms, Bs, Hs, Ds, Os, 14, Xo[30]), Hs = Jo(Hs, Ds = Ko(Ds, Ms, Bs, Hs, _s, 20, Xo[31]), Ms, Bs, ds, 4, Xo[32]), Bs = Jo(Bs, Hs, Ds, Ms, ws, 11, Xo[33]), Ms = Jo(Ms, Bs, Hs, Ds, ks, 16, Xo[34]), Ds = Jo(Ds, Ms, Bs, Hs, na, 23, Xo[35]), Hs = Jo(Hs, Ds, Ms, Bs, Is, 4, Xo[36]), Bs = Jo(Bs, Hs, Ds, Ms, Ps, 11, Xo[37]), Ms = Jo(Ms, Bs, Hs, Ds, Os, 16, Xo[38]), Ds = Jo(Ds, Ms, Bs, Hs, Ys, 23, Xo[39]), Hs = Jo(Hs, Ds, Ms, Bs, Js, 4, Xo[40]), Bs = Jo(Bs, Hs, Ds, Ms, vs, 11, Xo[41]), Ms = Jo(Ms, Bs, Hs, Ds, ys, 16, Xo[42]), Ds = Jo(Ds, Ms, Bs, Hs, Es, 23, Xo[43]), Hs = Jo(Hs, Ds, Ms, Bs, zs, 4, Xo[44]), Bs = Jo(Bs, Hs, Ds, Ms, _s, 11, Xo[45]), Ms = Jo(Ms, Bs, Hs, Ds, ca, 16, Xo[46]), Hs = es(Hs, Ds = Jo(Ds, Ms, Bs, Hs, hs, 23, Xo[47]), Ms, Bs, vs, 6, Xo[48]), Bs = es(Bs, Hs, Ds, Ms, Os, 10, Xo[49]), Ms = es(Ms, Bs, Hs, Ds, na, 15, Xo[50]), Ds = es(Ds, Ms, Bs, Hs, ds, 21, Xo[51]), Hs = es(Hs, Ds, Ms, Bs, _s, 6, Xo[52]), Bs = es(Bs, Hs, Ds, Ms, ys, 10, Xo[53]), Ms = es(Ms, Bs, Hs, Ds, Ys, 15, Xo[54]), Ds = es(Ds, Ms, Bs, Hs, Is, 21, Xo[55]), Hs = es(Hs, Ds, Ms, Bs, ws, 6, Xo[56]), Bs = es(Bs, Hs, Ds, Ms, ca, 10, Xo[57]), Ms = es(Ms, Bs, Hs, Ds, Es, 15, Xo[58]), Ds = es(Ds, Ms, Bs, Hs, Js, 21, Xo[59]), Hs = es(Hs, Ds, Ms, Bs, Ps, 6, Xo[60]), Bs = es(Bs, Hs, Ds, Ms, ks, 10, Xo[61]), Ms = es(Ms, Bs, Hs, Ds, hs, 15, Xo[62]), Ds = es(Ds, Ms, Bs, Hs, zs, 21, Xo[63]), as[0] = as[0] + Hs | 0, as[1] = as[1] + Ds | 0, as[2] = as[2] + Ms | 0, as[3] = as[3] + Bs | 0;
+      var as = this._hash.words, vs = rs[is + 0], Is = rs[is + 1], hs = rs[is + 2], ys = rs[is + 3], Ps = rs[is + 4], ds = rs[is + 5], Es = rs[is + 6], Os = rs[is + 7], ws = rs[is + 8], zs = rs[is + 9], Ys = rs[is + 10], ks = rs[is + 11], _s = rs[is + 12], Js = rs[is + 13], na = rs[is + 14], ca = rs[is + 15], Hs = as[0], Ds = as[1], js = as[2], Bs = as[3];
+      Hs = Wo(Hs, Ds, js, Bs, vs, 7, Xo[0]), Bs = Wo(Bs, Hs, Ds, js, Is, 12, Xo[1]), js = Wo(js, Bs, Hs, Ds, hs, 17, Xo[2]), Ds = Wo(Ds, js, Bs, Hs, ys, 22, Xo[3]), Hs = Wo(Hs, Ds, js, Bs, Ps, 7, Xo[4]), Bs = Wo(Bs, Hs, Ds, js, ds, 12, Xo[5]), js = Wo(js, Bs, Hs, Ds, Es, 17, Xo[6]), Ds = Wo(Ds, js, Bs, Hs, Os, 22, Xo[7]), Hs = Wo(Hs, Ds, js, Bs, ws, 7, Xo[8]), Bs = Wo(Bs, Hs, Ds, js, zs, 12, Xo[9]), js = Wo(js, Bs, Hs, Ds, Ys, 17, Xo[10]), Ds = Wo(Ds, js, Bs, Hs, ks, 22, Xo[11]), Hs = Wo(Hs, Ds, js, Bs, _s, 7, Xo[12]), Bs = Wo(Bs, Hs, Ds, js, Js, 12, Xo[13]), js = Wo(js, Bs, Hs, Ds, na, 17, Xo[14]), Hs = Ko(Hs, Ds = Wo(Ds, js, Bs, Hs, ca, 22, Xo[15]), js, Bs, Is, 5, Xo[16]), Bs = Ko(Bs, Hs, Ds, js, Es, 9, Xo[17]), js = Ko(js, Bs, Hs, Ds, ks, 14, Xo[18]), Ds = Ko(Ds, js, Bs, Hs, vs, 20, Xo[19]), Hs = Ko(Hs, Ds, js, Bs, ds, 5, Xo[20]), Bs = Ko(Bs, Hs, Ds, js, Ys, 9, Xo[21]), js = Ko(js, Bs, Hs, Ds, ca, 14, Xo[22]), Ds = Ko(Ds, js, Bs, Hs, Ps, 20, Xo[23]), Hs = Ko(Hs, Ds, js, Bs, zs, 5, Xo[24]), Bs = Ko(Bs, Hs, Ds, js, na, 9, Xo[25]), js = Ko(js, Bs, Hs, Ds, ys, 14, Xo[26]), Ds = Ko(Ds, js, Bs, Hs, ws, 20, Xo[27]), Hs = Ko(Hs, Ds, js, Bs, Js, 5, Xo[28]), Bs = Ko(Bs, Hs, Ds, js, hs, 9, Xo[29]), js = Ko(js, Bs, Hs, Ds, Os, 14, Xo[30]), Hs = Jo(Hs, Ds = Ko(Ds, js, Bs, Hs, _s, 20, Xo[31]), js, Bs, ds, 4, Xo[32]), Bs = Jo(Bs, Hs, Ds, js, ws, 11, Xo[33]), js = Jo(js, Bs, Hs, Ds, ks, 16, Xo[34]), Ds = Jo(Ds, js, Bs, Hs, na, 23, Xo[35]), Hs = Jo(Hs, Ds, js, Bs, Is, 4, Xo[36]), Bs = Jo(Bs, Hs, Ds, js, Ps, 11, Xo[37]), js = Jo(js, Bs, Hs, Ds, Os, 16, Xo[38]), Ds = Jo(Ds, js, Bs, Hs, Ys, 23, Xo[39]), Hs = Jo(Hs, Ds, js, Bs, Js, 4, Xo[40]), Bs = Jo(Bs, Hs, Ds, js, vs, 11, Xo[41]), js = Jo(js, Bs, Hs, Ds, ys, 16, Xo[42]), Ds = Jo(Ds, js, Bs, Hs, Es, 23, Xo[43]), Hs = Jo(Hs, Ds, js, Bs, zs, 4, Xo[44]), Bs = Jo(Bs, Hs, Ds, js, _s, 11, Xo[45]), js = Jo(js, Bs, Hs, Ds, ca, 16, Xo[46]), Hs = es(Hs, Ds = Jo(Ds, js, Bs, Hs, hs, 23, Xo[47]), js, Bs, vs, 6, Xo[48]), Bs = es(Bs, Hs, Ds, js, Os, 10, Xo[49]), js = es(js, Bs, Hs, Ds, na, 15, Xo[50]), Ds = es(Ds, js, Bs, Hs, ds, 21, Xo[51]), Hs = es(Hs, Ds, js, Bs, _s, 6, Xo[52]), Bs = es(Bs, Hs, Ds, js, ys, 10, Xo[53]), js = es(js, Bs, Hs, Ds, Ys, 15, Xo[54]), Ds = es(Ds, js, Bs, Hs, Is, 21, Xo[55]), Hs = es(Hs, Ds, js, Bs, ws, 6, Xo[56]), Bs = es(Bs, Hs, Ds, js, ca, 10, Xo[57]), js = es(js, Bs, Hs, Ds, Es, 15, Xo[58]), Ds = es(Ds, js, Bs, Hs, Js, 21, Xo[59]), Hs = es(Hs, Ds, js, Bs, Ps, 6, Xo[60]), Bs = es(Bs, Hs, Ds, js, ks, 10, Xo[61]), js = es(js, Bs, Hs, Ds, hs, 15, Xo[62]), Ds = es(Ds, js, Bs, Hs, zs, 21, Xo[63]), as[0] = as[0] + Hs | 0, as[1] = as[1] + Ds | 0, as[2] = as[2] + js | 0, as[3] = as[3] + Bs | 0;
     }, _doFinalize: function() {
       var rs = this._data, is = rs.words, As = 8 * this._nDataBytes, os = 8 * rs.sigBytes;
       is[os >>> 5] |= 128 << 24 - os % 32;
@@ -4881,12 +5998,12 @@ var ee = Q(function(Oo, No) {
       var Is = rs + (As ^ (is | ~os)) + us + vs;
       return (Is << as | Is >>> 32 - as) + is;
     }
-    Qo.MD5 = qo._createHelper(Fo), Qo.HmacMD5 = qo._createHmacHelper(Fo);
+    Ho.MD5 = qo._createHelper(Fo), Ho.HmacMD5 = qo._createHmacHelper(Fo);
   })(Math), jo.MD5);
 }), Q(function(Oo, No) {
-  var jo, Go, Qo, Ho, Vo, qo, Yo, Xo;
-  Oo.exports = (Qo = (Go = jo = ee).lib, Ho = Qo.WordArray, Vo = Qo.Hasher, qo = Go.algo, Yo = [], Xo = qo.SHA1 = Vo.extend({ _doReset: function() {
-    this._hash = new Ho.init([1732584193, 4023233417, 2562383102, 271733878, 3285377520]);
+  var jo, Go, Ho, Qo, Vo, qo, Yo, Xo;
+  Oo.exports = (Ho = (Go = jo = ee).lib, Qo = Ho.WordArray, Vo = Ho.Hasher, qo = Go.algo, Yo = [], Xo = qo.SHA1 = Vo.extend({ _doReset: function() {
+    this._hash = new Qo.init([1732584193, 4023233417, 2562383102, 271733878, 3285377520]);
   }, _doProcessBlock: function(Fo, Wo) {
     for (var Ko = this._hash.words, Jo = Ko[0], es = Ko[1], rs = Ko[2], is = Ko[3], As = Ko[4], os = 0; os < 80; os++) {
       if (os < 16) Yo[os] = 0 | Fo[Wo + os];
@@ -4908,7 +6025,7 @@ var ee = Q(function(Oo, No) {
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function(Go) {
-    var Qo = jo, Ho = Qo.lib, Vo = Ho.WordArray, qo = Ho.Hasher, Yo = Qo.algo, Xo = [], Fo = [];
+    var Ho = jo, Qo = Ho.lib, Vo = Qo.WordArray, qo = Qo.Hasher, Yo = Ho.algo, Xo = [], Fo = [];
     (function() {
       function Jo(As) {
         for (var os = Go.sqrt(As), us = 2; us <= os; us++) if (!(As % us)) return !1;
@@ -4939,12 +6056,12 @@ var ee = Q(function(Oo, No) {
       var Jo = qo.clone.call(this);
       return Jo._hash = this._hash.clone(), Jo;
     } });
-    Qo.SHA256 = qo._createHelper(Ko), Qo.HmacSHA256 = qo._createHmacHelper(Ko);
+    Ho.SHA256 = qo._createHelper(Ko), Ho.HmacSHA256 = qo._createHmacHelper(Ko);
   })(Math), jo.SHA256);
 }), Q(function(Oo, No) {
-  var jo, Go, Qo, Ho, Vo, qo;
-  Oo.exports = (Qo = (Go = jo = ee).lib.WordArray, Ho = Go.algo, Vo = Ho.SHA256, qo = Ho.SHA224 = Vo.extend({ _doReset: function() {
-    this._hash = new Qo.init([3238371032, 914150663, 812702999, 4144912697, 4290775857, 1750603025, 1694076839, 3204075428]);
+  var jo, Go, Ho, Qo, Vo, qo;
+  Oo.exports = (Ho = (Go = jo = ee).lib.WordArray, Qo = Go.algo, Vo = Qo.SHA256, qo = Qo.SHA224 = Vo.extend({ _doReset: function() {
+    this._hash = new Ho.init([3238371032, 914150663, 812702999, 4144912697, 4290775857, 1750603025, 1694076839, 3204075428]);
   }, _doFinalize: function() {
     var Yo = Vo._doFinalize.call(this);
     return Yo.sigBytes -= 4, Yo;
@@ -4952,7 +6069,7 @@ var ee = Q(function(Oo, No) {
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function() {
-    var Go = jo, Qo = Go.lib.Hasher, Ho = Go.x64, Vo = Ho.Word, qo = Ho.WordArray, Yo = Go.algo;
+    var Go = jo, Ho = Go.lib.Hasher, Qo = Go.x64, Vo = Qo.Word, qo = Qo.WordArray, Yo = Go.algo;
     function Xo() {
       return Vo.create.apply(Vo, arguments);
     }
@@ -4960,33 +6077,33 @@ var ee = Q(function(Oo, No) {
     (function() {
       for (var Jo = 0; Jo < 80; Jo++) Wo[Jo] = Xo();
     })();
-    var Ko = Yo.SHA512 = Qo.extend({ _doReset: function() {
+    var Ko = Yo.SHA512 = Ho.extend({ _doReset: function() {
       this._hash = new qo.init([new Vo.init(1779033703, 4089235720), new Vo.init(3144134277, 2227873595), new Vo.init(1013904242, 4271175723), new Vo.init(2773480762, 1595750129), new Vo.init(1359893119, 2917565137), new Vo.init(2600822924, 725511199), new Vo.init(528734635, 4215389547), new Vo.init(1541459225, 327033209)]);
     }, _doProcessBlock: function(Jo, es) {
-      for (var rs = this._hash.words, is = rs[0], As = rs[1], os = rs[2], us = rs[3], as = rs[4], vs = rs[5], Is = rs[6], hs = rs[7], ys = is.high, Ps = is.low, ds = As.high, Es = As.low, Os = os.high, ws = os.low, zs = us.high, Ys = us.low, ks = as.high, _s = as.low, Js = vs.high, na = vs.low, ca = Is.high, Hs = Is.low, Ds = hs.high, Ms = hs.low, Bs = ys, ha = Ps, La = ds, fa = Es, Ra = Os, Ya = ws, pA = zs, aA = Ys, za = ks, Ma = _s, AA = Js, Fa = na, Wa = ca, nA = Hs, EA = Ds, Ha = Ms, Oa = 0; Oa < 80; Oa++) {
+      for (var rs = this._hash.words, is = rs[0], As = rs[1], os = rs[2], us = rs[3], as = rs[4], vs = rs[5], Is = rs[6], hs = rs[7], ys = is.high, Ps = is.low, ds = As.high, Es = As.low, Os = os.high, ws = os.low, zs = us.high, Ys = us.low, ks = as.high, _s = as.low, Js = vs.high, na = vs.low, ca = Is.high, Hs = Is.low, Ds = hs.high, js = hs.low, Bs = ys, ha = Ps, La = ds, fa = Es, Ra = Os, Ya = ws, pA = zs, aA = Ys, za = ks, ja = _s, AA = Js, Fa = na, Wa = ca, nA = Hs, EA = Ds, Ha = js, Oa = 0; Oa < 80; Oa++) {
         var iA = Wo[Oa];
         if (Oa < 16) var Za = iA.high = 0 | Jo[es + 2 * Oa], Ka = iA.low = 0 | Jo[es + 2 * Oa + 1];
         else {
           var fA = Wo[Oa - 15], sa = fA.high, Ja = fA.low, NA = (sa >>> 1 | Ja << 31) ^ (sa >>> 8 | Ja << 24) ^ sa >>> 7, bA = (Ja >>> 1 | sa << 31) ^ (Ja >>> 8 | sa << 24) ^ (Ja >>> 7 | sa << 25), HA = Wo[Oa - 2], uA = HA.high, _a = HA.low, Ts = (uA >>> 19 | _a << 13) ^ (uA << 3 | _a >>> 29) ^ uA >>> 6, qs = (_a >>> 19 | uA << 13) ^ (_a << 3 | uA >>> 29) ^ (_a >>> 6 | uA << 26), ls = Wo[Oa - 7], $s = ls.high, Ca = ls.low, Ws = Wo[Oa - 16], Da = Ws.high, Vs = Ws.low;
           Za = (Za = (Za = NA + $s + ((Ka = bA + Ca) >>> 0 < bA >>> 0 ? 1 : 0)) + Ts + ((Ka += qs) >>> 0 < qs >>> 0 ? 1 : 0)) + Da + ((Ka += Vs) >>> 0 < Vs >>> 0 ? 1 : 0), iA.high = Za, iA.low = Ka;
         }
-        var ua, Gs = za & AA ^ ~za & Wa, js = Ma & Fa ^ ~Ma & nA, pa = Bs & La ^ Bs & Ra ^ La & Ra, ta = ha & fa ^ ha & Ya ^ fa & Ya, ea = (Bs >>> 28 | ha << 4) ^ (Bs << 30 | ha >>> 2) ^ (Bs << 25 | ha >>> 7), $a = (ha >>> 28 | Bs << 4) ^ (ha << 30 | Bs >>> 2) ^ (ha << 25 | Bs >>> 7), jA = (za >>> 14 | Ma << 18) ^ (za >>> 18 | Ma << 14) ^ (za << 23 | Ma >>> 9), ga = (Ma >>> 14 | za << 18) ^ (Ma >>> 18 | za << 14) ^ (Ma << 23 | za >>> 9), Zs = Fo[Oa], Ea = Zs.high, Ks = Zs.low, Ua = EA + jA + ((ua = Ha + ga) >>> 0 < Ha >>> 0 ? 1 : 0), ka = $a + ta;
-        EA = Wa, Ha = nA, Wa = AA, nA = Fa, AA = za, Fa = Ma, za = pA + (Ua = (Ua = (Ua = Ua + Gs + ((ua += js) >>> 0 < js >>> 0 ? 1 : 0)) + Ea + ((ua += Ks) >>> 0 < Ks >>> 0 ? 1 : 0)) + Za + ((ua += Ka) >>> 0 < Ka >>> 0 ? 1 : 0)) + ((Ma = aA + ua | 0) >>> 0 < aA >>> 0 ? 1 : 0) | 0, pA = Ra, aA = Ya, Ra = La, Ya = fa, La = Bs, fa = ha, Bs = Ua + (ea + pa + (ka >>> 0 < $a >>> 0 ? 1 : 0)) + ((ha = ua + ka | 0) >>> 0 < ua >>> 0 ? 1 : 0) | 0;
+        var ua, Gs = za & AA ^ ~za & Wa, Ms = ja & Fa ^ ~ja & nA, pa = Bs & La ^ Bs & Ra ^ La & Ra, ta = ha & fa ^ ha & Ya ^ fa & Ya, ea = (Bs >>> 28 | ha << 4) ^ (Bs << 30 | ha >>> 2) ^ (Bs << 25 | ha >>> 7), $a = (ha >>> 28 | Bs << 4) ^ (ha << 30 | Bs >>> 2) ^ (ha << 25 | Bs >>> 7), MA = (za >>> 14 | ja << 18) ^ (za >>> 18 | ja << 14) ^ (za << 23 | ja >>> 9), ga = (ja >>> 14 | za << 18) ^ (ja >>> 18 | za << 14) ^ (ja << 23 | za >>> 9), Zs = Fo[Oa], Ea = Zs.high, Ks = Zs.low, Ua = EA + MA + ((ua = Ha + ga) >>> 0 < Ha >>> 0 ? 1 : 0), ka = $a + ta;
+        EA = Wa, Ha = nA, Wa = AA, nA = Fa, AA = za, Fa = ja, za = pA + (Ua = (Ua = (Ua = Ua + Gs + ((ua += Ms) >>> 0 < Ms >>> 0 ? 1 : 0)) + Ea + ((ua += Ks) >>> 0 < Ks >>> 0 ? 1 : 0)) + Za + ((ua += Ka) >>> 0 < Ka >>> 0 ? 1 : 0)) + ((ja = aA + ua | 0) >>> 0 < aA >>> 0 ? 1 : 0) | 0, pA = Ra, aA = Ya, Ra = La, Ya = fa, La = Bs, fa = ha, Bs = Ua + (ea + pa + (ka >>> 0 < $a >>> 0 ? 1 : 0)) + ((ha = ua + ka | 0) >>> 0 < ua >>> 0 ? 1 : 0) | 0;
       }
-      Ps = is.low = Ps + ha, is.high = ys + Bs + (Ps >>> 0 < ha >>> 0 ? 1 : 0), Es = As.low = Es + fa, As.high = ds + La + (Es >>> 0 < fa >>> 0 ? 1 : 0), ws = os.low = ws + Ya, os.high = Os + Ra + (ws >>> 0 < Ya >>> 0 ? 1 : 0), Ys = us.low = Ys + aA, us.high = zs + pA + (Ys >>> 0 < aA >>> 0 ? 1 : 0), _s = as.low = _s + Ma, as.high = ks + za + (_s >>> 0 < Ma >>> 0 ? 1 : 0), na = vs.low = na + Fa, vs.high = Js + AA + (na >>> 0 < Fa >>> 0 ? 1 : 0), Hs = Is.low = Hs + nA, Is.high = ca + Wa + (Hs >>> 0 < nA >>> 0 ? 1 : 0), Ms = hs.low = Ms + Ha, hs.high = Ds + EA + (Ms >>> 0 < Ha >>> 0 ? 1 : 0);
+      Ps = is.low = Ps + ha, is.high = ys + Bs + (Ps >>> 0 < ha >>> 0 ? 1 : 0), Es = As.low = Es + fa, As.high = ds + La + (Es >>> 0 < fa >>> 0 ? 1 : 0), ws = os.low = ws + Ya, os.high = Os + Ra + (ws >>> 0 < Ya >>> 0 ? 1 : 0), Ys = us.low = Ys + aA, us.high = zs + pA + (Ys >>> 0 < aA >>> 0 ? 1 : 0), _s = as.low = _s + ja, as.high = ks + za + (_s >>> 0 < ja >>> 0 ? 1 : 0), na = vs.low = na + Fa, vs.high = Js + AA + (na >>> 0 < Fa >>> 0 ? 1 : 0), Hs = Is.low = Hs + nA, Is.high = ca + Wa + (Hs >>> 0 < nA >>> 0 ? 1 : 0), js = hs.low = js + Ha, hs.high = Ds + EA + (js >>> 0 < Ha >>> 0 ? 1 : 0);
     }, _doFinalize: function() {
       var Jo = this._data, es = Jo.words, rs = 8 * this._nDataBytes, is = 8 * Jo.sigBytes;
       return es[is >>> 5] |= 128 << 24 - is % 32, es[30 + (is + 128 >>> 10 << 5)] = Math.floor(rs / 4294967296), es[31 + (is + 128 >>> 10 << 5)] = rs, Jo.sigBytes = 4 * es.length, this._process(), this._hash.toX32();
     }, clone: function() {
-      var Jo = Qo.clone.call(this);
+      var Jo = Ho.clone.call(this);
       return Jo._hash = this._hash.clone(), Jo;
     }, blockSize: 32 });
-    Go.SHA512 = Qo._createHelper(Ko), Go.HmacSHA512 = Qo._createHmacHelper(Ko);
+    Go.SHA512 = Ho._createHelper(Ko), Go.HmacSHA512 = Ho._createHmacHelper(Ko);
   })(), jo.SHA512);
 }), Q(function(Oo, No) {
-  var jo, Go, Qo, Ho, Vo, qo, Yo, Xo;
-  Oo.exports = (Qo = (Go = jo = ee).x64, Ho = Qo.Word, Vo = Qo.WordArray, qo = Go.algo, Yo = qo.SHA512, Xo = qo.SHA384 = Yo.extend({ _doReset: function() {
-    this._hash = new Vo.init([new Ho.init(3418070365, 3238371032), new Ho.init(1654270250, 914150663), new Ho.init(2438529370, 812702999), new Ho.init(355462360, 4144912697), new Ho.init(1731405415, 4290775857), new Ho.init(2394180231, 1750603025), new Ho.init(3675008525, 1694076839), new Ho.init(1203062813, 3204075428)]);
+  var jo, Go, Ho, Qo, Vo, qo, Yo, Xo;
+  Oo.exports = (Ho = (Go = jo = ee).x64, Qo = Ho.Word, Vo = Ho.WordArray, qo = Go.algo, Yo = qo.SHA512, Xo = qo.SHA384 = Yo.extend({ _doReset: function() {
+    this._hash = new Vo.init([new Qo.init(3418070365, 3238371032), new Qo.init(1654270250, 914150663), new Qo.init(2438529370, 812702999), new Qo.init(355462360, 4144912697), new Qo.init(1731405415, 4290775857), new Qo.init(2394180231, 1750603025), new Qo.init(3675008525, 1694076839), new Qo.init(1203062813, 3204075428)]);
   }, _doFinalize: function() {
     var Fo = Yo._doFinalize.call(this);
     return Fo.sigBytes -= 16, Fo;
@@ -4994,7 +6111,7 @@ var ee = Q(function(Oo, No) {
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function(Go) {
-    var Qo = jo, Ho = Qo.lib, Vo = Ho.WordArray, qo = Ho.Hasher, Yo = Qo.x64.Word, Xo = Qo.algo, Fo = [], Wo = [], Ko = [];
+    var Ho = jo, Qo = Ho.lib, Vo = Qo.WordArray, qo = Qo.Hasher, Yo = Ho.x64.Word, Xo = Ho.algo, Fo = [], Wo = [], Ko = [];
     (function() {
       for (var rs = 1, is = 0, As = 0; As < 24; As++) {
         Fo[rs + 5 * is] = (As + 1) * (As + 2) / 2 % 64;
@@ -5023,32 +6140,32 @@ var ee = Q(function(Oo, No) {
     }, _doProcessBlock: function(rs, is) {
       for (var As = this._state, os = this.blockSize / 2, us = 0; us < os; us++) {
         var as = rs[is + 2 * us], vs = rs[is + 2 * us + 1];
-        as = 16711935 & (as << 8 | as >>> 24) | 4278255360 & (as << 24 | as >>> 8), vs = 16711935 & (vs << 8 | vs >>> 24) | 4278255360 & (vs << 24 | vs >>> 8), (Ms = As[us]).high ^= vs, Ms.low ^= as;
+        as = 16711935 & (as << 8 | as >>> 24) | 4278255360 & (as << 24 | as >>> 8), vs = 16711935 & (vs << 8 | vs >>> 24) | 4278255360 & (vs << 24 | vs >>> 8), (js = As[us]).high ^= vs, js.low ^= as;
       }
       for (var Is = 0; Is < 24; Is++) {
         for (var hs = 0; hs < 5; hs++) {
-          for (var ys = 0, Ps = 0, ds = 0; ds < 5; ds++) ys ^= (Ms = As[hs + 5 * ds]).high, Ps ^= Ms.low;
+          for (var ys = 0, Ps = 0, ds = 0; ds < 5; ds++) ys ^= (js = As[hs + 5 * ds]).high, Ps ^= js.low;
           var Es = Jo[hs];
           Es.high = ys, Es.low = Ps;
         }
         for (hs = 0; hs < 5; hs++) {
           var Os = Jo[(hs + 4) % 5], ws = Jo[(hs + 1) % 5], zs = ws.high, Ys = ws.low;
-          for (ys = Os.high ^ (zs << 1 | Ys >>> 31), Ps = Os.low ^ (Ys << 1 | zs >>> 31), ds = 0; ds < 5; ds++) (Ms = As[hs + 5 * ds]).high ^= ys, Ms.low ^= Ps;
+          for (ys = Os.high ^ (zs << 1 | Ys >>> 31), Ps = Os.low ^ (Ys << 1 | zs >>> 31), ds = 0; ds < 5; ds++) (js = As[hs + 5 * ds]).high ^= ys, js.low ^= Ps;
         }
         for (var ks = 1; ks < 25; ks++) {
-          var _s = (Ms = As[ks]).high, Js = Ms.low, na = Fo[ks];
+          var _s = (js = As[ks]).high, Js = js.low, na = Fo[ks];
           na < 32 ? (ys = _s << na | Js >>> 32 - na, Ps = Js << na | _s >>> 32 - na) : (ys = Js << na - 32 | _s >>> 64 - na, Ps = _s << na - 32 | Js >>> 64 - na);
           var ca = Jo[Wo[ks]];
           ca.high = ys, ca.low = Ps;
         }
         var Hs = Jo[0], Ds = As[0];
         for (Hs.high = Ds.high, Hs.low = Ds.low, hs = 0; hs < 5; hs++) for (ds = 0; ds < 5; ds++) {
-          var Ms = As[ks = hs + 5 * ds], Bs = Jo[ks], ha = Jo[(hs + 1) % 5 + 5 * ds], La = Jo[(hs + 2) % 5 + 5 * ds];
-          Ms.high = Bs.high ^ ~ha.high & La.high, Ms.low = Bs.low ^ ~ha.low & La.low;
+          var js = As[ks = hs + 5 * ds], Bs = Jo[ks], ha = Jo[(hs + 1) % 5 + 5 * ds], La = Jo[(hs + 2) % 5 + 5 * ds];
+          js.high = Bs.high ^ ~ha.high & La.high, js.low = Bs.low ^ ~ha.low & La.low;
         }
-        Ms = As[0];
+        js = As[0];
         var fa = Ko[Is];
-        Ms.high ^= fa.high, Ms.low ^= fa.low;
+        js.high ^= fa.high, js.low ^= fa.low;
       }
     }, _doFinalize: function() {
       var rs = this._data, is = rs.words, As = (this._nDataBytes, 8 * rs.sigBytes), os = 32 * this.blockSize;
@@ -5062,20 +6179,20 @@ var ee = Q(function(Oo, No) {
       for (var rs = qo.clone.call(this), is = rs._state = this._state.slice(0), As = 0; As < 25; As++) is[As] = is[As].clone();
       return rs;
     } });
-    Qo.SHA3 = qo._createHelper(es), Qo.HmacSHA3 = qo._createHmacHelper(es);
+    Ho.SHA3 = qo._createHelper(es), Ho.HmacSHA3 = qo._createHmacHelper(es);
   })(Math), jo.SHA3);
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function(Go) {
-    var Qo = jo, Ho = Qo.lib, Vo = Ho.WordArray, qo = Ho.Hasher, Yo = Qo.algo, Xo = Vo.create([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 7, 4, 13, 1, 10, 6, 15, 3, 12, 0, 9, 5, 2, 14, 11, 8, 3, 10, 14, 4, 9, 15, 8, 1, 2, 7, 0, 6, 13, 11, 5, 12, 1, 9, 11, 10, 0, 8, 12, 4, 13, 3, 7, 15, 14, 5, 6, 2, 4, 0, 5, 9, 7, 12, 2, 10, 14, 1, 3, 8, 11, 6, 15, 13]), Fo = Vo.create([5, 14, 7, 0, 9, 2, 11, 4, 13, 6, 15, 8, 1, 10, 3, 12, 6, 11, 3, 7, 0, 13, 5, 10, 14, 15, 8, 12, 4, 9, 1, 2, 15, 5, 1, 3, 7, 14, 6, 9, 11, 8, 12, 2, 10, 0, 4, 13, 8, 6, 4, 1, 3, 11, 15, 0, 5, 12, 2, 13, 9, 7, 10, 14, 12, 15, 10, 4, 1, 5, 8, 7, 6, 2, 13, 14, 0, 3, 9, 11]), Wo = Vo.create([11, 14, 15, 12, 5, 8, 7, 9, 11, 13, 14, 15, 6, 7, 9, 8, 7, 6, 8, 13, 11, 9, 7, 15, 7, 12, 15, 9, 11, 7, 13, 12, 11, 13, 6, 7, 14, 9, 13, 15, 14, 8, 13, 6, 5, 12, 7, 5, 11, 12, 14, 15, 14, 15, 9, 8, 9, 14, 5, 6, 8, 6, 5, 12, 9, 15, 5, 11, 6, 8, 13, 12, 5, 12, 13, 14, 11, 8, 5, 6]), Ko = Vo.create([8, 9, 9, 11, 13, 15, 15, 5, 7, 7, 8, 11, 14, 14, 12, 6, 9, 13, 15, 7, 12, 8, 9, 11, 7, 7, 12, 7, 6, 15, 13, 11, 9, 7, 15, 11, 8, 6, 6, 14, 12, 13, 5, 14, 13, 13, 7, 5, 15, 5, 8, 11, 14, 14, 6, 14, 6, 9, 12, 9, 12, 5, 15, 8, 8, 5, 12, 9, 12, 5, 14, 6, 8, 13, 6, 5, 15, 13, 11, 11]), Jo = Vo.create([0, 1518500249, 1859775393, 2400959708, 2840853838]), es = Vo.create([1352829926, 1548603684, 1836072691, 2053994217, 0]), rs = Yo.RIPEMD160 = qo.extend({ _doReset: function() {
+    var Ho = jo, Qo = Ho.lib, Vo = Qo.WordArray, qo = Qo.Hasher, Yo = Ho.algo, Xo = Vo.create([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 7, 4, 13, 1, 10, 6, 15, 3, 12, 0, 9, 5, 2, 14, 11, 8, 3, 10, 14, 4, 9, 15, 8, 1, 2, 7, 0, 6, 13, 11, 5, 12, 1, 9, 11, 10, 0, 8, 12, 4, 13, 3, 7, 15, 14, 5, 6, 2, 4, 0, 5, 9, 7, 12, 2, 10, 14, 1, 3, 8, 11, 6, 15, 13]), Fo = Vo.create([5, 14, 7, 0, 9, 2, 11, 4, 13, 6, 15, 8, 1, 10, 3, 12, 6, 11, 3, 7, 0, 13, 5, 10, 14, 15, 8, 12, 4, 9, 1, 2, 15, 5, 1, 3, 7, 14, 6, 9, 11, 8, 12, 2, 10, 0, 4, 13, 8, 6, 4, 1, 3, 11, 15, 0, 5, 12, 2, 13, 9, 7, 10, 14, 12, 15, 10, 4, 1, 5, 8, 7, 6, 2, 13, 14, 0, 3, 9, 11]), Wo = Vo.create([11, 14, 15, 12, 5, 8, 7, 9, 11, 13, 14, 15, 6, 7, 9, 8, 7, 6, 8, 13, 11, 9, 7, 15, 7, 12, 15, 9, 11, 7, 13, 12, 11, 13, 6, 7, 14, 9, 13, 15, 14, 8, 13, 6, 5, 12, 7, 5, 11, 12, 14, 15, 14, 15, 9, 8, 9, 14, 5, 6, 8, 6, 5, 12, 9, 15, 5, 11, 6, 8, 13, 12, 5, 12, 13, 14, 11, 8, 5, 6]), Ko = Vo.create([8, 9, 9, 11, 13, 15, 15, 5, 7, 7, 8, 11, 14, 14, 12, 6, 9, 13, 15, 7, 12, 8, 9, 11, 7, 7, 12, 7, 6, 15, 13, 11, 9, 7, 15, 11, 8, 6, 6, 14, 12, 13, 5, 14, 13, 13, 7, 5, 15, 5, 8, 11, 14, 14, 6, 14, 6, 9, 12, 9, 12, 5, 15, 8, 8, 5, 12, 9, 12, 5, 14, 6, 8, 13, 6, 5, 15, 13, 11, 11]), Jo = Vo.create([0, 1518500249, 1859775393, 2400959708, 2840853838]), es = Vo.create([1352829926, 1548603684, 1836072691, 2053994217, 0]), rs = Yo.RIPEMD160 = qo.extend({ _doReset: function() {
       this._hash = Vo.create([1732584193, 4023233417, 2562383102, 271733878, 3285377520]);
     }, _doProcessBlock: function(Is, hs) {
       for (var ys = 0; ys < 16; ys++) {
         var Ps = hs + ys, ds = Is[Ps];
         Is[Ps] = 16711935 & (ds << 8 | ds >>> 24) | 4278255360 & (ds << 24 | ds >>> 8);
       }
-      var Es, Os, ws, zs, Ys, ks, _s, Js, na, ca, Hs, Ds = this._hash.words, Ms = Jo.words, Bs = es.words, ha = Xo.words, La = Fo.words, fa = Wo.words, Ra = Ko.words;
-      for (ks = Es = Ds[0], _s = Os = Ds[1], Js = ws = Ds[2], na = zs = Ds[3], ca = Ys = Ds[4], ys = 0; ys < 80; ys += 1) Hs = Es + Is[hs + ha[ys]] | 0, Hs += ys < 16 ? is(Os, ws, zs) + Ms[0] : ys < 32 ? As(Os, ws, zs) + Ms[1] : ys < 48 ? os(Os, ws, zs) + Ms[2] : ys < 64 ? us(Os, ws, zs) + Ms[3] : as(Os, ws, zs) + Ms[4], Hs = (Hs = vs(Hs |= 0, fa[ys])) + Ys | 0, Es = Ys, Ys = zs, zs = vs(ws, 10), ws = Os, Os = Hs, Hs = ks + Is[hs + La[ys]] | 0, Hs += ys < 16 ? as(_s, Js, na) + Bs[0] : ys < 32 ? us(_s, Js, na) + Bs[1] : ys < 48 ? os(_s, Js, na) + Bs[2] : ys < 64 ? As(_s, Js, na) + Bs[3] : is(_s, Js, na) + Bs[4], Hs = (Hs = vs(Hs |= 0, Ra[ys])) + ca | 0, ks = ca, ca = na, na = vs(Js, 10), Js = _s, _s = Hs;
+      var Es, Os, ws, zs, Ys, ks, _s, Js, na, ca, Hs, Ds = this._hash.words, js = Jo.words, Bs = es.words, ha = Xo.words, La = Fo.words, fa = Wo.words, Ra = Ko.words;
+      for (ks = Es = Ds[0], _s = Os = Ds[1], Js = ws = Ds[2], na = zs = Ds[3], ca = Ys = Ds[4], ys = 0; ys < 80; ys += 1) Hs = Es + Is[hs + ha[ys]] | 0, Hs += ys < 16 ? is(Os, ws, zs) + js[0] : ys < 32 ? As(Os, ws, zs) + js[1] : ys < 48 ? os(Os, ws, zs) + js[2] : ys < 64 ? us(Os, ws, zs) + js[3] : as(Os, ws, zs) + js[4], Hs = (Hs = vs(Hs |= 0, fa[ys])) + Ys | 0, Es = Ys, Ys = zs, zs = vs(ws, 10), ws = Os, Os = Hs, Hs = ks + Is[hs + La[ys]] | 0, Hs += ys < 16 ? as(_s, Js, na) + Bs[0] : ys < 32 ? us(_s, Js, na) + Bs[1] : ys < 48 ? os(_s, Js, na) + Bs[2] : ys < 64 ? As(_s, Js, na) + Bs[3] : is(_s, Js, na) + Bs[4], Hs = (Hs = vs(Hs |= 0, Ra[ys])) + ca | 0, ks = ca, ca = na, na = vs(Js, 10), Js = _s, _s = Hs;
       Hs = Ds[1] + ws + na | 0, Ds[1] = Ds[2] + zs + ca | 0, Ds[2] = Ds[3] + Ys + ks | 0, Ds[3] = Ds[4] + Es + _s | 0, Ds[4] = Ds[0] + Os + Js | 0, Ds[0] = Hs;
     }, _doFinalize: function() {
       var Is = this._data, hs = Is.words, ys = 8 * this._nDataBytes, Ps = 8 * Is.sigBytes;
@@ -5107,11 +6224,11 @@ var ee = Q(function(Oo, No) {
     function vs(Is, hs) {
       return Is << hs | Is >>> 32 - hs;
     }
-    Qo.RIPEMD160 = qo._createHelper(rs), Qo.HmacRIPEMD160 = qo._createHmacHelper(rs);
+    Ho.RIPEMD160 = qo._createHelper(rs), Ho.HmacRIPEMD160 = qo._createHmacHelper(rs);
   })(), jo.RIPEMD160);
 }), Q(function(Oo, No) {
-  var jo, Go, Qo, Ho, Vo, qo;
-  Oo.exports = (Go = (jo = ee).lib, Qo = Go.Base, Ho = jo.enc, Vo = Ho.Utf8, qo = jo.algo, void (qo.HMAC = Qo.extend({ init: function(Yo, Xo) {
+  var jo, Go, Ho, Qo, Vo, qo;
+  Oo.exports = (Go = (jo = ee).lib, Ho = Go.Base, Qo = jo.enc, Vo = Qo.Utf8, qo = jo.algo, void (qo.HMAC = Ho.extend({ init: function(Yo, Xo) {
     Yo = this._hasher = new Yo.init(), typeof Xo == "string" && (Xo = Vo.parse(Xo));
     var Fo = Yo.blockSize, Wo = 4 * Fo;
     Xo.sigBytes > Wo && (Xo = Yo.finalize(Xo)), Xo.clamp();
@@ -5129,8 +6246,8 @@ var ee = Q(function(Oo, No) {
     return Wo;
   } })));
 }), Q(function(Oo, No) {
-  var jo, Go, Qo, Ho, Vo, qo, Yo, Xo, Fo;
-  Oo.exports = (Qo = (Go = jo = ee).lib, Ho = Qo.Base, Vo = Qo.WordArray, qo = Go.algo, Yo = qo.SHA1, Xo = qo.HMAC, Fo = qo.PBKDF2 = Ho.extend({ cfg: Ho.extend({ keySize: 4, hasher: Yo, iterations: 1 }), init: function(Wo) {
+  var jo, Go, Ho, Qo, Vo, qo, Yo, Xo, Fo;
+  Oo.exports = (Ho = (Go = jo = ee).lib, Qo = Ho.Base, Vo = Ho.WordArray, qo = Go.algo, Yo = qo.SHA1, Xo = qo.HMAC, Fo = qo.PBKDF2 = Qo.extend({ cfg: Qo.extend({ keySize: 4, hasher: Yo, iterations: 1 }), init: function(Wo) {
     this.cfg = this.cfg.extend(Wo);
   }, compute: function(Wo, Ko) {
     for (var Jo = this.cfg, es = Xo.create(Jo.hasher, Wo), rs = Vo.create(), is = Vo.create([1]), As = rs.words, os = is.words, us = Jo.keySize, as = Jo.iterations; As.length < us; ) {
@@ -5147,8 +6264,8 @@ var ee = Q(function(Oo, No) {
     return Fo.create(Jo).compute(Wo, Ko);
   }, jo.PBKDF2);
 }), Q(function(Oo, No) {
-  var jo, Go, Qo, Ho, Vo, qo, Yo, Xo;
-  Oo.exports = (Qo = (Go = jo = ee).lib, Ho = Qo.Base, Vo = Qo.WordArray, qo = Go.algo, Yo = qo.MD5, Xo = qo.EvpKDF = Ho.extend({ cfg: Ho.extend({ keySize: 4, hasher: Yo, iterations: 1 }), init: function(Fo) {
+  var jo, Go, Ho, Qo, Vo, qo, Yo, Xo;
+  Oo.exports = (Ho = (Go = jo = ee).lib, Qo = Ho.Base, Vo = Ho.WordArray, qo = Go.algo, Yo = qo.MD5, Xo = qo.EvpKDF = Qo.extend({ cfg: Qo.extend({ keySize: 4, hasher: Yo, iterations: 1 }), init: function(Fo) {
     this.cfg = this.cfg.extend(Fo);
   }, compute: function(Fo, Wo) {
     for (var Ko = this.cfg, Jo = Ko.hasher.create(), es = Vo.create(), rs = es.words, is = Ko.keySize, As = Ko.iterations; rs.length < is; ) {
@@ -5163,8 +6280,8 @@ var ee = Q(function(Oo, No) {
     return Xo.create(Ko).compute(Fo, Wo);
   }, jo.EvpKDF);
 }), Q(function(Oo, No) {
-  var jo, Go, Qo, Ho, Vo, qo, Yo, Xo, Fo, Wo, Ko, Jo, es, rs, is, As, os, us, as, vs, Is, hs, ys, Ps;
-  Oo.exports = void ((jo = ee).lib.Cipher || (Qo = jo, Ho = Qo.lib, Vo = Ho.Base, qo = Ho.WordArray, Yo = Ho.BufferedBlockAlgorithm, Xo = Qo.enc, Xo.Utf8, Fo = Xo.Base64, Wo = Qo.algo, Ko = Wo.EvpKDF, Jo = Ho.Cipher = Yo.extend({ cfg: Vo.extend(), createEncryptor: function(ds, Es) {
+  var jo, Go, Ho, Qo, Vo, qo, Yo, Xo, Fo, Wo, Ko, Jo, es, rs, is, As, os, us, as, vs, Is, hs, ys, Ps;
+  Oo.exports = void ((jo = ee).lib.Cipher || (Ho = jo, Qo = Ho.lib, Vo = Qo.Base, qo = Qo.WordArray, Yo = Qo.BufferedBlockAlgorithm, Xo = Ho.enc, Xo.Utf8, Fo = Xo.Base64, Wo = Ho.algo, Ko = Wo.EvpKDF, Jo = Qo.Cipher = Yo.extend({ cfg: Vo.extend(), createEncryptor: function(ds, Es) {
     return this.create(this._ENC_XFORM_MODE, ds, Es);
   }, createDecryptor: function(ds, Es) {
     return this.create(this._DEC_XFORM_MODE, ds, Es);
@@ -5189,10 +6306,10 @@ var ee = Q(function(Oo, No) {
         return ds(ws).decrypt(Es, Os, ws, zs);
       } };
     };
-  })() }), Ho.StreamCipher = Jo.extend({ _doFinalize: function() {
+  })() }), Qo.StreamCipher = Jo.extend({ _doFinalize: function() {
     var ds = this._process(!0);
     return ds;
-  }, blockSize: 1 }), es = Qo.mode = {}, rs = Ho.BlockCipherMode = Vo.extend({ createEncryptor: function(ds, Es) {
+  }, blockSize: 1 }), es = Ho.mode = {}, rs = Qo.BlockCipherMode = Vo.extend({ createEncryptor: function(ds, Es) {
     return this.Encryptor.create(ds, Es);
   }, createDecryptor: function(ds, Es) {
     return this.Decryptor.create(ds, Es);
@@ -5215,14 +6332,14 @@ var ee = Q(function(Oo, No) {
       var zs = this._cipher, Ys = zs.blockSize, ks = Os.slice(ws, ws + Ys);
       zs.decryptBlock(Os, ws), Es.call(this, Os, ws, Ys), this._prevBlock = ks;
     } }), ds;
-  })(), As = Qo.pad = {}, os = As.Pkcs7 = { pad: function(ds, Es) {
+  })(), As = Ho.pad = {}, os = As.Pkcs7 = { pad: function(ds, Es) {
     for (var Os = 4 * Es, ws = Os - ds.sigBytes % Os, zs = ws << 24 | ws << 16 | ws << 8 | ws, Ys = [], ks = 0; ks < ws; ks += 4) Ys.push(zs);
     var _s = qo.create(Ys, ws);
     ds.concat(_s);
   }, unpad: function(ds) {
     var Es = 255 & ds.words[ds.sigBytes - 1 >>> 2];
     ds.sigBytes -= Es;
-  } }, Ho.BlockCipher = Jo.extend({ cfg: Jo.cfg.extend({ mode: is, padding: os }), reset: function() {
+  } }, Qo.BlockCipher = Jo.extend({ cfg: Jo.cfg.extend({ mode: is, padding: os }), reset: function() {
     Jo.reset.call(this);
     var ds = this.cfg, Es = ds.iv, Os = ds.mode;
     if (this._xformMode == this._ENC_XFORM_MODE) var ws = Os.createEncryptor;
@@ -5243,11 +6360,11 @@ var ee = Q(function(Oo, No) {
       ds.unpad(Es);
     }
     return Es;
-  }, blockSize: 4 }), us = Ho.CipherParams = Vo.extend({ init: function(ds) {
+  }, blockSize: 4 }), us = Qo.CipherParams = Vo.extend({ init: function(ds) {
     this.mixIn(ds);
   }, toString: function(ds) {
     return (ds || this.formatter).stringify(this);
-  } }), as = Qo.format = {}, vs = as.OpenSSL = { stringify: function(ds) {
+  } }), as = Ho.format = {}, vs = as.OpenSSL = { stringify: function(ds) {
     var Es = ds.ciphertext, Os = ds.salt;
     if (Os) var ws = qo.create([1398893684, 1701076831]).concat(Os).concat(Es);
     else var ws = Es;
@@ -5259,7 +6376,7 @@ var ee = Q(function(Oo, No) {
       Os.splice(0, 4), Es.sigBytes -= 16;
     }
     return us.create({ ciphertext: Es, salt: ws });
-  } }, Is = Ho.SerializableCipher = Vo.extend({ cfg: Vo.extend({ format: vs }), encrypt: function(ds, Es, Os, ws) {
+  } }, Is = Qo.SerializableCipher = Vo.extend({ cfg: Vo.extend({ format: vs }), encrypt: function(ds, Es, Os, ws) {
     ws = this.cfg.extend(ws);
     var zs = ds.createEncryptor(Os, ws), Ys = zs.finalize(Es), ks = zs.cfg;
     return us.create({ ciphertext: Ys, key: Os, iv: ks.iv, algorithm: ds, mode: ks.mode, padding: ks.padding, blockSize: ds.blockSize, formatter: ws.format });
@@ -5269,11 +6386,11 @@ var ee = Q(function(Oo, No) {
     return zs;
   }, _parse: function(ds, Es) {
     return typeof ds == "string" ? Es.parse(ds, this) : ds;
-  } }), hs = Qo.kdf = {}, ys = hs.OpenSSL = { execute: function(ds, Es, Os, ws) {
+  } }), hs = Ho.kdf = {}, ys = hs.OpenSSL = { execute: function(ds, Es, Os, ws) {
     ws || (ws = qo.random(8));
     var zs = Ko.create({ keySize: Es + Os }).compute(ds, ws), Ys = qo.create(zs.words.slice(Es), 4 * Os);
     return zs.sigBytes = 4 * Es, us.create({ key: zs, iv: Ys, salt: ws });
-  } }, Ps = Ho.PasswordBasedCipher = Is.extend({ cfg: Is.cfg.extend({ kdf: ys }), encrypt: function(ds, Es, Os, ws) {
+  } }, Ps = Qo.PasswordBasedCipher = Is.extend({ cfg: Is.cfg.extend({ kdf: ys }), encrypt: function(ds, Es, Os, ws) {
     var zs = (ws = this.cfg.extend(ws)).kdf.execute(Os, ds.keySize, ds.ivSize);
     ws.iv = zs.iv;
     var Ys = Is.encrypt.call(this, ds, Es, zs.key, ws);
@@ -5289,101 +6406,101 @@ var ee = Q(function(Oo, No) {
   var jo;
   Oo.exports = ((jo = ee).mode.CFB = (function() {
     var Go = jo.lib.BlockCipherMode.extend();
-    function Qo(Ho, Vo, qo, Yo) {
+    function Ho(Qo, Vo, qo, Yo) {
       var Xo = this._iv;
       if (Xo) {
         var Fo = Xo.slice(0);
         this._iv = void 0;
       } else Fo = this._prevBlock;
       Yo.encryptBlock(Fo, 0);
-      for (var Wo = 0; Wo < qo; Wo++) Ho[Vo + Wo] ^= Fo[Wo];
+      for (var Wo = 0; Wo < qo; Wo++) Qo[Vo + Wo] ^= Fo[Wo];
     }
-    return Go.Encryptor = Go.extend({ processBlock: function(Ho, Vo) {
+    return Go.Encryptor = Go.extend({ processBlock: function(Qo, Vo) {
       var qo = this._cipher, Yo = qo.blockSize;
-      Qo.call(this, Ho, Vo, Yo, qo), this._prevBlock = Ho.slice(Vo, Vo + Yo);
-    } }), Go.Decryptor = Go.extend({ processBlock: function(Ho, Vo) {
-      var qo = this._cipher, Yo = qo.blockSize, Xo = Ho.slice(Vo, Vo + Yo);
-      Qo.call(this, Ho, Vo, Yo, qo), this._prevBlock = Xo;
+      Ho.call(this, Qo, Vo, Yo, qo), this._prevBlock = Qo.slice(Vo, Vo + Yo);
+    } }), Go.Decryptor = Go.extend({ processBlock: function(Qo, Vo) {
+      var qo = this._cipher, Yo = qo.blockSize, Xo = Qo.slice(Vo, Vo + Yo);
+      Ho.call(this, Qo, Vo, Yo, qo), this._prevBlock = Xo;
     } }), Go;
   })(), jo.mode.CFB);
 }), Q(function(Oo, No) {
-  var jo, Go, Qo;
-  Oo.exports = ((jo = ee).mode.CTR = (Go = jo.lib.BlockCipherMode.extend(), Qo = Go.Encryptor = Go.extend({ processBlock: function(Ho, Vo) {
+  var jo, Go, Ho;
+  Oo.exports = ((jo = ee).mode.CTR = (Go = jo.lib.BlockCipherMode.extend(), Ho = Go.Encryptor = Go.extend({ processBlock: function(Qo, Vo) {
     var qo = this._cipher, Yo = qo.blockSize, Xo = this._iv, Fo = this._counter;
     Xo && (Fo = this._counter = Xo.slice(0), this._iv = void 0);
     var Wo = Fo.slice(0);
     qo.encryptBlock(Wo, 0), Fo[Yo - 1] = Fo[Yo - 1] + 1 | 0;
-    for (var Ko = 0; Ko < Yo; Ko++) Ho[Vo + Ko] ^= Wo[Ko];
-  } }), Go.Decryptor = Qo, Go), jo.mode.CTR);
+    for (var Ko = 0; Ko < Yo; Ko++) Qo[Vo + Ko] ^= Wo[Ko];
+  } }), Go.Decryptor = Ho, Go), jo.mode.CTR);
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = ((jo = ee).mode.CTRGladman = (function() {
     var Go = jo.lib.BlockCipherMode.extend();
-    function Qo(Vo) {
+    function Ho(Vo) {
       if ((Vo >> 24 & 255) == 255) {
         var qo = Vo >> 16 & 255, Yo = Vo >> 8 & 255, Xo = 255 & Vo;
         qo === 255 ? (qo = 0, Yo === 255 ? (Yo = 0, Xo === 255 ? Xo = 0 : ++Xo) : ++Yo) : ++qo, Vo = 0, Vo += qo << 16, Vo += Yo << 8, Vo += Xo;
       } else Vo += 1 << 24;
       return Vo;
     }
-    var Ho = Go.Encryptor = Go.extend({ processBlock: function(Vo, qo) {
+    var Qo = Go.Encryptor = Go.extend({ processBlock: function(Vo, qo) {
       var Yo = this._cipher, Xo = Yo.blockSize, Fo = this._iv, Wo = this._counter;
       Fo && (Wo = this._counter = Fo.slice(0), this._iv = void 0), (function(es) {
-        (es[0] = Qo(es[0])) === 0 && (es[1] = Qo(es[1]));
+        (es[0] = Ho(es[0])) === 0 && (es[1] = Ho(es[1]));
       })(Wo);
       var Ko = Wo.slice(0);
       Yo.encryptBlock(Ko, 0);
       for (var Jo = 0; Jo < Xo; Jo++) Vo[qo + Jo] ^= Ko[Jo];
     } });
-    return Go.Decryptor = Ho, Go;
+    return Go.Decryptor = Qo, Go;
   })(), jo.mode.CTRGladman);
 }), Q(function(Oo, No) {
-  var jo, Go, Qo;
-  Oo.exports = ((jo = ee).mode.OFB = (Go = jo.lib.BlockCipherMode.extend(), Qo = Go.Encryptor = Go.extend({ processBlock: function(Ho, Vo) {
+  var jo, Go, Ho;
+  Oo.exports = ((jo = ee).mode.OFB = (Go = jo.lib.BlockCipherMode.extend(), Ho = Go.Encryptor = Go.extend({ processBlock: function(Qo, Vo) {
     var qo = this._cipher, Yo = qo.blockSize, Xo = this._iv, Fo = this._keystream;
     Xo && (Fo = this._keystream = Xo.slice(0), this._iv = void 0), qo.encryptBlock(Fo, 0);
-    for (var Wo = 0; Wo < Yo; Wo++) Ho[Vo + Wo] ^= Fo[Wo];
-  } }), Go.Decryptor = Qo, Go), jo.mode.OFB);
+    for (var Wo = 0; Wo < Yo; Wo++) Qo[Vo + Wo] ^= Fo[Wo];
+  } }), Go.Decryptor = Ho, Go), jo.mode.OFB);
 }), Q(function(Oo, No) {
   var jo, Go;
-  Oo.exports = ((jo = ee).mode.ECB = ((Go = jo.lib.BlockCipherMode.extend()).Encryptor = Go.extend({ processBlock: function(Qo, Ho) {
-    this._cipher.encryptBlock(Qo, Ho);
-  } }), Go.Decryptor = Go.extend({ processBlock: function(Qo, Ho) {
-    this._cipher.decryptBlock(Qo, Ho);
+  Oo.exports = ((jo = ee).mode.ECB = ((Go = jo.lib.BlockCipherMode.extend()).Encryptor = Go.extend({ processBlock: function(Ho, Qo) {
+    this._cipher.encryptBlock(Ho, Qo);
+  } }), Go.Decryptor = Go.extend({ processBlock: function(Ho, Qo) {
+    this._cipher.decryptBlock(Ho, Qo);
   } }), Go), jo.mode.ECB);
 }), Q(function(Oo, No) {
   var jo;
-  Oo.exports = ((jo = ee).pad.AnsiX923 = { pad: function(Go, Qo) {
-    var Ho = Go.sigBytes, Vo = 4 * Qo, qo = Vo - Ho % Vo, Yo = Ho + qo - 1;
+  Oo.exports = ((jo = ee).pad.AnsiX923 = { pad: function(Go, Ho) {
+    var Qo = Go.sigBytes, Vo = 4 * Ho, qo = Vo - Qo % Vo, Yo = Qo + qo - 1;
     Go.clamp(), Go.words[Yo >>> 2] |= qo << 24 - Yo % 4 * 8, Go.sigBytes += qo;
   }, unpad: function(Go) {
-    var Qo = 255 & Go.words[Go.sigBytes - 1 >>> 2];
-    Go.sigBytes -= Qo;
+    var Ho = 255 & Go.words[Go.sigBytes - 1 >>> 2];
+    Go.sigBytes -= Ho;
   } }, jo.pad.Ansix923);
 }), Q(function(Oo, No) {
   var jo;
-  Oo.exports = ((jo = ee).pad.Iso10126 = { pad: function(Go, Qo) {
-    var Ho = 4 * Qo, Vo = Ho - Go.sigBytes % Ho;
+  Oo.exports = ((jo = ee).pad.Iso10126 = { pad: function(Go, Ho) {
+    var Qo = 4 * Ho, Vo = Qo - Go.sigBytes % Qo;
     Go.concat(jo.lib.WordArray.random(Vo - 1)).concat(jo.lib.WordArray.create([Vo << 24], 1));
   }, unpad: function(Go) {
-    var Qo = 255 & Go.words[Go.sigBytes - 1 >>> 2];
-    Go.sigBytes -= Qo;
+    var Ho = 255 & Go.words[Go.sigBytes - 1 >>> 2];
+    Go.sigBytes -= Ho;
   } }, jo.pad.Iso10126);
 }), Q(function(Oo, No) {
   var jo;
-  Oo.exports = ((jo = ee).pad.Iso97971 = { pad: function(Go, Qo) {
-    Go.concat(jo.lib.WordArray.create([2147483648], 1)), jo.pad.ZeroPadding.pad(Go, Qo);
+  Oo.exports = ((jo = ee).pad.Iso97971 = { pad: function(Go, Ho) {
+    Go.concat(jo.lib.WordArray.create([2147483648], 1)), jo.pad.ZeroPadding.pad(Go, Ho);
   }, unpad: function(Go) {
     jo.pad.ZeroPadding.unpad(Go), Go.sigBytes--;
   } }, jo.pad.Iso97971);
 }), Q(function(Oo, No) {
   var jo;
-  Oo.exports = ((jo = ee).pad.ZeroPadding = { pad: function(Go, Qo) {
-    var Ho = 4 * Qo;
-    Go.clamp(), Go.sigBytes += Ho - (Go.sigBytes % Ho || Ho);
+  Oo.exports = ((jo = ee).pad.ZeroPadding = { pad: function(Go, Ho) {
+    var Qo = 4 * Ho;
+    Go.clamp(), Go.sigBytes += Qo - (Go.sigBytes % Qo || Qo);
   }, unpad: function(Go) {
-    for (var Qo = Go.words, Ho = Go.sigBytes - 1; !(Qo[Ho >>> 2] >>> 24 - Ho % 4 * 8 & 255); ) Ho--;
-    Go.sigBytes = Ho + 1;
+    for (var Ho = Go.words, Qo = Go.sigBytes - 1; !(Ho[Qo >>> 2] >>> 24 - Qo % 4 * 8 & 255); ) Qo--;
+    Go.sigBytes = Qo + 1;
   } }, jo.pad.ZeroPadding);
 }), Q(function(Oo, No) {
   var jo;
@@ -5391,17 +6508,17 @@ var ee = Q(function(Oo, No) {
   }, unpad: function() {
   } }, jo.pad.NoPadding);
 }), Q(function(Oo, No) {
-  var jo, Go, Qo, Ho;
-  Oo.exports = (Qo = (Go = jo = ee).lib.CipherParams, Ho = Go.enc.Hex, Go.format.Hex = { stringify: function(Vo) {
-    return Vo.ciphertext.toString(Ho);
+  var jo, Go, Ho, Qo;
+  Oo.exports = (Ho = (Go = jo = ee).lib.CipherParams, Qo = Go.enc.Hex, Go.format.Hex = { stringify: function(Vo) {
+    return Vo.ciphertext.toString(Qo);
   }, parse: function(Vo) {
-    var qo = Ho.parse(Vo);
-    return Qo.create({ ciphertext: qo });
+    var qo = Qo.parse(Vo);
+    return Ho.create({ ciphertext: qo });
   } }, jo.format.Hex);
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function() {
-    var Go = jo, Qo = Go.lib.BlockCipher, Ho = Go.algo, Vo = [], qo = [], Yo = [], Xo = [], Fo = [], Wo = [], Ko = [], Jo = [], es = [], rs = [];
+    var Go = jo, Ho = Go.lib.BlockCipher, Qo = Go.algo, Vo = [], qo = [], Yo = [], Xo = [], Fo = [], Wo = [], Ko = [], Jo = [], es = [], rs = [];
     (function() {
       for (var os = [], us = 0; us < 256; us++) os[us] = us < 128 ? us << 1 : us << 1 ^ 283;
       var as = 0, vs = 0;
@@ -5412,7 +6529,7 @@ var ee = Q(function(Oo, No) {
         Yo[as] = ds << 24 | ds >>> 8, Xo[as] = ds << 16 | ds >>> 16, Fo[as] = ds << 8 | ds >>> 24, Wo[as] = ds, ds = 16843009 * Ps ^ 65537 * ys ^ 257 * hs ^ 16843008 * as, Ko[Is] = ds << 24 | ds >>> 8, Jo[Is] = ds << 16 | ds >>> 16, es[Is] = ds << 8 | ds >>> 24, rs[Is] = ds, as ? (as = hs ^ os[os[os[Ps ^ hs]]], vs ^= os[os[vs]]) : as = vs = 1;
       }
     })();
-    var is = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54], As = Ho.AES = Qo.extend({ _doReset: function() {
+    var is = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54], As = Qo.AES = Ho.extend({ _doReset: function() {
       if (!this._nRounds || this._keyPriorReset !== this._key) {
         for (var os = this._keyPriorReset = this._key, us = os.words, as = os.sigBytes / 4, vs = 4 * ((this._nRounds = as + 6) + 1), Is = this._keySchedule = [], hs = 0; hs < vs; hs++) if (hs < as) Is[hs] = us[hs];
         else {
@@ -5433,12 +6550,12 @@ var ee = Q(function(Oo, No) {
       }
       _s = (Ps[Es >>> 24] << 24 | Ps[Os >>> 16 & 255] << 16 | Ps[ws >>> 8 & 255] << 8 | Ps[255 & zs]) ^ as[Ys++], Js = (Ps[Os >>> 24] << 24 | Ps[ws >>> 16 & 255] << 16 | Ps[zs >>> 8 & 255] << 8 | Ps[255 & Es]) ^ as[Ys++], na = (Ps[ws >>> 24] << 24 | Ps[zs >>> 16 & 255] << 16 | Ps[Es >>> 8 & 255] << 8 | Ps[255 & Os]) ^ as[Ys++], ca = (Ps[zs >>> 24] << 24 | Ps[Es >>> 16 & 255] << 16 | Ps[Os >>> 8 & 255] << 8 | Ps[255 & ws]) ^ as[Ys++], os[us] = _s, os[us + 1] = Js, os[us + 2] = na, os[us + 3] = ca;
     }, keySize: 8 });
-    Go.AES = Qo._createHelper(As);
+    Go.AES = Ho._createHelper(As);
   })(), jo.AES);
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function() {
-    var Go = jo, Qo = Go.lib, Ho = Qo.WordArray, Vo = Qo.BlockCipher, qo = Go.algo, Yo = [57, 49, 41, 33, 25, 17, 9, 1, 58, 50, 42, 34, 26, 18, 10, 2, 59, 51, 43, 35, 27, 19, 11, 3, 60, 52, 44, 36, 63, 55, 47, 39, 31, 23, 15, 7, 62, 54, 46, 38, 30, 22, 14, 6, 61, 53, 45, 37, 29, 21, 13, 5, 28, 20, 12, 4], Xo = [14, 17, 11, 24, 1, 5, 3, 28, 15, 6, 21, 10, 23, 19, 12, 4, 26, 8, 16, 7, 27, 20, 13, 2, 41, 52, 31, 37, 47, 55, 30, 40, 51, 45, 33, 48, 44, 49, 39, 56, 34, 53, 46, 42, 50, 36, 29, 32], Fo = [1, 2, 4, 6, 8, 10, 12, 14, 15, 17, 19, 21, 23, 25, 27, 28], Wo = [{ 0: 8421888, 268435456: 32768, 536870912: 8421378, 805306368: 2, 1073741824: 512, 1342177280: 8421890, 1610612736: 8389122, 1879048192: 8388608, 2147483648: 514, 2415919104: 8389120, 2684354560: 33280, 2952790016: 8421376, 3221225472: 32770, 3489660928: 8388610, 3758096384: 0, 4026531840: 33282, 134217728: 0, 402653184: 8421890, 671088640: 33282, 939524096: 32768, 1207959552: 8421888, 1476395008: 512, 1744830464: 8421378, 2013265920: 2, 2281701376: 8389120, 2550136832: 33280, 2818572288: 8421376, 3087007744: 8389122, 3355443200: 8388610, 3623878656: 32770, 3892314112: 514, 4160749568: 8388608, 1: 32768, 268435457: 2, 536870913: 8421888, 805306369: 8388608, 1073741825: 8421378, 1342177281: 33280, 1610612737: 512, 1879048193: 8389122, 2147483649: 8421890, 2415919105: 8421376, 2684354561: 8388610, 2952790017: 33282, 3221225473: 514, 3489660929: 8389120, 3758096385: 32770, 4026531841: 0, 134217729: 8421890, 402653185: 8421376, 671088641: 8388608, 939524097: 512, 1207959553: 32768, 1476395009: 8388610, 1744830465: 2, 2013265921: 33282, 2281701377: 32770, 2550136833: 8389122, 2818572289: 514, 3087007745: 8421888, 3355443201: 8389120, 3623878657: 0, 3892314113: 33280, 4160749569: 8421378 }, { 0: 1074282512, 16777216: 16384, 33554432: 524288, 50331648: 1074266128, 67108864: 1073741840, 83886080: 1074282496, 100663296: 1073758208, 117440512: 16, 134217728: 540672, 150994944: 1073758224, 167772160: 1073741824, 184549376: 540688, 201326592: 524304, 218103808: 0, 234881024: 16400, 251658240: 1074266112, 8388608: 1073758208, 25165824: 540688, 41943040: 16, 58720256: 1073758224, 75497472: 1074282512, 92274688: 1073741824, 109051904: 524288, 125829120: 1074266128, 142606336: 524304, 159383552: 0, 176160768: 16384, 192937984: 1074266112, 209715200: 1073741840, 226492416: 540672, 243269632: 1074282496, 260046848: 16400, 268435456: 0, 285212672: 1074266128, 301989888: 1073758224, 318767104: 1074282496, 335544320: 1074266112, 352321536: 16, 369098752: 540688, 385875968: 16384, 402653184: 16400, 419430400: 524288, 436207616: 524304, 452984832: 1073741840, 469762048: 540672, 486539264: 1073758208, 503316480: 1073741824, 520093696: 1074282512, 276824064: 540688, 293601280: 524288, 310378496: 1074266112, 327155712: 16384, 343932928: 1073758208, 360710144: 1074282512, 377487360: 16, 394264576: 1073741824, 411041792: 1074282496, 427819008: 1073741840, 444596224: 1073758224, 461373440: 524304, 478150656: 0, 494927872: 16400, 511705088: 1074266128, 528482304: 540672 }, { 0: 260, 1048576: 0, 2097152: 67109120, 3145728: 65796, 4194304: 65540, 5242880: 67108868, 6291456: 67174660, 7340032: 67174400, 8388608: 67108864, 9437184: 67174656, 10485760: 65792, 11534336: 67174404, 12582912: 67109124, 13631488: 65536, 14680064: 4, 15728640: 256, 524288: 67174656, 1572864: 67174404, 2621440: 0, 3670016: 67109120, 4718592: 67108868, 5767168: 65536, 6815744: 65540, 7864320: 260, 8912896: 4, 9961472: 256, 11010048: 67174400, 12058624: 65796, 13107200: 65792, 14155776: 67109124, 15204352: 67174660, 16252928: 67108864, 16777216: 67174656, 17825792: 65540, 18874368: 65536, 19922944: 67109120, 20971520: 256, 22020096: 67174660, 23068672: 67108868, 24117248: 0, 25165824: 67109124, 26214400: 67108864, 27262976: 4, 28311552: 65792, 29360128: 67174400, 30408704: 260, 31457280: 65796, 32505856: 67174404, 17301504: 67108864, 18350080: 260, 19398656: 67174656, 20447232: 0, 21495808: 65540, 22544384: 67109120, 23592960: 256, 24641536: 67174404, 25690112: 65536, 26738688: 67174660, 27787264: 65796, 28835840: 67108868, 29884416: 67109124, 30932992: 67174400, 31981568: 4, 33030144: 65792 }, { 0: 2151682048, 65536: 2147487808, 131072: 4198464, 196608: 2151677952, 262144: 0, 327680: 4198400, 393216: 2147483712, 458752: 4194368, 524288: 2147483648, 589824: 4194304, 655360: 64, 720896: 2147487744, 786432: 2151678016, 851968: 4160, 917504: 4096, 983040: 2151682112, 32768: 2147487808, 98304: 64, 163840: 2151678016, 229376: 2147487744, 294912: 4198400, 360448: 2151682112, 425984: 0, 491520: 2151677952, 557056: 4096, 622592: 2151682048, 688128: 4194304, 753664: 4160, 819200: 2147483648, 884736: 4194368, 950272: 4198464, 1015808: 2147483712, 1048576: 4194368, 1114112: 4198400, 1179648: 2147483712, 1245184: 0, 1310720: 4160, 1376256: 2151678016, 1441792: 2151682048, 1507328: 2147487808, 1572864: 2151682112, 1638400: 2147483648, 1703936: 2151677952, 1769472: 4198464, 1835008: 2147487744, 1900544: 4194304, 1966080: 64, 2031616: 4096, 1081344: 2151677952, 1146880: 2151682112, 1212416: 0, 1277952: 4198400, 1343488: 4194368, 1409024: 2147483648, 1474560: 2147487808, 1540096: 64, 1605632: 2147483712, 1671168: 4096, 1736704: 2147487744, 1802240: 2151678016, 1867776: 4160, 1933312: 2151682048, 1998848: 4194304, 2064384: 4198464 }, { 0: 128, 4096: 17039360, 8192: 262144, 12288: 536870912, 16384: 537133184, 20480: 16777344, 24576: 553648256, 28672: 262272, 32768: 16777216, 36864: 537133056, 40960: 536871040, 45056: 553910400, 49152: 553910272, 53248: 0, 57344: 17039488, 61440: 553648128, 2048: 17039488, 6144: 553648256, 10240: 128, 14336: 17039360, 18432: 262144, 22528: 537133184, 26624: 553910272, 30720: 536870912, 34816: 537133056, 38912: 0, 43008: 553910400, 47104: 16777344, 51200: 536871040, 55296: 553648128, 59392: 16777216, 63488: 262272, 65536: 262144, 69632: 128, 73728: 536870912, 77824: 553648256, 81920: 16777344, 86016: 553910272, 90112: 537133184, 94208: 16777216, 98304: 553910400, 102400: 553648128, 106496: 17039360, 110592: 537133056, 114688: 262272, 118784: 536871040, 122880: 0, 126976: 17039488, 67584: 553648256, 71680: 16777216, 75776: 17039360, 79872: 537133184, 83968: 536870912, 88064: 17039488, 92160: 128, 96256: 553910272, 100352: 262272, 104448: 553910400, 108544: 0, 112640: 553648128, 116736: 16777344, 120832: 262144, 124928: 537133056, 129024: 536871040 }, { 0: 268435464, 256: 8192, 512: 270532608, 768: 270540808, 1024: 268443648, 1280: 2097152, 1536: 2097160, 1792: 268435456, 2048: 0, 2304: 268443656, 2560: 2105344, 2816: 8, 3072: 270532616, 3328: 2105352, 3584: 8200, 3840: 270540800, 128: 270532608, 384: 270540808, 640: 8, 896: 2097152, 1152: 2105352, 1408: 268435464, 1664: 268443648, 1920: 8200, 2176: 2097160, 2432: 8192, 2688: 268443656, 2944: 270532616, 3200: 0, 3456: 270540800, 3712: 2105344, 3968: 268435456, 4096: 268443648, 4352: 270532616, 4608: 270540808, 4864: 8200, 5120: 2097152, 5376: 268435456, 5632: 268435464, 5888: 2105344, 6144: 2105352, 6400: 0, 6656: 8, 6912: 270532608, 7168: 8192, 7424: 268443656, 7680: 270540800, 7936: 2097160, 4224: 8, 4480: 2105344, 4736: 2097152, 4992: 268435464, 5248: 268443648, 5504: 8200, 5760: 270540808, 6016: 270532608, 6272: 270540800, 6528: 270532616, 6784: 8192, 7040: 2105352, 7296: 2097160, 7552: 0, 7808: 268435456, 8064: 268443656 }, { 0: 1048576, 16: 33555457, 32: 1024, 48: 1049601, 64: 34604033, 80: 0, 96: 1, 112: 34603009, 128: 33555456, 144: 1048577, 160: 33554433, 176: 34604032, 192: 34603008, 208: 1025, 224: 1049600, 240: 33554432, 8: 34603009, 24: 0, 40: 33555457, 56: 34604032, 72: 1048576, 88: 33554433, 104: 33554432, 120: 1025, 136: 1049601, 152: 33555456, 168: 34603008, 184: 1048577, 200: 1024, 216: 34604033, 232: 1, 248: 1049600, 256: 33554432, 272: 1048576, 288: 33555457, 304: 34603009, 320: 1048577, 336: 33555456, 352: 34604032, 368: 1049601, 384: 1025, 400: 34604033, 416: 1049600, 432: 1, 448: 0, 464: 34603008, 480: 33554433, 496: 1024, 264: 1049600, 280: 33555457, 296: 34603009, 312: 1, 328: 33554432, 344: 1048576, 360: 1025, 376: 34604032, 392: 33554433, 408: 34603008, 424: 0, 440: 34604033, 456: 1049601, 472: 1024, 488: 33555456, 504: 1048577 }, { 0: 134219808, 1: 131072, 2: 134217728, 3: 32, 4: 131104, 5: 134350880, 6: 134350848, 7: 2048, 8: 134348800, 9: 134219776, 10: 133120, 11: 134348832, 12: 2080, 13: 0, 14: 134217760, 15: 133152, 2147483648: 2048, 2147483649: 134350880, 2147483650: 134219808, 2147483651: 134217728, 2147483652: 134348800, 2147483653: 133120, 2147483654: 133152, 2147483655: 32, 2147483656: 134217760, 2147483657: 2080, 2147483658: 131104, 2147483659: 134350848, 2147483660: 0, 2147483661: 134348832, 2147483662: 134219776, 2147483663: 131072, 16: 133152, 17: 134350848, 18: 32, 19: 2048, 20: 134219776, 21: 134217760, 22: 134348832, 23: 131072, 24: 0, 25: 131104, 26: 134348800, 27: 134219808, 28: 134350880, 29: 133120, 30: 2080, 31: 134217728, 2147483664: 131072, 2147483665: 2048, 2147483666: 134348832, 2147483667: 133152, 2147483668: 32, 2147483669: 134348800, 2147483670: 134217728, 2147483671: 134219808, 2147483672: 134350880, 2147483673: 134217760, 2147483674: 134219776, 2147483675: 0, 2147483676: 133120, 2147483677: 2080, 2147483678: 131104, 2147483679: 134350848 }], Ko = [4160749569, 528482304, 33030144, 2064384, 129024, 8064, 504, 2147483679], Jo = qo.DES = Vo.extend({ _doReset: function() {
+    var Go = jo, Ho = Go.lib, Qo = Ho.WordArray, Vo = Ho.BlockCipher, qo = Go.algo, Yo = [57, 49, 41, 33, 25, 17, 9, 1, 58, 50, 42, 34, 26, 18, 10, 2, 59, 51, 43, 35, 27, 19, 11, 3, 60, 52, 44, 36, 63, 55, 47, 39, 31, 23, 15, 7, 62, 54, 46, 38, 30, 22, 14, 6, 61, 53, 45, 37, 29, 21, 13, 5, 28, 20, 12, 4], Xo = [14, 17, 11, 24, 1, 5, 3, 28, 15, 6, 21, 10, 23, 19, 12, 4, 26, 8, 16, 7, 27, 20, 13, 2, 41, 52, 31, 37, 47, 55, 30, 40, 51, 45, 33, 48, 44, 49, 39, 56, 34, 53, 46, 42, 50, 36, 29, 32], Fo = [1, 2, 4, 6, 8, 10, 12, 14, 15, 17, 19, 21, 23, 25, 27, 28], Wo = [{ 0: 8421888, 268435456: 32768, 536870912: 8421378, 805306368: 2, 1073741824: 512, 1342177280: 8421890, 1610612736: 8389122, 1879048192: 8388608, 2147483648: 514, 2415919104: 8389120, 2684354560: 33280, 2952790016: 8421376, 3221225472: 32770, 3489660928: 8388610, 3758096384: 0, 4026531840: 33282, 134217728: 0, 402653184: 8421890, 671088640: 33282, 939524096: 32768, 1207959552: 8421888, 1476395008: 512, 1744830464: 8421378, 2013265920: 2, 2281701376: 8389120, 2550136832: 33280, 2818572288: 8421376, 3087007744: 8389122, 3355443200: 8388610, 3623878656: 32770, 3892314112: 514, 4160749568: 8388608, 1: 32768, 268435457: 2, 536870913: 8421888, 805306369: 8388608, 1073741825: 8421378, 1342177281: 33280, 1610612737: 512, 1879048193: 8389122, 2147483649: 8421890, 2415919105: 8421376, 2684354561: 8388610, 2952790017: 33282, 3221225473: 514, 3489660929: 8389120, 3758096385: 32770, 4026531841: 0, 134217729: 8421890, 402653185: 8421376, 671088641: 8388608, 939524097: 512, 1207959553: 32768, 1476395009: 8388610, 1744830465: 2, 2013265921: 33282, 2281701377: 32770, 2550136833: 8389122, 2818572289: 514, 3087007745: 8421888, 3355443201: 8389120, 3623878657: 0, 3892314113: 33280, 4160749569: 8421378 }, { 0: 1074282512, 16777216: 16384, 33554432: 524288, 50331648: 1074266128, 67108864: 1073741840, 83886080: 1074282496, 100663296: 1073758208, 117440512: 16, 134217728: 540672, 150994944: 1073758224, 167772160: 1073741824, 184549376: 540688, 201326592: 524304, 218103808: 0, 234881024: 16400, 251658240: 1074266112, 8388608: 1073758208, 25165824: 540688, 41943040: 16, 58720256: 1073758224, 75497472: 1074282512, 92274688: 1073741824, 109051904: 524288, 125829120: 1074266128, 142606336: 524304, 159383552: 0, 176160768: 16384, 192937984: 1074266112, 209715200: 1073741840, 226492416: 540672, 243269632: 1074282496, 260046848: 16400, 268435456: 0, 285212672: 1074266128, 301989888: 1073758224, 318767104: 1074282496, 335544320: 1074266112, 352321536: 16, 369098752: 540688, 385875968: 16384, 402653184: 16400, 419430400: 524288, 436207616: 524304, 452984832: 1073741840, 469762048: 540672, 486539264: 1073758208, 503316480: 1073741824, 520093696: 1074282512, 276824064: 540688, 293601280: 524288, 310378496: 1074266112, 327155712: 16384, 343932928: 1073758208, 360710144: 1074282512, 377487360: 16, 394264576: 1073741824, 411041792: 1074282496, 427819008: 1073741840, 444596224: 1073758224, 461373440: 524304, 478150656: 0, 494927872: 16400, 511705088: 1074266128, 528482304: 540672 }, { 0: 260, 1048576: 0, 2097152: 67109120, 3145728: 65796, 4194304: 65540, 5242880: 67108868, 6291456: 67174660, 7340032: 67174400, 8388608: 67108864, 9437184: 67174656, 10485760: 65792, 11534336: 67174404, 12582912: 67109124, 13631488: 65536, 14680064: 4, 15728640: 256, 524288: 67174656, 1572864: 67174404, 2621440: 0, 3670016: 67109120, 4718592: 67108868, 5767168: 65536, 6815744: 65540, 7864320: 260, 8912896: 4, 9961472: 256, 11010048: 67174400, 12058624: 65796, 13107200: 65792, 14155776: 67109124, 15204352: 67174660, 16252928: 67108864, 16777216: 67174656, 17825792: 65540, 18874368: 65536, 19922944: 67109120, 20971520: 256, 22020096: 67174660, 23068672: 67108868, 24117248: 0, 25165824: 67109124, 26214400: 67108864, 27262976: 4, 28311552: 65792, 29360128: 67174400, 30408704: 260, 31457280: 65796, 32505856: 67174404, 17301504: 67108864, 18350080: 260, 19398656: 67174656, 20447232: 0, 21495808: 65540, 22544384: 67109120, 23592960: 256, 24641536: 67174404, 25690112: 65536, 26738688: 67174660, 27787264: 65796, 28835840: 67108868, 29884416: 67109124, 30932992: 67174400, 31981568: 4, 33030144: 65792 }, { 0: 2151682048, 65536: 2147487808, 131072: 4198464, 196608: 2151677952, 262144: 0, 327680: 4198400, 393216: 2147483712, 458752: 4194368, 524288: 2147483648, 589824: 4194304, 655360: 64, 720896: 2147487744, 786432: 2151678016, 851968: 4160, 917504: 4096, 983040: 2151682112, 32768: 2147487808, 98304: 64, 163840: 2151678016, 229376: 2147487744, 294912: 4198400, 360448: 2151682112, 425984: 0, 491520: 2151677952, 557056: 4096, 622592: 2151682048, 688128: 4194304, 753664: 4160, 819200: 2147483648, 884736: 4194368, 950272: 4198464, 1015808: 2147483712, 1048576: 4194368, 1114112: 4198400, 1179648: 2147483712, 1245184: 0, 1310720: 4160, 1376256: 2151678016, 1441792: 2151682048, 1507328: 2147487808, 1572864: 2151682112, 1638400: 2147483648, 1703936: 2151677952, 1769472: 4198464, 1835008: 2147487744, 1900544: 4194304, 1966080: 64, 2031616: 4096, 1081344: 2151677952, 1146880: 2151682112, 1212416: 0, 1277952: 4198400, 1343488: 4194368, 1409024: 2147483648, 1474560: 2147487808, 1540096: 64, 1605632: 2147483712, 1671168: 4096, 1736704: 2147487744, 1802240: 2151678016, 1867776: 4160, 1933312: 2151682048, 1998848: 4194304, 2064384: 4198464 }, { 0: 128, 4096: 17039360, 8192: 262144, 12288: 536870912, 16384: 537133184, 20480: 16777344, 24576: 553648256, 28672: 262272, 32768: 16777216, 36864: 537133056, 40960: 536871040, 45056: 553910400, 49152: 553910272, 53248: 0, 57344: 17039488, 61440: 553648128, 2048: 17039488, 6144: 553648256, 10240: 128, 14336: 17039360, 18432: 262144, 22528: 537133184, 26624: 553910272, 30720: 536870912, 34816: 537133056, 38912: 0, 43008: 553910400, 47104: 16777344, 51200: 536871040, 55296: 553648128, 59392: 16777216, 63488: 262272, 65536: 262144, 69632: 128, 73728: 536870912, 77824: 553648256, 81920: 16777344, 86016: 553910272, 90112: 537133184, 94208: 16777216, 98304: 553910400, 102400: 553648128, 106496: 17039360, 110592: 537133056, 114688: 262272, 118784: 536871040, 122880: 0, 126976: 17039488, 67584: 553648256, 71680: 16777216, 75776: 17039360, 79872: 537133184, 83968: 536870912, 88064: 17039488, 92160: 128, 96256: 553910272, 100352: 262272, 104448: 553910400, 108544: 0, 112640: 553648128, 116736: 16777344, 120832: 262144, 124928: 537133056, 129024: 536871040 }, { 0: 268435464, 256: 8192, 512: 270532608, 768: 270540808, 1024: 268443648, 1280: 2097152, 1536: 2097160, 1792: 268435456, 2048: 0, 2304: 268443656, 2560: 2105344, 2816: 8, 3072: 270532616, 3328: 2105352, 3584: 8200, 3840: 270540800, 128: 270532608, 384: 270540808, 640: 8, 896: 2097152, 1152: 2105352, 1408: 268435464, 1664: 268443648, 1920: 8200, 2176: 2097160, 2432: 8192, 2688: 268443656, 2944: 270532616, 3200: 0, 3456: 270540800, 3712: 2105344, 3968: 268435456, 4096: 268443648, 4352: 270532616, 4608: 270540808, 4864: 8200, 5120: 2097152, 5376: 268435456, 5632: 268435464, 5888: 2105344, 6144: 2105352, 6400: 0, 6656: 8, 6912: 270532608, 7168: 8192, 7424: 268443656, 7680: 270540800, 7936: 2097160, 4224: 8, 4480: 2105344, 4736: 2097152, 4992: 268435464, 5248: 268443648, 5504: 8200, 5760: 270540808, 6016: 270532608, 6272: 270540800, 6528: 270532616, 6784: 8192, 7040: 2105352, 7296: 2097160, 7552: 0, 7808: 268435456, 8064: 268443656 }, { 0: 1048576, 16: 33555457, 32: 1024, 48: 1049601, 64: 34604033, 80: 0, 96: 1, 112: 34603009, 128: 33555456, 144: 1048577, 160: 33554433, 176: 34604032, 192: 34603008, 208: 1025, 224: 1049600, 240: 33554432, 8: 34603009, 24: 0, 40: 33555457, 56: 34604032, 72: 1048576, 88: 33554433, 104: 33554432, 120: 1025, 136: 1049601, 152: 33555456, 168: 34603008, 184: 1048577, 200: 1024, 216: 34604033, 232: 1, 248: 1049600, 256: 33554432, 272: 1048576, 288: 33555457, 304: 34603009, 320: 1048577, 336: 33555456, 352: 34604032, 368: 1049601, 384: 1025, 400: 34604033, 416: 1049600, 432: 1, 448: 0, 464: 34603008, 480: 33554433, 496: 1024, 264: 1049600, 280: 33555457, 296: 34603009, 312: 1, 328: 33554432, 344: 1048576, 360: 1025, 376: 34604032, 392: 33554433, 408: 34603008, 424: 0, 440: 34604033, 456: 1049601, 472: 1024, 488: 33555456, 504: 1048577 }, { 0: 134219808, 1: 131072, 2: 134217728, 3: 32, 4: 131104, 5: 134350880, 6: 134350848, 7: 2048, 8: 134348800, 9: 134219776, 10: 133120, 11: 134348832, 12: 2080, 13: 0, 14: 134217760, 15: 133152, 2147483648: 2048, 2147483649: 134350880, 2147483650: 134219808, 2147483651: 134217728, 2147483652: 134348800, 2147483653: 133120, 2147483654: 133152, 2147483655: 32, 2147483656: 134217760, 2147483657: 2080, 2147483658: 131104, 2147483659: 134350848, 2147483660: 0, 2147483661: 134348832, 2147483662: 134219776, 2147483663: 131072, 16: 133152, 17: 134350848, 18: 32, 19: 2048, 20: 134219776, 21: 134217760, 22: 134348832, 23: 131072, 24: 0, 25: 131104, 26: 134348800, 27: 134219808, 28: 134350880, 29: 133120, 30: 2080, 31: 134217728, 2147483664: 131072, 2147483665: 2048, 2147483666: 134348832, 2147483667: 133152, 2147483668: 32, 2147483669: 134348800, 2147483670: 134217728, 2147483671: 134219808, 2147483672: 134350880, 2147483673: 134217760, 2147483674: 134219776, 2147483675: 0, 2147483676: 133120, 2147483677: 2080, 2147483678: 131104, 2147483679: 134350848 }], Ko = [4160749569, 528482304, 33030144, 2064384, 129024, 8064, 504, 2147483679], Jo = qo.DES = Vo.extend({ _doReset: function() {
       for (var As = this._key.words, os = [], us = 0; us < 56; us++) {
         var as = Yo[us] - 1;
         os[us] = As[as >>> 5] >>> 31 - as % 32 & 1;
@@ -5475,7 +6592,7 @@ var ee = Q(function(Oo, No) {
     Go.DES = Vo._createHelper(Jo);
     var is = qo.TripleDES = Vo.extend({ _doReset: function() {
       var As = this._key.words;
-      this._des1 = Jo.createEncryptor(Ho.create(As.slice(0, 2))), this._des2 = Jo.createEncryptor(Ho.create(As.slice(2, 4))), this._des3 = Jo.createEncryptor(Ho.create(As.slice(4, 6)));
+      this._des1 = Jo.createEncryptor(Qo.create(As.slice(0, 2))), this._des2 = Jo.createEncryptor(Qo.create(As.slice(2, 4))), this._des3 = Jo.createEncryptor(Qo.create(As.slice(4, 6)));
     }, encryptBlock: function(As, os) {
       this._des1.encryptBlock(As, os), this._des2.decryptBlock(As, os), this._des3.encryptBlock(As, os);
     }, decryptBlock: function(As, os) {
@@ -5486,7 +6603,7 @@ var ee = Q(function(Oo, No) {
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function() {
-    var Go = jo, Qo = Go.lib.StreamCipher, Ho = Go.algo, Vo = Ho.RC4 = Qo.extend({ _doReset: function() {
+    var Go = jo, Ho = Go.lib.StreamCipher, Qo = Go.algo, Vo = Qo.RC4 = Ho.extend({ _doReset: function() {
       for (var Xo = this._key, Fo = Xo.words, Wo = Xo.sigBytes, Ko = this._S = [], Jo = 0; Jo < 256; Jo++) Ko[Jo] = Jo;
       Jo = 0;
       for (var es = 0; Jo < 256; Jo++) {
@@ -5507,17 +6624,17 @@ var ee = Q(function(Oo, No) {
       }
       return this._i = Fo, this._j = Wo, Ko;
     }
-    Go.RC4 = Qo._createHelper(Vo);
-    var Yo = Ho.RC4Drop = Vo.extend({ cfg: Vo.cfg.extend({ drop: 192 }), _doReset: function() {
+    Go.RC4 = Ho._createHelper(Vo);
+    var Yo = Qo.RC4Drop = Vo.extend({ cfg: Vo.cfg.extend({ drop: 192 }), _doReset: function() {
       Vo._doReset.call(this);
       for (var Xo = this.cfg.drop; Xo > 0; Xo--) qo.call(this);
     } });
-    Go.RC4Drop = Qo._createHelper(Yo);
+    Go.RC4Drop = Ho._createHelper(Yo);
   })(), jo.RC4);
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function() {
-    var Go = jo, Qo = Go.lib.StreamCipher, Ho = Go.algo, Vo = [], qo = [], Yo = [], Xo = Ho.Rabbit = Qo.extend({ _doReset: function() {
+    var Go = jo, Ho = Go.lib.StreamCipher, Qo = Go.algo, Vo = [], qo = [], Yo = [], Xo = Qo.Rabbit = Ho.extend({ _doReset: function() {
       for (var Wo = this._key.words, Ko = this.cfg.iv, Jo = 0; Jo < 4; Jo++) Wo[Jo] = 16711935 & (Wo[Jo] << 8 | Wo[Jo] >>> 24) | 4278255360 & (Wo[Jo] << 24 | Wo[Jo] >>> 8);
       var es = this._X = [Wo[0], Wo[3] << 16 | Wo[2] >>> 16, Wo[1], Wo[0] << 16 | Wo[3] >>> 16, Wo[2], Wo[1] << 16 | Wo[0] >>> 16, Wo[3], Wo[2] << 16 | Wo[1] >>> 16], rs = this._C = [Wo[2] << 16 | Wo[2] >>> 16, 4294901760 & Wo[0] | 65535 & Wo[1], Wo[3] << 16 | Wo[3] >>> 16, 4294901760 & Wo[1] | 65535 & Wo[2], Wo[0] << 16 | Wo[0] >>> 16, 4294901760 & Wo[2] | 65535 & Wo[3], Wo[1] << 16 | Wo[1] >>> 16, 4294901760 & Wo[3] | 65535 & Wo[0]];
       for (this._b = 0, Jo = 0; Jo < 4; Jo++) Fo.call(this);
@@ -5539,12 +6656,12 @@ var ee = Q(function(Oo, No) {
       }
       Wo[0] = Yo[0] + (Yo[7] << 16 | Yo[7] >>> 16) + (Yo[6] << 16 | Yo[6] >>> 16) | 0, Wo[1] = Yo[1] + (Yo[0] << 8 | Yo[0] >>> 24) + Yo[7] | 0, Wo[2] = Yo[2] + (Yo[1] << 16 | Yo[1] >>> 16) + (Yo[0] << 16 | Yo[0] >>> 16) | 0, Wo[3] = Yo[3] + (Yo[2] << 8 | Yo[2] >>> 24) + Yo[1] | 0, Wo[4] = Yo[4] + (Yo[3] << 16 | Yo[3] >>> 16) + (Yo[2] << 16 | Yo[2] >>> 16) | 0, Wo[5] = Yo[5] + (Yo[4] << 8 | Yo[4] >>> 24) + Yo[3] | 0, Wo[6] = Yo[6] + (Yo[5] << 16 | Yo[5] >>> 16) + (Yo[4] << 16 | Yo[4] >>> 16) | 0, Wo[7] = Yo[7] + (Yo[6] << 8 | Yo[6] >>> 24) + Yo[5] | 0;
     }
-    Go.Rabbit = Qo._createHelper(Xo);
+    Go.Rabbit = Ho._createHelper(Xo);
   })(), jo.Rabbit);
 }), Q(function(Oo, No) {
   var jo;
   Oo.exports = (jo = ee, (function() {
-    var Go = jo, Qo = Go.lib.StreamCipher, Ho = Go.algo, Vo = [], qo = [], Yo = [], Xo = Ho.RabbitLegacy = Qo.extend({ _doReset: function() {
+    var Go = jo, Ho = Go.lib.StreamCipher, Qo = Go.algo, Vo = [], qo = [], Yo = [], Xo = Qo.RabbitLegacy = Ho.extend({ _doReset: function() {
       var Wo = this._key.words, Ko = this.cfg.iv, Jo = this._X = [Wo[0], Wo[3] << 16 | Wo[2] >>> 16, Wo[1], Wo[0] << 16 | Wo[3] >>> 16, Wo[2], Wo[1] << 16 | Wo[0] >>> 16, Wo[3], Wo[2] << 16 | Wo[1] >>> 16], es = this._C = [Wo[2] << 16 | Wo[2] >>> 16, 4294901760 & Wo[0] | 65535 & Wo[1], Wo[3] << 16 | Wo[3] >>> 16, 4294901760 & Wo[1] | 65535 & Wo[2], Wo[0] << 16 | Wo[0] >>> 16, 4294901760 & Wo[2] | 65535 & Wo[3], Wo[1] << 16 | Wo[1] >>> 16, 4294901760 & Wo[3] | 65535 & Wo[0]];
       this._b = 0;
       for (var rs = 0; rs < 4; rs++) Fo.call(this);
@@ -5566,7 +6683,7 @@ var ee = Q(function(Oo, No) {
       }
       Wo[0] = Yo[0] + (Yo[7] << 16 | Yo[7] >>> 16) + (Yo[6] << 16 | Yo[6] >>> 16) | 0, Wo[1] = Yo[1] + (Yo[0] << 8 | Yo[0] >>> 24) + Yo[7] | 0, Wo[2] = Yo[2] + (Yo[1] << 16 | Yo[1] >>> 16) + (Yo[0] << 16 | Yo[0] >>> 16) | 0, Wo[3] = Yo[3] + (Yo[2] << 8 | Yo[2] >>> 24) + Yo[1] | 0, Wo[4] = Yo[4] + (Yo[3] << 16 | Yo[3] >>> 16) + (Yo[2] << 16 | Yo[2] >>> 16) | 0, Wo[5] = Yo[5] + (Yo[4] << 8 | Yo[4] >>> 24) + Yo[3] | 0, Wo[6] = Yo[6] + (Yo[5] << 16 | Yo[5] >>> 16) + (Yo[4] << 16 | Yo[4] >>> 16) | 0, Wo[7] = Yo[7] + (Yo[6] << 8 | Yo[6] >>> 24) + Yo[5] | 0;
     }
-    Go.RabbitLegacy = Qo._createHelper(Xo);
+    Go.RabbitLegacy = Ho._createHelper(Xo);
   })(), jo.RabbitLegacy);
 }), Q(function(Oo, No) {
   Oo.exports = ee;
@@ -5642,42 +6759,42 @@ function we(Oo) {
 }
 function be(Oo, No, jo) {
   if (No) Oo.call(jo);
-  else for (var Go = Oo.length, Qo = Ae(Oo, Go), Ho = 0; Ho < Go; ++Ho) Qo[Ho].call(jo);
+  else for (var Go = Oo.length, Ho = Ae(Oo, Go), Qo = 0; Qo < Go; ++Qo) Ho[Qo].call(jo);
 }
 function ye(Oo, No, jo, Go) {
   if (No) Oo.call(jo, Go);
-  else for (var Qo = Oo.length, Ho = Ae(Oo, Qo), Vo = 0; Vo < Qo; ++Vo) Ho[Vo].call(jo, Go);
+  else for (var Ho = Oo.length, Qo = Ae(Oo, Ho), Vo = 0; Vo < Ho; ++Vo) Qo[Vo].call(jo, Go);
 }
-function me(Oo, No, jo, Go, Qo) {
-  if (No) Oo.call(jo, Go, Qo);
-  else for (var Ho = Oo.length, Vo = Ae(Oo, Ho), qo = 0; qo < Ho; ++qo) Vo[qo].call(jo, Go, Qo);
+function me(Oo, No, jo, Go, Ho) {
+  if (No) Oo.call(jo, Go, Ho);
+  else for (var Qo = Oo.length, Vo = Ae(Oo, Qo), qo = 0; qo < Qo; ++qo) Vo[qo].call(jo, Go, Ho);
 }
-function ke(Oo, No, jo, Go, Qo, Ho) {
-  if (No) Oo.call(jo, Go, Qo, Ho);
-  else for (var Vo = Oo.length, qo = Ae(Oo, Vo), Yo = 0; Yo < Vo; ++Yo) qo[Yo].call(jo, Go, Qo, Ho);
+function ke(Oo, No, jo, Go, Ho, Qo) {
+  if (No) Oo.call(jo, Go, Ho, Qo);
+  else for (var Vo = Oo.length, qo = Ae(Oo, Vo), Yo = 0; Yo < Vo; ++Yo) qo[Yo].call(jo, Go, Ho, Qo);
 }
 function Ee(Oo, No, jo, Go) {
   if (No) Oo.apply(jo, Go);
-  else for (var Qo = Oo.length, Ho = Ae(Oo, Qo), Vo = 0; Vo < Qo; ++Vo) Ho[Vo].apply(jo, Go);
+  else for (var Ho = Oo.length, Qo = Ae(Oo, Ho), Vo = 0; Vo < Ho; ++Vo) Qo[Vo].apply(jo, Go);
 }
 function Se(Oo, No, jo, Go) {
-  var Qo, Ho, Vo, qo;
+  var Ho, Qo, Vo, qo;
   if (typeof jo != "function") throw new TypeError('"listener" argument must be a function');
-  if ((Ho = Oo._events) ? (Ho.newListener && (Oo.emit("newListener", No, jo.listener ? jo.listener : jo), Ho = Oo._events), Vo = Ho[No]) : (Ho = Oo._events = new ge(), Oo._eventsCount = 0), Vo) {
-    if (typeof Vo == "function" ? Vo = Ho[No] = Go ? [jo, Vo] : [Vo, jo] : Go ? Vo.unshift(jo) : Vo.push(jo), !Vo.warned && (Qo = we(Oo)) && Qo > 0 && Vo.length > Qo) {
+  if ((Qo = Oo._events) ? (Qo.newListener && (Oo.emit("newListener", No, jo.listener ? jo.listener : jo), Qo = Oo._events), Vo = Qo[No]) : (Qo = Oo._events = new ge(), Oo._eventsCount = 0), Vo) {
+    if (typeof Vo == "function" ? Vo = Qo[No] = Go ? [jo, Vo] : [Vo, jo] : Go ? Vo.unshift(jo) : Vo.push(jo), !Vo.warned && (Ho = we(Oo)) && Ho > 0 && Vo.length > Ho) {
       Vo.warned = !0;
       var Yo = new Error("Possible EventEmitter memory leak detected. " + Vo.length + " " + No + " listeners added. Use emitter.setMaxListeners() to increase limit");
       Yo.name = "MaxListenersExceededWarning", Yo.emitter = Oo, Yo.type = No, Yo.count = Vo.length, qo = Yo, typeof console.warn == "function" ? console.warn(qo) : console.log(qo);
     }
-  } else Vo = Ho[No] = jo, ++Oo._eventsCount;
+  } else Vo = Qo[No] = jo, ++Oo._eventsCount;
   return Oo;
 }
 function xe(Oo, No, jo) {
   var Go = !1;
-  function Qo() {
-    Oo.removeListener(No, Qo), Go || (Go = !0, jo.apply(Oo, arguments));
+  function Ho() {
+    Oo.removeListener(No, Ho), Go || (Go = !0, jo.apply(Oo, arguments));
   }
-  return Qo.listener = jo, Qo;
+  return Ho.listener = jo, Ho;
 }
 function Re(Oo) {
   var No = this._events;
@@ -5700,7 +6817,7 @@ ge.prototype = /* @__PURE__ */ Object.create(null), ve.EventEmitter = ve, ve.usi
 }, ve.prototype.getMaxListeners = function() {
   return we(this);
 }, ve.prototype.emit = function(Oo) {
-  var No, jo, Go, Qo, Ho, Vo, qo, Yo = Oo === "error";
+  var No, jo, Go, Ho, Qo, Vo, qo, Yo = Oo === "error";
   if (Vo = this._events) Yo = Yo && Vo.error == null;
   else if (!Yo) return !1;
   if (qo = this.domain, Yo) {
@@ -5727,8 +6844,8 @@ ge.prototype = /* @__PURE__ */ Object.create(null), ve.EventEmitter = ve, ve.usi
       ke(jo, Fo, this, arguments[1], arguments[2], arguments[3]);
       break;
     default:
-      for (Qo = new Array(Go - 1), Ho = 1; Ho < Go; Ho++) Qo[Ho - 1] = arguments[Ho];
-      Ee(jo, Fo, this, Qo);
+      for (Ho = new Array(Go - 1), Qo = 1; Qo < Go; Qo++) Ho[Qo - 1] = arguments[Qo];
+      Ee(jo, Fo, this, Ho);
   }
   return !0;
 }, ve.prototype.addListener = function(Oo, No) {
@@ -5742,24 +6859,24 @@ ge.prototype = /* @__PURE__ */ Object.create(null), ve.EventEmitter = ve, ve.usi
   if (typeof No != "function") throw new TypeError('"listener" argument must be a function');
   return this.prependListener(Oo, xe(this, Oo, No)), this;
 }, ve.prototype.removeListener = function(Oo, No) {
-  var jo, Go, Qo, Ho, Vo;
+  var jo, Go, Ho, Qo, Vo;
   if (typeof No != "function") throw new TypeError('"listener" argument must be a function');
   if (!(Go = this._events)) return this;
   if (!(jo = Go[Oo])) return this;
   if (jo === No || jo.listener && jo.listener === No) --this._eventsCount == 0 ? this._events = new ge() : (delete Go[Oo], Go.removeListener && this.emit("removeListener", Oo, jo.listener || No));
   else if (typeof jo != "function") {
-    for (Qo = -1, Ho = jo.length; Ho-- > 0; ) if (jo[Ho] === No || jo[Ho].listener && jo[Ho].listener === No) {
-      Vo = jo[Ho].listener, Qo = Ho;
+    for (Ho = -1, Qo = jo.length; Qo-- > 0; ) if (jo[Qo] === No || jo[Qo].listener && jo[Qo].listener === No) {
+      Vo = jo[Qo].listener, Ho = Qo;
       break;
     }
-    if (Qo < 0) return this;
+    if (Ho < 0) return this;
     if (jo.length === 1) {
       if (jo[0] = void 0, --this._eventsCount == 0) return this._events = new ge(), this;
       delete Go[Oo];
     } else (function(qo, Yo) {
       for (var Xo = Yo, Fo = Xo + 1, Wo = qo.length; Fo < Wo; Xo += 1, Fo += 1) qo[Xo] = qo[Fo];
       qo.pop();
-    })(jo, Qo);
+    })(jo, Ho);
     Go.removeListener && this.emit("removeListener", Oo, Vo || No);
   }
   return this;
@@ -5768,7 +6885,7 @@ ge.prototype = /* @__PURE__ */ Object.create(null), ve.EventEmitter = ve, ve.usi
   if (!(jo = this._events)) return this;
   if (!jo.removeListener) return arguments.length === 0 ? (this._events = new ge(), this._eventsCount = 0) : jo[Oo] && (--this._eventsCount == 0 ? this._events = new ge() : delete jo[Oo]), this;
   if (arguments.length === 0) {
-    for (var Go, Qo = Object.keys(jo), Ho = 0; Ho < Qo.length; ++Ho) (Go = Qo[Ho]) !== "removeListener" && this.removeAllListeners(Go);
+    for (var Go, Ho = Object.keys(jo), Qo = 0; Qo < Ho.length; ++Qo) (Go = Ho[Qo]) !== "removeListener" && this.removeAllListeners(Go);
     return this.removeAllListeners("removeListener"), this._events = new ge(), this._eventsCount = 0, this;
   }
   if (typeof (No = jo[Oo]) == "function") this.removeListener(Oo, No);
@@ -5779,8 +6896,8 @@ ge.prototype = /* @__PURE__ */ Object.create(null), ve.EventEmitter = ve, ve.usi
 }, ve.prototype.listeners = function(Oo) {
   var No, jo = this._events;
   return jo && (No = jo[Oo]) ? typeof No == "function" ? [No.listener || No] : (function(Go) {
-    for (var Qo = new Array(Go.length), Ho = 0; Ho < Qo.length; ++Ho) Qo[Ho] = Go[Ho].listener || Go[Ho];
-    return Qo;
+    for (var Ho = new Array(Go.length), Qo = 0; Qo < Ho.length; ++Qo) Ho[Qo] = Go[Qo].listener || Go[Qo];
+    return Ho;
   })(No) : [];
 }, ve.listenerCount = function(Oo, No) {
   return typeof Oo.listenerCount == "function" ? Oo.listenerCount(No) : Re.call(Oo, No);
@@ -5801,9 +6918,9 @@ function Le(Oo) {
     return No.join(" ");
   }
   jo = 1;
-  for (var Go = arguments, Qo = Go.length, Ho = String(Oo).replace(ze, function(qo) {
+  for (var Go = arguments, Ho = Go.length, Qo = String(Oo).replace(ze, function(qo) {
     if (qo === "%%") return "%";
-    if (jo >= Qo) return qo;
+    if (jo >= Ho) return qo;
     switch (qo) {
       case "%s":
         return String(Go[jo++]);
@@ -5818,8 +6935,8 @@ function Le(Oo) {
       default:
         return qo;
     }
-  }), Vo = Go[jo]; jo < Qo; Vo = Go[++jo]) Ne(Vo) || !Ye(Vo) ? Ho += " " + Vo : Ho += " " + De(Vo);
-  return Ho;
+  }), Vo = Go[jo]; jo < Ho; Vo = Go[++jo]) Ne(Vo) || !Ye(Vo) ? Qo += " " + Vo : Qo += " " + De(Vo);
+  return Qo;
 }
 function Te(Oo, No) {
   if (je(e.process)) return function() {
@@ -5833,9 +6950,9 @@ function Te(Oo, No) {
 var Me, Ce = {};
 function De(Oo, No) {
   var jo = { seen: [], stylize: Pe };
-  return arguments.length >= 3 && (jo.depth = arguments[2]), arguments.length >= 4 && (jo.colors = arguments[3]), Fe(No) ? jo.showHidden = No : No && (function(Go, Qo) {
-    if (!Qo || !Ye(Qo)) return Go;
-    for (var Ho = Object.keys(Qo), Vo = Ho.length; Vo--; ) Go[Ho[Vo]] = Qo[Ho[Vo]];
+  return arguments.length >= 3 && (jo.depth = arguments[2]), arguments.length >= 4 && (jo.colors = arguments[3]), Fe(No) ? jo.showHidden = No : No && (function(Go, Ho) {
+    if (!Ho || !Ye(Ho)) return Go;
+    for (var Qo = Object.keys(Ho), Vo = Qo.length; Vo--; ) Go[Qo[Vo]] = Ho[Qo[Vo]];
   })(jo, No), je(jo.showHidden) && (jo.showHidden = !1), je(jo.depth) && (jo.depth = 2), je(jo.colors) && (jo.colors = !1), je(jo.customInspect) && (jo.customInspect = !0), jo.colors && (jo.stylize = Ie), Oe(jo, Oo, jo.depth);
 }
 function Ie(Oo, No) {
@@ -5850,7 +6967,7 @@ function Oe(Oo, No, jo) {
     var Go = No.inspect(jo, Oo);
     return Ze(Go) || (Go = Oe(Oo, Go, jo)), Go;
   }
-  var Qo = (function(Jo, es) {
+  var Ho = (function(Jo, es) {
     if (je(es)) return Jo.stylize("undefined", "undefined");
     if (Ze(es)) {
       var rs = "'" + JSON.stringify(es).replace(/^"|"$/g, "").replace(/'/g, "\\'").replace(/\\"/g, '"') + "'";
@@ -5861,15 +6978,15 @@ function Oe(Oo, No, jo) {
     if (Fe(es)) return Jo.stylize("" + es, "boolean");
     if (Ne(es)) return Jo.stylize("null", "null");
   })(Oo, No);
-  if (Qo) return Qo;
-  var Ho = Object.keys(No), Vo = (function(Jo) {
+  if (Ho) return Ho;
+  var Qo = Object.keys(No), Vo = (function(Jo) {
     var es = {};
     return Jo.forEach(function(rs, is) {
       es[rs] = !0;
     }), es;
-  })(Ho);
-  if (Oo.showHidden && (Ho = Object.getOwnPropertyNames(No)), Xe(No) && (Ho.indexOf("message") >= 0 || Ho.indexOf("description") >= 0)) return Ue(No);
-  if (Ho.length === 0) {
+  })(Qo);
+  if (Oo.showHidden && (Qo = Object.getOwnPropertyNames(No)), Xe(No) && (Qo.indexOf("message") >= 0 || Qo.indexOf("description") >= 0)) return Ue(No);
+  if (Qo.length === 0) {
     if (qe(No)) {
       var qo = No.name ? ": " + No.name : "";
       return Oo.stylize("[Function" + qo + "]", "special");
@@ -5879,12 +6996,12 @@ function Oe(Oo, No, jo) {
     if (Xe(No)) return Ue(No);
   }
   var Yo, Xo, Fo = "", Wo = !1, Ko = ["{", "}"];
-  return Yo = No, Array.isArray(Yo) && (Wo = !0, Ko = ["[", "]"]), qe(No) && (Fo = " [Function" + (No.name ? ": " + No.name : "") + "]"), We(No) && (Fo = " " + RegExp.prototype.toString.call(No)), Ke(No) && (Fo = " " + Date.prototype.toUTCString.call(No)), Xe(No) && (Fo = " " + Ue(No)), Ho.length !== 0 || Wo && No.length != 0 ? jo < 0 ? We(No) ? Oo.stylize(RegExp.prototype.toString.call(No), "regexp") : Oo.stylize("[Object]", "special") : (Oo.seen.push(No), Xo = Wo ? (function(Jo, es, rs, is, As) {
+  return Yo = No, Array.isArray(Yo) && (Wo = !0, Ko = ["[", "]"]), qe(No) && (Fo = " [Function" + (No.name ? ": " + No.name : "") + "]"), We(No) && (Fo = " " + RegExp.prototype.toString.call(No)), Ke(No) && (Fo = " " + Date.prototype.toUTCString.call(No)), Xe(No) && (Fo = " " + Ue(No)), Qo.length !== 0 || Wo && No.length != 0 ? jo < 0 ? We(No) ? Oo.stylize(RegExp.prototype.toString.call(No), "regexp") : Oo.stylize("[Object]", "special") : (Oo.seen.push(No), Xo = Wo ? (function(Jo, es, rs, is, As) {
     for (var os = [], us = 0, as = es.length; us < as; ++us) Ge(es, String(us)) ? os.push(He(Jo, es, rs, is, String(us), !0)) : os.push("");
     return As.forEach(function(vs) {
       vs.match(/^\d+$/) || os.push(He(Jo, es, rs, is, vs, !0));
     }), os;
-  })(Oo, No, jo, Vo, Ho) : Ho.map(function(Jo) {
+  })(Oo, No, jo, Vo, Qo) : Qo.map(function(Jo) {
     return He(Oo, No, jo, Vo, Jo, Wo);
   }), Oo.seen.pop(), (function(Jo, es, rs) {
     return Jo.reduce(function(is, As) {
@@ -5898,10 +7015,10 @@ function Oe(Oo, No, jo) {
 function Ue(Oo) {
   return "[" + Error.prototype.toString.call(Oo) + "]";
 }
-function He(Oo, No, jo, Go, Qo, Ho) {
+function He(Oo, No, jo, Go, Ho, Qo) {
   var Vo, qo, Yo;
-  if ((Yo = Object.getOwnPropertyDescriptor(No, Qo) || { value: No[Qo] }).get ? qo = Yo.set ? Oo.stylize("[Getter/Setter]", "special") : Oo.stylize("[Getter]", "special") : Yo.set && (qo = Oo.stylize("[Setter]", "special")), Ge(Go, Qo) || (Vo = "[" + Qo + "]"), qo || (Oo.seen.indexOf(Yo.value) < 0 ? (qo = Ne(jo) ? Oe(Oo, Yo.value, null) : Oe(Oo, Yo.value, jo - 1)).indexOf(`
-`) > -1 && (qo = Ho ? qo.split(`
+  if ((Yo = Object.getOwnPropertyDescriptor(No, Ho) || { value: No[Ho] }).get ? qo = Yo.set ? Oo.stylize("[Getter/Setter]", "special") : Oo.stylize("[Getter]", "special") : Yo.set && (qo = Oo.stylize("[Setter]", "special")), Ge(Go, Ho) || (Vo = "[" + Ho + "]"), qo || (Oo.seen.indexOf(Yo.value) < 0 ? (qo = Ne(jo) ? Oe(Oo, Yo.value, null) : Oe(Oo, Yo.value, jo - 1)).indexOf(`
+`) > -1 && (qo = Qo ? qo.split(`
 `).map(function(Xo) {
     return "  " + Xo;
   }).join(`
@@ -5911,8 +7028,8 @@ function He(Oo, No, jo, Go, Qo, Ho) {
     return "   " + Xo;
   }).join(`
 `)) : qo = Oo.stylize("[Circular]", "special")), je(Vo)) {
-    if (Ho && Qo.match(/^\d+$/)) return qo;
-    (Vo = JSON.stringify("" + Qo)).match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/) ? (Vo = Vo.substr(1, Vo.length - 2), Vo = Oo.stylize(Vo, "name")) : (Vo = Vo.replace(/'/g, "\\'").replace(/\\"/g, '"').replace(/(^"|"$)/g, "'"), Vo = Oo.stylize(Vo, "string"));
+    if (Qo && Ho.match(/^\d+$/)) return qo;
+    (Vo = JSON.stringify("" + Ho)).match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/) ? (Vo = Vo.substr(1, Vo.length - 2), Vo = Oo.stylize(Vo, "name")) : (Vo = Vo.replace(/'/g, "\\'").replace(/\\"/g, '"').replace(/(^"|"$)/g, "'"), Vo = Oo.stylize(Vo, "string"));
   }
   return Vo + ": " + qo;
 }
@@ -6025,7 +7142,7 @@ Qe.prototype.write = function(Oo) {
   for (var No = ""; this.charLength; ) {
     var jo = Oo.length >= this.charLength - this.charReceived ? this.charLength - this.charReceived : Oo.length;
     if (Oo.copy(this.charBuffer, this.charReceived, 0, jo), this.charReceived += jo, this.charReceived < this.charLength) return "";
-    if (Oo = Oo.slice(jo, Oo.length), !((Qo = (No = this.charBuffer.slice(0, this.charLength).toString(this.encoding)).charCodeAt(No.length - 1)) >= 55296 && Qo <= 56319)) {
+    if (Oo = Oo.slice(jo, Oo.length), !((Ho = (No = this.charBuffer.slice(0, this.charLength).toString(this.encoding)).charCodeAt(No.length - 1)) >= 55296 && Ho <= 56319)) {
       if (this.charReceived = this.charLength = 0, Oo.length === 0) return No;
       break;
     }
@@ -6034,10 +7151,10 @@ Qe.prototype.write = function(Oo) {
   this.detectIncompleteChar(Oo);
   var Go = Oo.length;
   this.charLength && (Oo.copy(this.charBuffer, 0, Oo.length - this.charReceived, Go), Go -= this.charReceived);
-  var Qo;
-  if (Go = (No += Oo.toString(this.encoding, 0, Go)).length - 1, (Qo = No.charCodeAt(Go)) >= 55296 && Qo <= 56319) {
-    var Ho = this.surrogateSize;
-    return this.charLength += Ho, this.charReceived += Ho, this.charBuffer.copy(this.charBuffer, Ho, 0, Ho), Oo.copy(this.charBuffer, 0, 0, Ho), No.substring(0, Go);
+  var Ho;
+  if (Go = (No += Oo.toString(this.encoding, 0, Go)).length - 1, (Ho = No.charCodeAt(Go)) >= 55296 && Ho <= 56319) {
+    var Qo = this.surrogateSize;
+    return this.charLength += Qo, this.charReceived += Qo, this.charBuffer.copy(this.charBuffer, Qo, 0, Qo), Oo.copy(this.charBuffer, 0, 0, Qo), No.substring(0, Go);
   }
   return No;
 }, Qe.prototype.detectIncompleteChar = function(Oo) {
@@ -6060,8 +7177,8 @@ Qe.prototype.write = function(Oo) {
 }, Qe.prototype.end = function(Oo) {
   var No = "";
   if (Oo && Oo.length && (No = this.write(Oo)), this.charReceived) {
-    var jo = this.charReceived, Go = this.charBuffer, Qo = this.encoding;
-    No += Go.slice(0, jo).toString(Qo);
+    var jo = this.charReceived, Go = this.charBuffer, Ho = this.encoding;
+    No += Go.slice(0, jo).toString(Ho);
   }
   return No;
 }, ot.ReadableState = it;
@@ -6081,12 +7198,12 @@ function ot(Oo) {
   if (!(this instanceof ot)) return new ot(Oo);
   this._readableState = new it(Oo, this), this.readable = !0, Oo && typeof Oo.read == "function" && (this._read = Oo.read), ve.call(this);
 }
-function at(Oo, No, jo, Go, Qo) {
-  var Ho = (function(Xo, Fo) {
+function at(Oo, No, jo, Go, Ho) {
+  var Qo = (function(Xo, Fo) {
     var Wo = null;
     return $(Fo) || typeof Fo == "string" || Fo == null || Xo.objectMode || (Wo = new TypeError("Invalid non-string/buffer chunk")), Wo;
   })(No, jo);
-  if (Ho) Oo.emit("error", Ho);
+  if (Qo) Oo.emit("error", Qo);
   else if (jo === null) No.reading = !1, (function(Xo, Fo) {
     if (!Fo.ended) {
       if (Fo.decoder) {
@@ -6096,19 +7213,19 @@ function at(Oo, No, jo, Go, Qo) {
       Fo.ended = !0, lt(Xo);
     }
   })(Oo, No);
-  else if (No.objectMode || jo && jo.length > 0) if (No.ended && !Qo) {
+  else if (No.objectMode || jo && jo.length > 0) if (No.ended && !Ho) {
     var Vo = new Error("stream.push() after EOF");
     Oo.emit("error", Vo);
-  } else if (No.endEmitted && Qo) {
+  } else if (No.endEmitted && Ho) {
     var qo = new Error("stream.unshift() after end event");
     Oo.emit("error", qo);
   } else {
     var Yo;
-    !No.decoder || Qo || Go || (jo = No.decoder.write(jo), Yo = !No.objectMode && jo.length === 0), Qo || (No.reading = !1), Yo || (No.flowing && No.length === 0 && !No.sync ? (Oo.emit("data", jo), Oo.read(0)) : (No.length += No.objectMode ? 1 : jo.length, Qo ? No.buffer.unshift(jo) : No.buffer.push(jo), No.needReadable && lt(Oo))), (function(Xo, Fo) {
+    !No.decoder || Ho || Go || (jo = No.decoder.write(jo), Yo = !No.objectMode && jo.length === 0), Ho || (No.reading = !1), Yo || (No.flowing && No.length === 0 && !No.sync ? (Oo.emit("data", jo), Oo.read(0)) : (No.length += No.objectMode ? 1 : jo.length, Ho ? No.buffer.unshift(jo) : No.buffer.push(jo), No.needReadable && lt(Oo))), (function(Xo, Fo) {
       Fo.readingMore || (Fo.readingMore = !0, de(ct, Xo, Fo));
     })(Oo, No);
   }
-  else Qo || (No.reading = !1);
+  else Ho || (No.reading = !1);
   return (function(Xo) {
     return !Xo.ended && (Xo.needReadable || Xo.length < Xo.highWaterMark || Xo.length === 0);
   })(No);
@@ -6151,9 +7268,9 @@ function pt(Oo) {
   for (nt("flow", No.flowing); No.flowing && Oo.read() !== null; ) ;
 }
 function _t(Oo, No) {
-  return No.length === 0 ? null : (No.objectMode ? jo = No.buffer.shift() : !Oo || Oo >= No.length ? (jo = No.decoder ? No.buffer.join("") : No.buffer.length === 1 ? No.buffer.head.data : No.buffer.concat(No.length), No.buffer.clear()) : jo = (function(Go, Qo, Ho) {
+  return No.length === 0 ? null : (No.objectMode ? jo = No.buffer.shift() : !Oo || Oo >= No.length ? (jo = No.decoder ? No.buffer.join("") : No.buffer.length === 1 ? No.buffer.head.data : No.buffer.concat(No.length), No.buffer.clear()) : jo = (function(Go, Ho, Qo) {
     var Vo;
-    return Go < Qo.head.data.length ? (Vo = Qo.head.data.slice(0, Go), Qo.head.data = Qo.head.data.slice(Go)) : Vo = Go === Qo.head.data.length ? Qo.shift() : Ho ? (function(qo, Yo) {
+    return Go < Ho.head.data.length ? (Vo = Ho.head.data.slice(0, Go), Ho.head.data = Ho.head.data.slice(Go)) : Vo = Go === Ho.head.data.length ? Ho.shift() : Qo ? (function(qo, Yo) {
       var Xo = Yo.head, Fo = 1, Wo = Xo.data;
       for (qo -= Wo.length; Xo = Xo.next; ) {
         var Ko = Xo.data, Jo = qo > Ko.length ? Ko.length : qo;
@@ -6164,7 +7281,7 @@ function _t(Oo, No) {
         ++Fo;
       }
       return Yo.length -= Fo, Wo;
-    })(Go, Qo) : (function(qo, Yo) {
+    })(Go, Ho) : (function(qo, Yo) {
       var Xo = p.allocUnsafe(qo), Fo = Yo.head, Wo = 1;
       for (Fo.data.copy(Xo), qo -= Fo.data.length; Fo = Fo.next; ) {
         var Ko = Fo.data, Jo = qo > Ko.length ? Ko.length : qo;
@@ -6175,7 +7292,7 @@ function _t(Oo, No) {
         ++Wo;
       }
       return Yo.length -= Wo, Xo;
-    })(Go, Qo), Vo;
+    })(Go, Ho), Vo;
   })(Oo, No.buffer, No.decoder), jo);
   var jo;
 }
@@ -6202,8 +7319,8 @@ function mt(Oo, No) {
   }, "_writableState.buffer is deprecated. Use _writableState.getBuffer instead.") }), Oo = Oo || {}, this.objectMode = !!Oo.objectMode, No instanceof Ct && (this.objectMode = this.objectMode || !!Oo.writableObjectMode);
   var jo = Oo.highWaterMark, Go = this.objectMode ? 16 : 16384;
   this.highWaterMark = jo || jo === 0 ? jo : Go, this.highWaterMark = ~~this.highWaterMark, this.needDrain = !1, this.ending = !1, this.ended = !1, this.finished = !1;
-  var Qo = Oo.decodeStrings === !1;
-  this.decodeStrings = !Qo, this.defaultEncoding = Oo.defaultEncoding || "utf8", this.length = 0, this.writing = !1, this.corked = 0, this.sync = !0, this.bufferProcessing = !1, this.onwrite = function(Ho) {
+  var Ho = Oo.decodeStrings === !1;
+  this.decodeStrings = !Ho, this.defaultEncoding = Oo.defaultEncoding || "utf8", this.length = 0, this.writing = !1, this.corked = 0, this.sync = !0, this.bufferProcessing = !1, this.onwrite = function(Qo) {
     (function(Vo, qo) {
       var Yo = Vo._writableState, Xo = Yo.sync, Fo = Yo.writecb;
       if ((function(Ko) {
@@ -6215,29 +7332,29 @@ function mt(Oo, No) {
         var Wo = Rt(Yo);
         Wo || Yo.corked || Yo.bufferProcessing || !Yo.bufferedRequest || xt(Vo, Yo), Xo ? de(St, Vo, Yo, Wo, Fo) : St(Vo, Yo, Wo, Fo);
       }
-    })(No, Ho);
+    })(No, Qo);
   }, this.writecb = null, this.writelen = 0, this.bufferedRequest = null, this.lastBufferedRequest = null, this.pendingcb = 0, this.prefinished = !1, this.errorEmitted = !1, this.bufferedRequestCount = 0, this.corkedRequestsFree = new zt(this);
 }
 function kt(Oo) {
   if (!(this instanceof kt || this instanceof Ct)) return new kt(Oo);
   this._writableState = new mt(Oo, this), this.writable = !0, Oo && (typeof Oo.write == "function" && (this._write = Oo.write), typeof Oo.writev == "function" && (this._writev = Oo.writev)), ve.call(this);
 }
-function Et(Oo, No, jo, Go, Qo, Ho, Vo) {
-  No.writelen = Go, No.writecb = Vo, No.writing = !0, No.sync = !0, jo ? Oo._writev(Qo, No.onwrite) : Oo._write(Qo, Ho, No.onwrite), No.sync = !1;
+function Et(Oo, No, jo, Go, Ho, Qo, Vo) {
+  No.writelen = Go, No.writecb = Vo, No.writing = !0, No.sync = !0, jo ? Oo._writev(Ho, No.onwrite) : Oo._write(Ho, Qo, No.onwrite), No.sync = !1;
 }
 function St(Oo, No, jo, Go) {
-  jo || (function(Qo, Ho) {
-    Ho.length === 0 && Ho.needDrain && (Ho.needDrain = !1, Qo.emit("drain"));
+  jo || (function(Ho, Qo) {
+    Qo.length === 0 && Qo.needDrain && (Qo.needDrain = !1, Ho.emit("drain"));
   })(Oo, No), No.pendingcb--, Go(), Bt(Oo, No);
 }
 function xt(Oo, No) {
   No.bufferProcessing = !0;
   var jo = No.bufferedRequest;
   if (Oo._writev && jo && jo.next) {
-    var Go = No.bufferedRequestCount, Qo = new Array(Go), Ho = No.corkedRequestsFree;
-    Ho.entry = jo;
-    for (var Vo = 0; jo; ) Qo[Vo] = jo, jo = jo.next, Vo += 1;
-    Et(Oo, No, !0, No.length, Qo, "", Ho.finish), No.pendingcb++, No.lastBufferedRequest = null, Ho.next ? (No.corkedRequestsFree = Ho.next, Ho.next = null) : No.corkedRequestsFree = new zt(No);
+    var Go = No.bufferedRequestCount, Ho = new Array(Go), Qo = No.corkedRequestsFree;
+    Qo.entry = jo;
+    for (var Vo = 0; jo; ) Ho[Vo] = jo, jo = jo.next, Vo += 1;
+    Et(Oo, No, !0, No.length, Ho, "", Qo.finish), No.pendingcb++, No.lastBufferedRequest = null, Qo.next ? (No.corkedRequestsFree = Qo.next, Qo.next = null) : No.corkedRequestsFree = new zt(No);
   } else {
     for (; jo; ) {
       var qo = jo.chunk, Yo = jo.encoding, Xo = jo.callback;
@@ -6262,8 +7379,8 @@ function zt(Oo) {
   this.next = null, this.entry = null, this.finish = function(jo) {
     var Go = No.entry;
     for (No.entry = null; Go; ) {
-      var Qo = Go.callback;
-      Oo.pendingcb--, Qo(jo), Go = Go.next;
+      var Ho = Go.callback;
+      Oo.pendingcb--, Ho(jo), Go = Go.next;
     }
     Oo.corkedRequestsFree ? Oo.corkedRequestsFree.next = No : Oo.corkedRequestsFree = No;
   };
@@ -6273,8 +7390,8 @@ ot.prototype.read = function(Oo) {
   var No = this._readableState, jo = Oo;
   if (Oo !== 0 && (No.emittedReadable = !1), Oo === 0 && No.needReadable && (No.length >= No.highWaterMark || No.ended)) return nt("read: emitReadable", No.length, No.ended), No.length === 0 && No.ended ? gt(this) : lt(this), null;
   if ((Oo = ht(Oo, No)) === 0 && No.ended) return No.length === 0 && gt(this), null;
-  var Go, Qo = No.needReadable;
-  return nt("need readable", Qo), (No.length === 0 || No.length - Oo < No.highWaterMark) && nt("length less than watermark", Qo = !0), No.ended || No.reading ? nt("reading or ended", Qo = !1) : Qo && (nt("do read"), No.reading = !0, No.sync = !0, No.length === 0 && (No.needReadable = !0), this._read(No.highWaterMark), No.sync = !1, No.reading || (Oo = ht(jo, No))), (Go = Oo > 0 ? _t(Oo, No) : null) === null ? (No.needReadable = !0, Oo = 0) : No.length -= Oo, No.length === 0 && (No.ended || (No.needReadable = !0), jo !== Oo && No.ended && gt(this)), Go !== null && this.emit("data", Go), Go;
+  var Go, Ho = No.needReadable;
+  return nt("need readable", Ho), (No.length === 0 || No.length - Oo < No.highWaterMark) && nt("length less than watermark", Ho = !0), No.ended || No.reading ? nt("reading or ended", Ho = !1) : Ho && (nt("do read"), No.reading = !0, No.sync = !0, No.length === 0 && (No.needReadable = !0), this._read(No.highWaterMark), No.sync = !1, No.reading || (Oo = ht(jo, No))), (Go = Oo > 0 ? _t(Oo, No) : null) === null ? (No.needReadable = !0, Oo = 0) : No.length -= Oo, No.length === 0 && (No.ended || (No.needReadable = !0), jo !== Oo && No.ended && gt(this)), Go !== null && this.emit("data", Go), Go;
 }, ot.prototype._read = function(Oo) {
   this.emit("error", new Error("not implemented"));
 }, ot.prototype.pipe = function(Oo, No) {
@@ -6290,14 +7407,14 @@ ot.prototype.read = function(Oo) {
       Go.pipes.push(Oo);
   }
   Go.pipesCount += 1, nt("pipe count=%d opts=%j", Go.pipesCount, No);
-  var Qo = !No || No.end !== !1 ? Vo : Xo;
-  function Ho(is) {
+  var Ho = !No || No.end !== !1 ? Vo : Xo;
+  function Qo(is) {
     nt("onunpipe"), is === jo && Xo();
   }
   function Vo() {
     nt("onend"), Oo.end();
   }
-  Go.endEmitted ? de(Qo) : jo.once("end", Qo), Oo.on("unpipe", Ho);
+  Go.endEmitted ? de(Ho) : jo.once("end", Ho), Oo.on("unpipe", Qo);
   var qo = /* @__PURE__ */ (function(is) {
     return function() {
       var As = is._readableState;
@@ -6307,7 +7424,7 @@ ot.prototype.read = function(Oo) {
   Oo.on("drain", qo);
   var Yo = !1;
   function Xo() {
-    nt("cleanup"), Oo.removeListener("close", Jo), Oo.removeListener("finish", es), Oo.removeListener("drain", qo), Oo.removeListener("error", Ko), Oo.removeListener("unpipe", Ho), jo.removeListener("end", Vo), jo.removeListener("end", Xo), jo.removeListener("data", Wo), Yo = !0, !Go.awaitDrain || Oo._writableState && !Oo._writableState.needDrain || qo();
+    nt("cleanup"), Oo.removeListener("close", Jo), Oo.removeListener("finish", es), Oo.removeListener("drain", qo), Oo.removeListener("error", Ko), Oo.removeListener("unpipe", Qo), jo.removeListener("end", Vo), jo.removeListener("end", Xo), jo.removeListener("data", Wo), Yo = !0, !Go.awaitDrain || Oo._writableState && !Oo._writableState.needDrain || qo();
   }
   var Fo = !1;
   function Wo(is) {
@@ -6337,11 +7454,11 @@ ot.prototype.read = function(Oo) {
   if (!Oo) {
     var jo = No.pipes, Go = No.pipesCount;
     No.pipes = null, No.pipesCount = 0, No.flowing = !1;
-    for (var Qo = 0; Qo < Go; Qo++) jo[Qo].emit("unpipe", this);
+    for (var Ho = 0; Ho < Go; Ho++) jo[Ho].emit("unpipe", this);
     return this;
   }
-  var Ho = wt(No.pipes, Oo);
-  return Ho === -1 ? this : (No.pipes.splice(Ho, 1), No.pipesCount -= 1, No.pipesCount === 1 && (No.pipes = No.pipes[0]), Oo.emit("unpipe", this), this);
+  var Qo = wt(No.pipes, Oo);
+  return Qo === -1 ? this : (No.pipes.splice(Qo, 1), No.pipesCount -= 1, No.pipesCount === 1 && (No.pipes = No.pipes[0]), Oo.emit("unpipe", this), this);
 }, ot.prototype.on = function(Oo, No) {
   var jo = ve.prototype.on.call(this, Oo, No);
   if (Oo === "data") this._readableState.flowing !== !1 && this.resume();
@@ -6359,25 +7476,25 @@ ot.prototype.read = function(Oo) {
   return nt("call pause flowing=%j", this._readableState.flowing), this._readableState.flowing !== !1 && (nt("pause"), this._readableState.flowing = !1, this.emit("pause")), this;
 }, ot.prototype.wrap = function(Oo) {
   var No = this._readableState, jo = !1, Go = this;
-  for (var Qo in Oo.on("end", function() {
+  for (var Ho in Oo.on("end", function() {
     if (nt("wrapped end"), No.decoder && !No.ended) {
-      var Ho = No.decoder.end();
-      Ho && Ho.length && Go.push(Ho);
+      var Qo = No.decoder.end();
+      Qo && Qo.length && Go.push(Qo);
     }
     Go.push(null);
-  }), Oo.on("data", function(Ho) {
-    nt("wrapped data"), No.decoder && (Ho = No.decoder.write(Ho)), No.objectMode && Ho == null || (No.objectMode || Ho && Ho.length) && (Go.push(Ho) || (jo = !0, Oo.pause()));
-  }), Oo) this[Qo] === void 0 && typeof Oo[Qo] == "function" && (this[Qo] = /* @__PURE__ */ (function(Ho) {
+  }), Oo.on("data", function(Qo) {
+    nt("wrapped data"), No.decoder && (Qo = No.decoder.write(Qo)), No.objectMode && Qo == null || (No.objectMode || Qo && Qo.length) && (Go.push(Qo) || (jo = !0, Oo.pause()));
+  }), Oo) this[Ho] === void 0 && typeof Oo[Ho] == "function" && (this[Ho] = /* @__PURE__ */ (function(Qo) {
     return function() {
-      return Oo[Ho].apply(Oo, arguments);
+      return Oo[Qo].apply(Oo, arguments);
     };
-  })(Qo));
-  return (function(Ho, Vo) {
-    for (var qo = 0, Yo = Ho.length; qo < Yo; qo++) Vo(Ho[qo], qo);
-  })(["error", "close", "destroy", "pause", "resume"], function(Ho) {
-    Oo.on(Ho, Go.emit.bind(Go, Ho));
-  }), Go._read = function(Ho) {
-    nt("wrapped _read", Ho), jo && (jo = !1, Oo.resume());
+  })(Ho));
+  return (function(Qo, Vo) {
+    for (var qo = 0, Yo = Qo.length; qo < Yo; qo++) Vo(Qo[qo], qo);
+  })(["error", "close", "destroy", "pause", "resume"], function(Qo) {
+    Oo.on(Qo, Go.emit.bind(Go, Qo));
+  }), Go._read = function(Qo) {
+    nt("wrapped _read", Qo), jo && (jo = !1, Oo.resume());
   }, Go;
 }, ot._fromList = _t, kt.WritableState = mt, Be(kt, ve), mt.prototype.getBuffer = function() {
   for (var Oo = this.bufferedRequest, No = []; Oo; ) No.push(Oo), Oo = Oo.next;
@@ -6385,14 +7502,14 @@ ot.prototype.read = function(Oo) {
 }, kt.prototype.pipe = function() {
   this.emit("error", new Error("Cannot pipe, not readable"));
 }, kt.prototype.write = function(Oo, No, jo) {
-  var Go = this._writableState, Qo = !1;
-  return typeof No == "function" && (jo = No, No = null), p.isBuffer(Oo) ? No = "buffer" : No || (No = Go.defaultEncoding), typeof jo != "function" && (jo = bt), Go.ended ? (function(Ho, Vo) {
+  var Go = this._writableState, Ho = !1;
+  return typeof No == "function" && (jo = No, No = null), p.isBuffer(Oo) ? No = "buffer" : No || (No = Go.defaultEncoding), typeof jo != "function" && (jo = bt), Go.ended ? (function(Qo, Vo) {
     var qo = new Error("write after end");
-    Ho.emit("error", qo), de(Vo, qo);
-  })(this, jo) : (function(Ho, Vo, qo, Yo) {
+    Qo.emit("error", qo), de(Vo, qo);
+  })(this, jo) : (function(Qo, Vo, qo, Yo) {
     var Xo = !0, Fo = !1;
-    return qo === null ? Fo = new TypeError("May not write null values to stream") : p.isBuffer(qo) || typeof qo == "string" || qo === void 0 || Vo.objectMode || (Fo = new TypeError("Invalid non-string/buffer chunk")), Fo && (Ho.emit("error", Fo), de(Yo, Fo), Xo = !1), Xo;
-  })(this, Go, Oo, jo) && (Go.pendingcb++, Qo = (function(Ho, Vo, qo, Yo, Xo) {
+    return qo === null ? Fo = new TypeError("May not write null values to stream") : p.isBuffer(qo) || typeof qo == "string" || qo === void 0 || Vo.objectMode || (Fo = new TypeError("Invalid non-string/buffer chunk")), Fo && (Qo.emit("error", Fo), de(Yo, Fo), Xo = !1), Xo;
+  })(this, Go, Oo, jo) && (Go.pendingcb++, Ho = (function(Qo, Vo, qo, Yo, Xo) {
     qo = (function(Jo, es, rs) {
       return Jo.objectMode || Jo.decodeStrings === !1 || typeof es != "string" || (es = p.from(es, rs)), es;
     })(Vo, qo, Yo), p.isBuffer(qo) && (Yo = "buffer");
@@ -6402,9 +7519,9 @@ ot.prototype.read = function(Oo) {
     if (Wo || (Vo.needDrain = !0), Vo.writing || Vo.corked) {
       var Ko = Vo.lastBufferedRequest;
       Vo.lastBufferedRequest = new yt(qo, Yo, Xo), Ko ? Ko.next = Vo.lastBufferedRequest : Vo.bufferedRequest = Vo.lastBufferedRequest, Vo.bufferedRequestCount += 1;
-    } else Et(Ho, Vo, !1, Fo, qo, Yo, Xo);
+    } else Et(Qo, Vo, !1, Fo, qo, Yo, Xo);
     return Wo;
-  })(this, Go, Oo, No, jo)), Qo;
+  })(this, Go, Oo, No, jo)), Ho;
 }, kt.prototype.cork = function() {
   this._writableState.corked++;
 }, kt.prototype.uncork = function() {
@@ -6417,8 +7534,8 @@ ot.prototype.read = function(Oo) {
   jo(new Error("not implemented"));
 }, kt.prototype._writev = null, kt.prototype.end = function(Oo, No, jo) {
   var Go = this._writableState;
-  typeof Oo == "function" ? (jo = Oo, Oo = null, No = null) : typeof No == "function" && (jo = No, No = null), Oo != null && this.write(Oo, No), Go.corked && (Go.corked = 1, this.uncork()), Go.ending || Go.finished || (function(Qo, Ho, Vo) {
-    Ho.ending = !0, Bt(Qo, Ho), Vo && (Ho.finished ? de(Vo) : Qo.once("finish", Vo)), Ho.ended = !0, Qo.writable = !1;
+  typeof Oo == "function" ? (jo = Oo, Oo = null, No = null) : typeof No == "function" && (jo = No, No = null), Oo != null && this.write(Oo, No), Go.corked && (Go.corked = 1, this.uncork()), Go.ending || Go.finished || (function(Ho, Qo, Vo) {
+    Qo.ending = !0, Bt(Ho, Qo), Vo && (Qo.finished ? de(Vo) : Ho.once("finish", Vo)), Qo.ended = !0, Ho.writable = !1;
   })(this, Go, jo);
 }, Be(Ct, ot);
 for (var Lt = Object.keys(kt.prototype), Tt = 0; Tt < Lt.length; Tt++) {
@@ -6437,12 +7554,12 @@ function It(Oo) {
 }
 function Pt(Oo) {
   this.afterTransform = function(No, jo) {
-    return (function(Go, Qo, Ho) {
+    return (function(Go, Ho, Qo) {
       var Vo = Go._transformState;
       Vo.transforming = !1;
       var qo = Vo.writecb;
       if (!qo) return Go.emit("error", new Error("no writecb in Transform class"));
-      Vo.writechunk = null, Vo.writecb = null, Ho != null && Go.push(Ho), qo(Qo);
+      Vo.writechunk = null, Vo.writecb = null, Qo != null && Go.push(Qo), qo(Ho);
       var Yo = Go._readableState;
       Yo.reading = !1, (Yo.needReadable || Yo.length < Yo.highWaterMark) && Go._read(Yo.highWaterMark);
     })(Oo, No, jo);
@@ -6479,8 +7596,8 @@ Be(Ot, Ct), Ot.prototype.push = function(Oo, No) {
 }, Ot.prototype._write = function(Oo, No, jo) {
   var Go = this._transformState;
   if (Go.writecb = jo, Go.writechunk = Oo, Go.writeencoding = No, !Go.transforming) {
-    var Qo = this._readableState;
-    (Go.needTransform || Qo.needReadable || Qo.length < Qo.highWaterMark) && this._read(Qo.highWaterMark);
+    var Ho = this._readableState;
+    (Go.needTransform || Ho.needReadable || Ho.length < Ho.highWaterMark) && this._read(Ho.highWaterMark);
   }
 }, Ot.prototype._read = function(Oo) {
   var No = this._transformState;
@@ -6492,22 +7609,22 @@ Be(Ot, Ct), Ot.prototype.push = function(Oo, No) {
   function Go(Fo) {
     Oo.writable && Oo.write(Fo) === !1 && jo.pause && jo.pause();
   }
-  function Qo() {
+  function Ho() {
     jo.readable && jo.resume && jo.resume();
   }
-  jo.on("data", Go), Oo.on("drain", Qo), Oo._isStdio || No && No.end === !1 || (jo.on("end", Vo), jo.on("close", qo));
-  var Ho = !1;
+  jo.on("data", Go), Oo.on("drain", Ho), Oo._isStdio || No && No.end === !1 || (jo.on("end", Vo), jo.on("close", qo));
+  var Qo = !1;
   function Vo() {
-    Ho || (Ho = !0, Oo.end());
+    Qo || (Qo = !0, Oo.end());
   }
   function qo() {
-    Ho || (Ho = !0, typeof Oo.destroy == "function" && Oo.destroy());
+    Qo || (Qo = !0, typeof Oo.destroy == "function" && Oo.destroy());
   }
   function Yo(Fo) {
     if (Xo(), ve.listenerCount(this, "error") === 0) throw Fo;
   }
   function Xo() {
-    jo.removeListener("data", Go), Oo.removeListener("drain", Qo), jo.removeListener("end", Vo), jo.removeListener("close", qo), jo.removeListener("error", Yo), Oo.removeListener("error", Yo), jo.removeListener("end", Xo), jo.removeListener("close", Xo), Oo.removeListener("close", Xo);
+    jo.removeListener("data", Go), Oo.removeListener("drain", Ho), jo.removeListener("end", Vo), jo.removeListener("close", qo), jo.removeListener("error", Yo), Oo.removeListener("error", Yo), jo.removeListener("end", Xo), jo.removeListener("close", Xo), Oo.removeListener("close", Xo);
   }
   return jo.on("error", Yo), Oo.on("error", Yo), jo.on("end", Xo), jo.on("close", Xo), Oo.on("close", Xo), Oo.emit("pipe", jo), Oo;
 };
@@ -6515,9 +7632,9 @@ var Nt = { 2: "need dictionary", 1: "stream end", 0: "", "-1": "file error", "-2
 function Zt() {
   this.input = null, this.next_in = 0, this.avail_in = 0, this.total_in = 0, this.output = null, this.next_out = 0, this.avail_out = 0, this.total_out = 0, this.msg = "", this.state = null, this.data_type = 2, this.adler = 0;
 }
-function jt(Oo, No, jo, Go, Qo) {
-  if (No.subarray && Oo.subarray) Oo.set(No.subarray(jo, jo + Go), Qo);
-  else for (var Ho = 0; Ho < Go; Ho++) Oo[Qo + Ho] = No[jo + Ho];
+function jt(Oo, No, jo, Go, Ho) {
+  if (No.subarray && Oo.subarray) Oo.set(No.subarray(jo, jo + Go), Ho);
+  else for (var Qo = 0; Qo < Go; Qo++) Oo[Ho + Qo] = No[jo + Qo];
 }
 var Wt = Uint8Array, Yt = Uint16Array, Kt = Int32Array, Xt = 4, qt = 0, Vt = 1, Gt = 2;
 function $t(Oo) {
@@ -6534,8 +7651,8 @@ $t(mr);
 var kr = new Array(tr);
 $t(kr);
 var Er, Sr, xr, Rr = new Array(ir);
-function Ar(Oo, No, jo, Go, Qo) {
-  this.static_tree = Oo, this.extra_bits = No, this.extra_base = jo, this.elems = Go, this.max_length = Qo, this.has_stree = Oo && Oo.length;
+function Ar(Oo, No, jo, Go, Ho) {
+  this.static_tree = Oo, this.extra_bits = No, this.extra_base = jo, this.elems = Go, this.max_length = Ho, this.has_stree = Oo && Oo.length;
 }
 function Br(Oo, No) {
   this.dyn_tree = Oo, this.max_code = 0, this.stat_desc = No;
@@ -6560,11 +7677,11 @@ function Cr(Oo, No) {
   return jo >>> 1;
 }
 function Dr(Oo, No, jo) {
-  var Go, Qo, Ho = new Array(sr + 1), Vo = 0;
-  for (Go = 1; Go <= sr; Go++) Ho[Go] = Vo = Vo + jo[Go - 1] << 1;
-  for (Qo = 0; Qo <= No; Qo++) {
-    var qo = Oo[2 * Qo + 1];
-    qo !== 0 && (Oo[2 * Qo] = Cr(Ho[qo]++, qo));
+  var Go, Ho, Qo = new Array(sr + 1), Vo = 0;
+  for (Go = 1; Go <= sr; Go++) Qo[Go] = Vo = Vo + jo[Go - 1] << 1;
+  for (Ho = 0; Ho <= No; Ho++) {
+    var qo = Oo[2 * Ho + 1];
+    qo !== 0 && (Oo[2 * Ho] = Cr(Qo[qo]++, qo));
   }
 }
 function Ir(Oo) {
@@ -6578,28 +7695,28 @@ function Pr(Oo) {
   Oo.bi_valid > 8 ? Lr(Oo, Oo.bi_buf) : Oo.bi_valid > 0 && (Oo.pending_buf[Oo.pending++] = Oo.bi_buf), Oo.bi_buf = 0, Oo.bi_valid = 0;
 }
 function Or(Oo, No, jo, Go) {
-  var Qo = 2 * No, Ho = 2 * jo;
-  return Oo[Qo] < Oo[Ho] || Oo[Qo] === Oo[Ho] && Go[No] <= Go[jo];
+  var Ho = 2 * No, Qo = 2 * jo;
+  return Oo[Ho] < Oo[Qo] || Oo[Ho] === Oo[Qo] && Go[No] <= Go[jo];
 }
 function Ur(Oo, No, jo) {
-  for (var Go = Oo.heap[jo], Qo = jo << 1; Qo <= Oo.heap_len && (Qo < Oo.heap_len && Or(No, Oo.heap[Qo + 1], Oo.heap[Qo], Oo.depth) && Qo++, !Or(No, Go, Oo.heap[Qo], Oo.depth)); ) Oo.heap[jo] = Oo.heap[Qo], jo = Qo, Qo <<= 1;
+  for (var Go = Oo.heap[jo], Ho = jo << 1; Ho <= Oo.heap_len && (Ho < Oo.heap_len && Or(No, Oo.heap[Ho + 1], Oo.heap[Ho], Oo.depth) && Ho++, !Or(No, Go, Oo.heap[Ho], Oo.depth)); ) Oo.heap[jo] = Oo.heap[Ho], jo = Ho, Ho <<= 1;
   Oo.heap[jo] = Go;
 }
 function Hr(Oo, No, jo) {
-  var Go, Qo, Ho, Vo, qo = 0;
+  var Go, Ho, Qo, Vo, qo = 0;
   if (Oo.last_lit !== 0) do
-    Go = Oo.pending_buf[Oo.d_buf + 2 * qo] << 8 | Oo.pending_buf[Oo.d_buf + 2 * qo + 1], Qo = Oo.pending_buf[Oo.l_buf + qo], qo++, Go === 0 ? Mr(Oo, Qo, No) : (Mr(Oo, (Ho = mr[Qo]) + rr + 1, No), (Vo = pr[Ho]) !== 0 && Tr(Oo, Qo -= kr[Ho], Vo), Mr(Oo, Ho = zr(--Go), jo), (Vo = _r[Ho]) !== 0 && Tr(Oo, Go -= Rr[Ho], Vo));
+    Go = Oo.pending_buf[Oo.d_buf + 2 * qo] << 8 | Oo.pending_buf[Oo.d_buf + 2 * qo + 1], Ho = Oo.pending_buf[Oo.l_buf + qo], qo++, Go === 0 ? Mr(Oo, Ho, No) : (Mr(Oo, (Qo = mr[Ho]) + rr + 1, No), (Vo = pr[Qo]) !== 0 && Tr(Oo, Ho -= kr[Qo], Vo), Mr(Oo, Qo = zr(--Go), jo), (Vo = _r[Qo]) !== 0 && Tr(Oo, Go -= Rr[Qo], Vo));
   while (qo < Oo.last_lit);
   Mr(Oo, fr, No);
 }
 function Fr(Oo, No) {
-  var jo, Go, Qo, Ho = No.dyn_tree, Vo = No.stat_desc.static_tree, qo = No.stat_desc.has_stree, Yo = No.stat_desc.elems, Xo = -1;
-  for (Oo.heap_len = 0, Oo.heap_max = ar, jo = 0; jo < Yo; jo++) Ho[2 * jo] !== 0 ? (Oo.heap[++Oo.heap_len] = Xo = jo, Oo.depth[jo] = 0) : Ho[2 * jo + 1] = 0;
-  for (; Oo.heap_len < 2; ) Ho[2 * (Qo = Oo.heap[++Oo.heap_len] = Xo < 2 ? ++Xo : 0)] = 1, Oo.depth[Qo] = 0, Oo.opt_len--, qo && (Oo.static_len -= Vo[2 * Qo + 1]);
-  for (No.max_code = Xo, jo = Oo.heap_len >> 1; jo >= 1; jo--) Ur(Oo, Ho, jo);
-  Qo = Yo;
+  var jo, Go, Ho, Qo = No.dyn_tree, Vo = No.stat_desc.static_tree, qo = No.stat_desc.has_stree, Yo = No.stat_desc.elems, Xo = -1;
+  for (Oo.heap_len = 0, Oo.heap_max = ar, jo = 0; jo < Yo; jo++) Qo[2 * jo] !== 0 ? (Oo.heap[++Oo.heap_len] = Xo = jo, Oo.depth[jo] = 0) : Qo[2 * jo + 1] = 0;
+  for (; Oo.heap_len < 2; ) Qo[2 * (Ho = Oo.heap[++Oo.heap_len] = Xo < 2 ? ++Xo : 0)] = 1, Oo.depth[Ho] = 0, Oo.opt_len--, qo && (Oo.static_len -= Vo[2 * Ho + 1]);
+  for (No.max_code = Xo, jo = Oo.heap_len >> 1; jo >= 1; jo--) Ur(Oo, Qo, jo);
+  Ho = Yo;
   do
-    jo = Oo.heap[1], Oo.heap[1] = Oo.heap[Oo.heap_len--], Ur(Oo, Ho, 1), Go = Oo.heap[1], Oo.heap[--Oo.heap_max] = jo, Oo.heap[--Oo.heap_max] = Go, Ho[2 * Qo] = Ho[2 * jo] + Ho[2 * Go], Oo.depth[Qo] = (Oo.depth[jo] >= Oo.depth[Go] ? Oo.depth[jo] : Oo.depth[Go]) + 1, Ho[2 * jo + 1] = Ho[2 * Go + 1] = Qo, Oo.heap[1] = Qo++, Ur(Oo, Ho, 1);
+    jo = Oo.heap[1], Oo.heap[1] = Oo.heap[Oo.heap_len--], Ur(Oo, Qo, 1), Go = Oo.heap[1], Oo.heap[--Oo.heap_max] = jo, Oo.heap[--Oo.heap_max] = Go, Qo[2 * Ho] = Qo[2 * jo] + Qo[2 * Go], Oo.depth[Ho] = (Oo.depth[jo] >= Oo.depth[Go] ? Oo.depth[jo] : Oo.depth[Go]) + 1, Qo[2 * jo + 1] = Qo[2 * Go + 1] = Ho, Oo.heap[1] = Ho++, Ur(Oo, Qo, 1);
   while (Oo.heap_len >= 2);
   Oo.heap[--Oo.heap_max] = Oo.heap[1], (function(Fo, Wo) {
     var Ko, Jo, es, rs, is, As, os = Wo.dyn_tree, us = Wo.max_code, as = Wo.stat_desc.static_tree, vs = Wo.stat_desc.has_stree, Is = Wo.stat_desc.extra_bits, hs = Wo.stat_desc.extra_base, ys = Wo.stat_desc.max_length, Ps = 0;
@@ -6612,30 +7729,30 @@ function Fr(Oo, No) {
       } while (Ps > 0);
       for (rs = ys; rs !== 0; rs--) for (Jo = Fo.bl_count[rs]; Jo !== 0; ) (es = Fo.heap[--Ko]) > us || (os[2 * es + 1] !== rs && (Fo.opt_len += (rs - os[2 * es + 1]) * os[2 * es], os[2 * es + 1] = rs), Jo--);
     }
-  })(Oo, No), Dr(Ho, Xo, Oo.bl_count);
+  })(Oo, No), Dr(Qo, Xo, Oo.bl_count);
 }
 function Nr(Oo, No, jo) {
-  var Go, Qo, Ho = -1, Vo = No[1], qo = 0, Yo = 7, Xo = 4;
-  for (Vo === 0 && (Yo = 138, Xo = 3), No[2 * (jo + 1) + 1] = 65535, Go = 0; Go <= jo; Go++) Qo = Vo, Vo = No[2 * (Go + 1) + 1], ++qo < Yo && Qo === Vo || (qo < Xo ? Oo.bl_tree[2 * Qo] += qo : Qo !== 0 ? (Qo !== Ho && Oo.bl_tree[2 * Qo]++, Oo.bl_tree[2 * cr]++) : qo <= 10 ? Oo.bl_tree[2 * ur]++ : Oo.bl_tree[2 * dr]++, qo = 0, Ho = Qo, Vo === 0 ? (Yo = 138, Xo = 3) : Qo === Vo ? (Yo = 6, Xo = 3) : (Yo = 7, Xo = 4));
+  var Go, Ho, Qo = -1, Vo = No[1], qo = 0, Yo = 7, Xo = 4;
+  for (Vo === 0 && (Yo = 138, Xo = 3), No[2 * (jo + 1) + 1] = 65535, Go = 0; Go <= jo; Go++) Ho = Vo, Vo = No[2 * (Go + 1) + 1], ++qo < Yo && Ho === Vo || (qo < Xo ? Oo.bl_tree[2 * Ho] += qo : Ho !== 0 ? (Ho !== Qo && Oo.bl_tree[2 * Ho]++, Oo.bl_tree[2 * cr]++) : qo <= 10 ? Oo.bl_tree[2 * ur]++ : Oo.bl_tree[2 * dr]++, qo = 0, Qo = Ho, Vo === 0 ? (Yo = 138, Xo = 3) : Ho === Vo ? (Yo = 6, Xo = 3) : (Yo = 7, Xo = 4));
 }
 function Zr(Oo, No, jo) {
-  var Go, Qo, Ho = -1, Vo = No[1], qo = 0, Yo = 7, Xo = 4;
-  for (Vo === 0 && (Yo = 138, Xo = 3), Go = 0; Go <= jo; Go++) if (Qo = Vo, Vo = No[2 * (Go + 1) + 1], !(++qo < Yo && Qo === Vo)) {
+  var Go, Ho, Qo = -1, Vo = No[1], qo = 0, Yo = 7, Xo = 4;
+  for (Vo === 0 && (Yo = 138, Xo = 3), Go = 0; Go <= jo; Go++) if (Ho = Vo, Vo = No[2 * (Go + 1) + 1], !(++qo < Yo && Ho === Vo)) {
     if (qo < Xo) do
-      Mr(Oo, Qo, Oo.bl_tree);
+      Mr(Oo, Ho, Oo.bl_tree);
     while (--qo != 0);
-    else Qo !== 0 ? (Qo !== Ho && (Mr(Oo, Qo, Oo.bl_tree), qo--), Mr(Oo, cr, Oo.bl_tree), Tr(Oo, qo - 3, 2)) : qo <= 10 ? (Mr(Oo, ur, Oo.bl_tree), Tr(Oo, qo - 3, 3)) : (Mr(Oo, dr, Oo.bl_tree), Tr(Oo, qo - 11, 7));
-    qo = 0, Ho = Qo, Vo === 0 ? (Yo = 138, Xo = 3) : Qo === Vo ? (Yo = 6, Xo = 3) : (Yo = 7, Xo = 4);
+    else Ho !== 0 ? (Ho !== Qo && (Mr(Oo, Ho, Oo.bl_tree), qo--), Mr(Oo, cr, Oo.bl_tree), Tr(Oo, qo - 3, 2)) : qo <= 10 ? (Mr(Oo, ur, Oo.bl_tree), Tr(Oo, qo - 3, 3)) : (Mr(Oo, dr, Oo.bl_tree), Tr(Oo, qo - 11, 7));
+    qo = 0, Qo = Ho, Vo === 0 ? (Yo = 138, Xo = 3) : Ho === Vo ? (Yo = 6, Xo = 3) : (Yo = 7, Xo = 4);
   }
 }
 $t(Rr);
 var jr = !1;
 function Wr(Oo) {
   jr || ((function() {
-    var No, jo, Go, Qo, Ho, Vo = new Array(sr + 1);
-    for (Go = 0, Qo = 0; Qo < tr - 1; Qo++) for (kr[Qo] = Go, No = 0; No < 1 << pr[Qo]; No++) mr[Go++] = Qo;
-    for (mr[Go - 1] = Qo, Ho = 0, Qo = 0; Qo < 16; Qo++) for (Rr[Qo] = Ho, No = 0; No < 1 << _r[Qo]; No++) yr[Ho++] = Qo;
-    for (Ho >>= 7; Qo < ir; Qo++) for (Rr[Qo] = Ho << 7, No = 0; No < 1 << _r[Qo] - 7; No++) yr[256 + Ho++] = Qo;
+    var No, jo, Go, Ho, Qo, Vo = new Array(sr + 1);
+    for (Go = 0, Ho = 0; Ho < tr - 1; Ho++) for (kr[Ho] = Go, No = 0; No < 1 << pr[Ho]; No++) mr[Go++] = Ho;
+    for (mr[Go - 1] = Ho, Qo = 0, Ho = 0; Ho < 16; Ho++) for (Rr[Ho] = Qo, No = 0; No < 1 << _r[Ho]; No++) yr[Qo++] = Ho;
+    for (Qo >>= 7; Ho < ir; Ho++) for (Rr[Ho] = Qo << 7, No = 0; No < 1 << _r[Ho] - 7; No++) yr[256 + Qo++] = Ho;
     for (jo = 0; jo <= sr; jo++) Vo[jo] = 0;
     for (No = 0; No <= 143; ) wr[2 * No + 1] = 8, No++, Vo[8]++;
     for (; No <= 255; ) wr[2 * No + 1] = 9, No++, Vo[9]++;
@@ -6646,8 +7763,8 @@ function Wr(Oo) {
   })(), jr = !0), Oo.l_desc = new Br(Oo.dyn_ltree, Er), Oo.d_desc = new Br(Oo.dyn_dtree, Sr), Oo.bl_desc = new Br(Oo.bl_tree, xr), Oo.bi_buf = 0, Oo.bi_valid = 0, Ir(Oo);
 }
 function Yr(Oo, No, jo, Go) {
-  Tr(Oo, (Jt << 1) + (Go ? 1 : 0), 3), (function(Qo, Ho, Vo, qo) {
-    Pr(Qo), Lr(Qo, Vo), Lr(Qo, ~Vo), jt(Qo.pending_buf, Qo.window, Ho, Vo, Qo.pending), Qo.pending += Vo;
+  Tr(Oo, (Jt << 1) + (Go ? 1 : 0), 3), (function(Ho, Qo, Vo, qo) {
+    Pr(Ho), Lr(Ho, Vo), Lr(Ho, ~Vo), jt(Ho.pending_buf, Ho.window, Qo, Vo, Ho.pending), Ho.pending += Vo;
   })(Oo, No, jo);
 }
 function Kr(Oo) {
@@ -6656,7 +7773,7 @@ function Kr(Oo) {
   })(Oo);
 }
 function Xr(Oo, No, jo, Go) {
-  var Qo, Ho, Vo = 0;
+  var Ho, Qo, Vo = 0;
   Oo.level > 0 ? (Oo.strm.data_type === Gt && (Oo.strm.data_type = (function(qo) {
     var Yo, Xo = 4093624447;
     for (Yo = 0; Yo <= 31; Yo++, Xo >>>= 1) if (1 & Xo && qo.dyn_ltree[2 * Yo] !== 0) return qt;
@@ -6667,7 +7784,7 @@ function Xr(Oo, No, jo, Go) {
     var Yo;
     for (Nr(qo, qo.dyn_ltree, qo.l_desc.max_code), Nr(qo, qo.dyn_dtree, qo.d_desc.max_code), Fr(qo, qo.bl_desc), Yo = or - 1; Yo >= 3 && qo.bl_tree[2 * vr[Yo] + 1] === 0; Yo--) ;
     return qo.opt_len += 3 * (Yo + 1) + 5 + 5 + 4, Yo;
-  })(Oo), Qo = Oo.opt_len + 3 + 7 >>> 3, (Ho = Oo.static_len + 3 + 7 >>> 3) <= Qo && (Qo = Ho)) : Qo = Ho = jo + 5, jo + 4 <= Qo && No !== -1 ? Yr(Oo, No, jo, Go) : Oo.strategy === Xt || Ho === Qo ? (Tr(Oo, (Qt << 1) + (Go ? 1 : 0), 3), Hr(Oo, wr, br)) : (Tr(Oo, (er << 1) + (Go ? 1 : 0), 3), (function(qo, Yo, Xo, Fo) {
+  })(Oo), Ho = Oo.opt_len + 3 + 7 >>> 3, (Qo = Oo.static_len + 3 + 7 >>> 3) <= Ho && (Ho = Qo)) : Ho = Qo = jo + 5, jo + 4 <= Ho && No !== -1 ? Yr(Oo, No, jo, Go) : Oo.strategy === Xt || Qo === Ho ? (Tr(Oo, (Qt << 1) + (Go ? 1 : 0), 3), Hr(Oo, wr, br)) : (Tr(Oo, (er << 1) + (Go ? 1 : 0), 3), (function(qo, Yo, Xo, Fo) {
     var Wo;
     for (Tr(qo, Yo - 257, 5), Tr(qo, Xo - 1, 5), Tr(qo, Fo - 4, 4), Wo = 0; Wo < Fo; Wo++) Tr(qo, qo.bl_tree[2 * vr[Wo] + 1], 3);
     Zr(qo, qo.dyn_ltree, Yo - 1), Zr(qo, qo.dyn_dtree, Xo - 1);
@@ -6677,14 +7794,14 @@ function qr(Oo, No, jo) {
   return Oo.pending_buf[Oo.d_buf + 2 * Oo.last_lit] = No >>> 8 & 255, Oo.pending_buf[Oo.d_buf + 2 * Oo.last_lit + 1] = 255 & No, Oo.pending_buf[Oo.l_buf + Oo.last_lit] = 255 & jo, Oo.last_lit++, No === 0 ? Oo.dyn_ltree[2 * jo]++ : (Oo.matches++, No--, Oo.dyn_ltree[2 * (mr[jo] + rr + 1)]++, Oo.dyn_dtree[2 * zr(No)]++), Oo.last_lit === Oo.lit_bufsize - 1;
 }
 function Vr(Oo, No, jo, Go) {
-  for (var Qo = 65535 & Oo | 0, Ho = Oo >>> 16 & 65535 | 0, Vo = 0; jo !== 0; ) {
+  for (var Ho = 65535 & Oo | 0, Qo = Oo >>> 16 & 65535 | 0, Vo = 0; jo !== 0; ) {
     jo -= Vo = jo > 2e3 ? 2e3 : jo;
     do
-      Ho = Ho + (Qo = Qo + No[Go++] | 0) | 0;
+      Qo = Qo + (Ho = Ho + No[Go++] | 0) | 0;
     while (--Vo);
-    Qo %= 65521, Ho %= 65521;
+    Ho %= 65521, Qo %= 65521;
   }
-  return Qo | Ho << 16 | 0;
+  return Ho | Qo << 16 | 0;
 }
 var Gr = (function() {
   for (var Oo, No = [], jo = 0; jo < 256; jo++) {
@@ -6695,9 +7812,9 @@ var Gr = (function() {
   return No;
 })();
 function $r(Oo, No, jo, Go) {
-  var Qo = Gr, Ho = Go + jo;
+  var Ho = Gr, Qo = Go + jo;
   Oo ^= -1;
-  for (var Vo = Go; Vo < Ho; Vo++) Oo = Oo >>> 8 ^ Qo[255 & (Oo ^ No[Vo])];
+  for (var Vo = Go; Vo < Qo; Vo++) Oo = Oo >>> 8 ^ Ho[255 & (Oo ^ No[Vo])];
   return -1 ^ Oo;
 }
 var Jr, Qr = 0, en = 1, tn = 3, rn = 4, nn = 5, on = 0, an = 1, sn = -2, hn = -3, ln = -5, fn = -1, cn = 1, un = 2, dn = 3, pn = 4, _n = 2, gn = 8, vn = 9, wn = 286, bn = 30, yn = 19, mn = 2 * wn + 1, kn = 15, En = 3, Sn = 258, xn = Sn + En + 1, Rn = 32, An = 42, Bn = 69, zn = 73, Ln = 91, Tn = 103, Mn = 113, Cn = 666, Dn = 1, In = 2, Pn = 3, On = 4, Un = 3;
@@ -6724,26 +7841,26 @@ function Yn(Oo, No) {
   Oo.pending_buf[Oo.pending++] = No >>> 8 & 255, Oo.pending_buf[Oo.pending++] = 255 & No;
 }
 function Kn(Oo, No) {
-  var jo, Go, Qo = Oo.max_chain_length, Ho = Oo.strstart, Vo = Oo.prev_length, qo = Oo.nice_match, Yo = Oo.strstart > Oo.w_size - xn ? Oo.strstart - (Oo.w_size - xn) : 0, Xo = Oo.window, Fo = Oo.w_mask, Wo = Oo.prev, Ko = Oo.strstart + Sn, Jo = Xo[Ho + Vo - 1], es = Xo[Ho + Vo];
-  Oo.prev_length >= Oo.good_match && (Qo >>= 2), qo > Oo.lookahead && (qo = Oo.lookahead);
+  var jo, Go, Ho = Oo.max_chain_length, Qo = Oo.strstart, Vo = Oo.prev_length, qo = Oo.nice_match, Yo = Oo.strstart > Oo.w_size - xn ? Oo.strstart - (Oo.w_size - xn) : 0, Xo = Oo.window, Fo = Oo.w_mask, Wo = Oo.prev, Ko = Oo.strstart + Sn, Jo = Xo[Qo + Vo - 1], es = Xo[Qo + Vo];
+  Oo.prev_length >= Oo.good_match && (Ho >>= 2), qo > Oo.lookahead && (qo = Oo.lookahead);
   do
-    if (Xo[(jo = No) + Vo] === es && Xo[jo + Vo - 1] === Jo && Xo[jo] === Xo[Ho] && Xo[++jo] === Xo[Ho + 1]) {
-      Ho += 2, jo++;
+    if (Xo[(jo = No) + Vo] === es && Xo[jo + Vo - 1] === Jo && Xo[jo] === Xo[Qo] && Xo[++jo] === Xo[Qo + 1]) {
+      Qo += 2, jo++;
       do
         ;
-      while (Xo[++Ho] === Xo[++jo] && Xo[++Ho] === Xo[++jo] && Xo[++Ho] === Xo[++jo] && Xo[++Ho] === Xo[++jo] && Xo[++Ho] === Xo[++jo] && Xo[++Ho] === Xo[++jo] && Xo[++Ho] === Xo[++jo] && Xo[++Ho] === Xo[++jo] && Ho < Ko);
-      if (Go = Sn - (Ko - Ho), Ho = Ko - Sn, Go > Vo) {
+      while (Xo[++Qo] === Xo[++jo] && Xo[++Qo] === Xo[++jo] && Xo[++Qo] === Xo[++jo] && Xo[++Qo] === Xo[++jo] && Xo[++Qo] === Xo[++jo] && Xo[++Qo] === Xo[++jo] && Xo[++Qo] === Xo[++jo] && Xo[++Qo] === Xo[++jo] && Qo < Ko);
+      if (Go = Sn - (Ko - Qo), Qo = Ko - Sn, Go > Vo) {
         if (Oo.match_start = No, Vo = Go, Go >= qo) break;
-        Jo = Xo[Ho + Vo - 1], es = Xo[Ho + Vo];
+        Jo = Xo[Qo + Vo - 1], es = Xo[Qo + Vo];
       }
     }
-  while ((No = Wo[No & Fo]) > Yo && --Qo != 0);
+  while ((No = Wo[No & Fo]) > Yo && --Ho != 0);
   return Vo <= Oo.lookahead ? Vo : Oo.lookahead;
 }
 function Xn(Oo) {
-  var No, jo, Go, Qo, Ho, Vo, qo, Yo, Xo, Fo, Wo = Oo.w_size;
+  var No, jo, Go, Ho, Qo, Vo, qo, Yo, Xo, Fo, Wo = Oo.w_size;
   do {
-    if (Qo = Oo.window_size - Oo.lookahead - Oo.strstart, Oo.strstart >= Wo + (Wo - xn)) {
+    if (Ho = Oo.window_size - Oo.lookahead - Oo.strstart, Oo.strstart >= Wo + (Wo - xn)) {
       jt(Oo.window, Oo.window, Wo, Wo, 0), Oo.match_start -= Wo, Oo.strstart -= Wo, Oo.block_start -= Wo, No = jo = Oo.hash_size;
       do
         Go = Oo.head[--No], Oo.head[No] = Go >= Wo ? Go - Wo : 0;
@@ -6752,10 +7869,10 @@ function Xn(Oo) {
       do
         Go = Oo.prev[--No], Oo.prev[No] = Go >= Wo ? Go - Wo : 0;
       while (--jo);
-      Qo += Wo;
+      Ho += Wo;
     }
     if (Oo.strm.avail_in === 0) break;
-    if (Vo = Oo.strm, qo = Oo.window, Yo = Oo.strstart + Oo.lookahead, Xo = Qo, Fo = void 0, (Fo = Vo.avail_in) > Xo && (Fo = Xo), jo = Fo === 0 ? 0 : (Vo.avail_in -= Fo, jt(qo, Vo.input, Vo.next_in, Fo, Yo), Vo.state.wrap === 1 ? Vo.adler = Vr(Vo.adler, qo, Fo, Yo) : Vo.state.wrap === 2 && (Vo.adler = $r(Vo.adler, qo, Fo, Yo)), Vo.next_in += Fo, Vo.total_in += Fo, Fo), Oo.lookahead += jo, Oo.lookahead + Oo.insert >= En) for (Ho = Oo.strstart - Oo.insert, Oo.ins_h = Oo.window[Ho], Oo.ins_h = (Oo.ins_h << Oo.hash_shift ^ Oo.window[Ho + 1]) & Oo.hash_mask; Oo.insert && (Oo.ins_h = (Oo.ins_h << Oo.hash_shift ^ Oo.window[Ho + En - 1]) & Oo.hash_mask, Oo.prev[Ho & Oo.w_mask] = Oo.head[Oo.ins_h], Oo.head[Oo.ins_h] = Ho, Ho++, Oo.insert--, !(Oo.lookahead + Oo.insert < En)); ) ;
+    if (Vo = Oo.strm, qo = Oo.window, Yo = Oo.strstart + Oo.lookahead, Xo = Ho, Fo = void 0, (Fo = Vo.avail_in) > Xo && (Fo = Xo), jo = Fo === 0 ? 0 : (Vo.avail_in -= Fo, jt(qo, Vo.input, Vo.next_in, Fo, Yo), Vo.state.wrap === 1 ? Vo.adler = Vr(Vo.adler, qo, Fo, Yo) : Vo.state.wrap === 2 && (Vo.adler = $r(Vo.adler, qo, Fo, Yo)), Vo.next_in += Fo, Vo.total_in += Fo, Fo), Oo.lookahead += jo, Oo.lookahead + Oo.insert >= En) for (Qo = Oo.strstart - Oo.insert, Oo.ins_h = Oo.window[Qo], Oo.ins_h = (Oo.ins_h << Oo.hash_shift ^ Oo.window[Qo + 1]) & Oo.hash_mask; Oo.insert && (Oo.ins_h = (Oo.ins_h << Oo.hash_shift ^ Oo.window[Qo + En - 1]) & Oo.hash_mask, Oo.prev[Qo & Oo.w_mask] = Oo.head[Oo.ins_h], Oo.head[Oo.ins_h] = Qo, Qo++, Oo.insert--, !(Oo.lookahead + Oo.insert < En)); ) ;
   } while (Oo.lookahead < xn && Oo.strm.avail_in !== 0);
 }
 function qn(Oo, No) {
@@ -6777,15 +7894,15 @@ function qn(Oo, No) {
   return Oo.insert = Oo.strstart < En - 1 ? Oo.strstart : En - 1, No === rn ? (jn(Oo, !0), Oo.strm.avail_out === 0 ? Pn : On) : Oo.last_lit && (jn(Oo, !1), Oo.strm.avail_out === 0) ? Dn : In;
 }
 function Vn(Oo, No) {
-  for (var jo, Go, Qo; ; ) {
+  for (var jo, Go, Ho; ; ) {
     if (Oo.lookahead < xn) {
       if (Xn(Oo), Oo.lookahead < xn && No === Qr) return Dn;
       if (Oo.lookahead === 0) break;
     }
     if (jo = 0, Oo.lookahead >= En && (Oo.ins_h = (Oo.ins_h << Oo.hash_shift ^ Oo.window[Oo.strstart + En - 1]) & Oo.hash_mask, jo = Oo.prev[Oo.strstart & Oo.w_mask] = Oo.head[Oo.ins_h], Oo.head[Oo.ins_h] = Oo.strstart), Oo.prev_length = Oo.match_length, Oo.prev_match = Oo.match_start, Oo.match_length = En - 1, jo !== 0 && Oo.prev_length < Oo.max_lazy_match && Oo.strstart - jo <= Oo.w_size - xn && (Oo.match_length = Kn(Oo, jo), Oo.match_length <= 5 && (Oo.strategy === cn || Oo.match_length === En && Oo.strstart - Oo.match_start > 4096) && (Oo.match_length = En - 1)), Oo.prev_length >= En && Oo.match_length <= Oo.prev_length) {
-      Qo = Oo.strstart + Oo.lookahead - En, Go = qr(Oo, Oo.strstart - 1 - Oo.prev_match, Oo.prev_length - En), Oo.lookahead -= Oo.prev_length - 1, Oo.prev_length -= 2;
+      Ho = Oo.strstart + Oo.lookahead - En, Go = qr(Oo, Oo.strstart - 1 - Oo.prev_match, Oo.prev_length - En), Oo.lookahead -= Oo.prev_length - 1, Oo.prev_length -= 2;
       do
-        ++Oo.strstart <= Qo && (Oo.ins_h = (Oo.ins_h << Oo.hash_shift ^ Oo.window[Oo.strstart + En - 1]) & Oo.hash_mask, jo = Oo.prev[Oo.strstart & Oo.w_mask] = Oo.head[Oo.ins_h], Oo.head[Oo.ins_h] = Oo.strstart);
+        ++Oo.strstart <= Ho && (Oo.ins_h = (Oo.ins_h << Oo.hash_shift ^ Oo.window[Oo.strstart + En - 1]) & Oo.hash_mask, jo = Oo.prev[Oo.strstart & Oo.w_mask] = Oo.head[Oo.ins_h], Oo.head[Oo.ins_h] = Oo.strstart);
       while (--Oo.prev_length != 0);
       if (Oo.match_available = 0, Oo.match_length = En - 1, Oo.strstart++, Go && (jn(Oo, !1), Oo.strm.avail_out === 0)) return Dn;
     } else if (Oo.match_available) {
@@ -6794,21 +7911,21 @@ function Vn(Oo, No) {
   }
   return Oo.match_available && (Go = qr(Oo, 0, Oo.window[Oo.strstart - 1]), Oo.match_available = 0), Oo.insert = Oo.strstart < En - 1 ? Oo.strstart : En - 1, No === rn ? (jn(Oo, !0), Oo.strm.avail_out === 0 ? Pn : On) : Oo.last_lit && (jn(Oo, !1), Oo.strm.avail_out === 0) ? Dn : In;
 }
-function Gn(Oo, No, jo, Go, Qo) {
-  this.good_length = Oo, this.max_lazy = No, this.nice_length = jo, this.max_chain = Go, this.func = Qo;
+function Gn(Oo, No, jo, Go, Ho) {
+  this.good_length = Oo, this.max_lazy = No, this.nice_length = jo, this.max_chain = Go, this.func = Ho;
 }
 function $n() {
   this.strm = null, this.status = 0, this.pending_buf = null, this.pending_buf_size = 0, this.pending_out = 0, this.pending = 0, this.wrap = 0, this.gzhead = null, this.gzindex = 0, this.method = gn, this.last_flush = -1, this.w_size = 0, this.w_bits = 0, this.w_mask = 0, this.window = null, this.window_size = 0, this.prev = null, this.head = null, this.ins_h = 0, this.hash_size = 0, this.hash_bits = 0, this.hash_mask = 0, this.hash_shift = 0, this.block_start = 0, this.match_length = 0, this.prev_match = 0, this.match_available = 0, this.strstart = 0, this.match_start = 0, this.lookahead = 0, this.prev_length = 0, this.max_chain_length = 0, this.max_lazy_match = 0, this.level = 0, this.strategy = 0, this.good_match = 0, this.nice_match = 0, this.dyn_ltree = new Yt(2 * mn), this.dyn_dtree = new Yt(2 * (2 * bn + 1)), this.bl_tree = new Yt(2 * (2 * yn + 1)), Nn(this.dyn_ltree), Nn(this.dyn_dtree), Nn(this.bl_tree), this.l_desc = null, this.d_desc = null, this.bl_desc = null, this.bl_count = new Yt(kn + 1), this.heap = new Yt(2 * wn + 1), Nn(this.heap), this.heap_len = 0, this.heap_max = 0, this.depth = new Yt(2 * wn + 1), Nn(this.depth), this.l_buf = 0, this.lit_bufsize = 0, this.last_lit = 0, this.d_buf = 0, this.opt_len = 0, this.static_len = 0, this.matches = 0, this.insert = 0, this.bi_buf = 0, this.bi_valid = 0;
 }
 function Jn(Oo) {
   var No, jo = (function(Go) {
-    var Qo;
-    return Go && Go.state ? (Go.total_in = Go.total_out = 0, Go.data_type = _n, (Qo = Go.state).pending = 0, Qo.pending_out = 0, Qo.wrap < 0 && (Qo.wrap = -Qo.wrap), Qo.status = Qo.wrap ? An : Mn, Go.adler = Qo.wrap === 2 ? 0 : 1, Qo.last_flush = Qr, Wr(Qo), on) : Hn(Go, sn);
+    var Ho;
+    return Go && Go.state ? (Go.total_in = Go.total_out = 0, Go.data_type = _n, (Ho = Go.state).pending = 0, Ho.pending_out = 0, Ho.wrap < 0 && (Ho.wrap = -Ho.wrap), Ho.status = Ho.wrap ? An : Mn, Go.adler = Ho.wrap === 2 ? 0 : 1, Ho.last_flush = Qr, Wr(Ho), on) : Hn(Go, sn);
   })(Oo);
   return jo === on && ((No = Oo.state).window_size = 2 * No.w_size, Nn(No.head), No.max_lazy_match = Jr[No.level].max_lazy, No.good_match = Jr[No.level].good_length, No.nice_match = Jr[No.level].nice_length, No.max_chain_length = Jr[No.level].max_chain, No.strstart = 0, No.block_start = 0, No.lookahead = 0, No.insert = 0, No.match_length = No.prev_length = En - 1, No.match_available = 0, No.ins_h = 0), jo;
 }
 function Qn(Oo, No) {
-  var jo, Go, Qo, Ho;
+  var jo, Go, Ho, Qo;
   if (!Oo || !Oo.state || No > nn || No < 0) return Oo ? Hn(Oo, sn) : sn;
   if (Go = Oo.state, !Oo.output || !Oo.input && Oo.avail_in !== 0 || Go.status === Cn && No !== rn) return Hn(Oo, Oo.avail_out === 0 ? ln : sn);
   if (Go.strm = Oo, jo = Go.last_flush, Go.last_flush = No, Go.status === An) if (Go.wrap === 2) Oo.adler = 0, Wn(Go, 31), Wn(Go, 139), Wn(Go, 8), Go.gzhead ? (Wn(Go, (Go.gzhead.text ? 1 : 0) + (Go.gzhead.hcrc ? 2 : 0) + (Go.gzhead.extra ? 4 : 0) + (Go.gzhead.name ? 8 : 0) + (Go.gzhead.comment ? 16 : 0)), Wn(Go, 255 & Go.gzhead.time), Wn(Go, Go.gzhead.time >> 8 & 255), Wn(Go, Go.gzhead.time >> 16 & 255), Wn(Go, Go.gzhead.time >> 24 & 255), Wn(Go, Go.level === 9 ? 2 : Go.strategy >= un || Go.level < 2 ? 4 : 0), Wn(Go, 255 & Go.gzhead.os), Go.gzhead.extra && Go.gzhead.extra.length && (Wn(Go, 255 & Go.gzhead.extra.length), Wn(Go, Go.gzhead.extra.length >> 8 & 255)), Go.gzhead.hcrc && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending, 0)), Go.gzindex = 0, Go.status = Bn) : (Wn(Go, 0), Wn(Go, 0), Wn(Go, 0), Wn(Go, 0), Wn(Go, 0), Wn(Go, Go.level === 9 ? 2 : Go.strategy >= un || Go.level < 2 ? 4 : 0), Wn(Go, Un), Go.status = Mn);
@@ -6817,30 +7934,30 @@ function Qn(Oo, No) {
     Vo |= (Go.strategy >= un || Go.level < 2 ? 0 : Go.level < 6 ? 1 : Go.level === 6 ? 2 : 3) << 6, Go.strstart !== 0 && (Vo |= Rn), Vo += 31 - Vo % 31, Go.status = Mn, Yn(Go, Vo), Go.strstart !== 0 && (Yn(Go, Oo.adler >>> 16), Yn(Go, 65535 & Oo.adler)), Oo.adler = 1;
   }
   if (Go.status === Bn) if (Go.gzhead.extra) {
-    for (Qo = Go.pending; Go.gzindex < (65535 & Go.gzhead.extra.length) && (Go.pending !== Go.pending_buf_size || (Go.gzhead.hcrc && Go.pending > Qo && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Qo, Qo)), Zn(Oo), Qo = Go.pending, Go.pending !== Go.pending_buf_size)); ) Wn(Go, 255 & Go.gzhead.extra[Go.gzindex]), Go.gzindex++;
-    Go.gzhead.hcrc && Go.pending > Qo && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Qo, Qo)), Go.gzindex === Go.gzhead.extra.length && (Go.gzindex = 0, Go.status = zn);
+    for (Ho = Go.pending; Go.gzindex < (65535 & Go.gzhead.extra.length) && (Go.pending !== Go.pending_buf_size || (Go.gzhead.hcrc && Go.pending > Ho && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Ho, Ho)), Zn(Oo), Ho = Go.pending, Go.pending !== Go.pending_buf_size)); ) Wn(Go, 255 & Go.gzhead.extra[Go.gzindex]), Go.gzindex++;
+    Go.gzhead.hcrc && Go.pending > Ho && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Ho, Ho)), Go.gzindex === Go.gzhead.extra.length && (Go.gzindex = 0, Go.status = zn);
   } else Go.status = zn;
   if (Go.status === zn) if (Go.gzhead.name) {
-    Qo = Go.pending;
+    Ho = Go.pending;
     do {
-      if (Go.pending === Go.pending_buf_size && (Go.gzhead.hcrc && Go.pending > Qo && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Qo, Qo)), Zn(Oo), Qo = Go.pending, Go.pending === Go.pending_buf_size)) {
-        Ho = 1;
+      if (Go.pending === Go.pending_buf_size && (Go.gzhead.hcrc && Go.pending > Ho && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Ho, Ho)), Zn(Oo), Ho = Go.pending, Go.pending === Go.pending_buf_size)) {
+        Qo = 1;
         break;
       }
-      Ho = Go.gzindex < Go.gzhead.name.length ? 255 & Go.gzhead.name.charCodeAt(Go.gzindex++) : 0, Wn(Go, Ho);
-    } while (Ho !== 0);
-    Go.gzhead.hcrc && Go.pending > Qo && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Qo, Qo)), Ho === 0 && (Go.gzindex = 0, Go.status = Ln);
+      Qo = Go.gzindex < Go.gzhead.name.length ? 255 & Go.gzhead.name.charCodeAt(Go.gzindex++) : 0, Wn(Go, Qo);
+    } while (Qo !== 0);
+    Go.gzhead.hcrc && Go.pending > Ho && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Ho, Ho)), Qo === 0 && (Go.gzindex = 0, Go.status = Ln);
   } else Go.status = Ln;
   if (Go.status === Ln) if (Go.gzhead.comment) {
-    Qo = Go.pending;
+    Ho = Go.pending;
     do {
-      if (Go.pending === Go.pending_buf_size && (Go.gzhead.hcrc && Go.pending > Qo && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Qo, Qo)), Zn(Oo), Qo = Go.pending, Go.pending === Go.pending_buf_size)) {
-        Ho = 1;
+      if (Go.pending === Go.pending_buf_size && (Go.gzhead.hcrc && Go.pending > Ho && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Ho, Ho)), Zn(Oo), Ho = Go.pending, Go.pending === Go.pending_buf_size)) {
+        Qo = 1;
         break;
       }
-      Ho = Go.gzindex < Go.gzhead.comment.length ? 255 & Go.gzhead.comment.charCodeAt(Go.gzindex++) : 0, Wn(Go, Ho);
-    } while (Ho !== 0);
-    Go.gzhead.hcrc && Go.pending > Qo && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Qo, Qo)), Ho === 0 && (Go.status = Tn);
+      Qo = Go.gzindex < Go.gzhead.comment.length ? 255 & Go.gzhead.comment.charCodeAt(Go.gzindex++) : 0, Wn(Go, Qo);
+    } while (Qo !== 0);
+    Go.gzhead.hcrc && Go.pending > Ho && (Oo.adler = $r(Oo.adler, Go.pending_buf, Go.pending - Ho, Ho)), Qo === 0 && (Go.status = Tn);
   } else Go.status = Tn;
   if (Go.status === Tn && (Go.gzhead.hcrc ? (Go.pending + 2 > Go.pending_buf_size && Zn(Oo), Go.pending + 2 <= Go.pending_buf_size && (Wn(Go, 255 & Oo.adler), Wn(Go, Oo.adler >> 8 & 255), Oo.adler = 0, Go.status = Mn)) : Go.status = Mn), Go.pending !== 0) {
     if (Zn(Oo), Oo.avail_out === 0) return Go.last_flush = -1, on;
@@ -6893,12 +8010,12 @@ Jr = [new Gn(0, 0, 0, 0, function(Oo, No) {
 }), new Gn(4, 4, 8, 4, qn), new Gn(4, 5, 16, 8, qn), new Gn(4, 6, 32, 32, qn), new Gn(4, 4, 16, 16, Vn), new Gn(8, 16, 32, 32, Vn), new Gn(8, 16, 128, 128, Vn), new Gn(8, 32, 128, 256, Vn), new Gn(32, 128, 258, 1024, Vn), new Gn(32, 258, 258, 4096, Vn)];
 var ei = 30, ti = 12;
 function ri(Oo, No) {
-  var jo, Go, Qo, Ho, Vo, qo, Yo, Xo, Fo, Wo, Ko, Jo, es, rs, is, As, os, us, as, vs, Is, hs, ys, Ps, ds;
-  jo = Oo.state, Go = Oo.next_in, Ps = Oo.input, Qo = Go + (Oo.avail_in - 5), Ho = Oo.next_out, ds = Oo.output, Vo = Ho - (No - Oo.avail_out), qo = Ho + (Oo.avail_out - 257), Yo = jo.dmax, Xo = jo.wsize, Fo = jo.whave, Wo = jo.wnext, Ko = jo.window, Jo = jo.hold, es = jo.bits, rs = jo.lencode, is = jo.distcode, As = (1 << jo.lenbits) - 1, os = (1 << jo.distbits) - 1;
+  var jo, Go, Ho, Qo, Vo, qo, Yo, Xo, Fo, Wo, Ko, Jo, es, rs, is, As, os, us, as, vs, Is, hs, ys, Ps, ds;
+  jo = Oo.state, Go = Oo.next_in, Ps = Oo.input, Ho = Go + (Oo.avail_in - 5), Qo = Oo.next_out, ds = Oo.output, Vo = Qo - (No - Oo.avail_out), qo = Qo + (Oo.avail_out - 257), Yo = jo.dmax, Xo = jo.wsize, Fo = jo.whave, Wo = jo.wnext, Ko = jo.window, Jo = jo.hold, es = jo.bits, rs = jo.lencode, is = jo.distcode, As = (1 << jo.lenbits) - 1, os = (1 << jo.distbits) - 1;
   e: do {
     es < 15 && (Jo += Ps[Go++] << es, es += 8, Jo += Ps[Go++] << es, es += 8), us = rs[Jo & As];
     t: for (; ; ) {
-      if (Jo >>>= as = us >>> 24, es -= as, (as = us >>> 16 & 255) === 0) ds[Ho++] = 65535 & us;
+      if (Jo >>>= as = us >>> 24, es -= as, (as = us >>> 16 & 255) === 0) ds[Qo++] = 65535 & us;
       else {
         if (!(16 & as)) {
           if ((64 & as) == 0) {
@@ -6926,7 +8043,7 @@ function ri(Oo, No) {
             Oo.msg = "invalid distance too far back", jo.mode = ei;
             break e;
           }
-          if (Jo >>>= as, es -= as, Is > (as = Ho - Vo)) {
+          if (Jo >>>= as, es -= as, Is > (as = Qo - Vo)) {
             if ((as = Is - as) > Fo && jo.sane) {
               Oo.msg = "invalid distance too far back", jo.mode = ei;
               break e;
@@ -6935,65 +8052,65 @@ function ri(Oo, No) {
               if (hs += Xo - as, as < vs) {
                 vs -= as;
                 do
-                  ds[Ho++] = Ko[hs++];
+                  ds[Qo++] = Ko[hs++];
                 while (--as);
-                hs = Ho - Is, ys = ds;
+                hs = Qo - Is, ys = ds;
               }
             } else if (Wo < as) {
               if (hs += Xo + Wo - as, (as -= Wo) < vs) {
                 vs -= as;
                 do
-                  ds[Ho++] = Ko[hs++];
+                  ds[Qo++] = Ko[hs++];
                 while (--as);
                 if (hs = 0, Wo < vs) {
                   vs -= as = Wo;
                   do
-                    ds[Ho++] = Ko[hs++];
+                    ds[Qo++] = Ko[hs++];
                   while (--as);
-                  hs = Ho - Is, ys = ds;
+                  hs = Qo - Is, ys = ds;
                 }
               }
             } else if (hs += Wo - as, as < vs) {
               vs -= as;
               do
-                ds[Ho++] = Ko[hs++];
+                ds[Qo++] = Ko[hs++];
               while (--as);
-              hs = Ho - Is, ys = ds;
+              hs = Qo - Is, ys = ds;
             }
-            for (; vs > 2; ) ds[Ho++] = ys[hs++], ds[Ho++] = ys[hs++], ds[Ho++] = ys[hs++], vs -= 3;
-            vs && (ds[Ho++] = ys[hs++], vs > 1 && (ds[Ho++] = ys[hs++]));
+            for (; vs > 2; ) ds[Qo++] = ys[hs++], ds[Qo++] = ys[hs++], ds[Qo++] = ys[hs++], vs -= 3;
+            vs && (ds[Qo++] = ys[hs++], vs > 1 && (ds[Qo++] = ys[hs++]));
           } else {
-            hs = Ho - Is;
+            hs = Qo - Is;
             do
-              ds[Ho++] = ds[hs++], ds[Ho++] = ds[hs++], ds[Ho++] = ds[hs++], vs -= 3;
+              ds[Qo++] = ds[hs++], ds[Qo++] = ds[hs++], ds[Qo++] = ds[hs++], vs -= 3;
             while (vs > 2);
-            vs && (ds[Ho++] = ds[hs++], vs > 1 && (ds[Ho++] = ds[hs++]));
+            vs && (ds[Qo++] = ds[hs++], vs > 1 && (ds[Qo++] = ds[hs++]));
           }
           break;
         }
       }
       break;
     }
-  } while (Go < Qo && Ho < qo);
-  Go -= vs = es >> 3, Jo &= (1 << (es -= vs << 3)) - 1, Oo.next_in = Go, Oo.next_out = Ho, Oo.avail_in = Go < Qo ? Qo - Go + 5 : 5 - (Go - Qo), Oo.avail_out = Ho < qo ? qo - Ho + 257 : 257 - (Ho - qo), jo.hold = Jo, jo.bits = es;
+  } while (Go < Ho && Qo < qo);
+  Go -= vs = es >> 3, Jo &= (1 << (es -= vs << 3)) - 1, Oo.next_in = Go, Oo.next_out = Qo, Oo.avail_in = Go < Ho ? Ho - Go + 5 : 5 - (Go - Ho), Oo.avail_out = Qo < qo ? qo - Qo + 257 : 257 - (Qo - qo), jo.hold = Jo, jo.bits = es;
 }
 var ni = 15, ii = 852, oi = 592, ai = 0, si = 1, hi = 2, li = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0], fi = [16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 16, 72, 78], ci = [1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577, 0, 0], ui = [16, 16, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 64, 64];
-function di(Oo, No, jo, Go, Qo, Ho, Vo, qo) {
+function di(Oo, No, jo, Go, Ho, Qo, Vo, qo) {
   var Yo, Xo, Fo, Wo, Ko, Jo, es, rs, is, As = qo.bits, os = 0, us = 0, as = 0, vs = 0, Is = 0, hs = 0, ys = 0, Ps = 0, ds = 0, Es = 0, Os = null, ws = 0, zs = new Yt(ni + 1), Ys = new Yt(ni + 1), ks = null, _s = 0;
   for (os = 0; os <= ni; os++) zs[os] = 0;
   for (us = 0; us < Go; us++) zs[No[jo + us]]++;
   for (Is = As, vs = ni; vs >= 1 && zs[vs] === 0; vs--) ;
-  if (Is > vs && (Is = vs), vs === 0) return Qo[Ho++] = 20971520, Qo[Ho++] = 20971520, qo.bits = 1, 0;
+  if (Is > vs && (Is = vs), vs === 0) return Ho[Qo++] = 20971520, Ho[Qo++] = 20971520, qo.bits = 1, 0;
   for (as = 1; as < vs && zs[as] === 0; as++) ;
   for (Is < as && (Is = as), Ps = 1, os = 1; os <= ni; os++) if (Ps <<= 1, (Ps -= zs[os]) < 0) return -1;
   if (Ps > 0 && (Oo === ai || vs !== 1)) return -1;
   for (Ys[1] = 0, os = 1; os < ni; os++) Ys[os + 1] = Ys[os] + zs[os];
   for (us = 0; us < Go; us++) No[jo + us] !== 0 && (Vo[Ys[No[jo + us]]++] = us);
-  if (Oo === ai ? (Os = ks = Vo, Jo = 19) : Oo === si ? (Os = li, ws -= 257, ks = fi, _s -= 257, Jo = 256) : (Os = ci, ks = ui, Jo = -1), Es = 0, us = 0, os = as, Ko = Ho, hs = Is, ys = 0, Fo = -1, Wo = (ds = 1 << Is) - 1, Oo === si && ds > ii || Oo === hi && ds > oi) return 1;
+  if (Oo === ai ? (Os = ks = Vo, Jo = 19) : Oo === si ? (Os = li, ws -= 257, ks = fi, _s -= 257, Jo = 256) : (Os = ci, ks = ui, Jo = -1), Es = 0, us = 0, os = as, Ko = Qo, hs = Is, ys = 0, Fo = -1, Wo = (ds = 1 << Is) - 1, Oo === si && ds > ii || Oo === hi && ds > oi) return 1;
   for (; ; ) {
     es = os - ys, Vo[us] < Jo ? (rs = 0, is = Vo[us]) : Vo[us] > Jo ? (rs = ks[_s + Vo[us]], is = Os[ws + Vo[us]]) : (rs = 96, is = 0), Yo = 1 << os - ys, as = Xo = 1 << hs;
     do
-      Qo[Ko + (Es >> ys) + (Xo -= Yo)] = es << 24 | rs << 16 | is | 0;
+      Ho[Ko + (Es >> ys) + (Xo -= Yo)] = es << 24 | rs << 16 | is | 0;
     while (Xo !== 0);
     for (Yo = 1 << os - 1; Es & Yo; ) Yo >>= 1;
     if (Yo !== 0 ? (Es &= Yo - 1, Es += Yo) : Es = 0, us++, --zs[os] == 0) {
@@ -7003,10 +8120,10 @@ function di(Oo, No, jo, Go, Qo, Ho, Vo, qo) {
     if (os > Is && (Es & Wo) !== Fo) {
       for (ys === 0 && (ys = Is), Ko += as, Ps = 1 << (hs = os - ys); hs + ys < vs && !((Ps -= zs[hs + ys]) <= 0); ) hs++, Ps <<= 1;
       if (ds += 1 << hs, Oo === si && ds > ii || Oo === hi && ds > oi) return 1;
-      Qo[Fo = Es & Wo] = Is << 24 | hs << 16 | Ko - Ho | 0;
+      Ho[Fo = Es & Wo] = Is << 24 | hs << 16 | Ko - Qo | 0;
     }
   }
-  return Es !== 0 && (Qo[Ko + Es] = os - ys << 24 | 64 << 16 | 0), qo.bits = Is, 0;
+  return Es !== 0 && (Ho[Ko + Es] = os - ys << 24 | 64 << 16 | 0), qo.bits = Is, 0;
 }
 var pi = 0, _i = 1, gi = 2, vi = 4, wi = 5, bi = 6, yi = 0, mi = 1, ki = 2, Ei = -2, Si = -3, xi = -4, Ri = -5, Ai = 8, Bi = 1, zi = 2, Li = 3, Ti = 4, Mi = 5, Ci = 6, Di = 7, Ii = 8, Pi = 9, Oi = 10, Ui = 11, Hi = 12, Fi = 13, Ni = 14, Zi = 15, ji = 16, Wi = 17, Yi = 18, Ki = 19, Xi = 20, qi = 21, Vi = 22, Gi = 23, $i = 24, Ji = 25, Qi = 26, eo = 27, to = 28, ro = 29, no = 30, io = 31, oo = 32, ao = 852, so = 592;
 function ho(Oo) {
@@ -7024,9 +8141,9 @@ function fo(Oo) {
 }
 function co(Oo, No) {
   var jo, Go;
-  return Oo ? (Go = new lo(), Oo.state = Go, Go.window = null, (jo = (function(Qo, Ho) {
+  return Oo ? (Go = new lo(), Oo.state = Go, Go.window = null, (jo = (function(Ho, Qo) {
     var Vo, qo;
-    return Qo && Qo.state ? (qo = Qo.state, Ho < 0 ? (Vo = 0, Ho = -Ho) : (Vo = 1 + (Ho >> 4), Ho < 48 && (Ho &= 15)), Ho && (Ho < 8 || Ho > 15) ? Ei : (qo.window !== null && qo.wbits !== Ho && (qo.window = null), qo.wrap = Vo, qo.wbits = Ho, fo(Qo))) : Ei;
+    return Ho && Ho.state ? (qo = Ho.state, Qo < 0 ? (Vo = 0, Qo = -Qo) : (Vo = 1 + (Qo >> 4), Qo < 48 && (Qo &= 15)), Qo && (Qo < 8 || Qo > 15) ? Ei : (qo.window !== null && qo.wbits !== Qo && (qo.window = null), qo.wrap = Vo, qo.wbits = Qo, fo(Ho))) : Ei;
   })(Oo, No)) !== yi && (Oo.state = null), jo) : Ei;
 }
 var uo, po, _o = !0;
@@ -7043,9 +8160,9 @@ function go(Oo) {
   Oo.lencode = uo, Oo.lenbits = 9, Oo.distcode = po, Oo.distbits = 5;
 }
 function vo(Oo, No) {
-  var jo, Go, Qo, Ho, Vo, qo, Yo, Xo, Fo, Wo, Ko, Jo, es, rs, is, As, os, us, as, vs, Is, hs, ys, Ps, ds = 0, Es = new Wt(4), Os = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
+  var jo, Go, Ho, Qo, Vo, qo, Yo, Xo, Fo, Wo, Ko, Jo, es, rs, is, As, os, us, as, vs, Is, hs, ys, Ps, ds = 0, Es = new Wt(4), Os = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
   if (!Oo || !Oo.state || !Oo.output || !Oo.input && Oo.avail_in !== 0) return Ei;
-  (jo = Oo.state).mode === Hi && (jo.mode = Fi), Vo = Oo.next_out, Qo = Oo.output, Yo = Oo.avail_out, Ho = Oo.next_in, Go = Oo.input, qo = Oo.avail_in, Xo = jo.hold, Fo = jo.bits, Wo = qo, Ko = Yo, hs = yi;
+  (jo = Oo.state).mode === Hi && (jo.mode = Fi), Vo = Oo.next_out, Ho = Oo.output, Yo = Oo.avail_out, Qo = Oo.next_in, Go = Oo.input, qo = Oo.avail_in, Xo = jo.hold, Fo = jo.bits, Wo = qo, Ko = Yo, hs = yi;
   e: for (; ; ) switch (jo.mode) {
     case Bi:
       if (jo.wrap === 0) {
@@ -7054,7 +8171,7 @@ function vo(Oo, No) {
       }
       for (; Fo < 16; ) {
         if (qo === 0) break e;
-        qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+        qo--, Xo += Go[Qo++] << Fo, Fo += 8;
       }
       if (2 & jo.wrap && Xo === 35615) {
         jo.check = 0, Es[0] = 255 & Xo, Es[1] = Xo >>> 8 & 255, jo.check = $r(jo.check, Es, 2, 0), Xo = 0, Fo = 0, jo.mode = zi;
@@ -7078,7 +8195,7 @@ function vo(Oo, No) {
     case zi:
       for (; Fo < 16; ) {
         if (qo === 0) break e;
-        qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+        qo--, Xo += Go[Qo++] << Fo, Fo += 8;
       }
       if (jo.flags = Xo, (255 & jo.flags) !== Ai) {
         Oo.msg = "unknown compression method", jo.mode = no;
@@ -7092,35 +8209,35 @@ function vo(Oo, No) {
     case Li:
       for (; Fo < 32; ) {
         if (qo === 0) break e;
-        qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+        qo--, Xo += Go[Qo++] << Fo, Fo += 8;
       }
       jo.head && (jo.head.time = Xo), 512 & jo.flags && (Es[0] = 255 & Xo, Es[1] = Xo >>> 8 & 255, Es[2] = Xo >>> 16 & 255, Es[3] = Xo >>> 24 & 255, jo.check = $r(jo.check, Es, 4, 0)), Xo = 0, Fo = 0, jo.mode = Ti;
     case Ti:
       for (; Fo < 16; ) {
         if (qo === 0) break e;
-        qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+        qo--, Xo += Go[Qo++] << Fo, Fo += 8;
       }
       jo.head && (jo.head.xflags = 255 & Xo, jo.head.os = Xo >> 8), 512 & jo.flags && (Es[0] = 255 & Xo, Es[1] = Xo >>> 8 & 255, jo.check = $r(jo.check, Es, 2, 0)), Xo = 0, Fo = 0, jo.mode = Mi;
     case Mi:
       if (1024 & jo.flags) {
         for (; Fo < 16; ) {
           if (qo === 0) break e;
-          qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+          qo--, Xo += Go[Qo++] << Fo, Fo += 8;
         }
         jo.length = Xo, jo.head && (jo.head.extra_len = Xo), 512 & jo.flags && (Es[0] = 255 & Xo, Es[1] = Xo >>> 8 & 255, jo.check = $r(jo.check, Es, 2, 0)), Xo = 0, Fo = 0;
       } else jo.head && (jo.head.extra = null);
       jo.mode = Ci;
     case Ci:
-      if (1024 & jo.flags && ((Jo = jo.length) > qo && (Jo = qo), Jo && (jo.head && (Is = jo.head.extra_len - jo.length, jo.head.extra || (jo.head.extra = new Array(jo.head.extra_len)), jt(jo.head.extra, Go, Ho, Jo, Is)), 512 & jo.flags && (jo.check = $r(jo.check, Go, Jo, Ho)), qo -= Jo, Ho += Jo, jo.length -= Jo), jo.length)) break e;
+      if (1024 & jo.flags && ((Jo = jo.length) > qo && (Jo = qo), Jo && (jo.head && (Is = jo.head.extra_len - jo.length, jo.head.extra || (jo.head.extra = new Array(jo.head.extra_len)), jt(jo.head.extra, Go, Qo, Jo, Is)), 512 & jo.flags && (jo.check = $r(jo.check, Go, Jo, Qo)), qo -= Jo, Qo += Jo, jo.length -= Jo), jo.length)) break e;
       jo.length = 0, jo.mode = Di;
     case Di:
       if (2048 & jo.flags) {
         if (qo === 0) break e;
         Jo = 0;
         do
-          Is = Go[Ho + Jo++], jo.head && Is && jo.length < 65536 && (jo.head.name += String.fromCharCode(Is));
+          Is = Go[Qo + Jo++], jo.head && Is && jo.length < 65536 && (jo.head.name += String.fromCharCode(Is));
         while (Is && Jo < qo);
-        if (512 & jo.flags && (jo.check = $r(jo.check, Go, Jo, Ho)), qo -= Jo, Ho += Jo, Is) break e;
+        if (512 & jo.flags && (jo.check = $r(jo.check, Go, Jo, Qo)), qo -= Jo, Qo += Jo, Is) break e;
       } else jo.head && (jo.head.name = null);
       jo.length = 0, jo.mode = Ii;
     case Ii:
@@ -7128,16 +8245,16 @@ function vo(Oo, No) {
         if (qo === 0) break e;
         Jo = 0;
         do
-          Is = Go[Ho + Jo++], jo.head && Is && jo.length < 65536 && (jo.head.comment += String.fromCharCode(Is));
+          Is = Go[Qo + Jo++], jo.head && Is && jo.length < 65536 && (jo.head.comment += String.fromCharCode(Is));
         while (Is && Jo < qo);
-        if (512 & jo.flags && (jo.check = $r(jo.check, Go, Jo, Ho)), qo -= Jo, Ho += Jo, Is) break e;
+        if (512 & jo.flags && (jo.check = $r(jo.check, Go, Jo, Qo)), qo -= Jo, Qo += Jo, Is) break e;
       } else jo.head && (jo.head.comment = null);
       jo.mode = Pi;
     case Pi:
       if (512 & jo.flags) {
         for (; Fo < 16; ) {
           if (qo === 0) break e;
-          qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+          qo--, Xo += Go[Qo++] << Fo, Fo += 8;
         }
         if (Xo !== (65535 & jo.check)) {
           Oo.msg = "header crc mismatch", jo.mode = no;
@@ -7150,11 +8267,11 @@ function vo(Oo, No) {
     case Oi:
       for (; Fo < 32; ) {
         if (qo === 0) break e;
-        qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+        qo--, Xo += Go[Qo++] << Fo, Fo += 8;
       }
       Oo.adler = jo.check = ho(Xo), Xo = 0, Fo = 0, jo.mode = Ui;
     case Ui:
-      if (jo.havedict === 0) return Oo.next_out = Vo, Oo.avail_out = Yo, Oo.next_in = Ho, Oo.avail_in = qo, jo.hold = Xo, jo.bits = Fo, ki;
+      if (jo.havedict === 0) return Oo.next_out = Vo, Oo.avail_out = Yo, Oo.next_in = Qo, Oo.avail_in = qo, jo.hold = Xo, jo.bits = Fo, ki;
       Oo.adler = jo.check = 1, jo.mode = Hi;
     case Hi:
       if (No === wi || No === bi) break e;
@@ -7165,7 +8282,7 @@ function vo(Oo, No) {
       }
       for (; Fo < 3; ) {
         if (qo === 0) break e;
-        qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+        qo--, Xo += Go[Qo++] << Fo, Fo += 8;
       }
       switch (jo.last = 1 & Xo, Fo -= 1, 3 & (Xo >>>= 1)) {
         case 0:
@@ -7188,7 +8305,7 @@ function vo(Oo, No) {
     case Ni:
       for (Xo >>>= 7 & Fo, Fo -= 7 & Fo; Fo < 32; ) {
         if (qo === 0) break e;
-        qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+        qo--, Xo += Go[Qo++] << Fo, Fo += 8;
       }
       if ((65535 & Xo) != (Xo >>> 16 ^ 65535)) {
         Oo.msg = "invalid stored block lengths", jo.mode = no;
@@ -7200,7 +8317,7 @@ function vo(Oo, No) {
     case ji:
       if (Jo = jo.length) {
         if (Jo > qo && (Jo = qo), Jo > Yo && (Jo = Yo), Jo === 0) break e;
-        jt(Qo, Go, Ho, Jo, Vo), qo -= Jo, Ho += Jo, Yo -= Jo, Vo += Jo, jo.length -= Jo;
+        jt(Ho, Go, Qo, Jo, Vo), qo -= Jo, Qo += Jo, Yo -= Jo, Vo += Jo, jo.length -= Jo;
         break;
       }
       jo.mode = Hi;
@@ -7208,7 +8325,7 @@ function vo(Oo, No) {
     case Wi:
       for (; Fo < 14; ) {
         if (qo === 0) break e;
-        qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+        qo--, Xo += Go[Qo++] << Fo, Fo += 8;
       }
       if (jo.nlen = 257 + (31 & Xo), Xo >>>= 5, Fo -= 5, jo.ndist = 1 + (31 & Xo), Xo >>>= 5, Fo -= 5, jo.ncode = 4 + (15 & Xo), Xo >>>= 4, Fo -= 4, jo.nlen > 286 || jo.ndist > 30) {
         Oo.msg = "too many length or distance symbols", jo.mode = no;
@@ -7219,7 +8336,7 @@ function vo(Oo, No) {
       for (; jo.have < jo.ncode; ) {
         for (; Fo < 3; ) {
           if (qo === 0) break e;
-          qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+          qo--, Xo += Go[Qo++] << Fo, Fo += 8;
         }
         jo.lens[Os[jo.have++]] = 7 & Xo, Xo >>>= 3, Fo -= 3;
       }
@@ -7233,14 +8350,14 @@ function vo(Oo, No) {
       for (; jo.have < jo.nlen + jo.ndist; ) {
         for (; As = (ds = jo.lencode[Xo & (1 << jo.lenbits) - 1]) >>> 16 & 255, os = 65535 & ds, !((is = ds >>> 24) <= Fo); ) {
           if (qo === 0) break e;
-          qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+          qo--, Xo += Go[Qo++] << Fo, Fo += 8;
         }
         if (os < 16) Xo >>>= is, Fo -= is, jo.lens[jo.have++] = os;
         else {
           if (os === 16) {
             for (Ps = is + 2; Fo < Ps; ) {
               if (qo === 0) break e;
-              qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+              qo--, Xo += Go[Qo++] << Fo, Fo += 8;
             }
             if (Xo >>>= is, Fo -= is, jo.have === 0) {
               Oo.msg = "invalid bit length repeat", jo.mode = no;
@@ -7250,13 +8367,13 @@ function vo(Oo, No) {
           } else if (os === 17) {
             for (Ps = is + 3; Fo < Ps; ) {
               if (qo === 0) break e;
-              qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+              qo--, Xo += Go[Qo++] << Fo, Fo += 8;
             }
             Fo -= is, Is = 0, Jo = 3 + (7 & (Xo >>>= is)), Xo >>>= 3, Fo -= 3;
           } else {
             for (Ps = is + 7; Fo < Ps; ) {
               if (qo === 0) break e;
-              qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+              qo--, Xo += Go[Qo++] << Fo, Fo += 8;
             }
             Fo -= is, Is = 0, Jo = 11 + (127 & (Xo >>>= is)), Xo >>>= 7, Fo -= 7;
           }
@@ -7285,17 +8402,17 @@ function vo(Oo, No) {
       jo.mode = qi;
     case qi:
       if (qo >= 6 && Yo >= 258) {
-        Oo.next_out = Vo, Oo.avail_out = Yo, Oo.next_in = Ho, Oo.avail_in = qo, jo.hold = Xo, jo.bits = Fo, ri(Oo, Ko), Vo = Oo.next_out, Qo = Oo.output, Yo = Oo.avail_out, Ho = Oo.next_in, Go = Oo.input, qo = Oo.avail_in, Xo = jo.hold, Fo = jo.bits, jo.mode === Hi && (jo.back = -1);
+        Oo.next_out = Vo, Oo.avail_out = Yo, Oo.next_in = Qo, Oo.avail_in = qo, jo.hold = Xo, jo.bits = Fo, ri(Oo, Ko), Vo = Oo.next_out, Ho = Oo.output, Yo = Oo.avail_out, Qo = Oo.next_in, Go = Oo.input, qo = Oo.avail_in, Xo = jo.hold, Fo = jo.bits, jo.mode === Hi && (jo.back = -1);
         break;
       }
       for (jo.back = 0; As = (ds = jo.lencode[Xo & (1 << jo.lenbits) - 1]) >>> 16 & 255, os = 65535 & ds, !((is = ds >>> 24) <= Fo); ) {
         if (qo === 0) break e;
-        qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+        qo--, Xo += Go[Qo++] << Fo, Fo += 8;
       }
       if (As && (240 & As) == 0) {
         for (us = is, as = As, vs = os; As = (ds = jo.lencode[vs + ((Xo & (1 << us + as) - 1) >> us)]) >>> 16 & 255, os = 65535 & ds, !(us + (is = ds >>> 24) <= Fo); ) {
           if (qo === 0) break e;
-          qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+          qo--, Xo += Go[Qo++] << Fo, Fo += 8;
         }
         Xo >>>= us, Fo -= us, jo.back += us;
       }
@@ -7316,7 +8433,7 @@ function vo(Oo, No) {
       if (jo.extra) {
         for (Ps = jo.extra; Fo < Ps; ) {
           if (qo === 0) break e;
-          qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+          qo--, Xo += Go[Qo++] << Fo, Fo += 8;
         }
         jo.length += Xo & (1 << jo.extra) - 1, Xo >>>= jo.extra, Fo -= jo.extra, jo.back += jo.extra;
       }
@@ -7324,12 +8441,12 @@ function vo(Oo, No) {
     case Gi:
       for (; As = (ds = jo.distcode[Xo & (1 << jo.distbits) - 1]) >>> 16 & 255, os = 65535 & ds, !((is = ds >>> 24) <= Fo); ) {
         if (qo === 0) break e;
-        qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+        qo--, Xo += Go[Qo++] << Fo, Fo += 8;
       }
       if ((240 & As) == 0) {
         for (us = is, as = As, vs = os; As = (ds = jo.distcode[vs + ((Xo & (1 << us + as) - 1) >> us)]) >>> 16 & 255, os = 65535 & ds, !(us + (is = ds >>> 24) <= Fo); ) {
           if (qo === 0) break e;
-          qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+          qo--, Xo += Go[Qo++] << Fo, Fo += 8;
         }
         Xo >>>= us, Fo -= us, jo.back += us;
       }
@@ -7342,7 +8459,7 @@ function vo(Oo, No) {
       if (jo.extra) {
         for (Ps = jo.extra; Fo < Ps; ) {
           if (qo === 0) break e;
-          qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+          qo--, Xo += Go[Qo++] << Fo, Fo += 8;
         }
         jo.offset += Xo & (1 << jo.extra) - 1, Xo >>>= jo.extra, Fo -= jo.extra, jo.back += jo.extra;
       }
@@ -7359,24 +8476,24 @@ function vo(Oo, No) {
           break;
         }
         Jo > jo.wnext ? (Jo -= jo.wnext, es = jo.wsize - Jo) : es = jo.wnext - Jo, Jo > jo.length && (Jo = jo.length), rs = jo.window;
-      } else rs = Qo, es = Vo - jo.offset, Jo = jo.length;
+      } else rs = Ho, es = Vo - jo.offset, Jo = jo.length;
       Jo > Yo && (Jo = Yo), Yo -= Jo, jo.length -= Jo;
       do
-        Qo[Vo++] = rs[es++];
+        Ho[Vo++] = rs[es++];
       while (--Jo);
       jo.length === 0 && (jo.mode = qi);
       break;
     case Qi:
       if (Yo === 0) break e;
-      Qo[Vo++] = jo.length, Yo--, jo.mode = qi;
+      Ho[Vo++] = jo.length, Yo--, jo.mode = qi;
       break;
     case eo:
       if (jo.wrap) {
         for (; Fo < 32; ) {
           if (qo === 0) break e;
-          qo--, Xo |= Go[Ho++] << Fo, Fo += 8;
+          qo--, Xo |= Go[Qo++] << Fo, Fo += 8;
         }
-        if (Ko -= Yo, Oo.total_out += Ko, jo.total += Ko, Ko && (Oo.adler = jo.check = jo.flags ? $r(jo.check, Qo, Ko, Vo - Ko) : Vr(jo.check, Qo, Ko, Vo - Ko)), Ko = Yo, (jo.flags ? Xo : ho(Xo)) !== jo.check) {
+        if (Ko -= Yo, Oo.total_out += Ko, jo.total += Ko, Ko && (Oo.adler = jo.check = jo.flags ? $r(jo.check, Ho, Ko, Vo - Ko) : Vr(jo.check, Ho, Ko, Vo - Ko)), Ko = Yo, (jo.flags ? Xo : ho(Xo)) !== jo.check) {
           Oo.msg = "incorrect data check", jo.mode = no;
           break;
         }
@@ -7387,7 +8504,7 @@ function vo(Oo, No) {
       if (jo.wrap && jo.flags) {
         for (; Fo < 32; ) {
           if (qo === 0) break e;
-          qo--, Xo += Go[Ho++] << Fo, Fo += 8;
+          qo--, Xo += Go[Qo++] << Fo, Fo += 8;
         }
         if (Xo !== (4294967295 & jo.total)) {
           Oo.msg = "incorrect length check", jo.mode = no;
@@ -7408,10 +8525,10 @@ function vo(Oo, No) {
     default:
       return Ei;
   }
-  return Oo.next_out = Vo, Oo.avail_out = Yo, Oo.next_in = Ho, Oo.avail_in = qo, jo.hold = Xo, jo.bits = Fo, (jo.wsize || Ko !== Oo.avail_out && jo.mode < no && (jo.mode < eo || No !== vi)) && (function(ws, zs, Ys, ks) {
+  return Oo.next_out = Vo, Oo.avail_out = Yo, Oo.next_in = Qo, Oo.avail_in = qo, jo.hold = Xo, jo.bits = Fo, (jo.wsize || Ko !== Oo.avail_out && jo.mode < no && (jo.mode < eo || No !== vi)) && (function(ws, zs, Ys, ks) {
     var _s, Js = ws.state;
     Js.window === null && (Js.wsize = 1 << Js.wbits, Js.wnext = 0, Js.whave = 0, Js.window = new Wt(Js.wsize)), ks >= Js.wsize ? (jt(Js.window, zs, Ys - Js.wsize, Js.wsize, 0), Js.wnext = 0, Js.whave = Js.wsize) : ((_s = Js.wsize - Js.wnext) > ks && (_s = ks), jt(Js.window, zs, Ys - ks, _s, Js.wnext), (ks -= _s) ? (jt(Js.window, zs, Ys - ks, ks, 0), Js.wnext = ks, Js.whave = Js.wsize) : (Js.wnext += _s, Js.wnext === Js.wsize && (Js.wnext = 0), Js.whave < Js.wsize && (Js.whave += _s)));
-  })(Oo, Oo.output, Oo.next_out, Ko - Oo.avail_out), Wo -= Oo.avail_in, Ko -= Oo.avail_out, Oo.total_in += Wo, Oo.total_out += Ko, jo.total += Ko, jo.wrap && Ko && (Oo.adler = jo.check = jo.flags ? $r(jo.check, Qo, Ko, Oo.next_out - Ko) : Vr(jo.check, Qo, Ko, Oo.next_out - Ko)), Oo.data_type = jo.bits + (jo.last ? 64 : 0) + (jo.mode === Hi ? 128 : 0) + (jo.mode === Xi || jo.mode === Zi ? 256 : 0), (Wo === 0 && Ko === 0 || No === vi) && hs === yi && (hs = Ri), hs;
+  })(Oo, Oo.output, Oo.next_out, Ko - Oo.avail_out), Wo -= Oo.avail_in, Ko -= Oo.avail_out, Oo.total_in += Wo, Oo.total_out += Ko, jo.total += Ko, jo.wrap && Ko && (Oo.adler = jo.check = jo.flags ? $r(jo.check, Ho, Ko, Oo.next_out - Ko) : Vr(jo.check, Ho, Ko, Oo.next_out - Ko)), Oo.data_type = jo.bits + (jo.last ? 64 : 0) + (jo.mode === Hi ? 128 : 0) + (jo.mode === Xi || jo.mode === Zi ? 256 : 0), (Wo === 0 && Ko === 0 || No === vi) && hs === yi && (hs = Ri), hs;
 }
 var wo, bo = 1, yo = 7;
 function mo(Oo) {
@@ -7421,13 +8538,13 @@ function mo(Oo) {
 function ko(Oo, No) {
   for (var jo = 0; jo < Oo.length; jo++) this[No + jo] = Oo[jo];
 }
-mo.prototype.init = function(Oo, No, jo, Go, Qo) {
-  var Ho;
+mo.prototype.init = function(Oo, No, jo, Go, Ho) {
+  var Qo;
   switch (this.windowBits = Oo, this.level = No, this.memLevel = jo, this.strategy = Go, this.mode !== 3 && this.mode !== 4 || (this.windowBits += 16), this.mode === yo && (this.windowBits += 32), this.mode !== 5 && this.mode !== 6 || (this.windowBits = -this.windowBits), this.strm = new Zt(), this.mode) {
     case bo:
     case 3:
     case 5:
-      Ho = (function(Vo, qo, Yo, Xo, Fo, Wo) {
+      Qo = (function(Vo, qo, Yo, Xo, Fo, Wo) {
         if (!Vo) return sn;
         var Ko = 1;
         if (qo === fn && (qo = 6), Xo < 0 ? (Ko = 0, Xo = -Xo) : Xo > 15 && (Ko = 2, Xo -= 16), Fo < 1 || Fo > vn || Yo !== gn || Xo < 8 || Xo > 15 || qo < 0 || qo > 9 || Wo < 0 || Wo > pn) return Hn(Vo, sn);
@@ -7440,12 +8557,12 @@ mo.prototype.init = function(Oo, No, jo, Go, Qo) {
     case 4:
     case 6:
     case yo:
-      Ho = co(this.strm, this.windowBits);
+      Qo = co(this.strm, this.windowBits);
       break;
     default:
       throw new Error("Unknown mode " + this.mode);
   }
-  Ho === 0 ? (this.write_in_progress = !1, this.init_done = !0) : this._error(Ho);
+  Qo === 0 ? (this.write_in_progress = !1, this.init_done = !0) : this._error(Qo);
 }, mo.prototype.params = function() {
   throw new Error("deflateParams Not supported");
 }, mo.prototype._writeCheck = function() {
@@ -7453,21 +8570,21 @@ mo.prototype.init = function(Oo, No, jo, Go, Qo) {
   if (this.mode === 0) throw new Error("already finalized");
   if (this.write_in_progress) throw new Error("write already in progress");
   if (this.pending_close) throw new Error("close is pending");
-}, mo.prototype.write = function(Oo, No, jo, Go, Qo, Ho, Vo) {
+}, mo.prototype.write = function(Oo, No, jo, Go, Ho, Qo, Vo) {
   this._writeCheck(), this.write_in_progress = !0;
   var qo = this;
   return de(function() {
     qo.write_in_progress = !1;
-    var Yo = qo._write(Oo, No, jo, Go, Qo, Ho, Vo);
+    var Yo = qo._write(Oo, No, jo, Go, Ho, Qo, Vo);
     qo.callback(Yo[0], Yo[1]), qo.pending_close && qo.close();
   }), this;
-}, mo.prototype.writeSync = function(Oo, No, jo, Go, Qo, Ho, Vo) {
-  return this._writeCheck(), this._write(Oo, No, jo, Go, Qo, Ho, Vo);
-}, mo.prototype._write = function(Oo, No, jo, Go, Qo, Ho, Vo) {
+}, mo.prototype.writeSync = function(Oo, No, jo, Go, Ho, Qo, Vo) {
+  return this._writeCheck(), this._write(Oo, No, jo, Go, Ho, Qo, Vo);
+}, mo.prototype._write = function(Oo, No, jo, Go, Ho, Qo, Vo) {
   if (this.write_in_progress = !0, Oo !== 0 && Oo !== 1 && Oo !== 2 && Oo !== 3 && Oo !== 4 && Oo !== 5) throw new Error("Invalid flush value");
-  No == null && (No = new p(0), Go = 0, jo = 0), Qo._set ? Qo.set = Qo._set : Qo.set = ko;
+  No == null && (No = new p(0), Go = 0, jo = 0), Ho._set ? Ho.set = Ho._set : Ho.set = ko;
   var qo, Yo = this.strm;
-  switch (Yo.avail_in = Go, Yo.input = No, Yo.next_in = jo, Yo.avail_out = Vo, Yo.output = Qo, Yo.next_out = Ho, this.mode) {
+  switch (Yo.avail_in = Go, Yo.input = No, Yo.next_in = jo, Yo.avail_out = Vo, Yo.output = Ho, Yo.next_out = Qo, this.mode) {
     case bo:
     case 3:
     case 5:
@@ -7512,18 +8629,18 @@ Object.keys(Eo).forEach(function(Oo) {
 }), So.Z_MIN_WINDOWBITS = 8, So.Z_MAX_WINDOWBITS = 15, So.Z_DEFAULT_WINDOWBITS = 15, So.Z_MIN_CHUNK = 64, So.Z_MAX_CHUNK = 1 / 0, So.Z_DEFAULT_CHUNK = 16384, So.Z_MIN_MEMLEVEL = 1, So.Z_MAX_MEMLEVEL = 9, So.Z_DEFAULT_MEMLEVEL = 8, So.Z_MIN_LEVEL = -1, So.Z_MAX_LEVEL = 9, So.Z_DEFAULT_LEVEL = So.Z_DEFAULT_COMPRESSION;
 var xo = { Z_OK: So.Z_OK, Z_STREAM_END: So.Z_STREAM_END, Z_NEED_DICT: So.Z_NEED_DICT, Z_ERRNO: So.Z_ERRNO, Z_STREAM_ERROR: So.Z_STREAM_ERROR, Z_DATA_ERROR: So.Z_DATA_ERROR, Z_MEM_ERROR: So.Z_MEM_ERROR, Z_BUF_ERROR: So.Z_BUF_ERROR, Z_VERSION_ERROR: So.Z_VERSION_ERROR };
 function Ro(Oo, No, jo) {
-  var Go = [], Qo = 0;
-  function Ho() {
-    for (var qo; (qo = Oo.read()) !== null; ) Go.push(qo), Qo += qo.length;
-    Oo.once("readable", Ho);
+  var Go = [], Ho = 0;
+  function Qo() {
+    for (var qo; (qo = Oo.read()) !== null; ) Go.push(qo), Ho += qo.length;
+    Oo.once("readable", Qo);
   }
   function Vo() {
-    var qo = p.concat(Go, Qo);
+    var qo = p.concat(Go, Ho);
     Go = [], jo(null, qo), Oo.close();
   }
   Oo.on("error", function(qo) {
-    Oo.removeListener("end", Vo), Oo.removeListener("readable", Ho), jo(qo);
-  }), Oo.on("end", Vo), Oo.end(No), Ho();
+    Oo.removeListener("end", Vo), Oo.removeListener("readable", Qo), jo(qo);
+  }), Oo.on("end", Vo), Oo.end(No), Qo();
 }
 function Ao(Oo, No) {
   if (typeof No == "string" && (No = new p(No)), !$(No)) throw new TypeError("Not a string or buffer");
@@ -7568,15 +8685,15 @@ function Io(Oo, No) {
   if (Oo.dictionary && !$(Oo.dictionary)) throw new Error("Invalid dictionary: it should be a Buffer instance");
   this._binding = new So.Zlib(No);
   var jo = this;
-  this._hadError = !1, this._binding.onerror = function(Ho, Vo) {
+  this._hadError = !1, this._binding.onerror = function(Qo, Vo) {
     jo._binding = null, jo._hadError = !0;
-    var qo = new Error(Ho);
+    var qo = new Error(Qo);
     qo.errno = Vo, qo.code = So.codes[Vo], jo.emit("error", qo);
   };
   var Go = So.Z_DEFAULT_COMPRESSION;
   typeof Oo.level == "number" && (Go = Oo.level);
-  var Qo = So.Z_DEFAULT_STRATEGY;
-  typeof Oo.strategy == "number" && (Qo = Oo.strategy), this._binding.init(Oo.windowBits || So.Z_DEFAULT_WINDOWBITS, Go, Oo.memLevel || So.Z_DEFAULT_MEMLEVEL, Qo, Oo.dictionary), this._buffer = new p(this._chunkSize), this._offset = 0, this._closed = !1, this._level = Go, this._strategy = Qo, this.once("end", this.close);
+  var Ho = So.Z_DEFAULT_STRATEGY;
+  typeof Oo.strategy == "number" && (Ho = Oo.strategy), this._binding.init(Oo.windowBits || So.Z_DEFAULT_WINDOWBITS, Go, Oo.memLevel || So.Z_DEFAULT_MEMLEVEL, Ho, Oo.dictionary), this._buffer = new p(this._chunkSize), this._offset = 0, this._closed = !1, this._level = Go, this._strategy = Ho, this.once("end", this.close);
 }
 Object.keys(xo).forEach(function(Oo) {
   xo[xo[Oo]] = Oo;
@@ -7612,36 +8729,36 @@ Object.keys(xo).forEach(function(Oo) {
     });
   }
 }, Io.prototype._transform = function(Oo, No, jo) {
-  var Go, Qo = this._writableState, Ho = (Qo.ending || Qo.ended) && (!Oo || Qo.length === Oo.length);
+  var Go, Ho = this._writableState, Qo = (Ho.ending || Ho.ended) && (!Oo || Ho.length === Oo.length);
   if (!Oo === null && !$(Oo)) return jo(new Error("invalid input"));
-  Ho ? Go = So.Z_FINISH : (Go = this._flushFlag, Oo.length >= Qo.length && (this._flushFlag = this._opts.flush || So.Z_NO_FLUSH)), this._processChunk(Oo, Go, jo);
+  Qo ? Go = So.Z_FINISH : (Go = this._flushFlag, Oo.length >= Ho.length && (this._flushFlag = this._opts.flush || So.Z_NO_FLUSH)), this._processChunk(Oo, Go, jo);
 }, Io.prototype._processChunk = function(Oo, No, jo) {
-  var Go = Oo && Oo.length, Qo = this._chunkSize - this._offset, Ho = 0, Vo = this, qo = typeof jo == "function";
+  var Go = Oo && Oo.length, Ho = this._chunkSize - this._offset, Qo = 0, Vo = this, qo = typeof jo == "function";
   if (!qo) {
     var Yo, Xo = [], Fo = 0;
     this.on("error", function(rs) {
       Yo = rs;
     });
     do
-      var Wo = this._binding.writeSync(No, Oo, Ho, Go, this._buffer, this._offset, Qo);
+      var Wo = this._binding.writeSync(No, Oo, Qo, Go, this._buffer, this._offset, Ho);
     while (!this._hadError && es(Wo[0], Wo[1]));
     if (this._hadError) throw Yo;
     var Ko = p.concat(Xo, Fo);
     return this.close(), Ko;
   }
-  var Jo = this._binding.write(No, Oo, Ho, Go, this._buffer, this._offset, Qo);
+  var Jo = this._binding.write(No, Oo, Qo, Go, this._buffer, this._offset, Ho);
   function es(rs, is) {
     if (!Vo._hadError) {
-      var As = Qo - is;
+      var As = Ho - is;
       if ((function(as, vs) {
         if (!as) throw new Error(vs);
       })(As >= 0, "have should not go down"), As > 0) {
         var os = Vo._buffer.slice(Vo._offset, Vo._offset + As);
         Vo._offset += As, qo ? Vo.push(os) : (Xo.push(os), Fo += os.length);
       }
-      if ((is === 0 || Vo._offset >= Vo._chunkSize) && (Qo = Vo._chunkSize, Vo._offset = 0, Vo._buffer = new p(Vo._chunkSize)), is === 0) {
-        if (Ho += Go - rs, Go = rs, !qo) return !0;
-        var us = Vo._binding.write(No, Oo, Ho, Go, Vo._buffer, Vo._offset, Vo._chunkSize);
+      if ((is === 0 || Vo._offset >= Vo._chunkSize) && (Ho = Vo._chunkSize, Vo._offset = 0, Vo._buffer = new p(Vo._chunkSize)), is === 0) {
+        if (Qo += Go - rs, Go = rs, !qo) return !0;
+        var us = Vo._binding.write(No, Oo, Qo, Go, Vo._buffer, Vo._offset, Vo._chunkSize);
         return us.callback = es, void (us.buffer = Oo);
       }
       if (!qo) return !1;
@@ -7721,15 +8838,15 @@ class LibGenerateTestUserSig {
   base64decode(No) {
     return this.newBuffer(No, "base64").toString();
   }
-  _hmacsha256(No, jo, Go, Qo) {
-    let Ho = "TLS.identifier:" + No + `
+  _hmacsha256(No, jo, Go, Ho) {
+    let Qo = "TLS.identifier:" + No + `
 `;
-    Ho += "TLS.sdkappid:" + this.SDKAPPID + `
-`, Ho += "TLS.time:" + jo + `
-`, Ho += "TLS.expire:" + Go + `
-`, Qo != null && (Ho += "TLS.userbuf:" + Qo + `
+    Qo += "TLS.sdkappid:" + this.SDKAPPID + `
+`, Qo += "TLS.time:" + jo + `
+`, Qo += "TLS.expire:" + Go + `
+`, Ho != null && (Qo += "TLS.userbuf:" + Ho + `
 `);
-    let Vo = te.HmacSHA256(Ho, this.PRIVATEKEY);
+    let Vo = te.HmacSHA256(Qo, this.PRIVATEKEY);
     return te.enc.Base64.stringify(Vo);
   }
   _utc() {
@@ -7742,13 +8859,13 @@ class LibGenerateTestUserSig {
     return typeof No == "string";
   }
   genSigWithUserbuf(No, jo, Go) {
-    let Qo = this._utc(), Ho = { "TLS.ver": "2.0", "TLS.identifier": No, "TLS.sdkappid": this.SDKAPPID, "TLS.time": Qo, "TLS.expire": jo }, Vo = "";
+    let Ho = this._utc(), Qo = { "TLS.ver": "2.0", "TLS.identifier": No, "TLS.sdkappid": this.SDKAPPID, "TLS.time": Ho, "TLS.expire": jo }, Vo = "";
     if (Go != null) {
       let Fo = this.base64encode(Go);
-      Ho["TLS.userbuf"] = Fo, Vo = this._hmacsha256(No, Qo, jo, Fo);
-    } else Vo = this._hmacsha256(No, Qo, jo, null);
-    Ho["TLS.sig"] = Vo;
-    let qo = JSON.stringify(Ho), Yo = Po.deflateSync(this.newBuffer(qo)).toString("base64"), Xo = this.escape(Yo);
+      Qo["TLS.userbuf"] = Fo, Vo = this._hmacsha256(No, Ho, jo, Fo);
+    } else Vo = this._hmacsha256(No, Ho, jo, null);
+    Qo["TLS.sig"] = Vo;
+    let qo = JSON.stringify(Qo), Yo = Po.deflateSync(this.newBuffer(qo)).toString("base64"), Xo = this.escape(Yo);
     return console.log("ret=" + Xo), Xo;
   }
   validate(No) {
@@ -7762,11 +8879,11 @@ function getBasicInfo(Oo, No, jo, Go = 604800) {
     log$e.error("general", "Please configure your sdkAppId in config/basic-info-config.js");
     return;
   }
-  const Ho = new LibGenerateTestUserSig(No, jo, Go).genTestUserSig(Oo);
+  const Qo = new LibGenerateTestUserSig(No, jo, Go).genTestUserSig(Oo);
   return {
     sdkAppId: No,
     userId: Oo,
-    userSig: Ho,
+    userSig: Qo,
     userName: Oo,
     avatarUrl: ""
   };
@@ -7802,18 +8919,15 @@ async function login(Oo = {}) {
   ) : post("/login", Oo);
 }
 async function loginWithSecretInternal(Oo, No, jo = "administrator", Go = 604800) {
-  const Qo = getBasicInfo(jo, Oo, No, Go);
-  if (!Qo)
+  const Ho = getBasicInfo(jo, Oo, No, Go);
+  if (!Ho)
     return { code: -1, message: "Failed to generate userSig: invalid sdkAppId or secretKey" };
-  const Ho = await post("/login", {
-    userId: Qo.userId,
-    userSig: Qo.userSig,
-    sdkAppId: Qo.sdkAppId
+  const Qo = await post("/login", {
+    userId: Ho.userId,
+    userSig: Ho.userSig,
+    sdkAppId: Ho.sdkAppId
   });
-  return Ho.code === 0 && Ho.data && (Ho.data.secretKey = No, Ho.data.configured = !1), Ho;
-}
-async function loginWithSecret(Oo, No, jo = "administrator", Go = 604800) {
-  return loginWithSecretInternal(Oo, No, jo, Go);
+  return Qo.code === 0 && Qo.data && (Qo.data.secretKey = No, Qo.data.configured = !1), Qo;
 }
 async function getUserSig(Oo) {
   if (isProxyMode()) {
@@ -7887,24 +9001,24 @@ async function batchGetUserProfilePortrait(Oo) {
   const jo = /* @__PURE__ */ new Map();
   let Go = [];
   if (No && typeof No == "object") {
-    const Qo = No;
-    if (log$d.debug("batchGetUserProfilePortrait", "Checking response keys:", Object.keys(Qo)), Qo.Response && typeof Qo.Response == "object") {
-      const Ho = Qo.Response;
-      log$d.debug("batchGetUserProfilePortrait", "Found Response, keys:", Object.keys(Ho)), Array.isArray(Ho.UserProfileItem) && (log$d.debug("batchGetUserProfilePortrait", "Got profiles from Response.UserProfileItem"), Go = Ho.UserProfileItem);
+    const Ho = No;
+    if (log$d.debug("batchGetUserProfilePortrait", "Checking response keys:", Object.keys(Ho)), Ho.Response && typeof Ho.Response == "object") {
+      const Qo = Ho.Response;
+      log$d.debug("batchGetUserProfilePortrait", "Found Response, keys:", Object.keys(Qo)), Array.isArray(Qo.UserProfileItem) && (log$d.debug("batchGetUserProfilePortrait", "Got profiles from Response.UserProfileItem"), Go = Qo.UserProfileItem);
     }
-    Go.length === 0 && (log$d.debug("batchGetUserProfilePortrait", "Checking top-level UserProfileItem:", Qo.UserProfileItem), Array.isArray(Qo.UserProfileItem) ? (log$d.debug("batchGetUserProfilePortrait", "Got profiles from top-level UserProfileItem"), Go = Qo.UserProfileItem) : log$d.debug("batchGetUserProfilePortrait", "UserProfileItem is not an array or does not exist"));
+    Go.length === 0 && (log$d.debug("batchGetUserProfilePortrait", "Checking top-level UserProfileItem:", Ho.UserProfileItem), Array.isArray(Ho.UserProfileItem) ? (log$d.debug("batchGetUserProfilePortrait", "Got profiles from top-level UserProfileItem"), Go = Ho.UserProfileItem) : log$d.debug("batchGetUserProfilePortrait", "UserProfileItem is not an array or does not exist"));
   } else
     log$d.debug("batchGetUserProfilePortrait", "Response is not an object or is null");
-  return log$d.debug("batchGetUserProfilePortrait", "Final profiles count:", Go.length), Go.forEach((Qo) => {
-    const Ho = String(Qo.To_Account ?? "");
-    if (!Ho) return;
-    let Vo = Ho, qo = "";
-    Array.isArray(Qo.ProfileItem) && Qo.ProfileItem.forEach((Xo) => {
+  return log$d.debug("batchGetUserProfilePortrait", "Final profiles count:", Go.length), Go.forEach((Ho) => {
+    const Qo = String(Ho.To_Account ?? "");
+    if (!Qo) return;
+    let Vo = Qo, qo = "";
+    Array.isArray(Ho.ProfileItem) && Ho.ProfileItem.forEach((Xo) => {
       const Fo = String(Xo.Tag || ""), Wo = Xo.Value;
       Fo === "Tag_Profile_IM_Nick" && typeof Wo == "string" && Wo ? Vo = Wo : Fo === "Tag_Profile_IM_Image" && typeof Wo == "string" && Wo && (qo = Wo);
     });
-    const Yo = { userId: Ho, nick: Vo, avatarUrl: qo };
-    log$d.debug("batchGetUserProfilePortrait", "Profile:", Yo), jo.set(Ho, Yo), jo.set(Ho.toLowerCase(), Yo);
+    const Yo = { userId: Qo, nick: Vo, avatarUrl: qo };
+    log$d.debug("batchGetUserProfilePortrait", "Profile:", Yo), jo.set(Qo, Yo), jo.set(Qo.toLowerCase(), Yo);
   }), log$d.debug("batchGetUserProfilePortrait", "Final profileMap size:", jo.size), jo;
 }
 async function verifyCredentials() {
@@ -7970,12 +9084,12 @@ function saveCredentials(Oo) {
     log$c.warn("saveCredentials", "凭证模式缺少必要字段，跳过保存");
     return;
   }
-  const Go = typeof Oo.token == "string" ? Oo.token : "", Qo = typeof Oo.userName == "string" ? Oo.userName : "", Ho = typeof Oo.domain == "string" ? Oo.domain : "", Vo = getAuthStateSnapshot().mode, qo = typeof Oo.secretKey == "string" && Oo.secretKey !== "";
+  const Go = typeof Oo.token == "string" ? Oo.token : "", Ho = typeof Oo.userName == "string" ? Oo.userName : "", Qo = typeof Oo.domain == "string" ? Oo.domain : "", Vo = getAuthStateSnapshot().mode, qo = typeof Oo.secretKey == "string" && Oo.secretKey !== "";
   if (updateAuthState({
     mode: jo ? "server" : qo ? "proxy" : Vo,
     token: Go,
-    userName: Qo,
-    domain: Ho,
+    userName: Ho,
+    domain: Qo,
     credentials: No
   }), No?.sdkAppId) {
     const Xo = String(No.sdkAppId);
@@ -8019,8 +9133,8 @@ function computeUserSig(Oo) {
     }), null;
   try {
     return getBasicInfo(Oo, jo, Go)?.userSig ?? null;
-  } catch (Qo) {
-    return log$c.error("computeUserSig", "Failed to compute userSig:", Qo), null;
+  } catch (Ho) {
+    return log$c.error("computeUserSig", "Failed to compute userSig:", Ho), null;
   }
 }
 const LEGACY_SERVER_CONFIGURED_KEY = "server_configured";
@@ -8121,7 +9235,7 @@ function createLiveManagerAppConfig(Oo = { version: "1" }) {
     ...Oo.brand,
     ...No
   });
-  const Go = jo, Qo = resolveFeatureFlags(CORE_DEFAULT_FEATURES, Go.features), Ho = resolveBrandConfig(CORE_DEFAULT_BRAND, Go.brand), Vo = resolveMenus(CORE_DEFAULT_MENUS, Go.menus, Qo), qo = validateCustomerExtensionContract(Go, Vo, {
+  const Go = jo, Ho = resolveFeatureFlags(CORE_DEFAULT_FEATURES, Go.features), Qo = resolveBrandConfig(CORE_DEFAULT_BRAND, Go.brand), Vo = resolveMenus(CORE_DEFAULT_MENUS, Go.menus, Ho), qo = validateCustomerExtensionContract(Go, Vo, {
     coreRouteNames: Object.keys(PAGE_TITLE_KEYS),
     allowedRouteOverrides: Object.keys(PAGE_TITLE_KEYS)
   });
@@ -8131,11 +9245,11 @@ ${qo.errors.join(`
 `)}`);
   return qo.warnings.forEach((Yo) => log$b.warn("LiveManager Contract", `${Yo}`)), {
     version: "1",
-    brand: Ho,
+    brand: Qo,
     menus: Vo,
     routes: Go.routes,
     components: Go.components,
-    features: Qo,
+    features: Ho,
     runtime: resolveRuntimeConfig({}, Go.runtime),
     extension: Go
   };
@@ -8194,7 +9308,7 @@ function isLeavingLivePage(Oo, No) {
   return jo && Go;
 }
 function getMenuKeyFromPath(Oo) {
-  const No = Oo.startsWith("/") ? Oo : `/${Oo}`, jo = getActiveAppConfig().menus.find((Qo) => Qo.path === No ? !0 : No.startsWith(`${Qo.path}/`));
+  const No = Oo.startsWith("/") ? Oo : `/${Oo}`, jo = getActiveAppConfig().menus.find((Ho) => Ho.path === No ? !0 : No.startsWith(`${Ho.path}/`));
   if (jo) return jo.key;
   const Go = No.split("/")[1];
   return Go && PAGE_TITLE_KEYS[Go] ? Go : void 0;
@@ -8237,529 +9351,33 @@ function getCurrentApiLanguageCode() {
 }
 function findLocalizedValues(Oo, No = "name", jo = "description") {
   if (!Oo || Oo.length === 0) return;
-  const Go = getApiLanguage(), Qo = Oo.find((qo) => {
+  const Go = getApiLanguage(), Ho = Oo.find((qo) => {
     if (!qo || typeof qo != "object") return !1;
     const Yo = qo;
     return Yo.Language === Go || Yo.language === Go;
   });
-  if (!Qo) return;
-  const Ho = Qo[No], Vo = Qo[jo];
+  if (!Ho) return;
+  const Qo = Ho[No], Vo = Ho[jo];
   return {
-    name: typeof Ho == "string" ? Ho : "",
+    name: typeof Qo == "string" ? Qo : "",
     description: typeof Vo == "string" ? Vo : ""
   };
 }
-const I18N = {
-  // ========== Live List ==========
-  LIVE_LIST: "Live List",
-  LIVE_COVER: "Live Cover",
-  CREATE_LIVE: "Create Live",
-  ENTER_LIVE_ID_TO_SEARCH: "Enter Live ID to search",
-  INPUT_EXCEEDS_LENGTH_LIMIT: "Input exceeds length limit",
-  INPUT_TOO_LONG: "Input Too Long",
-  LIVE_NOT_FOUND: "Live Not Found",
-  LIVE_ID: "Live ID",
-  LIVE_ID_AUTO: "Live ID (Auto)",
-  LIVE_TITLE: "Live Title",
-  COVER_IMAGE: "Cover Image",
-  ANCHOR_ID: "Anchor ID",
-  CREATE_TIME: "Create Time",
-  ACTIONS: "Actions",
-  ENTER_LIVE: "Enter Live",
-  EDIT: "Edit",
-  DISSOLVE: "Dissolve",
-  DISSOLVE_CONFIRMATION: "Confirm dissolving this live?",
-  DISSOLVE_DESCRIPTION: 'Streaming will stop after dissolving. Are you sure to dissolve "{{liveId}}"?',
-  CANCEL: "Cancel",
-  CONFIRM: "Confirm",
-  CLOSE: "Close",
-  DELETE: "Delete",
-  ADD: "Add",
-  LOADING: "Loading...",
-  // 过去分词 label（用于 ENTITY_ACTION_SUCCESS 模板）
-  LABEL_CREATED: "created",
-  LABEL_UPDATED: "updated",
-  LABEL_DELETED: "deleted",
-  NO_LIVE_DATA: "No Live Data",
-  FIRST_PAGE: "First Page",
-  PREVIOUS_PAGE: "Previous Page",
-  NEXT_PAGE: "Next Page",
-  PAGE: "Page {{page}}",
-  NO_SEARCH_RESULTS_FOR: "No search results for: {{keyword}}",
-  SEARCH_EXACT_ID_HINT: "Search requires the complete Live ID; fuzzy search is not supported.",
-  LIVE_HOST: "Live Host",
-  BASIC_INFORMATION: "Basic Information",
-  LIVE_INFORMATION: "Live Information",
-  STREAM_INFO: "Stream Info",
-  SERVER_URL: "Server URL",
-  STREAM_KEY: "Stream Key",
-  GETTING_STREAM_INFO: "Getting Stream Info...",
-  PUSH_STREAM_INFO: "Push Stream Info",
-  // ========== Live Monitor ==========
-  LIVE_MONITOR: "Live Monitor",
-  LIVE_ROOM_MANAGEMENT: "Live Room Management",
-  MONITOR_ALL_LIVES_IN_REAL_TIME: "Monitor all lives in real-time",
-  NO_LIVE_RIGHT_NOW: "No Live right now",
-  CLOSING: "Closing...",
-  VIOLATION_WARNING: "Violation Warning",
-  SEND_VIOLATION_WARNING: "Send Violation Warning",
-  UNNAMED_LIVE: "Unnamed Live",
-  CURRENT_VIEWERS: "Real-time Online Viewers",
-  CURRENT_VIEWERS_TOOLTIP: "The number of viewers currently online in real-time",
-  COMMENT_COUNT: "Total Comments",
-  COMMENT_COUNT_TOOLTIP: "The total number of comments received in the stream",
-  LIVE_DATA_CONTROL: "Live Data Control",
-  LIVE_NOW: "Live Now",
-  UPDATED_AT: "Updated At: {{time}}",
-  LIVE_DURATION: "Live Duration",
-  // ========== Live Control ==========
-  LIVE_CONTROL: "Live Control",
-  ROOM_DETAILS: "Room Details",
-  LIVE_DETAILS: "Live Details",
-  BACK_TO_LIST: "Back to List",
-  FORCE_STOP: "Force Stop",
-  FORCE_STOP_CONFIRM_CONTENT: "The live room will be immediately dismissed after this action. The host and viewers will be exited and cannot be recovered.",
-  CONFIRM_ACTION_TITLE: "Confirm {{action}}",
-  CONFIRM_ACTION_CONTENT: "Are you sure to {{action}} this live?",
-  ANCHOR_IS_NOT_STREAMING: "Anchor is not streaming",
-  LIVE_DATA: "Live Data",
-  VIEWER_COUNT: "Viewer Count",
-  MESSAGE_COUNT: "Message Count",
-  START_TIME: "Start Time",
-  DURATION: "Duration",
-  MUTE_ALL: "Mute All",
-  UNMUTE_ALL: "Unmute All",
-  AUDIENCE_LIST: "Audience List",
-  MUTED_LIST: "Muted List",
-  BANNED_LIST: "Banned List",
-  CHAT: "Chat",
-  AUDIENCE: "Audience",
-  CONFIRM_BAN_LIVE: "Confirm End Live",
-  LIVE_BANNED: "Live Banned",
-  UNNAMED_LIVE_SHORT: "Unnamed",
-  CONTENT_MODERATION: "Content Moderation",
-  BULK_APPROVE: "Bulk Approve",
-  BULK_DELETE: "Bulk Delete",
-  CUSTOM_MODERATION_TOGGLE: "Content Review All",
-  ACTION: "Action",
-  MORE_ACTIONS: "More Actions",
-  ME: "Me",
-  USER: "User",
-  USERID: "Sender ID",
-  CREATED_AT: "Created At",
-  COMMENT_USERS: "Total Views",
-  COMMENT_USERS_TOOLTIP: "Cumulative view count",
-  INTERACTION_RATE: "Interaction Rate",
-  INTERACTION_RATE_TOOLTIP: "Ratio of total comments to total viewers, reflecting audience engagement",
-  GIFT_COUNT: "Gift Count",
-  GIFT_COUNT_TOOLTIP: "The total number of gifts sent during the stream",
-  GIFT_SENDERS: "Gift Senders",
-  GIFT_SENDERS_TOOLTIP: "The number of unique users who sent gifts during the stream",
-  MUTED: "Muted",
-  NO_MUTED_MEMBERS: "No muted members",
-  UNMUTE_TIME: "Unmute Time",
-  BAN_LIFT_TIME: "Ban Lift Time",
-  ALL_MEMBER_MUTE: "All Member Mute",
-  ALL_MEMBER_MUTE_ENABLED_BANNER: "All Member Mute Enabled，Audience members cannot send messages",
-  BAN: "Ban",
-  APPROVE: "Approve",
-  BYPASS_CORRECTION: "Add to Audit Whitelist",
-  BYPASS_CORRECTION_DIALOG_TITLE: "Confirm adding this comment to audit whitelist?",
-  BYPASS_CORRECTION_CONFIRM: "Confirm Add to Audit Whitelist",
-  RELEASE_AND_RESEND: "Release & Resend",
-  BYPASS_CORRECTION_DESCRIPTION: 'Takes effect within 5 minutes, after which comments with the same content will no longer be flagged as sensitive. For details, see <a href="https://cloud.tencent.com/document/product/269/106615" target="_blank">Correction Feature</a>',
-  MODERATION_EMPTY: "No moderation content",
-  SENSITIVE_TYPE: "Recognition Type",
-  COMMENT_CONTENT: "Comment Content",
-  MESSAGE_LIST: "Message List",
-  TOTAL_ITEMS: "{{total}} items total",
-  ENTER_MESSAGE_TO_SEND_AS_ADMIN: "Enter message to send as admin",
-  FETCH_MUTED_LIST_FAILED: "Fetch muted list failed: {{error}}",
-  FETCH_BANNED_LIST_FAILED: "Fetch banned list failed: {{error}}",
-  USER_ACTION_WARNING: "Are you sure to {{action}} {{name}}?",
-  // ========== Mute / Ban Confirm Dialogs ==========
-  // ========== Mute / Ban Confirm Dialogs ==========
-  MUTE_CONFIRM_CONTENT: "After being muted, this user will be unable to send messages for 10 minutes. Are you sure you want to mute {{name}}?",
-  BAN_CONFIRM_CONTENT: "After being banned, this user will be unable to enter the room for 1 hour. Are you sure you want to ban {{name}}?",
-  NORMAL: "Normal",
-  PORN: "Porn",
-  SENSITIVE: "Sensitive",
-  POLITICAL: "Political",
-  ADVERTISING: "Advertising",
-  ABUSE: "Abuse",
-  ILLEGAL: "Illegal",
-  VIOLENCE: "Violence",
-  SEXY: "Sexy",
-  SPAM: "Spam",
-  MOAN: "Moan",
-  UNKNOWN: "Unknown",
-  // ========== Create/Edit Live ==========
-  EDIT_LIVE: "Edit Live",
-  ENTER_ANCHOR_ID: "Enter Anchor ID",
-  PLEASE_ENTER_HOST_ID_FIRST: "Please enter host ID first",
-  ENTER_LIVE_TITLE: "Enter live title",
-  CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE: "Click or drag to upload cover image",
-  LAYOUT_TEMPLATE: "Layout Template",
-  MAX_SEATS: "Max Seats",
-  MAX_SEATS_HELP: "Max Seats Help",
-  SEAT_COUNT_RANGE_1_16: "Seat count range 1-16",
-  ENTER_MAX_SEAT_COUNT: "Enter max seat count",
-  STREAMING_METHOD: "Streaming Method",
-  USE_OBS_STREAMING: "Use OBS Streaming",
-  OBS_STREAMING_INFO_WILL_BE_DISPLAYED: "OBS streaming info will be displayed after creation",
-  LIVE_CREATED_SUCCESSFULLY_OBS: "Live Created Successfully OBS",
-  PLEASE_ENTER_LIVE_TITLE: "Please enter live title",
-  COPY_ID: "Copy ID",
-  COPY_NAME: "Copy Name",
-  NETWORK_ERROR: "Network error, please check your connection",
-  NETWORK_TIMEOUT: "Request timeout, please check your network",
-  // ========== Gift Management ==========
-  GIFT_MANAGEMENT: "Gift Management",
-  GIFT_MATERIAL_CONFIG: "Gift Material Config",
-  ADD_GIFT: "Add Gift",
-  SEARCH_GIFT_PLACEHOLDER: "Search gift ID, name, description...",
-  CREATE_GIFT: "Create Gift",
-  EDIT_GIFT: "Edit Gift",
-  GET_GIFT_LIST_FAILED: "Failed to get gift list",
-  // @deprecated 迁移至 opFailed(I18N.OP_GET_LIST, I18N.GIFT)
-  DELETE_FAILED: "Delete failed",
-  // @deprecated 迁移至 opFailed(I18N.DELETE)
-  CREATING: "Creating...",
-  SAVING: "Saving...",
-  CREATE: "Create",
-  SAVE: "Save",
-  // Gift Form Fields
-  ENTER_GIFT_ID: "Enter gift ID",
-  RANDOM_GENERATE_ID: "Random generate ID",
-  ENTER_GIFT_NAME: "Enter gift name",
-  ENTER_GIFT_DESCRIPTION: "Enter gift description",
-  ENTER_GIFT_LEVEL: "Enter gift level",
-  ENTER_GIFT_PRICE: "Enter gift price",
-  GIFT_LEVEL: "Gift Level",
-  GIFT_PRICE: "Gift Price",
-  GIFT_MATERIAL: "Gift Material",
-  CUSTOM_EXTENSION_INFO: "Custom Extension Info",
-  // Gift Validation Messages (byte limit messages use MAX_BYTES / MAX_BYTES_WITH_CURRENT)
-  GIFT_LEVEL_RANGE: "Gift level range: {{min}}-{{max}}",
-  GIFT_PRICE_RANGE: "Gift price range: {{min}}-{{max}}",
-  EXTENSION_INFO_JSON_FORMAT: "Extension info must be valid JSON format",
-  // Gift Upload
-  CLICK_OR_DRAG_TO_UPLOAD_THUMBNAIL: "Click or drag to upload thumbnail",
-  CLICK_OR_DRAG_TO_UPLOAD_MATERIAL: "Click or drag to upload material",
-  SUPPORT_MP4_SVGA_MAX_10MB: "Support MP4 / SVGA format, max 10MB",
-  ENTER_THUMBNAIL_URL: "Enter thumbnail URL",
-  UPLOAD_THUMBNAIL_OR_ENTER_URL: "Upload thumbnail or enter URL",
-  ENTER_FILE_URL: "Enter file URL",
-  // ========== Category Management ==========
-  CATEGORY_MANAGEMENT: "Category Management",
-  GIFT_CATEGORY: "Gift Category",
-  ADD_CATEGORY: "Add Category",
-  CREATE_CATEGORY: "Create Category",
-  EDIT_CATEGORY: "Edit Category",
-  EDIT_GIFT_CATEGORY: "Edit Gift Category",
-  REMOVE_CATEGORY_DESCRIPTION: "Are you sure to remove this category from the gift?",
-  CATEGORY_ADDED: "Category added",
-  CATEGORY_REMOVED: "Category removed",
-  GET_CATEGORY_LIST_FAILED: "Failed to get category list",
-  CATEGORY_LIMIT_REACHED: "Category limit reached",
-  CREATE_CATEGORY_FIRST: "Create category first",
-  NO_AVAILABLE_CATEGORIES: "No available categories",
-  // Category Form Fields
-  CATEGORY_ID: "Category ID",
-  CATEGORY_NAME: "Category Name",
-  CATEGORY_DESCRIPTION: "Category Description",
-  ENTER_CATEGORY_ID: "Enter category ID",
-  ENTER_CATEGORY_NAME: "Enter category name",
-  ENTER_CATEGORY_DESCRIPTION: "Enter category description",
-  SELECT_CATEGORY: "Select Category",
-  SELECT_CATEGORY_LOWERCASE: "Select category",
-  // Category Multilingual
-  CATEGORY_MULTILINGUAL_CONFIG: "Category Multilingual Config",
-  CATEGORY_MULTILINGUAL_CONFIG_TIP: "Configure category names and descriptions for different languages. These will be displayed to users based on their language settings.",
-  EDIT_CATEGORY_LANGUAGE_INFO: "Edit {{lang}} category language info",
-  EDIT_GIFT_LANGUAGE_INFO: "Edit {{lang}} gift language info",
-  ENTER_LANGUAGE_CATEGORY_NAME: "Enter {{lang}} category name",
-  ENTER_LANGUAGE_CATEGORY_DESCRIPTION: "Enter {{lang}} category description",
-  ENTER_LANGUAGE_GIFT_NAME: "Enter {{lang}} gift name",
-  ENTER_LANGUAGE_GIFT_DESCRIPTION: "Enter {{lang}} gift description",
-  // ========== Image Upload ==========
-  FILE_SIZE_EXCEEDS_MB: "File size exceeds {{max}}MB",
-  SUPPORTS_IMAGE_FORMATS_MAX_MB: "Supports JPG/PNG/GIF/WebP, max {{max}}MB",
-  // ========== Message List ==========
-  MESSAGE_CONTENT_TOO_LONG: "Message content too long, max {{max}} characters",
-  // ========== Custom Info ==========
-  VALUE_EXCEEDS_2KB_LIMIT: "Value exceeds 2KB limit",
-  CUSTOM_INFO_MAX_COUNT: "Custom info max {{max}} entries",
-  // ========== Page Titles ==========
-  LIVE_ROOM_MANAGEMENT_PLATFORM: "Live Room Management Platform",
-  // ========== Common ==========
-  NO_DATA: "No data",
-  NO_GIFT_DATA: "No gift data",
-  GIFT_ID: "Gift ID",
-  GIFT_NAME: "Gift Name",
-  THUMBNAIL: "Thumbnail",
-  NAME: "Name",
-  DESCRIPTION: "Description",
-  CATEGORY: "Category",
-  LEVEL: "Level",
-  PRICE: "Price",
-  MULTILINGUAL_CONFIG: "Multilingual Config",
-  MULTILINGUAL_CONFIG_TIP: "Configure gift names and descriptions for different languages. These will be displayed to users based on their language settings.",
-  GIFT_MULTILINGUAL_CONFIG: "Gift Multilingual Config",
-  LANGUAGE_TYPE: "Language Type",
-  REFRESH: "Refresh",
-  VIEW_DETAILS: "View Details",
-  VIEWS: " views",
-  UNKNOWN_HOST: "Unknown Host",
-  // ========== Additional Constants ==========
-  UNMUTE: "Unmute",
-  UNMUTING: "Unmuting",
-  UNBAN: "Unban",
-  UNBANNING: "Unbanning",
-  MUTE: "Mute",
-  SENDING: "Sending",
-  SEND_MESSAGE: "Send Message",
-  MESSAGE_CONTENT_REQUIRED: "Message Content Required",
-  LIVE_ENDED: "Live Ended",
-  NO_BANNED_MEMBERS: "No banned members",
-  PLEASE_SELECT_AT_LEAST_ONE_ITEM: "Please select at least one item",
-  RELEASE_AND_RESEND_DESCRIPTION: "The user's content will be released and resent",
-  BULK_APPROVE_CONFIRM_CONTENT: "The selected comments will be released and resent",
-  UNKNOWN_ERROR: "Unknown error",
-  SEND_FAILED: "Send Failed",
-  NOT_CONFIGURED: "Not configured",
-  DYNAMIC_GRID_LAYOUT: "Dynamic Grid Layout",
-  FLOATING_WINDOW_LAYOUT: "Floating Window Layout",
-  FIXED_GRID_LAYOUT: "Fixed Grid Layout",
-  FIXED_WINDOW_LAYOUT: "Fixed Window Layout",
-  LANDSCAPE_BROADCASTING: "Landscape Broadcasting",
-  DYNAMIC_GRID_LAYOUT_DESC: "Dynamically adjust grid size based on number of co-hosts",
-  FLOATING_WINDOW_DESC: "Co-hosts displayed as floating windows",
-  FIXED_GRID_DESC: "Each co-host occupies a fixed grid",
-  FIXED_WINDOW_DESC: "Co-hosts displayed as fixed windows",
-  LANDSCAPE_BROADCASTING_DESC: "1 host video + 3 audio seats",
-  LANDSCAPE_BROADCASTING_HINT: "Only available for web or OBS broadcasting",
-  ENTER_IMAGE_URL: "Enter Image URL",
-  CUSTOM_INFORMATION: "Custom Information",
-  TOTAL_GIFT_AMOUNT: "Total Gift Amount",
-  TOTAL_GIFT_AMOUNT_TOOLTIP: "The cumulative value of all gifts sent by users during the stream",
-  HOST: "Host",
-  MONITOR: "Monitor",
-  MORE: "More",
-  DAYS: "Days",
-  ENABLE_ALL_MEMBER_MUTE: "Enable All Member Mute",
-  ENABLE_ALL_MEMBER_MUTE_CONFIRM_CONTENT: "Viewers will not be able to send comments. Are you sure you want to enable?",
-  CONFIRM_ENABLE: "Confirm Enable",
-  VIOLATION_WARNING_SEND_CONFIRM: "Confirm Send Violation Warning",
-  VIOLATION_WARNING_CONFIRM_CONTENT: "The current live room has potential violation risks. Do you want to send a violation warning to the host?",
-  VIOLATION_WARNING_CONTENT_TEMPLATE: 'Live room "{{liveName}}" received a violation warning, please rectify immediately',
-  VIOLATION_WARNING_DEFAULT_SUGGESTION: "Please comply with platform rules and remove violating content",
-  VIOLATION_TYPE_WARNING: "Warning",
-  VIOLATION_SUGGESTION_PORN: "Please remove inappropriate content immediately. Multiple violations will result in room ban.",
-  VIOLATION_SUGGESTION_POLITICAL: "Please do not discuss politically sensitive topics. Comply with relevant laws and regulations.",
-  VIOLATION_SUGGESTION_ABUSE: "Please use civil language and stop abusive behavior.",
-  VIOLATION_SUGGESTION_ADVERTISING: "Please do not post unapproved advertising content.",
-  VIOLATION_SUGGESTION_ILLEGAL: "Please do not engage in illegal activities.",
-  VIOLATION_SUGGESTION_SEXY: "Please keep the live room content appropriate and avoid vulgar content.",
-  VIOLATION_SUGGESTION_VIOLENCE: "Please do not display violent or gory content.",
-  VIOLATION_SUGGESTION_DEFAULT: "Your content is suspected of violating platform rules. Please rectify immediately.",
-  UPLOAD_IMAGE: "Upload Image",
-  ENTER_URL: "Enter URL",
-  UPLOAD_SUCCESS: "Upload Success",
-  UPLOAD_FAILED: "Upload Failed",
-  UPLOADING: "Uploading",
-  VALIDATING: "Validating",
-  PENDING_UPLOAD: "Pending Upload",
-  RE_UPLOAD: "Re-upload",
-  RETURN_TO_LIVE_LIST: "Return to Live List",
-  REFRESH_OFF: "Refresh Off",
-  NUMBER_OF_GIFTS: "Number of Gifts",
-  TOTAL_VALUE_SIZE_EXCEEDS_16KB: "Total value size exceeds 16KB",
-  ONE_MINUTE: "1 Minute",
-  FIVE_MINUTES: "5 Minutes",
-  TEN_SECONDS: "10 Seconds",
-  THIRTY_SECONDS: "30 Seconds",
-  COMPLETE: "Complete",
-  CLEAR: "Clear",
-  // ========== Live Creation / Member / Common ==========
-  PLEASE_ENTER_ANCHOR_ID: "Please enter anchor ID",
-  OBS_READY_COPY_INFO: "OBS is ready. Please copy the streaming info below.",
-  COPY: "Copy",
-  HOST_AVATAR: "Host Avatar",
-  GET_ERROR_MESSAGE: "Get error message",
-  CREATE_FAILED: "Create failed",
-  REQUEST_FAILED: "Request failed",
-  REFRESH_FAILED: "Refresh failed",
-  CANNOT_UNDO_AFTER_DELETE: "Cannot undo after delete",
-  CLICK_OR_DRAG_TO_UPLOAD_IMAGE: "Click or drag to upload image",
-  IMAGE_URL_INVALID: "Image URL invalid",
-  IMAGE_LOAD_FAILED: "Image load failed",
-  IMAGE_LOADING: "Image loading...",
-  FILE_LOAD_FAILED: "File load failed",
-  COVER_PROCESSING_FAILED: "Cover processing failed",
-  CROP_IMAGE: "Crop Image",
-  CROP_FAILED: "Crop failed",
-  CONFIRM_CROP: "Confirm Crop",
-  ENTER_KEY: "Enter key",
-  ENTER_VALUE: "Enter value",
-  CUSTOM_INFO_KEY_REQUIRED: "Custom info key is required",
-  REFRESH_SUCCESS: "Refresh Success",
-  OPERATION_FAILED: "Operation failed: {{error}}",
-  // ========== Composable Templates ==========
-  // 字节限制校验模板（替换了 13 个独立 GIFT_ID_MAX_BYTES / CATEGORY_NAME_MAX_BYTES 等 key）
-  MAX_BYTES: "{{field}} cannot exceed {{max}} bytes",
-  MAX_BYTES_WITH_CURRENT: "{{field}} cannot exceed {{max}} bytes (current {{current}})",
-  // 统一操作结果模板（entity 可选，error 可选）
-  // 注意：中英文模板参数顺序不同
-  //   中文: {{entity}}已{{action}} / {{action}}{{entity}}失败
-  //   英文: {{action}} {{entity}} successfully / {{action}} {{entity}} failed
-  // 使用 bindI18nHelpers 包装，不要直接拼接模板
-  // 示例: opSuccess(I18N.LABEL_CREATED, I18N.GIFT) → 中文"礼物已创建" / 英文"created Gift successfully"
-  OP_SUCCESS: "{{action}} {{entity}} successfully",
-  OP_FAILED: "{{action}} {{entity}} failed",
-  // 操作名词（供模板组合使用）
-  OP_SEARCH: "Search",
-  OP_UPLOAD: "Upload",
-  OP_SEND: "Send",
-  OP_UPDATE: "Update",
-  OP_REQUEST: "Request",
-  OP_LOGIN: "Login Operation",
-  OP_READY: "Ready",
-  OP_ENABLE: "Enable",
-  OP_DISABLE: "Disable",
-  // 短动词
-  OP_LOAD: "Load",
-  OP_LOAD_LIVE_LIST: "Load Live List",
-  OP_GET_STREAM_INFO: "Get Stream Info",
-  OP_IMPORT: "Import Account",
-  OP_ADD: "Add Robot",
-  OP_PICK: "Pick Seat",
-  OP_GET_LIST: "Get List",
-  OP_GET_SEATS: "Get Seats",
-  OP_GET_MUTED: "Get Muted",
-  OP_GET_BANNED: "Get Banned",
-  OP_GET_STREAM: "Get Stream",
-  OP_OBS_SETUP_ACT: "OBS Config",
-  OP_CROP_ACT: "Crop",
-  // 实体（供模板组合使用）
-  GIFT: "Gift",
-  LIVE: "Live Room",
-  IMAGE: "Image",
-  LANGUAGE_CONFIG: "Language Config",
-  GLOBAL_MUTE_TOGGLE: "Global Mute Toggle",
-  FETCH_LIVE_INFO: "Fetch Live Info",
-  SEND_ADMIN_MESSAGE: "Send Admin Message",
-  GIFT_SAVE: "Save Gift",
-  GIFT_DELETE_OPERATION: "Delete Gift",
-  GIFT_MULTILINGUAL_SAVE: "Save Gift Multilingual",
-  GIFT_CATEGORY_ADD_OPERATION: "Add Category to Gift",
-  GIFT_CATEGORY_REMOVE_OPERATION: "Remove Category from Gift",
-  CATEGORY_SAVE: "Save Category",
-  CATEGORY_MULTILINGUAL_SAVE: "Save Category Multilingual",
-  CATEGORY_DELETE_OPERATION: "Delete Category",
-  // ========== Direct string keys (纳入 I18N 常量体系) ==========
-  // 原来以 t('xxx') 形式直接使用的字符串，现统一纳入 I18N 常量
-  UNKNOWN_ANCHOR: "Unknown Anchor",
-  AVATAR_ALT: "{{name}}'s avatar",
-  FOUND_RESULTS: "Found {{count}} results",
-  NO_GIFT_FOUND: "No gift found for: {{keyword}}",
-  CUSTOM_INFO_MAX_COUNT_EXCEEDED: "Custom info exceeds the max count ({{max}})",
-  KEY_VALUE_EXCEEDS_2KB: "Value of key {{key}} exceeds 2KB",
-  SIMPLIFIED_CHINESE: "Simplified Chinese",
-  TRADITIONAL_CHINESE: "Traditional Chinese",
-  ENGLISH: "English",
-  // ========== 凭证登录页 ==========
-  CREDENTIAL_LOGIN_TITLE: "Credential Login",
-  CREDENTIAL_LOGIN_SUBTITLE: "Login credentials for Tencent Cloud API access and TRTC service authentication",
-  SDK_APP_ID_LABEL: "SDKAppID",
-  SDK_APP_ID_PLACEHOLDER: "e.g. 1400000000",
-  SDK_APP_ID_DESC: "Unique identifier for your Tencent Cloud IM application",
-  SECRET_KEY_LABEL: "SecretKey",
-  SECRET_KEY_PLACEHOLDER: "Enter your SecretKey",
-  SECRET_KEY_DESC: "Key used to generate login signatures. Never share it.",
-  USER_ID_LABEL: "User ID",
-  USER_ID_PLACEHOLDER: "e.g. administrator",
-  USER_ID_DESC: "Admin account for the management console. Defaults to administrator",
-  // ========== 凭证登录页 ==========
-  LOGIN_BTN: "Login",
-  LOGGING_IN: "Logging in...",
-  SECRET_KEY_MEMORY_ONLY: "SecretKey is stored in memory only. It will be lost when the page is refreshed.",
-  SHOW_SECRET: "Show",
-  HIDE_SECRET: "Hide",
-  TOGGLE_LOGIN_MODE: "Server Config",
-  CREDENTIAL_LOGIN_FAILED: "Login failed",
-  SDK_APP_ID_REQUIRED: "SDKAppID is required",
-  SECRET_KEY_REQUIRED: "SecretKey is required",
-  // ========== 凭证字段校验错误提示 ==========
-  /** SDKAppID 包含非数字字符 */
-  SDK_APP_ID_INVALID_FORMAT: "SDKAppID must contain only digits",
-  /** SDKAppID 位数不正确（非 8 或 10 位） */
-  SDK_APP_ID_INVALID_LENGTH: "SDKAppID must be 8 or 10 digits",
-  /** SDKAppID 不在有效号段内 */
-  SDK_APP_ID_INVALID_RANGE: "SDKAppID is not in a valid range",
-  /** SecretKey 长度不足 */
-  SECRET_KEY_TOO_SHORT: "SecretKey is too short (minimum 8 characters)",
-  /** User ID 为空 */
-  USER_ID_REQUIRED: "User ID is required",
-  /** User ID 过长（超过 TRTC 32 字节限制） */
-  USER_ID_TOO_LONG: "User ID is too long (max 32 bytes)",
-  // ========== 登录后凭证校验 ==========
-  /** 正在验证凭证是否有效 */
-  CREDENTIAL_VERIFYING: "Verifying credentials...",
-  /** 凭证验证失败（调 TRTC API 返回错误） */
-  CREDENTIAL_VERIFICATION_FAILED: "Credential verification failed. Please check your SDKAppID and SecretKey.",
-  // ========== 登录页顶部说明文案 ==========
-  /** 演示环境提示 */
-  LOGIN_DEMO_NOTICE: "This is an online demo environment for trial purposes only.",
-  /** 演示环境 - 集成文档链接文字 */
-  LOGIN_DEMO_INTEGRATION_DOC: "Integration Guide",
-  /** 服务端未配置提示 */
-  LOGIN_SERVER_NOT_CONFIGURED_NOTICE: "Server credentials not configured. You may log in manually below, but SecretKey is never persisted — re-entry is required on every refresh. Configure server-side credentials to skip this login screen entirely.",
-  /** 服务端配置 - 部署文档链接文字 */
-  LOGIN_SERVER_SETUP_GUIDE: "Setup Guide",
-  // ========== 凭证验证失败弹框内容 ==========
-  /** 弹框标题 */
-  CREDENTIAL_VERIFY_DIALOG_TITLE: "Login Failed",
-  /** SDKAppID 号段说明 */
-  CREDENTIAL_VERIFY_DIALOG_SDKAPPID_HINT: "Valid SDKAppID ranges:",
-  /** 国内站号段 */
-  CREDENTIAL_VERIFY_DIALOG_DOMESTIC: "Domestic: 1400000000–1699999999 (10 digits)",
-  /** 国际站号段 */
-  CREDENTIAL_VERIFY_DIALOG_INTERNATIONAL: "International: 20000000–99999999 (8 digits)",
-  /** 跨站号段 */
-  CREDENTIAL_VERIFY_DIALOG_CROSS_SITE: "Cross-site: 1720000000–1799999999 (10 digits)",
-  /** SecretKey 提示 */
-  CREDENTIAL_VERIFY_DIALOG_SECRETKEY_HINT: "You can get your SecretKey from the Tencent Cloud IM Console.",
-  /** 文档链接文字 */
-  CREDENTIAL_VERIFY_DIALOG_DOC_LINK: "View Documentation",
-  // ========== 登录字段帮助提示（气泡内容） ==========
-  /** SDKAppID 气泡：链接文字（无前缀） */
-  SDK_APP_ID_HELP_LINK: "How to get SDKAppID",
-  /** SecretKey 气泡：链接文字（前缀复用 SECRET_KEY_MEMORY_ONLY） */
-  SECRET_KEY_HELP_LINK: "How to get",
-  /** 用户 ID 气泡：前缀文字 */
-  USER_ID_HELP_PREFIX: "To use other admin accounts, please refer to",
-  /** 用户 ID 气泡：链接文字 */
-  USER_ID_HELP_LINK: "Admin Account Management",
-  // ========== Empty State Guide ==========
-  EMPTY_LIVE_LIST_TITLE: "No Live Rooms Yet",
-  EMPTY_LIVE_LIST_DESC: "Create your first live room to get started",
-  EMPTY_LIVE_MONITOR_TITLE: "No Ongoing Live",
-  EMPTY_LIVE_MONITOR_DESC: "Create a live room and monitor it in real-time here",
-  GO_CREATE_LIVE: "Go Create Live Room",
-  // ========== Demo Mode (online demo only, tree-shaken in release) ==========
-  TRY_DEMO_MODE: "Try Demo Mode",
-  DEMO_MODE_DESC: "Explore the full experience with sample data, no credentials needed",
-  // ========== Gift Empty State ==========
-  EMPTY_GIFT_TITLE: "No Gifts Yet",
-  EMPTY_GIFT_DESC: "Add your first gift to get started",
-  // ========== Anchor ID Hint ==========
-  WHAT_IS_ANCHOR_ID: "What is Anchor ID?",
-  ANCHOR_ID_HELP_TEXT: "Anchor ID is the UserID of the TUILiveKit account, ",
-  ANCHOR_ID_NOT_FOUND_TIP: "Anchor ID does not exist. Anchor ID is the UserID of the TUILiveKit account, ",
-  // ========== Upload Hint ==========
-  UPLOAD_NOT_CONFIGURED_HINT: "Upload service is not configured. You can only enter a URL for this field."
-}, INT_RANGES = [
+const SDK_DEFAULT_APP_NAME = "LiveKit";
+function pickTranslator(Oo, No) {
+  if (No) return No;
+  const jo = Oo === "zh-CN" ? resource$1 : enResource;
+  return (Go) => jo[Go] || Go;
+}
+function resolveLoginBrandName(Oo, No) {
+  const jo = pickTranslator(Oo, No), Ho = (getActiveAppConfig().brand.appName || "").trim();
+  if (Ho && Ho !== SDK_DEFAULT_APP_NAME) {
+    const Qo = jo(Ho);
+    return Qo !== Ho ? Qo : Ho;
+  }
+  return jo(I18N.DEMO_PRODUCT_NAME);
+}
+const INT_RANGES = [
   [2e7, 3e7],
   // 新加坡
   [3e7, 4e7],
@@ -8787,7 +9405,7 @@ function validateSdkAppId(Oo) {
   if (!/^\d+$/.test(No))
     return { valid: !1, field: "sdkAppId", message: I18N.SDK_APP_ID_INVALID_FORMAT };
   const jo = Number(No), Go = No.length;
-  return Go === 8 ? INT_RANGES.some((Qo) => inRange(jo, Qo)) ? { valid: !0 } : { valid: !1, field: "sdkAppId", message: I18N.SDK_APP_ID_INVALID_RANGE } : Go === 10 ? inRange(jo, DOMESTIC_RANGE) || inRange(jo, CROSS_SITE_RANGE) ? { valid: !0 } : { valid: !1, field: "sdkAppId", message: I18N.SDK_APP_ID_INVALID_RANGE } : { valid: !1, field: "sdkAppId", message: I18N.SDK_APP_ID_INVALID_LENGTH };
+  return Go === 8 ? INT_RANGES.some((Ho) => inRange(jo, Ho)) ? { valid: !0 } : { valid: !1, field: "sdkAppId", message: I18N.SDK_APP_ID_INVALID_RANGE } : Go === 10 ? inRange(jo, DOMESTIC_RANGE) || inRange(jo, CROSS_SITE_RANGE) ? { valid: !0 } : { valid: !1, field: "sdkAppId", message: I18N.SDK_APP_ID_INVALID_RANGE } : { valid: !1, field: "sdkAppId", message: I18N.SDK_APP_ID_INVALID_LENGTH };
 }
 function validateSecretKey(Oo) {
   const No = Oo.trim();
@@ -8800,604 +9418,14 @@ function validateUserId(Oo) {
 function validateCredentialLogin(Oo, No, jo) {
   const Go = validateSdkAppId(Oo);
   if (!Go.valid) return Go;
-  const Qo = validateSecretKey(No);
-  if (!Qo.valid) return Qo;
-  const Ho = validateUserId(jo);
-  return Ho.valid ? { valid: !0 } : Ho;
+  const Ho = validateSecretKey(No);
+  if (!Ho.valid) return Ho;
+  const Qo = validateUserId(jo);
+  return Qo.valid ? { valid: !0 } : Qo;
 }
 function isValidSdkAppIdFormat(Oo) {
   return /^\d{8,}$/.test(Oo.trim());
 }
-const resource$1 = {
-  // ========== 直播列表 ==========
-  [I18N.LIVE_LIST]: "直播列表",
-  [I18N.LIVE_COVER]: "直播封面",
-  [I18N.CREATE_LIVE]: "新建直播间",
-  [I18N.ENTER_LIVE_ID_TO_SEARCH]: "输入直播间ID搜索",
-  [I18N.INPUT_EXCEEDS_LENGTH_LIMIT]: "输入超出长度限制",
-  [I18N.INPUT_TOO_LONG]: "输入过长",
-  [I18N.LIVE_NOT_FOUND]: "直播未找到",
-  [I18N.LIVE_ID]: "直播间 ID",
-  [I18N.LIVE_ID_AUTO]: "直播间 ID（自动生成）",
-  [I18N.LIVE_TITLE]: "直播标题",
-  [I18N.COVER_IMAGE]: "封面图片",
-  [I18N.ANCHOR_ID]: "主播ID",
-  [I18N.CREATE_TIME]: "创建时间",
-  [I18N.ACTIONS]: "操作",
-  [I18N.ENTER_LIVE]: "进入房间",
-  [I18N.EDIT]: "编辑",
-  [I18N.DISSOLVE]: "解散",
-  [I18N.DISSOLVE_CONFIRMATION]: "确认解散吗？",
-  [I18N.DISSOLVE_DESCRIPTION]: '解散后将停止直播，确定要解散"{{liveId}}"吗？',
-  [I18N.CANCEL]: "取消",
-  [I18N.CONFIRM]: "确认",
-  [I18N.CLOSE]: "关闭",
-  [I18N.DELETE]: "删除",
-  [I18N.ADD]: "添加",
-  [I18N.LOADING]: "加载中...",
-  [I18N.NO_LIVE_DATA]: "暂无直播数据",
-  [I18N.FIRST_PAGE]: "首页",
-  [I18N.PREVIOUS_PAGE]: "上一页",
-  [I18N.NEXT_PAGE]: "下一页",
-  [I18N.PAGE]: "第 {{page}} 页",
-  [I18N.LIVE_HOST]: "主播",
-  [I18N.BASIC_INFORMATION]: "基本信息",
-  [I18N.LIVE_INFORMATION]: "直播间信息",
-  [I18N.STREAM_INFO]: "推流信息",
-  [I18N.SERVER_URL]: "服务器地址",
-  [I18N.STREAM_KEY]: "推流密钥",
-  [I18N.GETTING_STREAM_INFO]: "获取推流信息中...",
-  [I18N.PUSH_STREAM_INFO]: "推流信息",
-  // ========== 直播监控 ==========
-  [I18N.LIVE_MONITOR]: "直播监控",
-  [I18N.LIVE_ROOM_MANAGEMENT]: "直播间管理",
-  [I18N.MONITOR_ALL_LIVES_IN_REAL_TIME]: "实时监控所有直播",
-  [I18N.NO_LIVE_RIGHT_NOW]: "当前没有直播",
-  [I18N.CLOSING]: "关闭中...",
-  [I18N.VIOLATION_WARNING]: "违规警告",
-  [I18N.SEND_VIOLATION_WARNING]: "发送违规警告",
-  [I18N.UNNAMED_LIVE]: "未命名直播",
-  [I18N.CURRENT_VIEWERS]: "实时在线人数",
-  [I18N.CURRENT_VIEWERS_TOOLTIP]: "实时在线的观众人数",
-  [I18N.COMMENT_COUNT]: "总评论数",
-  [I18N.COMMENT_COUNT_TOOLTIP]: "直播间累计收到的评论总数",
-  [I18N.LIVE_DATA_CONTROL]: "直播数据中控",
-  [I18N.LIVE_NOW]: "直播中",
-  [I18N.UPDATED_AT]: "更新于：{{time}}",
-  [I18N.LIVE_DURATION]: "直播时长",
-  // ========== 直播控制 ==========
-  [I18N.LIVE_CONTROL]: "直播控制",
-  [I18N.ROOM_DETAILS]: "房间详情",
-  [I18N.LIVE_DETAILS]: "直播间详情",
-  [I18N.BACK_TO_LIST]: "返回列表",
-  [I18N.FORCE_STOP]: "强制关播",
-  [I18N.FORCE_STOP_CONFIRM_CONTENT]: "操作后将立即解散直播间，主播及观众将被退出，且无法恢复。",
-  [I18N.CONFIRM_ACTION_TITLE]: "确定要{{action}}吗？",
-  [I18N.CONFIRM_ACTION_CONTENT]: "确定要{{action}}该直播吗？",
-  [I18N.ANCHOR_IS_NOT_STREAMING]: "主播未开播",
-  [I18N.LIVE_DATA]: "直播数据",
-  [I18N.VIEWER_COUNT]: "观众数",
-  [I18N.MESSAGE_COUNT]: "消息数",
-  [I18N.START_TIME]: "开始时间",
-  [I18N.DURATION]: "时长",
-  [I18N.MUTE_ALL]: "全部静音",
-  [I18N.UNMUTE_ALL]: "取消静音",
-  [I18N.AUDIENCE_LIST]: "观众列表",
-  [I18N.MUTED_LIST]: "已禁言列表",
-  [I18N.BANNED_LIST]: "已封禁列表",
-  [I18N.CHAT]: "聊天",
-  [I18N.AUDIENCE]: "观众",
-  [I18N.CONFIRM_BAN_LIVE]: "确认",
-  [I18N.LIVE_BANNED]: "直播已封禁",
-  [I18N.UNNAMED_LIVE_SHORT]: "未命名",
-  [I18N.CONTENT_MODERATION]: "互动内容审核",
-  [I18N.BULK_APPROVE]: "批量放行",
-  [I18N.BULK_DELETE]: "批量删除",
-  [I18N.CUSTOM_MODERATION_TOGGLE]: "全员内容审核",
-  [I18N.ACTION]: "操作",
-  [I18N.MORE_ACTIONS]: "更多操作",
-  [I18N.ME]: "我",
-  [I18N.USER]: "用户",
-  [I18N.USERID]: "发送方ID",
-  [I18N.CREATED_AT]: "创建时间",
-  [I18N.COMMENT_USERS]: "累计观看",
-  [I18N.COMMENT_USERS_TOOLTIP]: "累计观看次数",
-  [I18N.INTERACTION_RATE]: "互动率",
-  [I18N.INTERACTION_RATE_TOOLTIP]: "评论数占累计观看人数的比例，反映观众互动活跃度",
-  [I18N.GIFT_COUNT]: "打赏次数",
-  [I18N.GIFT_COUNT_TOOLTIP]: "直播期间礼物赠送的总次数",
-  [I18N.GIFT_SENDERS]: "打赏人数",
-  [I18N.GIFT_SENDERS_TOOLTIP]: "直播期间赠送过礼物的独立用户数",
-  [I18N.MUTED]: "已禁言",
-  [I18N.NO_MUTED_MEMBERS]: "暂无禁言成员",
-  [I18N.UNMUTE_TIME]: "解禁时间",
-  [I18N.BAN_LIFT_TIME]: "解封时间",
-  [I18N.ALL_MEMBER_MUTE]: "全员禁言",
-  [I18N.ALL_MEMBER_MUTE_ENABLED_BANNER]: "当前直播间已开启全员禁言，观众无法发送评论",
-  [I18N.BAN]: "封禁",
-  [I18N.APPROVE]: "放行",
-  [I18N.BYPASS_CORRECTION]: "加入审核白名单",
-  [I18N.BYPASS_CORRECTION_DIALOG_TITLE]: "确认要将该评论内容加入审核白名单？",
-  [I18N.BYPASS_CORRECTION_CONFIRM]: "加入审核白名单",
-  [I18N.RELEASE_AND_RESEND]: "放行并重发",
-  [I18N.BYPASS_CORRECTION_DESCRIPTION]: '预计5分钟内生效，生效后相同内容的评论内容将不会被识别为敏感内容，详细请查看<a href="https://cloud.tencent.com/document/product/269/106615" target="_blank">纠错功能</a>',
-  [I18N.MODERATION_EMPTY]: "暂无审核内容",
-  [I18N.SENSITIVE_TYPE]: "识别类型",
-  [I18N.COMMENT_CONTENT]: "评论内容",
-  [I18N.MESSAGE_LIST]: "消息列表",
-  [I18N.TOTAL_ITEMS]: "共 {{total}} 条",
-  [I18N.ENTER_MESSAGE_TO_SEND_AS_ADMIN]: "请输入管理员消息",
-  [I18N.FETCH_MUTED_LIST_FAILED]: "获取禁言列表失败：{{error}}",
-  [I18N.FETCH_BANNED_LIST_FAILED]: "获取封禁列表失败：{{error}}",
-  [I18N.USER_ACTION_WARNING]: "确定要{{action}}{{name}}吗？",
-  // ========== 禁言/封禁 确认弹框 ==========
-  [I18N.MUTE_CONFIRM_CONTENT]: "禁言后该用户将在 10 分钟内无法发送弹幕消息，确定要禁言 {{name}} 吗？",
-  [I18N.BAN_CONFIRM_CONTENT]: "封禁后该用户将在 1 小时内无法进入房间，确定要封禁 {{name}} 吗？",
-  [I18N.NORMAL]: "正常",
-  [I18N.PORN]: "色情",
-  [I18N.SENSITIVE]: "敏感",
-  [I18N.POLITICAL]: "政治",
-  [I18N.ADVERTISING]: "广告",
-  [I18N.ABUSE]: "谩骂",
-  [I18N.ILLEGAL]: "违法",
-  [I18N.VIOLENCE]: "暴恐",
-  [I18N.SEXY]: "性感",
-  [I18N.SPAM]: "灌水",
-  [I18N.MOAN]: "呻吟",
-  [I18N.UNKNOWN]: "未知",
-  // ========== 创建/编辑直播 ==========
-  [I18N.EDIT_LIVE]: "编辑直播",
-  [I18N.ENTER_ANCHOR_ID]: "输入主播ID",
-  [I18N.PLEASE_ENTER_HOST_ID_FIRST]: "请先输入主播ID",
-  [I18N.ENTER_LIVE_TITLE]: "输入直播标题",
-  [I18N.CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE]: "点击或拖拽上传封面图片",
-  [I18N.LAYOUT_TEMPLATE]: "布局模板",
-  [I18N.MAX_SEATS]: "最大座位数",
-  [I18N.MAX_SEATS_HELP]: "语聊房最大座位数",
-  [I18N.SEAT_COUNT_RANGE_1_16]: "座位数范围1-16",
-  [I18N.ENTER_MAX_SEAT_COUNT]: "输入最大座位数",
-  [I18N.STREAMING_METHOD]: "推流方式",
-  [I18N.USE_OBS_STREAMING]: "使用OBS推流",
-  [I18N.OBS_STREAMING_INFO_WILL_BE_DISPLAYED]: "创建时将显示OBS推流信息",
-  [I18N.LIVE_CREATED_SUCCESSFULLY_OBS]: "直播创建成功，OBS信息如下",
-  [I18N.PLEASE_ENTER_LIVE_TITLE]: "请输入直播标题",
-  [I18N.COPY_ID]: "复制ID",
-  [I18N.COPY_NAME]: "复制名称",
-  [I18N.NETWORK_ERROR]: "网络错误",
-  [I18N.NETWORK_TIMEOUT]: "请求超时，请检查网络",
-  // ========== 礼物管理 ==========
-  [I18N.GIFT_MANAGEMENT]: "礼物管理",
-  [I18N.GIFT_MATERIAL_CONFIG]: "礼物素材配置",
-  [I18N.ADD_GIFT]: "添加礼物",
-  [I18N.SEARCH_GIFT_PLACEHOLDER]: "搜索礼物ID、名称、描述...",
-  [I18N.ENTER_GIFT_ID]: "请输入礼物ID",
-  [I18N.RANDOM_GENERATE_ID]: "随机生成ID",
-  [I18N.ENTER_GIFT_NAME]: "请输入礼物名称",
-  [I18N.ENTER_GIFT_DESCRIPTION]: "请输入礼物描述",
-  [I18N.GIFT_LEVEL]: "礼物等级",
-  [I18N.GIFT_LEVEL_RANGE]: "礼物等级范围：{{min}}-{{max}}",
-  [I18N.GIFT_PRICE]: "礼物价格",
-  [I18N.GIFT_PRICE_RANGE]: "礼物价格范围：{{min}}-{{max}}",
-  [I18N.ENTER_GIFT_PRICE]: "输入礼物价格",
-  [I18N.ENTER_GIFT_LEVEL]: "输入礼物等级",
-  [I18N.ENTER_THUMBNAIL_URL]: "请输入缩略图URL",
-  [I18N.ENTER_FILE_URL]: "请输入文件URL",
-  [I18N.CLICK_OR_DRAG_TO_UPLOAD_THUMBNAIL]: "点击或拖拽上传缩略图",
-  [I18N.CLICK_OR_DRAG_TO_UPLOAD_MATERIAL]: "点击或拖拽上传素材",
-  [I18N.UPLOAD_THUMBNAIL_OR_ENTER_URL]: "请上传缩略图或输入URL",
-  [I18N.EXTENSION_INFO_JSON_FORMAT]: "扩展信息必须是合法的JSON格式",
-  [I18N.OPERATION_FAILED]: "操作失败：{{error}}",
-  [I18N.EDIT_GIFT]: "编辑礼物",
-  [I18N.CREATE_GIFT]: "创建礼物",
-  [I18N.SAVING]: "保存中...",
-  [I18N.CREATING]: "创建中...",
-  [I18N.SAVE]: "保存",
-  [I18N.CREATE]: "创建",
-  [I18N.GIFT_MATERIAL]: "礼物素材",
-  [I18N.CUSTOM_EXTENSION_INFO]: "自定义扩展信息",
-  [I18N.CANNOT_UNDO_AFTER_DELETE]: "删除后无法撤销",
-  // ========== 分类管理 ==========
-  [I18N.CATEGORY_MANAGEMENT]: "分类管理",
-  [I18N.GIFT_CATEGORY]: "礼物分类",
-  [I18N.ADD_CATEGORY]: "添加分类",
-  [I18N.CATEGORY_ID]: "分类ID",
-  [I18N.CATEGORY_NAME]: "分类名称",
-  [I18N.CATEGORY_DESCRIPTION]: "分类描述",
-  [I18N.ENTER_CATEGORY_ID]: "输入分类ID",
-  [I18N.ENTER_CATEGORY_NAME]: "输入分类名称",
-  [I18N.ENTER_CATEGORY_DESCRIPTION]: "输入分类描述",
-  [I18N.SELECT_CATEGORY]: "选择分类",
-  [I18N.SELECT_CATEGORY_LOWERCASE]: "选择分类",
-  [I18N.CATEGORY_ADDED]: "分类已添加",
-  [I18N.CATEGORY_REMOVED]: "分类已移除",
-  [I18N.CATEGORY_MULTILINGUAL_CONFIG]: "分类多语言配置",
-  [I18N.CATEGORY_MULTILINGUAL_CONFIG_TIP]: "为不同语言配置分类名称和描述。这些将根据用户的语言设置显示给用户。",
-  [I18N.EDIT_CATEGORY_LANGUAGE_INFO]: "编辑{{lang}}分类语言信息",
-  [I18N.EDIT_GIFT_LANGUAGE_INFO]: "编辑{{lang}}礼物语言信息",
-  [I18N.ENTER_LANGUAGE_CATEGORY_NAME]: "输入{{lang}}分类名称",
-  [I18N.ENTER_LANGUAGE_CATEGORY_DESCRIPTION]: "输入{{lang}}分类描述",
-  [I18N.ENTER_LANGUAGE_GIFT_NAME]: "输入{{lang}}礼物名称",
-  [I18N.ENTER_LANGUAGE_GIFT_DESCRIPTION]: "输入{{lang}}礼物描述",
-  [I18N.CREATE_CATEGORY]: "创建分类",
-  [I18N.EDIT_CATEGORY]: "编辑分类",
-  [I18N.EDIT_GIFT_CATEGORY]: "编辑礼物分类",
-  [I18N.GET_CATEGORY_LIST_FAILED]: "获取分类列表失败",
-  [I18N.CATEGORY_LIMIT_REACHED]: "已达到分类数量上限",
-  [I18N.REMOVE_CATEGORY_DESCRIPTION]: "确定要从该礼物中移除该分类吗？",
-  [I18N.NO_AVAILABLE_CATEGORIES]: "暂无可用分类",
-  // ========== 图片上传 ==========
-  [I18N.FILE_SIZE_EXCEEDS_MB]: "文件大小超过{{max}}MB",
-  [I18N.SUPPORTS_IMAGE_FORMATS_MAX_MB]: "支持JPG/PNG/GIF/WebP格式，最大{{max}}MB",
-  // ========== 消息列表 ==========
-  [I18N.MESSAGE_CONTENT_TOO_LONG]: "消息内容过长，最多{{max}}字符",
-  // ========== 自定义信息 ==========
-  [I18N.VALUE_EXCEEDS_2KB_LIMIT]: "值超过2KB限制",
-  [I18N.CUSTOM_INFO_MAX_COUNT]: "自定义信息最多{{max}}条",
-  // ========== 直播创建 ==========
-  // ========== 页面标题补充 ==========
-  [I18N.LIVE_ROOM_MANAGEMENT_PLATFORM]: "直播间管理平台",
-  // ========== Common ==========
-  [I18N.NO_DATA]: "暂无数据",
-  [I18N.NO_GIFT_DATA]: "暂无礼物数据",
-  [I18N.GIFT_ID]: "礼物ID",
-  [I18N.THUMBNAIL]: "缩略图",
-  [I18N.NAME]: "名称",
-  [I18N.DESCRIPTION]: "描述",
-  [I18N.CATEGORY]: "分类",
-  [I18N.LEVEL]: "等级",
-  [I18N.PRICE]: "价格",
-  [I18N.MULTILINGUAL_CONFIG]: "多语言配置",
-  [I18N.GIFT_MULTILINGUAL_CONFIG]: "礼物多语言配置",
-  [I18N.MULTILINGUAL_CONFIG_TIP]: "为不同语言配置礼物名称和描述。这些将根据用户的语言设置显示给用户。",
-  [I18N.LANGUAGE_TYPE]: "语言类型",
-  [I18N.SIMPLIFIED_CHINESE]: "简体中文",
-  [I18N.TRADITIONAL_CHINESE]: "繁体中文",
-  [I18N.ENGLISH]: "英语",
-  [I18N.REFRESH]: "刷新",
-  [I18N.VIEW_DETAILS]: "查看详情",
-  [I18N.VIEWS]: "次观看",
-  [I18N.UNKNOWN_HOST]: "未知主播",
-  // ========== 额外常量 ==========
-  [I18N.UNMUTE]: "取消禁言",
-  [I18N.UNMUTING]: "取消中...",
-  [I18N.UNBAN]: "解除封禁",
-  [I18N.UNBANNING]: "解除中...",
-  [I18N.MUTE]: "禁言",
-  [I18N.SENDING]: "发送中...",
-  [I18N.SEND_MESSAGE]: "发送消息",
-  [I18N.MESSAGE_CONTENT_REQUIRED]: "请输入消息内容",
-  [I18N.LIVE_ENDED]: "直播已结束",
-  [I18N.NO_BANNED_MEMBERS]: "暂无封禁成员",
-  [I18N.PLEASE_SELECT_AT_LEAST_ONE_ITEM]: "请至少选择一项",
-  [I18N.RELEASE_AND_RESEND_DESCRIPTION]: "放行该用户的内容并重新发送",
-  [I18N.BULK_APPROVE_CONFIRM_CONTENT]: "将放行并重新发送选中的评论内容",
-  [I18N.REFRESH_SUCCESS]: "刷新成功",
-  [I18N.UNKNOWN_ERROR]: "未知错误",
-  [I18N.SEND_FAILED]: "发送失败",
-  [I18N.NOT_CONFIGURED]: "未配置",
-  [I18N.CREATE_CATEGORY_FIRST]: "请先创建分类",
-  [I18N.DYNAMIC_GRID_LAYOUT]: "动态宫格布局",
-  [I18N.FLOATING_WINDOW_LAYOUT]: "浮动小窗布局",
-  [I18N.FIXED_GRID_LAYOUT]: "固定宫格布局",
-  [I18N.FIXED_WINDOW_LAYOUT]: "固定小窗布局",
-  [I18N.LANDSCAPE_BROADCASTING]: "横屏直播",
-  [I18N.DYNAMIC_GRID_LAYOUT_DESC]: "根据连麦人数动态调整网格大小",
-  [I18N.FLOATING_WINDOW_DESC]: "连麦者以悬浮窗口显示",
-  [I18N.FIXED_GRID_DESC]: "每个连麦者占据固定网格",
-  [I18N.FIXED_WINDOW_DESC]: "连麦者以固定窗口显示",
-  [I18N.LANDSCAPE_BROADCASTING_DESC]: "1个主播视频 + 3个语音座位",
-  [I18N.LANDSCAPE_BROADCASTING_HINT]: "仅适用于web端开播",
-  [I18N.ENTER_IMAGE_URL]: "输入图片URL",
-  [I18N.CUSTOM_INFORMATION]: "自定义信息",
-  [I18N.TOTAL_GIFT_AMOUNT]: "打赏总金额",
-  [I18N.TOTAL_GIFT_AMOUNT_TOOLTIP]: "直播期间所有用户赠送礼物的累计金额",
-  [I18N.HOST]: "主播",
-  [I18N.MONITOR]: "监控",
-  [I18N.MORE]: "更多",
-  [I18N.DAYS]: "天",
-  [I18N.ENABLE_ALL_MEMBER_MUTE]: "开启全员禁言",
-  [I18N.ENABLE_ALL_MEMBER_MUTE_CONFIRM_CONTENT]: "观众将无法发送评论，是否确认开启？",
-  [I18N.CONFIRM_ENABLE]: "确认开启",
-  [I18N.VIOLATION_WARNING_SEND_CONFIRM]: "确认发送违规警告",
-  [I18N.VIOLATION_WARNING_CONFIRM_CONTENT]: "当前直播间存在潜在违规风险，是否向主播发送违规警告？",
-  [I18N.VIOLATION_WARNING_CONTENT_TEMPLATE]: '直播间 "{{liveName}}" 收到违规警告，请立即整改',
-  [I18N.VIOLATION_WARNING_DEFAULT_SUGGESTION]: "请遵守平台规则，删除违规内容",
-  [I18N.VIOLATION_TYPE_WARNING]: "警告",
-  [I18N.VIOLATION_SUGGESTION_PORN]: "请立即删除不当内容，多次违规将导致直播间封禁",
-  [I18N.VIOLATION_SUGGESTION_POLITICAL]: "请勿讨论政治敏感话题，请遵守相关法律法规",
-  [I18N.VIOLATION_SUGGESTION_ABUSE]: "请文明用语，停止辱骂攻击行为",
-  [I18N.VIOLATION_SUGGESTION_ADVERTISING]: "请勿发布未经审核的广告内容",
-  [I18N.VIOLATION_SUGGESTION_ILLEGAL]: "请勿进行违法违规活动",
-  [I18N.VIOLATION_SUGGESTION_SEXY]: "请保持直播间内容健康，避免低俗内容",
-  [I18N.VIOLATION_SUGGESTION_VIOLENCE]: "请勿展示暴力血腥内容",
-  [I18N.VIOLATION_SUGGESTION_DEFAULT]: "您的内容涉嫌违规，请立即整改",
-  [I18N.UPLOAD_IMAGE]: "上传图片",
-  [I18N.ENTER_URL]: "输入 URL",
-  [I18N.UPLOAD_SUCCESS]: "上传成功",
-  [I18N.UPLOAD_FAILED]: "上传失败",
-  [I18N.UPLOADING]: "上传中...",
-  [I18N.VALIDATING]: "验证中...",
-  [I18N.PENDING_UPLOAD]: "待上传",
-  [I18N.RE_UPLOAD]: "重新上传",
-  [I18N.RETURN_TO_LIVE_LIST]: "返回直播列表",
-  [I18N.REFRESH_OFF]: "关闭刷新",
-  [I18N.NUMBER_OF_GIFTS]: "礼物数量",
-  [I18N.TOTAL_VALUE_SIZE_EXCEEDS_16KB]: "总值大小超过16KB",
-  [I18N.ONE_MINUTE]: "1分钟",
-  [I18N.FIVE_MINUTES]: "5分钟",
-  [I18N.TEN_SECONDS]: "10秒",
-  [I18N.THIRTY_SECONDS]: "30秒",
-  [I18N.COMPLETE]: "完成",
-  [I18N.CLEAR]: "清空",
-  // 新增：独立翻译（不与其他键重复）
-  [I18N.GIFT_NAME]: "礼物名称",
-  // ========== 补充翻译：之前缺失的中文翻译 ==========
-  // 直播列表/搜索
-  [I18N.NO_SEARCH_RESULTS_FOR]: "未找到搜索结果：{{keyword}}",
-  [I18N.SEARCH_EXACT_ID_HINT]: "当前搜索必须使用完整的直播间 ID 才能搜索到，暂不支持模糊搜索",
-  // 创建/编辑直播
-  [I18N.PLEASE_ENTER_ANCHOR_ID]: "请输入主播ID",
-  [I18N.OBS_READY_COPY_INFO]: "OBS已就绪，请复制以下推流信息",
-  // 礼物管理
-  [I18N.GET_GIFT_LIST_FAILED]: "获取礼物列表失败",
-  [I18N.DELETE_FAILED]: "删除失败",
-  [I18N.SUPPORT_MP4_SVGA_MAX_10MB]: "支持 MP4/SVGA 格式，最大 10MB",
-  // 多语言配置
-  // 图片上传
-  [I18N.CLICK_OR_DRAG_TO_UPLOAD_IMAGE]: "点击或拖拽上传图片",
-  [I18N.IMAGE_URL_INVALID]: "图片地址无效",
-  [I18N.IMAGE_LOAD_FAILED]: "图片加载失败",
-  [I18N.IMAGE_LOADING]: "图片加载中...",
-  [I18N.FILE_LOAD_FAILED]: "文件加载失败",
-  [I18N.COVER_PROCESSING_FAILED]: "封面处理失败",
-  [I18N.CROP_IMAGE]: "裁剪图片",
-  [I18N.CROP_FAILED]: "裁剪失败",
-  [I18N.CONFIRM_CROP]: "确认裁剪",
-  // 自定义信息
-  [I18N.ENTER_KEY]: "请输入键",
-  [I18N.ENTER_VALUE]: "请输入值",
-  [I18N.CUSTOM_INFO_KEY_REQUIRED]: "请输入自定义信息的键",
-  // 通用
-  [I18N.COPY]: "复制",
-  [I18N.HOST_AVATAR]: "主播头像",
-  [I18N.GET_ERROR_MESSAGE]: "获取错误信息",
-  [I18N.CREATE_FAILED]: "创建失败",
-  [I18N.REQUEST_FAILED]: "请求失败",
-  [I18N.REFRESH_FAILED]: "刷新失败",
-  // ========== 直接使用英文字符串作为键的翻译（已纳入 I18N 常量体系） ==========
-  [I18N.UNKNOWN_ANCHOR]: "未知主播",
-  [I18N.AVATAR_ALT]: "{{name}} 的头像",
-  [I18N.FOUND_RESULTS]: "找到 {{count}} 条结果",
-  [I18N.NO_GIFT_FOUND]: "未找到礼物：{{keyword}}",
-  [I18N.CUSTOM_INFO_MAX_COUNT_EXCEEDED]: "自定义信息条数超过上限（最多 {{max}} 条）",
-  [I18N.KEY_VALUE_EXCEEDS_2KB]: "键 {{key}} 的值超过 2KB",
-  // ========== ChatErrorModal (tuikit-atomicx) ==========
-  // 这些键由 tuikit-atomicx-react 的 ChatErrorModal 组件使用。
-  // 直接注册在此以确保在自动化测试等环境下始终可用，避免模块加载时序问题。
-  // 注意：必须使用嵌套对象结构，因为 i18next 通过遍历嵌套资源树来解析
-  // 点号分隔的键名（如 "ChatErrorModal.title"）。
-  ChatErrorModal: {
-    title: "错误",
-    login_invalid_sdk_app_id: '缺少正确的 SDKAppID，您可以通过<a target="_blank" href="https://console.cloud.tencent.com/im">即时通信 IM 控制台</a>获取。',
-    login_invalid_user_id: "缺少正确的 userID，userID 格式为非空字符串。",
-    login_invalid_secret_key: '缺少正确的 secretKey，您可以通过<a target="_blank" href="https://console.cloud.tencent.com/im">即时通信 IM 控制台</a>获取。',
-    login_invalid_user_sig: '缺少正确的 userSig，您可以通过<a target="_blank" href="https://console.cloud.tencent.com/im/tool-usersig">即时通信 IM 控制台 > 开发工具 > UserSig生成&校验</a>获取。',
-    login_user_sig_expired: 'userSig 已过期，您可以通过<a target="_blank" href="https://console.cloud.tencent.com/im/tool-usersig">即时通信 IM 控制台 > 开发工具 > UserSig生成&校验</a>重新获取。',
-    login_user_sig_invalid: 'UserSig 非法，请使用官网提供的 API 重新生成 UserSig（<a target="_blank" href="https://cloud.tencent.com/document/product/269/32688">文档</a>）。',
-    login_user_id_not_match_user_sig: '请求中的 UserID 与生成 UserSig 时使用的 UserID 不一致，您可以使用<a target="_blank" href="https://console.cloud.tencent.com/im/tool-usersig">即时通信 IM 控制台 > 开发工具 > UserSig生成&校验</a>校验 UserSig。',
-    login_sdk_app_id_not_match_user_sig: '请求中的 SDKAppID 与生成 UserSig 时使用的 SDKAppID 不一致。您可以使用<a target="_blank" href="https://console.cloud.tencent.com/im/tool-usersig">即时通信 IM 控制台 > 开发工具 > UserSig生成&校验</a>校验 UserSig。',
-    login_sdk_app_id_not_found: 'SDKAppID 未找到，请在<a target="_blank" href="https://console.cloud.tencent.com/im">即时通信 IM 控制台</a>确认应用信息。',
-    package_not_purchased: '您未购买套餐包，或套餐包已过期，或购买的套餐包正在配置中暂未生效。请登录<a target="_blank" href="https://buy.cloud.tencent.com/avc">即时通信 IM 购买页面</a>重新购买套餐包。购买后，将在5分钟后生效。',
-    package_group_read_receipt_not_enabled: '您当前购买使用的套餐包暂未开通群消息已读回执功能，您可以升级到套餐为<a target="_blank" href="https://buy.cloud.tencent.com/avc">旗舰版</a>。',
-    package_online_user_list_not_enabled: '您当前购买使用的套餐包暂未开通在线用户列表功能，您可以升级到套餐为<a target="_blank" href="https://buy.cloud.tencent.com/avc">旗舰版</a>。',
-    package_cloud_search_not_enabled: '您当前购买使用的套餐包暂未开通云端搜索功能，您可以开通<a target="_blank" href="https://cloud.tencent.com/document/product/269/101046">云端搜索</a>。',
-    package_text_translation_not_enabled: '您当前购买使用的套餐包暂未开通文本消息翻译功能，您可以开通<a target="_blank" href="https://cloud.tencent.com/document/product/269/92661">文本消息翻译</a>。',
-    package_speech_to_text_not_enabled: '您当前购买使用的套餐包暂未开通语音转文字功能，您可以开通<a target="_blank" href="https://cloud.tencent.com/document/product/269/110626">语音转文字</a>。',
-    call_kit_not_integrated: '检测到您暂未集成TUICallKit，无法体验音视频通话功能，可以参考：<a target="_blank" href="https://cloud.tencent.com/document/product/269/79861">接入 TUICallKit</a>。',
-    search_cloud_rate_limit: "云端搜索请求超过后台频率限制，单用户一秒内允许2次搜索请求，请稍后再试。",
-    message_voice_size_exceeded: "语音大小超出了限制，如果上传语音，最大限制是 20MB。",
-    message_image_invalid_format: "图片消息发送失败，无效的图片格式，图片格式支持：jpg、jpeg、gif、png、bmp、image、webp。",
-    message_image_size_exceeded: "图片大小超出了限制，如果上传文件，最大限制是 20MB。",
-    message_image_sensitive_content: "消息中图片存在敏感内容，发送失败。",
-    message_video_invalid_format: "视频消息发送失败，无效的视频格式，视频格式支持：mp4、quicktime、mov。",
-    message_video_size_exceeded: "视频大小超出了限制，如果上传视频，最大限制是 100MB。",
-    message_file_not_exist: "文件不存在，请检查文件路径是否正确。",
-    message_file_size_exceeded: "文件大小超出了限制，如果上传文件，最大限制是 100MB。",
-    message_file_sending_banned: "文件消息失败，禁止发送违规封禁的文件。",
-    message_text_sensitive_content: "消息或者资料中文本存在敏感内容，发送失败。",
-    message_length_exceeded: "消息长度超出限制，消息长度不要超过 12K。",
-    message_local_audit_blocked: "文本包含本地审核拦截词。",
-    message_recall_time_exceeded: "超过撤回时间限制。消息撤回超过了时间限制（默认2分钟）。",
-    reaction_emoji_limit_reached: "已达到表情回应上限数量。",
-    profile_remark_length_exceeded: "修改备注失败：备注长度不得超过 96 字节。",
-    group_announcement_length_exceeded: "群公告字数超出限制，最大长度为 150。",
-    group_name_invalid: "群名称仅限中文、字母、数字和下划线，2-20个字。",
-    group_id_already_used: "群组 ID 已被使用。请选择其他的群组 ID。"
-  },
-  // ========== 组合模板翻译 ==========
-  [I18N.MAX_BYTES]: "{{field}}不能超过{{max}}字节",
-  [I18N.MAX_BYTES_WITH_CURRENT]: "{{field}}不能超过{{max}}字节（当前 {{current}}）",
-  // 统一操作结果模板
-  // 注意：中英文模板参数顺序不同，i18next 按参数名匹配，可放心使用
-  [I18N.OP_SUCCESS]: "{{entity}}已{{action}}",
-  [I18N.OP_FAILED]: "{{action}}{{entity}}失败",
-  // 操作名词
-  [I18N.OP_SEARCH]: "搜索",
-  [I18N.OP_UPLOAD]: "上传",
-  [I18N.OP_SEND]: "发送",
-  [I18N.OP_UPDATE]: "更新",
-  [I18N.OP_REQUEST]: "请求",
-  [I18N.OP_LOGIN]: "登录",
-  [I18N.OP_READY]: "就绪",
-  [I18N.OP_ENABLE]: "开启",
-  [I18N.OP_DISABLE]: "关闭",
-  // 短动词
-  [I18N.OP_LOAD]: "加载",
-  [I18N.OP_LOAD_LIVE_LIST]: "加载直播列表",
-  [I18N.OP_GET_STREAM_INFO]: "获取推流信息",
-  [I18N.OP_IMPORT]: "导入账号",
-  [I18N.OP_ADD]: "添加机器人",
-  [I18N.OP_PICK]: "上麦",
-  [I18N.OP_GET_LIST]: "获取列表",
-  [I18N.OP_GET_SEATS]: "获取座位列表",
-  [I18N.OP_GET_MUTED]: "获取禁言列表",
-  [I18N.OP_GET_BANNED]: "获取封禁列表",
-  [I18N.OP_GET_STREAM]: "获取推流信息",
-  [I18N.OP_OBS_SETUP_ACT]: "OBS配置",
-  [I18N.OP_CROP_ACT]: "裁剪",
-  // ========== 实体 / 动词 label ==========
-  [I18N.LABEL_CREATED]: "创建",
-  [I18N.LABEL_UPDATED]: "更新",
-  [I18N.LABEL_DELETED]: "删除",
-  [I18N.GIFT]: "礼物",
-  [I18N.LIVE]: "直播间",
-  [I18N.IMAGE]: "图片",
-  [I18N.LANGUAGE_CONFIG]: "语言配置",
-  // ========== 操作名称 ==========
-  [I18N.GLOBAL_MUTE_TOGGLE]: "全局禁言切换",
-  [I18N.FETCH_LIVE_INFO]: "获取直播信息",
-  [I18N.SEND_ADMIN_MESSAGE]: "发送管理员消息",
-  [I18N.GIFT_SAVE]: "礼物保存",
-  [I18N.GIFT_DELETE_OPERATION]: "删除礼物",
-  [I18N.GIFT_MULTILINGUAL_SAVE]: "保存礼物多语言",
-  [I18N.GIFT_CATEGORY_ADD_OPERATION]: "添加礼物类别",
-  [I18N.GIFT_CATEGORY_REMOVE_OPERATION]: "移除礼物类别",
-  [I18N.CATEGORY_SAVE]: "保存类别",
-  [I18N.CATEGORY_MULTILINGUAL_SAVE]: "保存类别多语言",
-  [I18N.CATEGORY_DELETE_OPERATION]: "删除类别",
-  // ========== 凭证登录页 ==========
-  [I18N.CREDENTIAL_LOGIN_TITLE]: "凭证登录",
-  [I18N.CREDENTIAL_LOGIN_SUBTITLE]: "登录凭证用于腾讯云 API 访问以及 TRTC 服务鉴权",
-  [I18N.SDK_APP_ID_LABEL]: "SDKAppID",
-  [I18N.SDK_APP_ID_PLACEHOLDER]: "例如 1400000000",
-  [I18N.SDK_APP_ID_DESC]: "腾讯云 IM 应用的唯一标识，用于区分不同应用",
-  [I18N.SECRET_KEY_LABEL]: "SecretKey",
-  [I18N.SECRET_KEY_PLACEHOLDER]: "输入您的 SecretKey",
-  [I18N.SECRET_KEY_DESC]: "用于生成登录签名的密钥，请勿泄露",
-  [I18N.USER_ID_LABEL]: "用户 ID",
-  [I18N.USER_ID_PLACEHOLDER]: "例如 administrator",
-  [I18N.USER_ID_DESC]: "登录管理后台的账号，默认为 administrator",
-  [I18N.LOGIN_BTN]: "登录",
-  [I18N.LOGGING_IN]: "登录中...",
-  [I18N.SECRET_KEY_MEMORY_ONLY]: "SecretKey 仅存储在浏览器内存中，刷新页面后需重新输入。",
-  [I18N.SHOW_SECRET]: "显示",
-  [I18N.HIDE_SECRET]: "隐藏",
-  [I18N.TOGGLE_LOGIN_MODE]: "服务端配置",
-  [I18N.CREDENTIAL_LOGIN_FAILED]: "登录失败",
-  [I18N.SDK_APP_ID_REQUIRED]: "请输入 SDKAppID",
-  [I18N.SECRET_KEY_REQUIRED]: "请输入 SecretKey",
-  // ========== 凭证字段校验错误提示 ==========
-  [I18N.SDK_APP_ID_INVALID_FORMAT]: "SDKAppID 只能包含数字",
-  [I18N.SDK_APP_ID_INVALID_LENGTH]: "SDKAppID 需为 8 位或 10 位数字",
-  [I18N.SDK_APP_ID_INVALID_RANGE]: "SDKAppID 不在有效号段范围内",
-  [I18N.SECRET_KEY_TOO_SHORT]: "SecretKey 过短（至少 8 个字符）",
-  [I18N.USER_ID_REQUIRED]: "请输入用户 ID",
-  [I18N.USER_ID_TOO_LONG]: "用户 ID 过长（最多 32 字节）",
-  // ========== 登录后凭证校验 ==========
-  [I18N.CREDENTIAL_VERIFYING]: "正在验证凭证...",
-  [I18N.CREDENTIAL_VERIFICATION_FAILED]: "凭证验证失败，请检查 SDKAppID 和 SecretKey 是否正确。",
-  // ========== 登录页顶部说明文案 ==========
-  [I18N.LOGIN_DEMO_NOTICE]: "当前为在线演示环境，仅供功能体验使用。如需接入您的应用，请参考",
-  [I18N.LOGIN_DEMO_INTEGRATION_DOC]: "集成文档",
-  [I18N.LOGIN_SERVER_NOT_CONFIGURED_NOTICE]: "当前服务端尚未配置登录凭证，你可以通过下方表单手动登录。出于安全考虑，SecretKey 不会保存在浏览器中，每次刷新页面都需重新输入。建议在服务端完成配置，此后将自动跳过登录页面。",
-  [I18N.LOGIN_SERVER_SETUP_GUIDE]: "部署指引",
-  // ========== 凭证验证失败弹框内容 ==========
-  [I18N.CREDENTIAL_VERIFY_DIALOG_TITLE]: "登录失败",
-  [I18N.CREDENTIAL_VERIFY_DIALOG_SDKAPPID_HINT]: "SDKAppID 有效号段：",
-  [I18N.CREDENTIAL_VERIFY_DIALOG_DOMESTIC]: "国内站：1400000000–1699999999（10 位）",
-  [I18N.CREDENTIAL_VERIFY_DIALOG_INTERNATIONAL]: "国际站：20000000–99999999（8 位）",
-  [I18N.CREDENTIAL_VERIFY_DIALOG_CROSS_SITE]: "跨站号段：1720000000–1799999999（10 位）",
-  [I18N.CREDENTIAL_VERIFY_DIALOG_SECRETKEY_HINT]: "SecretKey 可从腾讯云 IM 控制台获取。",
-  [I18N.CREDENTIAL_VERIFY_DIALOG_DOC_LINK]: "查看文档",
-  // ========== 登录字段帮助提示 ==========
-  [I18N.SDK_APP_ID_HELP_LINK]: "如何获取SDKAppID",
-  [I18N.SECRET_KEY_HELP_LINK]: "如何获取",
-  [I18N.USER_ID_HELP_PREFIX]: "如需使用其他管理员账号请参考",
-  [I18N.USER_ID_HELP_LINK]: "管理员账号管理",
-  // ========== 空态引导 ==========
-  [I18N.EMPTY_LIVE_LIST_TITLE]: "还没有直播间",
-  [I18N.EMPTY_LIVE_LIST_DESC]: "立即创建您的第一场直播，开始体验",
-  [I18N.EMPTY_LIVE_MONITOR_TITLE]: "当前没有进行中的直播",
-  [I18N.EMPTY_LIVE_MONITOR_DESC]: "创建直播间后，可在此实时监控直播画面与互动数据",
-  [I18N.GO_CREATE_LIVE]: "去创建直播间",
-  // ========== 演示模式（仅在线 demo，release 中被 tree-shake） ==========
-  [I18N.TRY_DEMO_MODE]: "体验演示模式",
-  [I18N.DEMO_MODE_DESC]: "使用示例数据体验完整功能，无需输入凭证",
-  // ========== 礼物空态 ==========
-  [I18N.EMPTY_GIFT_TITLE]: "还没有礼物",
-  [I18N.EMPTY_GIFT_DESC]: "立即添加第一个礼物，开始配置",
-  // ========== 主播 ID 提示 ==========
-  [I18N.WHAT_IS_ANCHOR_ID]: "什么是主播 ID？",
-  [I18N.ANCHOR_ID_HELP_TEXT]: "主播 ID 为 TUILiveKit 账号的 UserID，",
-  [I18N.ANCHOR_ID_NOT_FOUND_TIP]: "主播 ID 不存在，主播 ID 为 TUILiveKit 账号的 UserID，",
-  // ========== 上传提示 ==========
-  [I18N.UPLOAD_NOT_CONFIGURED_HINT]: "上传功能未配置，当前仅支持输入链接"
-};
-function createT(Oo) {
-  return (No, jo) => Oo(No, jo);
-}
-const resolve = (Oo, No) => {
-  try {
-    return Oo(No);
-  } catch {
-    return No;
-  }
-};
-function bindI18nHelpers(Oo) {
-  return {
-    opSuccess: (No, jo) => Oo(I18N.OP_SUCCESS, { entity: jo ? resolve(Oo, jo) : "", action: resolve(Oo, No) }),
-    opFailed: (No, jo, Go) => {
-      const Qo = Oo(I18N.OP_FAILED, { entity: jo ? resolve(Oo, jo) : "", action: resolve(Oo, No) });
-      return Go ? `${Qo}: ${Go}` : Qo;
-    }
-  };
-}
-const ChatErrorModal = {
-  title: "Error",
-  login_invalid_sdk_app_id: 'Missing correct SDKAppID. You can obtain it via the <a target="_blank" href="https://console.trtc.io/">Chat Console</a>.',
-  login_invalid_user_id: "Missing correct userID. The userID format should be a non-empty string.",
-  login_invalid_secret_key: 'Missing correct secretKey. You can obtain it via the <a target="_blank" href="https://console.trtc.io/">Chat Console</a>.',
-  login_invalid_user_sig: 'Missing correct userSig. You can obtain it via <a target="_blank" href="https://console.trtc.io/">Chat > Auxiliary Tools > UserSig Tools</a>.',
-  login_user_sig_expired: 'userSig has expired. You can regenerate it via <a target="_blank" href="https://console.trtc.io/">Chat > Auxiliary Tools > UserSig Tools</a>.',
-  login_user_sig_invalid: 'Invalid UserSig. Please use the official API to regenerate UserSig (<a target="_blank" href="https://cloud.tencent.com/document/product/269/32688">Documentation</a>).',
-  login_user_id_not_match_user_sig: 'The UserID in the request does not match the UserID used to generate the userSig. You can use <a target="_blank" href="https://console.trtc.io/">Chat > Auxiliary Tools > UserSig Tools</a>.',
-  login_sdk_app_id_not_match_user_sig: 'The SDKAppID in the request does not match the SDKAppID used to generate the userSig. You can use <a target="_blank" href="https://console.trtc.io/">Chat > Auxiliary Tools > UserSig Tools</a>.',
-  login_sdk_app_id_not_found: 'SDKAppID not found. Please confirm the application information in the <a target="_blank" href="https://console.trtc.io/">Chat Console</a>.',
-  package_not_purchased: 'You have not purchased a plan package, or the package has expired, or the purchased package is being configured and not yet effective. Please log in to the <a target="_blank" href="https://console.trtc.io/subscription/buy/chat?packType=pro">Chat Purchase Page</a> to repurchase the package. It will take effect 5 minutes after purchase.',
-  package_group_read_receipt_not_enabled: 'The plan package you are currently using has not enabled the group message read receipt feature. You can upgrade to the <a target="_blank" href="https://console.trtc.io/subscription/buy/chat?packType=pro">Pro</a>.',
-  package_online_user_list_not_enabled: 'The plan package you are currently using has not enabled the online user list feature. You can upgrade to the <a target="_blank" href="https://console.trtc.io/subscription/buy/chat?packType=pro">Pro</a>.',
-  package_cloud_search_not_enabled: 'The plan package you are currently using has not enabled the cloud search feature. You can enable <a target="_blank" href="https://console.trtc.io/chat/plugin/TUICloudSearch">Cloud Search</a>.',
-  package_text_translation_not_enabled: 'The text message translation feature is currently offered for free. You can contact us through the <a target="_blank" href="https://t.me/+EPk6TMZEZMM5OGY1">Telegram technical exchange group</a> to enable and experience the full feature.',
-  package_speech_to_text_not_enabled: 'The plan package you are currently using has not enabled the speech-to-text feature. You can enable <a target="_blank" href="https://cloud.tencent.com/document/product/269/110626">Speech-to-Text</a>.',
-  call_kit_not_integrated: 'It is detected that you have not integrated TUICallKit, so you cannot experience the audio and video call functionality. You can refer to: <a target="_blank" href="https://trtc.io/zh/document/64468?product=chat&menulabel=uikit&platform=react">integrate TUICallKit</a>.',
-  search_cloud_rate_limit: "Cloud search request exceeds the backend frequency limit. Each user is allowed 2 search requests per second. Please try again later.",
-  message_voice_size_exceeded: "The voice size exceeds the limit. The maximum size for uploading a voice message is 20MB.",
-  message_image_invalid_format: "Image message sending failed. Invalid image format. Supported image formats are: jpg, jpeg, gif, png, bmp, image, webp.",
-  message_image_size_exceeded: "The image size exceeds the limit. The maximum size for uploading an image is 20MB.",
-  message_image_sensitive_content: "The image in the message contains sensitive content. Sending failed.",
-  message_video_invalid_format: "Video message sending failed. Invalid video format. Supported video formats are: mp4, quicktime, mov.",
-  message_video_size_exceeded: "The video size exceeds the limit. The maximum size for uploading a video is 100MB.",
-  message_file_not_exist: "The file does not exist. Please check if the file path is correct.",
-  message_file_size_exceeded: "The file size exceeds the limit. The maximum size for uploading a file is 100MB.",
-  message_file_sending_banned: "File message failed. Sending prohibited or banned files is not allowed.",
-  message_text_sensitive_content: "The text in the message or profile contains sensitive content. Sending failed.",
-  message_length_exceeded: "The message length exceeds the limit. The message length should not exceed 12K.",
-  message_local_audit_blocked: "The text contains locally blocked words for review.",
-  message_recall_time_exceeded: "Exceeded the recall time limit. Message recall has exceeded the time limit (default 2 minutes).",
-  reaction_emoji_limit_reached: "The maximum number of emoji reactions has been reached.",
-  profile_remark_length_exceeded: "Failed to modify the remark: the remark length must not exceed 96 bytes.",
-  group_announcement_length_exceeded: "The group announcement word count exceeds the limit. The maximum length is 150.",
-  group_name_invalid: "The group name can only contain Chinese characters, letters, numbers, and underscores, and must be 2-20 characters long.",
-  group_id_already_used: "The group ID is already in use. Please choose another group ID."
-}, resource = {
-  ChatErrorModal
-}, autoEnResource = {};
-for (const Oo of Object.values(I18N))
-  autoEnResource[Oo] = Oo;
-const enResource = {
-  ...autoEnResource,
-  ...resource
-};
 let defaultErrorLocale = "zh-CN", errorLocaleGetter = null;
 function setErrorLocaleProvider(Oo) {
   errorLocaleGetter = Oo;
@@ -9674,8 +9702,8 @@ const clientCommonErrorsZh = {
 function getErrorMessage(Oo, No, jo, Go) {
   if (No)
     return No;
-  const Qo = Go ?? getErrorLocale(), Ho = Qo === "en-US" ? errorMessagesEn : errorMessagesZh, Vo = jo ?? (Qo === "en-US" ? `Unknown error (code: ${Oo})` : `未知错误（错误码: ${Oo}）`);
-  return Ho[Oo] ?? Vo;
+  const Ho = Go ?? getErrorLocale(), Qo = Ho === "en-US" ? errorMessagesEn : errorMessagesZh, Vo = jo ?? (Ho === "en-US" ? `Unknown error (code: ${Oo})` : `未知错误（错误码: ${Oo}）`);
+  return Qo[Oo] ?? Vo;
 }
 function isSuccess(Oo) {
   return Oo === 0;
@@ -9801,17 +9829,17 @@ class Sink extends LastSink {
   }
 }
 class Subscribe extends LastSink {
-  constructor(No, jo = nothing, Go = nothing, Qo = nothing) {
-    if (super(), this._next = jo, this._error = Go, this._complete = Qo, this.then = nothing, No instanceof Inspect) {
-      const Ho = { toString: () => "subscribe", id: 0, source: No };
+  constructor(No, jo = nothing, Go = nothing, Ho = nothing) {
+    if (super(), this._next = jo, this._error = Go, this._complete = Ho, this.then = nothing, No instanceof Inspect) {
+      const Qo = { toString: () => "subscribe", id: 0, source: No };
       this.defer(() => {
-        Events.defer(Ho, 0);
-      }), Events.create(Ho), Events.pipe(Ho), this.sourceId = Ho.id, this.subscribe(No), Events.subscribe({ id: Ho.id, end: !0 }), jo == nothing ? this._next = (Vo) => Events.next(Ho, 0, Vo) : this.next = (Vo) => {
-        Events.next(Ho, 0, Vo), jo(Vo);
-      }, Qo == nothing ? this._complete = () => Events.complete(Ho, 0) : this.complete = () => {
-        this.dispose(), Events.complete(Ho, 0), Qo();
-      }, Go == nothing ? this._error = (Vo) => Events.complete(Ho, 0, Vo) : this.error = (Vo) => {
-        this.dispose(), Events.complete(Ho, 0, Vo), Go(Vo);
+        Events.defer(Qo, 0);
+      }), Events.create(Qo), Events.pipe(Qo), this.sourceId = Qo.id, this.subscribe(No), Events.subscribe({ id: Qo.id, end: !0 }), jo == nothing ? this._next = (Vo) => Events.next(Qo, 0, Vo) : this.next = (Vo) => {
+        Events.next(Qo, 0, Vo), jo(Vo);
+      }, Ho == nothing ? this._complete = () => Events.complete(Qo, 0) : this.complete = () => {
+        this.dispose(), Events.complete(Qo, 0), Ho();
+      }, Go == nothing ? this._error = (Vo) => Events.complete(Qo, 0, Vo) : this.error = (Vo) => {
+        this.dispose(), Events.complete(Qo, 0, Vo), Go(Vo);
       };
     } else
       this.subscribe(No);
@@ -9838,9 +9866,9 @@ function create(Oo, No, jo) {
       id: { value: 0, writable: !0, configurable: !0 }
     });
     Events.create(Go);
-    for (let Qo = 0; Qo < jo.length; Qo++) {
-      const Ho = jo[Qo];
-      typeof Ho == "function" && Ho instanceof Inspect && Events.addSource(Go, Ho);
+    for (let Ho = 0; Ho < jo.length; Ho++) {
+      const Qo = jo[Ho];
+      typeof Qo == "function" && Qo instanceof Inspect && Events.addSource(Go, Qo);
     }
     return Go;
   }
@@ -9850,13 +9878,13 @@ function deliver(Oo, No) {
   return function(...jo) {
     return (Go) => {
       if (Go instanceof Inspect) {
-        const Qo = create((Ho) => {
-          const Vo = new Oo(Ho, ...jo);
-          Vo.sourceId = Qo.id, Vo.subscribe(Go);
+        const Ho = create((Qo) => {
+          const Vo = new Oo(Qo, ...jo);
+          Vo.sourceId = Ho.id, Vo.subscribe(Go);
         }, No, arguments);
-        return Qo.source = Go, Events.pipe(Qo), Qo;
+        return Ho.source = Go, Events.pipe(Ho), Ho;
       } else
-        return (Qo) => Go(new Oo(Qo, ...jo));
+        return (Ho) => Go(new Oo(Ho, ...jo));
     };
   };
 }
@@ -9951,7 +9979,7 @@ function share() {
 }
 function subject(Oo) {
   const No = arguments, jo = share()(create((Go) => {
-    jo.next = (Qo) => Go.next(Qo), jo.complete = () => Go.complete(), jo.error = (Qo) => Go.error(Qo);
+    jo.next = (Ho) => Go.next(Ho), jo.complete = () => Go.complete(), jo.error = (Ho) => Go.error(Ho);
   }, "subject", No));
   return jo.next = nothing, jo.complete = nothing, jo.error = nothing, jo;
 }
@@ -9966,25 +9994,25 @@ class TakeUntil extends Sink {
 }
 const takeUntil = deliver(TakeUntil, "takeUntil"), subscribe = (Oo = nothing, No = nothing, jo = nothing) => (Go) => new Subscribe(Go, Oo, No, jo), DEFAULT_TTL = 500;
 function createDeduplicatedFn(Oo, No, jo = {}) {
-  const Go = jo.ttl ?? DEFAULT_TTL, Qo = /* @__PURE__ */ new Map(), Ho = /* @__PURE__ */ new Map();
+  const Go = jo.ttl ?? DEFAULT_TTL, Ho = /* @__PURE__ */ new Map(), Qo = /* @__PURE__ */ new Map();
   return async (...Vo) => {
-    const qo = No(...Vo), Yo = Qo.get(qo);
+    const qo = No(...Vo), Yo = Ho.get(qo);
     if (Yo)
       return Yo;
     if (Go > 0) {
-      const Fo = Ho.get(qo);
+      const Fo = Qo.get(qo);
       if (Fo && Date.now() - Fo.timestamp < Go)
         return Promise.resolve(Fo.result);
     }
     const Xo = Oo(...Vo);
-    Qo.set(qo, Xo);
+    Ho.set(qo, Xo);
     try {
       const Fo = await Xo;
-      return Go > 0 && Ho.set(qo, { result: Fo, timestamp: Date.now() }), Fo;
+      return Go > 0 && Qo.set(qo, { result: Fo, timestamp: Date.now() }), Fo;
     } catch (Fo) {
       throw Fo;
     } finally {
-      Qo.delete(qo);
+      Ho.delete(qo);
     }
   };
 }
@@ -10005,21 +10033,21 @@ function openDatabase() {
   return Oo ? dbPromise || (dbPromise = new Promise((No, jo) => {
     const Go = Oo.open(DB_NAME, DB_VERSION);
     Go.onupgradeneeded = () => {
-      const Qo = Go.result, Ho = Qo.objectStoreNames.contains(STORE_NAME) ? Go.transaction?.objectStore(STORE_NAME) : Qo.createObjectStore(STORE_NAME, { keyPath: "id" });
-      Ho && !Ho.indexNames.contains("expiresAt") && Ho.createIndex("expiresAt", "expiresAt");
+      const Ho = Go.result, Qo = Ho.objectStoreNames.contains(STORE_NAME) ? Go.transaction?.objectStore(STORE_NAME) : Ho.createObjectStore(STORE_NAME, { keyPath: "id" });
+      Qo && !Qo.indexNames.contains("expiresAt") && Qo.createIndex("expiresAt", "expiresAt");
     }, Go.onsuccess = () => No(Go.result), Go.onerror = () => jo(Go.error || new Error("open moderation local deletion database failed"));
   }), dbPromise) : Promise.resolve(null);
 }
 async function withStore(Oo, No) {
   const jo = await openDatabase();
   if (jo)
-    return new Promise((Go, Qo) => {
-      const Ho = jo.transaction(STORE_NAME, Oo), Vo = Ho.objectStore(STORE_NAME);
+    return new Promise((Go, Ho) => {
+      const Qo = jo.transaction(STORE_NAME, Oo), Vo = Qo.objectStore(STORE_NAME);
       let qo;
       const Yo = No(Vo);
       Yo && (Yo.onsuccess = () => {
         qo = Yo.result;
-      }, Yo.onerror = () => Qo(Yo.error || new Error("moderation local deletion request failed"))), Ho.oncomplete = () => Go(qo), Ho.onerror = () => Qo(Ho.error || new Error("moderation local deletion transaction failed")), Ho.onabort = () => Qo(Ho.error || new Error("moderation local deletion transaction aborted"));
+      }, Yo.onerror = () => Ho(Yo.error || new Error("moderation local deletion request failed"))), Qo.oncomplete = () => Go(qo), Qo.onerror = () => Ho(Qo.error || new Error("moderation local deletion transaction failed")), Qo.onabort = () => Ho(Qo.error || new Error("moderation local deletion transaction aborted"));
     });
 }
 function normalizeIds(Oo) {
@@ -10028,16 +10056,16 @@ function normalizeIds(Oo) {
 async function cleanupExpiredModerationLocalDeletions(Oo = Date.now()) {
   const jo = (await withStore("readonly", (Go) => Go.getAll()) || []).filter((Go) => Go.expiresAt <= Oo).map((Go) => Go.id);
   jo.length !== 0 && await withStore("readwrite", (Go) => {
-    jo.forEach((Qo) => Go.delete(Qo));
+    jo.forEach((Ho) => Go.delete(Ho));
   });
 }
 async function recordDeletedModerationIds(Oo, No = {}) {
   const jo = normalizeIds(Oo);
   if (jo.length === 0) return;
-  const Go = assertPositiveTtl(No.ttlDays ?? config.ttlDays), Qo = Date.now(), Ho = Qo + Go * DAY_MS;
-  await cleanupExpiredModerationLocalDeletions(Qo), await withStore("readwrite", (Vo) => {
+  const Go = assertPositiveTtl(No.ttlDays ?? config.ttlDays), Ho = Date.now(), Qo = Ho + Go * DAY_MS;
+  await cleanupExpiredModerationLocalDeletions(Ho), await withStore("readwrite", (Vo) => {
     jo.forEach((qo) => {
-      Vo.put({ id: qo, deletedAt: Qo, expiresAt: Ho });
+      Vo.put({ id: qo, deletedAt: Ho, expiresAt: Qo });
     });
   });
 }
@@ -10090,31 +10118,31 @@ function normalizeModerationItem(Oo) {
   };
 }
 function formatTencentTime(Oo, No = !0) {
-  const jo = new Date(Oo), Go = (Ho) => String(Ho).padStart(2, "0"), Qo = `${jo.getFullYear()}-${Go(jo.getMonth() + 1)}-${Go(jo.getDate())} ${Go(jo.getHours())}:${Go(jo.getMinutes())}:${Go(jo.getSeconds())}`;
-  return No ? `${Qo}.000` : Qo;
+  const jo = new Date(Oo), Go = (Qo) => String(Qo).padStart(2, "0"), Ho = `${jo.getFullYear()}-${Go(jo.getMonth() + 1)}-${Go(jo.getDate())} ${Go(jo.getHours())}:${Go(jo.getMinutes())}:${Go(jo.getSeconds())}`;
+  return No ? `${Ho}.000` : Ho;
 }
 function toTencentCloudLabel(Oo) {
   return MODERATION_TYPE_TO_TENCENT_CLOUD_LABEL[Oo] || Oo;
 }
 function buildModerationListParams(Oo, No, jo) {
-  const Go = Date.now(), Qo = Oo.endTime ? Number(Oo.endTime) : Go, Ho = Math.max(1, Math.min(60, Number(Oo.minutes) || 10)), Vo = Qo - Ho * 60 * 1e3, qo = Qo - 720 * 60 * 60 * 1e3 + 60 * 1e3, Yo = Oo.startTime ? Math.max(Vo, Number(Oo.startTime)) : Vo, Xo = Math.max(Yo, qo), Fo = {
+  const Go = Date.now(), Ho = Oo.endTime ? Number(Oo.endTime) : Go, Qo = Math.max(1, Math.min(60, Number(Oo.minutes) || 10)), Vo = Ho - Qo * 60 * 1e3, qo = Ho - 720 * 60 * 60 * 1e3 + 60 * 1e3, Yo = Oo.startTime ? Math.max(Vo, Number(Oo.startTime)) : Vo, Xo = Math.max(Yo, qo), Fo = {
     PageNo: No,
     PageSize: jo,
     StartTime: formatTencentTime(Xo),
-    EndTime: formatTencentTime(Qo)
+    EndTime: formatTencentTime(Ho)
   };
   return Oo.contentType && (Fo.ContentType = Oo.contentType), Oo.liveId && (Fo.Scene = "Group", Fo.Receiver = Oo.liveId, Fo.BizVersion = 1, Fo.Scenes = ["Group"]), Oo.label && (Fo.Label = Oo.label), Oo.type && (Fo.Label = toTencentCloudLabel(Oo.type)), Oo.violationOnly && (Fo.Labels = MODERATION_VIOLATION_LABELS), Oo.suggestion && (Fo.Suggestion = Oo.suggestion), Fo;
 }
 async function getInteractionModerationList(Oo = {}) {
   const No = Oo.pageNum || 1, jo = Oo.pageSize || 20;
   assertPagination(No, jo);
-  const Go = buildModerationListParams(Oo, No, jo), Qo = await post(
+  const Go = buildModerationListParams(Oo, No, jo), Ho = await post(
     "/moderation/list",
     Go
-  ), Vo = (Array.isArray(Qo?.Data) ? Qo.Data : []).map(normalizeModerationItem);
+  ), Vo = (Array.isArray(Ho?.Data) ? Ho.Data : []).map(normalizeModerationItem);
   return {
     list: Vo,
-    total: Number(Qo?.TotalCount) || Vo.length,
+    total: Number(Ho?.TotalCount) || Vo.length,
     pageNum: No,
     pageSize: jo
   };
@@ -10122,9 +10150,9 @@ async function getInteractionModerationList(Oo = {}) {
 function getRandomFromId(Oo) {
   const No = String(Oo);
   let jo = 0;
-  for (let Qo = 0; Qo < No.length; Qo++) {
-    const Ho = No.charCodeAt(Qo);
-    jo = (jo << 5) - jo + Ho, jo = jo & jo;
+  for (let Ho = 0; Ho < No.length; Ho++) {
+    const Qo = No.charCodeAt(Ho);
+    jo = (jo << 5) - jo + Qo, jo = jo & jo;
   }
   return Math.abs(jo) % 4294967296;
 }
@@ -10133,9 +10161,9 @@ async function approveTextModerationItems(Oo) {
   if (!Oo.liveId)
     throw new LiveManagerError("", ClientCommonError.INVALID_PARAMETER, void 0, "approveModeration");
   for (let Go = 0; Go < No.length; Go += BATCH_APPROVE_CONCURRENCY) {
-    const Qo = No.slice(Go, Go + BATCH_APPROVE_CONCURRENCY), Ho = jo.slice(Go, Go + BATCH_APPROVE_CONCURRENCY);
-    await Promise.all(Qo.map(async (Vo, qo) => {
-      const Yo = Ho[qo], Xo = String(Yo?.userId || ""), Fo = String(Yo?.content || "");
+    const Ho = No.slice(Go, Go + BATCH_APPROVE_CONCURRENCY), Qo = jo.slice(Go, Go + BATCH_APPROVE_CONCURRENCY);
+    await Promise.all(Ho.map(async (Vo, qo) => {
+      const Yo = Qo[qo], Xo = String(Yo?.userId || ""), Fo = String(Yo?.content || "");
       if (!Xo || !Fo) {
         log$a.warn("approveTextModerationItems", "跳过重发，缺少关键字段", {
           id: Vo,
@@ -10202,7 +10230,7 @@ async function getCustomModerationList(Oo) {
     PageSize: jo
   };
   Oo.liveId && (Go.Scene = "Group", Go.Receiver = Oo.liveId);
-  const Qo = await post("/moderation/custom/list", Go), Vo = (Array.isArray(Qo.Data) ? Qo.Data : []).map((qo) => ({
+  const Ho = await post("/moderation/custom/list", Go), Vo = (Array.isArray(Ho.Data) ? Ho.Data : []).map((qo) => ({
     id: String(qo.ContentId || ""),
     userId: String(qo.From_Account || ""),
     content: String(qo.Content || ""),
@@ -10211,7 +10239,7 @@ async function getCustomModerationList(Oo) {
   }));
   return {
     list: Vo,
-    total: Number(Qo.TotalCount) || Vo.length,
+    total: Number(Ho.TotalCount) || Vo.length,
     pageNum: No,
     pageSize: jo
   };
@@ -10225,9 +10253,9 @@ async function approveCustomModerationItems(Oo) {
   const No = assertNonEmptyIds(Oo.ids), jo = Oo.items || [];
   if (!Oo.liveId)
     throw new LiveManagerError("", ClientCommonError.INVALID_PARAMETER, void 0, "approveModeration");
-  let Go = 0, Qo = 0;
-  for (let Ho = 0; Ho < No.length; Ho += BATCH_APPROVE_CONCURRENCY) {
-    const Vo = No.slice(Ho, Ho + BATCH_APPROVE_CONCURRENCY), qo = jo.slice(Ho, Ho + BATCH_APPROVE_CONCURRENCY);
+  let Go = 0, Ho = 0;
+  for (let Qo = 0; Qo < No.length; Qo += BATCH_APPROVE_CONCURRENCY) {
+    const Vo = No.slice(Qo, Qo + BATCH_APPROVE_CONCURRENCY), qo = jo.slice(Qo, Qo + BATCH_APPROVE_CONCURRENCY);
     (await Promise.allSettled(
       Vo.map(async (Xo, Fo) => {
         const Wo = qo[Fo], Ko = String(Wo?.userId || ""), Jo = String(Wo?.content || "");
@@ -10247,10 +10275,10 @@ async function approveCustomModerationItems(Oo) {
         await deleteCustomModerationRecords([Xo]);
       })
     )).forEach((Xo) => {
-      Xo.status === "fulfilled" ? Go++ : Qo++;
+      Xo.status === "fulfilled" ? Go++ : Ho++;
     });
   }
-  return log$a.info("approveCustomModerationItems", `成功: ${Go}, 失败: ${Qo}`), { success: Go, failed: Qo };
+  return log$a.info("approveCustomModerationItems", `成功: ${Go}, 失败: ${Ho}`), { success: Go, failed: Ho };
 }
 const log$9 = createLogger("LiveUtils");
 function parseCustomInfo(Oo) {
@@ -10296,22 +10324,22 @@ async function getUploadConfig() {
 async function uploadImage(Oo, No = "cover", jo) {
   const Go = new FormData();
   Go.append("file", Oo), Go.append("type", No);
-  const Qo = await request({
+  const Ho = await request({
     method: "POST",
     url: "/upload/image",
     data: Go,
     headers: { "Content-Type": "multipart/form-data" },
     timeout: 6e4,
-    onUploadProgress: (Ho) => {
-      if (jo && Ho.total) {
-        const Vo = Math.round(Ho.loaded * 100 / Ho.total);
+    onUploadProgress: (Qo) => {
+      if (jo && Qo.total) {
+        const Vo = Math.round(Qo.loaded * 100 / Qo.total);
         jo(Vo);
       }
     }
   });
-  if (Qo.code !== 0)
-    throw new LiveManagerError(Qo.message || "", Qo.code, void 0, "uploadImage");
-  return Qo.data;
+  if (Ho.code !== 0)
+    throw new LiveManagerError(Ho.message || "", Ho.code, void 0, "uploadImage");
+  return Ho.data;
 }
 const listeners = /* @__PURE__ */ new Set();
 let currentState = { uploading: !1, uploadProgress: 0 };
@@ -10340,8 +10368,8 @@ async function performGetUploadConfig() {
 async function performUploadResource(Oo, No, jo) {
   setState({ uploading: !0, uploadProgress: 0 });
   try {
-    return await uploadImage(Oo, No, (Qo) => {
-      setState({ uploading: !0, uploadProgress: Qo }), jo?.(Qo);
+    return await uploadImage(Oo, No, (Ho) => {
+      setState({ uploading: !0, uploadProgress: Ho }), jo?.(Ho);
     });
   } finally {
     setState({ uploading: !1, uploadProgress: 0 });
@@ -10350,7 +10378,7 @@ async function performUploadResource(Oo, No, jo) {
 I18N.DYNAMIC_GRID_LAYOUT, I18N.DYNAMIC_GRID_LAYOUT_DESC, I18N.FLOATING_WINDOW_LAYOUT, I18N.FLOATING_WINDOW_DESC, I18N.FIXED_GRID_LAYOUT, I18N.FIXED_GRID_DESC, I18N.FIXED_WINDOW_LAYOUT, I18N.FIXED_WINDOW_DESC, I18N.LANDSCAPE_BROADCASTING, I18N.LANDSCAPE_BROADCASTING_DESC;
 createLogger("live/admin");
 function mapLiveInfo(Oo) {
-  const No = Oo.RoomId || "", jo = Oo.Owner_Account || "", Go = Oo.OnlineCount || Oo.MemberCount || 0, Qo = {
+  const No = Oo.RoomId || "", jo = Oo.Owner_Account || "", Go = Oo.OnlineCount || Oo.MemberCount || 0, Ho = {
     liveId: No,
     liveName: Oo.RoomName || "",
     coverUrl: Oo.CoverURL || "",
@@ -10379,23 +10407,23 @@ function mapLiveInfo(Oo) {
     }
   };
   if ("RoomType" in Oo) {
-    const Ho = Oo;
+    const Qo = Oo;
     return {
-      ...Qo,
-      liveType: Ho.RoomType,
-      isSeatEnabled: Ho.IsSeatEnabled,
-      maxSeatCount: Ho.MaxSeatCount,
-      maxMemberCount: Ho.MaxMemberCount,
-      isMessageDisabled: Ho.IsMessageDisabled || !1,
-      isLikeEnabled: Ho.IsLikeEnabled !== !1,
+      ...Ho,
+      liveType: Qo.RoomType,
+      isSeatEnabled: Qo.IsSeatEnabled,
+      maxSeatCount: Qo.MaxSeatCount,
+      maxMemberCount: Qo.MaxMemberCount,
+      isMessageDisabled: Qo.IsMessageDisabled || !1,
+      isLikeEnabled: Qo.IsLikeEnabled !== !1,
       // 默认 true
-      isPublicVisible: Ho.IsPublicVisible !== !1,
+      isPublicVisible: Qo.IsPublicVisible !== !1,
       // 默认 true
-      seatTemplate: Ho.SeatTemplate,
-      customInfo: Ho.CustomInfo ? parseCustomInfo(Ho.CustomInfo) : {}
+      seatTemplate: Qo.SeatTemplate,
+      customInfo: Qo.CustomInfo ? parseCustomInfo(Qo.CustomInfo) : {}
     };
   }
-  return Qo;
+  return Ho;
 }
 async function getLiveList(Oo = {}) {
   const No = Oo.next || "0", jo = Oo.count || 20, Go = await trtcRequest(TRTCApi.fetchLiveList, {
@@ -10407,7 +10435,7 @@ async function getLiveList(Oo = {}) {
     throw apiError(Go, "getLiveList");
   return {
     list: (Go.Response?.RoomList || []).map(
-      (Ho) => mapLiveInfo(Ho)
+      (Qo) => mapLiveInfo(Qo)
     ),
     next: Go.Response?.Next || ""
   };
@@ -10418,19 +10446,19 @@ async function getLiveDetail(Oo) {
     throw apiError(No, "getLiveDetail");
   if (!No.Response?.RoomInfo) return null;
   const jo = mapLiveInfo(No.Response.RoomInfo);
-  let Go = null, Qo = !1;
+  let Go = null, Ho = !1;
   try {
     Go = await trtcRequest(TRTCApi.getRoomMetadata, { RoomId: Oo, Keys: [] });
-  } catch (Ho) {
-    Qo = !0, console.warn(`[getLiveDetail] 获取 metadata 失败 (liveId: ${Oo}):`, Ho);
+  } catch (Qo) {
+    Ho = !0, console.warn(`[getLiveDetail] 获取 metadata 失败 (liveId: ${Oo}):`, Qo);
   }
   if (Go?.Response?.Metadata) {
-    const Ho = { ...jo.customInfo || {} };
+    const Qo = { ...jo.customInfo || {} };
     Go.Response.Metadata.forEach((Vo) => {
-      Ho[Vo.Key] = Vo.Value;
-    }), jo.customInfo = Ho;
+      Qo[Vo.Key] = Vo.Value;
+    }), jo.customInfo = Qo;
   }
-  return Qo && (jo.customInfo = { ...jo.customInfo || {}, _metadataLoadFailed: "true" }), jo;
+  return Ho && (jo.customInfo = { ...jo.customInfo || {}, _metadataLoadFailed: "true" }), jo;
 }
 async function getLiveStatistic(Oo) {
   return trtcRequest(TRTCApi.getLiveStatistic, { RoomId: Oo });
@@ -10455,13 +10483,13 @@ async function createLive(Oo) {
   if (Go.ErrorCode !== 0)
     throw apiError(Go, "createLive");
   if (Oo.customInfo && Object.keys(Oo.customInfo).length > 0) {
-    const Ho = Object.entries(Oo.customInfo).map(([Vo, qo]) => ({ Key: Vo, Value: qo }));
-    await trtcRequest(TRTCApi.setRoomMetadata, { RoomId: No, Metadata: Ho });
+    const Qo = Object.entries(Oo.customInfo).map(([Vo, qo]) => ({ Key: Vo, Value: qo }));
+    await trtcRequest(TRTCApi.setRoomMetadata, { RoomId: No, Metadata: Qo });
   }
-  const Qo = await getLiveDetail(No);
-  if (!Qo)
+  const Ho = await getLiveDetail(No);
+  if (!Ho)
     throw new LiveManagerError("", void 0, void 0, "createLive");
-  return Qo;
+  return Ho;
 }
 async function updateLiveInfo(Oo, No) {
   const jo = [], Go = { RoomId: Oo, IsUnlimitedRoomEnabled: !0 };
@@ -10470,16 +10498,16 @@ async function updateLiveInfo(Oo, No) {
     jo.push(trtcRequest(TRTCApi.setRoomMetadata, { RoomId: Oo, Metadata: Vo }));
   }
   No.deleteKeys && No.deleteKeys.length > 0 && jo.push(trtcRequest(TRTCApi.delRoomMetadata, { RoomId: Oo, Keys: No.deleteKeys }));
-  const Qo = await Promise.allSettled(jo), Ho = Qo[0];
-  if (Ho.status === "rejected")
-    throw LiveManagerError.from(Ho.reason);
-  if (Ho.value.ErrorCode !== 0)
-    throw apiError(Ho.value, "updateLive");
-  for (let Vo = 1; Vo < Qo.length; Vo++) {
-    const qo = Qo[Vo];
+  const Ho = await Promise.allSettled(jo), Qo = Ho[0];
+  if (Qo.status === "rejected")
+    throw LiveManagerError.from(Qo.reason);
+  if (Qo.value.ErrorCode !== 0)
+    throw apiError(Qo.value, "updateLive");
+  for (let Vo = 1; Vo < Ho.length; Vo++) {
+    const qo = Ho[Vo];
     qo.status === "rejected" ? console.warn(`[updateLiveInfo] 辅助操作 ${Vo} 失败:`, qo.reason) : qo.value.ErrorCode !== 0 && console.warn(`[updateLiveInfo] 辅助操作 ${Vo} ErrorCode=${qo.value.ErrorCode}: ${qo.value.ErrorInfo || ""}`);
   }
-  return Ho.value;
+  return Qo.value;
 }
 async function muteMember(Oo, No, jo = 600) {
   const Go = await trtcRequest(TRTCApi.muteMember, { RoomId: Oo, MemberList_Account: No, MuteTime: jo });
@@ -10494,10 +10522,10 @@ async function unmuteMember(Oo, No) {
   return jo;
 }
 async function banMember(Oo, No, jo = 3600, Go = "") {
-  const Qo = await trtcRequest(TRTCApi.banMember, { RoomId: Oo, MemberList_Account: No, Duration: jo, Reason: Go });
-  if (Qo.ErrorCode !== 0)
-    throw apiError(Qo, "banMember");
-  return Qo;
+  const Ho = await trtcRequest(TRTCApi.banMember, { RoomId: Oo, MemberList_Account: No, Duration: jo, Reason: Go });
+  if (Ho.ErrorCode !== 0)
+    throw apiError(Ho, "banMember");
+  return Ho;
 }
 async function unbanMember(Oo, No) {
   const jo = await trtcRequest(TRTCApi.unbanMember, { RoomId: Oo, MemberList_Account: No });
@@ -10563,21 +10591,21 @@ class LiveListPagination {
    * pageSize 不传则使用构造函数配置的默认值。
    */
   async loadPage(No, jo) {
-    const Go = jo ?? this.defaultPageSize, Qo = ++this.loadVersion;
+    const Go = jo ?? this.defaultPageSize, Ho = ++this.loadVersion;
     this.loading = !0, this.notify();
     try {
-      const Ho = await fetchLiveListPage({ page: No, pageCursors: this.pageCursors, pageSize: Go });
-      if (Qo !== this.loadVersion) return;
-      if (this.list = Ho.lives, this.pageCursors = Ho.pageCursors, this.currentPage = Ho.currentPage, this.hasMoreData = Ho.hasMoreData, Ho.lives.length === 0 && Ho.currentPage > 1) {
-        await this.loadPage(Ho.currentPage - 1, Go);
+      const Qo = await fetchLiveListPage({ page: No, pageCursors: this.pageCursors, pageSize: Go });
+      if (Ho !== this.loadVersion) return;
+      if (this.list = Qo.lives, this.pageCursors = Qo.pageCursors, this.currentPage = Qo.currentPage, this.hasMoreData = Qo.hasMoreData, Qo.lives.length === 0 && Qo.currentPage > 1) {
+        await this.loadPage(Qo.currentPage - 1, Go);
         return;
       }
-    } catch (Ho) {
-      if (Qo === this.loadVersion)
-        throw Ho;
-      paginationLog.warn("stale loadPage request failed, discarded", { page: No, version: Qo, error: Ho });
+    } catch (Qo) {
+      if (Ho === this.loadVersion)
+        throw Qo;
+      paginationLog.warn("stale loadPage request failed, discarded", { page: No, version: Ho, error: Qo });
     } finally {
-      Qo === this.loadVersion && (this.loading = !1, this.notify());
+      Ho === this.loadVersion && (this.loading = !1, this.notify());
     }
   }
   async refresh(No) {
@@ -10620,13 +10648,13 @@ class LiveListPagination {
   }
 }
 async function fetchLiveListPage(Oo) {
-  const { page: No, pageCursors: jo, pageSize: Go = LIVE_LIST_PAGE_SIZE } = Oo, Qo = jo.get(No) || "", { list: Ho, next: Vo } = await getLiveList({ next: Qo, count: Go, sortDirection: "descend" }), qo = Ho, Yo = new Map(jo);
+  const { page: No, pageCursors: jo, pageSize: Go = LIVE_LIST_PAGE_SIZE } = Oo, Ho = jo.get(No) || "", { list: Qo, next: Vo } = await getLiveList({ next: Ho, count: Go, sortDirection: "descend" }), qo = Qo, Yo = new Map(jo);
   return Vo && qo.length > 0 && Yo.set(No + 1, Vo), {
     lives: qo,
     currentPage: No,
     hasMoreData: !!Vo && qo.length === Go,
     pageCursors: Yo,
-    response: { ErrorCode: 0, Response: { RoomList: Ho, Next: Vo } }
+    response: { ErrorCode: 0, Response: { RoomList: Qo, Next: Vo } }
   };
 }
 function canGoToLiveListPage(Oo) {
@@ -10647,12 +10675,12 @@ function saveLiveListPaginationState(Oo) {
 function restoreLiveListPaginationState(Oo = sessionStorage) {
   let No = 1, jo = createLiveListCursorMap();
   try {
-    const Go = Oo.getItem(LIVE_LIST_PAGE_STORAGE_KEY), Qo = Oo.getItem(LIVE_LIST_CURSOR_STORAGE_KEY);
-    if (Oo.removeItem(LIVE_LIST_PAGE_STORAGE_KEY), Oo.removeItem(LIVE_LIST_CURSOR_STORAGE_KEY), Go && Qo) {
-      const Ho = Number(Go);
-      if (Ho > 0) {
-        const Vo = JSON.parse(Qo);
-        jo = new Map(Vo), No = Ho;
+    const Go = Oo.getItem(LIVE_LIST_PAGE_STORAGE_KEY), Ho = Oo.getItem(LIVE_LIST_CURSOR_STORAGE_KEY);
+    if (Oo.removeItem(LIVE_LIST_PAGE_STORAGE_KEY), Oo.removeItem(LIVE_LIST_CURSOR_STORAGE_KEY), Go && Ho) {
+      const Qo = Number(Go);
+      if (Qo > 0) {
+        const Vo = JSON.parse(Ho);
+        jo = new Map(Vo), No = Qo;
       }
     }
   } catch {
@@ -10675,8 +10703,8 @@ function toStreamInfo(Oo) {
 }
 async function getObsRobotState(Oo, No) {
   const [jo, Go] = await Promise.all([
-    getRobotList(Oo).then((Qo) => Qo.Response?.RobotList_Account || []).catch(() => []),
-    getSeatList(Oo).then((Qo) => getSeatMemberSet(Qo.Response?.SeatList)).catch(() => /* @__PURE__ */ new Set())
+    getRobotList(Oo).then((Ho) => Ho.Response?.RobotList_Account || []).catch(() => []),
+    getSeatList(Oo).then((Ho) => getSeatMemberSet(Ho.Response?.SeatList)).catch(() => /* @__PURE__ */ new Set())
   ]);
   return {
     hasRobot: jo.includes(No),
@@ -10684,13 +10712,13 @@ async function getObsRobotState(Oo, No) {
   };
 }
 async function getObsLiveDetailInfo(Oo) {
-  const { liveId: No, anchorId: jo, getStreamInfoFailedMessage: Go = "Get Stream Info Failed" } = Oo, Qo = getObsRobotId(jo);
+  const { liveId: No, anchorId: jo, getStreamInfoFailedMessage: Go = "Get Stream Info Failed" } = Oo, Ho = getObsRobotId(jo);
   try {
-    const { hasRobot: Ho, onSeat: Vo } = await getObsRobotState(No, Qo);
-    if (!Ho || !Vo)
+    const { hasRobot: Qo, onSeat: Vo } = await getObsRobotState(No, Ho);
+    if (!Qo || !Vo)
       return {
-        robotId: Qo,
-        hasRobot: Ho,
+        robotId: Ho,
+        hasRobot: Qo,
         onSeat: Vo,
         streamInfo: null,
         streamInfoError: "",
@@ -10698,15 +10726,15 @@ async function getObsLiveDetailInfo(Oo) {
         errorMessage: ""
       };
     try {
-      let qo = await getStreamInfoAsync(No, Qo);
+      let qo = await getStreamInfoAsync(No, Ho);
       if (!qo && getSdkAppId() === 0 && (!isProxyMode() || getSecretKey())) {
         const Xo = await createBasicAccount();
-        Xo && (saveCredentials({ userId: Xo.userId, userSig: Xo.userSig, sdkAppId: Xo.sdkAppId }), qo = await getStreamInfoAsync(No, Qo));
+        Xo && (saveCredentials({ userId: Xo.userId, userSig: Xo.userSig, sdkAppId: Xo.sdkAppId }), qo = await getStreamInfoAsync(No, Ho));
       }
       const Yo = toStreamInfo(qo);
       return {
-        robotId: Qo,
-        hasRobot: Ho,
+        robotId: Ho,
+        hasRobot: Qo,
         onSeat: Vo,
         streamInfo: Yo,
         streamInfoError: Yo ? "" : Go,
@@ -10715,8 +10743,8 @@ async function getObsLiveDetailInfo(Oo) {
       };
     } catch (qo) {
       return {
-        robotId: Qo,
-        hasRobot: Ho,
+        robotId: Ho,
+        hasRobot: Qo,
         onSeat: Vo,
         streamInfo: null,
         streamInfoError: (qo instanceof Error ? qo.message : "") || Go,
@@ -10724,26 +10752,26 @@ async function getObsLiveDetailInfo(Oo) {
         errorMessage: ""
       };
     }
-  } catch (Ho) {
+  } catch (Qo) {
     return {
-      robotId: Qo,
+      robotId: Ho,
       hasRobot: !1,
       onSeat: !1,
       streamInfo: null,
       streamInfoError: "",
       status: "error",
-      errorMessage: (Ho instanceof Error ? Ho.message : "") || ""
+      errorMessage: (Qo instanceof Error ? Qo.message : "") || ""
     };
   }
 }
 function resolveDemoTargetPath(Oo) {
   return new URL(`../mock-${Oo}/`, window.location.href).href;
 }
-const normalizeMemberList = (Oo) => Array.isArray(Oo) ? Oo.filter((No) => !!No && typeof No == "object") : [], getStringField = (Oo, ...No) => {
+const DEPLOY_DOC_URL = "https://cloud.tencent.com/document/product/647/123012", GITHUB_ISSUE_URL = "https://github.com/Tencent-RTC/TUILiveKit_Manager/issues", normalizeMemberList = (Oo) => Array.isArray(Oo) ? Oo.filter((No) => !!No && typeof No == "object") : [], getStringField = (Oo, ...No) => {
   const jo = No.map((Go) => Oo[Go]).find((Go) => typeof Go == "string" && Go.length > 0);
   return typeof jo == "string" ? jo : "";
 }, getNumberField = (Oo, ...No) => {
-  const jo = No.map((Qo) => Oo[Qo]).find((Qo) => Qo != null), Go = Number(jo || 0);
+  const jo = No.map((Ho) => Oo[Ho]).find((Ho) => Ho != null), Go = Number(jo || 0);
   return Number.isFinite(Go) ? Go : 0;
 };
 async function fetchMutedList(Oo) {
@@ -10762,7 +10790,7 @@ async function fetchBannedList(Oo) {
   })).filter((Go) => Go.userId);
 }
 const generateGiftId = () => "gift_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9), mapTRTCGiftToFrontend = (Oo, No, jo) => {
-  const Go = Oo.Name || "", Qo = Oo.Desc || "", Ho = (Oo.LanguageList || []).map((qo) => ({
+  const Go = Oo.Name || "", Ho = Oo.Desc || "", Qo = (Oo.LanguageList || []).map((qo) => ({
     name: qo.Name || "",
     description: qo.Desc || "",
     language: qo.Language || ""
@@ -10774,40 +10802,40 @@ const generateGiftId = () => "gift_" + Date.now() + "_" + Math.random().toString
     price: Oo.Coins || 0,
     animationUrl: Oo.ResourceUrl || "",
     level: Oo.Level !== void 0 ? String(Oo.Level) : void 0,
-    description: Qo,
+    description: Ho,
     categoryIds: Vo,
     categories: No.get(Oo.GiftId) || [],
     createdAt: Oo.CreateTime !== void 0 ? String(Oo.CreateTime) : void 0,
-    languageList: Ho
+    languageList: Qo
   };
 }, mapTRTCCategoryToFrontend = (Oo) => {
-  const No = Oo.CategoryName || "", jo = Oo.CategoryDesc || "", Go = (Oo.LanguageList || []).map((Ho) => ({
-    categoryName: Ho.CategoryName || "",
-    categoryDescription: Ho.CategoryDesc || "",
-    language: Ho.Language || ""
-  })), Qo = Oo.GiftIdList || [];
+  const No = Oo.CategoryName || "", jo = Oo.CategoryDesc || "", Go = (Oo.LanguageList || []).map((Qo) => ({
+    categoryName: Qo.CategoryName || "",
+    categoryDescription: Qo.CategoryDesc || "",
+    language: Qo.Language || ""
+  })), Ho = Oo.GiftIdList || [];
   return {
     id: Oo.CategoryId,
     name: No,
     description: jo,
-    giftIds: Qo,
-    giftCount: Qo.length,
+    giftIds: Ho,
+    giftCount: Ho.length,
     languageList: Go
   };
 };
 function buildGiftToCategoryMaps(Oo) {
   const No = /* @__PURE__ */ new Map(), jo = /* @__PURE__ */ new Map();
   return (Oo || []).forEach((Go) => {
-    const Qo = Go.CategoryName || "";
-    (Go.GiftIdList || []).forEach((Ho) => {
-      No.has(Ho) || (No.set(Ho, []), jo.set(Ho, [])), Qo && No.get(Ho).push(Qo), jo.get(Ho).push(Go.CategoryId);
+    const Ho = Go.CategoryName || "";
+    (Go.GiftIdList || []).forEach((Qo) => {
+      No.has(Qo) || (No.set(Qo, []), jo.set(Qo, [])), Ho && No.get(Qo).push(Ho), jo.get(Qo).push(Go.CategoryId);
     });
   }), { giftToCategories: No, giftToCategoryIds: jo };
 }
 async function getGiftList(Oo) {
   const No = await trtcRequest(TRTCApi.getGiftList, {});
   if (No && No.ErrorCode === 0 && No.Response) {
-    const jo = No.Response.GiftList || [], Go = No.Response.CategoryList || [], { giftToCategories: Qo, giftToCategoryIds: Ho } = buildGiftToCategoryMaps(Go), Vo = jo.map((Yo) => mapTRTCGiftToFrontend(Yo, Qo, Ho)), qo = Go.map((Yo) => mapTRTCCategoryToFrontend(Yo));
+    const jo = No.Response.GiftList || [], Go = No.Response.CategoryList || [], { giftToCategories: Ho, giftToCategoryIds: Qo } = buildGiftToCategoryMaps(Go), Vo = jo.map((Yo) => mapTRTCGiftToFrontend(Yo, Ho, Qo)), qo = Go.map((Yo) => mapTRTCCategoryToFrontend(Yo));
     return {
       gifts: Vo,
       total: No.Response.TotalCount || Vo.length,
@@ -10969,8 +10997,8 @@ class GiftStateManager {
     try {
       return await jo();
     } catch (Go) {
-      const Qo = Go instanceof Error ? Go : new Error(String(Go));
-      throw this.setError(Qo), Qo;
+      const Ho = Go instanceof Error ? Go : new Error(String(Go));
+      throw this.setError(Ho), Ho;
     } finally {
       this.setLoading(No, !1);
     }
@@ -10989,7 +11017,7 @@ class GiftStateManager {
     const jo = await this.withLoading(
       "giftList",
       () => getGiftList(No?.language)
-    ), Go = (jo.gifts || []).sort((Qo, Ho) => {
+    ), Go = (jo.gifts || []).sort((Ho, Qo) => {
       const Vo = (qo) => {
         if (!qo) return 0;
         const Yo = Number(qo);
@@ -10998,7 +11026,7 @@ class GiftStateManager {
         const Xo = new Date(qo).getTime();
         return isNaN(Xo) ? 0 : Xo;
       };
-      return Vo(Ho.createdAt) - Vo(Qo.createdAt);
+      return Vo(Qo.createdAt) - Vo(Ho.createdAt);
     });
     return this.giftList = Go, this.giftCategoryList = jo.categories || [], reportFeatureUse("gift_manage"), this.notifyStateChange(), {
       giftList: Go,
@@ -11071,16 +11099,16 @@ class GiftStateManager {
   async addGiftCategoryRelations(No) {
     const { giftId: jo, categoryIds: Go } = No;
     await this.withLoading("giftCategory", async () => {
-      for (const Qo of Go)
-        await addGiftCategoryRelations(Qo, [jo]);
+      for (const Ho of Go)
+        await addGiftCategoryRelations(Ho, [jo]);
     }), await this.fetchGiftList().catch(() => {
     });
   }
   async deleteGiftCategoryRelations(No) {
     const { giftId: jo, categoryIds: Go } = No;
     await this.withLoading("giftCategory", async () => {
-      for (const Qo of Go)
-        await delGiftCategoryRelations(Qo, [jo]);
+      for (const Ho of Go)
+        await delGiftCategoryRelations(Ho, [jo]);
     }), await this.fetchGiftList().catch(() => {
     });
   }
@@ -11110,10 +11138,10 @@ class GiftStateManager {
       () => getGiftCategoryLanguage(No, jo)
     );
   }
-  async setGiftCategoryLanguage(No, jo, Go, Qo) {
+  async setGiftCategoryLanguage(No, jo, Go, Ho) {
     await this.withLoading(
       "giftCategoryLanguage",
-      () => setGiftCategoryLanguage(No, jo, Go, Qo)
+      () => setGiftCategoryLanguage(No, jo, Go, Ho)
     );
   }
   async deleteGiftCategoryLanguage(No, jo) {
@@ -11141,10 +11169,10 @@ async function sendMessage(Oo, No) {
   }, "sendMessage");
 }
 async function sendCustomMessage(Oo, No, jo, Go) {
-  const Qo = getAuthStateSnapshot().credentials?.userId || "admin";
+  const Ho = getAuthStateSnapshot().credentials?.userId || "admin";
   return trtcRequestChecked(TRTCApi.sendCustomMsg, {
     RoomId: Oo,
-    Sender_Account: Qo,
+    Sender_Account: Ho,
     BusinessId: No,
     Data: jo
   }, "sendCustomMessage");
@@ -11162,8 +11190,8 @@ async function getMuteStatus(Oo) {
   const [No, jo] = await Promise.all([
     trtcRequest(TRTCApi.getRoomInfo, { RoomId: Oo }),
     getMutedMemberList(Oo)
-  ]), Go = No?.Response?.RoomInfo?.IsMessageDisabled ?? !1, Ho = (jo.MutedAccountList || jo.Response?.MutedAccountList || []).map((Vo) => Vo.Member_Account || "").filter(Boolean);
-  return { isMutedAll: Go, mutedUsers: Ho };
+  ]), Go = No?.Response?.RoomInfo?.IsMessageDisabled ?? !1, Qo = (jo.MutedAccountList || jo.Response?.MutedAccountList || []).map((Vo) => Vo.Member_Account || "").filter(Boolean);
+  return { isMutedAll: Go, mutedUsers: Qo };
 }
 async function sendViolationWarning(Oo, No) {
   const jo = (/* @__PURE__ */ new Date()).toISOString(), Go = {
@@ -11186,7 +11214,7 @@ async function sendViolationWarning(Oo, No) {
   );
 }
 async function sendViolationWarningQuick(Oo, No, jo, Go) {
-  const Qo = {
+  const Ho = {
     Porn: I18N.VIOLATION_SUGGESTION_PORN,
     Political: I18N.VIOLATION_SUGGESTION_POLITICAL,
     Abuse: I18N.VIOLATION_SUGGESTION_ABUSE,
@@ -11195,7 +11223,7 @@ async function sendViolationWarningQuick(Oo, No, jo, Go) {
     Sexy: I18N.VIOLATION_SUGGESTION_SEXY,
     Violence: I18N.VIOLATION_SUGGESTION_VIOLENCE,
     default: I18N.VIOLATION_SUGGESTION_DEFAULT
-  }, Vo = Qo[No] || Qo.default;
+  }, Vo = Ho[No] || Ho.default;
   return sendViolationWarning(Oo, {
     violationType: No,
     violationContent: jo,
@@ -11220,7 +11248,7 @@ class PlayerRegistry {
    * @param url 播放地址（可选，TRTC 不需要）
    */
   async startPlay(No) {
-    const { liveId: jo, container: Go, url: Qo } = No;
+    const { liveId: jo, container: Go, url: Ho } = No;
     if (!jo || !Go)
       throw new Error("liveId and container are required");
     if (!this.playerFactory)
@@ -11228,14 +11256,14 @@ class PlayerRegistry {
         "playerFactory is not configured. Please provide it in ServerConfig or call setPlayerFactory()."
       );
     this.debug && log$7.debug("PlayerRegistry", "startPlay called", { liveId: jo, containerId: Go.id });
-    const Ho = (this.startPlayVersion.get(jo) ?? 0) + 1;
-    this.startPlayVersion.set(jo, Ho);
+    const Qo = (this.startPlayVersion.get(jo) ?? 0) + 1;
+    this.startPlayVersion.set(jo, Qo);
     const qo = (this.taskChain.get(jo) ?? Promise.resolve()).then(async () => {
-      if (this.startPlayVersion.get(jo) !== Ho) return;
+      if (this.startPlayVersion.get(jo) !== Qo) return;
       const Xo = this.playerMap.get(jo);
       Xo && (this.debug && log$7.debug("PlayerRegistry", `Stopping existing player for ${jo} before restart`), await Xo.stop(), await Xo.destroy(), this.playerMap.delete(jo));
       const Fo = this.playerFactory(jo);
-      this.playerMap.set(jo, Fo), await Fo.play(Go, Qo), this.debug && log$7.debug("PlayerRegistry", `Started playing live ${jo}`);
+      this.playerMap.set(jo, Fo), await Fo.play(Go, Ho), this.debug && log$7.debug("PlayerRegistry", `Started playing live ${jo}`);
     }), Yo = qo.catch(() => {
     });
     this.taskChain.set(jo, Yo);
@@ -11252,18 +11280,18 @@ class PlayerRegistry {
   async stopPlay(No) {
     if (!No) return;
     const Go = (this.taskChain.get(No) ?? Promise.resolve()).then(async () => {
-      const Ho = this.playerMap.get(No);
-      if (Ho) {
+      const Qo = this.playerMap.get(No);
+      if (Qo) {
         try {
-          await Ho.stop(), await Ho.destroy();
+          await Qo.stop(), await Qo.destroy();
         } catch (Vo) {
           this.debug && log$7.warn("PlayerRegistry", `Error stopping live ${No}:`, Vo);
         }
         this.playerMap.delete(No), this.debug && log$7.debug("PlayerRegistry", `Stopped playing live ${No}`);
       }
-    }), Qo = Go.catch(() => {
+    }), Ho = Go.catch(() => {
     });
-    return this.taskChain.set(No, Qo), Go;
+    return this.taskChain.set(No, Ho), Go;
   }
   /**
    * 获取播放器
@@ -11316,10 +11344,10 @@ class PlayerRegistry {
   getSnapshot() {
     const No = {};
     return this.playerMap.forEach((jo, Go) => {
-      const Qo = jo.getPlayerInfo();
+      const Ho = jo.getPlayerInfo();
       No[Go] = {
-        state: Qo.state,
-        liveId: Qo.liveId
+        state: Ho.state,
+        liveId: Ho.liveId
       };
     }), No;
   }
@@ -11385,39 +11413,39 @@ class TUIPlayer {
   constructor(No, jo) {
     this.viewId = "", this.trtc = null, this.currentPlayableUserId = "", this.eventHandlers = {}, this.currentState = "IDLE", this.account = null, this.handleUserVideoAvailable = async (Go) => {
       log$5.debug("handleVideoEvent", "REMOTE_VIDEO_AVAILABLE raw event", Go);
-      let Qo, Ho;
+      let Ho, Qo;
       if (typeof Go == "string")
-        Qo = Go, Ho = !0;
+        Ho = Go, Qo = !0;
       else if (Go && typeof Go == "object")
-        Qo = Go.userId || Go.uid || Go.user || "", Ho = Go.isAvailable !== void 0 ? Go.isAvailable : Go.available !== void 0 ? Go.available : !0;
+        Ho = Go.userId || Go.uid || Go.user || "", Qo = Go.isAvailable !== void 0 ? Go.isAvailable : Go.available !== void 0 ? Go.available : !0;
       else {
         log$5.error("handleVideoEvent", "Unexpected event structure", Go);
         return;
       }
-      if (log$5.debug("handleVideoEvent", "REMOTE_VIDEO_AVAILABLE parsed", { userId: Qo, isAvailable: Ho, liveId: this.liveId }), !!this.isMixedStreamUser(Qo) && this.isCurrentLiveMixedStreamUser(Qo) && Ho) {
-        this.currentPlayableUserId = Qo;
+      if (log$5.debug("handleVideoEvent", "REMOTE_VIDEO_AVAILABLE parsed", { userId: Ho, isAvailable: Qo, liveId: this.liveId }), !!this.isMixedStreamUser(Ho) && this.isCurrentLiveMixedStreamUser(Ho) && Qo) {
+        this.currentPlayableUserId = Ho;
         const Vo = this.getViewElement();
         Vo && this.trtc && (await this.trtc.startRemoteVideo({
-          userId: Qo,
+          userId: Ho,
           streamType: TRTCVideoStreamType.MAIN,
           view: Vo,
           option: {
             fillMode: "cover"
           }
-        }), this.currentState = "playing", log$5.debug("handleVideoEvent", `Started remote video for ${Qo}`));
+        }), this.currentState = "playing", log$5.debug("handleVideoEvent", `Started remote video for ${Ho}`));
       }
     }, this.handleUserAudioAvailable = (Go) => {
       log$5.debug("handleAudioEvent", "REMOTE_AUDIO_AVAILABLE raw event", Go);
-      let Qo, Ho;
+      let Ho, Qo;
       if (typeof Go == "string")
-        Qo = Go, Ho = !0;
+        Ho = Go, Qo = !0;
       else if (Go && typeof Go == "object")
-        Qo = Go.userId || Go.uid || Go.user || "", Ho = Go.isAvailable !== void 0 ? Go.isAvailable : Go.available !== void 0 ? Go.available : !0;
+        Ho = Go.userId || Go.uid || Go.user || "", Qo = Go.isAvailable !== void 0 ? Go.isAvailable : Go.available !== void 0 ? Go.available : !0;
       else {
         log$5.error("handleAudioEvent", "Unexpected audio event structure", Go);
         return;
       }
-      log$5.debug("handleAudioEvent", "REMOTE_AUDIO_AVAILABLE parsed", { userId: Qo, isAvailable: Ho, liveId: this.liveId }), this.isMixedStreamUser(Qo) && this.isCurrentLiveMixedStreamUser(Qo) && (this.currentPlayableUserId = Qo);
+      log$5.debug("handleAudioEvent", "REMOTE_AUDIO_AVAILABLE parsed", { userId: Ho, isAvailable: Qo, liveId: this.liveId }), this.isMixedStreamUser(Ho) && this.isCurrentLiveMixedStreamUser(Ho) && (this.currentPlayableUserId = Ho);
     }, this.handleError = (Go) => {
       log$5.error("handleError", "TRTC error", Go), this.currentState = "error", this.eventHandlers.onError && this.eventHandlers.onError(Go);
     }, this.liveId = No, jo && (this.account = jo);
@@ -11615,22 +11643,22 @@ const MAX_CACHE_SIZE = 50, CACHE_TTL = 1800 * 1e3;
 function createPooledPlayerFactory(Oo) {
   const No = /* @__PURE__ */ new Map(), jo = () => {
     if (No.size <= MAX_CACHE_SIZE) return;
-    let Go = "", Qo = 1 / 0;
-    for (const [Ho, Vo] of No)
-      Vo.cachedAt < Qo && (Qo = Vo.cachedAt, Go = Ho);
+    let Go = "", Ho = 1 / 0;
+    for (const [Qo, Vo] of No)
+      Vo.cachedAt < Ho && (Ho = Vo.cachedAt, Go = Qo);
     Go && No.delete(Go);
   };
   return (Go) => {
-    const Qo = new TUIPlayer(Go), Ho = Qo.play.bind(Qo);
-    return Qo.play = async (Vo, qo) => {
+    const Ho = new TUIPlayer(Go), Qo = Ho.play.bind(Ho);
+    return Ho.play = async (Vo, qo) => {
       let Yo = No.get(Go);
       if (Yo && Date.now() - Yo.cachedAt > CACHE_TTL && (No.delete(Go), Yo = void 0), !Yo) {
         const Xo = await Oo(Go);
         if (!Xo) throw new Error(`[PooledFactory] Failed to get account for live ${Go}`);
         Yo = { account: Xo, cachedAt: Date.now() }, No.set(Go, Yo), jo();
       }
-      return Qo.setAccount(Yo.account), Ho(Vo, qo);
-    }, Qo;
+      return Ho.setAccount(Yo.account), Qo(Vo, qo);
+    }, Ho;
   };
 }
 const log$4 = createLogger("LiveMonitorCore");
@@ -11694,7 +11722,7 @@ class LiveMonitorCore {
       Go && this.getActive?.() !== !1 && (this.currentLive = Go, this.notifyStateChange({ currentLive: Go }), this.fetchMuteStatus(No).catch(() => {
       }));
     }).catch((Go) => {
-      Go instanceof LiveManagerError && Go.code === 100004 && (this.liveList = this.liveList.filter((Qo) => Qo.liveId !== No), this.notifyStateChange({ liveList: this.liveList, currentLive: null }));
+      Go instanceof LiveManagerError && Go.code === 100004 && (this.liveList = this.liveList.filter((Ho) => Ho.liveId !== No), this.notifyStateChange({ liveList: this.liveList, currentLive: null }));
     }));
   }
   getCurrentLiveInfo() {
@@ -11707,16 +11735,16 @@ class LiveMonitorCore {
     const Go = "detail";
     this.setLoading(Go, !0), this.setError(null);
     try {
-      const [Qo, Ho] = await Promise.allSettled([
+      const [Ho, Qo] = await Promise.allSettled([
         getLiveDetail(jo),
         getLiveStatistic(jo)
       ]);
       let Vo = null;
-      if (Qo.status === "fulfilled")
-        Vo = Qo.value;
+      if (Ho.status === "fulfilled")
+        Vo = Ho.value;
       else
-        throw Qo.reason;
-      const qo = Ho.status === "fulfilled" ? Ho.value?.Response : null;
+        throw Ho.reason;
+      const qo = Qo.status === "fulfilled" ? Qo.value?.Response : null;
       if (Vo && qo && (Vo.stats = this.mergeStatisticData(Vo, qo)), Vo && Vo.anchor?.userId)
         try {
           const Yo = await getObsLiveDetailInfo({
@@ -11732,13 +11760,13 @@ class LiveMonitorCore {
         liveList: this.liveList,
         currentLive: this.currentLive
       }), Vo;
-    } catch (Qo) {
-      Qo instanceof LiveManagerError && Qo.code === 100004 && (this.liveList = this.liveList.filter((Vo) => Vo.liveId !== jo), this.currentLive?.liveId === jo && (this.currentLive = null), this.notifyStateChange({
+    } catch (Ho) {
+      Ho instanceof LiveManagerError && Ho.code === 100004 && (this.liveList = this.liveList.filter((Vo) => Vo.liveId !== jo), this.currentLive?.liveId === jo && (this.currentLive = null), this.notifyStateChange({
         liveList: this.liveList,
         currentLive: this.currentLive
       }));
-      const Ho = Qo instanceof Error ? Qo : new Error(String(Qo));
-      throw this.setError(Ho), this.setLoading(Go, !1), log$4.error("LiveMonitorCore", "fetchLiveDetail failed:", Ho), Ho;
+      const Qo = Ho instanceof Error ? Ho : new Error(String(Ho));
+      throw this.setError(Qo), this.setLoading(Go, !1), log$4.error("LiveMonitorCore", "fetchLiveDetail failed:", Qo), Qo;
     }
   }
   // ========= 创建直播 =========
@@ -11748,16 +11776,16 @@ class LiveMonitorCore {
     try {
       if (!No.anchorId)
         throw new Error("anchorId is required");
-      const Qo = (await createLive(No)).liveId || No.liveId, Ho = Qo ? await getLiveDetail(Qo) : null;
-      if (!Ho)
+      const Ho = (await createLive(No)).liveId || No.liveId, Qo = Ho ? await getLiveDetail(Ho) : null;
+      if (!Qo)
         throw new Error("创建直播成功，但获取详情失败");
-      return this.liveList = [Ho, ...this.liveList], this.currentLive = Ho, this.setLoading(jo, !1), this.notifyStateChange({
+      return this.liveList = [Qo, ...this.liveList], this.currentLive = Qo, this.setLoading(jo, !1), this.notifyStateChange({
         liveList: this.liveList,
         currentLive: this.currentLive
-      }), Ho;
+      }), Qo;
     } catch (Go) {
-      const Qo = Go instanceof Error ? Go : new Error(String(Go));
-      throw this.setError(Qo), this.setLoading(jo, !1), log$4.error("LiveMonitorCore", "createLive failed:", Qo), Qo;
+      const Ho = Go instanceof Error ? Go : new Error(String(Go));
+      throw this.setError(Ho), this.setLoading(jo, !1), log$4.error("LiveMonitorCore", "createLive failed:", Ho), Ho;
     }
   }
   // ========= 更新直播 =========
@@ -11768,16 +11796,16 @@ class LiveMonitorCore {
     this.setLoading(Go, !0), this.setError(null);
     try {
       await updateLiveInfo(jo, No);
-      const { liveId: Qo, ...Ho } = No;
-      this.currentLive && (this.currentLive = { ...this.currentLive, ...Ho, liveId: this.currentLive.liveId }), this.liveList = this.liveList.map(
-        (Vo) => Vo.liveId === jo ? { ...Vo, ...Ho, liveId: Vo.liveId } : Vo
+      const { liveId: Ho, ...Qo } = No;
+      this.currentLive && (this.currentLive = { ...this.currentLive, ...Qo, liveId: this.currentLive.liveId }), this.liveList = this.liveList.map(
+        (Vo) => Vo.liveId === jo ? { ...Vo, ...Qo, liveId: Vo.liveId } : Vo
       ), this.notifyStateChange({
         currentLive: this.currentLive,
         liveList: this.liveList
       }), this.setLoading(Go, !1);
-    } catch (Qo) {
-      const Ho = Qo instanceof Error ? Qo : new Error(String(Qo));
-      throw this.setError(Ho), this.setLoading(Go, !1), log$4.error("LiveMonitorCore", "updateLive failed:", Ho), Ho;
+    } catch (Ho) {
+      const Qo = Ho instanceof Error ? Ho : new Error(String(Ho));
+      throw this.setError(Qo), this.setLoading(Go, !1), log$4.error("LiveMonitorCore", "updateLive failed:", Qo), Qo;
     }
   }
   // ========= 结束直播 =========
@@ -11787,13 +11815,13 @@ class LiveMonitorCore {
     const Go = "end";
     this.setLoading(Go, !0), this.setError(null);
     try {
-      await endLive(jo), this.liveList = this.liveList.filter((Qo) => Qo.liveId !== jo), this.currentLive && this.currentLive.liveId === jo && (this.currentLive = null), this.notifyStateChange({
+      await endLive(jo), this.liveList = this.liveList.filter((Ho) => Ho.liveId !== jo), this.currentLive && this.currentLive.liveId === jo && (this.currentLive = null), this.notifyStateChange({
         liveList: this.liveList,
         currentLive: this.currentLive
       }), this.setLoading(Go, !1);
-    } catch (Qo) {
-      const Ho = Qo instanceof Error ? Qo : new Error(String(Qo));
-      throw this.setError(Ho), this.setLoading(Go, !1), log$4.error("LiveMonitorCore", "endLive failed:", Ho), Ho;
+    } catch (Ho) {
+      const Qo = Ho instanceof Error ? Ho : new Error(String(Ho));
+      throw this.setError(Qo), this.setLoading(Go, !1), log$4.error("LiveMonitorCore", "endLive failed:", Qo), Qo;
     }
   }
   /** 获取缓存的用户资料 */
@@ -11833,10 +11861,10 @@ class LiveMonitorCore {
     const jo = No || this.currentLive?.liveId, Go = No ? this.liveList.find((Vo) => Vo.liveId === No) || this.currentLive : this.currentLive;
     if (!jo)
       throw new Error("liveId is required: pass it as a parameter, or call setCurrentLive(liveId) first");
-    const Qo = Go || { liveId: jo, onlineCount: 0 }, Ho = "stats";
-    this.setLoading(Ho, !0);
+    const Ho = Go || { liveId: jo, onlineCount: 0 }, Qo = "stats";
+    this.setLoading(Qo, !0);
     try {
-      const qo = (await getLiveStatistic(jo))?.Response, Yo = qo ? this.mergeStatisticData(Qo, qo) : Qo.stats || {
+      const qo = (await getLiveStatistic(jo))?.Response, Yo = qo ? this.mergeStatisticData(Ho, qo) : Ho.stats || {
         liveId: jo,
         onlineCount: 0,
         viewCount: 0,
@@ -11848,22 +11876,22 @@ class LiveMonitorCore {
       };
       return this.currentLive && this.currentLive.liveId === jo && (this.currentLive = { ...this.currentLive, stats: Yo }, this.notifyStateChange({ currentLive: this.currentLive })), this.liveList = this.liveList.map(
         (Xo) => Xo.liveId === jo ? { ...Xo, stats: Yo } : Xo
-      ), this.setLoading(Ho, !1), this.notifyStateChange({
+      ), this.setLoading(Qo, !1), this.notifyStateChange({
         liveList: this.liveList
       }), Yo;
     } catch (Vo) {
       const qo = Vo instanceof Error ? Vo : new Error(String(Vo));
-      throw this.setError(qo), this.setLoading(Ho, !1), log$4.error("LiveMonitorCore", "fetchLiveStats failed:", qo), qo;
+      throw this.setError(qo), this.setLoading(Qo, !1), log$4.error("LiveMonitorCore", "fetchLiveStats failed:", qo), qo;
     }
   }
   // ========= 播放控制 =========
   async startPlay(No) {
     const { liveId: jo, containerId: Go } = No;
     if (!jo || !Go) throw new Error("liveId and containerId are required");
-    const Qo = document.getElementById(Go);
-    if (!Qo)
+    const Ho = document.getElementById(Go);
+    if (!Ho)
       throw new Error(`Container element with id "${Go}" not found`);
-    await this.playerRegistry.startPlay({ liveId: jo, container: Qo });
+    await this.playerRegistry.startPlay({ liveId: jo, container: Ho });
   }
   async stopPlay(No) {
     await this.playerRegistry.stopPlay(No);
@@ -11878,8 +11906,8 @@ class LiveMonitorCore {
       try {
         await setMuteAll(No, jo), this.liveList = this.liveList.map((Go) => Go.liveId === No ? { ...Go, isMuted: jo } : Go), this.currentLive && this.currentLive.liveId === No && (this.currentLive = { ...this.currentLive, isMuted: jo }, this.notifyStateChange({ currentLive: this.currentLive })), this.notifyStateChange({ liveList: this.liveList });
       } catch (Go) {
-        const Qo = Go instanceof Error ? Go : new Error(String(Go));
-        throw this.setError(Qo), log$4.error("LiveMonitorCore", "setAllMute failed:", Qo), Qo;
+        const Ho = Go instanceof Error ? Go : new Error(String(Go));
+        throw this.setError(Ho), log$4.error("LiveMonitorCore", "setAllMute failed:", Ho), Ho;
       }
   }
   /**
@@ -11892,8 +11920,8 @@ class LiveMonitorCore {
         const jo = await getMuteStatus(No);
         if (jo && typeof jo == "object") {
           const Go = jo.isMutedAll ?? !1;
-          let Qo = !1;
-          this.liveList = this.liveList.map((Ho) => Ho.liveId === No && Ho.isMuted !== Go ? (Qo = !0, { ...Ho, isMuted: Go }) : Ho), this.currentLive && this.currentLive.liveId === No && this.currentLive.isMuted !== Go && (this.currentLive = { ...this.currentLive, isMuted: Go }, Qo = !0), Qo && this.notifyStateChange({
+          let Ho = !1;
+          this.liveList = this.liveList.map((Qo) => Qo.liveId === No && Qo.isMuted !== Go ? (Ho = !0, { ...Qo, isMuted: Go }) : Qo), this.currentLive && this.currentLive.liveId === No && this.currentLive.isMuted !== Go && (this.currentLive = { ...this.currentLive, isMuted: Go }, Ho = !0), Ho && this.notifyStateChange({
             liveList: this.liveList,
             currentLive: this.currentLive
           });
@@ -11993,14 +12021,14 @@ function useAuthState() {
   const Oo = computed(() => {
     const qo = sharedAuthState.value;
     return qo.mode === "server" ? !0 : qo.mode === "proxy" && !!qo.credentials;
-  }), No = computed(() => sharedAuthState.value.userId || ""), jo = computed(() => sharedAuthState.value.userName || ""), Go = computed(() => sharedAuthState.value.sdkAppId || 0), Qo = computed(() => sharedAuthState.value.mode);
+  }), No = computed(() => sharedAuthState.value.userId || ""), jo = computed(() => sharedAuthState.value.userName || ""), Go = computed(() => sharedAuthState.value.sdkAppId || 0), Ho = computed(() => sharedAuthState.value.mode);
   return {
     authState: sharedAuthState,
     isLoggedIn: Oo,
     currentUserId: No,
     currentUserName: jo,
     sdkAppId: Go,
-    authMode: Qo,
+    authMode: Ho,
     checkServerConfig,
     login: async (qo = {}) => performLogin(qo),
     logout: () => {
@@ -12051,11 +12079,11 @@ function useGiftState() {
 }
 const log$3 = createLogger("RiskControl");
 function useRiskControlState(Oo) {
-  const { liveId: No, pageSize: jo } = Oo, Go = ref(!1), Qo = ref("cloud"), Ho = ref(!0), Vo = ref([]), qo = ref(0), Yo = ref(1), Xo = ref(!1), Fo = ref([]), Wo = ref([]);
+  const { liveId: No, pageSize: jo } = Oo, Go = ref(!1), Ho = ref("cloud"), Qo = ref(!0), Vo = ref([]), qo = ref(0), Yo = ref(1), Xo = ref(!1), Fo = ref([]), Wo = ref([]);
   let Ko = !0;
   reportFeatureUse("risk_control"), getModerationMode().then(async (ds) => {
     if (!Ko) return;
-    Qo.value = ds;
+    Ho.value = ds;
     const Es = ds === "cloud", Os = Es ? getInteractionModerationList : getCustomModerationList;
     try {
       const ws = await Os({ pageSize: jo, liveId: No });
@@ -12064,7 +12092,7 @@ function useRiskControlState(Oo) {
       Ko && (Go.value = !1);
     }
     ds === "custom" && getCustomModerationToggle().then((ws) => {
-      Ko && (Ho.value = ws.Enabled);
+      Ko && (Qo.value = ws.Enabled);
     }).catch(() => {
     });
   }), onUnmounted(() => {
@@ -12074,7 +12102,7 @@ function useRiskControlState(Oo) {
     Xo.value = !0;
     try {
       let Es;
-      return Qo.value === "custom" ? Es = await getCustomModerationList({ pageSize: jo, liveId: No, ...ds }) : Es = await getInteractionModerationList({ pageSize: jo, liveId: No, ...ds }), Ko && (Vo.value = Es.list || [], qo.value = Es.total || 0, Yo.value = ds.pageNum || 1), Es;
+      return Ho.value === "custom" ? Es = await getCustomModerationList({ pageSize: jo, liveId: No, ...ds }) : Es = await getInteractionModerationList({ pageSize: jo, liveId: No, ...ds }), Ko && (Vo.value = Es.list || [], qo.value = Es.total || 0, Yo.value = ds.pageNum || 1), Es;
     } catch (Es) {
       throw log$3.error("useRiskControlState", "fetchTextModerationList failed:", Es), Es;
     } finally {
@@ -12095,7 +12123,7 @@ function useRiskControlState(Oo) {
         }).sort((Ys, ks) => Ys.createdAtMs - ks.createdAtMs);
         Es = zs.map((Ys) => Ys.id), Os = zs.map(({ id: Ys, content: ks, userId: _s }) => ({ id: Ys, content: ks, userId: _s }));
       }
-      if (Qo.value === "custom") {
+      if (Ho.value === "custom") {
         const ws = await approveCustomModerationItems({ ids: Es, items: Os, liveId: ds.liveId ?? No });
         reportBusinessOp("moderation", "approve", !0, String(ws.success)), ws.failed > 0 && log$3.warn("useRiskControlState", `部分放行失败: 成功 ${ws.success}, 失败 ${ws.failed}`);
       } else
@@ -12106,7 +12134,7 @@ function useRiskControlState(Oo) {
   }, rs = async (ds) => {
     try {
       const Es = await updateCustomModerationToggle(ds);
-      return Ko && (Ho.value = Es.Enabled), reportBusinessOp("moderation", "toggle", !0), Es.Enabled;
+      return Ko && (Qo.value = Es.Enabled), reportBusinessOp("moderation", "toggle", !0), Es.Enabled;
     } catch (Es) {
       throw reportBusinessOp("moderation", "toggle", !1), log$3.error("useRiskControlState", "updateCustomModerationToggleEnabled failed:", Es), Es;
     }
@@ -12141,8 +12169,8 @@ function useRiskControlState(Oo) {
   };
   return {
     textModerationAvailable: Go,
-    moderationMode: Qo,
-    customModerationToggleEnabled: Ho,
+    moderationMode: Ho,
+    customModerationToggleEnabled: Qo,
     updateCustomModerationToggleEnabled: rs,
     textModerationList: Vo,
     textModerationTotal: qo,
@@ -12368,9 +12396,9 @@ function useUploadState() {
 }
 function usePreviewUrl() {
   const Oo = ref(""), No = new PreviewUrlController();
-  function jo(Qo) {
-    const Ho = No.setPreview(Qo);
-    Oo.value = Ho;
+  function jo(Ho) {
+    const Qo = No.setPreview(Ho);
+    Oo.value = Qo;
   }
   function Go() {
     No.clearPreview(), Oo.value = "";
@@ -12399,40 +12427,40 @@ function requireSvga_min() {
       return (function(Oo) {
         function No(Go) {
           if (jo[Go]) return jo[Go].exports;
-          var Qo = jo[Go] = { i: Go, l: !1, exports: {} };
-          return Oo[Go].call(Qo.exports, Qo, Qo.exports, No), Qo.l = !0, Qo.exports;
+          var Ho = jo[Go] = { i: Go, l: !1, exports: {} };
+          return Oo[Go].call(Ho.exports, Ho, Ho.exports, No), Ho.l = !0, Ho.exports;
         }
         var jo = {};
-        return No.m = Oo, No.c = jo, No.d = function(Go, Qo, Ho) {
-          No.o(Go, Qo) || Object.defineProperty(Go, Qo, { enumerable: !0, get: Ho });
+        return No.m = Oo, No.c = jo, No.d = function(Go, Ho, Qo) {
+          No.o(Go, Ho) || Object.defineProperty(Go, Ho, { enumerable: !0, get: Qo });
         }, No.r = function(Go) {
           typeof Symbol < "u" && Symbol.toStringTag && Object.defineProperty(Go, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(Go, "__esModule", { value: !0 });
-        }, No.t = function(Go, Qo) {
-          if (1 & Qo && (Go = No(Go)), 8 & Qo || 4 & Qo && typeof Go == "object" && Go && Go.__esModule) return Go;
-          var Ho = /* @__PURE__ */ Object.create(null);
-          if (No.r(Ho), Object.defineProperty(Ho, "default", { enumerable: !0, value: Go }), 2 & Qo && typeof Go != "string") for (var Vo in Go) No.d(Ho, Vo, (function(qo) {
+        }, No.t = function(Go, Ho) {
+          if (1 & Ho && (Go = No(Go)), 8 & Ho || 4 & Ho && typeof Go == "object" && Go && Go.__esModule) return Go;
+          var Qo = /* @__PURE__ */ Object.create(null);
+          if (No.r(Qo), Object.defineProperty(Qo, "default", { enumerable: !0, value: Go }), 2 & Ho && typeof Go != "string") for (var Vo in Go) No.d(Qo, Vo, (function(qo) {
             return Go[qo];
           }).bind(null, Vo));
-          return Ho;
+          return Qo;
         }, No.n = function(Go) {
-          var Qo = Go && Go.__esModule ? function() {
+          var Ho = Go && Go.__esModule ? function() {
             return Go.default;
           } : function() {
             return Go;
           };
-          return No.d(Qo, "a", Qo), Qo;
-        }, No.o = function(Go, Qo) {
-          return Object.prototype.hasOwnProperty.call(Go, Qo);
+          return No.d(Ho, "a", Ho), Ho;
+        }, No.o = function(Go, Ho) {
+          return Object.prototype.hasOwnProperty.call(Go, Ho);
         }, No.p = "", No(No.s = 64);
       })([function(Oo, No, jo) {
-        var Go, Qo, Ho = Oo.exports = jo(1), Vo = jo(20);
-        Ho.codegen = jo(47), Ho.fetch = jo(48), Ho.path = jo(49), Ho.fs = Ho.inquire("fs"), Ho.toArray = function(Wo) {
+        var Go, Ho, Qo = Oo.exports = jo(1), Vo = jo(20);
+        Qo.codegen = jo(47), Qo.fetch = jo(48), Qo.path = jo(49), Qo.fs = Qo.inquire("fs"), Qo.toArray = function(Wo) {
           if (Wo) {
             for (var Ko = Object.keys(Wo), Jo = new Array(Ko.length), es = 0; es < Ko.length; ) Jo[es] = Wo[Ko[es++]];
             return Jo;
           }
           return [];
-        }, Ho.toObject = function(Wo) {
+        }, Qo.toObject = function(Wo) {
           for (var Ko = {}, Jo = 0; Jo < Wo.length; ) {
             var es = Wo[Jo++], rs = Wo[Jo++];
             rs !== void 0 && (Ko[es] = rs);
@@ -12440,33 +12468,33 @@ function requireSvga_min() {
           return Ko;
         };
         var qo = /\\/g, Yo = /"/g;
-        Ho.isReserved = function(Wo) {
+        Qo.isReserved = function(Wo) {
           return /^(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$/.test(Wo);
-        }, Ho.safeProp = function(Wo) {
-          return !/^[$\w_]+$/.test(Wo) || Ho.isReserved(Wo) ? '["' + Wo.replace(qo, "\\\\").replace(Yo, '\\"') + '"]' : "." + Wo;
-        }, Ho.ucFirst = function(Wo) {
+        }, Qo.safeProp = function(Wo) {
+          return !/^[$\w_]+$/.test(Wo) || Qo.isReserved(Wo) ? '["' + Wo.replace(qo, "\\\\").replace(Yo, '\\"') + '"]' : "." + Wo;
+        }, Qo.ucFirst = function(Wo) {
           return Wo.charAt(0).toUpperCase() + Wo.substring(1);
         };
         var Xo = /_([a-z])/g;
-        Ho.camelCase = function(Wo) {
+        Qo.camelCase = function(Wo) {
           return Wo.substring(0, 1) + Wo.substring(1).replace(Xo, (function(Ko, Jo) {
             return Jo.toUpperCase();
           }));
-        }, Ho.compareFieldsById = function(Wo, Ko) {
+        }, Qo.compareFieldsById = function(Wo, Ko) {
           return Wo.id - Ko.id;
-        }, Ho.decorateType = function(Wo, Ko) {
-          if (Wo.$type) return Ko && Wo.$type.name !== Ko && (Ho.decorateRoot.remove(Wo.$type), Wo.$type.name = Ko, Ho.decorateRoot.add(Wo.$type)), Wo.$type;
+        }, Qo.decorateType = function(Wo, Ko) {
+          if (Wo.$type) return Ko && Wo.$type.name !== Ko && (Qo.decorateRoot.remove(Wo.$type), Wo.$type.name = Ko, Qo.decorateRoot.add(Wo.$type)), Wo.$type;
           Go || (Go = jo(22));
           var Jo = new Go(Ko || Wo.name);
-          return Ho.decorateRoot.add(Jo), Jo.ctor = Wo, Object.defineProperty(Wo, "$type", { value: Jo, enumerable: !1 }), Object.defineProperty(Wo.prototype, "$type", { value: Jo, enumerable: !1 }), Jo;
+          return Qo.decorateRoot.add(Jo), Jo.ctor = Wo, Object.defineProperty(Wo, "$type", { value: Jo, enumerable: !1 }), Object.defineProperty(Wo.prototype, "$type", { value: Jo, enumerable: !1 }), Jo;
         };
         var Fo = 0;
-        Ho.decorateEnum = function(Wo) {
+        Qo.decorateEnum = function(Wo) {
           if (Wo.$type) return Wo.$type;
-          Qo || (Qo = jo(2));
-          var Ko = new Qo("Enum" + Fo++, Wo);
-          return Ho.decorateRoot.add(Ko), Object.defineProperty(Wo, "$type", { value: Ko, enumerable: !1 }), Ko;
-        }, Ho.setProperty = function(Wo, Ko, Jo) {
+          Ho || (Ho = jo(2));
+          var Ko = new Ho("Enum" + Fo++, Wo);
+          return Qo.decorateRoot.add(Ko), Object.defineProperty(Wo, "$type", { value: Ko, enumerable: !1 }), Ko;
+        }, Qo.setProperty = function(Wo, Ko, Jo) {
           if (typeof Wo != "object") throw TypeError("dst must be an object");
           if (!Ko) throw TypeError("path must be specified");
           return (function es(rs, is, As) {
@@ -12478,21 +12506,21 @@ function requireSvga_min() {
             }
             return rs;
           })(Wo, Ko = Ko.split("."), Jo);
-        }, Object.defineProperty(Ho, "decorateRoot", { get: function() {
+        }, Object.defineProperty(Qo, "decorateRoot", { get: function() {
           return Vo.decorated || (Vo.decorated = new (jo(30))());
         } });
       }, function(Oo, No, jo) {
         (function(Go) {
-          function Qo(qo, Yo, Xo) {
+          function Ho(qo, Yo, Xo) {
             for (var Fo = Object.keys(Yo), Wo = 0; Wo < Fo.length; ++Wo) qo[Fo[Wo]] !== void 0 && Xo || (qo[Fo[Wo]] = Yo[Fo[Wo]]);
             return qo;
           }
-          function Ho(qo) {
+          function Qo(qo) {
             function Yo(Xo, Fo) {
               if (!(this instanceof Yo)) return new Yo(Xo, Fo);
               Object.defineProperty(this, "message", { get: function() {
                 return Xo;
-              } }), Error.captureStackTrace ? Error.captureStackTrace(this, Yo) : Object.defineProperty(this, "stack", { value: new Error().stack || "" }), Fo && Qo(this, Fo);
+              } }), Error.captureStackTrace ? Error.captureStackTrace(this, Yo) : Object.defineProperty(this, "stack", { value: new Error().stack || "" }), Fo && Ho(this, Fo);
             }
             return (Yo.prototype = Object.create(Error.prototype)).constructor = Yo, Object.defineProperty(Yo.prototype, "name", { get: function() {
               return qo;
@@ -12524,9 +12552,9 @@ function requireSvga_min() {
           }, Vo.longFromHash = function(qo, Yo) {
             var Xo = Vo.LongBits.fromHash(qo);
             return Vo.Long ? Vo.Long.fromBits(Xo.lo, Xo.hi, Yo) : Xo.toNumber(!!Yo);
-          }, Vo.merge = Qo, Vo.lcFirst = function(qo) {
+          }, Vo.merge = Ho, Vo.lcFirst = function(qo) {
             return qo.charAt(0).toLowerCase() + qo.substring(1);
-          }, Vo.newError = Ho, Vo.ProtocolError = Ho("ProtocolError"), Vo.oneOfGetter = function(qo) {
+          }, Vo.newError = Qo, Vo.ProtocolError = Qo("ProtocolError"), Vo.oneOfGetter = function(qo) {
             for (var Yo = {}, Xo = 0; Xo < qo.length; ++Xo) Yo[qo[Xo]] = 1;
             return function() {
               for (var Fo = Object.keys(this), Wo = Fo.length - 1; Wo > -1; --Wo) if (Yo[Fo[Wo]] === 1 && this[Fo[Wo]] !== void 0 && this[Fo[Wo]] !== null) return Fo[Wo];
@@ -12546,13 +12574,13 @@ function requireSvga_min() {
         }).call(this, jo(37));
       }, function(Oo, No, jo) {
         function Go(qo, Yo, Xo, Fo, Wo) {
-          if (Qo.call(this, qo, Xo), Yo && typeof Yo != "object") throw TypeError("values must be an object");
+          if (Ho.call(this, qo, Xo), Yo && typeof Yo != "object") throw TypeError("values must be an object");
           if (this.valuesById = {}, this.values = Object.create(this.valuesById), this.comment = Fo, this.comments = Wo || {}, this.reserved = void 0, Yo) for (var Ko = Object.keys(Yo), Jo = 0; Jo < Ko.length; ++Jo) typeof Yo[Ko[Jo]] == "number" && (this.valuesById[this.values[Ko[Jo]] = Yo[Ko[Jo]]] = Ko[Jo]);
         }
         Oo.exports = Go;
-        var Qo = jo(3);
-        ((Go.prototype = Object.create(Qo.prototype)).constructor = Go).className = "Enum";
-        var Ho = jo(6), Vo = jo(0);
+        var Ho = jo(3);
+        ((Go.prototype = Object.create(Ho.prototype)).constructor = Go).className = "Enum";
+        var Qo = jo(6), Vo = jo(0);
         Go.fromJSON = function(qo, Yo) {
           var Xo = new Go(qo, Yo.values, Yo.options, Yo.comment, Yo.comments);
           return Xo.reserved = Yo.reserved, Xo;
@@ -12576,18 +12604,18 @@ function requireSvga_min() {
           if (Yo == null) throw Error("name '" + qo + "' does not exist in " + this);
           return delete this.valuesById[Yo], delete this.values[qo], delete this.comments[qo], this;
         }, Go.prototype.isReservedId = function(qo) {
-          return Ho.isReservedId(this.reserved, qo);
+          return Qo.isReservedId(this.reserved, qo);
         }, Go.prototype.isReservedName = function(qo) {
-          return Ho.isReservedName(this.reserved, qo);
+          return Qo.isReservedName(this.reserved, qo);
         };
       }, function(Oo, No, jo) {
         function Go(Vo, qo) {
-          if (!Ho.isString(Vo)) throw TypeError("name must be a string");
-          if (qo && !Ho.isObject(qo)) throw TypeError("options must be an object");
+          if (!Qo.isString(Vo)) throw TypeError("name must be a string");
+          if (qo && !Qo.isObject(qo)) throw TypeError("options must be an object");
           this.options = qo, this.parsedOptions = null, this.name = Vo, this.parent = null, this.resolved = !1, this.comment = null, this.filename = null;
         }
         Oo.exports = Go, Go.className = "ReflectionObject";
-        var Qo, Ho = jo(0);
+        var Ho, Qo = jo(0);
         Object.defineProperties(Go.prototype, { root: { get: function() {
           for (var Vo = this; Vo.parent !== null; ) Vo = Vo.parent;
           return Vo;
@@ -12599,12 +12627,12 @@ function requireSvga_min() {
         }, Go.prototype.onAdd = function(Vo) {
           this.parent && this.parent !== Vo && this.parent.remove(this), this.parent = Vo, this.resolved = !1;
           var qo = Vo.root;
-          qo instanceof Qo && qo._handleAdd(this);
+          qo instanceof Ho && qo._handleAdd(this);
         }, Go.prototype.onRemove = function(Vo) {
           var qo = Vo.root;
-          qo instanceof Qo && qo._handleRemove(this), this.parent = null, this.resolved = !1;
+          qo instanceof Ho && qo._handleRemove(this), this.parent = null, this.resolved = !1;
         }, Go.prototype.resolve = function() {
-          return this.resolved ? this : (this.root instanceof Qo && (this.resolved = !0), this);
+          return this.resolved ? this : (this.root instanceof Ho && (this.resolved = !0), this);
         }, Go.prototype.getOption = function(Vo) {
           if (this.options) return this.options[Vo];
         }, Go.prototype.setOption = function(Vo, qo, Yo) {
@@ -12618,8 +12646,8 @@ function requireSvga_min() {
             }));
             if (Fo) {
               var Wo = Fo[Vo];
-              Ho.setProperty(Wo, Yo, qo);
-            } else (Fo = {})[Vo] = Ho.setProperty({}, Yo, qo), Xo.push(Fo);
+              Qo.setProperty(Wo, Yo, qo);
+            } else (Fo = {})[Vo] = Qo.setProperty({}, Yo, qo), Xo.push(Fo);
           } else {
             var Ko = {};
             Ko[Vo] = qo, Xo.push(Ko);
@@ -12632,49 +12660,49 @@ function requireSvga_min() {
           var Vo = this.constructor.className, qo = this.fullName;
           return qo.length ? Vo + " " + qo : Vo;
         }, Go._configure = function(Vo) {
-          Qo = Vo;
+          Ho = Vo;
         };
       }, function(Oo, No, jo) {
         function Go(Fo, Wo, Ko, Jo, es, rs, is) {
-          if (Yo.isObject(Jo) ? (is = es, rs = Jo, Jo = es = void 0) : Yo.isObject(es) && (is = rs, rs = es, es = void 0), Qo.call(this, Fo, rs), !Yo.isInteger(Wo) || Wo < 0) throw TypeError("id must be a non-negative integer");
+          if (Yo.isObject(Jo) ? (is = es, rs = Jo, Jo = es = void 0) : Yo.isObject(es) && (is = rs, rs = es, es = void 0), Ho.call(this, Fo, rs), !Yo.isInteger(Wo) || Wo < 0) throw TypeError("id must be a non-negative integer");
           if (!Yo.isString(Ko)) throw TypeError("type must be a string");
           if (Jo !== void 0 && !Xo.test(Jo = Jo.toString().toLowerCase())) throw TypeError("rule must be a string rule");
           if (es !== void 0 && !Yo.isString(es)) throw TypeError("extend must be a string");
           this.rule = Jo && Jo !== "optional" ? Jo : void 0, this.type = Ko, this.id = Wo, this.extend = es || void 0, this.required = Jo === "required", this.optional = !this.required, this.repeated = Jo === "repeated", this.map = !1, this.message = null, this.partOf = null, this.typeDefault = null, this.defaultValue = null, this.long = !!Yo.Long && qo.long[Ko] !== void 0, this.bytes = Ko === "bytes", this.resolvedType = null, this.extensionField = null, this.declaringField = null, this._packed = null, this.comment = is;
         }
         Oo.exports = Go;
-        var Qo = jo(3);
-        ((Go.prototype = Object.create(Qo.prototype)).constructor = Go).className = "Field";
-        var Ho, Vo = jo(2), qo = jo(7), Yo = jo(0), Xo = /^required|optional|repeated$/;
+        var Ho = jo(3);
+        ((Go.prototype = Object.create(Ho.prototype)).constructor = Go).className = "Field";
+        var Qo, Vo = jo(2), qo = jo(7), Yo = jo(0), Xo = /^required|optional|repeated$/;
         Go.fromJSON = function(Fo, Wo) {
           return new Go(Fo, Wo.id, Wo.type, Wo.rule, Wo.extend, Wo.options, Wo.comment);
         }, Object.defineProperty(Go.prototype, "packed", { get: function() {
           return this._packed === null && (this._packed = this.getOption("packed") !== !1), this._packed;
         } }), Go.prototype.setOption = function(Fo, Wo, Ko) {
-          return Fo === "packed" && (this._packed = null), Qo.prototype.setOption.call(this, Fo, Wo, Ko);
+          return Fo === "packed" && (this._packed = null), Ho.prototype.setOption.call(this, Fo, Wo, Ko);
         }, Go.prototype.toJSON = function(Fo) {
           var Wo = !!Fo && !!Fo.keepComments;
           return Yo.toObject(["rule", this.rule !== "optional" && this.rule || void 0, "type", this.type, "id", this.id, "extend", this.extend, "options", this.options, "comment", Wo ? this.comment : void 0]);
         }, Go.prototype.resolve = function() {
           if (this.resolved) return this;
-          if ((this.typeDefault = qo.defaults[this.type]) === void 0 && (this.resolvedType = (this.declaringField ? this.declaringField.parent : this.parent).lookupTypeOrEnum(this.type), this.resolvedType instanceof Ho ? this.typeDefault = null : this.typeDefault = this.resolvedType.values[Object.keys(this.resolvedType.values)[0]]), this.options && this.options.default != null && (this.typeDefault = this.options.default, this.resolvedType instanceof Vo && typeof this.typeDefault == "string" && (this.typeDefault = this.resolvedType.values[this.typeDefault])), this.options && (this.options.packed !== !0 && (this.options.packed === void 0 || !this.resolvedType || this.resolvedType instanceof Vo) || delete this.options.packed, Object.keys(this.options).length || (this.options = void 0)), this.long) this.typeDefault = Yo.Long.fromNumber(this.typeDefault, this.type.charAt(0) === "u"), Object.freeze && Object.freeze(this.typeDefault);
+          if ((this.typeDefault = qo.defaults[this.type]) === void 0 && (this.resolvedType = (this.declaringField ? this.declaringField.parent : this.parent).lookupTypeOrEnum(this.type), this.resolvedType instanceof Qo ? this.typeDefault = null : this.typeDefault = this.resolvedType.values[Object.keys(this.resolvedType.values)[0]]), this.options && this.options.default != null && (this.typeDefault = this.options.default, this.resolvedType instanceof Vo && typeof this.typeDefault == "string" && (this.typeDefault = this.resolvedType.values[this.typeDefault])), this.options && (this.options.packed !== !0 && (this.options.packed === void 0 || !this.resolvedType || this.resolvedType instanceof Vo) || delete this.options.packed, Object.keys(this.options).length || (this.options = void 0)), this.long) this.typeDefault = Yo.Long.fromNumber(this.typeDefault, this.type.charAt(0) === "u"), Object.freeze && Object.freeze(this.typeDefault);
           else if (this.bytes && typeof this.typeDefault == "string") {
             var Fo;
             Yo.base64.test(this.typeDefault) ? Yo.base64.decode(this.typeDefault, Fo = Yo.newBuffer(Yo.base64.length(this.typeDefault)), 0) : Yo.utf8.write(this.typeDefault, Fo = Yo.newBuffer(Yo.utf8.length(this.typeDefault)), 0), this.typeDefault = Fo;
           }
-          return this.map ? this.defaultValue = Yo.emptyObject : this.repeated ? this.defaultValue = Yo.emptyArray : this.defaultValue = this.typeDefault, this.parent instanceof Ho && (this.parent.ctor.prototype[this.name] = this.defaultValue), Qo.prototype.resolve.call(this);
+          return this.map ? this.defaultValue = Yo.emptyObject : this.repeated ? this.defaultValue = Yo.emptyArray : this.defaultValue = this.typeDefault, this.parent instanceof Qo && (this.parent.ctor.prototype[this.name] = this.defaultValue), Ho.prototype.resolve.call(this);
         }, Go.d = function(Fo, Wo, Ko, Jo) {
           return typeof Wo == "function" ? Wo = Yo.decorateType(Wo).name : Wo && typeof Wo == "object" && (Wo = Yo.decorateEnum(Wo).name), function(es, rs) {
             Yo.decorateType(es.constructor).add(new Go(rs, Fo, Wo, Ko, { default: Jo }));
           };
         }, Go._configure = function(Fo) {
-          Ho = Fo;
+          Qo = Fo;
         };
       }, function(Oo, No, jo) {
-        Object.defineProperty(No, "__esModule", { value: !0 }), No.BezierPath = function Go(Qo, Ho, Vo) {
+        Object.defineProperty(No, "__esModule", { value: !0 }), No.BezierPath = function Go(Ho, Qo, Vo) {
           (function(qo, Yo) {
             if (!(qo instanceof Yo)) throw new TypeError("Cannot call a class as a function");
-          })(this, Go), this._d = Qo, this._transform = Ho, this._styles = Vo;
+          })(this, Go), this._d = Ho, this._transform = Qo, this._styles = Vo;
         };
       }, function(Oo, No, jo) {
         function Go(Ko, Jo) {
@@ -12683,70 +12711,70 @@ function requireSvga_min() {
             return es;
           }
         }
-        function Qo(Ko, Jo) {
+        function Ho(Ko, Jo) {
           Vo.call(this, Ko, Jo), this.nested = void 0, this._nestedArray = null;
         }
-        function Ho(Ko) {
+        function Qo(Ko) {
           return Ko._nestedArray = null, Ko;
         }
-        Oo.exports = Qo;
+        Oo.exports = Ho;
         var Vo = jo(3);
-        ((Qo.prototype = Object.create(Vo.prototype)).constructor = Qo).className = "Namespace";
+        ((Ho.prototype = Object.create(Vo.prototype)).constructor = Ho).className = "Namespace";
         var qo, Yo, Xo, Fo = jo(4), Wo = jo(0);
-        Qo.fromJSON = function(Ko, Jo) {
-          return new Qo(Ko, Jo.options).addJSON(Jo.nested);
-        }, Qo.arrayToJSON = Go, Qo.isReservedId = function(Ko, Jo) {
+        Ho.fromJSON = function(Ko, Jo) {
+          return new Ho(Ko, Jo.options).addJSON(Jo.nested);
+        }, Ho.arrayToJSON = Go, Ho.isReservedId = function(Ko, Jo) {
           if (Ko) {
             for (var es = 0; es < Ko.length; ++es) if (typeof Ko[es] != "string" && Ko[es][0] <= Jo && Ko[es][1] > Jo) return !0;
           }
           return !1;
-        }, Qo.isReservedName = function(Ko, Jo) {
+        }, Ho.isReservedName = function(Ko, Jo) {
           if (Ko) {
             for (var es = 0; es < Ko.length; ++es) if (Ko[es] === Jo) return !0;
           }
           return !1;
-        }, Object.defineProperty(Qo.prototype, "nestedArray", { get: function() {
+        }, Object.defineProperty(Ho.prototype, "nestedArray", { get: function() {
           return this._nestedArray || (this._nestedArray = Wo.toArray(this.nested));
-        } }), Qo.prototype.toJSON = function(Ko) {
+        } }), Ho.prototype.toJSON = function(Ko) {
           return Wo.toObject(["options", this.options, "nested", Go(this.nestedArray, Ko)]);
-        }, Qo.prototype.addJSON = function(Ko) {
-          if (Ko) for (var Jo, es = Object.keys(Ko), rs = 0; rs < es.length; ++rs) Jo = Ko[es[rs]], this.add((Jo.fields !== void 0 ? qo.fromJSON : Jo.values !== void 0 ? Xo.fromJSON : Jo.methods !== void 0 ? Yo.fromJSON : Jo.id !== void 0 ? Fo.fromJSON : Qo.fromJSON)(es[rs], Jo));
+        }, Ho.prototype.addJSON = function(Ko) {
+          if (Ko) for (var Jo, es = Object.keys(Ko), rs = 0; rs < es.length; ++rs) Jo = Ko[es[rs]], this.add((Jo.fields !== void 0 ? qo.fromJSON : Jo.values !== void 0 ? Xo.fromJSON : Jo.methods !== void 0 ? Yo.fromJSON : Jo.id !== void 0 ? Fo.fromJSON : Ho.fromJSON)(es[rs], Jo));
           return this;
-        }, Qo.prototype.get = function(Ko) {
+        }, Ho.prototype.get = function(Ko) {
           return this.nested && this.nested[Ko] || null;
-        }, Qo.prototype.getEnum = function(Ko) {
+        }, Ho.prototype.getEnum = function(Ko) {
           if (this.nested && this.nested[Ko] instanceof Xo) return this.nested[Ko].values;
           throw Error("no such enum: " + Ko);
-        }, Qo.prototype.add = function(Ko) {
-          if (!(Ko instanceof Fo && Ko.extend !== void 0 || Ko instanceof qo || Ko instanceof Xo || Ko instanceof Yo || Ko instanceof Qo)) throw TypeError("object must be a valid nested object");
+        }, Ho.prototype.add = function(Ko) {
+          if (!(Ko instanceof Fo && Ko.extend !== void 0 || Ko instanceof qo || Ko instanceof Xo || Ko instanceof Yo || Ko instanceof Ho)) throw TypeError("object must be a valid nested object");
           if (this.nested) {
             var Jo = this.get(Ko.name);
             if (Jo) {
-              if (!(Jo instanceof Qo && Ko instanceof Qo) || Jo instanceof qo || Jo instanceof Yo) throw Error("duplicate name '" + Ko.name + "' in " + this);
+              if (!(Jo instanceof Ho && Ko instanceof Ho) || Jo instanceof qo || Jo instanceof Yo) throw Error("duplicate name '" + Ko.name + "' in " + this);
               for (var es = Jo.nestedArray, rs = 0; rs < es.length; ++rs) Ko.add(es[rs]);
               this.remove(Jo), this.nested || (this.nested = {}), Ko.setOptions(Jo.options, !0);
             }
           } else this.nested = {};
-          return this.nested[Ko.name] = Ko, Ko.onAdd(this), Ho(this);
-        }, Qo.prototype.remove = function(Ko) {
+          return this.nested[Ko.name] = Ko, Ko.onAdd(this), Qo(this);
+        }, Ho.prototype.remove = function(Ko) {
           if (!(Ko instanceof Vo)) throw TypeError("object must be a ReflectionObject");
           if (Ko.parent !== this) throw Error(Ko + " is not a member of " + this);
-          return delete this.nested[Ko.name], Object.keys(this.nested).length || (this.nested = void 0), Ko.onRemove(this), Ho(this);
-        }, Qo.prototype.define = function(Ko, Jo) {
+          return delete this.nested[Ko.name], Object.keys(this.nested).length || (this.nested = void 0), Ko.onRemove(this), Qo(this);
+        }, Ho.prototype.define = function(Ko, Jo) {
           if (Wo.isString(Ko)) Ko = Ko.split(".");
           else if (!Array.isArray(Ko)) throw TypeError("illegal path");
           if (Ko && Ko.length && Ko[0] === "") throw Error("path must be relative");
           for (var es = this; Ko.length > 0; ) {
             var rs = Ko.shift();
             if (es.nested && es.nested[rs]) {
-              if (!((es = es.nested[rs]) instanceof Qo)) throw Error("path conflicts with non-namespace objects");
-            } else es.add(es = new Qo(rs));
+              if (!((es = es.nested[rs]) instanceof Ho)) throw Error("path conflicts with non-namespace objects");
+            } else es.add(es = new Ho(rs));
           }
           return Jo && es.addJSON(Jo), es;
-        }, Qo.prototype.resolveAll = function() {
-          for (var Ko = this.nestedArray, Jo = 0; Jo < Ko.length; ) Ko[Jo] instanceof Qo ? Ko[Jo++].resolveAll() : Ko[Jo++].resolve();
+        }, Ho.prototype.resolveAll = function() {
+          for (var Ko = this.nestedArray, Jo = 0; Jo < Ko.length; ) Ko[Jo] instanceof Ho ? Ko[Jo++].resolveAll() : Ko[Jo++].resolve();
           return this.resolve();
-        }, Qo.prototype.lookup = function(Ko, Jo, es) {
+        }, Ho.prototype.lookup = function(Ko, Jo, es) {
           if (typeof Jo == "boolean" ? (es = Jo, Jo = void 0) : Jo && !Array.isArray(Jo) && (Jo = [Jo]), Wo.isString(Ko) && Ko.length) {
             if (Ko === ".") return this.root;
             Ko = Ko.split(".");
@@ -12756,26 +12784,26 @@ function requireSvga_min() {
           if (rs) {
             if (Ko.length === 1) {
               if (!Jo || Jo.indexOf(rs.constructor) > -1) return rs;
-            } else if (rs instanceof Qo && (rs = rs.lookup(Ko.slice(1), Jo, !0))) return rs;
-          } else for (var is = 0; is < this.nestedArray.length; ++is) if (this._nestedArray[is] instanceof Qo && (rs = this._nestedArray[is].lookup(Ko, Jo, !0))) return rs;
+            } else if (rs instanceof Ho && (rs = rs.lookup(Ko.slice(1), Jo, !0))) return rs;
+          } else for (var is = 0; is < this.nestedArray.length; ++is) if (this._nestedArray[is] instanceof Ho && (rs = this._nestedArray[is].lookup(Ko, Jo, !0))) return rs;
           return this.parent === null || es ? null : this.parent.lookup(Ko, Jo);
-        }, Qo.prototype.lookupType = function(Ko) {
+        }, Ho.prototype.lookupType = function(Ko) {
           var Jo = this.lookup(Ko, [qo]);
           if (!Jo) throw Error("no such type: " + Ko);
           return Jo;
-        }, Qo.prototype.lookupEnum = function(Ko) {
+        }, Ho.prototype.lookupEnum = function(Ko) {
           var Jo = this.lookup(Ko, [Xo]);
           if (!Jo) throw Error("no such Enum '" + Ko + "' in " + this);
           return Jo;
-        }, Qo.prototype.lookupTypeOrEnum = function(Ko) {
+        }, Ho.prototype.lookupTypeOrEnum = function(Ko) {
           var Jo = this.lookup(Ko, [qo, Xo]);
           if (!Jo) throw Error("no such Type or Enum '" + Ko + "' in " + this);
           return Jo;
-        }, Qo.prototype.lookupService = function(Ko) {
+        }, Ho.prototype.lookupService = function(Ko) {
           var Jo = this.lookup(Ko, [Yo]);
           if (!Jo) throw Error("no such Service '" + Ko + "' in " + this);
           return Jo;
-        }, Qo._configure = function(Ko, Jo, es) {
+        }, Ho._configure = function(Ko, Jo, es) {
           qo = Ko, Yo = Jo, Xo = es;
         };
       }, function(Oo, No, jo) {
@@ -12784,13 +12812,13 @@ function requireSvga_min() {
           for (Yo |= 0; Xo < qo.length; ) Fo[Vo[Xo + Yo]] = qo[Xo++];
           return Fo;
         }
-        var Qo = No, Ho = jo(0), Vo = ["double", "float", "int32", "uint32", "sint32", "fixed32", "sfixed32", "int64", "uint64", "sint64", "fixed64", "sfixed64", "bool", "string", "bytes"];
-        Qo.basic = Go([1, 5, 0, 0, 0, 5, 5, 0, 0, 0, 1, 1, 0, 2, 2]), Qo.defaults = Go([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, !1, "", Ho.emptyArray, null]), Qo.long = Go([0, 0, 0, 1, 1], 7), Qo.mapKey = Go([0, 0, 0, 5, 5, 0, 0, 0, 1, 1, 0, 2], 2), Qo.packed = Go([1, 5, 0, 0, 0, 5, 5, 0, 0, 0, 1, 1, 0]);
+        var Ho = No, Qo = jo(0), Vo = ["double", "float", "int32", "uint32", "sint32", "fixed32", "sfixed32", "int64", "uint64", "sint64", "fixed64", "sfixed64", "bool", "string", "bytes"];
+        Ho.basic = Go([1, 5, 0, 0, 0, 5, 5, 0, 0, 0, 1, 1, 0, 2, 2]), Ho.defaults = Go([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, !1, "", Qo.emptyArray, null]), Ho.long = Go([0, 0, 0, 1, 1], 7), Ho.mapKey = Go([0, 0, 0, 5, 5, 0, 0, 0, 1, 1, 0, 2], 2), Ho.packed = Go([1, 5, 0, 0, 0, 5, 5, 0, 0, 0, 1, 1, 0]);
       }, function(Oo, No, jo) {
         function Go(qo, Yo) {
           return Object.prototype.hasOwnProperty.call(qo, Yo);
         }
-        var Qo = typeof Uint8Array < "u" && typeof Uint16Array < "u" && typeof Int32Array < "u";
+        var Ho = typeof Uint8Array < "u" && typeof Uint16Array < "u" && typeof Int32Array < "u";
         No.assign = function(qo) {
           for (var Yo = Array.prototype.slice.call(arguments, 1); Yo.length; ) {
             var Xo = Yo.shift();
@@ -12803,7 +12831,7 @@ function requireSvga_min() {
         }, No.shrinkBuf = function(qo, Yo) {
           return qo.length === Yo ? qo : qo.subarray ? qo.subarray(0, Yo) : (qo.length = Yo, qo);
         };
-        var Ho = { arraySet: function(qo, Yo, Xo, Fo, Wo) {
+        var Qo = { arraySet: function(qo, Yo, Xo, Fo, Wo) {
           if (Yo.subarray && qo.subarray) qo.set(Yo.subarray(Xo, Xo + Fo), Wo);
           else for (var Ko = 0; Ko < Fo; Ko++) qo[Wo + Ko] = Yo[Xo + Ko];
         }, flattenChunks: function(qo) {
@@ -12817,19 +12845,19 @@ function requireSvga_min() {
           return [].concat.apply([], qo);
         } };
         No.setTyped = function(qo) {
-          qo ? (No.Buf8 = Uint8Array, No.Buf16 = Uint16Array, No.Buf32 = Int32Array, No.assign(No, Ho)) : (No.Buf8 = Array, No.Buf16 = Array, No.Buf32 = Array, No.assign(No, Vo));
-        }, No.setTyped(Qo);
+          qo ? (No.Buf8 = Uint8Array, No.Buf16 = Uint16Array, No.Buf32 = Int32Array, No.assign(No, Qo)) : (No.Buf8 = Array, No.Buf16 = Array, No.Buf32 = Array, No.assign(No, Vo));
+        }, No.setTyped(Ho);
       }, function(Oo, No, jo) {
         function Go(os, us, as) {
           this.fn = os, this.len = us, this.next = void 0, this.val = as;
         }
-        function Qo() {
+        function Ho() {
         }
-        function Ho(os) {
+        function Qo(os) {
           this.head = os.head, this.tail = os.tail, this.len = os.len, this.next = os.states;
         }
         function Vo() {
-          this.len = 0, this.head = new Go(Qo, 0, 0), this.tail = this.head, this.states = null;
+          this.len = 0, this.head = new Go(Ho, 0, 0), this.tail = this.head, this.states = null;
         }
         function qo(os, us, as) {
           us[as] = 255 & os;
@@ -12903,9 +12931,9 @@ function requireSvga_min() {
           var us = rs.length(os);
           return us ? this.uint32(us)._push(rs.write, us, os) : this._push(qo, 1, 0);
         }, Vo.prototype.fork = function() {
-          return this.states = new Ho(this), this.head = this.tail = new Go(Qo, 0, 0), this.len = 0, this;
+          return this.states = new Qo(this), this.head = this.tail = new Go(Ho, 0, 0), this.len = 0, this;
         }, Vo.prototype.reset = function() {
-          return this.states ? (this.head = this.states.head, this.tail = this.states.tail, this.len = this.states.len, this.states = this.states.next) : (this.head = this.tail = new Go(Qo, 0, 0), this.len = 0), this;
+          return this.states ? (this.head = this.states.head, this.tail = this.states.tail, this.len = this.states.len, this.states = this.states.next) : (this.head = this.tail = new Go(Ho, 0, 0), this.len = 0), this;
         }, Vo.prototype.ldelim = function() {
           var os = this.head, us = this.tail, as = this.len;
           return this.reset().uint32(as), as && (this.tail.next = os.next, this.tail = us, this.len += as), this;
@@ -12919,10 +12947,10 @@ function requireSvga_min() {
         function Go(es, rs) {
           return RangeError("index out of range: " + es.pos + " + " + (rs || 1) + " > " + es.len);
         }
-        function Qo(es) {
+        function Ho(es) {
           this.buf = es, this.pos = 0, this.len = es.length;
         }
-        function Ho() {
+        function Qo() {
           var es = new Fo(0, 0), rs = 0;
           if (!(this.len - this.pos > 4)) {
             for (; rs < 3; ++rs) {
@@ -12948,56 +12976,56 @@ function requireSvga_min() {
           if (this.pos + 8 > this.len) throw Go(this, 8);
           return new Fo(Vo(this.buf, this.pos += 4), Vo(this.buf, this.pos += 4));
         }
-        Oo.exports = Qo;
+        Oo.exports = Ho;
         var Yo, Xo = jo(1), Fo = Xo.LongBits, Wo = Xo.utf8, Ko = typeof Uint8Array < "u" ? function(es) {
-          if (es instanceof Uint8Array || Array.isArray(es)) return new Qo(es);
+          if (es instanceof Uint8Array || Array.isArray(es)) return new Ho(es);
           throw Error("illegal buffer");
         } : function(es) {
-          if (Array.isArray(es)) return new Qo(es);
+          if (Array.isArray(es)) return new Ho(es);
           throw Error("illegal buffer");
         }, Jo = function() {
           return Xo.Buffer ? function(es) {
-            return (Qo.create = function(rs) {
+            return (Ho.create = function(rs) {
               return Xo.Buffer.isBuffer(rs) ? new Yo(rs) : Ko(rs);
             })(es);
           } : Ko;
         };
-        Qo.create = Jo(), Qo.prototype._slice = Xo.Array.prototype.subarray || Xo.Array.prototype.slice, Qo.prototype.uint32 = /* @__PURE__ */ (function() {
+        Ho.create = Jo(), Ho.prototype._slice = Xo.Array.prototype.subarray || Xo.Array.prototype.slice, Ho.prototype.uint32 = /* @__PURE__ */ (function() {
           var es = 4294967295;
           return function() {
             if (es = (127 & this.buf[this.pos]) >>> 0, this.buf[this.pos++] < 128 || (es = (es | (127 & this.buf[this.pos]) << 7) >>> 0, this.buf[this.pos++] < 128) || (es = (es | (127 & this.buf[this.pos]) << 14) >>> 0, this.buf[this.pos++] < 128) || (es = (es | (127 & this.buf[this.pos]) << 21) >>> 0, this.buf[this.pos++] < 128) || (es = (es | (15 & this.buf[this.pos]) << 28) >>> 0, this.buf[this.pos++] < 128)) return es;
             if ((this.pos += 5) > this.len) throw this.pos = this.len, Go(this, 10);
             return es;
           };
-        })(), Qo.prototype.int32 = function() {
+        })(), Ho.prototype.int32 = function() {
           return 0 | this.uint32();
-        }, Qo.prototype.sint32 = function() {
+        }, Ho.prototype.sint32 = function() {
           var es = this.uint32();
           return es >>> 1 ^ -(1 & es) | 0;
-        }, Qo.prototype.bool = function() {
+        }, Ho.prototype.bool = function() {
           return this.uint32() !== 0;
-        }, Qo.prototype.fixed32 = function() {
+        }, Ho.prototype.fixed32 = function() {
           if (this.pos + 4 > this.len) throw Go(this, 4);
           return Vo(this.buf, this.pos += 4);
-        }, Qo.prototype.sfixed32 = function() {
+        }, Ho.prototype.sfixed32 = function() {
           if (this.pos + 4 > this.len) throw Go(this, 4);
           return 0 | Vo(this.buf, this.pos += 4);
-        }, Qo.prototype.float = function() {
+        }, Ho.prototype.float = function() {
           if (this.pos + 4 > this.len) throw Go(this, 4);
           var es = Xo.float.readFloatLE(this.buf, this.pos);
           return this.pos += 4, es;
-        }, Qo.prototype.double = function() {
+        }, Ho.prototype.double = function() {
           if (this.pos + 8 > this.len) throw Go(this, 4);
           var es = Xo.float.readDoubleLE(this.buf, this.pos);
           return this.pos += 8, es;
-        }, Qo.prototype.bytes = function() {
+        }, Ho.prototype.bytes = function() {
           var es = this.uint32(), rs = this.pos, is = this.pos + es;
           if (is > this.len) throw Go(this, es);
           return this.pos += es, Array.isArray(this.buf) ? this.buf.slice(rs, is) : rs === is ? new this.buf.constructor(0) : this._slice.call(this.buf, rs, is);
-        }, Qo.prototype.string = function() {
+        }, Ho.prototype.string = function() {
           var es = this.bytes();
           return Wo.read(es, 0, es.length);
-        }, Qo.prototype.skip = function(es) {
+        }, Ho.prototype.skip = function(es) {
           if (typeof es == "number") {
             if (this.pos + es > this.len) throw Go(this, es);
             this.pos += es;
@@ -13005,7 +13033,7 @@ function requireSvga_min() {
             if (this.pos >= this.len) throw Go(this);
           while (128 & this.buf[this.pos++]);
           return this;
-        }, Qo.prototype.skipType = function(es) {
+        }, Ho.prototype.skipType = function(es) {
           switch (es) {
             case 0:
               this.skip();
@@ -13026,15 +13054,15 @@ function requireSvga_min() {
               throw Error("invalid wire type " + es + " at offset " + this.pos);
           }
           return this;
-        }, Qo._configure = function(es) {
-          Yo = es, Qo.create = Jo(), Yo._configure();
+        }, Ho._configure = function(es) {
+          Yo = es, Ho.create = Jo(), Yo._configure();
           var rs = Xo.Long ? "toLong" : "toNumber";
-          Xo.merge(Qo.prototype, { int64: function() {
-            return Ho.call(this)[rs](!1);
+          Xo.merge(Ho.prototype, { int64: function() {
+            return Qo.call(this)[rs](!1);
           }, uint64: function() {
-            return Ho.call(this)[rs](!0);
+            return Qo.call(this)[rs](!0);
           }, sint64: function() {
-            return Ho.call(this).zzDecode()[rs](!1);
+            return Qo.call(this).zzDecode()[rs](!1);
           }, fixed64: function() {
             return qo.call(this)[rs](!0);
           }, sfixed64: function() {
@@ -13043,15 +13071,15 @@ function requireSvga_min() {
         };
       }, function(Oo, No, jo) {
         function Go(Yo, Xo, Fo, Wo) {
-          if (Array.isArray(Xo) || (Fo = Xo, Xo = void 0), Ho.call(this, Yo, Fo), Xo !== void 0 && !Array.isArray(Xo)) throw TypeError("fieldNames must be an Array");
+          if (Array.isArray(Xo) || (Fo = Xo, Xo = void 0), Qo.call(this, Yo, Fo), Xo !== void 0 && !Array.isArray(Xo)) throw TypeError("fieldNames must be an Array");
           this.oneof = Xo || [], this.fieldsArray = [], this.comment = Wo;
         }
-        function Qo(Yo) {
+        function Ho(Yo) {
           if (Yo.parent) for (var Xo = 0; Xo < Yo.fieldsArray.length; ++Xo) Yo.fieldsArray[Xo].parent || Yo.parent.add(Yo.fieldsArray[Xo]);
         }
         Oo.exports = Go;
-        var Ho = jo(3);
-        ((Go.prototype = Object.create(Ho.prototype)).constructor = Go).className = "OneOf";
+        var Qo = jo(3);
+        ((Go.prototype = Object.create(Qo.prototype)).constructor = Go).className = "OneOf";
         var Vo = jo(4), qo = jo(0);
         Go.fromJSON = function(Yo, Xo) {
           return new Go(Yo, Xo.oneof, Xo.options, Xo.comment);
@@ -13060,22 +13088,22 @@ function requireSvga_min() {
           return qo.toObject(["options", this.options, "oneof", this.oneof, "comment", Xo ? this.comment : void 0]);
         }, Go.prototype.add = function(Yo) {
           if (!(Yo instanceof Vo)) throw TypeError("field must be a Field");
-          return Yo.parent && Yo.parent !== this.parent && Yo.parent.remove(Yo), this.oneof.push(Yo.name), this.fieldsArray.push(Yo), Yo.partOf = this, Qo(this), this;
+          return Yo.parent && Yo.parent !== this.parent && Yo.parent.remove(Yo), this.oneof.push(Yo.name), this.fieldsArray.push(Yo), Yo.partOf = this, Ho(this), this;
         }, Go.prototype.remove = function(Yo) {
           if (!(Yo instanceof Vo)) throw TypeError("field must be a Field");
           var Xo = this.fieldsArray.indexOf(Yo);
           if (Xo < 0) throw Error(Yo + " is not a member of " + this);
           return this.fieldsArray.splice(Xo, 1), (Xo = this.oneof.indexOf(Yo.name)) > -1 && this.oneof.splice(Xo, 1), Yo.partOf = null, this;
         }, Go.prototype.onAdd = function(Yo) {
-          Ho.prototype.onAdd.call(this, Yo);
+          Qo.prototype.onAdd.call(this, Yo);
           for (var Xo = 0; Xo < this.oneof.length; ++Xo) {
             var Fo = Yo.get(this.oneof[Xo]);
             Fo && !Fo.partOf && (Fo.partOf = this, this.fieldsArray.push(Fo));
           }
-          Qo(this);
+          Ho(this);
         }, Go.prototype.onRemove = function(Yo) {
           for (var Xo, Fo = 0; Fo < this.fieldsArray.length; ++Fo) (Xo = this.fieldsArray[Fo]).parent && Xo.parent.remove(Xo);
-          Ho.prototype.onRemove.call(this, Yo);
+          Qo.prototype.onRemove.call(this, Yo);
         }, Go.d = function() {
           for (var Yo = new Array(arguments.length), Xo = 0; Xo < arguments.length; ) Yo[Xo] = arguments[Xo++];
           return function(Fo, Wo) {
@@ -13083,29 +13111,29 @@ function requireSvga_min() {
           };
         };
       }, function(Oo, No, jo) {
-        function Go(Ho) {
-          if (Ho) for (var Vo = Object.keys(Ho), qo = 0; qo < Vo.length; ++qo) this[Vo[qo]] = Ho[Vo[qo]];
+        function Go(Qo) {
+          if (Qo) for (var Vo = Object.keys(Qo), qo = 0; qo < Vo.length; ++qo) this[Vo[qo]] = Qo[Vo[qo]];
         }
         Oo.exports = Go;
-        var Qo = jo(1);
-        Go.create = function(Ho) {
-          return this.$type.create(Ho);
-        }, Go.encode = function(Ho, Vo) {
-          return this.$type.encode(Ho, Vo);
-        }, Go.encodeDelimited = function(Ho, Vo) {
-          return this.$type.encodeDelimited(Ho, Vo);
-        }, Go.decode = function(Ho) {
-          return this.$type.decode(Ho);
-        }, Go.decodeDelimited = function(Ho) {
-          return this.$type.decodeDelimited(Ho);
-        }, Go.verify = function(Ho) {
-          return this.$type.verify(Ho);
-        }, Go.fromObject = function(Ho) {
-          return this.$type.fromObject(Ho);
-        }, Go.toObject = function(Ho, Vo) {
-          return this.$type.toObject(Ho, Vo);
+        var Ho = jo(1);
+        Go.create = function(Qo) {
+          return this.$type.create(Qo);
+        }, Go.encode = function(Qo, Vo) {
+          return this.$type.encode(Qo, Vo);
+        }, Go.encodeDelimited = function(Qo, Vo) {
+          return this.$type.encodeDelimited(Qo, Vo);
+        }, Go.decode = function(Qo) {
+          return this.$type.decode(Qo);
+        }, Go.decodeDelimited = function(Qo) {
+          return this.$type.decodeDelimited(Qo);
+        }, Go.verify = function(Qo) {
+          return this.$type.verify(Qo);
+        }, Go.fromObject = function(Qo) {
+          return this.$type.fromObject(Qo);
+        }, Go.toObject = function(Qo, Vo) {
+          return this.$type.toObject(Qo, Vo);
         }, Go.prototype.toJSON = function() {
-          return this.$type.toObject(this, Qo.toJSONOptions);
+          return this.$type.toObject(this, Ho.toJSONOptions);
         };
       }, function(Oo, No, jo) {
         Object.defineProperty(No, "__esModule", { value: !0 }), No.Parser = void 0;
@@ -13119,7 +13147,7 @@ function requireSvga_min() {
           return function(qo, Yo, Xo) {
             return Yo && Vo(qo.prototype, Yo), Xo && Vo(qo, Xo), qo;
           };
-        })(), Qo = jo(31), Ho = (function(Vo) {
+        })(), Ho = jo(31), Qo = (function(Vo) {
           return Vo && Vo.__esModule ? Vo : { default: Vo };
         })(jo(50));
         No.Parser = (function() {
@@ -13131,10 +13159,10 @@ function requireSvga_min() {
           return Go(Vo, [{ key: "load", value: function(qo, Yo, Xo) {
             this.loadViaWorker(qo, Yo, Xo);
           } }, { key: "loadViaWorker", value: function(qo, Yo, Xo) {
-            (0, Ho.default)(qo, (function(Fo) {
+            (0, Qo.default)(qo, (function(Fo) {
               var Wo = Fo.movie;
               Wo.version = Fo.ver;
-              var Ko = Fo.images, Jo = new Qo.VideoEntity(Wo, Ko);
+              var Ko = Fo.images, Jo = new Ho.VideoEntity(Wo, Ko);
               Yo(Jo);
             }), Xo);
           } }]), Vo;
@@ -13142,50 +13170,50 @@ function requireSvga_min() {
       }, function(Oo, No, jo) {
         Object.defineProperty(No, "__esModule", { value: !0 }), No.RectPath = void 0;
         var Go = jo(5);
-        No.RectPath = (function(Qo) {
-          function Ho(Vo, qo, Yo, Xo, Fo, Wo, Ko) {
+        No.RectPath = (function(Ho) {
+          function Qo(Vo, qo, Yo, Xo, Fo, Wo, Ko) {
             (function(es, rs) {
               if (!(es instanceof rs)) throw new TypeError("Cannot call a class as a function");
-            })(this, Ho);
+            })(this, Qo);
             var Jo = (function(es, rs) {
               if (!es) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
               return !rs || typeof rs != "object" && typeof rs != "function" ? es : rs;
-            })(this, (Ho.__proto__ || Object.getPrototypeOf(Ho)).call(this));
+            })(this, (Qo.__proto__ || Object.getPrototypeOf(Qo)).call(this));
             return Jo._x = Vo, Jo._y = qo, Jo._width = Yo, Jo._height = Xo, Jo._cornerRadius = Fo, Jo._transform = Wo, Jo._styles = Ko, Jo;
           }
           return (function(Vo, qo) {
             if (typeof qo != "function" && qo !== null) throw new TypeError("Super expression must either be null or a function, not " + typeof qo);
             Vo.prototype = Object.create(qo && qo.prototype, { constructor: { value: Vo, enumerable: !1, writable: !0, configurable: !0 } }), qo && (Object.setPrototypeOf ? Object.setPrototypeOf(Vo, qo) : Vo.__proto__ = qo);
-          })(Ho, Qo), Ho;
+          })(Qo, Ho), Qo;
         })(Go.BezierPath);
       }, function(Oo, No, jo) {
         Object.defineProperty(No, "__esModule", { value: !0 }), No.EllipsePath = void 0;
         var Go = jo(5);
-        No.EllipsePath = (function(Qo) {
-          function Ho(Vo, qo, Yo, Xo, Fo, Wo) {
+        No.EllipsePath = (function(Ho) {
+          function Qo(Vo, qo, Yo, Xo, Fo, Wo) {
             (function(Jo, es) {
               if (!(Jo instanceof es)) throw new TypeError("Cannot call a class as a function");
-            })(this, Ho);
+            })(this, Qo);
             var Ko = (function(Jo, es) {
               if (!Jo) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
               return !es || typeof es != "object" && typeof es != "function" ? Jo : es;
-            })(this, (Ho.__proto__ || Object.getPrototypeOf(Ho)).call(this));
+            })(this, (Qo.__proto__ || Object.getPrototypeOf(Qo)).call(this));
             return Ko._x = Vo, Ko._y = qo, Ko._radiusX = Yo, Ko._radiusY = Xo, Ko._transform = Fo, Ko._styles = Wo, Ko;
           }
           return (function(Vo, qo) {
             if (typeof qo != "function" && qo !== null) throw new TypeError("Super expression must either be null or a function, not " + typeof qo);
             Vo.prototype = Object.create(qo && qo.prototype, { constructor: { value: Vo, enumerable: !1, writable: !0, configurable: !0 } }), qo && (Object.setPrototypeOf ? Object.setPrototypeOf(Vo, qo) : Vo.__proto__ = qo);
-          })(Ho, Qo), Ho;
+          })(Qo, Ho), Qo;
         })(Go.BezierPath);
       }, function(Oo, No, jo) {
         Object.defineProperty(No, "__esModule", { value: !0 });
-        var Go = jo(34), Qo = JSON.parse('{"nested":{"com":{"nested":{"opensource":{"nested":{"svga":{"options":{"objc_class_prefix":"SVGAProto","java_package":"com.opensource.svgaplayer.proto"},"nested":{"MovieParams":{"fields":{"viewBoxWidth":{"type":"float","id":1},"viewBoxHeight":{"type":"float","id":2},"fps":{"type":"int32","id":3},"frames":{"type":"int32","id":4}}},"SpriteEntity":{"fields":{"imageKey":{"type":"string","id":1},"frames":{"rule":"repeated","type":"FrameEntity","id":2},"matteKey":{"type":"string","id":3}}},"AudioEntity":{"fields":{"audioKey":{"type":"string","id":1},"startFrame":{"type":"int32","id":2},"endFrame":{"type":"int32","id":3},"startTime":{"type":"int32","id":4},"totalTime":{"type":"int32","id":5}}},"Layout":{"fields":{"x":{"type":"float","id":1},"y":{"type":"float","id":2},"width":{"type":"float","id":3},"height":{"type":"float","id":4}}},"Transform":{"fields":{"a":{"type":"float","id":1},"b":{"type":"float","id":2},"c":{"type":"float","id":3},"d":{"type":"float","id":4},"tx":{"type":"float","id":5},"ty":{"type":"float","id":6}}},"ShapeEntity":{"oneofs":{"args":{"oneof":["shape","rect","ellipse"]}},"fields":{"type":{"type":"ShapeType","id":1},"shape":{"type":"ShapeArgs","id":2},"rect":{"type":"RectArgs","id":3},"ellipse":{"type":"EllipseArgs","id":4},"styles":{"type":"ShapeStyle","id":10},"transform":{"type":"Transform","id":11}},"nested":{"ShapeType":{"values":{"SHAPE":0,"RECT":1,"ELLIPSE":2,"KEEP":3}},"ShapeArgs":{"fields":{"d":{"type":"string","id":1}}},"RectArgs":{"fields":{"x":{"type":"float","id":1},"y":{"type":"float","id":2},"width":{"type":"float","id":3},"height":{"type":"float","id":4},"cornerRadius":{"type":"float","id":5}}},"EllipseArgs":{"fields":{"x":{"type":"float","id":1},"y":{"type":"float","id":2},"radiusX":{"type":"float","id":3},"radiusY":{"type":"float","id":4}}},"ShapeStyle":{"fields":{"fill":{"type":"RGBAColor","id":1},"stroke":{"type":"RGBAColor","id":2},"strokeWidth":{"type":"float","id":3},"lineCap":{"type":"LineCap","id":4},"lineJoin":{"type":"LineJoin","id":5},"miterLimit":{"type":"float","id":6},"lineDashI":{"type":"float","id":7},"lineDashII":{"type":"float","id":8},"lineDashIII":{"type":"float","id":9}},"nested":{"RGBAColor":{"fields":{"r":{"type":"float","id":1},"g":{"type":"float","id":2},"b":{"type":"float","id":3},"a":{"type":"float","id":4}}},"LineCap":{"values":{"LineCap_BUTT":0,"LineCap_ROUND":1,"LineCap_SQUARE":2}},"LineJoin":{"values":{"LineJoin_MITER":0,"LineJoin_ROUND":1,"LineJoin_BEVEL":2}}}}}},"FrameEntity":{"fields":{"alpha":{"type":"float","id":1},"layout":{"type":"Layout","id":2},"transform":{"type":"Transform","id":3},"clipPath":{"type":"string","id":4},"shapes":{"rule":"repeated","type":"ShapeEntity","id":5}}},"MovieEntity":{"fields":{"version":{"type":"string","id":1},"params":{"type":"MovieParams","id":2},"images":{"keyType":"string","type":"bytes","id":3},"sprites":{"rule":"repeated","type":"SpriteEntity","id":4},"audios":{"rule":"repeated","type":"AudioEntity","id":5}}}}}}}}}}}'), Ho = No.proto = Go.Root.fromJSON(Qo);
-        No.ProtoMovieEntity = Ho.lookupType("com.opensource.svga.MovieEntity");
+        var Go = jo(34), Ho = JSON.parse('{"nested":{"com":{"nested":{"opensource":{"nested":{"svga":{"options":{"objc_class_prefix":"SVGAProto","java_package":"com.opensource.svgaplayer.proto"},"nested":{"MovieParams":{"fields":{"viewBoxWidth":{"type":"float","id":1},"viewBoxHeight":{"type":"float","id":2},"fps":{"type":"int32","id":3},"frames":{"type":"int32","id":4}}},"SpriteEntity":{"fields":{"imageKey":{"type":"string","id":1},"frames":{"rule":"repeated","type":"FrameEntity","id":2},"matteKey":{"type":"string","id":3}}},"AudioEntity":{"fields":{"audioKey":{"type":"string","id":1},"startFrame":{"type":"int32","id":2},"endFrame":{"type":"int32","id":3},"startTime":{"type":"int32","id":4},"totalTime":{"type":"int32","id":5}}},"Layout":{"fields":{"x":{"type":"float","id":1},"y":{"type":"float","id":2},"width":{"type":"float","id":3},"height":{"type":"float","id":4}}},"Transform":{"fields":{"a":{"type":"float","id":1},"b":{"type":"float","id":2},"c":{"type":"float","id":3},"d":{"type":"float","id":4},"tx":{"type":"float","id":5},"ty":{"type":"float","id":6}}},"ShapeEntity":{"oneofs":{"args":{"oneof":["shape","rect","ellipse"]}},"fields":{"type":{"type":"ShapeType","id":1},"shape":{"type":"ShapeArgs","id":2},"rect":{"type":"RectArgs","id":3},"ellipse":{"type":"EllipseArgs","id":4},"styles":{"type":"ShapeStyle","id":10},"transform":{"type":"Transform","id":11}},"nested":{"ShapeType":{"values":{"SHAPE":0,"RECT":1,"ELLIPSE":2,"KEEP":3}},"ShapeArgs":{"fields":{"d":{"type":"string","id":1}}},"RectArgs":{"fields":{"x":{"type":"float","id":1},"y":{"type":"float","id":2},"width":{"type":"float","id":3},"height":{"type":"float","id":4},"cornerRadius":{"type":"float","id":5}}},"EllipseArgs":{"fields":{"x":{"type":"float","id":1},"y":{"type":"float","id":2},"radiusX":{"type":"float","id":3},"radiusY":{"type":"float","id":4}}},"ShapeStyle":{"fields":{"fill":{"type":"RGBAColor","id":1},"stroke":{"type":"RGBAColor","id":2},"strokeWidth":{"type":"float","id":3},"lineCap":{"type":"LineCap","id":4},"lineJoin":{"type":"LineJoin","id":5},"miterLimit":{"type":"float","id":6},"lineDashI":{"type":"float","id":7},"lineDashII":{"type":"float","id":8},"lineDashIII":{"type":"float","id":9}},"nested":{"RGBAColor":{"fields":{"r":{"type":"float","id":1},"g":{"type":"float","id":2},"b":{"type":"float","id":3},"a":{"type":"float","id":4}}},"LineCap":{"values":{"LineCap_BUTT":0,"LineCap_ROUND":1,"LineCap_SQUARE":2}},"LineJoin":{"values":{"LineJoin_MITER":0,"LineJoin_ROUND":1,"LineJoin_BEVEL":2}}}}}},"FrameEntity":{"fields":{"alpha":{"type":"float","id":1},"layout":{"type":"Layout","id":2},"transform":{"type":"Transform","id":3},"clipPath":{"type":"string","id":4},"shapes":{"rule":"repeated","type":"ShapeEntity","id":5}}},"MovieEntity":{"fields":{"version":{"type":"string","id":1},"params":{"type":"MovieParams","id":2},"images":{"keyType":"string","type":"bytes","id":3},"sprites":{"rule":"repeated","type":"SpriteEntity","id":4},"audios":{"rule":"repeated","type":"AudioEntity","id":5}}}}}}}}}}}'), Qo = No.proto = Go.Root.fromJSON(Ho);
+        No.ProtoMovieEntity = Qo.lookupType("com.opensource.svga.MovieEntity");
       }, function(Oo, No, jo) {
-        Oo.exports = function(Go, Qo) {
-          for (var Ho = new Array(arguments.length - 1), Vo = 0, qo = 2, Yo = !0; qo < arguments.length; ) Ho[Vo++] = arguments[qo++];
+        Oo.exports = function(Go, Ho) {
+          for (var Qo = new Array(arguments.length - 1), Vo = 0, qo = 2, Yo = !0; qo < arguments.length; ) Qo[Vo++] = arguments[qo++];
           return new Promise((function(Xo, Fo) {
-            Ho[Vo] = function(Wo) {
+            Qo[Vo] = function(Wo) {
               if (Yo) if (Yo = !1, Wo) Fo(Wo);
               else {
                 for (var Ko = new Array(arguments.length - 1), Jo = 0; Jo < Ko.length; ) Ko[Jo++] = arguments[Jo];
@@ -13193,7 +13221,7 @@ function requireSvga_min() {
               }
             };
             try {
-              Go.apply(Qo || null, Ho);
+              Go.apply(Ho || null, Qo);
             } catch (Wo) {
               Yo && (Yo = !1, Fo(Wo));
             }
@@ -13219,22 +13247,22 @@ function requireSvga_min() {
         }
         Oo.exports = function(qo) {
           for (var Yo, Xo = Vo.codegen(["m", "w"], qo.name + "$encode")("if(!w)")("w=Writer.create()"), Fo = qo.fieldsArray.slice().sort(Vo.compareFieldsById), Wo = 0; Wo < Fo.length; ++Wo) {
-            var Ko = Fo[Wo].resolve(), Jo = qo._fieldsArray.indexOf(Ko), es = Ko.resolvedType instanceof Qo ? "int32" : Ko.type, rs = Ho.basic[es];
-            Yo = "m" + Vo.safeProp(Ko.name), Ko.map ? (Xo("if(%s!=null&&Object.hasOwnProperty.call(m,%j)){", Yo, Ko.name)("for(var ks=Object.keys(%s),i=0;i<ks.length;++i){", Yo)("w.uint32(%i).fork().uint32(%i).%s(ks[i])", (Ko.id << 3 | 2) >>> 0, 8 | Ho.mapKey[Ko.keyType], Ko.keyType), rs === void 0 ? Xo("types[%i].encode(%s[ks[i]],w.uint32(18).fork()).ldelim().ldelim()", Jo, Yo) : Xo(".uint32(%i).%s(%s[ks[i]]).ldelim()", 16 | rs, es, Yo), Xo("}")("}")) : Ko.repeated ? (Xo("if(%s!=null&&%s.length){", Yo, Yo), Ko.packed && Ho.packed[es] !== void 0 ? Xo("w.uint32(%i).fork()", (Ko.id << 3 | 2) >>> 0)("for(var i=0;i<%s.length;++i)", Yo)("w.%s(%s[i])", es, Yo)("w.ldelim()") : (Xo("for(var i=0;i<%s.length;++i)", Yo), rs === void 0 ? Go(Xo, Ko, Jo, Yo + "[i]") : Xo("w.uint32(%i).%s(%s[i])", (Ko.id << 3 | rs) >>> 0, es, Yo)), Xo("}")) : (Ko.optional && Xo("if(%s!=null&&Object.hasOwnProperty.call(m,%j))", Yo, Ko.name), rs === void 0 ? Go(Xo, Ko, Jo, Yo) : Xo("w.uint32(%i).%s(%s)", (Ko.id << 3 | rs) >>> 0, es, Yo));
+            var Ko = Fo[Wo].resolve(), Jo = qo._fieldsArray.indexOf(Ko), es = Ko.resolvedType instanceof Ho ? "int32" : Ko.type, rs = Qo.basic[es];
+            Yo = "m" + Vo.safeProp(Ko.name), Ko.map ? (Xo("if(%s!=null&&Object.hasOwnProperty.call(m,%j)){", Yo, Ko.name)("for(var ks=Object.keys(%s),i=0;i<ks.length;++i){", Yo)("w.uint32(%i).fork().uint32(%i).%s(ks[i])", (Ko.id << 3 | 2) >>> 0, 8 | Qo.mapKey[Ko.keyType], Ko.keyType), rs === void 0 ? Xo("types[%i].encode(%s[ks[i]],w.uint32(18).fork()).ldelim().ldelim()", Jo, Yo) : Xo(".uint32(%i).%s(%s[ks[i]]).ldelim()", 16 | rs, es, Yo), Xo("}")("}")) : Ko.repeated ? (Xo("if(%s!=null&&%s.length){", Yo, Yo), Ko.packed && Qo.packed[es] !== void 0 ? Xo("w.uint32(%i).fork()", (Ko.id << 3 | 2) >>> 0)("for(var i=0;i<%s.length;++i)", Yo)("w.%s(%s[i])", es, Yo)("w.ldelim()") : (Xo("for(var i=0;i<%s.length;++i)", Yo), rs === void 0 ? Go(Xo, Ko, Jo, Yo + "[i]") : Xo("w.uint32(%i).%s(%s[i])", (Ko.id << 3 | rs) >>> 0, es, Yo)), Xo("}")) : (Ko.optional && Xo("if(%s!=null&&Object.hasOwnProperty.call(m,%j))", Yo, Ko.name), rs === void 0 ? Go(Xo, Ko, Jo, Yo) : Xo("w.uint32(%i).%s(%s)", (Ko.id << 3 | rs) >>> 0, es, Yo));
           }
           return Xo("return w");
         };
-        var Qo = jo(2), Ho = jo(7), Vo = jo(0);
+        var Ho = jo(2), Qo = jo(7), Vo = jo(0);
       }, function(Oo, No, jo) {
         function Go(as, vs) {
-          Ho.call(this, as, vs), this.fields = {}, this.oneofs = void 0, this.extensions = void 0, this.reserved = void 0, this.group = void 0, this._fieldsById = null, this._fieldsArray = null, this._oneofsArray = null, this._ctor = null;
+          Qo.call(this, as, vs), this.fields = {}, this.oneofs = void 0, this.extensions = void 0, this.reserved = void 0, this.group = void 0, this._fieldsById = null, this._fieldsArray = null, this._oneofsArray = null, this._ctor = null;
         }
-        function Qo(as) {
+        function Ho(as) {
           return as._fieldsById = as._fieldsArray = as._oneofsArray = null, delete as.encode, delete as.decode, delete as.verify, as;
         }
         Oo.exports = Go;
-        var Ho = jo(6);
-        ((Go.prototype = Object.create(Ho.prototype)).constructor = Go).className = "Type";
+        var Qo = jo(6);
+        ((Go.prototype = Object.create(Qo.prototype)).constructor = Go).className = "Type";
         var Vo = jo(2), qo = jo(11), Yo = jo(4), Xo = jo(23), Fo = jo(24), Wo = jo(12), Ko = jo(10), Jo = jo(9), es = jo(0), rs = jo(21), is = jo(26), As = jo(27), os = jo(28), us = jo(29);
         Object.defineProperties(Go.prototype, { fieldsById: { get: function() {
           if (this._fieldsById) return this._fieldsById;
@@ -13268,19 +13296,19 @@ function requireSvga_min() {
           if (vs.oneofs) for (hs = Object.keys(vs.oneofs), ys = 0; ys < hs.length; ++ys) Is.add(qo.fromJSON(hs[ys], vs.oneofs[hs[ys]]));
           if (vs.nested) for (hs = Object.keys(vs.nested), ys = 0; ys < hs.length; ++ys) {
             var Ps = vs.nested[hs[ys]];
-            Is.add((Ps.id !== void 0 ? Yo.fromJSON : Ps.fields !== void 0 ? Go.fromJSON : Ps.values !== void 0 ? Vo.fromJSON : Ps.methods !== void 0 ? Fo.fromJSON : Ho.fromJSON)(hs[ys], Ps));
+            Is.add((Ps.id !== void 0 ? Yo.fromJSON : Ps.fields !== void 0 ? Go.fromJSON : Ps.values !== void 0 ? Vo.fromJSON : Ps.methods !== void 0 ? Fo.fromJSON : Qo.fromJSON)(hs[ys], Ps));
           }
           return vs.extensions && vs.extensions.length && (Is.extensions = vs.extensions), vs.reserved && vs.reserved.length && (Is.reserved = vs.reserved), vs.group && (Is.group = !0), vs.comment && (Is.comment = vs.comment), Is;
         }, Go.prototype.toJSON = function(as) {
-          var vs = Ho.prototype.toJSON.call(this, as), Is = !!as && !!as.keepComments;
-          return es.toObject(["options", vs && vs.options || void 0, "oneofs", Ho.arrayToJSON(this.oneofsArray, as), "fields", Ho.arrayToJSON(this.fieldsArray.filter((function(hs) {
+          var vs = Qo.prototype.toJSON.call(this, as), Is = !!as && !!as.keepComments;
+          return es.toObject(["options", vs && vs.options || void 0, "oneofs", Qo.arrayToJSON(this.oneofsArray, as), "fields", Qo.arrayToJSON(this.fieldsArray.filter((function(hs) {
             return !hs.declaringField;
           })), as) || {}, "extensions", this.extensions && this.extensions.length ? this.extensions : void 0, "reserved", this.reserved && this.reserved.length ? this.reserved : void 0, "group", this.group || void 0, "nested", vs && vs.nested || void 0, "comment", Is ? this.comment : void 0]);
         }, Go.prototype.resolveAll = function() {
           for (var as = this.fieldsArray, vs = 0; vs < as.length; ) as[vs++].resolve();
           var Is = this.oneofsArray;
           for (vs = 0; vs < Is.length; ) Is[vs++].resolve();
-          return Ho.prototype.resolveAll.call(this);
+          return Qo.prototype.resolveAll.call(this);
         }, Go.prototype.get = function(as) {
           return this.fields[as] || this.oneofs && this.oneofs[as] || this.nested && this.nested[as] || null;
         }, Go.prototype.add = function(as) {
@@ -13289,23 +13317,23 @@ function requireSvga_min() {
             if (this._fieldsById ? this._fieldsById[as.id] : this.fieldsById[as.id]) throw Error("duplicate id " + as.id + " in " + this);
             if (this.isReservedId(as.id)) throw Error("id " + as.id + " is reserved in " + this);
             if (this.isReservedName(as.name)) throw Error("name '" + as.name + "' is reserved in " + this);
-            return as.parent && as.parent.remove(as), this.fields[as.name] = as, as.message = this, as.onAdd(this), Qo(this);
+            return as.parent && as.parent.remove(as), this.fields[as.name] = as, as.message = this, as.onAdd(this), Ho(this);
           }
-          return as instanceof qo ? (this.oneofs || (this.oneofs = {}), this.oneofs[as.name] = as, as.onAdd(this), Qo(this)) : Ho.prototype.add.call(this, as);
+          return as instanceof qo ? (this.oneofs || (this.oneofs = {}), this.oneofs[as.name] = as, as.onAdd(this), Ho(this)) : Qo.prototype.add.call(this, as);
         }, Go.prototype.remove = function(as) {
           if (as instanceof Yo && as.extend === void 0) {
             if (!this.fields || this.fields[as.name] !== as) throw Error(as + " is not a member of " + this);
-            return delete this.fields[as.name], as.parent = null, as.onRemove(this), Qo(this);
+            return delete this.fields[as.name], as.parent = null, as.onRemove(this), Ho(this);
           }
           if (as instanceof qo) {
             if (!this.oneofs || this.oneofs[as.name] !== as) throw Error(as + " is not a member of " + this);
-            return delete this.oneofs[as.name], as.parent = null, as.onRemove(this), Qo(this);
+            return delete this.oneofs[as.name], as.parent = null, as.onRemove(this), Ho(this);
           }
-          return Ho.prototype.remove.call(this, as);
+          return Qo.prototype.remove.call(this, as);
         }, Go.prototype.isReservedId = function(as) {
-          return Ho.isReservedId(this.reserved, as);
+          return Qo.isReservedId(this.reserved, as);
         }, Go.prototype.isReservedName = function(as) {
-          return Ho.isReservedName(this.reserved, as);
+          return Qo.isReservedName(this.reserved, as);
         }, Go.prototype.create = function(as) {
           return new this.ctor(as);
         }, Go.prototype.setup = function() {
@@ -13338,13 +13366,13 @@ function requireSvga_min() {
         };
       }, function(Oo, No, jo) {
         function Go(qo, Yo, Xo, Fo, Wo, Ko) {
-          if (Qo.call(this, qo, Yo, Fo, void 0, void 0, Wo, Ko), !Vo.isString(Xo)) throw TypeError("keyType must be a string");
+          if (Ho.call(this, qo, Yo, Fo, void 0, void 0, Wo, Ko), !Vo.isString(Xo)) throw TypeError("keyType must be a string");
           this.keyType = Xo, this.resolvedKeyType = null, this.map = !0;
         }
         Oo.exports = Go;
-        var Qo = jo(4);
-        ((Go.prototype = Object.create(Qo.prototype)).constructor = Go).className = "MapField";
-        var Ho = jo(7), Vo = jo(0);
+        var Ho = jo(4);
+        ((Go.prototype = Object.create(Ho.prototype)).constructor = Go).className = "MapField";
+        var Qo = jo(7), Vo = jo(0);
         Go.fromJSON = function(qo, Yo) {
           return new Go(qo, Yo.id, Yo.keyType, Yo.type, Yo.options, Yo.comment);
         }, Go.prototype.toJSON = function(qo) {
@@ -13352,8 +13380,8 @@ function requireSvga_min() {
           return Vo.toObject(["keyType", this.keyType, "type", this.type, "id", this.id, "extend", this.extend, "options", this.options, "comment", Yo ? this.comment : void 0]);
         }, Go.prototype.resolve = function() {
           if (this.resolved) return this;
-          if (Ho.mapKey[this.keyType] === void 0) throw Error("invalid key type: " + this.keyType);
-          return Qo.prototype.resolve.call(this);
+          if (Qo.mapKey[this.keyType] === void 0) throw Error("invalid key type: " + this.keyType);
+          return Ho.prototype.resolve.call(this);
         }, Go.d = function(qo, Yo, Xo) {
           return typeof Xo == "function" ? Xo = Vo.decorateType(Xo).name : Xo && typeof Xo == "object" && (Xo = Vo.decorateEnum(Xo).name), function(Fo, Wo) {
             Vo.decorateType(Fo.constructor).add(new Go(Wo, qo, Yo, Xo));
@@ -13361,38 +13389,38 @@ function requireSvga_min() {
         };
       }, function(Oo, No, jo) {
         function Go(Xo, Fo) {
-          Ho.call(this, Xo, Fo), this.methods = {}, this._methodsArray = null;
+          Qo.call(this, Xo, Fo), this.methods = {}, this._methodsArray = null;
         }
-        function Qo(Xo) {
+        function Ho(Xo) {
           return Xo._methodsArray = null, Xo;
         }
         Oo.exports = Go;
-        var Ho = jo(6);
-        ((Go.prototype = Object.create(Ho.prototype)).constructor = Go).className = "Service";
+        var Qo = jo(6);
+        ((Go.prototype = Object.create(Qo.prototype)).constructor = Go).className = "Service";
         var Vo = jo(25), qo = jo(0), Yo = jo(19);
         Go.fromJSON = function(Xo, Fo) {
           var Wo = new Go(Xo, Fo.options);
           if (Fo.methods) for (var Ko = Object.keys(Fo.methods), Jo = 0; Jo < Ko.length; ++Jo) Wo.add(Vo.fromJSON(Ko[Jo], Fo.methods[Ko[Jo]]));
           return Fo.nested && Wo.addJSON(Fo.nested), Wo.comment = Fo.comment, Wo;
         }, Go.prototype.toJSON = function(Xo) {
-          var Fo = Ho.prototype.toJSON.call(this, Xo), Wo = !!Xo && !!Xo.keepComments;
-          return qo.toObject(["options", Fo && Fo.options || void 0, "methods", Ho.arrayToJSON(this.methodsArray, Xo) || {}, "nested", Fo && Fo.nested || void 0, "comment", Wo ? this.comment : void 0]);
+          var Fo = Qo.prototype.toJSON.call(this, Xo), Wo = !!Xo && !!Xo.keepComments;
+          return qo.toObject(["options", Fo && Fo.options || void 0, "methods", Qo.arrayToJSON(this.methodsArray, Xo) || {}, "nested", Fo && Fo.nested || void 0, "comment", Wo ? this.comment : void 0]);
         }, Object.defineProperty(Go.prototype, "methodsArray", { get: function() {
           return this._methodsArray || (this._methodsArray = qo.toArray(this.methods));
         } }), Go.prototype.get = function(Xo) {
-          return this.methods[Xo] || Ho.prototype.get.call(this, Xo);
+          return this.methods[Xo] || Qo.prototype.get.call(this, Xo);
         }, Go.prototype.resolveAll = function() {
           for (var Xo = this.methodsArray, Fo = 0; Fo < Xo.length; ++Fo) Xo[Fo].resolve();
-          return Ho.prototype.resolve.call(this);
+          return Qo.prototype.resolve.call(this);
         }, Go.prototype.add = function(Xo) {
           if (this.get(Xo.name)) throw Error("duplicate name '" + Xo.name + "' in " + this);
-          return Xo instanceof Vo ? (this.methods[Xo.name] = Xo, Xo.parent = this, Qo(this)) : Ho.prototype.add.call(this, Xo);
+          return Xo instanceof Vo ? (this.methods[Xo.name] = Xo, Xo.parent = this, Ho(this)) : Qo.prototype.add.call(this, Xo);
         }, Go.prototype.remove = function(Xo) {
           if (Xo instanceof Vo) {
             if (this.methods[Xo.name] !== Xo) throw Error(Xo + " is not a member of " + this);
-            return delete this.methods[Xo.name], Xo.parent = null, Qo(this);
+            return delete this.methods[Xo.name], Xo.parent = null, Ho(this);
           }
-          return Ho.prototype.remove.call(this, Xo);
+          return Qo.prototype.remove.call(this, Xo);
         }, Go.prototype.create = function(Xo, Fo, Wo) {
           for (var Ko, Jo = new Yo.Service(Xo, Fo, Wo), es = 0; es < this.methodsArray.length; ++es) {
             var rs = qo.lcFirst((Ko = this._methodsArray[es]).resolve().name).replace(/[^$\w_]/g, "");
@@ -13402,22 +13430,22 @@ function requireSvga_min() {
         };
       }, function(Oo, No, jo) {
         function Go(Vo, qo, Yo, Xo, Fo, Wo, Ko, Jo, es) {
-          if (Ho.isObject(Fo) ? (Ko = Fo, Fo = Wo = void 0) : Ho.isObject(Wo) && (Ko = Wo, Wo = void 0), qo !== void 0 && !Ho.isString(qo)) throw TypeError("type must be a string");
-          if (!Ho.isString(Yo)) throw TypeError("requestType must be a string");
-          if (!Ho.isString(Xo)) throw TypeError("responseType must be a string");
-          Qo.call(this, Vo, Ko), this.type = qo || "rpc", this.requestType = Yo, this.requestStream = !!Fo || void 0, this.responseType = Xo, this.responseStream = !!Wo || void 0, this.resolvedRequestType = null, this.resolvedResponseType = null, this.comment = Jo, this.parsedOptions = es;
+          if (Qo.isObject(Fo) ? (Ko = Fo, Fo = Wo = void 0) : Qo.isObject(Wo) && (Ko = Wo, Wo = void 0), qo !== void 0 && !Qo.isString(qo)) throw TypeError("type must be a string");
+          if (!Qo.isString(Yo)) throw TypeError("requestType must be a string");
+          if (!Qo.isString(Xo)) throw TypeError("responseType must be a string");
+          Ho.call(this, Vo, Ko), this.type = qo || "rpc", this.requestType = Yo, this.requestStream = !!Fo || void 0, this.responseType = Xo, this.responseStream = !!Wo || void 0, this.resolvedRequestType = null, this.resolvedResponseType = null, this.comment = Jo, this.parsedOptions = es;
         }
         Oo.exports = Go;
-        var Qo = jo(3);
-        ((Go.prototype = Object.create(Qo.prototype)).constructor = Go).className = "Method";
-        var Ho = jo(0);
+        var Ho = jo(3);
+        ((Go.prototype = Object.create(Ho.prototype)).constructor = Go).className = "Method";
+        var Qo = jo(0);
         Go.fromJSON = function(Vo, qo) {
           return new Go(Vo, qo.type, qo.requestType, qo.responseType, qo.requestStream, qo.responseStream, qo.options, qo.comment, qo.parsedOptions);
         }, Go.prototype.toJSON = function(Vo) {
           var qo = !!Vo && !!Vo.keepComments;
-          return Ho.toObject(["type", this.type !== "rpc" && this.type || void 0, "requestType", this.requestType, "requestStream", this.requestStream, "responseType", this.responseType, "responseStream", this.responseStream, "options", this.options, "comment", qo ? this.comment : void 0, "parsedOptions", this.parsedOptions]);
+          return Qo.toObject(["type", this.type !== "rpc" && this.type || void 0, "requestType", this.requestType, "requestStream", this.requestStream, "responseType", this.responseType, "responseStream", this.responseStream, "options", this.options, "comment", qo ? this.comment : void 0, "parsedOptions", this.parsedOptions]);
         }, Go.prototype.resolve = function() {
-          return this.resolved ? this : (this.resolvedRequestType = this.parent.lookupType(this.requestType), this.resolvedResponseType = this.parent.lookupType(this.responseType), Qo.prototype.resolve.call(this));
+          return this.resolved ? this : (this.resolvedRequestType = this.parent.lookupType(this.requestType), this.resolvedResponseType = this.parent.lookupType(this.responseType), Ho.prototype.resolve.call(this));
         };
       }, function(Oo, No, jo) {
         function Go(qo) {
@@ -13429,8 +13457,8 @@ function requireSvga_min() {
           })).length ? ",k,value" : ""))("while(r.pos<c){")("var t=r.uint32()");
           qo.group && Yo("if((t&7)===4)")("break"), Yo("switch(t>>>3){");
           for (var Xo = 0; Xo < qo.fieldsArray.length; ++Xo) {
-            var Fo = qo._fieldsArray[Xo].resolve(), Wo = Fo.resolvedType instanceof Qo ? "int32" : Fo.type, Ko = "m" + Vo.safeProp(Fo.name);
-            Yo("case %i:", Fo.id), Fo.map ? (Yo("if(%s===util.emptyObject)", Ko)("%s={}", Ko)("var c2 = r.uint32()+r.pos"), Ho.defaults[Fo.keyType] !== void 0 ? Yo("k=%j", Ho.defaults[Fo.keyType]) : Yo("k=null"), Ho.defaults[Wo] !== void 0 ? Yo("value=%j", Ho.defaults[Wo]) : Yo("value=null"), Yo("while(r.pos<c2){")("var tag2=r.uint32()")("switch(tag2>>>3){")("case 1: k=r.%s(); break", Fo.keyType)("case 2:"), Ho.basic[Wo] === void 0 ? Yo("value=types[%i].decode(r,r.uint32())", Xo) : Yo("value=r.%s()", Wo), Yo("break")("default:")("r.skipType(tag2&7)")("break")("}")("}"), Ho.long[Fo.keyType] !== void 0 ? Yo('%s[typeof k==="object"?util.longToHash(k):k]=value', Ko) : Yo("%s[k]=value", Ko)) : Fo.repeated ? (Yo("if(!(%s&&%s.length))", Ko, Ko)("%s=[]", Ko), Ho.packed[Wo] !== void 0 && Yo("if((t&7)===2){")("var c2=r.uint32()+r.pos")("while(r.pos<c2)")("%s.push(r.%s())", Ko, Wo)("}else"), Ho.basic[Wo] === void 0 ? Yo(Fo.resolvedType.group ? "%s.push(types[%i].decode(r))" : "%s.push(types[%i].decode(r,r.uint32()))", Ko, Xo) : Yo("%s.push(r.%s())", Ko, Wo)) : Ho.basic[Wo] === void 0 ? Yo(Fo.resolvedType.group ? "%s=types[%i].decode(r)" : "%s=types[%i].decode(r,r.uint32())", Ko, Xo) : Yo("%s=r.%s()", Ko, Wo), Yo("break");
+            var Fo = qo._fieldsArray[Xo].resolve(), Wo = Fo.resolvedType instanceof Ho ? "int32" : Fo.type, Ko = "m" + Vo.safeProp(Fo.name);
+            Yo("case %i:", Fo.id), Fo.map ? (Yo("if(%s===util.emptyObject)", Ko)("%s={}", Ko)("var c2 = r.uint32()+r.pos"), Qo.defaults[Fo.keyType] !== void 0 ? Yo("k=%j", Qo.defaults[Fo.keyType]) : Yo("k=null"), Qo.defaults[Wo] !== void 0 ? Yo("value=%j", Qo.defaults[Wo]) : Yo("value=null"), Yo("while(r.pos<c2){")("var tag2=r.uint32()")("switch(tag2>>>3){")("case 1: k=r.%s(); break", Fo.keyType)("case 2:"), Qo.basic[Wo] === void 0 ? Yo("value=types[%i].decode(r,r.uint32())", Xo) : Yo("value=r.%s()", Wo), Yo("break")("default:")("r.skipType(tag2&7)")("break")("}")("}"), Qo.long[Fo.keyType] !== void 0 ? Yo('%s[typeof k==="object"?util.longToHash(k):k]=value', Ko) : Yo("%s[k]=value", Ko)) : Fo.repeated ? (Yo("if(!(%s&&%s.length))", Ko, Ko)("%s=[]", Ko), Qo.packed[Wo] !== void 0 && Yo("if((t&7)===2){")("var c2=r.uint32()+r.pos")("while(r.pos<c2)")("%s.push(r.%s())", Ko, Wo)("}else"), Qo.basic[Wo] === void 0 ? Yo(Fo.resolvedType.group ? "%s.push(types[%i].decode(r))" : "%s.push(types[%i].decode(r,r.uint32()))", Ko, Xo) : Yo("%s.push(r.%s())", Ko, Wo)) : Qo.basic[Wo] === void 0 ? Yo(Fo.resolvedType.group ? "%s=types[%i].decode(r)" : "%s=types[%i].decode(r,r.uint32())", Ko, Xo) : Yo("%s=r.%s()", Ko, Wo), Yo("break");
           }
           for (Yo("default:")("r.skipType(t&7)")("break")("}")("}"), Xo = 0; Xo < qo._fieldsArray.length; ++Xo) {
             var Jo = qo._fieldsArray[Xo];
@@ -13438,12 +13466,12 @@ function requireSvga_min() {
           }
           return Yo("return m");
         };
-        var Qo = jo(2), Ho = jo(7), Vo = jo(0);
+        var Ho = jo(2), Qo = jo(7), Vo = jo(0);
       }, function(Oo, No, jo) {
         function Go(Yo, Xo) {
           return Yo.name + ": " + Xo + (Yo.repeated && Xo !== "array" ? "[]" : Yo.map && Xo !== "object" ? "{k:" + Yo.keyType + "}" : "") + " expected";
         }
-        function Qo(Yo, Xo, Fo, Wo) {
+        function Ho(Yo, Xo, Fo, Wo) {
           if (Xo.resolvedType) if (Xo.resolvedType instanceof Vo) {
             Yo("switch(%s){", Wo)("default:")("return%j", Go(Xo, "enum value"));
             for (var Ko = Object.keys(Xo.resolvedType.values), Jo = 0; Jo < Ko.length; ++Jo) Yo("case %i:", Xo.resolvedType.values[Ko[Jo]]);
@@ -13479,7 +13507,7 @@ function requireSvga_min() {
           }
           return Yo;
         }
-        function Ho(Yo, Xo, Fo) {
+        function Qo(Yo, Xo, Fo) {
           switch (Xo.keyType) {
             case "int32":
             case "uint32":
@@ -13505,14 +13533,14 @@ function requireSvga_min() {
           Yo.oneofsArray.length && Xo("var p={}");
           for (var Wo = 0; Wo < Yo.fieldsArray.length; ++Wo) {
             var Ko = Yo._fieldsArray[Wo].resolve(), Jo = "m" + qo.safeProp(Ko.name);
-            if (Ko.optional && Xo("if(%s!=null&&m.hasOwnProperty(%j)){", Jo, Ko.name), Ko.map) Xo("if(!util.isObject(%s))", Jo)("return%j", Go(Ko, "object"))("var k=Object.keys(%s)", Jo)("for(var i=0;i<k.length;++i){"), Ho(Xo, Ko, "k[i]"), Qo(Xo, Ko, Wo, Jo + "[k[i]]")("}");
-            else if (Ko.repeated) Xo("if(!Array.isArray(%s))", Jo)("return%j", Go(Ko, "array"))("for(var i=0;i<%s.length;++i){", Jo), Qo(Xo, Ko, Wo, Jo + "[i]")("}");
+            if (Ko.optional && Xo("if(%s!=null&&m.hasOwnProperty(%j)){", Jo, Ko.name), Ko.map) Xo("if(!util.isObject(%s))", Jo)("return%j", Go(Ko, "object"))("var k=Object.keys(%s)", Jo)("for(var i=0;i<k.length;++i){"), Qo(Xo, Ko, "k[i]"), Ho(Xo, Ko, Wo, Jo + "[k[i]]")("}");
+            else if (Ko.repeated) Xo("if(!Array.isArray(%s))", Jo)("return%j", Go(Ko, "array"))("for(var i=0;i<%s.length;++i){", Jo), Ho(Xo, Ko, Wo, Jo + "[i]")("}");
             else {
               if (Ko.partOf) {
                 var es = qo.safeProp(Ko.partOf.name);
                 Fo[Ko.partOf.name] === 1 && Xo("if(p%s===1)", es)("return%j", Ko.partOf.name + ": multiple values"), Fo[Ko.partOf.name] = 1, Xo("p%s=1", es);
               }
-              Qo(Xo, Ko, Wo, Jo);
+              Ho(Xo, Ko, Wo, Jo);
             }
             Ko.optional && Xo("}");
           }
@@ -13562,7 +13590,7 @@ function requireSvga_min() {
           }
           return Yo;
         }
-        function Qo(Yo, Xo, Fo, Wo) {
+        function Ho(Yo, Xo, Fo, Wo) {
           if (Xo.resolvedType) Xo.resolvedType instanceof Vo ? Yo("d%s=o.enums===String?types[%i].values[m%s]:m%s", Wo, Fo, Wo, Wo) : Yo("d%s=types[%i].toObject(m%s,o)", Wo, Fo, Wo);
           else {
             var Ko = !1;
@@ -13588,8 +13616,8 @@ function requireSvga_min() {
           }
           return Yo;
         }
-        var Ho = No, Vo = jo(2), qo = jo(0);
-        Ho.fromObject = function(Yo) {
+        var Qo = No, Vo = jo(2), qo = jo(0);
+        Qo.fromObject = function(Yo) {
           var Xo = Yo.fieldsArray, Fo = qo.codegen(["d"], Yo.name + "$fromObject")("if(d instanceof this.ctor)")("return d");
           if (!Xo.length) return Fo("return new this.ctor");
           Fo("var m=new this.ctor");
@@ -13598,7 +13626,7 @@ function requireSvga_min() {
             Ko.map ? (Fo("if(d%s){", Jo)('if(typeof d%s!=="object")', Jo)("throw TypeError(%j)", Ko.fullName + ": object expected")("m%s={}", Jo)("for(var ks=Object.keys(d%s),i=0;i<ks.length;++i){", Jo), Go(Fo, Ko, Wo, Jo + "[ks[i]]")("}")("}")) : Ko.repeated ? (Fo("if(d%s){", Jo)("if(!Array.isArray(d%s))", Jo)("throw TypeError(%j)", Ko.fullName + ": array expected")("m%s=[]", Jo)("for(var i=0;i<d%s.length;++i){", Jo), Go(Fo, Ko, Wo, Jo + "[i]")("}")("}")) : (Ko.resolvedType instanceof Vo || Fo("if(d%s!=null){", Jo), Go(Fo, Ko, Wo, Jo), Ko.resolvedType instanceof Vo || Fo("}"));
           }
           return Fo("return m");
-        }, Ho.toObject = function(Yo) {
+        }, Qo.toObject = function(Yo) {
           var Xo = Yo.fieldsArray.slice().sort(qo.compareFieldsById);
           if (!Xo.length) return qo.codegen()("return {}");
           for (var Fo = qo.codegen(["m", "o"], Yo.name + "$toObject")("if(!o)")("o={}")("var d={}"), Wo = [], Ko = [], Jo = [], es = 0; es < Xo.length; ++es) Xo[es].partOf || (Xo[es].resolve().repeated ? Wo : Xo[es].map ? Ko : Jo).push(Xo[es]);
@@ -13626,41 +13654,41 @@ function requireSvga_min() {
           for (es = 0; es < Xo.length; ++es) {
             rs = Xo[es];
             var us = Yo._fieldsArray.indexOf(rs);
-            is = qo.safeProp(rs.name), rs.map ? (os || (os = !0, Fo("var ks2")), Fo("if(m%s&&(ks2=Object.keys(m%s)).length){", is, is)("d%s={}", is)("for(var j=0;j<ks2.length;++j){"), Qo(Fo, rs, us, is + "[ks2[j]]")("}")) : rs.repeated ? (Fo("if(m%s&&m%s.length){", is, is)("d%s=[]", is)("for(var j=0;j<m%s.length;++j){", is), Qo(Fo, rs, us, is + "[j]")("}")) : (Fo("if(m%s!=null&&m.hasOwnProperty(%j)){", is, rs.name), Qo(Fo, rs, us, is), rs.partOf && Fo("if(o.oneofs)")("d%s=%j", qo.safeProp(rs.partOf.name), rs.name)), Fo("}");
+            is = qo.safeProp(rs.name), rs.map ? (os || (os = !0, Fo("var ks2")), Fo("if(m%s&&(ks2=Object.keys(m%s)).length){", is, is)("d%s={}", is)("for(var j=0;j<ks2.length;++j){"), Ho(Fo, rs, us, is + "[ks2[j]]")("}")) : rs.repeated ? (Fo("if(m%s&&m%s.length){", is, is)("d%s=[]", is)("for(var j=0;j<m%s.length;++j){", is), Ho(Fo, rs, us, is + "[j]")("}")) : (Fo("if(m%s!=null&&m.hasOwnProperty(%j)){", is, rs.name), Ho(Fo, rs, us, is), rs.partOf && Fo("if(o.oneofs)")("d%s=%j", qo.safeProp(rs.partOf.name), rs.name)), Fo("}");
           }
           return Fo("return d");
         };
       }, function(Oo, No, jo) {
-        var Go = No, Qo = jo(12);
-        Go[".google.protobuf.Any"] = { fromObject: function(Ho) {
-          if (Ho && Ho["@type"]) {
-            var Vo = Ho["@type"].substring(Ho["@type"].lastIndexOf("/") + 1), qo = this.lookup(Vo);
+        var Go = No, Ho = jo(12);
+        Go[".google.protobuf.Any"] = { fromObject: function(Qo) {
+          if (Qo && Qo["@type"]) {
+            var Vo = Qo["@type"].substring(Qo["@type"].lastIndexOf("/") + 1), qo = this.lookup(Vo);
             if (qo) {
-              var Yo = Ho["@type"].charAt(0) === "." ? Ho["@type"].substr(1) : Ho["@type"];
-              return Yo.indexOf("/") === -1 && (Yo = "/" + Yo), this.create({ type_url: Yo, value: qo.encode(qo.fromObject(Ho)).finish() });
+              var Yo = Qo["@type"].charAt(0) === "." ? Qo["@type"].substr(1) : Qo["@type"];
+              return Yo.indexOf("/") === -1 && (Yo = "/" + Yo), this.create({ type_url: Yo, value: qo.encode(qo.fromObject(Qo)).finish() });
             }
           }
-          return this.fromObject(Ho);
-        }, toObject: function(Ho, Vo) {
+          return this.fromObject(Qo);
+        }, toObject: function(Qo, Vo) {
           var qo = "", Yo = "";
-          if (Vo && Vo.json && Ho.type_url && Ho.value) {
-            Yo = Ho.type_url.substring(Ho.type_url.lastIndexOf("/") + 1), qo = Ho.type_url.substring(0, Ho.type_url.lastIndexOf("/") + 1);
+          if (Vo && Vo.json && Qo.type_url && Qo.value) {
+            Yo = Qo.type_url.substring(Qo.type_url.lastIndexOf("/") + 1), qo = Qo.type_url.substring(0, Qo.type_url.lastIndexOf("/") + 1);
             var Xo = this.lookup(Yo);
-            Xo && (Ho = Xo.decode(Ho.value));
+            Xo && (Qo = Xo.decode(Qo.value));
           }
-          if (!(Ho instanceof this.ctor) && Ho instanceof Qo) {
-            var Fo = Ho.$type.toObject(Ho, Vo);
-            return qo === "" && (qo = "type.googleapis.com/"), Yo = qo + (Ho.$type.fullName[0] === "." ? Ho.$type.fullName.substr(1) : Ho.$type.fullName), Fo["@type"] = Yo, Fo;
+          if (!(Qo instanceof this.ctor) && Qo instanceof Ho) {
+            var Fo = Qo.$type.toObject(Qo, Vo);
+            return qo === "" && (qo = "type.googleapis.com/"), Yo = qo + (Qo.$type.fullName[0] === "." ? Qo.$type.fullName.substr(1) : Qo.$type.fullName), Fo["@type"] = Yo, Fo;
           }
-          return this.toObject(Ho, Vo);
+          return this.toObject(Qo, Vo);
         } };
       }, function(Oo, No, jo) {
         function Go(rs) {
           Vo.call(this, "", rs), this.deferred = [], this.files = [];
         }
-        function Qo() {
+        function Ho() {
         }
-        function Ho(rs, is) {
+        function Qo(rs, is) {
           var As = is.parent.lookup(is.extend);
           if (As) {
             var os = new Fo(is.fullName, is.id, is.type, is.rule, void 0, is.options);
@@ -13724,14 +13752,14 @@ function requireSvga_min() {
           typeof As == "function" && (os = As, As = void 0);
           var hs = this;
           if (!os) return Jo.asPromise(rs, hs, is, As);
-          var ys = os === Qo, Ps = 0;
+          var ys = os === Ho, Ps = 0;
           Jo.isString(is) && (is = [is]);
           for (var ds, Es = 0; Es < is.length; ++Es) (ds = hs.resolvePath("", is[Es])) && Is(ds);
           if (ys) return hs;
           Ps || us(null, hs);
         }, Go.prototype.loadSync = function(rs, is) {
           if (!Jo.isNode) throw Error("not supported");
-          return this.load(rs, is, Qo);
+          return this.load(rs, is, Ho);
         }, Go.prototype.resolveAll = function() {
           if (this.deferred.length) throw Error("unresolvable extensions: " + this.deferred.map((function(rs) {
             return "'extend " + rs.extend + "' in " + rs.parent.fullName;
@@ -13740,10 +13768,10 @@ function requireSvga_min() {
         };
         var es = /^[A-Z]/;
         Go.prototype._handleAdd = function(rs) {
-          if (rs instanceof Fo) rs.extend === void 0 || rs.extensionField || Ho(0, rs) || this.deferred.push(rs);
+          if (rs instanceof Fo) rs.extend === void 0 || rs.extensionField || Qo(0, rs) || this.deferred.push(rs);
           else if (rs instanceof Wo) es.test(rs.name) && (rs.parent[rs.name] = rs.values);
           else if (!(rs instanceof Ko)) {
-            if (rs instanceof qo) for (var is = 0; is < this.deferred.length; ) Ho(0, this.deferred[is]) ? this.deferred.splice(is, 1) : ++is;
+            if (rs instanceof qo) for (var is = 0; is < this.deferred.length; ) Qo(0, this.deferred[is]) ? this.deferred.splice(is, 1) : ++is;
             for (var As = 0; As < rs.nestedArray.length; ++As) this._handleAdd(rs._nestedArray[As]);
             es.test(rs.name) && (rs.parent[rs.name] = rs);
           }
@@ -13768,7 +13796,7 @@ function requireSvga_min() {
           return typeof qo;
         } : function(qo) {
           return qo && typeof Symbol == "function" && qo.constructor === Symbol && qo !== Symbol.prototype ? "symbol" : typeof qo;
-        }, Qo = /* @__PURE__ */ (function() {
+        }, Ho = /* @__PURE__ */ (function() {
           function qo(Yo, Xo) {
             for (var Fo = 0; Fo < Xo.length; Fo++) {
               var Wo = Xo[Fo];
@@ -13778,36 +13806,36 @@ function requireSvga_min() {
           return function(Yo, Xo, Fo) {
             return Xo && qo(Yo.prototype, Xo), Fo && qo(Yo, Fo), Yo;
           };
-        })(), Ho = jo(32), Vo = jo(16).ProtoMovieEntity;
+        })(), Qo = jo(32), Vo = jo(16).ProtoMovieEntity;
         No.VideoEntity = (function() {
           function qo(Yo, Xo) {
             (function(Fo, Wo) {
               if (!(Fo instanceof Wo)) throw new TypeError("Cannot call a class as a function");
             })(this, qo), this.version = "", this.videoSize = { width: 0, height: 0 }, this.FPS = 20, this.frames = 0, this.images = {}, this.sprites = [], this.audios = [], (Yo === void 0 ? "undefined" : Go(Yo)) === "object" && Yo.$type == Vo ? (Go(Yo.params) === "object" && (this.version = Yo.ver, this.videoSize.width = Yo.params.viewBoxWidth || 0, this.videoSize.height = Yo.params.viewBoxHeight || 0, this.FPS = Yo.params.fps || 20, this.frames = Yo.params.frames || 0), this.resetSprites(Yo), this.audios = Yo.audios) : Yo && (Yo.movie && (Yo.movie.viewBox && (this.videoSize.width = parseFloat(Yo.movie.viewBox.width) || 0, this.videoSize.height = parseFloat(Yo.movie.viewBox.height) || 0), this.version = Yo.ver, this.FPS = parseInt(Yo.movie.fps) || 20, this.frames = parseInt(Yo.movie.frames) || 0), this.resetSprites(Yo)), Xo && (this.images = Xo);
           }
-          return Qo(qo, [{ key: "resetSprites", value: function(Yo) {
+          return Ho(qo, [{ key: "resetSprites", value: function(Yo) {
             Yo.sprites instanceof Array && (this.sprites = Yo.sprites.map((function(Xo) {
-              return new Ho.SpriteEntity(Xo);
+              return new Qo.SpriteEntity(Xo);
             })));
           } }]), qo;
         })();
       }, function(Oo, No, jo) {
         Object.defineProperty(No, "__esModule", { value: !0 }), No.SpriteEntity = void 0;
         var Go = jo(33);
-        jo(5), jo(14), jo(15), No.SpriteEntity = function Qo(Ho) {
+        jo(5), jo(14), jo(15), No.SpriteEntity = function Ho(Qo) {
           (function(Vo, qo) {
             if (!(Vo instanceof qo)) throw new TypeError("Cannot call a class as a function");
-          })(this, Qo), this.matteKey = null, this.imageKey = null, this.frames = [], this.matteKey = Ho.matteKey, this.imageKey = Ho.imageKey, Ho.frames && (this.frames = Ho.frames.map((function(Vo) {
+          })(this, Ho), this.matteKey = null, this.imageKey = null, this.frames = [], this.matteKey = Qo.matteKey, this.imageKey = Qo.imageKey, Qo.frames && (this.frames = Qo.frames.map((function(Vo) {
             return new Go.FrameEntity(Vo);
           })));
         };
       }, function(Oo, No, jo) {
         Object.defineProperty(No, "__esModule", { value: !0 }), No.FrameEntity = void 0;
         var Go = jo(5);
-        No.FrameEntity = function Qo(Ho) {
+        No.FrameEntity = function Ho(Qo) {
           (function(es, rs) {
             if (!(es instanceof rs)) throw new TypeError("Cannot call a class as a function");
-          })(this, Qo), this.alpha = 0, this.transform = { a: 1, b: 0, c: 0, d: 1, tx: 0, ty: 0 }, this.layout = { x: 0, y: 0, width: 0, height: 0 }, this.nx = 0, this.ny = 0, this.maskPath = null, this.shapes = [], this.alpha = parseFloat(Ho.alpha) || 0, Ho.layout && (this.layout.x = parseFloat(Ho.layout.x) || 0, this.layout.y = parseFloat(Ho.layout.y) || 0, this.layout.width = parseFloat(Ho.layout.width) || 0, this.layout.height = parseFloat(Ho.layout.height) || 0), Ho.transform && (this.transform.a = parseFloat(Ho.transform.a) || 1, this.transform.b = parseFloat(Ho.transform.b) || 0, this.transform.c = parseFloat(Ho.transform.c) || 0, this.transform.d = parseFloat(Ho.transform.d) || 1, this.transform.tx = parseFloat(Ho.transform.tx) || 0, this.transform.ty = parseFloat(Ho.transform.ty) || 0), Ho.clipPath && Ho.clipPath.length > 0 && (this.maskPath = new Go.BezierPath(Ho.clipPath, void 0, { fill: "#000000" })), Ho.shapes && (Ho.shapes instanceof Array && Ho.shapes.forEach((function(es) {
+          })(this, Ho), this.alpha = 0, this.transform = { a: 1, b: 0, c: 0, d: 1, tx: 0, ty: 0 }, this.layout = { x: 0, y: 0, width: 0, height: 0 }, this.nx = 0, this.ny = 0, this.maskPath = null, this.shapes = [], this.alpha = parseFloat(Qo.alpha) || 0, Qo.layout && (this.layout.x = parseFloat(Qo.layout.x) || 0, this.layout.y = parseFloat(Qo.layout.y) || 0, this.layout.width = parseFloat(Qo.layout.width) || 0, this.layout.height = parseFloat(Qo.layout.height) || 0), Qo.transform && (this.transform.a = parseFloat(Qo.transform.a) || 1, this.transform.b = parseFloat(Qo.transform.b) || 0, this.transform.c = parseFloat(Qo.transform.c) || 0, this.transform.d = parseFloat(Qo.transform.d) || 1, this.transform.tx = parseFloat(Qo.transform.tx) || 0, this.transform.ty = parseFloat(Qo.transform.ty) || 0), Qo.clipPath && Qo.clipPath.length > 0 && (this.maskPath = new Go.BezierPath(Qo.clipPath, void 0, { fill: "#000000" })), Qo.shapes && (Qo.shapes instanceof Array && Qo.shapes.forEach((function(es) {
             switch (es.pathArgs = es.args, es.type) {
               case 0:
                 es.type = "shape", es.pathArgs = es.shape;
@@ -13845,7 +13873,7 @@ function requireSvga_min() {
                   es.styles.lineCap = "square";
               }
             }
-          })), Ho.shapes[0] && Ho.shapes[0].type === "keep" ? this.shapes = Qo.lastShapes : (this.shapes = Ho.shapes, Qo.lastShapes = Ho.shapes));
+          })), Qo.shapes[0] && Qo.shapes[0].type === "keep" ? this.shapes = Ho.lastShapes : (this.shapes = Qo.shapes, Ho.lastShapes = Qo.shapes));
           var Vo = this.transform.a * this.layout.x + this.transform.c * this.layout.y + this.transform.tx, qo = this.transform.a * (this.layout.x + this.layout.width) + this.transform.c * this.layout.y + this.transform.tx, Yo = this.transform.a * this.layout.x + this.transform.c * (this.layout.y + this.layout.height) + this.transform.tx, Xo = this.transform.a * (this.layout.x + this.layout.width) + this.transform.c * (this.layout.y + this.layout.height) + this.transform.tx, Fo = this.transform.b * this.layout.x + this.transform.d * this.layout.y + this.transform.ty, Wo = this.transform.b * (this.layout.x + this.layout.width) + this.transform.d * this.layout.y + this.transform.ty, Ko = this.transform.b * this.layout.x + this.transform.d * (this.layout.y + this.layout.height) + this.transform.ty, Jo = this.transform.b * (this.layout.x + this.layout.width) + this.transform.d * (this.layout.y + this.layout.height) + this.transform.ty;
           this.nx = Math.min(Math.min(Yo, Xo), Math.min(Vo, qo)), this.ny = Math.min(Math.min(Ko, Jo), Math.min(Fo, Wo));
         };
@@ -13853,17 +13881,17 @@ function requireSvga_min() {
         Oo.exports = jo(35);
       }, function(Oo, No, jo) {
         var Go = Oo.exports = jo(36);
-        Go.build = "light", Go.load = function(Qo, Ho, Vo) {
-          return typeof Ho == "function" ? (Vo = Ho, Ho = new Go.Root()) : Ho || (Ho = new Go.Root()), Ho.load(Qo, Vo);
-        }, Go.loadSync = function(Qo, Ho) {
-          return Ho || (Ho = new Go.Root()), Ho.loadSync(Qo);
+        Go.build = "light", Go.load = function(Ho, Qo, Vo) {
+          return typeof Qo == "function" ? (Vo = Qo, Qo = new Go.Root()) : Qo || (Qo = new Go.Root()), Qo.load(Ho, Vo);
+        }, Go.loadSync = function(Ho, Qo) {
+          return Qo || (Qo = new Go.Root()), Qo.loadSync(Ho);
         }, Go.encoder = jo(21), Go.decoder = jo(26), Go.verifier = jo(27), Go.converter = jo(28), Go.ReflectionObject = jo(3), Go.Namespace = jo(6), Go.Root = jo(30), Go.Enum = jo(2), Go.Type = jo(22), Go.Field = jo(4), Go.OneOf = jo(11), Go.MapField = jo(23), Go.Service = jo(24), Go.Method = jo(25), Go.Message = jo(12), Go.wrappers = jo(29), Go.types = jo(7), Go.util = jo(0), Go.ReflectionObject._configure(Go.Root), Go.Namespace._configure(Go.Type, Go.Service, Go.Enum), Go.Root._configure(Go.Type), Go.Field._configure(Go.Type);
       }, function(Oo, No, jo) {
         function Go() {
-          Qo.util._configure(), Qo.Writer._configure(Qo.BufferWriter), Qo.Reader._configure(Qo.BufferReader);
+          Ho.util._configure(), Ho.Writer._configure(Ho.BufferWriter), Ho.Reader._configure(Ho.BufferReader);
         }
-        var Qo = No;
-        Qo.build = "minimal", Qo.Writer = jo(9), Qo.BufferWriter = jo(44), Qo.Reader = jo(10), Qo.BufferReader = jo(45), Qo.util = jo(1), Qo.rpc = jo(19), Qo.roots = jo(20), Qo.configure = Go, Go();
+        var Ho = No;
+        Ho.build = "minimal", Ho.Writer = jo(9), Ho.BufferWriter = jo(44), Ho.Reader = jo(10), Ho.BufferReader = jo(45), Ho.util = jo(1), Ho.rpc = jo(19), Ho.roots = jo(20), Ho.configure = Go, Go();
       }, function(Oo, No) {
         var jo;
         jo = /* @__PURE__ */ (function() {
@@ -13883,28 +13911,28 @@ function requireSvga_min() {
           for (var Xo = 0; --Yo % 4 > 1 && qo.charAt(Yo) === "="; ) ++Xo;
           return Math.ceil(3 * qo.length) / 4 - Xo;
         };
-        for (var Qo = new Array(64), Ho = new Array(123), Vo = 0; Vo < 64; ) Ho[Qo[Vo] = Vo < 26 ? Vo + 65 : Vo < 52 ? Vo + 71 : Vo < 62 ? Vo - 4 : Vo - 59 | 43] = Vo++;
+        for (var Ho = new Array(64), Qo = new Array(123), Vo = 0; Vo < 64; ) Qo[Ho[Vo] = Vo < 26 ? Vo + 65 : Vo < 52 ? Vo + 71 : Vo < 62 ? Vo - 4 : Vo - 59 | 43] = Vo++;
         Go.encode = function(qo, Yo, Xo) {
           for (var Fo, Wo = null, Ko = [], Jo = 0, es = 0; Yo < Xo; ) {
             var rs = qo[Yo++];
             switch (es) {
               case 0:
-                Ko[Jo++] = Qo[rs >> 2], Fo = (3 & rs) << 4, es = 1;
+                Ko[Jo++] = Ho[rs >> 2], Fo = (3 & rs) << 4, es = 1;
                 break;
               case 1:
-                Ko[Jo++] = Qo[Fo | rs >> 4], Fo = (15 & rs) << 2, es = 2;
+                Ko[Jo++] = Ho[Fo | rs >> 4], Fo = (15 & rs) << 2, es = 2;
                 break;
               case 2:
-                Ko[Jo++] = Qo[Fo | rs >> 6], Ko[Jo++] = Qo[63 & rs], es = 0;
+                Ko[Jo++] = Ho[Fo | rs >> 6], Ko[Jo++] = Ho[63 & rs], es = 0;
             }
             Jo > 8191 && ((Wo || (Wo = [])).push(String.fromCharCode.apply(String, Ko)), Jo = 0);
           }
-          return es && (Ko[Jo++] = Qo[Fo], Ko[Jo++] = 61, es === 1 && (Ko[Jo++] = 61)), Wo ? (Jo && Wo.push(String.fromCharCode.apply(String, Ko.slice(0, Jo))), Wo.join("")) : String.fromCharCode.apply(String, Ko.slice(0, Jo));
+          return es && (Ko[Jo++] = Ho[Fo], Ko[Jo++] = 61, es === 1 && (Ko[Jo++] = 61)), Wo ? (Jo && Wo.push(String.fromCharCode.apply(String, Ko.slice(0, Jo))), Wo.join("")) : String.fromCharCode.apply(String, Ko.slice(0, Jo));
         }, Go.decode = function(qo, Yo, Xo) {
           for (var Fo, Wo = Xo, Ko = 0, Jo = 0; Jo < qo.length; ) {
             var es = qo.charCodeAt(Jo++);
             if (es === 61 && Ko > 1) break;
-            if ((es = Ho[es]) === void 0) throw Error("invalid encoding");
+            if ((es = Qo[es]) === void 0) throw Error("invalid encoding");
             switch (Ko) {
               case 0:
                 Fo = es, Ko = 1;
@@ -13928,18 +13956,18 @@ function requireSvga_min() {
         function Go() {
           this._listeners = {};
         }
-        Oo.exports = Go, Go.prototype.on = function(Qo, Ho, Vo) {
-          return (this._listeners[Qo] || (this._listeners[Qo] = [])).push({ fn: Ho, ctx: Vo || this }), this;
-        }, Go.prototype.off = function(Qo, Ho) {
-          if (Qo === void 0) this._listeners = {};
-          else if (Ho === void 0) this._listeners[Qo] = [];
-          else for (var Vo = this._listeners[Qo], qo = 0; qo < Vo.length; ) Vo[qo].fn === Ho ? Vo.splice(qo, 1) : ++qo;
+        Oo.exports = Go, Go.prototype.on = function(Ho, Qo, Vo) {
+          return (this._listeners[Ho] || (this._listeners[Ho] = [])).push({ fn: Qo, ctx: Vo || this }), this;
+        }, Go.prototype.off = function(Ho, Qo) {
+          if (Ho === void 0) this._listeners = {};
+          else if (Qo === void 0) this._listeners[Ho] = [];
+          else for (var Vo = this._listeners[Ho], qo = 0; qo < Vo.length; ) Vo[qo].fn === Qo ? Vo.splice(qo, 1) : ++qo;
           return this;
-        }, Go.prototype.emit = function(Qo) {
-          var Ho = this._listeners[Qo];
-          if (Ho) {
+        }, Go.prototype.emit = function(Ho) {
+          var Qo = this._listeners[Ho];
+          if (Qo) {
             for (var Vo = [], qo = 1; qo < arguments.length; ) Vo.push(arguments[qo++]);
-            for (qo = 0; qo < Ho.length; ) Ho[qo].fn.apply(Ho[qo++].ctx, Vo);
+            for (qo = 0; qo < Qo.length; ) Qo[qo].fn.apply(Qo[qo++].ctx, Vo);
           }
           return this;
         };
@@ -13976,7 +14004,7 @@ function requireSvga_min() {
               var es = Wo(Ko, Jo), rs = 2 * (es >> 31) + 1, is = es >>> 23 & 255, As = 8388607 & es;
               return is === 255 ? As ? NaN : rs * (1 / 0) : is === 0 ? 1401298464324817e-60 * rs * As : rs * Math.pow(2, is - 150) * (As + 8388608);
             }
-            Yo.writeFloatLE = Xo.bind(null, Qo), Yo.writeFloatBE = Xo.bind(null, Ho), Yo.readFloatLE = Fo.bind(null, Vo), Yo.readFloatBE = Fo.bind(null, qo);
+            Yo.writeFloatLE = Xo.bind(null, Ho), Yo.writeFloatBE = Xo.bind(null, Qo), Yo.readFloatLE = Fo.bind(null, Vo), Yo.readFloatBE = Fo.bind(null, qo);
           })(), typeof Float64Array < "u" ? (function() {
             function Xo(is, As, os) {
               Jo[0] = is, As[os] = es[0], As[os + 1] = es[1], As[os + 2] = es[2], As[os + 3] = es[3], As[os + 4] = es[4], As[os + 5] = es[5], As[os + 6] = es[6], As[os + 7] = es[7];
@@ -14011,13 +14039,13 @@ function requireSvga_min() {
               var is = Wo(es, rs + Ko), As = Wo(es, rs + Jo), os = 2 * (As >> 31) + 1, us = As >>> 20 & 2047, as = 4294967296 * (1048575 & As) + is;
               return us === 2047 ? as ? NaN : os * (1 / 0) : us === 0 ? 5e-324 * os * as : os * Math.pow(2, us - 1075) * (as + 4503599627370496);
             }
-            Yo.writeDoubleLE = Xo.bind(null, Qo, 0, 4), Yo.writeDoubleBE = Xo.bind(null, Ho, 4, 0), Yo.readDoubleLE = Fo.bind(null, Vo, 0, 4), Yo.readDoubleBE = Fo.bind(null, qo, 4, 0);
+            Yo.writeDoubleLE = Xo.bind(null, Ho, 0, 4), Yo.writeDoubleBE = Xo.bind(null, Qo, 4, 0), Yo.readDoubleLE = Fo.bind(null, Vo, 0, 4), Yo.readDoubleBE = Fo.bind(null, qo, 4, 0);
           })(), Yo;
         }
-        function Qo(Yo, Xo, Fo) {
+        function Ho(Yo, Xo, Fo) {
           Xo[Fo] = 255 & Yo, Xo[Fo + 1] = Yo >>> 8 & 255, Xo[Fo + 2] = Yo >>> 16 & 255, Xo[Fo + 3] = Yo >>> 24;
         }
-        function Ho(Yo, Xo, Fo) {
+        function Qo(Yo, Xo, Fo) {
           Xo[Fo] = Yo >>> 24, Xo[Fo + 1] = Yo >>> 16 & 255, Xo[Fo + 2] = Yo >>> 8 & 255, Xo[Fo + 3] = 255 & Yo;
         }
         function Vo(Yo, Xo) {
@@ -14029,24 +14057,24 @@ function requireSvga_min() {
         Oo.exports = Go(Go);
       }, function(Oo, No, jo) {
         var Go = No;
-        Go.length = function(Qo) {
-          for (var Ho = 0, Vo = 0, qo = 0; qo < Qo.length; ++qo) (Vo = Qo.charCodeAt(qo)) < 128 ? Ho += 1 : Vo < 2048 ? Ho += 2 : (64512 & Vo) == 55296 && (64512 & Qo.charCodeAt(qo + 1)) == 56320 ? (++qo, Ho += 4) : Ho += 3;
-          return Ho;
-        }, Go.read = function(Qo, Ho, Vo) {
-          if (Vo - Ho < 1) return "";
-          for (var qo, Yo = null, Xo = [], Fo = 0; Ho < Vo; ) (qo = Qo[Ho++]) < 128 ? Xo[Fo++] = qo : qo > 191 && qo < 224 ? Xo[Fo++] = (31 & qo) << 6 | 63 & Qo[Ho++] : qo > 239 && qo < 365 ? (qo = ((7 & qo) << 18 | (63 & Qo[Ho++]) << 12 | (63 & Qo[Ho++]) << 6 | 63 & Qo[Ho++]) - 65536, Xo[Fo++] = 55296 + (qo >> 10), Xo[Fo++] = 56320 + (1023 & qo)) : Xo[Fo++] = (15 & qo) << 12 | (63 & Qo[Ho++]) << 6 | 63 & Qo[Ho++], Fo > 8191 && ((Yo || (Yo = [])).push(String.fromCharCode.apply(String, Xo)), Fo = 0);
+        Go.length = function(Ho) {
+          for (var Qo = 0, Vo = 0, qo = 0; qo < Ho.length; ++qo) (Vo = Ho.charCodeAt(qo)) < 128 ? Qo += 1 : Vo < 2048 ? Qo += 2 : (64512 & Vo) == 55296 && (64512 & Ho.charCodeAt(qo + 1)) == 56320 ? (++qo, Qo += 4) : Qo += 3;
+          return Qo;
+        }, Go.read = function(Ho, Qo, Vo) {
+          if (Vo - Qo < 1) return "";
+          for (var qo, Yo = null, Xo = [], Fo = 0; Qo < Vo; ) (qo = Ho[Qo++]) < 128 ? Xo[Fo++] = qo : qo > 191 && qo < 224 ? Xo[Fo++] = (31 & qo) << 6 | 63 & Ho[Qo++] : qo > 239 && qo < 365 ? (qo = ((7 & qo) << 18 | (63 & Ho[Qo++]) << 12 | (63 & Ho[Qo++]) << 6 | 63 & Ho[Qo++]) - 65536, Xo[Fo++] = 55296 + (qo >> 10), Xo[Fo++] = 56320 + (1023 & qo)) : Xo[Fo++] = (15 & qo) << 12 | (63 & Ho[Qo++]) << 6 | 63 & Ho[Qo++], Fo > 8191 && ((Yo || (Yo = [])).push(String.fromCharCode.apply(String, Xo)), Fo = 0);
           return Yo ? (Fo && Yo.push(String.fromCharCode.apply(String, Xo.slice(0, Fo))), Yo.join("")) : String.fromCharCode.apply(String, Xo.slice(0, Fo));
-        }, Go.write = function(Qo, Ho, Vo) {
-          for (var qo, Yo, Xo = Vo, Fo = 0; Fo < Qo.length; ++Fo) (qo = Qo.charCodeAt(Fo)) < 128 ? Ho[Vo++] = qo : qo < 2048 ? (Ho[Vo++] = qo >> 6 | 192, Ho[Vo++] = 63 & qo | 128) : (64512 & qo) == 55296 && (64512 & (Yo = Qo.charCodeAt(Fo + 1))) == 56320 ? (qo = 65536 + ((1023 & qo) << 10) + (1023 & Yo), ++Fo, Ho[Vo++] = qo >> 18 | 240, Ho[Vo++] = qo >> 12 & 63 | 128, Ho[Vo++] = qo >> 6 & 63 | 128, Ho[Vo++] = 63 & qo | 128) : (Ho[Vo++] = qo >> 12 | 224, Ho[Vo++] = qo >> 6 & 63 | 128, Ho[Vo++] = 63 & qo | 128);
+        }, Go.write = function(Ho, Qo, Vo) {
+          for (var qo, Yo, Xo = Vo, Fo = 0; Fo < Ho.length; ++Fo) (qo = Ho.charCodeAt(Fo)) < 128 ? Qo[Vo++] = qo : qo < 2048 ? (Qo[Vo++] = qo >> 6 | 192, Qo[Vo++] = 63 & qo | 128) : (64512 & qo) == 55296 && (64512 & (Yo = Ho.charCodeAt(Fo + 1))) == 56320 ? (qo = 65536 + ((1023 & qo) << 10) + (1023 & Yo), ++Fo, Qo[Vo++] = qo >> 18 | 240, Qo[Vo++] = qo >> 12 & 63 | 128, Qo[Vo++] = qo >> 6 & 63 | 128, Qo[Vo++] = 63 & qo | 128) : (Qo[Vo++] = qo >> 12 | 224, Qo[Vo++] = qo >> 6 & 63 | 128, Qo[Vo++] = 63 & qo | 128);
           return Vo - Xo;
         };
       }, function(Oo, No, jo) {
-        Oo.exports = function(Go, Qo, Ho) {
-          var Vo = Ho || 8192, qo = Vo >>> 1, Yo = null, Xo = Vo;
+        Oo.exports = function(Go, Ho, Qo) {
+          var Vo = Qo || 8192, qo = Vo >>> 1, Yo = null, Xo = Vo;
           return function(Fo) {
             if (Fo < 1 || Fo > qo) return Go(Fo);
             Xo + Fo > Vo && (Yo = Go(Vo), Xo = 0);
-            var Wo = Qo.call(Yo, Xo, Xo += Fo);
+            var Wo = Ho.call(Yo, Xo, Xo += Fo);
             return 7 & Xo && (Xo = 1 + (7 | Xo)), Wo;
           };
         };
@@ -14055,28 +14083,28 @@ function requireSvga_min() {
           this.lo = Yo >>> 0, this.hi = Xo >>> 0;
         }
         Oo.exports = Go;
-        var Qo = jo(1), Ho = Go.zero = new Go(0, 0);
-        Ho.toNumber = function() {
+        var Ho = jo(1), Qo = Go.zero = new Go(0, 0);
+        Qo.toNumber = function() {
           return 0;
-        }, Ho.zzEncode = Ho.zzDecode = function() {
+        }, Qo.zzEncode = Qo.zzDecode = function() {
           return this;
-        }, Ho.length = function() {
+        }, Qo.length = function() {
           return 1;
         };
         var Vo = Go.zeroHash = "\0\0\0\0\0\0\0\0";
         Go.fromNumber = function(Yo) {
-          if (Yo === 0) return Ho;
+          if (Yo === 0) return Qo;
           var Xo = Yo < 0;
           Xo && (Yo = -Yo);
           var Fo = Yo >>> 0, Wo = (Yo - Fo) / 4294967296 >>> 0;
           return Xo && (Wo = ~Wo >>> 0, Fo = ~Fo >>> 0, ++Fo > 4294967295 && (Fo = 0, ++Wo > 4294967295 && (Wo = 0))), new Go(Fo, Wo);
         }, Go.from = function(Yo) {
           if (typeof Yo == "number") return Go.fromNumber(Yo);
-          if (Qo.isString(Yo)) {
-            if (!Qo.Long) return Go.fromNumber(parseInt(Yo, 10));
-            Yo = Qo.Long.fromString(Yo);
+          if (Ho.isString(Yo)) {
+            if (!Ho.Long) return Go.fromNumber(parseInt(Yo, 10));
+            Yo = Ho.Long.fromString(Yo);
           }
-          return Yo.low || Yo.high ? new Go(Yo.low >>> 0, Yo.high >>> 0) : Ho;
+          return Yo.low || Yo.high ? new Go(Yo.low >>> 0, Yo.high >>> 0) : Qo;
         }, Go.prototype.toNumber = function(Yo) {
           if (!Yo && this.hi >>> 31) {
             var Xo = 1 + ~this.lo >>> 0, Fo = ~this.hi >>> 0;
@@ -14084,11 +14112,11 @@ function requireSvga_min() {
           }
           return this.lo + 4294967296 * this.hi;
         }, Go.prototype.toLong = function(Yo) {
-          return Qo.Long ? new Qo.Long(0 | this.lo, 0 | this.hi, !!Yo) : { low: 0 | this.lo, high: 0 | this.hi, unsigned: !!Yo };
+          return Ho.Long ? new Ho.Long(0 | this.lo, 0 | this.hi, !!Yo) : { low: 0 | this.lo, high: 0 | this.hi, unsigned: !!Yo };
         };
         var qo = String.prototype.charCodeAt;
         Go.fromHash = function(Yo) {
-          return Yo === Vo ? Ho : new Go((qo.call(Yo, 0) | qo.call(Yo, 1) << 8 | qo.call(Yo, 2) << 16 | qo.call(Yo, 3) << 24) >>> 0, (qo.call(Yo, 4) | qo.call(Yo, 5) << 8 | qo.call(Yo, 6) << 16 | qo.call(Yo, 7) << 24) >>> 0);
+          return Yo === Vo ? Qo : new Go((qo.call(Yo, 0) | qo.call(Yo, 1) << 8 | qo.call(Yo, 2) << 16 | qo.call(Yo, 3) << 24) >>> 0, (qo.call(Yo, 4) | qo.call(Yo, 5) << 8 | qo.call(Yo, 6) << 16 | qo.call(Yo, 7) << 24) >>> 0);
         }, Go.prototype.toHash = function() {
           return String.fromCharCode(255 & this.lo, this.lo >>> 8 & 255, this.lo >>> 16 & 255, this.lo >>> 24, 255 & this.hi, this.hi >>> 8 & 255, this.hi >>> 16 & 255, this.hi >>> 24);
         }, Go.prototype.zzEncode = function() {
@@ -14103,14 +14131,14 @@ function requireSvga_min() {
         };
       }, function(Oo, No, jo) {
         function Go() {
-          Ho.call(this);
+          Qo.call(this);
         }
-        function Qo(qo, Yo, Xo) {
+        function Ho(qo, Yo, Xo) {
           qo.length < 40 ? Vo.utf8.write(qo, Yo, Xo) : Yo.utf8Write ? Yo.utf8Write(qo, Xo) : Yo.write(qo, Xo);
         }
         Oo.exports = Go;
-        var Ho = jo(9);
-        (Go.prototype = Object.create(Ho.prototype)).constructor = Go;
+        var Qo = jo(9);
+        (Go.prototype = Object.create(Qo.prototype)).constructor = Go;
         var Vo = jo(1);
         Go._configure = function() {
           Go.alloc = Vo._Buffer_allocUnsafe, Go.writeBytesBuffer = Vo.Buffer && Vo.Buffer.prototype instanceof Uint8Array && Vo.Buffer.prototype.set.name === "set" ? function(qo, Yo, Xo) {
@@ -14125,33 +14153,33 @@ function requireSvga_min() {
           return this.uint32(Yo), Yo && this._push(Go.writeBytesBuffer, Yo, qo), this;
         }, Go.prototype.string = function(qo) {
           var Yo = Vo.Buffer.byteLength(qo);
-          return this.uint32(Yo), Yo && this._push(Qo, Yo, qo), this;
+          return this.uint32(Yo), Yo && this._push(Ho, Yo, qo), this;
         }, Go._configure();
       }, function(Oo, No, jo) {
         function Go(Vo) {
-          Qo.call(this, Vo);
+          Ho.call(this, Vo);
         }
         Oo.exports = Go;
-        var Qo = jo(10);
-        (Go.prototype = Object.create(Qo.prototype)).constructor = Go;
-        var Ho = jo(1);
+        var Ho = jo(10);
+        (Go.prototype = Object.create(Ho.prototype)).constructor = Go;
+        var Qo = jo(1);
         Go._configure = function() {
-          Ho.Buffer && (Go.prototype._slice = Ho.Buffer.prototype.slice);
+          Qo.Buffer && (Go.prototype._slice = Qo.Buffer.prototype.slice);
         }, Go.prototype.string = function() {
           var Vo = this.uint32();
           return this.buf.utf8Slice ? this.buf.utf8Slice(this.pos, this.pos = Math.min(this.pos + Vo, this.len)) : this.buf.toString("utf-8", this.pos, this.pos = Math.min(this.pos + Vo, this.len));
         }, Go._configure();
       }, function(Oo, No, jo) {
-        function Go(Ho, Vo, qo) {
-          if (typeof Ho != "function") throw TypeError("rpcImpl must be a function");
-          Qo.EventEmitter.call(this), this.rpcImpl = Ho, this.requestDelimited = !!Vo, this.responseDelimited = !!qo;
+        function Go(Qo, Vo, qo) {
+          if (typeof Qo != "function") throw TypeError("rpcImpl must be a function");
+          Ho.EventEmitter.call(this), this.rpcImpl = Qo, this.requestDelimited = !!Vo, this.responseDelimited = !!qo;
         }
         Oo.exports = Go;
-        var Qo = jo(1);
-        (Go.prototype = Object.create(Qo.EventEmitter.prototype)).constructor = Go, Go.prototype.rpcCall = function Ho(Vo, qo, Yo, Xo, Fo) {
+        var Ho = jo(1);
+        (Go.prototype = Object.create(Ho.EventEmitter.prototype)).constructor = Go, Go.prototype.rpcCall = function Qo(Vo, qo, Yo, Xo, Fo) {
           if (!Xo) throw TypeError("request must be specified");
           var Wo = this;
-          if (!Fo) return Qo.asPromise(Ho, Wo, Vo, qo, Yo, Xo);
+          if (!Fo) return Ho.asPromise(Qo, Wo, Vo, qo, Yo, Xo);
           if (Wo.rpcImpl) try {
             return Wo.rpcImpl(Vo, qo[Wo.requestDelimited ? "encodeDelimited" : "encode"](Xo).finish(), (function(Ko, Jo) {
               if (Ko) return Wo.emit("error", Ko, Vo), Fo(Ko);
@@ -14173,11 +14201,11 @@ function requireSvga_min() {
           else setTimeout((function() {
             Fo(Error("already ended"));
           }), 0);
-        }, Go.prototype.end = function(Ho) {
-          return this.rpcImpl && (Ho || this.rpcImpl(null, null, null), this.rpcImpl = null, this.emit("end").off()), this;
+        }, Go.prototype.end = function(Qo) {
+          return this.rpcImpl && (Qo || this.rpcImpl(null, null, null), this.rpcImpl = null, this.emit("end").off()), this;
         };
       }, function(Oo, No, jo) {
-        function Go(Qo, Ho) {
+        function Go(Ho, Qo) {
           function Vo(Xo) {
             if (typeof Xo != "string") {
               var Fo = qo();
@@ -14206,24 +14234,24 @@ function requireSvga_min() {
             return Yo.push(Xo), Vo;
           }
           function qo(Xo) {
-            return "function " + (Xo || Ho || "") + "(" + (Qo && Qo.join(",") || "") + `){
+            return "function " + (Xo || Qo || "") + "(" + (Ho && Ho.join(",") || "") + `){
   ` + Yo.join(`
   `) + `
 }`;
           }
-          typeof Qo == "string" && (Ho = Qo, Qo = void 0);
+          typeof Ho == "string" && (Qo = Ho, Ho = void 0);
           var Yo = [];
           return Vo.toString = qo, Vo;
         }
         Oo.exports = Go, Go.verbose = !1;
       }, function(Oo, No, jo) {
         function Go(Vo, qo, Yo) {
-          return typeof qo == "function" ? (Yo = qo, qo = {}) : qo || (qo = {}), Yo ? !qo.xhr && Ho && Ho.readFile ? Ho.readFile(Vo, (function(Xo, Fo) {
+          return typeof qo == "function" ? (Yo = qo, qo = {}) : qo || (qo = {}), Yo ? !qo.xhr && Qo && Qo.readFile ? Qo.readFile(Vo, (function(Xo, Fo) {
             return Xo && typeof XMLHttpRequest < "u" ? Go.xhr(Vo, qo, Yo) : Xo ? Yo(Xo) : Yo(null, qo.binary ? Fo : Fo.toString("utf8"));
-          })) : Go.xhr(Vo, qo, Yo) : Qo(Go, this, Vo, qo);
+          })) : Go.xhr(Vo, qo, Yo) : Ho(Go, this, Vo, qo);
         }
         Oo.exports = Go;
-        var Qo = jo(17), Ho = jo(18)("fs");
+        var Ho = jo(17), Qo = jo(18)("fs");
         Go.xhr = function(Vo, qo, Yo) {
           var Xo = new XMLHttpRequest();
           Xo.onreadystatechange = function() {
@@ -14242,24 +14270,24 @@ function requireSvga_min() {
           }, qo.binary && ("overrideMimeType" in Xo && Xo.overrideMimeType("text/plain; charset=x-user-defined"), Xo.responseType = "arraybuffer"), Xo.open("GET", Vo), Xo.send();
         };
       }, function(Oo, No, jo) {
-        var Go = No, Qo = Go.isAbsolute = function(Vo) {
+        var Go = No, Ho = Go.isAbsolute = function(Vo) {
           return /^(?:\/|\w+:)/.test(Vo);
-        }, Ho = Go.normalize = function(Vo) {
-          var qo = (Vo = Vo.replace(/\\/g, "/").replace(/\/{2,}/g, "/")).split("/"), Yo = Qo(Vo), Xo = "";
+        }, Qo = Go.normalize = function(Vo) {
+          var qo = (Vo = Vo.replace(/\\/g, "/").replace(/\/{2,}/g, "/")).split("/"), Yo = Ho(Vo), Xo = "";
           Yo && (Xo = qo.shift() + "/");
           for (var Fo = 0; Fo < qo.length; ) qo[Fo] === ".." ? Fo > 0 && qo[Fo - 1] !== ".." ? qo.splice(--Fo, 2) : Yo ? qo.splice(Fo, 1) : ++Fo : qo[Fo] === "." ? qo.splice(Fo, 1) : ++Fo;
           return Xo + qo.join("/");
         };
         Go.resolve = function(Vo, qo, Yo) {
-          return Yo || (qo = Ho(qo)), Qo(qo) ? qo : (Yo || (Vo = Ho(Vo)), (Vo = Vo.replace(/(?:\/|^)[^/]+$/, "")).length ? Ho(Vo + "/" + qo) : qo);
+          return Yo || (qo = Qo(qo)), Ho(qo) ? qo : (Yo || (Vo = Qo(Vo)), (Vo = Vo.replace(/(?:\/|^)[^/]+$/, "")).length ? Qo(Vo + "/" + qo) : qo);
         };
       }, function(Oo, No, jo) {
         var Go = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(Fo) {
           return typeof Fo;
         } : function(Fo) {
           return Fo && typeof Symbol == "function" && Fo.constructor === Symbol && Fo !== Symbol.prototype ? "symbol" : typeof Fo;
-        }, Qo = jo(16).ProtoMovieEntity, Ho = jo(8).assign, Vo = jo(51), qo = {};
-        Ho(qo, Vo);
+        }, Ho = jo(16).ProtoMovieEntity, Qo = jo(8).assign, Vo = jo(51), qo = {};
+        Qo(qo, Vo);
         var Yo = function(Fo) {
           for (var Wo = [], Ko = 0; Ko < Fo.length; Ko += 32768) Wo.push(String.fromCharCode.apply(null, Fo.subarray(Ko, Ko + 32768)));
           return Wo.join("");
@@ -14293,7 +14321,7 @@ function requireSvga_min() {
           }
         }, load_viaProto: function(Fo, Wo, Ko) {
           try {
-            var Jo = qo.inflate(Fo), es = Qo.decode(Jo), rs = {};
+            var Jo = qo.inflate(Fo), es = Ho.decode(Jo), rs = {};
             Xo._loadImages(rs, void 0, es, (function() {
               es.ver = "2.0", Wo({ movie: es, images: rs });
             }));
@@ -14311,7 +14339,7 @@ function requireSvga_min() {
           }));
         }, _loadImages: function(Fo, Wo, Ko, Jo) {
           var es = this;
-          if ((Ko === void 0 ? "undefined" : Go(Ko)) === "object" && Ko.$type == Qo) {
+          if ((Ko === void 0 ? "undefined" : Go(Ko)) === "object" && Ko.$type == Ho) {
             var rs = !0;
             if (Wo) e: for (var is in Ko.images)
               switch ((function(Is) {
@@ -14367,46 +14395,46 @@ function requireSvga_min() {
           this.options = Vo.assign({ chunkSize: 16384, windowBits: 0, to: "" }, Jo || {});
           var es = this.options;
           es.raw && es.windowBits >= 0 && es.windowBits < 16 && (es.windowBits = -es.windowBits, es.windowBits === 0 && (es.windowBits = -15)), !(es.windowBits >= 0 && es.windowBits < 16) || Jo && Jo.windowBits || (es.windowBits += 32), es.windowBits > 15 && es.windowBits < 48 && (15 & es.windowBits) == 0 && (es.windowBits |= 15), this.err = 0, this.msg = "", this.ended = !1, this.chunks = [], this.strm = new Fo(), this.strm.avail_out = 0;
-          var rs = Ho.inflateInit2(this.strm, es.windowBits);
+          var rs = Qo.inflateInit2(this.strm, es.windowBits);
           if (rs !== Yo.Z_OK) throw new Error(Xo[rs]);
-          if (this.header = new Wo(), Ho.inflateGetHeader(this.strm, this.header), es.dictionary && (typeof es.dictionary == "string" ? es.dictionary = qo.string2buf(es.dictionary) : Ko.call(es.dictionary) === "[object ArrayBuffer]" && (es.dictionary = new Uint8Array(es.dictionary)), es.raw && (rs = Ho.inflateSetDictionary(this.strm, es.dictionary)) !== Yo.Z_OK)) throw new Error(Xo[rs]);
+          if (this.header = new Wo(), Qo.inflateGetHeader(this.strm, this.header), es.dictionary && (typeof es.dictionary == "string" ? es.dictionary = qo.string2buf(es.dictionary) : Ko.call(es.dictionary) === "[object ArrayBuffer]" && (es.dictionary = new Uint8Array(es.dictionary)), es.raw && (rs = Qo.inflateSetDictionary(this.strm, es.dictionary)) !== Yo.Z_OK)) throw new Error(Xo[rs]);
         }
-        function Qo(Jo, es) {
+        function Ho(Jo, es) {
           var rs = new Go(es);
           if (rs.push(Jo, !0), rs.err) throw rs.msg || Xo[rs.err];
           return rs.result;
         }
-        var Ho = jo(52), Vo = jo(8), qo = jo(57), Yo = jo(58), Xo = jo(59), Fo = jo(60), Wo = jo(61), Ko = Object.prototype.toString;
+        var Qo = jo(52), Vo = jo(8), qo = jo(57), Yo = jo(58), Xo = jo(59), Fo = jo(60), Wo = jo(61), Ko = Object.prototype.toString;
         Go.prototype.push = function(Jo, es) {
           var rs, is, As, os, us, as = this.strm, vs = this.options.chunkSize, Is = this.options.dictionary, hs = !1;
           if (this.ended) return !1;
           is = es === ~~es ? es : es === !0 ? Yo.Z_FINISH : Yo.Z_NO_FLUSH, typeof Jo == "string" ? as.input = qo.binstring2buf(Jo) : Ko.call(Jo) === "[object ArrayBuffer]" ? as.input = new Uint8Array(Jo) : as.input = Jo, as.next_in = 0, as.avail_in = as.input.length;
           do {
-            if (as.avail_out === 0 && (as.output = new Vo.Buf8(vs), as.next_out = 0, as.avail_out = vs), (rs = Ho.inflate(as, Yo.Z_NO_FLUSH)) === Yo.Z_NEED_DICT && Is && (rs = Ho.inflateSetDictionary(this.strm, Is)), rs === Yo.Z_BUF_ERROR && hs === !0 && (rs = Yo.Z_OK, hs = !1), rs !== Yo.Z_STREAM_END && rs !== Yo.Z_OK) return this.onEnd(rs), this.ended = !0, !1;
+            if (as.avail_out === 0 && (as.output = new Vo.Buf8(vs), as.next_out = 0, as.avail_out = vs), (rs = Qo.inflate(as, Yo.Z_NO_FLUSH)) === Yo.Z_NEED_DICT && Is && (rs = Qo.inflateSetDictionary(this.strm, Is)), rs === Yo.Z_BUF_ERROR && hs === !0 && (rs = Yo.Z_OK, hs = !1), rs !== Yo.Z_STREAM_END && rs !== Yo.Z_OK) return this.onEnd(rs), this.ended = !0, !1;
             as.next_out && (as.avail_out !== 0 && rs !== Yo.Z_STREAM_END && (as.avail_in !== 0 || is !== Yo.Z_FINISH && is !== Yo.Z_SYNC_FLUSH) || (this.options.to === "string" ? (As = qo.utf8border(as.output, as.next_out), os = as.next_out - As, us = qo.buf2string(as.output, As), as.next_out = os, as.avail_out = vs - os, os && Vo.arraySet(as.output, as.output, As, os, 0), this.onData(us)) : this.onData(Vo.shrinkBuf(as.output, as.next_out)))), as.avail_in === 0 && as.avail_out === 0 && (hs = !0);
           } while ((as.avail_in > 0 || as.avail_out === 0) && rs !== Yo.Z_STREAM_END);
-          return rs === Yo.Z_STREAM_END && (is = Yo.Z_FINISH), is === Yo.Z_FINISH ? (rs = Ho.inflateEnd(this.strm), this.onEnd(rs), this.ended = !0, rs === Yo.Z_OK) : is !== Yo.Z_SYNC_FLUSH || (this.onEnd(Yo.Z_OK), as.avail_out = 0, !0);
+          return rs === Yo.Z_STREAM_END && (is = Yo.Z_FINISH), is === Yo.Z_FINISH ? (rs = Qo.inflateEnd(this.strm), this.onEnd(rs), this.ended = !0, rs === Yo.Z_OK) : is !== Yo.Z_SYNC_FLUSH || (this.onEnd(Yo.Z_OK), as.avail_out = 0, !0);
         }, Go.prototype.onData = function(Jo) {
           this.chunks.push(Jo);
         }, Go.prototype.onEnd = function(Jo) {
           Jo === Yo.Z_OK && (this.options.to === "string" ? this.result = this.chunks.join("") : this.result = Vo.flattenChunks(this.chunks)), this.chunks = [], this.err = Jo, this.msg = this.strm.msg;
-        }, No.Inflate = Go, No.inflate = Qo, No.inflateRaw = function(Jo, es) {
-          return (es = es || {}).raw = !0, Qo(Jo, es);
-        }, No.ungzip = Qo;
+        }, No.Inflate = Go, No.inflate = Ho, No.inflateRaw = function(Jo, es) {
+          return (es = es || {}).raw = !0, Ho(Jo, es);
+        }, No.ungzip = Ho;
       }, function(Oo, No, jo) {
         function Go(Ts) {
           return (Ts >>> 24 & 255) + (Ts >>> 8 & 65280) + ((65280 & Ts) << 8) + ((255 & Ts) << 24);
         }
-        function Qo() {
+        function Ho() {
           this.mode = 0, this.last = !1, this.wrap = 0, this.havedict = !1, this.flags = 0, this.dmax = 0, this.check = 0, this.total = 0, this.head = null, this.wbits = 0, this.wsize = 0, this.whave = 0, this.wnext = 0, this.window = null, this.hold = 0, this.bits = 0, this.length = 0, this.offset = 0, this.extra = 0, this.lencode = null, this.distcode = null, this.lenbits = 0, this.distbits = 0, this.ncode = 0, this.nlen = 0, this.ndist = 0, this.have = 0, this.next = null, this.lens = new Jo.Buf16(320), this.work = new Jo.Buf16(288), this.lendyn = null, this.distdyn = null, this.sane = 0, this.back = 0, this.was = 0;
         }
-        function Ho(Ts) {
+        function Qo(Ts) {
           var qs;
           return Ts && Ts.state ? (qs = Ts.state, Ts.total_in = Ts.total_out = qs.total = 0, Ts.msg = "", qs.wrap && (Ts.adler = 1 & qs.wrap), qs.mode = ks, qs.last = 0, qs.havedict = 0, qs.dmax = 32768, qs.head = null, qs.hold = 0, qs.bits = 0, qs.lencode = qs.lendyn = new Jo.Buf32(bA), qs.distcode = qs.distdyn = new Jo.Buf32(HA), qs.sane = 1, qs.back = -1, ys) : Es;
         }
         function Vo(Ts) {
           var qs;
-          return Ts && Ts.state ? ((qs = Ts.state).wsize = 0, qs.whave = 0, qs.wnext = 0, Ho(Ts)) : Es;
+          return Ts && Ts.state ? ((qs = Ts.state).wsize = 0, qs.whave = 0, qs.wnext = 0, Qo(Ts)) : Es;
         }
         function qo(Ts, qs) {
           var ls, $s;
@@ -14414,7 +14442,7 @@ function requireSvga_min() {
         }
         function Yo(Ts, qs) {
           var ls, $s;
-          return Ts ? ($s = new Qo(), Ts.state = $s, $s.window = null, (ls = qo(Ts, qs)) !== ys && (Ts.state = null), ls) : Es;
+          return Ts ? ($s = new Ho(), Ts.state = $s, $s.window = null, (ls = qo(Ts, qs)) !== ys && (Ts.state = null), ls) : Es;
         }
         function Xo(Ts) {
           if (_a) {
@@ -14432,25 +14460,25 @@ function requireSvga_min() {
           var Ca, Ws = Ts.state;
           return Ws.window === null && (Ws.wsize = 1 << Ws.wbits, Ws.wnext = 0, Ws.whave = 0, Ws.window = new Jo.Buf8(Ws.wsize)), $s >= Ws.wsize ? (Jo.arraySet(Ws.window, qs, ls - Ws.wsize, Ws.wsize, 0), Ws.wnext = 0, Ws.whave = Ws.wsize) : ((Ca = Ws.wsize - Ws.wnext) > $s && (Ca = $s), Jo.arraySet(Ws.window, qs, ls - $s, Ca, Ws.wnext), ($s -= Ca) ? (Jo.arraySet(Ws.window, qs, ls - $s, $s, 0), Ws.wnext = $s, Ws.whave = Ws.wsize) : (Ws.wnext += Ca, Ws.wnext === Ws.wsize && (Ws.wnext = 0), Ws.whave < Ws.wsize && (Ws.whave += Ca))), 0;
         }
-        var Wo, Ko, Jo = jo(8), es = jo(53), rs = jo(54), is = jo(55), As = jo(56), os = 0, us = 1, as = 2, vs = 4, Is = 5, hs = 6, ys = 0, Ps = 1, ds = 2, Es = -2, Os = -3, ws = -4, zs = -5, Ys = 8, ks = 1, _s = 2, Js = 3, na = 4, ca = 5, Hs = 6, Ds = 7, Ms = 8, Bs = 9, ha = 10, La = 11, fa = 12, Ra = 13, Ya = 14, pA = 15, aA = 16, za = 17, Ma = 18, AA = 19, Fa = 20, Wa = 21, nA = 22, EA = 23, Ha = 24, Oa = 25, iA = 26, Za = 27, Ka = 28, fA = 29, sa = 30, Ja = 31, NA = 32, bA = 852, HA = 592, uA = 15, _a = !0;
-        No.inflateReset = Vo, No.inflateReset2 = qo, No.inflateResetKeep = Ho, No.inflateInit = function(Ts) {
+        var Wo, Ko, Jo = jo(8), es = jo(53), rs = jo(54), is = jo(55), As = jo(56), os = 0, us = 1, as = 2, vs = 4, Is = 5, hs = 6, ys = 0, Ps = 1, ds = 2, Es = -2, Os = -3, ws = -4, zs = -5, Ys = 8, ks = 1, _s = 2, Js = 3, na = 4, ca = 5, Hs = 6, Ds = 7, js = 8, Bs = 9, ha = 10, La = 11, fa = 12, Ra = 13, Ya = 14, pA = 15, aA = 16, za = 17, ja = 18, AA = 19, Fa = 20, Wa = 21, nA = 22, EA = 23, Ha = 24, Oa = 25, iA = 26, Za = 27, Ka = 28, fA = 29, sa = 30, Ja = 31, NA = 32, bA = 852, HA = 592, uA = 15, _a = !0;
+        No.inflateReset = Vo, No.inflateReset2 = qo, No.inflateResetKeep = Qo, No.inflateInit = function(Ts) {
           return Yo(Ts, uA);
         }, No.inflateInit2 = Yo, No.inflate = function(Ts, qs) {
-          var ls, $s, Ca, Ws, Da, Vs, ua, Gs, js, pa, ta, ea, $a, jA, ga, Zs, Ea, Ks, Ua, ka, ya, Ba, eA, Va, Ta = 0, xa = new Jo.Buf8(4), cf = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
+          var ls, $s, Ca, Ws, Da, Vs, ua, Gs, Ms, pa, ta, ea, $a, MA, ga, Zs, Ea, Ks, Ua, ka, ya, Ba, eA, Va, Ta = 0, xa = new Jo.Buf8(4), cf = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15];
           if (!Ts || !Ts.state || !Ts.output || !Ts.input && Ts.avail_in !== 0) return Es;
-          (ls = Ts.state).mode === fa && (ls.mode = Ra), Da = Ts.next_out, Ca = Ts.output, ua = Ts.avail_out, Ws = Ts.next_in, $s = Ts.input, Vs = Ts.avail_in, Gs = ls.hold, js = ls.bits, pa = Vs, ta = ua, Ba = ys;
+          (ls = Ts.state).mode === fa && (ls.mode = Ra), Da = Ts.next_out, Ca = Ts.output, ua = Ts.avail_out, Ws = Ts.next_in, $s = Ts.input, Vs = Ts.avail_in, Gs = ls.hold, Ms = ls.bits, pa = Vs, ta = ua, Ba = ys;
           e: for (; ; ) switch (ls.mode) {
             case ks:
               if (ls.wrap === 0) {
                 ls.mode = Ra;
                 break;
               }
-              for (; js < 16; ) {
+              for (; Ms < 16; ) {
                 if (Vs === 0) break e;
-                Vs--, Gs += $s[Ws++] << js, js += 8;
+                Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
               }
               if (2 & ls.wrap && Gs === 35615) {
-                ls.check = 0, xa[0] = 255 & Gs, xa[1] = Gs >>> 8 & 255, ls.check = rs(ls.check, xa, 2, 0), Gs = 0, js = 0, ls.mode = _s;
+                ls.check = 0, xa[0] = 255 & Gs, xa[1] = Gs >>> 8 & 255, ls.check = rs(ls.check, xa, 2, 0), Gs = 0, Ms = 0, ls.mode = _s;
                 break;
               }
               if (ls.flags = 0, ls.head && (ls.head.done = !1), !(1 & ls.wrap) || (((255 & Gs) << 8) + (Gs >> 8)) % 31) {
@@ -14461,17 +14489,17 @@ function requireSvga_min() {
                 Ts.msg = "unknown compression method", ls.mode = sa;
                 break;
               }
-              if (js -= 4, ya = 8 + (15 & (Gs >>>= 4)), ls.wbits === 0) ls.wbits = ya;
+              if (Ms -= 4, ya = 8 + (15 & (Gs >>>= 4)), ls.wbits === 0) ls.wbits = ya;
               else if (ya > ls.wbits) {
                 Ts.msg = "invalid window size", ls.mode = sa;
                 break;
               }
-              ls.dmax = 1 << ya, Ts.adler = ls.check = 1, ls.mode = 512 & Gs ? ha : fa, Gs = 0, js = 0;
+              ls.dmax = 1 << ya, Ts.adler = ls.check = 1, ls.mode = 512 & Gs ? ha : fa, Gs = 0, Ms = 0;
               break;
             case _s:
-              for (; js < 16; ) {
+              for (; Ms < 16; ) {
                 if (Vs === 0) break e;
-                Vs--, Gs += $s[Ws++] << js, js += 8;
+                Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
               }
               if (ls.flags = Gs, (255 & ls.flags) !== Ys) {
                 Ts.msg = "unknown compression method", ls.mode = sa;
@@ -14481,26 +14509,26 @@ function requireSvga_min() {
                 Ts.msg = "unknown header flags set", ls.mode = sa;
                 break;
               }
-              ls.head && (ls.head.text = Gs >> 8 & 1), 512 & ls.flags && (xa[0] = 255 & Gs, xa[1] = Gs >>> 8 & 255, ls.check = rs(ls.check, xa, 2, 0)), Gs = 0, js = 0, ls.mode = Js;
+              ls.head && (ls.head.text = Gs >> 8 & 1), 512 & ls.flags && (xa[0] = 255 & Gs, xa[1] = Gs >>> 8 & 255, ls.check = rs(ls.check, xa, 2, 0)), Gs = 0, Ms = 0, ls.mode = Js;
             case Js:
-              for (; js < 32; ) {
+              for (; Ms < 32; ) {
                 if (Vs === 0) break e;
-                Vs--, Gs += $s[Ws++] << js, js += 8;
+                Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
               }
-              ls.head && (ls.head.time = Gs), 512 & ls.flags && (xa[0] = 255 & Gs, xa[1] = Gs >>> 8 & 255, xa[2] = Gs >>> 16 & 255, xa[3] = Gs >>> 24 & 255, ls.check = rs(ls.check, xa, 4, 0)), Gs = 0, js = 0, ls.mode = na;
+              ls.head && (ls.head.time = Gs), 512 & ls.flags && (xa[0] = 255 & Gs, xa[1] = Gs >>> 8 & 255, xa[2] = Gs >>> 16 & 255, xa[3] = Gs >>> 24 & 255, ls.check = rs(ls.check, xa, 4, 0)), Gs = 0, Ms = 0, ls.mode = na;
             case na:
-              for (; js < 16; ) {
+              for (; Ms < 16; ) {
                 if (Vs === 0) break e;
-                Vs--, Gs += $s[Ws++] << js, js += 8;
+                Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
               }
-              ls.head && (ls.head.xflags = 255 & Gs, ls.head.os = Gs >> 8), 512 & ls.flags && (xa[0] = 255 & Gs, xa[1] = Gs >>> 8 & 255, ls.check = rs(ls.check, xa, 2, 0)), Gs = 0, js = 0, ls.mode = ca;
+              ls.head && (ls.head.xflags = 255 & Gs, ls.head.os = Gs >> 8), 512 & ls.flags && (xa[0] = 255 & Gs, xa[1] = Gs >>> 8 & 255, ls.check = rs(ls.check, xa, 2, 0)), Gs = 0, Ms = 0, ls.mode = ca;
             case ca:
               if (1024 & ls.flags) {
-                for (; js < 16; ) {
+                for (; Ms < 16; ) {
                   if (Vs === 0) break e;
-                  Vs--, Gs += $s[Ws++] << js, js += 8;
+                  Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                 }
-                ls.length = Gs, ls.head && (ls.head.extra_len = Gs), 512 & ls.flags && (xa[0] = 255 & Gs, xa[1] = Gs >>> 8 & 255, ls.check = rs(ls.check, xa, 2, 0)), Gs = 0, js = 0;
+                ls.length = Gs, ls.head && (ls.head.extra_len = Gs), 512 & ls.flags && (xa[0] = 255 & Gs, xa[1] = Gs >>> 8 & 255, ls.check = rs(ls.check, xa, 2, 0)), Gs = 0, Ms = 0;
               } else ls.head && (ls.head.extra = null);
               ls.mode = Hs;
             case Hs:
@@ -14515,8 +14543,8 @@ function requireSvga_min() {
                 while (ya && ea < Vs);
                 if (512 & ls.flags && (ls.check = rs(ls.check, $s, ea, Ws)), Vs -= ea, Ws += ea, ya) break e;
               } else ls.head && (ls.head.name = null);
-              ls.length = 0, ls.mode = Ms;
-            case Ms:
+              ls.length = 0, ls.mode = js;
+            case js:
               if (4096 & ls.flags) {
                 if (Vs === 0) break e;
                 ea = 0;
@@ -14528,45 +14556,45 @@ function requireSvga_min() {
               ls.mode = Bs;
             case Bs:
               if (512 & ls.flags) {
-                for (; js < 16; ) {
+                for (; Ms < 16; ) {
                   if (Vs === 0) break e;
-                  Vs--, Gs += $s[Ws++] << js, js += 8;
+                  Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                 }
                 if (Gs !== (65535 & ls.check)) {
                   Ts.msg = "header crc mismatch", ls.mode = sa;
                   break;
                 }
-                Gs = 0, js = 0;
+                Gs = 0, Ms = 0;
               }
               ls.head && (ls.head.hcrc = ls.flags >> 9 & 1, ls.head.done = !0), Ts.adler = ls.check = 0, ls.mode = fa;
               break;
             case ha:
-              for (; js < 32; ) {
+              for (; Ms < 32; ) {
                 if (Vs === 0) break e;
-                Vs--, Gs += $s[Ws++] << js, js += 8;
+                Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
               }
-              Ts.adler = ls.check = Go(Gs), Gs = 0, js = 0, ls.mode = La;
+              Ts.adler = ls.check = Go(Gs), Gs = 0, Ms = 0, ls.mode = La;
             case La:
-              if (ls.havedict === 0) return Ts.next_out = Da, Ts.avail_out = ua, Ts.next_in = Ws, Ts.avail_in = Vs, ls.hold = Gs, ls.bits = js, ds;
+              if (ls.havedict === 0) return Ts.next_out = Da, Ts.avail_out = ua, Ts.next_in = Ws, Ts.avail_in = Vs, ls.hold = Gs, ls.bits = Ms, ds;
               Ts.adler = ls.check = 1, ls.mode = fa;
             case fa:
               if (qs === Is || qs === hs) break e;
             case Ra:
               if (ls.last) {
-                Gs >>>= 7 & js, js -= 7 & js, ls.mode = Za;
+                Gs >>>= 7 & Ms, Ms -= 7 & Ms, ls.mode = Za;
                 break;
               }
-              for (; js < 3; ) {
+              for (; Ms < 3; ) {
                 if (Vs === 0) break e;
-                Vs--, Gs += $s[Ws++] << js, js += 8;
+                Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
               }
-              switch (ls.last = 1 & Gs, js -= 1, 3 & (Gs >>>= 1)) {
+              switch (ls.last = 1 & Gs, Ms -= 1, 3 & (Gs >>>= 1)) {
                 case 0:
                   ls.mode = Ya;
                   break;
                 case 1:
                   if (Xo(ls), ls.mode = Fa, qs === hs) {
-                    Gs >>>= 2, js -= 2;
+                    Gs >>>= 2, Ms -= 2;
                     break e;
                   }
                   break;
@@ -14576,18 +14604,18 @@ function requireSvga_min() {
                 case 3:
                   Ts.msg = "invalid block type", ls.mode = sa;
               }
-              Gs >>>= 2, js -= 2;
+              Gs >>>= 2, Ms -= 2;
               break;
             case Ya:
-              for (Gs >>>= 7 & js, js -= 7 & js; js < 32; ) {
+              for (Gs >>>= 7 & Ms, Ms -= 7 & Ms; Ms < 32; ) {
                 if (Vs === 0) break e;
-                Vs--, Gs += $s[Ws++] << js, js += 8;
+                Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
               }
               if ((65535 & Gs) != (Gs >>> 16 ^ 65535)) {
                 Ts.msg = "invalid stored block lengths", ls.mode = sa;
                 break;
               }
-              if (ls.length = 65535 & Gs, Gs = 0, js = 0, ls.mode = pA, qs === hs) break e;
+              if (ls.length = 65535 & Gs, Gs = 0, Ms = 0, ls.mode = pA, qs === hs) break e;
             case pA:
               ls.mode = aA;
             case aA:
@@ -14599,22 +14627,22 @@ function requireSvga_min() {
               ls.mode = fa;
               break;
             case za:
-              for (; js < 14; ) {
+              for (; Ms < 14; ) {
                 if (Vs === 0) break e;
-                Vs--, Gs += $s[Ws++] << js, js += 8;
+                Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
               }
-              if (ls.nlen = 257 + (31 & Gs), Gs >>>= 5, js -= 5, ls.ndist = 1 + (31 & Gs), Gs >>>= 5, js -= 5, ls.ncode = 4 + (15 & Gs), Gs >>>= 4, js -= 4, ls.nlen > 286 || ls.ndist > 30) {
+              if (ls.nlen = 257 + (31 & Gs), Gs >>>= 5, Ms -= 5, ls.ndist = 1 + (31 & Gs), Gs >>>= 5, Ms -= 5, ls.ncode = 4 + (15 & Gs), Gs >>>= 4, Ms -= 4, ls.nlen > 286 || ls.ndist > 30) {
                 Ts.msg = "too many length or distance symbols", ls.mode = sa;
                 break;
               }
-              ls.have = 0, ls.mode = Ma;
-            case Ma:
+              ls.have = 0, ls.mode = ja;
+            case ja:
               for (; ls.have < ls.ncode; ) {
-                for (; js < 3; ) {
+                for (; Ms < 3; ) {
                   if (Vs === 0) break e;
-                  Vs--, Gs += $s[Ws++] << js, js += 8;
+                  Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                 }
-                ls.lens[cf[ls.have++]] = 7 & Gs, Gs >>>= 3, js -= 3;
+                ls.lens[cf[ls.have++]] = 7 & Gs, Gs >>>= 3, Ms -= 3;
               }
               for (; ls.have < 19; ) ls.lens[cf[ls.have++]] = 0;
               if (ls.lencode = ls.lendyn, ls.lenbits = 7, eA = { bits: ls.lenbits }, Ba = As(os, ls.lens, 0, 19, ls.lencode, 0, ls.work, eA), ls.lenbits = eA.bits, Ba) {
@@ -14624,34 +14652,34 @@ function requireSvga_min() {
               ls.have = 0, ls.mode = AA;
             case AA:
               for (; ls.have < ls.nlen + ls.ndist; ) {
-                for (; Zs = (Ta = ls.lencode[Gs & (1 << ls.lenbits) - 1]) >>> 16 & 255, Ea = 65535 & Ta, !((ga = Ta >>> 24) <= js); ) {
+                for (; Zs = (Ta = ls.lencode[Gs & (1 << ls.lenbits) - 1]) >>> 16 & 255, Ea = 65535 & Ta, !((ga = Ta >>> 24) <= Ms); ) {
                   if (Vs === 0) break e;
-                  Vs--, Gs += $s[Ws++] << js, js += 8;
+                  Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                 }
-                if (Ea < 16) Gs >>>= ga, js -= ga, ls.lens[ls.have++] = Ea;
+                if (Ea < 16) Gs >>>= ga, Ms -= ga, ls.lens[ls.have++] = Ea;
                 else {
                   if (Ea === 16) {
-                    for (Va = ga + 2; js < Va; ) {
+                    for (Va = ga + 2; Ms < Va; ) {
                       if (Vs === 0) break e;
-                      Vs--, Gs += $s[Ws++] << js, js += 8;
+                      Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                     }
-                    if (Gs >>>= ga, js -= ga, ls.have === 0) {
+                    if (Gs >>>= ga, Ms -= ga, ls.have === 0) {
                       Ts.msg = "invalid bit length repeat", ls.mode = sa;
                       break;
                     }
-                    ya = ls.lens[ls.have - 1], ea = 3 + (3 & Gs), Gs >>>= 2, js -= 2;
+                    ya = ls.lens[ls.have - 1], ea = 3 + (3 & Gs), Gs >>>= 2, Ms -= 2;
                   } else if (Ea === 17) {
-                    for (Va = ga + 3; js < Va; ) {
+                    for (Va = ga + 3; Ms < Va; ) {
                       if (Vs === 0) break e;
-                      Vs--, Gs += $s[Ws++] << js, js += 8;
+                      Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                     }
-                    js -= ga, ya = 0, ea = 3 + (7 & (Gs >>>= ga)), Gs >>>= 3, js -= 3;
+                    Ms -= ga, ya = 0, ea = 3 + (7 & (Gs >>>= ga)), Gs >>>= 3, Ms -= 3;
                   } else {
-                    for (Va = ga + 7; js < Va; ) {
+                    for (Va = ga + 7; Ms < Va; ) {
                       if (Vs === 0) break e;
-                      Vs--, Gs += $s[Ws++] << js, js += 8;
+                      Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                     }
-                    js -= ga, ya = 0, ea = 11 + (127 & (Gs >>>= ga)), Gs >>>= 7, js -= 7;
+                    Ms -= ga, ya = 0, ea = 11 + (127 & (Gs >>>= ga)), Gs >>>= 7, Ms -= 7;
                   }
                   if (ls.have + ea > ls.nlen + ls.ndist) {
                     Ts.msg = "invalid bit length repeat", ls.mode = sa;
@@ -14678,21 +14706,21 @@ function requireSvga_min() {
               ls.mode = Wa;
             case Wa:
               if (Vs >= 6 && ua >= 258) {
-                Ts.next_out = Da, Ts.avail_out = ua, Ts.next_in = Ws, Ts.avail_in = Vs, ls.hold = Gs, ls.bits = js, is(Ts, ta), Da = Ts.next_out, Ca = Ts.output, ua = Ts.avail_out, Ws = Ts.next_in, $s = Ts.input, Vs = Ts.avail_in, Gs = ls.hold, js = ls.bits, ls.mode === fa && (ls.back = -1);
+                Ts.next_out = Da, Ts.avail_out = ua, Ts.next_in = Ws, Ts.avail_in = Vs, ls.hold = Gs, ls.bits = Ms, is(Ts, ta), Da = Ts.next_out, Ca = Ts.output, ua = Ts.avail_out, Ws = Ts.next_in, $s = Ts.input, Vs = Ts.avail_in, Gs = ls.hold, Ms = ls.bits, ls.mode === fa && (ls.back = -1);
                 break;
               }
-              for (ls.back = 0; Zs = (Ta = ls.lencode[Gs & (1 << ls.lenbits) - 1]) >>> 16 & 255, Ea = 65535 & Ta, !((ga = Ta >>> 24) <= js); ) {
+              for (ls.back = 0; Zs = (Ta = ls.lencode[Gs & (1 << ls.lenbits) - 1]) >>> 16 & 255, Ea = 65535 & Ta, !((ga = Ta >>> 24) <= Ms); ) {
                 if (Vs === 0) break e;
-                Vs--, Gs += $s[Ws++] << js, js += 8;
+                Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
               }
               if (Zs && (240 & Zs) == 0) {
-                for (Ks = ga, Ua = Zs, ka = Ea; Zs = (Ta = ls.lencode[ka + ((Gs & (1 << Ks + Ua) - 1) >> Ks)]) >>> 16 & 255, Ea = 65535 & Ta, !(Ks + (ga = Ta >>> 24) <= js); ) {
+                for (Ks = ga, Ua = Zs, ka = Ea; Zs = (Ta = ls.lencode[ka + ((Gs & (1 << Ks + Ua) - 1) >> Ks)]) >>> 16 & 255, Ea = 65535 & Ta, !(Ks + (ga = Ta >>> 24) <= Ms); ) {
                   if (Vs === 0) break e;
-                  Vs--, Gs += $s[Ws++] << js, js += 8;
+                  Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                 }
-                Gs >>>= Ks, js -= Ks, ls.back += Ks;
+                Gs >>>= Ks, Ms -= Ks, ls.back += Ks;
               }
-              if (Gs >>>= ga, js -= ga, ls.back += ga, ls.length = Ea, Zs === 0) {
+              if (Gs >>>= ga, Ms -= ga, ls.back += ga, ls.length = Ea, Zs === 0) {
                 ls.mode = iA;
                 break;
               }
@@ -14707,37 +14735,37 @@ function requireSvga_min() {
               ls.extra = 15 & Zs, ls.mode = nA;
             case nA:
               if (ls.extra) {
-                for (Va = ls.extra; js < Va; ) {
+                for (Va = ls.extra; Ms < Va; ) {
                   if (Vs === 0) break e;
-                  Vs--, Gs += $s[Ws++] << js, js += 8;
+                  Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                 }
-                ls.length += Gs & (1 << ls.extra) - 1, Gs >>>= ls.extra, js -= ls.extra, ls.back += ls.extra;
+                ls.length += Gs & (1 << ls.extra) - 1, Gs >>>= ls.extra, Ms -= ls.extra, ls.back += ls.extra;
               }
               ls.was = ls.length, ls.mode = EA;
             case EA:
-              for (; Zs = (Ta = ls.distcode[Gs & (1 << ls.distbits) - 1]) >>> 16 & 255, Ea = 65535 & Ta, !((ga = Ta >>> 24) <= js); ) {
+              for (; Zs = (Ta = ls.distcode[Gs & (1 << ls.distbits) - 1]) >>> 16 & 255, Ea = 65535 & Ta, !((ga = Ta >>> 24) <= Ms); ) {
                 if (Vs === 0) break e;
-                Vs--, Gs += $s[Ws++] << js, js += 8;
+                Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
               }
               if ((240 & Zs) == 0) {
-                for (Ks = ga, Ua = Zs, ka = Ea; Zs = (Ta = ls.distcode[ka + ((Gs & (1 << Ks + Ua) - 1) >> Ks)]) >>> 16 & 255, Ea = 65535 & Ta, !(Ks + (ga = Ta >>> 24) <= js); ) {
+                for (Ks = ga, Ua = Zs, ka = Ea; Zs = (Ta = ls.distcode[ka + ((Gs & (1 << Ks + Ua) - 1) >> Ks)]) >>> 16 & 255, Ea = 65535 & Ta, !(Ks + (ga = Ta >>> 24) <= Ms); ) {
                   if (Vs === 0) break e;
-                  Vs--, Gs += $s[Ws++] << js, js += 8;
+                  Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                 }
-                Gs >>>= Ks, js -= Ks, ls.back += Ks;
+                Gs >>>= Ks, Ms -= Ks, ls.back += Ks;
               }
-              if (Gs >>>= ga, js -= ga, ls.back += ga, 64 & Zs) {
+              if (Gs >>>= ga, Ms -= ga, ls.back += ga, 64 & Zs) {
                 Ts.msg = "invalid distance code", ls.mode = sa;
                 break;
               }
               ls.offset = Ea, ls.extra = 15 & Zs, ls.mode = Ha;
             case Ha:
               if (ls.extra) {
-                for (Va = ls.extra; js < Va; ) {
+                for (Va = ls.extra; Ms < Va; ) {
                   if (Vs === 0) break e;
-                  Vs--, Gs += $s[Ws++] << js, js += 8;
+                  Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                 }
-                ls.offset += Gs & (1 << ls.extra) - 1, Gs >>>= ls.extra, js -= ls.extra, ls.back += ls.extra;
+                ls.offset += Gs & (1 << ls.extra) - 1, Gs >>>= ls.extra, Ms -= ls.extra, ls.back += ls.extra;
               }
               if (ls.offset > ls.dmax) {
                 Ts.msg = "invalid distance too far back", ls.mode = sa;
@@ -14751,11 +14779,11 @@ function requireSvga_min() {
                   Ts.msg = "invalid distance too far back", ls.mode = sa;
                   break;
                 }
-                ea > ls.wnext ? (ea -= ls.wnext, $a = ls.wsize - ea) : $a = ls.wnext - ea, ea > ls.length && (ea = ls.length), jA = ls.window;
-              } else jA = Ca, $a = Da - ls.offset, ea = ls.length;
+                ea > ls.wnext ? (ea -= ls.wnext, $a = ls.wsize - ea) : $a = ls.wnext - ea, ea > ls.length && (ea = ls.length), MA = ls.window;
+              } else MA = Ca, $a = Da - ls.offset, ea = ls.length;
               ea > ua && (ea = ua), ua -= ea, ls.length -= ea;
               do
-                Ca[Da++] = jA[$a++];
+                Ca[Da++] = MA[$a++];
               while (--ea);
               ls.length === 0 && (ls.mode = Wa);
               break;
@@ -14765,28 +14793,28 @@ function requireSvga_min() {
               break;
             case Za:
               if (ls.wrap) {
-                for (; js < 32; ) {
+                for (; Ms < 32; ) {
                   if (Vs === 0) break e;
-                  Vs--, Gs |= $s[Ws++] << js, js += 8;
+                  Vs--, Gs |= $s[Ws++] << Ms, Ms += 8;
                 }
                 if (ta -= ua, Ts.total_out += ta, ls.total += ta, ta && (Ts.adler = ls.check = ls.flags ? rs(ls.check, Ca, ta, Da - ta) : es(ls.check, Ca, ta, Da - ta)), ta = ua, (ls.flags ? Gs : Go(Gs)) !== ls.check) {
                   Ts.msg = "incorrect data check", ls.mode = sa;
                   break;
                 }
-                Gs = 0, js = 0;
+                Gs = 0, Ms = 0;
               }
               ls.mode = Ka;
             case Ka:
               if (ls.wrap && ls.flags) {
-                for (; js < 32; ) {
+                for (; Ms < 32; ) {
                   if (Vs === 0) break e;
-                  Vs--, Gs += $s[Ws++] << js, js += 8;
+                  Vs--, Gs += $s[Ws++] << Ms, Ms += 8;
                 }
                 if (Gs !== (4294967295 & ls.total)) {
                   Ts.msg = "incorrect length check", ls.mode = sa;
                   break;
                 }
-                Gs = 0, js = 0;
+                Gs = 0, Ms = 0;
               }
               ls.mode = fA;
             case fA:
@@ -14801,7 +14829,7 @@ function requireSvga_min() {
             default:
               return Es;
           }
-          return Ts.next_out = Da, Ts.avail_out = ua, Ts.next_in = Ws, Ts.avail_in = Vs, ls.hold = Gs, ls.bits = js, (ls.wsize || ta !== Ts.avail_out && ls.mode < sa && (ls.mode < Za || qs !== vs)) && Fo(Ts, Ts.output, Ts.next_out, ta - Ts.avail_out) ? (ls.mode = Ja, ws) : (pa -= Ts.avail_in, ta -= Ts.avail_out, Ts.total_in += pa, Ts.total_out += ta, ls.total += ta, ls.wrap && ta && (Ts.adler = ls.check = ls.flags ? rs(ls.check, Ca, ta, Ts.next_out - ta) : es(ls.check, Ca, ta, Ts.next_out - ta)), Ts.data_type = ls.bits + (ls.last ? 64 : 0) + (ls.mode === fa ? 128 : 0) + (ls.mode === Fa || ls.mode === pA ? 256 : 0), (pa === 0 && ta === 0 || qs === vs) && Ba === ys && (Ba = zs), Ba);
+          return Ts.next_out = Da, Ts.avail_out = ua, Ts.next_in = Ws, Ts.avail_in = Vs, ls.hold = Gs, ls.bits = Ms, (ls.wsize || ta !== Ts.avail_out && ls.mode < sa && (ls.mode < Za || qs !== vs)) && Fo(Ts, Ts.output, Ts.next_out, ta - Ts.avail_out) ? (ls.mode = Ja, ws) : (pa -= Ts.avail_in, ta -= Ts.avail_out, Ts.total_in += pa, Ts.total_out += ta, ls.total += ta, ls.wrap && ta && (Ts.adler = ls.check = ls.flags ? rs(ls.check, Ca, ta, Ts.next_out - ta) : es(ls.check, Ca, ta, Ts.next_out - ta)), Ts.data_type = ls.bits + (ls.last ? 64 : 0) + (ls.mode === fa ? 128 : 0) + (ls.mode === Fa || ls.mode === pA ? 256 : 0), (pa === 0 && ta === 0 || qs === vs) && Ba === ys && (Ba = zs), Ba);
         }, No.inflateEnd = function(Ts) {
           if (!Ts || !Ts.state) return Es;
           var qs = Ts.state;
@@ -14814,11 +14842,11 @@ function requireSvga_min() {
           return Ts && Ts.state ? (ls = Ts.state).wrap !== 0 && ls.mode !== La ? Es : ls.mode === La && es(1, qs, $s, 0) !== ls.check ? Os : Fo(Ts, qs, $s, $s) ? (ls.mode = Ja, ws) : (ls.havedict = 1, ys) : Es;
         }, No.inflateInfo = "pako inflate (from Nodeca project)";
       }, function(Oo, No, jo) {
-        Oo.exports = function(Go, Qo, Ho, Vo) {
-          for (var qo = 65535 & Go | 0, Yo = Go >>> 16 & 65535 | 0, Xo = 0; Ho !== 0; ) {
-            Ho -= Xo = Ho > 2e3 ? 2e3 : Ho;
+        Oo.exports = function(Go, Ho, Qo, Vo) {
+          for (var qo = 65535 & Go | 0, Yo = Go >>> 16 & 65535 | 0, Xo = 0; Qo !== 0; ) {
+            Qo -= Xo = Qo > 2e3 ? 2e3 : Qo;
             do
-              Yo = Yo + (qo = qo + Qo[Vo++] | 0) | 0;
+              Yo = Yo + (qo = qo + Ho[Vo++] | 0) | 0;
             while (--Xo);
             qo %= 65521, Yo %= 65521;
           }
@@ -14826,23 +14854,23 @@ function requireSvga_min() {
         };
       }, function(Oo, No, jo) {
         var Go = (function() {
-          for (var Qo, Ho = [], Vo = 0; Vo < 256; Vo++) {
-            Qo = Vo;
-            for (var qo = 0; qo < 8; qo++) Qo = 1 & Qo ? 3988292384 ^ Qo >>> 1 : Qo >>> 1;
-            Ho[Vo] = Qo;
+          for (var Ho, Qo = [], Vo = 0; Vo < 256; Vo++) {
+            Ho = Vo;
+            for (var qo = 0; qo < 8; qo++) Ho = 1 & Ho ? 3988292384 ^ Ho >>> 1 : Ho >>> 1;
+            Qo[Vo] = Ho;
           }
-          return Ho;
+          return Qo;
         })();
-        Oo.exports = function(Qo, Ho, Vo, qo) {
+        Oo.exports = function(Ho, Qo, Vo, qo) {
           var Yo = Go, Xo = qo + Vo;
-          Qo ^= -1;
-          for (var Fo = qo; Fo < Xo; Fo++) Qo = Qo >>> 8 ^ Yo[255 & (Qo ^ Ho[Fo])];
-          return -1 ^ Qo;
+          Ho ^= -1;
+          for (var Fo = qo; Fo < Xo; Fo++) Ho = Ho >>> 8 ^ Yo[255 & (Ho ^ Qo[Fo])];
+          return -1 ^ Ho;
         };
       }, function(Oo, No, jo) {
-        Oo.exports = function(Go, Qo) {
-          var Ho, Vo, qo, Yo, Xo, Fo, Wo, Ko, Jo, es, rs, is, As, os, us, as, vs, Is, hs, ys, Ps, ds, Es, Os, ws;
-          Ho = Go.state, Vo = Go.next_in, Os = Go.input, qo = Vo + (Go.avail_in - 5), Yo = Go.next_out, ws = Go.output, Xo = Yo - (Qo - Go.avail_out), Fo = Yo + (Go.avail_out - 257), Wo = Ho.dmax, Ko = Ho.wsize, Jo = Ho.whave, es = Ho.wnext, rs = Ho.window, is = Ho.hold, As = Ho.bits, os = Ho.lencode, us = Ho.distcode, as = (1 << Ho.lenbits) - 1, vs = (1 << Ho.distbits) - 1;
+        Oo.exports = function(Go, Ho) {
+          var Qo, Vo, qo, Yo, Xo, Fo, Wo, Ko, Jo, es, rs, is, As, os, us, as, vs, Is, hs, ys, Ps, ds, Es, Os, ws;
+          Qo = Go.state, Vo = Go.next_in, Os = Go.input, qo = Vo + (Go.avail_in - 5), Yo = Go.next_out, ws = Go.output, Xo = Yo - (Ho - Go.avail_out), Fo = Yo + (Go.avail_out - 257), Wo = Qo.dmax, Ko = Qo.wsize, Jo = Qo.whave, es = Qo.wnext, rs = Qo.window, is = Qo.hold, As = Qo.bits, os = Qo.lencode, us = Qo.distcode, as = (1 << Qo.lenbits) - 1, vs = (1 << Qo.distbits) - 1;
           e: do {
             As < 15 && (is += Os[Vo++] << As, As += 8, is += Os[Vo++] << As, As += 8), Is = os[is & as];
             t: for (; ; ) {
@@ -14854,10 +14882,10 @@ function requireSvga_min() {
                     continue t;
                   }
                   if (32 & hs) {
-                    Ho.mode = 12;
+                    Qo.mode = 12;
                     break e;
                   }
-                  Go.msg = "invalid literal/length code", Ho.mode = 30;
+                  Go.msg = "invalid literal/length code", Qo.mode = 30;
                   break e;
                 }
                 ys = 65535 & Is, (hs &= 15) && (As < hs && (is += Os[Vo++] << As, As += 8), ys += is & (1 << hs) - 1, is >>>= hs, As -= hs), As < 15 && (is += Os[Vo++] << As, As += 8, is += Os[Vo++] << As, As += 8), Is = us[is & vs];
@@ -14867,16 +14895,16 @@ function requireSvga_min() {
                       Is = us[(65535 & Is) + (is & (1 << hs) - 1)];
                       continue r;
                     }
-                    Go.msg = "invalid distance code", Ho.mode = 30;
+                    Go.msg = "invalid distance code", Qo.mode = 30;
                     break e;
                   }
                   if (Ps = 65535 & Is, As < (hs &= 15) && (is += Os[Vo++] << As, (As += 8) < hs && (is += Os[Vo++] << As, As += 8)), (Ps += is & (1 << hs) - 1) > Wo) {
-                    Go.msg = "invalid distance too far back", Ho.mode = 30;
+                    Go.msg = "invalid distance too far back", Qo.mode = 30;
                     break e;
                   }
                   if (is >>>= hs, As -= hs, Ps > (hs = Yo - Xo)) {
-                    if ((hs = Ps - hs) > Jo && Ho.sane) {
-                      Go.msg = "invalid distance too far back", Ho.mode = 30;
+                    if ((hs = Ps - hs) > Jo && Qo.sane) {
+                      Go.msg = "invalid distance too far back", Qo.mode = 30;
                       break e;
                     }
                     if (ds = 0, Es = rs, es === 0) {
@@ -14923,12 +14951,12 @@ function requireSvga_min() {
               break;
             }
           } while (Vo < qo && Yo < Fo);
-          Vo -= ys = As >> 3, is &= (1 << (As -= ys << 3)) - 1, Go.next_in = Vo, Go.next_out = Yo, Go.avail_in = Vo < qo ? qo - Vo + 5 : 5 - (Vo - qo), Go.avail_out = Yo < Fo ? Fo - Yo + 257 : 257 - (Yo - Fo), Ho.hold = is, Ho.bits = As;
+          Vo -= ys = As >> 3, is &= (1 << (As -= ys << 3)) - 1, Go.next_in = Vo, Go.next_out = Yo, Go.avail_in = Vo < qo ? qo - Vo + 5 : 5 - (Vo - qo), Go.avail_out = Yo < Fo ? Fo - Yo + 257 : 257 - (Yo - Fo), Qo.hold = is, Qo.bits = As;
         };
       }, function(Oo, No, jo) {
-        var Go = jo(8), Qo = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0], Ho = [16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 16, 72, 78], Vo = [1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577, 0, 0], qo = [16, 16, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 64, 64];
+        var Go = jo(8), Ho = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0], Qo = [16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 16, 72, 78], Vo = [1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577, 0, 0], qo = [16, 16, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 64, 64];
         Oo.exports = function(Yo, Xo, Fo, Wo, Ko, Jo, es, rs) {
-          var is, As, os, us, as, vs, Is, hs, ys, Ps = rs.bits, ds = 0, Es = 0, Os = 0, ws = 0, zs = 0, Ys = 0, ks = 0, _s = 0, Js = 0, na = 0, ca = null, Hs = 0, Ds = new Go.Buf16(16), Ms = new Go.Buf16(16), Bs = null, ha = 0;
+          var is, As, os, us, as, vs, Is, hs, ys, Ps = rs.bits, ds = 0, Es = 0, Os = 0, ws = 0, zs = 0, Ys = 0, ks = 0, _s = 0, Js = 0, na = 0, ca = null, Hs = 0, Ds = new Go.Buf16(16), js = new Go.Buf16(16), Bs = null, ha = 0;
           for (ds = 0; ds <= 15; ds++) Ds[ds] = 0;
           for (Es = 0; Es < Wo; Es++) Ds[Xo[Fo + Es]]++;
           for (zs = Ps, ws = 15; ws >= 1 && Ds[ws] === 0; ws--) ;
@@ -14936,9 +14964,9 @@ function requireSvga_min() {
           for (Os = 1; Os < ws && Ds[Os] === 0; Os++) ;
           for (zs < Os && (zs = Os), _s = 1, ds = 1; ds <= 15; ds++) if (_s <<= 1, (_s -= Ds[ds]) < 0) return -1;
           if (_s > 0 && (Yo === 0 || ws !== 1)) return -1;
-          for (Ms[1] = 0, ds = 1; ds < 15; ds++) Ms[ds + 1] = Ms[ds] + Ds[ds];
-          for (Es = 0; Es < Wo; Es++) Xo[Fo + Es] !== 0 && (es[Ms[Xo[Fo + Es]]++] = Es);
-          if (Yo === 0 ? (ca = Bs = es, vs = 19) : Yo === 1 ? (ca = Qo, Hs -= 257, Bs = Ho, ha -= 257, vs = 256) : (ca = Vo, Bs = qo, vs = -1), na = 0, Es = 0, ds = Os, as = Jo, Ys = zs, ks = 0, os = -1, us = (Js = 1 << zs) - 1, Yo === 1 && Js > 852 || Yo === 2 && Js > 592) return 1;
+          for (js[1] = 0, ds = 1; ds < 15; ds++) js[ds + 1] = js[ds] + Ds[ds];
+          for (Es = 0; Es < Wo; Es++) Xo[Fo + Es] !== 0 && (es[js[Xo[Fo + Es]]++] = Es);
+          if (Yo === 0 ? (ca = Bs = es, vs = 19) : Yo === 1 ? (ca = Ho, Hs -= 257, Bs = Qo, ha -= 257, vs = 256) : (ca = Vo, Bs = qo, vs = -1), na = 0, Es = 0, ds = Os, as = Jo, Ys = zs, ks = 0, os = -1, us = (Js = 1 << zs) - 1, Yo === 1 && Js > 852 || Yo === 2 && Js > 592) return 1;
           for (; ; ) {
             Is = ds - ks, es[Es] < vs ? (hs = 0, ys = es[Es]) : es[Es] > vs ? (hs = Bs[ha + es[Es]], ys = ca[Hs + es[Es]]) : (hs = 96, ys = 0), is = 1 << ds - ks, Os = As = 1 << Ys;
             do
@@ -14959,31 +14987,31 @@ function requireSvga_min() {
         };
       }, function(Oo, No, jo) {
         function Go(Xo, Fo) {
-          if (Fo < 65534 && (Xo.subarray && Vo || !Xo.subarray && Ho)) return String.fromCharCode.apply(null, Qo.shrinkBuf(Xo, Fo));
+          if (Fo < 65534 && (Xo.subarray && Vo || !Xo.subarray && Qo)) return String.fromCharCode.apply(null, Ho.shrinkBuf(Xo, Fo));
           for (var Wo = "", Ko = 0; Ko < Fo; Ko++) Wo += String.fromCharCode(Xo[Ko]);
           return Wo;
         }
-        var Qo = jo(8), Ho = !0, Vo = !0;
+        var Ho = jo(8), Qo = !0, Vo = !0;
         try {
           String.fromCharCode.apply(null, [0]);
         } catch {
-          Ho = !1;
+          Qo = !1;
         }
         try {
           String.fromCharCode.apply(null, new Uint8Array(1));
         } catch {
           Vo = !1;
         }
-        for (var qo = new Qo.Buf8(256), Yo = 0; Yo < 256; Yo++) qo[Yo] = Yo >= 252 ? 6 : Yo >= 248 ? 5 : Yo >= 240 ? 4 : Yo >= 224 ? 3 : Yo >= 192 ? 2 : 1;
+        for (var qo = new Ho.Buf8(256), Yo = 0; Yo < 256; Yo++) qo[Yo] = Yo >= 252 ? 6 : Yo >= 248 ? 5 : Yo >= 240 ? 4 : Yo >= 224 ? 3 : Yo >= 192 ? 2 : 1;
         qo[254] = qo[254] = 1, No.string2buf = function(Xo) {
           var Fo, Wo, Ko, Jo, es, rs = Xo.length, is = 0;
           for (Jo = 0; Jo < rs; Jo++) (64512 & (Wo = Xo.charCodeAt(Jo))) == 55296 && Jo + 1 < rs && (64512 & (Ko = Xo.charCodeAt(Jo + 1))) == 56320 && (Wo = 65536 + (Wo - 55296 << 10) + (Ko - 56320), Jo++), is += Wo < 128 ? 1 : Wo < 2048 ? 2 : Wo < 65536 ? 3 : 4;
-          for (Fo = new Qo.Buf8(is), es = 0, Jo = 0; es < is; Jo++) (64512 & (Wo = Xo.charCodeAt(Jo))) == 55296 && Jo + 1 < rs && (64512 & (Ko = Xo.charCodeAt(Jo + 1))) == 56320 && (Wo = 65536 + (Wo - 55296 << 10) + (Ko - 56320), Jo++), Wo < 128 ? Fo[es++] = Wo : Wo < 2048 ? (Fo[es++] = 192 | Wo >>> 6, Fo[es++] = 128 | 63 & Wo) : Wo < 65536 ? (Fo[es++] = 224 | Wo >>> 12, Fo[es++] = 128 | Wo >>> 6 & 63, Fo[es++] = 128 | 63 & Wo) : (Fo[es++] = 240 | Wo >>> 18, Fo[es++] = 128 | Wo >>> 12 & 63, Fo[es++] = 128 | Wo >>> 6 & 63, Fo[es++] = 128 | 63 & Wo);
+          for (Fo = new Ho.Buf8(is), es = 0, Jo = 0; es < is; Jo++) (64512 & (Wo = Xo.charCodeAt(Jo))) == 55296 && Jo + 1 < rs && (64512 & (Ko = Xo.charCodeAt(Jo + 1))) == 56320 && (Wo = 65536 + (Wo - 55296 << 10) + (Ko - 56320), Jo++), Wo < 128 ? Fo[es++] = Wo : Wo < 2048 ? (Fo[es++] = 192 | Wo >>> 6, Fo[es++] = 128 | 63 & Wo) : Wo < 65536 ? (Fo[es++] = 224 | Wo >>> 12, Fo[es++] = 128 | Wo >>> 6 & 63, Fo[es++] = 128 | 63 & Wo) : (Fo[es++] = 240 | Wo >>> 18, Fo[es++] = 128 | Wo >>> 12 & 63, Fo[es++] = 128 | Wo >>> 6 & 63, Fo[es++] = 128 | 63 & Wo);
           return Fo;
         }, No.buf2binstring = function(Xo) {
           return Go(Xo, Xo.length);
         }, No.binstring2buf = function(Xo) {
-          for (var Fo = new Qo.Buf8(Xo.length), Wo = 0, Ko = Fo.length; Wo < Ko; Wo++) Fo[Wo] = Xo.charCodeAt(Wo);
+          for (var Fo = new Ho.Buf8(Xo.length), Wo = 0, Ko = Fo.length; Wo < Ko; Wo++) Fo[Wo] = Xo.charCodeAt(Wo);
           return Fo;
         }, No.buf2string = function(Xo, Fo) {
           var Wo, Ko, Jo, es, rs = Fo || Xo.length, is = new Array(2 * rs);
@@ -15013,30 +15041,30 @@ function requireSvga_min() {
         };
       }, function(Oo, No, jo) {
         Oo.exports = (function(Go) {
-          function Qo(Vo) {
-            if (Ho[Vo]) return Ho[Vo].exports;
-            var qo = Ho[Vo] = { i: Vo, l: !1, exports: {} };
-            return Go[Vo].call(qo.exports, qo, qo.exports, Qo), qo.l = !0, qo.exports;
+          function Ho(Vo) {
+            if (Qo[Vo]) return Qo[Vo].exports;
+            var qo = Qo[Vo] = { i: Vo, l: !1, exports: {} };
+            return Go[Vo].call(qo.exports, qo, qo.exports, Ho), qo.l = !0, qo.exports;
           }
-          var Ho = {};
-          return Qo.m = Go, Qo.c = Ho, Qo.d = function(Vo, qo, Yo) {
-            Qo.o(Vo, qo) || Object.defineProperty(Vo, qo, { configurable: !1, enumerable: !0, get: Yo });
-          }, Qo.n = function(Vo) {
+          var Qo = {};
+          return Ho.m = Go, Ho.c = Qo, Ho.d = function(Vo, qo, Yo) {
+            Ho.o(Vo, qo) || Object.defineProperty(Vo, qo, { configurable: !1, enumerable: !0, get: Yo });
+          }, Ho.n = function(Vo) {
             var qo = Vo && Vo.__esModule ? function() {
               return Vo.default;
             } : function() {
               return Vo;
             };
-            return Qo.d(qo, "a", qo), qo;
-          }, Qo.o = function(Vo, qo) {
+            return Ho.d(qo, "a", qo), qo;
+          }, Ho.o = function(Vo, qo) {
             return Object.prototype.hasOwnProperty.call(Vo, qo);
-          }, Qo.p = "", Qo(Qo.s = 0);
-        })([function(Go, Qo, Ho) {
-          Object.defineProperty(Qo, "__esModule", { value: !0 });
-          var Vo = Ho(1);
+          }, Ho.p = "", Ho(Ho.s = 0);
+        })([function(Go, Ho, Qo) {
+          Object.defineProperty(Ho, "__esModule", { value: !0 });
+          var Vo = Qo(1);
           Go.exports = Vo.ValueAnimator;
-        }, function(Go, Qo, Ho) {
-          Object.defineProperty(Qo, "__esModule", { value: !0 });
+        }, function(Go, Ho, Qo) {
+          Object.defineProperty(Ho, "__esModule", { value: !0 });
           var Vo = (function() {
             function qo() {
               this.startValue = 0, this.endValue = 0, this.duration = 0, this.loops = 1, this.fillRule = 0, this.onStart = function() {
@@ -15066,7 +15094,7 @@ function requireSvga_min() {
               return typeof requestAnimationFrame > "u" ? setTimeout(Yo, 16) : window.requestAnimationFrame(Yo);
             }, qo;
           })();
-          Qo.ValueAnimator = Vo;
+          Ho.ValueAnimator = Vo;
         }]);
       }, function(Oo, No, jo) {
         Object.defineProperty(No, "__esModule", { value: !0 }), No.Player = void 0;
@@ -15074,7 +15102,7 @@ function requireSvga_min() {
           return typeof qo;
         } : function(qo) {
           return qo && typeof Symbol == "function" && qo.constructor === Symbol && qo !== Symbol.prototype ? "symbol" : typeof qo;
-        }, Qo = /* @__PURE__ */ (function() {
+        }, Ho = /* @__PURE__ */ (function() {
           function qo(Yo, Xo) {
             for (var Fo = 0; Fo < Xo.length; Fo++) {
               var Wo = Xo[Fo];
@@ -15084,14 +15112,14 @@ function requireSvga_min() {
           return function(Yo, Xo, Fo) {
             return Xo && qo(Yo.prototype, Xo), Fo && qo(Yo, Fo), Yo;
           };
-        })(), Ho = jo(65), Vo = jo(62);
+        })(), Qo = jo(65), Vo = jo(62);
         No.Player = (function() {
           function qo(Yo) {
             (function(Xo, Fo) {
               if (!(Xo instanceof Fo)) throw new TypeError("Cannot call a class as a function");
             })(this, qo), this.loops = 0, this.clearsAfterStop = !0, this.fillMode = "Forward", this._asChild = !1, this._container = void 0, this._renderer = void 0, this._animator = void 0, this._drawingCanvas = void 0, this._contentMode = "AspectFit", this._videoItem = void 0, this._forwardAnimating = !1, this._currentFrame = 0, this._dynamicImage = {}, this._dynamicImageTransform = {}, this._dynamicText = {}, this._onFinished = void 0, this._onFrame = void 0, this._onPercentage = void 0, this._container = typeof Yo == "string" ? document.querySelector(Yo) : Yo, this._asChild = Yo === void 0, this._init();
           }
-          return Qo(qo, [{ key: "setVideoItem", value: function(Yo) {
+          return Ho(qo, [{ key: "setVideoItem", value: function(Yo) {
             this._currentFrame = 0, this._videoItem = Yo, this._renderer.prepare(), this.clear(), this._update();
           } }, { key: "setContentMode", value: function(Yo) {
             this._contentMode = Yo, this._update();
@@ -15135,7 +15163,7 @@ function requireSvga_min() {
               }
               this._drawingCanvas = document.createElement("canvas"), this._drawingCanvas.__isPlayer = !0, this._drawingCanvas.style.backgroundColor = "transparent", this._container && (this._container.appendChild(this._drawingCanvas), this._container.style.textAlign = "left");
             }
-            this._renderer = new Ho.Renderer(this);
+            this._renderer = new Qo.Renderer(this);
           } }, { key: "_doStart", value: function(Yo, Xo, Fo) {
             var Wo = this;
             this._animator = new Vo(), Yo !== void 0 ? (this._animator.startValue = Math.max(0, Yo.location), this._animator.endValue = Math.min(this._videoItem.frames - 1, Yo.location + Yo.length), this._animator.duration = (this._animator.endValue - this._animator.startValue + 1) * (1 / this._videoItem.FPS) * 1e3) : (this._animator.startValue = 0, this._animator.endValue = this._videoItem.frames - 1, this._animator.duration = this._videoItem.frames * (1 / this._videoItem.FPS) * 1e3), this._animator.loops = this.loops <= 0 ? 1 / 0 : this.loops, this._animator.fillRule = this.fillMode === "Backward" ? 1 : 0, this._animator.onUpdate = function(Ko) {
@@ -15181,15 +15209,15 @@ function requireSvga_min() {
           } }]), qo;
         })();
       }, function(Oo, No, jo) {
-        var Go = jo(13), Qo = jo(63), Ho = jo(66);
-        Oo.exports = { Parser: Go.Parser, Player: Qo.Player, autoload: Ho.AutoLoader.autoload }, Ho.AutoLoader.autoload();
+        var Go = jo(13), Ho = jo(63), Qo = jo(66);
+        Oo.exports = { Parser: Go.Parser, Player: Ho.Player, autoload: Qo.AutoLoader.autoload }, Qo.AutoLoader.autoload();
       }, function(Oo, No, jo) {
         Object.defineProperty(No, "__esModule", { value: !0 }), No.Renderer = void 0;
         var Go = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(Yo) {
           return typeof Yo;
         } : function(Yo) {
           return Yo && typeof Symbol == "function" && Yo.constructor === Symbol && Yo !== Symbol.prototype ? "symbol" : typeof Yo;
-        }, Qo = /* @__PURE__ */ (function() {
+        }, Ho = /* @__PURE__ */ (function() {
           function Yo(Xo, Fo) {
             for (var Wo = 0; Wo < Fo.length; Wo++) {
               var Ko = Fo[Wo];
@@ -15199,14 +15227,14 @@ function requireSvga_min() {
           return function(Xo, Fo, Wo) {
             return Fo && Yo(Xo.prototype, Fo), Wo && Yo(Xo, Wo), Xo;
           };
-        })(), Ho = jo(5), Vo = jo(15), qo = jo(14);
+        })(), Qo = jo(5), Vo = jo(15), qo = jo(14);
         No.Renderer = (function() {
           function Yo(Xo) {
             (function(Fo, Wo) {
               if (!(Fo instanceof Wo)) throw new TypeError("Cannot call a class as a function");
             })(this, Yo), this._owner = void 0, this._prepared = !1, this._undrawFrame = void 0, this._bitmapCache = void 0, this._soundsQueue = [], this._owner = Xo;
           }
-          return Qo(Yo, [{ key: "dataURLtoBlob", value: function(Xo) {
+          return Ho(Yo, [{ key: "dataURLtoBlob", value: function(Xo) {
             for (var Fo = Xo.split(","), Wo = Fo[0].match(/:(.*?);/)[1], Ko = atob(Fo[1]), Jo = Ko.length, es = new Uint8Array(Jo); Jo--; ) es[Jo] = Ko.charCodeAt(Jo);
             return new Blob([es], { type: Wo });
           } }, { key: "prepare", value: function() {
@@ -15280,7 +15308,7 @@ function requireSvga_min() {
                 Fo.drawImage(rs, 0, 0), this._owner._dynamicImageTransform[Xo.imageKey] !== void 0 && Fo.restore();
               }
               Jo.shapes && Jo.shapes.forEach((function(Ps) {
-                Ps.type === "shape" && Ps.pathArgs && Ps.pathArgs.d && Ko.drawBezier(Fo, new Ho.BezierPath(Ps.pathArgs.d, Ps.transform, Ps.styles)), Ps.type === "ellipse" && Ps.pathArgs && Ko.drawEllipse(Fo, new Vo.EllipsePath(parseFloat(Ps.pathArgs.x) || 0, parseFloat(Ps.pathArgs.y) || 0, parseFloat(Ps.pathArgs.radiusX) || 0, parseFloat(Ps.pathArgs.radiusY) || 0, Ps.transform, Ps.styles)), Ps.type === "rect" && Ps.pathArgs && Ko.drawRect(Fo, new qo.RectPath(parseFloat(Ps.pathArgs.x) || 0, parseFloat(Ps.pathArgs.y) || 0, parseFloat(Ps.pathArgs.width) || 0, parseFloat(Ps.pathArgs.height) || 0, parseFloat(Ps.pathArgs.cornerRadius) || 0, Ps.transform, Ps.styles));
+                Ps.type === "shape" && Ps.pathArgs && Ps.pathArgs.d && Ko.drawBezier(Fo, new Qo.BezierPath(Ps.pathArgs.d, Ps.transform, Ps.styles)), Ps.type === "ellipse" && Ps.pathArgs && Ko.drawEllipse(Fo, new Vo.EllipsePath(parseFloat(Ps.pathArgs.x) || 0, parseFloat(Ps.pathArgs.y) || 0, parseFloat(Ps.pathArgs.radiusX) || 0, parseFloat(Ps.pathArgs.radiusY) || 0, Ps.transform, Ps.styles)), Ps.type === "rect" && Ps.pathArgs && Ko.drawRect(Fo, new qo.RectPath(parseFloat(Ps.pathArgs.x) || 0, parseFloat(Ps.pathArgs.y) || 0, parseFloat(Ps.pathArgs.width) || 0, parseFloat(Ps.pathArgs.height) || 0, parseFloat(Ps.pathArgs.cornerRadius) || 0, Ps.transform, Ps.styles));
               }));
               var vs = this._owner._dynamicText[Xo.imageKey];
               if (vs !== void 0) {
@@ -15387,17 +15415,17 @@ function requireSvga_min() {
         })();
       }, function(Oo, No, jo) {
         Object.defineProperty(No, "__esModule", { value: !0 }), No.AutoLoader = void 0;
-        var Go = jo(13), Qo = jo(63), Ho = No.AutoLoader = function Vo() {
+        var Go = jo(13), Ho = jo(63), Qo = No.AutoLoader = function Vo() {
           (function(qo, Yo) {
             if (!(qo instanceof Yo)) throw new TypeError("Cannot call a class as a function");
           })(this, Vo);
         };
-        Ho.sharedParser = new Go.Parser(), Ho.autoload = function(Vo, qo) {
+        Qo.sharedParser = new Go.Parser(), Qo.autoload = function(Vo, qo) {
           if (typeof window < "u" && typeof document < "u") {
-            var Yo = qo || Ho.sharedParser;
+            var Yo = qo || Qo.sharedParser;
             if (Vo) {
               if ((Vo.tagName === "CANVAS" || Vo.tagName === "DIV") && Vo.attributes.src && Vo.attributes.src.value.indexOf(".svga") === Vo.attributes.src.value.length - 5) {
-                var Xo = Vo.attributes.src.value, Fo = new Qo.Player(Vo);
+                var Xo = Vo.attributes.src.value, Fo = new Ho.Player(Vo);
                 Yo.load(Xo, (function(Jo) {
                   if (Vo.attributes.loops) {
                     var es = parseFloat(Vo.attributes.loops.value) || 0;
@@ -15411,7 +15439,7 @@ function requireSvga_min() {
                 })), Vo.player = Fo;
               }
             } else for (var Wo = document.querySelectorAll('[src$=".svga"]'), Ko = 0; Ko < Wo.length; Ko++)
-              Vo = Wo[Ko], Ho.autoload(Vo);
+              Vo = Wo[Ko], Qo.autoload(Vo);
           }
         };
       }]);
@@ -15421,16 +15449,16 @@ function requireSvga_min() {
 var svga_minExports = requireSvga_min();
 const log$1 = createLogger("SvgaPlayer");
 function useSvgaPlayer(Oo = {}) {
-  const { loop: No = 1, autoPlay: jo = !0 } = Oo, Go = ref(null), Qo = ref(!1);
-  let Ho = null;
+  const { loop: No = 1, autoPlay: jo = !0 } = Oo, Go = ref(null), Ho = ref(!1);
+  let Qo = null;
   function Vo() {
-    if (Ho) {
+    if (Qo) {
       try {
-        Ho.stopAnimation(), Ho.clear();
+        Qo.stopAnimation(), Qo.clear();
       } catch (Wo) {
         log$1.warn("SVGA cleanup error", "", Wo);
       }
-      Ho = null, Qo.value = !1;
+      Qo = null, Ho.value = !1;
     }
   }
   async function qo(Wo) {
@@ -15440,7 +15468,7 @@ function useSvgaPlayer(Oo = {}) {
     }
     Vo();
     const Ko = Go.value;
-    Ho = new svga_minExports.Player(Ko);
+    Qo = new svga_minExports.Player(Ko);
     {
       log$1.error("general", "SVGA parser not initialized");
       return;
@@ -15455,17 +15483,17 @@ function useSvgaPlayer(Oo = {}) {
     }
   }
   function Xo() {
-    if (Ho)
+    if (Qo)
       try {
-        Ho.stopAnimation(), Qo.value = !1;
+        Qo.stopAnimation(), Ho.value = !1;
       } catch (Wo) {
         log$1.warn("SVGA stop error", "", Wo);
       }
   }
   function Fo() {
-    if (Ho)
+    if (Qo)
       try {
-        Ho.startAnimation(), Qo.value = !0;
+        Qo.startAnimation(), Ho.value = !0;
       } catch (Wo) {
         log$1.warn("SVGA start error", "", Wo);
       }
@@ -15484,7 +15512,7 @@ function useSvgaPlayer(Oo = {}) {
     /** Start animation */
     startAnimation: Fo,
     /** Whether animation is playing */
-    isPlaying: Qo
+    isPlaying: Ho
   };
 }
 function useT() {
@@ -15493,7 +15521,7 @@ function useT() {
 }
 const log = createLogger("AsyncAction");
 function useAsyncAction(Oo) {
-  const { action: No, operationName: jo, toast: Go, onSuccess: Qo, onError: Ho, errorMessage: Vo, showError: qo, showSuccess: Yo } = Oo, { t: Xo } = useUIKit(), { opSuccess: Fo } = bindI18nHelpers(Xo), Wo = ref(!1);
+  const { action: No, operationName: jo, toast: Go, onSuccess: Ho, onError: Qo, errorMessage: Vo, showError: qo, showSuccess: Yo } = Oo, { t: Xo } = useUIKit(), { opSuccess: Fo } = bindI18nHelpers(Xo), Wo = ref(!1);
   let Ko = !1;
   return { loading: Wo, execute: async (...rs) => {
     if (Ko) {
@@ -15503,14 +15531,14 @@ function useAsyncAction(Oo) {
     Ko = !0, Wo.value = !0;
     try {
       const is = await No(...rs);
-      return Qo?.(is), Yo !== !1 && (Go ? MessagePlugin.success(Fo(Go.action, Go.entity)) : jo && MessagePlugin.success(jo)), is;
+      return Ho?.(is), Yo !== !1 && (Go ? MessagePlugin.success(Fo(Go.action, Go.entity)) : jo && MessagePlugin.success(jo)), is;
     } catch (is) {
       const As = is instanceof Error ? is : new Error(String(is)), { code: os, info: us } = getErrorInfo(is), as = Vo || jo || "";
       if (log.error("useAsyncAction", `${as} (ErrorCode: ${os || "N/A"})`, is), jo && qo !== !1) {
         const vs = getErrorMessage(os, us, As.message || String(is));
         MessagePlugin.error(`【${jo}】失败：${vs}`);
       }
-      Ho?.(As);
+      Qo?.(As);
       return;
     } finally {
       Ko = !1, Wo.value = !1;
@@ -15520,17 +15548,17 @@ function useAsyncAction(Oo) {
   } };
 }
 function useConfirmAction(Oo) {
-  const { confirm: No, onSuccess: jo, ...Go } = Oo, Qo = ref(null), Ho = (Ko) => {
-    Qo.value = null, jo?.(Ko);
+  const { confirm: No, onSuccess: jo, ...Go } = Oo, Ho = ref(null), Qo = (Ko) => {
+    Ho.value = null, jo?.(Ko);
   }, { loading: Vo, execute: qo, reset: Yo } = useAsyncAction({
     ...Go,
-    onSuccess: Ho
+    onSuccess: Qo
   });
   return {
     loading: Vo,
-    confirmDialog: Qo,
+    confirmDialog: Ho,
     requestConfirm: () => {
-      Qo.value = {
+      Ho.value = {
         visible: !0,
         title: No.title,
         content: No.content,
@@ -15538,13 +15566,13 @@ function useConfirmAction(Oo) {
       };
     },
     cancelConfirm: () => {
-      Qo.value = null;
+      Ho.value = null;
     },
     executeWithConfirm: async () => {
       try {
         return await qo();
       } finally {
-        Qo.value = null;
+        Ho.value = null;
       }
     },
     reset: Yo
@@ -15553,6 +15581,8 @@ function useConfirmAction(Oo) {
 setReportPlatform("vue");
 const publicApiVersion = "1.0.0", compatibleCustomerExtensionVersion = "1", modules = ["room-list", "live-monitor", "room-control", "gift-config", "risk-control"];
 export {
+  DEPLOY_DOC_URL,
+  GITHUB_ISSUE_URL,
   I18N,
   LiveListEvent,
   LiveManagerError,
@@ -15615,7 +15645,6 @@ export {
   isValidSdkAppIdFormat,
   logger,
   login,
-  loginWithSecret,
   measureAndReport,
   modules,
   performLogout,
@@ -15631,6 +15660,7 @@ export {
   resetReportedCaches,
   resolveAccount,
   resolveDemoTargetPath,
+  resolveLoginBrandName,
   saveCredentials,
   setAegisUin,
   setAuthStoreAdapter,

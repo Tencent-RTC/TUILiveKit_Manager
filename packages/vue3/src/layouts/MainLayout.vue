@@ -39,8 +39,35 @@
           </div>
           <span class="user-name">{{ displayUserName }}</span>
         </div>
+
+        <!-- 退出登录按钮（仅 proxy 模式） -->
+        <button
+          v-if="isProxyMode()"
+          class="logout-btn"
+          :title="t(I18N.HEADER_LOGOUT)"
+          :aria-label="t(I18N.HEADER_LOGOUT)"
+          @click="handleLogout"
+        >
+          <LogoutIcon size="16px" />
+        </button>
       </div>
     </header>
+
+    <!-- Demo 模式跑马灯提示 -->
+    <div v-if="demoModeEnabled && marqueeVisible" class="demo-marquee">
+      <div class="demo-marquee__track">
+        <template v-if="isMockDemo">
+          <span class="demo-marquee__text">{{ t(I18N.DEMO_MARQUEE_BANNER) }}</span>
+          <a class="demo-marquee__link" :href="DEPLOY_DOC_URL" target="_blank" rel="noopener noreferrer">{{ t(I18N.DEMO_DEPLOYMENT_GUIDE) }} &rarr;</a>
+        </template>
+        <template v-else>
+          <span class="demo-marquee__text">{{ t(I18N.DEMO_BUILD_MARQUEE_PREFIX) }}</span>
+          <a class="demo-marquee__link" :href="DEPLOY_DOC_URL" target="_blank" rel="noopener noreferrer">{{ t(I18N.DEMO_INTEGRATION_DOC) }} &rarr;</a>
+          <a class="demo-marquee__link" :href="GITHUB_ISSUE_URL" target="_blank" rel="noopener noreferrer">{{ t(I18N.DEMO_GITHUB_TEXT) }}</a>
+        </template>
+      </div>
+      <button class="demo-marquee__close" @click="marqueeVisible = false" :aria-label="t(I18N.DEMO_MARQUEE_CLOSE)" :title="t(I18N.DEMO_MARQUEE_CLOSE)" />
+    </div>
 
     <div class="main-body">
       <!-- 侧边栏 -->
@@ -77,7 +104,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { VideoCamera1Icon, ViewModuleIcon, GiftIcon, UserIcon, TranslateIcon } from 'tdesign-icons-vue-next';
+import { VideoCamera1Icon, ViewModuleIcon, GiftIcon, UserIcon, TranslateIcon, LogoutIcon } from 'tdesign-icons-vue-next';
 import { useUIKit } from '@tencentcloud/uikit-base-component-vue3';
 import i18nextInstance from '@tencentcloud/uikit-base-component-vue3/dist/providers/UIKitProvider/i18n';
 import {
@@ -91,11 +118,17 @@ import {
   toggleLanguage,
   setDocumentLanguage,
   resolveAccount,
+  performLogout,
+  isProxyMode,
+  I18N,
 } from 'tuikit-live-manager-sdk-vue';
 import type { SupportedLanguage } from 'tuikit-live-manager-sdk-vue';
-import { enResource, zhResource } from 'tuikit-live-manager-sdk-vue';
+import { enResource, zhResource, DEPLOY_DOC_URL, GITHUB_ISSUE_URL } from 'tuikit-live-manager-sdk-vue';
 import { updateDocumentTitle } from '../router';
 import type { UserPortraitProfile } from '../api/auth';
+
+const demoModeEnabled = typeof __DEMO_MODE__ !== 'undefined' && __DEMO_MODE__;
+const isMockDemo = demoModeEnabled && typeof __MOCK_MODE__ !== 'undefined' && __MOCK_MODE__;
 
 const { t, setLanguage, i18next } = useUIKit();
 
@@ -140,6 +173,7 @@ const route = useRoute();
 
 const userProfile = ref<UserPortraitProfile | null>(null);
 const avatarLoadFailed = ref(false);
+const marqueeVisible = ref(true);
 
 // 当前激活的菜单项
 const activeMenu = ref('live-list');
@@ -229,6 +263,12 @@ const handleToggleLanguage = () => {
   currentLanguage.value = nextLang;
   // 更新浏览器标题
   updateDocumentTitle();
+};
+
+// 处理退出登录
+const handleLogout = () => {
+  performLogout();
+  router.push('/credential-login');
 };
 </script>
 

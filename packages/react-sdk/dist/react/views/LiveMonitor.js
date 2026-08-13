@@ -1,18 +1,18 @@
-import { jsxs as f, jsx as r, Fragment as Ue } from "react/jsx-runtime";
-import { I as a, a as xe, p as _e, S as ke, F as $e, E as Ge, c as me, u as fe, t as We, ak as j, aY as ge, A as He, a$ as ze, D as Ce, b5 as Ke, aH as Be, b6 as Ye, by as qe } from "../../chunks/shared-state.CsnQDWhV.js";
+import { jsxs as f, jsx as r, Fragment as xe } from "react/jsx-runtime";
+import { I as a, a as Ue, p as _e, S as ke, F as $e, E as Ge, c as me, u as fe, t as We, ak as j, aY as ge, A as He, a$ as ze, D as Ce, b5 as Ke, aH as Be, b6 as Ye, bx as qe } from "../../chunks/shared-state.BkuXD95c.js";
 import { useMemo as Ie, useRef as S, useEffect as $, useState as M, useCallback as p } from "react";
 import { useNavigate as Xe } from "react-router-dom";
 import { useUIKit as de } from "@tencentcloud/uikit-base-component-react";
 import { SearchIcon as je, RefreshIcon as Ze, FullscreenIcon as pe, NotificationIcon as Je, StopCircleIcon as Qe } from "tdesign-icons-react";
 import { Input as er, Loading as rr, Button as X, Dialog as Me } from "tdesign-react";
 import { useLiveMonitorState as Ne, usePaginatedList as tr, subscribeToPagination as ar, useConfirmAction as nr } from "../../react.js";
-import { g as re, T as te, bx as or, by as ir, E as le, s as Ee, p as sr, d as cr, t as lr, f as dr, b$ as ur, bH as hr, bD as vr, bz as gr, bA as fr } from "../../chunks/main-layout.Dt5HcQRZ.js";
-import { M as Q } from "../../chunks/useAsyncAction.CDjDvvEN.js";
+import { g as re, T as te, bx as or, by as ir, E as le, s as Ee, p as sr, d as cr, t as lr, f as dr, b$ as ur, bH as hr, bD as vr, bz as gr, bA as fr } from "../../chunks/main-layout.CW0IWNsf.js";
+import { M as Q } from "../../chunks/useAsyncAction.jPDjgEh7.js";
 import { c as pr } from "../../chunks/mock.Bnui3Fqh.js";
-import { M as mr } from "../../chunks/MonitorPagination.DApAISgB.js";
-import { A as Ir } from "../../chunks/AnchorAvatar.CcNwe1Jn.js";
-import { S as Nr } from "../../chunks/SlotRenderer.CkhSIE9k.js";
-import { s as Lr, V as _r } from "../../chunks/violation-labels-poller.CpqJAOLK.js";
+import { M as mr } from "../../chunks/MonitorPagination.CUUppR9F.js";
+import { A as Ir } from "../../chunks/AnchorAvatar.CaDt8Gt2.js";
+import { S as Nr } from "../../chunks/SlotRenderer.C6HRizAC.js";
+import { s as Lr, V as _r } from "../../chunks/violation-labels-poller.BpwFYNRp.js";
 const Cr = ({
   searchInput: e,
   onSearchInputChange: o,
@@ -77,7 +77,7 @@ const Cr = ({
   onCloseLive: n,
   onTagHover: L
 }) => {
-  const { t: s } = de(), { startPlay: d, stopPlay: _ } = Ne(), E = xe().components?.liveMonitor, G = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, K = e.avatarUrl?.trim() || "", U = m?.avatarUrl || e.anchor?.avatarUrl || K || or(e), F = m?.nick || e.anchor?.nick || ir(e, s(a.UNKNOWN_HOST)), B = e.stats?.viewCount ?? 0, Y = Ie(() => `live_monitor_view_${e.liveId}`, [e.liveId]), W = S(""), H = S(0), P = S(null);
+  const { t: s } = de(), { startPlay: d, stopPlay: _ } = Ne(), E = Ue().components?.liveMonitor, G = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, K = e.avatarUrl?.trim() || "", x = m?.avatarUrl || e.anchor?.avatarUrl || K || or(e), F = m?.nick || e.anchor?.nick || ir(e, s(a.UNKNOWN_HOST)), B = e.stats?.viewCount ?? 0, Y = Ie(() => `live_monitor_view_${e.liveId}`, [e.liveId]), W = S(""), H = S(0), P = S(null);
   return $(() => {
     const i = e.liveId;
     if (!i) return;
@@ -219,7 +219,7 @@ const Cr = ({
                 Ir,
                 {
                   className: "anchor-avatar",
-                  src: U,
+                  src: x,
                   name: F,
                   title: F
                 }
@@ -282,13 +282,13 @@ const Cr = ({
   }, [I, n]);
   const K = S([]);
   K.current = n;
-  const U = S(), F = S(d);
+  const x = S(), F = S(d);
   F.current = d;
   const B = S();
   B.current || (B.current = Ee());
   const Y = B.current;
-  U.current || (U.current = Ee(), sr(
-    U.current,
+  x.current || (x.current = Ee(), sr(
+    x.current,
     ur((l) => l.length > 0),
     Lr((l) => dr(We(l))),
     lr(Y),
@@ -310,9 +310,9 @@ const Cr = ({
     const l = n.map((R) => R.anchor?.userId || "").filter(Boolean);
     if (l.length === 0) return;
     const u = l.filter((R) => !F.current.has(R));
-    u.length !== 0 && U.current?.next(u);
+    u.length !== 0 && x.current?.next(u);
   }, [n, d, E]);
-  const [W, H] = M(!1), [P, i] = M(!1), [w, y] = M(!1), [q, C] = M(""), [ae, Z] = M(null), x = S(!1), ne = S(0), oe = p(async (l, u, R) => {
+  const [W, H] = M(!1), [P, i] = M(!1), [w, y] = M(!1), [q, C] = M(""), [ae, Z] = M(null), U = S(!1), ne = S(0), oe = p(async (l, u, R) => {
     if (!o.loading)
       try {
         !u && R <= 1 && l > 1 ? await o.prevPage() : await o.refreshCurrentPage();
@@ -335,24 +335,24 @@ const Cr = ({
         return;
       if (!b) {
         ge("live_search", "search", !1, u), Q.error(`${c(a.NO_SEARCH_RESULTS_FOR, { keyword: u })}
-${c(a.SEARCH_EXACT_ID_HINT)}`), C(""), y(!1), x.current = !1, Z(null), await o.goToFirstPage();
+${c(a.SEARCH_EXACT_ID_HINT)}`), C(""), y(!1), U.current = !1, Z(null), await o.goToFirstPage();
         return;
       }
-      y(!0), x.current = !0, Z([b]), ge("live_search", "search", !0, u);
+      y(!0), U.current = !0, Z([b]), ge("live_search", "search", !0, u);
     } catch (b) {
       if (ce.error("搜索直播间失败", `(ErrorCode: ${j(b).code || "N/A"})`, b), b === le.LOGIN_TIMEOUT || b === le.USER_SIG_ILLEGAL) {
         localStorage.removeItem("tuiLiveMonitor-userInfo"), window.location.href = "#/config-required";
         return;
       }
       ge("live_search", "search", !1), Q.error(`${c(a.NO_SEARCH_RESULTS_FOR, { keyword: u })}
-${c(a.SEARCH_EXACT_ID_HINT)}`), C(""), y(!1), x.current = !1, Z(null), await o.goToFirstPage();
+${c(a.SEARCH_EXACT_ID_HINT)}`), C(""), y(!1), U.current = !1, Z(null), await o.goToFirstPage();
     } finally {
       E.current || H(!1);
     }
   }, [e, E, o, c]), he = p(async () => {
     if (o.loading) return;
-    const l = x.current;
-    if (C(""), y(!1), x.current = !1, Z(null), !!l)
+    const l = U.current;
+    if (C(""), y(!1), U.current = !1, Z(null), !!l)
       try {
         await o.goToFirstPage();
       } catch {
@@ -361,7 +361,7 @@ ${c(a.SEARCH_EXACT_ID_HINT)}`), C(""), y(!1), x.current = !1, Z(null), await o.g
     if (!(P || o.loading)) {
       i(!0);
       try {
-        w && (y(!1), x.current = !1, C("")), await o.refreshCurrentPage(), Q.success(T(a.REFRESH));
+        w && (y(!1), U.current = !1, C("")), await o.refreshCurrentPage(), Q.success(T(a.REFRESH));
       } catch (l) {
         ce.error("刷新失败", `(ErrorCode: ${j(l).code || "N/A"})`, l);
         const { info: u } = j(l);
@@ -393,7 +393,7 @@ ${c(a.SEARCH_EXACT_ID_HINT)}`), C(""), y(!1), x.current = !1, Z(null), await o.g
     isSearchMode: w,
     searchInput: q,
     searchResults: ae,
-    isSearchModeRef: x,
+    isSearchModeRef: U,
     setSearchInput: C,
     setIsSearchMode: y,
     setSearchResults: Z,
@@ -411,8 +411,8 @@ ${c(a.SEARCH_EXACT_ID_HINT)}`), C(""), y(!1), x.current = !1, Z(null), await o.g
     pageSize: o,
     getTimeRange: () => {
       const n = /* @__PURE__ */ new Date(), L = new Date(n.getTime() - 600 * 1e3), s = (d) => {
-        const _ = d.getFullYear(), E = String(d.getMonth() + 1).padStart(2, "0"), G = String(d.getDate()).padStart(2, "0"), K = String(d.getHours()).padStart(2, "0"), U = String(d.getMinutes()).padStart(2, "0"), F = String(d.getSeconds()).padStart(2, "0");
-        return `${_}-${E}-${G} ${K}:${U}:${F}`;
+        const _ = d.getFullYear(), E = String(d.getMonth() + 1).padStart(2, "0"), G = String(d.getDate()).padStart(2, "0"), K = String(d.getHours()).padStart(2, "0"), x = String(d.getMinutes()).padStart(2, "0"), F = String(d.getSeconds()).padStart(2, "0");
+        return `${_}-${E}-${G} ${K}:${x}:${F}`;
       };
       return { startTime: s(L), endTime: s(n) };
     },
@@ -506,14 +506,14 @@ const zr = () => {
     isSearchModeRef: E,
     setSearchInput: G,
     handleSearch: K,
-    handleClearSearch: U,
+    handleClearSearch: x,
     searching: F,
     // 刷新相关
     refreshing: B,
     handleRefresh: Y,
     // 封禁后翻页
     handleCloseLiveSuccess: W
-  } = Er(), [H, P] = M(!1), [i, w] = M({ visible: !1, liveId: "", liveName: "", closing: !1 }), y = S({ liveId: "", liveName: "" }), { confirmDialog: q, requestConfirm: C, cancelConfirm: ae, executeWithConfirm: Z, loading: x } = nr({
+  } = Er(), [H, P] = M(!1), [i, w] = M({ visible: !1, liveId: "", liveName: "", closing: !1 }), y = S({ liveId: "", liveName: "" }), { confirmDialog: q, requestConfirm: C, cancelConfirm: ae, executeWithConfirm: Z, loading: U } = nr({
     operationName: e(a.SEND_VIOLATION_WARNING),
     action: async () => {
       const { liveId: t, liveName: g } = y.current;
@@ -651,7 +651,7 @@ const zr = () => {
         searchInput: d,
         onSearchInputChange: ye,
         onSearch: () => K(d),
-        onClearSearch: U,
+        onClearSearch: x,
         onRefresh: Y,
         refreshing: B,
         searching: F
@@ -708,7 +708,7 @@ const zr = () => {
         header: e(a.CONFIRM_ACTION_TITLE, { action: e(a.FORCE_STOP) }),
         onClose: Le,
         width: Ce.CONFIRM,
-        footer: /* @__PURE__ */ f(Ue, { children: [
+        footer: /* @__PURE__ */ f(xe, { children: [
           /* @__PURE__ */ r(X, { shape: "round", variant: "outline", onClick: Le, disabled: i.closing, children: e(a.CANCEL) }),
           /* @__PURE__ */ r(
             X,
@@ -730,8 +730,8 @@ const zr = () => {
         visible: q.visible,
         header: q.title,
         width: Ce.CONFIRM,
-        confirmBtn: /* @__PURE__ */ r(X, { shape: "round", loading: x, onClick: () => Z(), children: q.confirmText ?? e(a.CONFIRM) }),
-        cancelBtn: /* @__PURE__ */ r(X, { variant: "outline", shape: "round", disabled: x, onClick: ae, children: e(a.CANCEL) }),
+        confirmBtn: /* @__PURE__ */ r(X, { shape: "round", loading: U, onClick: () => Z(), children: q.confirmText ?? e(a.CONFIRM) }),
+        cancelBtn: /* @__PURE__ */ r(X, { variant: "outline", shape: "round", disabled: U, onClick: ae, children: e(a.CANCEL) }),
         onClose: ae,
         children: /* @__PURE__ */ r("p", { children: q.content })
       }

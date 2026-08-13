@@ -4,7 +4,7 @@ import { createHashRouter, Navigate, Outlet, matchRoutes, useNavigate, useLocati
 import type { RouteObject } from 'react-router-dom';
 import { i18next } from '@tencentcloud/uikit-base-component-react';
 import MainLayout from '../layouts/MainLayout';
-import { isLoggedIn, saveCredentials, login, reportPageView } from 'tuikit-live-manager-sdk-react';
+import { isLoggedIn, saveCredentials, login, reportPageView, reportBusinessOp } from 'tuikit-live-manager-sdk-react';
 import {
   type CoreRouteKey,
   checkServerConfig,
@@ -123,6 +123,8 @@ const ConfigRequiredRoute: React.FC = () => {
             const loginRes = await login({});
             if (loginRes.code === 0 && loginRes.data) {
               saveCredentials(loginRes.data);
+              // 自动登录也上报 credential_login，保证转化漏斗覆盖该路径
+              reportBusinessOp('credential_login', 'login', true);
               const from = (location.state as any)?.from || defaultRoutePath;
               navigate(from, { replace: true });
               return;

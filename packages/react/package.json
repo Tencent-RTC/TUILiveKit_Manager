@@ -1,7 +1,6 @@
 {
   "name": "livekit-manager-react",
   "private": true,
-  "version": "1.0.1",
   "scripts": {
     "dev": "vite --port=2028",
     "build": "vite build",

@@ -6,6 +6,7 @@ import {
   GiftIcon,
   UserIcon,
   TranslateIcon,
+  LogoutIcon,
 } from "tdesign-icons-react";
 import { i18next } from '@tencentcloud/uikit-base-component-react';
 import {
@@ -16,9 +17,17 @@ import {
   setDocumentLanguage,
   getActiveAppConfig,
   getUserProfilePortrait,
+  performLogout,
+  isProxyMode,
+  I18N,
+  DEPLOY_DOC_URL,
+  GITHUB_ISSUE_URL,
 } from "tuikit-live-manager-sdk-react";
 import type { SupportedLanguage, UserPortraitProfile } from "tuikit-live-manager-sdk-react";
 import { updateTitleByPath } from "../router";
+
+const demoModeEnabled = typeof __DEMO_MODE__ !== 'undefined' && __DEMO_MODE__;
+const isMockDemo = demoModeEnabled && typeof __MOCK_MODE__ !== 'undefined' && __MOCK_MODE__;
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const t = i18next && typeof i18next.t === 'function'
@@ -30,6 +39,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [, setSdkReady] = useState(false);
   const [userProfile, setUserProfile] = useState<UserPortraitProfile | null>(null);
   const [avatarLoadFailed, setAvatarLoadFailed] = useState(false);
+  const [marqueeVisible, setMarqueeVisible] = useState(true);
   const [currentUserId, setCurrentUserId] = useState<string>('');
   const [currentLanguage, setCurrentLanguage] = useState<SupportedLanguage>(getDefaultLanguage());
   const sdkInitializedRef = useRef<boolean>(false);
@@ -166,8 +176,36 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             {renderUserAvatar()}
             <span className="user-name">{displayUserName}</span>
           </div>
+
+          {/* 退出登录按钮（仅 proxy 模式） */}
+          {isProxyMode() && (
+            <button className="logout-btn" onClick={() => { performLogout(); navigate('/config-required', { replace: true }); }} title={t(I18N.HEADER_LOGOUT)} aria-label={t(I18N.HEADER_LOGOUT)}>
+              <LogoutIcon size="16px" />
+            </button>
+          )}
         </div>
       </header>
+
+      {/* Demo 模式跑马灯提示 */}
+      {demoModeEnabled && marqueeVisible && (
+        <div className="demo-marquee">
+          <div className="demo-marquee__track">
+            {isMockDemo ? (
+              <>
+                <span className="demo-marquee__text">{t(I18N.DEMO_MARQUEE_BANNER)}</span>
+                <a className="demo-marquee__link" href={DEPLOY_DOC_URL} target="_blank" rel="noopener noreferrer">{t(I18N.DEMO_DEPLOYMENT_GUIDE)} &rarr;</a>
+              </>
+            ) : (
+              <>
+                <span className="demo-marquee__text">{t(I18N.DEMO_BUILD_MARQUEE_PREFIX)}</span>
+                <a className="demo-marquee__link" href={DEPLOY_DOC_URL} target="_blank" rel="noopener noreferrer">{t(I18N.DEMO_INTEGRATION_DOC)} &rarr;</a>
+                <a className="demo-marquee__link" href={GITHUB_ISSUE_URL} target="_blank" rel="noopener noreferrer">{t(I18N.DEMO_GITHUB_TEXT)}</a>
+              </>
+            )}
+          </div>
+          <button className="demo-marquee__close" onClick={() => setMarqueeVisible(false)} aria-label={t(I18N.DEMO_MARQUEE_CLOSE)} title={t(I18N.DEMO_MARQUEE_CLOSE)} />
+        </div>
+      )}
 
       <div className="main-body">
         {/* 侧边栏 */}

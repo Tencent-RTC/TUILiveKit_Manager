@@ -14,3 +14,13 @@ export type DemoTargetVariant = 'react' | 'vue';
  * 兼容根部署与子路径部署（react 目录与 mock-react 目录同级）。
  */
 export declare function resolveDemoTargetPath(variant: DemoTargetVariant): string;
+/**
+ * 部署文档链接（中英文统一指向腾讯云集成文档）
+ * 与登录页顶部提示使用同一个链接。
+ */
+export declare const DEPLOY_DOC_URL = "https://cloud.tencent.com/document/product/647/123012";
+/**
+ * GitHub Issue 链接（中英文通用）
+ * 跑马灯中 "可到 GitHub 提交 Issue" 文案的跳转目标。
+ */
+export declare const GITHUB_ISSUE_URL = "https://github.com/Tencent-RTC/TUILiveKit_Manager/issues";

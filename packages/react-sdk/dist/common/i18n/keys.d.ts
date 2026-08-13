@@ -394,7 +394,7 @@ export declare const I18N: {
     readonly CREDENTIAL_LOGIN_SUBTITLE: "Login credentials for Tencent Cloud API access and TRTC service authentication";
     readonly SDK_APP_ID_LABEL: "SDKAppID";
     readonly SDK_APP_ID_PLACEHOLDER: "e.g. 1400000000";
-    readonly SDK_APP_ID_DESC: "Unique identifier for your Tencent Cloud IM application";
+    readonly SDK_APP_ID_DESC: "Tencent Cloud application identifier for API access and TRTC service authentication";
     readonly SECRET_KEY_LABEL: "SecretKey";
     readonly SECRET_KEY_PLACEHOLDER: "Enter your SecretKey";
     readonly SECRET_KEY_DESC: "Key used to generate login signatures. Never share it.";
@@ -463,6 +463,14 @@ export declare const I18N: {
     readonly GO_CREATE_LIVE: "Go Create Live Room";
     readonly TRY_DEMO_MODE: "Try Demo Mode";
     readonly DEMO_MODE_DESC: "Explore the full experience with sample data, no credentials needed";
+    readonly DEMO_MARQUEE_BANNER: "This is an online demo. All data shown is simulated sample data";
+    readonly DEMO_DEPLOYMENT_GUIDE: "Deployment Guide";
+    readonly DEMO_PRODUCT_NAME: "Tencent Live Manager";
+    readonly DEMO_GITHUB_TEXT: "Want more features? Submit an issue on GitHub";
+    readonly DEMO_MARQUEE_CLOSE: "Close banner";
+    readonly DEMO_BUILD_MARQUEE_PREFIX: "This demo site is for experience only. To integrate with your application, please refer to ";
+    readonly DEMO_INTEGRATION_DOC: "Integration Documentation";
+    readonly HEADER_LOGOUT: "Logout";
     readonly EMPTY_GIFT_TITLE: "No Gifts Yet";
     readonly EMPTY_GIFT_DESC: "Add your first gift to get started";
     readonly WHAT_IS_ANCHOR_ID: "What is Anchor ID?";

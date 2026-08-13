@@ -1,22 +1,22 @@
-import { a5 as re, t as oe, aw as ne, y as ae, bi as ie, F as se, aS as ue, c as j, a$ as Y, aZ as N, aW as le, aY as n, I as ce, a_ as de, bx as fe, be as ve } from "./chunks/shared-state.CsnQDWhV.js";
-import { aR as ct, b0 as dt, b1 as ft, bf as vt } from "./chunks/shared-state.CsnQDWhV.js";
+import { a5 as re, t as oe, aw as ne, y as ae, bi as ie, F as se, aS as ue, c as Y, a$ as j, aZ as $, aW as le, aY as n, I as ce, a_ as de, bw as fe, be as ve } from "./chunks/shared-state.BkuXD95c.js";
+import { aR as ct, b0 as dt, b1 as ft, bf as vt } from "./chunks/shared-state.BkuXD95c.js";
 import { ref as l, computed as S, onUnmounted as A, onMounted as ge, watch as me } from "vue";
-import { c0 as V, aV as q, c1 as O, c2 as pe, aD as he, aF as be, c7 as Me, bG as Le, bI as we, c4 as Se, c3 as ye, u as Ce, m as Pe, ah as ke, c5 as Ie, aa as _e, c6 as Te, Z as xe, Y as Ae } from "./chunks/main-layout.Dt5HcQRZ.js";
-import { a as Ee } from "./chunks/useAsyncAction.B32IGkkC.js";
-import { u as mt } from "./chunks/useAsyncAction.B32IGkkC.js";
-import { g as Z, a as Re, p as Fe, s as Ue } from "./chunks/demo.PB193BsM.js";
-import { r as ht } from "./chunks/demo.PB193BsM.js";
-import { u as Mt, a as Lt } from "./chunks/useSvgaPlayer.BJY6OnTN.js";
-import { useUIKit as De } from "@tencentcloud/uikit-base-component-vue3";
+import { c0 as N, aV as V, c1 as q, c2 as pe, aD as he, aF as be, c7 as Le, bG as Me, bI as we, c4 as Se, c3 as ye, u as Ce, m as Pe, ah as Ie, c5 as ke, aa as _e, c6 as Te, Z as xe, Y as Ae } from "./chunks/main-layout.CW0IWNsf.js";
+import { a as Ee } from "./chunks/useAsyncAction.BbTC8Ein.js";
+import { u as mt } from "./chunks/useAsyncAction.BbTC8Ein.js";
+import { g as Z, a as Re, p as Ue, s as De } from "./chunks/demo.Fxmf_Nac.js";
+import { D as ht, G as bt, r as Lt } from "./chunks/demo.Fxmf_Nac.js";
+import { u as wt, a as St } from "./chunks/useSvgaPlayer.Bba1-inx.js";
+import { useUIKit as Fe } from "@tencentcloud/uikit-base-component-vue3";
 const w = l(re());
 let W = !1;
-function $e() {
+function Ge() {
   W || (W = !0, ie((a) => {
     w.value = a;
   }));
 }
 function et() {
-  $e();
+  Ge();
   const a = S(() => {
     const f = w.value;
     return f.mode === "server" ? !0 : f.mode === "proxy" && !!f.credentials;
@@ -37,22 +37,22 @@ function et() {
     batchGetUserProfilePortrait: oe
   };
 }
-const v = j("RiskControl");
+const v = Y("RiskControl");
 function tt(a) {
-  const { liveId: o, pageSize: p } = a, h = l(!1), d = l("cloud"), M = l(!0), m = l([]), f = l(0), C = l(1), P = l(!1), k = l([]), r = l([]);
+  const { liveId: o, pageSize: p } = a, h = l(!1), d = l("cloud"), L = l(!0), m = l([]), f = l(0), C = l(1), P = l(!1), I = l([]), r = l([]);
   let i = !0;
-  Y("risk_control"), V().then(async (e) => {
+  j("risk_control"), N().then(async (e) => {
     if (!i) return;
     d.value = e;
-    const t = e === "cloud", y = t ? q : O;
+    const t = e === "cloud", y = t ? V : q;
     try {
       const g = await y({ pageSize: p, liveId: o });
-      i && (h.value = !0, m.value = g.list || [], f.value = g.total || 0), N(t ? "text_moderation" : "text_moderation_custom"), N(t ? "moderation" : "moderation_custom");
+      i && (h.value = !0, m.value = g.list || [], f.value = g.total || 0), $(t ? "text_moderation" : "text_moderation_custom"), $(t ? "moderation" : "moderation_custom");
     } catch {
       i && (h.value = !1);
     }
     e === "custom" && pe().then((g) => {
-      i && (M.value = g.Enabled);
+      i && (L.value = g.Enabled);
     }).catch(() => {
     });
   }), A(() => {
@@ -62,7 +62,7 @@ function tt(a) {
     P.value = !0;
     try {
       let t;
-      return d.value === "custom" ? t = await O({ pageSize: p, liveId: o, ...e }) : t = await q({ pageSize: p, liveId: o, ...e }), i && (m.value = t.list || [], f.value = t.total || 0, C.value = e.pageNum || 1), t;
+      return d.value === "custom" ? t = await q({ pageSize: p, liveId: o, ...e }) : t = await V({ pageSize: p, liveId: o, ...e }), i && (m.value = t.list || [], f.value = t.total || 0, C.value = e.pageNum || 1), t;
     } catch (t) {
       throw v.error("useRiskControlState", "fetchTextModerationList failed:", t), t;
     } finally {
@@ -72,19 +72,19 @@ function tt(a) {
     try {
       let t = e.ids, y = e.items;
       if (!y) {
-        const g = m.value, G = t.map((b) => {
-          const L = g.find((x) => x.id === b);
+        const g = m.value, O = t.map((b) => {
+          const M = g.find((x) => x.id === b);
           return {
             id: b,
-            content: L?.content ?? b,
-            userId: L?.userId ?? "",
-            createdAtMs: L?.createdAtMs ?? 0
+            content: M?.content ?? b,
+            userId: M?.userId ?? "",
+            createdAtMs: M?.createdAtMs ?? 0
           };
-        }).sort((b, L) => b.createdAtMs - L.createdAtMs);
-        t = G.map((b) => b.id), y = G.map(({ id: b, content: L, userId: x }) => ({ id: b, content: L, userId: x }));
+        }).sort((b, M) => b.createdAtMs - M.createdAtMs);
+        t = O.map((b) => b.id), y = O.map(({ id: b, content: M, userId: x }) => ({ id: b, content: M, userId: x }));
       }
       if (d.value === "custom") {
-        const g = await Ie({ ids: t, items: y, liveId: e.liveId ?? o });
+        const g = await ke({ ids: t, items: y, liveId: e.liveId ?? o });
         n("moderation", "approve", !0, String(g.success)), g.failed > 0 && v.warn("useRiskControlState", `部分放行失败: 成功 ${g.success}, 失败 ${g.failed}`);
       } else
         await _e({ ids: t, items: y, liveId: e.liveId ?? o }), n("moderation", "approve", !0, String(e.ids.length));
@@ -94,19 +94,19 @@ function tt(a) {
   }, X = async (e) => {
     try {
       const t = await Te(e);
-      return i && (M.value = t.Enabled), n("moderation", "toggle", !0), t.Enabled;
+      return i && (L.value = t.Enabled), n("moderation", "toggle", !0), t.Enabled;
     } catch (t) {
       throw n("moderation", "toggle", !1), v.error("useRiskControlState", "updateCustomModerationToggleEnabled failed:", t), t;
     }
   }, ee = async (e) => {
     try {
-      await ke({ content: e.content, liveId: e.liveId ?? o }), n("moderation", "bypass", !0, String(e.content.length));
+      await Ie({ content: e.content, liveId: e.liveId ?? o }), n("moderation", "bypass", !0, String(e.content.length));
     } catch (t) {
       throw n("moderation", "bypass", !1), v.error("useRiskControlState", "bypassCorrectionKeyword failed:", t), t;
     }
   }, te = async (e) => {
     try {
-      await V() === "custom" ? await Me(e) : await le(e), n("moderation", "delete", !0, String(e.length));
+      await N() === "custom" ? await Le(e) : await le(e), n("moderation", "delete", !0, String(e.length));
     } catch (t) {
       throw n("moderation", "delete", !1), v.error("useRiskControlState", "deleteModerationItems failed:", t), t;
     }
@@ -114,7 +114,7 @@ function tt(a) {
     if (!o) return [];
     try {
       const e = await be(o);
-      return k.value = e, e;
+      return I.value = e, e;
     } catch (e) {
       throw v.error("useRiskControlState", "fetchMutedList failed:", e), e;
     }
@@ -130,7 +130,7 @@ function tt(a) {
   return {
     textModerationAvailable: h,
     moderationMode: d,
-    customModerationToggleEnabled: M,
+    customModerationToggleEnabled: L,
     updateCustomModerationToggleEnabled: X,
     textModerationList: m,
     textModerationTotal: f,
@@ -183,44 +183,44 @@ function tt(a) {
     sendAdminMessage: async (e) => {
       if (!o) throw new Error("liveId is required");
       try {
-        const t = await Le(o, e);
+        const t = await Me(o, e);
         return n("risk_control", "send_admin_message", !0, o), t;
       } catch (t) {
         throw n("risk_control", "send_admin_message", !1), v.error("useRiskControlState", "sendAdminMessage failed:", t), t;
       }
     },
     deleteModerationItems: te,
-    mutedList: k,
+    mutedList: I,
     bannedList: r,
     fetchMutedList: _,
     fetchBannedList: T
   };
 }
-const c = j("LiveMonitor"), rt = {
+const c = Y("LiveMonitor"), rt = {
   LIVE_LIST_CHANGED: "LIVE_LIST_CHANGED"
 };
-let s = null, Ge = !0;
-const E = l([]), z = l(!0), K = l(null), Ne = l({}), Ve = l(null);
+let s = null, Oe = !0;
+const E = l([]), z = l(!0), B = l(null), $e = l({}), Ne = l(null);
 let u = null;
-const I = l([]), U = l(1), D = l(!0), $ = l(!1);
+const k = l([]), D = l(1), F = l(!0), G = l(!1);
 function R() {
   return u || (u = new Ae({ pageSize: 8 }), u.subscribe(() => {
     const a = u.getSnapshot();
-    I.value = a.list, U.value = a.currentPage, D.value = a.hasMoreData, $.value = a.loading, E.value = [...a.list];
+    k.value = a.list, D.value = a.currentPage, F.value = a.hasMoreData, G.value = a.loading, E.value = [...a.list];
   }), u);
 }
-let B = typeof document < "u" ? document.documentElement.lang : "";
+let K = typeof document < "u" ? document.documentElement.lang : "";
 typeof MutationObserver < "u" && new MutationObserver(() => {
   const a = document.documentElement.lang;
-  a !== B && (B = a, u && (c.debug("LiveMonitor", "语言切换（module observer），重新获取直播列表"), u.goToFirstPage()));
+  a !== K && (K = a, u && (c.debug("LiveMonitor", "语言切换（module observer），重新获取直播列表"), u.goToFirstPage()));
 }).observe(document.documentElement, { attributes: !0, attributeFilter: ["lang"] });
 function ot() {
   const a = () => {
     s || (s = new xe({
       onStateChange: (r) => {
-        r.liveList !== void 0 && (E.value = r.liveList), r.hasMore !== void 0 && (z.value = r.hasMore), r.currentLive !== void 0 && (K.value = r.currentLive), r.loading !== void 0 && (Ne.value = r.loading), r.error !== void 0 && (Ve.value = r.error);
+        r.liveList !== void 0 && (E.value = r.liveList), r.hasMore !== void 0 && (z.value = r.hasMore), r.currentLive !== void 0 && (B.value = r.currentLive), r.loading !== void 0 && ($e.value = r.loading), r.error !== void 0 && (Ne.value = r.error);
       },
-      getActive: () => Ge
+      getActive: () => Oe
     }), c.debug("useLiveMonitorState", "Core initialized (singleton)"));
   };
   return A(() => {
@@ -228,7 +228,7 @@ function ot() {
   }), ge(() => {
     if (a(), R(), u) {
       const i = u.getSnapshot();
-      I.value = i.list, U.value = i.currentPage, D.value = i.hasMoreData, $.value = i.loading;
+      k.value = i.list, D.value = i.currentPage, F.value = i.hasMoreData, G.value = i.loading;
     }
     const r = me(
       () => document.documentElement.lang,
@@ -247,7 +247,7 @@ function ot() {
     },
     liveList: E,
     hasMore: z,
-    currentLive: K,
+    currentLive: B,
     setCurrentLive: (r) => {
       s?.setCurrentLive(r);
     },
@@ -265,14 +265,14 @@ function ot() {
           await u.nextPage();
           break;
       }
-      return I.value;
+      return k.value;
     },
     createLive: async (r) => {
       if (!s)
         throw c.warn("useLiveMonitorState", "createLive: core is null, cannot create"), new Error("LiveMonitorCore not initialized");
       try {
         const i = await s.createLive(r);
-        return n("live_crud", "create", !0, i.liveId), Y("create_live"), i;
+        return n("live_crud", "create", !0, i.liveId), j("create_live"), i;
       } catch (i) {
         throw n("live_crud", "create", !1), i;
       }
@@ -319,10 +319,10 @@ function ot() {
 }
 function nt() {
   return R(), {
-    pageData: I,
-    currentPage: U,
-    hasMore: D,
-    loading: $,
+    pageData: k,
+    currentPage: D,
+    hasMore: F,
+    loading: G,
     nextPage: () => u?.nextPage() ?? Promise.resolve(),
     prevPage: () => u?.prevPage() ?? Promise.resolve(),
     goToFirstPage: () => u?.goToFirstPage() ?? Promise.resolve(),
@@ -337,33 +337,33 @@ function nt() {
     }
   };
 }
-const F = l(Z());
+const U = l(Z());
 let H = !1;
-function qe() {
-  H || (H = !0, Ue(() => {
-    F.value = Z();
+function Ve() {
+  H || (H = !0, De(() => {
+    U.value = Z();
   }));
 }
 function at() {
-  qe();
-  const a = S(() => F.value.uploading), o = S(() => F.value.uploadProgress);
+  Ve();
+  const a = S(() => U.value.uploading), o = S(() => U.value.uploadProgress);
   return {
     uploading: a,
     uploadProgress: o,
-    getUploadConfig: Fe,
+    getUploadConfig: Ue,
     uploadResource: Re
   };
 }
 function it() {
-  const { t: a } = De();
+  const { t: a } = Fe();
   return { t: fe(a) };
 }
 function st(a) {
-  const { confirm: o, onSuccess: p, ...h } = a, d = l(null), M = (i) => {
+  const { confirm: o, onSuccess: p, ...h } = a, d = l(null), L = (i) => {
     d.value = null, p?.(i);
   }, { loading: m, execute: f, reset: C } = Ee({
     ...h,
-    onSuccess: M
+    onSuccess: L
   });
   return {
     loading: m,
@@ -391,13 +391,15 @@ function st(a) {
 }
 ve("vue");
 export {
+  ht as DEPLOY_DOC_URL,
+  bt as GITHUB_ISSUE_URL,
   rt as LiveListEvent,
   ct as measureAndReport,
   n as reportBusinessOp,
   de as reportEvent,
   dt as reportPageView,
   ft as reportTime,
-  ht as resolveDemoTargetPath,
+  Lt as resolveDemoTargetPath,
   vt as setReportSource,
   Ee as useAsyncAction,
   et as useAuthState,
@@ -405,9 +407,9 @@ export {
   mt as useGiftState,
   ot as useLiveMonitorState,
   nt as usePaginatedList,
-  Mt as usePreviewUrl,
+  wt as usePreviewUrl,
   tt as useRiskControlState,
-  Lt as useSvgaPlayer,
+  St as useSvgaPlayer,
   it as useT,
   at as useUploadState
 };

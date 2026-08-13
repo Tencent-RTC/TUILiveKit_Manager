@@ -3,9 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { i18next } from '@tencentcloud/uikit-base-component-react';
 import { TranslateIcon, HelpCircleIcon, InfoCircleIcon, ErrorCircleIcon } from 'tdesign-icons-react';
 import { Input, Button, Tooltip, Dialog } from 'tdesign-react';
-import { Message } from 'tuikit-live-manager-sdk-react';
 import {
-  loginWithSecret,
+  login,
   saveCredentials,
   getDefaultRoutePath,
   getDefaultLanguage,
@@ -18,6 +17,7 @@ import {
   clearCredentials,
   reportBusinessOp,
   I18N,
+  resolveLoginBrandName,
 } from 'tuikit-live-manager-sdk-react';
 import type { SupportedLanguage } from 'tuikit-live-manager-sdk-react';
 
@@ -64,6 +64,11 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
   // 使用 typeof 守卫避免 ReferenceError；非 demo 构建时回落为 false。
   const demoModeEnabled = typeof __DEMO_MODE__ !== 'undefined' ? __DEMO_MODE__ : false;
 
+  // 登录页顶部品牌位：自定义 BrandConfig.appName 优先，否则兜底到 I18N.DEMO_PRODUCT_NAME
+  // （中文："腾讯直播管理系统"，英文："Tencent Live Manager"）。
+  // 走公共函数避免依赖 demo 编译变量，与 Vue 端共用同一解析策略。
+  const loginProductName = resolveLoginBrandName(currentLanguage, t);
+
   const clearFieldErrors = () => {
     setFieldErrors({ sdkAppId: '', secretKey: '', userId: '' });
   };
@@ -93,7 +98,7 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
     const appId = Number(sdkAppId.trim());
     setLoading(true);
     try {
-      const res = await loginWithSecret(appId, secretKey.trim(), userId.trim() || 'administrator');
+      const res = await login({ sdkAppId: appId, secretKey: secretKey.trim(), userId: userId.trim() || 'administrator' });
 
       if (res.code === 0 && res.data) {
         saveCredentials(res.data);
@@ -148,8 +153,13 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
 
       <div className="login-content">
         <div className="login-header">
-          <h1 className="login-title">{t(I18N.CREDENTIAL_LOGIN_TITLE)}</h1>
-          <p className="login-subtitle">{t(I18N.CREDENTIAL_LOGIN_SUBTITLE)}</p>
+          <div className="demo-product-name">{loginProductName}</div>
+          {!demoModeEnabled && (
+            <>
+              <h1 className="login-title">{t(I18N.CREDENTIAL_LOGIN_TITLE)}</h1>
+              <p className="login-subtitle">{t(I18N.CREDENTIAL_LOGIN_SUBTITLE)}</p>
+            </>
+          )}
         </div>
 
         {demoModeEnabled ? (

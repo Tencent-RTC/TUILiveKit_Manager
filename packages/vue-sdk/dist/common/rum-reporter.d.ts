@@ -11,11 +11,13 @@ export declare function reportEvent(name: string, ext1?: string, ext2?: string):
  * 上报自定义测速
  * @param name 测速名称
  * @param duration 耗时（毫秒）
+ * @param ext1 事件 ext1 维度（默认取 name，不影响测速 name）
+ * @param ext2 事件 ext2 维度（默认 'ok'）
  *
- * 同时向事件流发送一条同名事件（ext1=name, ext2=ok），
+ * 同时向事件流发送一条事件（ext1=ext1, ext2=ext2），
  * 供 tools 后台按 ext1 分组统计"调用次数"。
  */
-export declare function reportTime(name: string, duration: number): void;
+export declare function reportTime(name: string, duration: number, ext1?: string, ext2?: string): void;
 /** 上报业务操作结果 */
 export declare function reportBusinessOp(category: string, action: string, success: boolean, _detail?: string): void;
 /** 计时并上报 */

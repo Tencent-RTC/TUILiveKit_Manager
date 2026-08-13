@@ -423,7 +423,7 @@ export declare const resource: {
     "Login credentials for Tencent Cloud API access and TRTC service authentication": string;
     SDKAppID: string;
     "e.g. 1400000000": string;
-    "Unique identifier for your Tencent Cloud IM application": string;
+    "Tencent Cloud application identifier for API access and TRTC service authentication": string;
     SecretKey: string;
     "Enter your SecretKey": string;
     "Key used to generate login signatures. Never share it.": string;
@@ -469,6 +469,14 @@ export declare const resource: {
     "Go Create Live Room": string;
     "Try Demo Mode": string;
     "Explore the full experience with sample data, no credentials needed": string;
+    "This is an online demo. All data shown is simulated sample data": string;
+    "Deployment Guide": string;
+    "Tencent Live Manager": string;
+    "Want more features? Submit an issue on GitHub": string;
+    "Close banner": string;
+    "This demo site is for experience only. To integrate with your application, please refer to ": string;
+    "Integration Documentation": string;
+    Logout: string;
     "No Gifts Yet": string;
     "Add your first gift to get started": string;
     "What is Anchor ID?": string;

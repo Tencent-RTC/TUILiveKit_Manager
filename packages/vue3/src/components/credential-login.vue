@@ -7,8 +7,11 @@
 
     <div class="login-content">
       <div class="login-header">
-        <h1 class="login-title">{{ $t(I18N.CREDENTIAL_LOGIN_TITLE) }}</h1>
-        <p class="login-subtitle">{{ $t(I18N.CREDENTIAL_LOGIN_SUBTITLE) }}</p>
+        <div class="demo-product-name">{{ loginProductName }}</div>
+        <template v-if="!demoModeEnabled">
+          <h1 class="login-title">{{ $t(I18N.CREDENTIAL_LOGIN_TITLE) }}</h1>
+          <p class="login-subtitle">{{ $t(I18N.CREDENTIAL_LOGIN_SUBTITLE) }}</p>
+        </template>
       </div>
 
       <div v-if="demoModeEnabled" class="login-notice login-notice--demo">
@@ -132,7 +135,7 @@ import { ref, reactive, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { TranslateIcon, HelpCircleIcon, InfoCircleIcon, ErrorCircleIcon } from 'tdesign-icons-vue-next';
 import {
-  loginWithSecret,
+  login,
   saveCredentials,
   getDefaultRoutePath,
   getDefaultLanguage,
@@ -147,6 +150,7 @@ import {
   enResource,
   zhResource,
   I18N,
+  resolveLoginBrandName,
 } from 'tuikit-live-manager-sdk-vue';
 import type { SupportedLanguage } from 'tuikit-live-manager-sdk-vue';
 
@@ -178,6 +182,11 @@ const $t = (key: string): string => {
   const resource = currentLanguage.value === 'zh-CN' ? zhResource : enResource;
   return (resource as Record<string, string>)[key] || key;
 };
+
+// 登录页顶部品牌位：自定义 BrandConfig.appName 优先，
+// 否则兜底到 I18N.DEMO_PRODUCT_NAME（中文："腾讯直播管理系统" / 英文："Tencent Live Manager"）。
+// 走公共函数避免 UI 层依赖 demo 编译变量，与 React 端共享同一解析策略。
+const loginProductName = computed(() => resolveLoginBrandName(currentLanguage.value, $t));
 
 function clearFieldErrors() {
   fieldErrors.sdkAppId = '';
@@ -220,7 +229,7 @@ async function handleLogin() {
   const appId = Number(sdkAppId.value.trim());
   loading.value = true;
   try {
-    const res = await loginWithSecret(appId, secretKey.value.trim(), userId.value.trim() || 'administrator');
+    const res = await login({ sdkAppId: appId, secretKey: secretKey.value.trim(), userId: userId.value.trim() || 'administrator' });
     if (res.code === 0 && res.data) {
       saveCredentials(res.data);
 

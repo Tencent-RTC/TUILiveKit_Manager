@@ -7,4 +7,4 @@ export * from './hooks';
 export { AppErrorBoundary } from './components/AppErrorBoundary';
 export { reportEvent, reportTime, reportBusinessOp, reportPageView, measureAndReport, setReportSource } from '../common/rum-reporter';
 export type { ReportSource } from '../common/rum-reporter';
-export { resolveDemoTargetPath, type DemoTargetVariant } from '../common';
+export { resolveDemoTargetPath, DEPLOY_DOC_URL, GITHUB_ISSUE_URL, type DemoTargetVariant } from '../common';

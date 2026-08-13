@@ -11,11 +11,6 @@ export declare function checkServerConfig(): Promise<CheckConfigResponse>;
  * @param params - 登录参数，空对象表示 server 模式
  */
 export declare function login(params?: LoginParams): Promise<LoginResponse>;
-/**
- * 前端自主凭证模式登录（已废弃，请使用 login({ sdkAppId, secretKey, userId?, expireTime? }) 代替）
- * @deprecated 请使用 `login({ sdkAppId, secretKey, userId?, expireTime? })` 代替
- */
-export declare function loginWithSecret(sdkAppId: number, secretKey: string, userId?: string, expireTime?: number): Promise<LoginResponse>;
 export declare function getUserSig(userId: string): Promise<UserSigResponse>;
 /**
  * 通过服务端 API 创建基础账号信息（含 userSig）

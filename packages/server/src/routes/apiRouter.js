@@ -29,25 +29,6 @@ const upload = multer({
   },
 });
 
-// Multer 错误处理中间件
-const handleMulterError = (err, req, res, next) => {
-  if (err instanceof multer.MulterError) {
-    // Multer 错误
-    logger.error('UPLOAD_MULTER', err, { field: err.field, code: err.code });
-    if (err.code === 'LIMIT_FILE_SIZE') {
-      res.status(400).json({ code: -1, message: '文件大小超过限制(最大10MB)' });
-    } else {
-      res.status(400).json({ code: -1, message: err.message });
-    }
-  } else if (err) {
-    // 其他错误
-    logger.error('UPLOAD_ERROR', err);
-    res.status(400).json({ code: -1, message: err.message });
-  } else {
-    next();
-  }
-};
-
 const apiRouter = Router();
 
 // ========== 认证与配置 ==========
@@ -108,7 +89,7 @@ apiRouter.post('/login', (req, res) => {
 
 
   // server 已完整配置且前端未提供凭证：直接返回服务端凭证，无需密码
-  // 若前端通过 loginWithSecret 传入了自主凭证（userId + userSig + sdkAppId），
+  // 若前端通过 login 传入了自主凭证（userId + userSig + sdkAppId），
   // 则走下面的 proxy 模式分支，不在此处拦截
   if (isServerConfigured() && !hasFrontendSdkAppId && !hasFrontendUserSig) {
     // 自动生成管理员 UserSig 返回给前端

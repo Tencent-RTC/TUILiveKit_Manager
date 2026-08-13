@@ -2,17 +2,17 @@ import { defineComponent as le, openBlock as u, createElementBlock as T, toDispl
 import { useRoute as dn, useRouter as un } from "vue-router";
 import { Tooltip as Ne, MessagePlugin as A } from "tdesign-vue-next";
 import { useUIKit as me } from "@tencentcloud/uikit-base-component-vue3";
-import { LiveView as vn, useLiveAudienceState as je, LiveAudienceList as mn, useLoginState as fn, useLiveListState as gn, useLivePlayerState as bn } from "tuikit-atomicx-vue3";
-import { _ as Ct } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.CfI37jOH.js";
+import { LiveView as vn, useLiveAudienceState as qe, LiveAudienceList as mn, useLoginState as fn, useLiveListState as gn, useLivePlayerState as bn } from "tuikit-atomicx-vue3";
+import { _ as Ct } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.CnmmEz1q.js";
 import { ArrowLeftIcon as hn, NotificationIcon as En, StopCircleIcon as In, CheckCircleIcon as ze, ChatOffIcon as Tt, UserCheckedIcon as Mt, UserBlockedIcon as yt, MoreIcon as _n, InfoCircleIcon as Me, CloseCircleIcon as Nn, RefreshIcon as Ln, ChevronDownIcon as gt } from "tdesign-icons-vue-next";
-import { I as t, p as Cn, c as He, _ as Tn, u as At, ak as ae, ac as Ot, ab as bt, b5 as Mn, a as yn, x as An, Z as On, a1 as pn, S as Rn } from "../../chunks/shared-state.CsnQDWhV.js";
-import { bb as wn, b3 as Pe, b5 as ht, r as Sn, D as Dn, bK as Un, bz as kn, a9 as $n, bU as Ke, b6 as xn, by as Et, bx as It, aL as Bn, a0 as qe, an as Pn, az as _t, bH as Fn, aj as Vn } from "../../chunks/main-layout.Dt5HcQRZ.js";
+import { I as t, p as Cn, c as He, _ as Tn, u as At, ak as ae, ac as Ot, ab as bt, b5 as Mn, a as yn, x as An, Z as On, a1 as pn, S as Rn } from "../../chunks/shared-state.BkuXD95c.js";
+import { bb as wn, b3 as Pe, b5 as ht, r as Sn, D as Dn, bK as Un, bz as kn, a9 as $n, bU as Ke, b6 as xn, by as Et, bx as It, aL as Bn, a0 as je, an as Pn, az as _t, bH as Fn, aj as Vn } from "../../chunks/main-layout.CW0IWNsf.js";
 import { BarrageList as Gn, BarrageInput as Wn, LiveListEvent as Kn } from "tuikit-atomicx-vue3/live";
-import { _ as nt } from "../../chunks/AnchorAvatar.vue_vue_type_script_setup_true_lang.B17SM1-g.js";
-import { c as qn, C as jn } from "../../chunks/user-action-dropdown.D1uQo8a2.js";
+import { _ as nt } from "../../chunks/AnchorAvatar.vue_vue_type_script_setup_true_lang.DolmKTKl.js";
+import { c as jn, C as qn } from "../../chunks/user-action-dropdown.BSmbg_mK.js";
 import { useLiveMonitorState as at, useRiskControlState as pt, useConfirmAction as Je } from "../../vue.js";
-import { u as zn } from "../../chunks/useAsyncAction.B32IGkkC.js";
-import { p as Hn, b as Yn, g as Jn } from "../../chunks/columns.DOXpciUj.js";
+import { u as zn } from "../../chunks/useAsyncAction.BbTC8Ein.js";
+import { p as Hn, b as Yn, g as Jn } from "../../chunks/columns.BcBBOd2H.js";
 import { a as ot, _ as Xn } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
 import "../../chunks/action-buttons.ChAJrOyM.js";
 import { _ as Zn } from "../../chunks/_plugin-vue_export-helper.CHgC5LLL.js";
@@ -162,7 +162,7 @@ const Qn = { class: "toast-area" }, ea = {
           a.liveEndedOverlayVisible ? (u(), T("div", fa, [
             i("div", ga, [
               i("img", {
-                src: e(qn),
+                src: e(jn),
                 alt: "",
                 class: "live-state-overlay-icon"
               }, null, 8, ba),
@@ -189,11 +189,11 @@ const Qn = { class: "toast-area" }, ea = {
     const l = He("MessageList"), { t: d } = me(), { giftList: o, fetchGiftList: m } = zn();
     m().catch(() => {
     });
-    const v = a, { currentLive: f } = at(), { audienceList: s, disableSendMessage: p } = je(), b = $(() => v.currentLive || f.value), N = I(!1), x = I({ top: 0, left: 0 }), C = I(null), te = I(null), z = I(null), S = I(null), P = (_) => s.value.find((B) => B.userId === _), Q = (_) => {
+    const v = a, { currentLive: f } = at(), { audienceList: s, disableSendMessage: p } = qe(), b = $(() => v.currentLive || f.value), N = I(!1), x = I({ top: 0, left: 0 }), C = I(null), te = I(null), z = I(null), S = I(null), P = (_) => s.value.find((B) => B.userId === _), Q = (_) => {
       const B = P(_);
       if (B)
         return B.isMessageDisabled === !0;
-      const W = v.mutedList.find((q) => q.userId === _);
+      const W = v.mutedList.find((j) => j.userId === _);
       return W ? W.endTime > Date.now() / 1e3 : !1;
     }, J = (_) => {
       const B = v.bannedList.find((W) => W.userId === _);
@@ -201,13 +201,13 @@ const Qn = { class: "toast-area" }, ea = {
     }, H = (_, B) => {
       if (_.preventDefault(), _.stopPropagation(), Number(B.sender.userRole) !== 2 || wn(v.liveId || "", B.sender.userId))
         return;
-      const q = _.target.closest(".message-item");
-      if (!q) return;
-      const ie = q.getBoundingClientRect(), D = ie.bottom + 4, j = Math.min(
+      const j = _.target.closest(".message-item");
+      if (!j) return;
+      const ie = j.getBoundingClientRect(), D = ie.bottom + 4, q = Math.min(
         ie.left,
         window.innerWidth - 150
       );
-      x.value = { top: D, left: Math.max(0, j) }, C.value = B, N.value = !0;
+      x.value = { top: D, left: Math.max(0, q) }, C.value = B, N.value = !0;
     }, ee = () => {
       if (C.value && v.onBanUser) {
         const _ = C.value.sender.userId;
@@ -237,8 +237,8 @@ const Qn = { class: "toast-area" }, ea = {
       const B = C.value.sender.userName || C.value.sender.nameCard || C.value.sender.userId, W = Q(_);
       try {
         await p({ userId: _, isDisable: !W }), l.debug("muteOperation", W ? "解除禁言成功" : "禁言成功");
-      } catch (q) {
-        l.error("SDK 禁言失败，使用备用方法", "", q), v.onMuteUser && v.onMuteUser(_, B, W);
+      } catch (j) {
+        l.error("SDK 禁言失败，使用备用方法", "", j), v.onMuteUser && v.onMuteUser(_, B, W);
       }
       N.value = !1, C.value = null;
     }, re = le({
@@ -258,37 +258,37 @@ const Qn = { class: "toast-area" }, ea = {
       },
       setup(_) {
         const B = _.message.sender.nameCard || _.message.sender.userName || _.message.sender.userId, W = _.message.sender.userId === b.value?.liveOwner?.userId;
-        let q;
+        let j;
         if (_.message.messageType === 0)
-          q = _.message.textContent || "";
+          j = _.message.textContent || "";
         else if (_.message.businessId === "gift" && _.message.data)
           try {
-            const j = JSON.parse(_.message.data), ne = j.giftName || "", fe = j.giftId;
+            const q = JSON.parse(_.message.data), ne = q.giftName || "", fe = q.giftId;
             if (fe) {
               const M = o.value.find((U) => U.id === fe);
-              M?.languageList ? q = Tn(M.languageList)?.name || ne : q = ne;
+              M?.languageList ? j = Tn(M.languageList)?.name || ne : j = ne;
             } else
-              q = ne;
+              j = ne;
           } catch {
-            q = _.message.data || "";
+            j = _.message.data || "";
           }
         else
-          q = _.message.data || "";
-        const ie = Hn(q), D = () => ie.map((j, ne) => j.type === "emoji" ? Se("img", {
+          j = _.message.data || "";
+        const ie = Hn(j), D = () => ie.map((q, ne) => q.type === "emoji" ? Se("img", {
           key: ne,
           class: "message-emoji",
-          src: j.src,
-          alt: j.key
-        }) : Se("span", { key: ne, class: "message-text" }, j.text));
+          src: q.src,
+          alt: q.key
+        }) : Se("span", { key: ne, class: "message-text" }, q.text));
         return () => Se("div", {
           class: ["message-item", W ? "host" : ""],
           style: _.style,
-          onContextMenu: (j) => H(j, _.message)
+          onContextMenu: (q) => H(q, _.message)
         }, [
           // 主播标识
           W ? Se("span", { class: "message-badge" }, d(t.HOST)) : null,
           // 昵称
-          Se("span", { class: "message-username", onClick: (j) => H(j, _.message) }, `${B}: `),
+          Se("span", { class: "message-username", onClick: (q) => H(q, _.message) }, `${B}: `),
           // 消息内容
           Se("span", { class: "message-content" }, D())
         ]);
@@ -567,7 +567,7 @@ const Qn = { class: "toast-area" }, ea = {
       }, 8, ["visible", "header"]);
     };
   }
-}), qa = { class: "dropdown-header" }, ja = /* @__PURE__ */ le({
+}), ja = { class: "dropdown-header" }, qa = /* @__PURE__ */ le({
   __name: "AudienceDropdown",
   props: {
     visible: { type: Boolean },
@@ -606,7 +606,7 @@ const Qn = { class: "toast-area" }, ea = {
           left: a.position.x - 160 + "px"
         })
       }, [
-        i("div", qa, c(a.userName), 1),
+        i("div", ja, c(a.userName), 1),
         N[0] || (N[0] = i("div", { class: "dropdown-divider" }, null, -1)),
         a.isMuted ? (u(), T("button", {
           key: 0,
@@ -670,7 +670,7 @@ const Qn = { class: "toast-area" }, ea = {
       unbanMember: te,
       fetchMutedList: z,
       fetchBannedList: S
-    } = pt({ liveId: v.liveId, pageSize: 100 }), { updateLive: P } = at(), { audienceList: Q } = je(), J = $(() => v.currentLive?.isMessageDisabled === !0), H = I(!1), ee = I(!1), X = I(null), re = I(!1);
+    } = pt({ liveId: v.liveId, pageSize: 100 }), { updateLive: P } = at(), { audienceList: Q } = qe(), J = $(() => v.currentLive?.isMessageDisabled === !0), H = I(!1), ee = I(!1), X = I(null), re = I(!1);
     function oe(h) {
       X.value = { ...h, visible: !0 };
     }
@@ -715,7 +715,7 @@ const Qn = { class: "toast-area" }, ea = {
         });
       }
     }
-    function q(h, E, O) {
+    function j(h, E, O) {
       if (v.disabled) {
         A.warning(o(t.LIVE_ENDED));
         return;
@@ -775,7 +775,7 @@ const Qn = { class: "toast-area" }, ea = {
       }
     }
     const D = I(null);
-    function j(h, E, O) {
+    function q(h, E, O) {
       h.stopPropagation();
       const Z = h.currentTarget.getBoundingClientRect();
       D.value = { userId: E, userName: O, x: Z.right, y: Z.bottom + 4 };
@@ -791,7 +791,7 @@ const Qn = { class: "toast-area" }, ea = {
     function M() {
       if (!D.value) return;
       const { userId: h, userName: E } = D.value;
-      q(h, E, he(h)), ne();
+      j(h, E, he(h)), ne();
     }
     function U(h) {
       return p.value.some((E) => E.userId === h);
@@ -944,7 +944,7 @@ const Qn = { class: "toast-area" }, ea = {
               "current-live": a.currentLive,
               "room-joined": a.roomJoined,
               "on-mute-user": W,
-              "on-ban-user": q
+              "on-ban-user": j
             }, null, 8, ["live-id", "anchor-user-id", "muted-list", "banned-list", "current-live", "room-joined"])
           ], 512), [
             [mt, a.activeTab === "chat"]
@@ -959,7 +959,7 @@ const Qn = { class: "toast-area" }, ea = {
                       class: "audience-more-btn",
                       title: e(o)(e(t).MORE_ACTIONS),
                       disabled: a.disabled,
-                      onClick: rn((F) => j(F, w.userId, w.userName || w.userId), ["stop"])
+                      onClick: rn((F) => q(F, w.userId, w.userName || w.userId), ["stop"])
                     }, [
                       g(e(_n))
                     ], 8, io)
@@ -1015,7 +1015,7 @@ const Qn = { class: "toast-area" }, ea = {
           "get-user-name-from-cache": De,
           "get-banned-member-actions": ke
         }, null, 8, ["visible", "banned-list", "member-list-loading", "unbanning-user-id"]),
-        g(ja, {
+        g(qa, {
           visible: !!D.value,
           "user-name": D.value?.userName || "",
           "is-muted": D.value ? U(D.value.userId) : !1,
@@ -1042,7 +1042,7 @@ const Qn = { class: "toast-area" }, ea = {
   },
   emits: ["update:activeTab", "joined-live", "live-ended"],
   setup(a, { emit: l }) {
-    const d = He("LiveControlPanel"), o = a, m = l, { login: v, loginUserInfo: f } = fn(), { joinLive: s, leaveLive: p, subscribeEvent: b, unsubscribeEvent: N } = gn(), { fetchAudienceList: x } = je(), { hideControlBar: C, showControlBar: te, setAutoHideDelay: z } = bn();
+    const d = He("LiveControlPanel"), o = a, m = l, { login: v, loginUserInfo: f } = fn(), { joinLive: s, leaveLive: p, subscribeEvent: b, unsubscribeEvent: N } = gn(), { fetchAudienceList: x } = qe(), { hideControlBar: C, showControlBar: te, setAutoHideDelay: z } = bn();
     function S() {
       try {
         if (typeof window < "u" && window.__IDENTITY_MODE__ === "admin")
@@ -1056,15 +1056,15 @@ const Qn = { class: "toast-area" }, ea = {
     ), W = $(
       () => o.liveEndedOverlayVisible || ee.value && !o.currentLive && !o.isMockMode
     );
-    function q() {
+    function j() {
       const M = Kn;
       return M.onLiveEnded || M.ON_LIVE_ENDED || "";
     }
-    const ie = q(), D = () => {
+    const ie = j(), D = () => {
       m("live-ended");
-    }, j = async () => {
+    }, q = async () => {
       if (o.isMockMode) {
-        P.value = !0;
+        P.value = !0, m("joined-live");
         return;
       }
       if (!P.value && !X.value) {
@@ -1101,7 +1101,7 @@ const Qn = { class: "toast-area" }, ea = {
         try {
           d.debug("LiveControlLeftPanel", "Joining live:", o.liveId, "as:", _);
           const M = bt();
-          jn.callExperimentalAPI(JSON.stringify({
+          qn.callExperimentalAPI(JSON.stringify({
             api: "setCurrentLanguage",
             params: { language: M === "en-US" ? "en" : M === "zh-CN" ? "zh-Hans" : M }
           })).catch(() => {
@@ -1120,7 +1120,7 @@ const Qn = { class: "toast-area" }, ea = {
     return ve(
       () => [o.liveId, o.currentLive, B.value, P.value, oe.value],
       async () => {
-        if (!(!o.liveId || !o.currentLive) && (P.value || await j(), !!P.value)) {
+        if (!(!o.liveId || !o.currentLive) && (P.value || await q(), !!P.value)) {
           if (!o.isMockMode && _ === "audience" && H.value) {
             const M = bt() === "en-US" ? "admin" : "管理员";
             Un(H.value, M).catch((U) => {
@@ -1323,7 +1323,7 @@ const Qn = { class: "toast-area" }, ea = {
       ], 512)
     ]));
   }
-}), Go = { class: "moderation-card" }, Wo = { class: "moderation-card-header" }, Ko = { class: "moderation-header-left" }, qo = { key: 0 }, jo = {
+}), Go = { class: "moderation-card" }, Wo = { class: "moderation-card-header" }, Ko = { class: "moderation-header-left" }, jo = { key: 0 }, qo = {
   key: 2,
   style: { "font-size": "13px", "margin-left": "8px" }
 }, zo = { class: "moderation-toolbar" }, Ho = { class: "update-time" }, Yo = { class: "moderation-table-wrapper" }, Jo = ["checked", "disabled"], Xo = ["checked", "disabled", "onChange"], Zo = { class: "moderation-user-cell" }, Qo = { class: "moderation-user-id" }, ei = ["title"], ti = { class: "moderation-type-text" }, ni = { class: "moderation-empty" }, ai = {
@@ -1365,7 +1365,7 @@ const Qn = { class: "toast-area" }, ea = {
       return u(), T("div", Go, [
         i("div", Wo, [
           i("div", Ko, [
-            a.moderationMode !== "custom" ? (u(), T("h3", qo, c(e(l)(e(t).CONTENT_MODERATION)), 1)) : K("", !0),
+            a.moderationMode !== "custom" ? (u(), T("h3", jo, c(e(l)(e(t).CONTENT_MODERATION)), 1)) : K("", !0),
             a.moderationMode === "custom" ? (u(), G(m, {
               key: 1,
               size: "small",
@@ -1374,7 +1374,7 @@ const Qn = { class: "toast-area" }, ea = {
               onChange: o[0] || (o[0] = (f) => a.onCustomToggleChange?.(f)),
               style: { "margin-left": "12px" }
             }, null, 8, ["value", "disabled"])) : K("", !0),
-            a.moderationMode === "custom" ? (u(), T("span", jo, c(e(l)(e(t).CUSTOM_MODERATION_TOGGLE)), 1)) : K("", !0),
+            a.moderationMode === "custom" ? (u(), T("span", qo, c(e(l)(e(t).CUSTOM_MODERATION_TOGGLE)), 1)) : K("", !0),
             g(v, {
               theme: "primary",
               shape: "round",
@@ -1635,7 +1635,7 @@ function ui() {
 const vi = { class: "live-control-container" }, mi = { class: "live-control-viewport" }, fi = { class: "right-sidebar" }, gi = /* @__PURE__ */ le({
   __name: "live-control",
   setup(a) {
-    const l = He("LiveControl"), d = dn(), o = un(), m = $(() => d.params.liveId), v = $(() => d.query.from === "live-list" ? "/live-list" : "/live-monitor"), f = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, { t: s } = me(), { opSuccess: p, opFailed: b } = At(s), { currentLive: N, fetchLiveDetail: x, fetchLiveStats: C, setCurrentLive: te, endLive: z, updateLive: S } = at(), { audienceCount: P } = je(), Q = yn().components?.liveControl, {
+    const l = He("LiveControl"), d = dn(), o = un(), m = $(() => d.params.liveId), v = $(() => d.query.from === "live-list" ? "/live-list" : "/live-monitor"), f = typeof __MOCK_MODE__ < "u" && __MOCK_MODE__ || typeof window < "u" && window.__PLAYWRIGHT_MOCK__ === !0, { t: s } = me(), { opSuccess: p, opFailed: b } = At(s), { currentLive: N, fetchLiveDetail: x, fetchLiveStats: C, setCurrentLive: te, endLive: z, updateLive: S } = at(), { audienceCount: P } = qe(), Q = yn().components?.liveControl, {
       moderationMode: J,
       customModerationToggleEnabled: H,
       updateCustomModerationToggleEnabled: ee,
@@ -1645,13 +1645,13 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       textModerationLoading: _,
       fetchTextModerationList: B,
       approveTextModerationItems: W,
-      bypassCorrectionKeyword: q,
+      bypassCorrectionKeyword: j,
       deleteModerationItems: ie
     } = pt({
       liveId: m.value,
-      pageSize: qe
+      pageSize: je
     }), D = $(() => J.value === "custom"), {
-      successMsg: j,
+      successMsg: q,
       errorMsg: ne
     } = ui(), fe = I(""), M = I(""), U = I(!1), he = I(!1), Le = I(null), De = $(() => Ot() || ""), Ce = I(!0), Y = I(null), Ue = I(!1), se = $(() => !Y.value || Number(Y.value?.activityStatus) === 2), Ge = I("chat"), ke = I(!1), Te = I(0), Ae = I(null), Oe = I(null), k = Xe({
       onlineCount: 0,
@@ -1677,7 +1677,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       { immediate: !0 }
     );
     const O = I([]), Z = I(1), ce = _, w = I(0), F = I([]), Ye = $(
-      () => An(w.value, qe)
+      () => An(w.value, je)
     ), Rt = $(
       () => Yn(Z.value, Ye.value)
     ), wt = $(() => {
@@ -1697,7 +1697,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
           await B({
             liveId: m.value,
             pageNum: r,
-            pageSize: qe,
+            pageSize: je,
             startTime: L,
             violationOnly: !D.value
           });
@@ -1733,7 +1733,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
         Z.value,
         w.value,
         n.length,
-        qe
+        je
       );
       await $e(r);
     }, Ut = (n) => {
@@ -1794,7 +1794,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       }
       fe.value = s(t.BYPASS_CORRECTION_DIALOG_TITLE), M.value = s(t.BYPASS_CORRECTION_DESCRIPTION), Le.value = async () => {
         try {
-          await q({
+          await j({
             content: n.content,
             liveId: m.value
           }), We("success", p(t.BYPASS_CORRECTION)), await xe([n.id]);
@@ -1869,7 +1869,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       { label: s(t.ONE_MINUTE), value: 60 },
       { label: s(t.FIVE_MINUTES), value: 300 }
     ]);
-    const Kt = I(30), { confirmDialog: Be, requestConfirm: qt, cancelConfirm: rt, executeWithConfirm: jt, loading: ct } = Je({
+    const Kt = I(30), { confirmDialog: Be, requestConfirm: jt, cancelConfirm: rt, executeWithConfirm: qt, loading: ct } = Je({
       operationName: s(t.SEND_VIOLATION_WARNING),
       action: async () => {
         if (!m.value) throw new Error("liveId is required");
@@ -1892,7 +1892,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
         A.warning(s(t.LIVE_ENDED));
         return;
       }
-      qt();
+      jt();
     }, Ee = Je({
       operationName: s(t.FORCE_STOP),
       action: async () => {
@@ -1954,7 +1954,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       currentLive: N.value,
       roomJoined: ke.value
     })), We = (n, r) => {
-      n === "success" ? (j.value = r, setTimeout(() => j.value = "", 3e3)) : (ne.value = r, setTimeout(() => ne.value = "", 3e3));
+      n === "success" ? (q.value = r, setTimeout(() => q.value = "", 3e3)) : (ne.value = r, setTimeout(() => ne.value = "", 3e3));
     }, nn = (n) => n >= 1e4 ? (n / 1e4).toFixed(1) + "w" : n.toLocaleString(), an = (n) => {
       n < 0 && (n = 0);
       const r = Math.floor(n / 86400), L = Math.floor(n % 86400 / 3600), R = Math.floor(n % 3600 / 60), de = n % 60, we = `${L.toString().padStart(2, "0")}:${R.toString().padStart(2, "0")}:${de.toString().padStart(2, "0")}`;
@@ -2059,7 +2059,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
       const L = be("t-dialog");
       return u(), T("div", vi, [
         g(e(na), {
-          "success-msg": e(j),
+          "success-msg": e(q),
           "error-msg": e(ne)
         }, null, 8, ["success-msg", "error-msg"]),
         g(e(sa), {
@@ -2175,7 +2175,7 @@ const vi = { class: "live-control-container" }, mi = { class: "live-control-view
             disabled: e(ct),
             shape: "round"
           },
-          onConfirm: e(jt),
+          onConfirm: e(qt),
           onCancel: e(rt),
           onClose: e(rt)
         }, {

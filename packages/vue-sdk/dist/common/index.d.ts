@@ -34,7 +34,7 @@ export { getFallbackInitial, resolveAnchorAvatarUrl, resolveAnchorDisplayName } 
 export * from './live-form';
 export * from './live-list';
 export { setupObsStreamingForLive, type SetupObsStreamingOptions, type SetupObsStreamingResult } from '../api/obs';
-export { resolveDemoTargetPath, type DemoTargetVariant } from './demo';
+export { resolveDemoTargetPath, DEPLOY_DOC_URL, GITHUB_ISSUE_URL, type DemoTargetVariant } from './demo';
 export * from './moderation-actions';
 export { type ModerationColumnLayout, getModerationColumnLayouts, } from './components/moderation';
 export { type TableColumnLayout } from './components/table-columns';
@@ -70,6 +70,8 @@ export { configureModerationLocalDeletion, getModerationLocalDeletionConfig, cle
 export type { ModerationLocalDeletionConfig, DeletedModerationItemRecord, } from './moderation-local-deletion';
 export { LOGO_SVG_DATA_URI, MENU_KEYS, PAGE_TITLE_KEYS, MENU_ITEM_LABELS, CORE_DEFAULT_BRAND, CORE_DEFAULT_FEATURES, CORE_DEFAULT_MENUS, createLiveManagerAppConfig, configureLiveManager, getActiveAppConfig, getDefaultRoutePath, getRouteTitleKey, getCoreRouteFeature, isCoreRouteEnabled, resolveAccount, performLogout, isLeavingLivePage, getMenuKeyFromPath, getDefaultLanguageBySdkAppId, getDefaultLanguage, getSavedLanguage, getCurrentLanguage, getApiLanguage, getCurrentApiLanguageCode, findLocalizedValues, toggleLanguage, setDocumentLanguage, getFormLabelWidth, } from './layout';
 export type { CoreRouteKey, LiveManagerAppConfig, MenuKey, SdkAccount, SupportedLanguage } from './layout';
+export { resolveLoginBrandName } from './login';
+export type { LoginTranslator } from './login';
 export { resolvePlayerAccount, setMonitorNickname, type PlayerAccount } from './live-monitor/account';
 export { ARROW_LEFT_ICON, INFO_CIRCLE_ICON, CHEVRON_DOWN_ICON } from './icons';
 export { PreviewUrlController } from './controllers/PreviewUrlController';
