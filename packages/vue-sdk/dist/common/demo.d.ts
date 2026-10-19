@@ -24,3 +24,11 @@ export declare const DEPLOY_DOC_URL = "https://cloud.tencent.com/document/produc
  * 跑马灯中 "可到 GitHub 提交 Issue" 文案的跳转目标。
  */
 export declare const GITHUB_ISSUE_URL = "https://github.com/Tencent-RTC/TUILiveKit_Manager/issues";
+/**
+ * 用户反馈问卷链接（腾讯问卷 wj.qq.com）
+ *
+ * 反馈入口统一走外部问卷，不再自建弹窗：自建弹窗曝光低、提交率几乎为零，
+ * 改为「左下角常驻按钮 + 跑马灯文案」两个入口共同导流到同一份问卷。
+ * 问卷内容需在 wj.qq.com 后台维护，改题不需要改代码。
+ */
+export declare const SURVEY_URL = "https://wj.qq.com/s2/28180031/a04s";

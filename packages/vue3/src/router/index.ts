@@ -24,12 +24,11 @@ const safeT = (key: string, fallback?: string): string => {
   return fallback || key;
 };
 
-// 调试：将环境变量暴露到 window 对象
-(window as any).VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const appConfig = getActiveAppConfig();
 const defaultRoutePath = getDefaultRoutePath();
 const routeOverrides = appConfig.routes?.routeOverrides ?? {};
+
 
 const getCoreRouteComponent = (routeKey: CoreRouteKey, fallback: RouteRecordRaw['component']) => {
   return (routeOverrides[routeKey] as RouteRecordRaw['component'] | undefined) || fallback;
@@ -111,8 +110,6 @@ const router = createRouter({
   routes,
 });
 
-// 方便调试：将 router 挂到 window
-(window as any).__router__ = router;
 
 // 配置状态缓存
 const configStatus = ref<{
@@ -167,16 +164,6 @@ router.beforeEach(async (to, _from, next) => {
   const titleStr = title || (titleKey ? safeT(titleKey, titleKey) : '');
   document.title = title || titleKey ? `${titleStr} - ${platformTitle}` : platformTitle;
 
-  // Mock 模式：跳过所有检查和登录
-  if (import.meta.env.VITE_API_BASE_URL === '') {
-    // 如果是访问 config-required 或 credential-login 页面，直接跳转到默认路径
-    if (to.name === 'config-required' || to.name === 'credential-login') {
-      next({ path: defaultRoutePath, replace: true });
-      return;
-    }
-    next();
-    return;
-  }
 
   // 跳过配置缺失页面和凭证登录页面自身
   if (to.name === 'config-required' || to.name === 'credential-login') {

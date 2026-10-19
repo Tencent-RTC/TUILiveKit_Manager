@@ -35,3 +35,16 @@ export declare const LOG_UPLOAD_RETRIES = 3;
 export declare const LOG_UPLOAD_REQUEST_TIMEOUT = 5000;
 /** gzip 压缩阈值（字节），超过此大小才压缩 */
 export declare const GZIP_THRESHOLD = 2800;
+/** 日志上报 URL 路径 */
+export declare const LOGGER_REPORT_PATH = "/v5/AVQualityReportSvc/C2S";
+/** 日志上报 URL query 参数名 */
+export declare const LOGGER_QUERY_KEYS: {
+    readonly RANDOM: "random";
+    readonly SDKAPPID: "sdkappid";
+    readonly CMDTYPE: "cmdtype";
+};
+/** Kibana 事件结果标识 */
+export declare const LOG_EVENT_RESULT: {
+    readonly SUCCESS: "success";
+    readonly FAILED: "failed";
+};

@@ -1,7 +1,7 @@
 export { initAegis, getAegis, setAegisUin, updateUinFromSdkAppId, enableAutoUpdateUin, disableAutoUpdateUin, isAegisInited, Aegis } from './aegis';
 export type { AegisConfig } from './aegis';
-export { reportEvent, reportTime, reportBusinessOp, reportPageView, measureAndReport, reportAppInit, reportCapability, reportFeatureUse, setReportPlatform, setReportSource, resetReportedCaches } from './rum-reporter';
-export type { CapabilityType, FeatureKey, ReportSource } from './rum-reporter';
+export { reportEvent, reportTime, reportBusinessOp, reportPageView, measureAndReport, reportAppInit, reportCapability, reportFeatureUse, reportConversionClick, reportSurveyRating, setReportPlatform, setReportSource, resetReportedCaches, RUM_EVENT_NAME, RUM_RESULT } from './rum-reporter';
+export type { CapabilityType, FeatureKey, ReportSource, SurveyScene } from './rum-reporter';
 export { logger, Logger, createLogger, setGlobalLogLevel, getGlobalLogLevel } from './utils/logger';
 export type { LogLevel, LoggerConfig } from './utils/logger';
 export { loggerManager, eventLogger, createKibanaLogger, LOG_LEVEL, LOG_LEVEL_NAME, LOGGER_CMD_TYPE } from './utils/log';
@@ -31,10 +31,13 @@ export type { UploadConfig, UploadResult, UploadResourceType } from '../types/up
 export { performGetUploadConfig, performUploadResource, getUploadStateSnapshot, subscribeUploadState, } from './upload-actions';
 export type { UploadState } from './upload-actions';
 export { getFallbackInitial, resolveAnchorAvatarUrl, resolveAnchorDisplayName } from './utils/anchor';
+export { resolveSenderDisplayName } from './utils/sender';
 export * from './live-form';
 export * from './live-list';
 export { setupObsStreamingForLive, type SetupObsStreamingOptions, type SetupObsStreamingResult } from '../api/obs';
-export { resolveDemoTargetPath, DEPLOY_DOC_URL, GITHUB_ISSUE_URL, type DemoTargetVariant } from './demo';
+export { resolveDemoTargetPath, DEPLOY_DOC_URL, GITHUB_ISSUE_URL, SURVEY_URL, type DemoTargetVariant } from './demo';
+export { openSurvey } from './survey';
+export type { SurveyEntry } from './survey';
 export * from './moderation-actions';
 export { type ModerationColumnLayout, getModerationColumnLayouts, } from './components/moderation';
 export { type TableColumnLayout } from './components/table-columns';

@@ -5,7 +5,8 @@
     "start": "node ./src/index.js",
     "debug": "DOMAIN=test.tim.qq.com node ./src/index.js",
     "build": "node ./scripts/build.js",
-    "deploy": "node ./scripts/deploy.mjs"
+    "deploy": "node ./scripts/deploy.mjs",
+    "pack:scf": "node ./scripts/pack-scf.mjs"
   },
   "dependencies": {
     "@tencent/tencentcloud-sdk-nodejs": "file:./tencentcloud-sdk-nodejs",

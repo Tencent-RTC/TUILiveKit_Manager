@@ -105,7 +105,13 @@ export declare class LiveListController {
     search(): Promise<void>;
     clearSearch(): Promise<void>;
     enterLive(liveId: string): void;
-    copyText(text: string, label?: string): Promise<void>;
+    /**
+     * @param text    要复制的文本
+     * @param label   toast 展示用的字段名（i18n 文案）
+     * @param trackKey 转化触点标识（如 'obs_server_url'），传入则上报 conversion_click 事件。
+     *                 只记录复制动作，不上报 text 内容（推流地址/密钥属敏感信息）。
+     */
+    copyText(text: string, label?: string, trackKey?: string): Promise<void>;
     showDetail(live: MonitorLiveInfo): Promise<void>;
     closeDetail(): void;
     requestDelete(live: MonitorLiveInfo): void;

@@ -22,7 +22,7 @@ function apiError(Oo, No) {
     No
   );
 }
-const SDK_VERSION = "1.0.1";
+const SDK_VERSION = "1.0.4";
 let currentConfig = null;
 function defineLiveManagerConfig(Oo) {
   return Oo;
@@ -552,13 +552,26 @@ const I18N = {
   // ========== Demo Mode (online demo only, tree-shaken in release) ==========
   TRY_DEMO_MODE: "Try Demo Mode",
   DEMO_MODE_DESC: "Explore the full experience with sample data, no credentials needed",
-  DEMO_MARQUEE_BANNER: "This is an online demo. All data shown is simulated sample data",
-  DEMO_DEPLOYMENT_GUIDE: "Deployment Guide",
+  // 登录页左侧演示入口面板（左右并排布局）
+  DEMO_ENTRY_CTA: "Start Now",
+  DEMO_ENTRY_FEATURE_LIVE: "Browse & manage live rooms",
+  DEMO_ENTRY_FEATURE_GIFT: "Configure gifts & categories",
+  DEMO_ENTRY_FEATURE_RISK: "Risk control & content moderation",
+  // 登录页右侧登录入口面板（使用真实凭证体验真实数据）
+  DEMO_LOGIN_TITLE: "Log in with credentials",
+  DEMO_LOGIN_DESC: "Use your SDKAppID & SecretKey to sign in and explore your real live data.",
+  DEMO_LOGIN_DOC_PREFIX: "To integrate with your app, see ",
+  DEMO_MARQUEE_BANNER: "This is an online demo. All data shown is simulated sample data. Browse live rooms, manage gifts, and configure risk control & moderation to explore the full capabilities",
+  DEMO_DEPLOYMENT_GUIDE: "📖 Deployment Guide",
   DEMO_PRODUCT_NAME: "Tencent Live Manager",
   DEMO_GITHUB_TEXT: "Want more features? Submit an issue on GitHub",
   DEMO_MARQUEE_CLOSE: "Close banner",
+  DEMO_MARQUEE_SURVEY_CTA: "💬 Share your feedback",
   DEMO_BUILD_MARQUEE_PREFIX: "This demo site is for experience only. To integrate with your application, please refer to ",
-  DEMO_INTEGRATION_DOC: "Integration Documentation",
+  DEMO_INTEGRATION_DOC: "📖 Integration Documentation",
+  // ========== Demo 反馈入口（跳转腾讯问卷，仅 demo 构建） ==========
+  SURVEY_FAB_LABEL: "Feedback",
+  SURVEY_FAB_TITLE: "Tell us what you think — opens a 1-minute survey",
   // ========== Header ==========
   HEADER_LOGOUT: "Logout",
   // ========== Gift Empty State ==========
@@ -1085,13 +1098,26 @@ const I18N = {
   // ========== 演示模式（仅在线 demo，release 中被 tree-shake） ==========
   [I18N.TRY_DEMO_MODE]: "体验演示模式",
   [I18N.DEMO_MODE_DESC]: "使用示例数据体验完整功能，无需输入凭证",
-  [I18N.DEMO_MARQUEE_BANNER]: "当前为在线演示版本，所有数据均为模拟数据，仅供功能体验",
-  [I18N.DEMO_DEPLOYMENT_GUIDE]: "部署指引",
+  // 登录页左侧演示入口面板（左右并排布局）
+  [I18N.DEMO_ENTRY_CTA]: "立即体验",
+  [I18N.DEMO_ENTRY_FEATURE_LIVE]: "浏览并管理直播间",
+  [I18N.DEMO_ENTRY_FEATURE_GIFT]: "配置礼物与分类",
+  [I18N.DEMO_ENTRY_FEATURE_RISK]: "体验风控与内容审核",
+  // 登录页右侧登录入口面板（使用真实凭证体验真实数据）
+  [I18N.DEMO_LOGIN_TITLE]: "使用凭证登录",
+  [I18N.DEMO_LOGIN_DESC]: "使用您的 SDKAppID 与 SecretKey 登录，体验您账号下的真实直播数据。",
+  [I18N.DEMO_LOGIN_DOC_PREFIX]: "如需接入您的应用，请参考 ",
+  [I18N.DEMO_MARQUEE_BANNER]: "当前为在线演示版本，所有数据均为模拟数据，仅供功能体验。您可以浏览直播间、管理礼物、配置风控与内容审核，完整体验直播管理能力。",
+  [I18N.DEMO_DEPLOYMENT_GUIDE]: "📖 部署指引",
   [I18N.DEMO_PRODUCT_NAME]: "腾讯直播管理系统",
   [I18N.DEMO_GITHUB_TEXT]: "想要更多功能，可到 GitHub 提交 Issue",
   [I18N.DEMO_MARQUEE_CLOSE]: "关闭",
+  [I18N.DEMO_MARQUEE_SURVEY_CTA]: "💬 意见反馈",
   [I18N.DEMO_BUILD_MARQUEE_PREFIX]: "该演示网站仅供体验使用，如需接入您的应用，请参考",
-  [I18N.DEMO_INTEGRATION_DOC]: "集成文档",
+  [I18N.DEMO_INTEGRATION_DOC]: "📖 集成文档",
+  // ========== Demo 反馈入口（跳转腾讯问卷，仅 demo 构建） ==========
+  [I18N.SURVEY_FAB_LABEL]: "意见反馈",
+  [I18N.SURVEY_FAB_TITLE]: "花 1 分钟告诉我们你的真实体验",
   // ========== Header ==========
   [I18N.HEADER_LOGOUT]: "退出登录",
   // ========== 礼物空态 ==========
@@ -4273,7 +4299,21 @@ linkError: ` + LA.linkMsg : ""), level: Fo.BLANK_SCREEN, errorMsg: Pa || null, o
   })(aegis_min$1)), aegis_min$1.exports;
 }
 var aegis_minExports = requireAegis_min();
-const Aegis = /* @__PURE__ */ getDefaultExportFromCjs(aegis_minExports);
+const Aegis = /* @__PURE__ */ getDefaultExportFromCjs(aegis_minExports), STORAGE_KEY = "__LIVEKIT_ANON_ID__";
+let sessionFallbackId = null;
+function generateId() {
+  return typeof crypto < "u" && typeof crypto.randomUUID == "function" ? crypto.randomUUID() : `anon_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 10)}`;
+}
+function getAnonymousId() {
+  try {
+    const Oo = localStorage.getItem(STORAGE_KEY);
+    if (Oo) return Oo;
+    const No = generateId();
+    return localStorage.setItem(STORAGE_KEY, No), No;
+  } catch {
+    return sessionFallbackId || (sessionFallbackId = generateId()), sessionFallbackId;
+  }
+}
 function safeAegis() {
   return getAegis();
 }
@@ -4282,16 +4322,62 @@ function getCurrentSdkAppId() {
   if (Oo != null)
     return String(Oo);
 }
+const MOCK_SDK_APP_ID = "1400000000", DEMO_EXT3_PREFIX = "demo:";
+function resolveExt3(Oo) {
+  return Oo === MOCK_SDK_APP_ID ? `${DEMO_EXT3_PREFIX}${getAnonymousId()}` : Oo;
+}
+const RUM_EVENT_NAME = {
+  /** 应用初始化（登录一次性事件） */
+  APP_INIT: "app_init",
+  /** 核心功能使用 */
+  FEATURE_USE: "feature_use",
+  /** 审核能力开启 */
+  CAPABILITY: "capability",
+  /** 页面浏览 */
+  PAGE_VIEW: "page_view",
+  /**
+   * SDK 错误日志事件。
+   *
+   * 所有通过 Logger.error() 触发的 RUM 上报统一使用此 name，
+   * 模块归属通过 ext1 传递（'error:模块名' 前缀）。这样错误事件不会与业务事件名
+   * (moderation / live_crud / risk_control / gift_manage / live_search / force_stop)
+   * 冲突，避免把模块错误日志误统计为「管理操作」。
+   */
+  ERROR: "error",
+  /** React 渲染错误（AppErrorBoundary 捕获，ext1='render'） */
+  RENDER_ERROR: "reactRenderError",
+  /** 转化触点点击（ext1=触点标识，ext2=mock_demo/build_demo/customer） */
+  CONVERSION_CLICK: "conversion_click",
+  /** demo 问卷评分（ext1=1~5 星，ext2=场景 mock_demo/build_demo） */
+  SURVEY_RATING: "survey_rating"
+}, RUM_RESULT = {
+  /** 操作成功 */
+  SUCCESS: "success",
+  /** 操作失败 */
+  FAIL: "fail",
+  /** 测速默认结果 */
+  OK: "ok",
+  /** 能力已开启 */
+  ON: "on"
+};
 function reportEvent(Oo, No, jo) {
   const Go = safeAegis();
   if (!Go) return;
   const Ho = getCurrentSdkAppId();
   if (!Ho) return;
-  const Qo = { name: Oo, ext1: No, ext2: jo, ext3: Ho };
+  const Qo = { name: Oo, ext1: No, ext2: jo, ext3: resolveExt3(Ho) };
   try {
     Go.reportEvent?.(Qo);
   } catch {
   }
+}
+function reportEventRaw(Oo, No, jo, Go) {
+  const Ho = safeAegis();
+  if (Ho)
+    try {
+      Ho.reportEvent?.({ name: Oo, ext1: No, ext2: jo, ext3: Go });
+    } catch {
+    }
 }
 function reportTime(Oo, No, jo, Go) {
   const Ho = safeAegis();
@@ -4300,11 +4386,11 @@ function reportTime(Oo, No, jo, Go) {
       Ho.reportTime?.({ name: Oo, duration: No });
     } catch {
     }
-    reportEvent(Oo, jo ?? Oo, Go ?? "ok");
+    reportEvent(Oo, jo ?? Oo, Go ?? RUM_RESULT.OK);
   }
 }
 function reportBusinessOp(Oo, No, jo, Go) {
-  reportEvent(Oo, No, jo ? "success" : "fail");
+  reportEvent(Oo, No, jo ? RUM_RESULT.SUCCESS : RUM_RESULT.FAIL);
 }
 function measureAndReport(Oo, No) {
   const jo = Date.now();
@@ -4312,14 +4398,32 @@ function measureAndReport(Oo, No) {
     reportTime(Oo, Date.now() - jo);
   });
 }
-let _platform;
-function setReportPlatform(Oo) {
-  _platform = Oo;
+const RUM_GLOBAL_KEY = "__LIVEKIT_RUM_STATE__";
+function createRumState() {
+  return {
+    platform: void 0,
+    reportSource: void 0,
+    appInits: /* @__PURE__ */ new Set(),
+    capabilities: /* @__PURE__ */ new Set(),
+    features: /* @__PURE__ */ new Set(),
+    pendingFeatures: [],
+    pendingFeaturesFlushed: !1,
+    lastPagePath: null
+  };
 }
-const reportedAppInits = /* @__PURE__ */ new Set(), DEMO_HOST = "web.sdk.qcloud.com", DEMO_PATH_PREFIX = "/trtc/livekit/monitor/demo/";
-let _reportSource;
+const ssrState = createRumState();
+function getRumState() {
+  if (typeof window > "u") return ssrState;
+  const Oo = window;
+  let No = Oo[RUM_GLOBAL_KEY];
+  return No || (No = createRumState(), Oo[RUM_GLOBAL_KEY] = No), No.appInits || (No.appInits = /* @__PURE__ */ new Set()), No.capabilities || (No.capabilities = /* @__PURE__ */ new Set()), No.features || (No.features = /* @__PURE__ */ new Set()), No.pendingFeatures || (No.pendingFeatures = []), No;
+}
+function setReportPlatform(Oo) {
+  getRumState().platform = Oo;
+}
+const DEMO_HOST = "web.sdk.qcloud.com", DEMO_PATH_PREFIX = "/trtc/livekit/monitor/demo/";
 function setReportSource(Oo) {
-  _reportSource = Oo;
+  getRumState().reportSource = Oo;
 }
 function detectReportSource() {
   try {
@@ -4327,67 +4431,87 @@ function detectReportSource() {
       return "demo";
   } catch {
   }
-  return _reportSource || "sdk";
+  const Oo = getRumState().reportSource;
+  return Oo || "sdk";
 }
 function reportAppInit(Oo = SDK_VERSION) {
   const No = getCurrentSdkAppId();
   if (!No) return;
-  const jo = _platform || "unknown", Go = detectReportSource(), Ho = `${No}:${jo}:${Go}:${Oo}`;
-  reportedAppInits.has(Ho) || (reportedAppInits.add(Ho), reportEvent("app_init", jo, Go), flushPendingFeatures(), flushAegisEvents());
+  const jo = getRumState(), Go = jo.platform || "unknown", Ho = detectReportSource(), Qo = `${No}:${Go}:${Ho}:${Oo}`;
+  jo.appInits.has(Qo) || (jo.appInits.add(Qo), reportEvent(RUM_EVENT_NAME.APP_INIT, Go, Ho), flushPendingFeatures(), flushAegisEvents());
 }
-const reportedCapabilities = /* @__PURE__ */ new Set();
 function reportCapability(Oo) {
   const No = getCurrentSdkAppId();
   if (!No) return;
-  const jo = `${No}:${Oo}`;
-  reportedCapabilities.has(jo) || (reportedCapabilities.add(jo), reportEvent("capability", Oo, "on"), flushAegisEvents());
+  const jo = getRumState(), Go = `${No}:${Oo}`;
+  jo.capabilities.has(Go) || (jo.capabilities.add(Go), reportEvent(RUM_EVENT_NAME.CAPABILITY, Oo, RUM_RESULT.ON), flushAegisEvents());
 }
-const reportedFeatures = /* @__PURE__ */ new Set(), pendingFeatures = [];
-let pendingFeaturesFlushed = !1;
 function flushPendingFeatures() {
-  if (!pendingFeaturesFlushed) {
-    pendingFeaturesFlushed = !0;
-    for (const Oo of pendingFeatures)
-      _tryReportFeature(Oo);
-    pendingFeatures.length = 0;
+  const Oo = getRumState();
+  if (!Oo.pendingFeaturesFlushed) {
+    Oo.pendingFeaturesFlushed = !0;
+    for (const No of Oo.pendingFeatures)
+      _tryReportFeature(No);
+    Oo.pendingFeatures.length = 0;
   }
 }
 function _tryReportFeature(Oo) {
   const No = getCurrentSdkAppId();
   if (!No) return !1;
-  const jo = `${No}:${Oo}`;
-  return reportedFeatures.has(jo) || (reportedFeatures.add(jo), reportEvent("feature_use", Oo)), !0;
+  const jo = getRumState(), Go = `${No}:${Oo}`;
+  return jo.features.has(Go) || (jo.features.add(Go), reportEvent(RUM_EVENT_NAME.FEATURE_USE, Oo)), !0;
 }
 function reportFeatureUse(Oo) {
-  _tryReportFeature(Oo) || pendingFeatures.includes(Oo) || pendingFeatures.push(Oo);
+  if (_tryReportFeature(Oo)) return;
+  const No = getRumState();
+  No.pendingFeatures.includes(Oo) || No.pendingFeatures.push(Oo);
 }
-let lastPagePath = null;
+function reportConversionClick(Oo, No) {
+  const jo = getCurrentSdkAppId(), Go = jo ? resolveExt3(jo) : `${DEMO_EXT3_PREFIX}${getAnonymousId()}`;
+  reportEventRaw(RUM_EVENT_NAME.CONVERSION_CLICK, Oo, No, Go);
+}
+function reportSurveyRating(Oo, No) {
+  const jo = Math.max(1, Math.min(5, Math.round(Oo)));
+  reportEvent(RUM_EVENT_NAME.SURVEY_RATING, String(jo), No);
+}
 function reportPageView(Oo) {
-  if (Oo === lastPagePath) return;
-  lastPagePath = Oo;
-  const No = extractPageName(Oo);
-  reportEvent("page_view", No, Oo);
+  const No = getRumState();
+  if (Oo === No.lastPagePath) return;
+  No.lastPagePath = Oo;
+  const jo = extractPageName(Oo);
+  reportEvent(RUM_EVENT_NAME.PAGE_VIEW, jo, Oo);
 }
 function extractPageName(Oo) {
   return Oo.split("/").filter(Boolean)[0] || "home";
 }
 function resetReportedCaches() {
-  reportedAppInits.clear(), reportedCapabilities.clear(), reportedFeatures.clear();
+  const Oo = getRumState();
+  Oo.appInits.clear(), Oo.capabilities.clear(), Oo.features.clear(), Oo.pendingFeatures.length = 0, Oo.pendingFeaturesFlushed = !1;
 }
 const rumReporter = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
+  RUM_EVENT_NAME,
+  RUM_RESULT,
   measureAndReport,
   reportAppInit,
   reportBusinessOp,
   reportCapability,
+  reportConversionClick,
   reportEvent,
   reportFeatureUse,
   reportPageView,
+  reportSurveyRating,
   reportTime,
   resetReportedCaches,
   setReportPlatform,
   setReportSource
-}, Symbol.toStringTag, { value: "Module" })), GLOBAL_KEY$1 = "__LIVEKIT_AEGIS__";
+}, Symbol.toStringTag, { value: "Module" })), AEGIS_HOST_URL = "https://rumt-zh.com", AEGIS_DEFAULT_CONFIG = {
+  reportApiSpeed: !0,
+  reportAssetSpeed: !0,
+  spa: !0,
+  hostUrl: AEGIS_HOST_URL,
+  version: SDK_VERSION
+}, GLOBAL_KEY$1 = "__LIVEKIT_AEGIS__";
 function getStore() {
   return window[GLOBAL_KEY$1] || (window[GLOBAL_KEY$1] = {
     instance: null,
@@ -4407,11 +4531,7 @@ function initAegis(Oo) {
   if (!Oo.id)
     return console.warn("[Aegis] id is required"), null;
   const No = getStore(), jo = Oo.uin || getUinFromAuthState(), Go = new Aegis({
-    reportApiSpeed: !0,
-    reportAssetSpeed: !0,
-    spa: !0,
-    hostUrl: "https://rumt-zh.com",
-    version: SDK_VERSION,
+    ...AEGIS_DEFAULT_CONFIG,
     uin: jo,
     ...Oo
   });
@@ -4427,11 +4547,7 @@ function reinitAegisIfUinChanged(Oo) {
     } catch {
     }
     No.instance = new Aegis({
-      reportApiSpeed: !0,
-      reportAssetSpeed: !0,
-      spa: !0,
-      hostUrl: "https://rumt-zh.com",
-      version: SDK_VERSION,
+      ...AEGIS_DEFAULT_CONFIG,
       ...No.initConfig,
       uin: Oo
     }), resetReportedCaches(), console.log("[Aegis] instance reinitialized with uin:", Oo);
@@ -4441,11 +4557,11 @@ function getAegis() {
   return getStore().instance;
 }
 function setAegisUin(Oo) {
-  const No = getStore().instance;
+  const No = getAegis();
   No && applyAegisUin(No, Oo);
 }
 function updateUinFromSdkAppId() {
-  const Oo = getUinFromAuthState(), No = getStore().instance;
+  const Oo = getUinFromAuthState(), No = getAegis();
   return Oo && No ? applyAegisUin(No, Oo) : !1;
 }
 function enableAutoUpdateUin() {
@@ -4509,26 +4625,9 @@ async function get(Oo, No) {
 async function post(Oo, No) {
   return request({ method: "POST", url: Oo, data: No });
 }
+const ERROR_EXT1_PREFIX = "error:";
 function reportErrorToRum(Oo, No, jo) {
-  formatErrorDetail(jo), reportBusinessOp(Oo, "error", !1);
-}
-function formatErrorDetail(Oo) {
-  if (!Oo) return "";
-  if (Oo instanceof Error) {
-    const No = [];
-    if (Oo.message && No.push(Oo.message), Oo.stack) {
-      const jo = Oo.stack.split(`
-`)[1]?.trim();
-      jo && No.push(jo);
-    }
-    return No.join(" | ");
-  }
-  if (typeof Oo == "string") return Oo;
-  try {
-    return JSON.stringify(Oo);
-  } catch {
-    return String(Oo);
-  }
+  reportEvent(RUM_EVENT_NAME.ERROR, `${ERROR_EXT1_PREFIX}${Oo}`, RUM_RESULT.FAIL);
 }
 const LOG_LEVEL = {
   TRACE: 0,
@@ -10790,7 +10889,15 @@ async function getObsLiveDetailInfo(Oo) {
 function resolveDemoTargetPath(Oo) {
   return new URL(`../mock-${Oo}/`, window.location.href).href;
 }
-const DEPLOY_DOC_URL = "https://cloud.tencent.com/document/product/647/123012", GITHUB_ISSUE_URL = "https://github.com/Tencent-RTC/TUILiveKit_Manager/issues", normalizeMemberList = (Oo) => Array.isArray(Oo) ? Oo.filter((No) => !!No && typeof No == "object") : [], getStringField = (Oo, ...No) => {
+const DEPLOY_DOC_URL = "https://cloud.tencent.com/document/product/647/123012", GITHUB_ISSUE_URL = "https://github.com/Tencent-RTC/TUILiveKit_Manager/issues", SURVEY_URL = "https://wj.qq.com/s2/28180031/a04s";
+function openSurvey(Oo, No) {
+  try {
+    reportConversionClick(Oo, No);
+  } catch {
+  }
+  window.open(SURVEY_URL, "_blank", "noopener,noreferrer");
+}
+const normalizeMemberList = (Oo) => Array.isArray(Oo) ? Oo.filter((No) => !!No && typeof No == "object") : [], getStringField = (Oo, ...No) => {
   const jo = No.map((Go) => Oo[Go]).find((Go) => typeof Go == "string" && Go.length > 0);
   return typeof jo == "string" ? jo : "";
 }, getNumberField = (Oo, ...No) => {
@@ -15679,8 +15786,8 @@ class AppErrorBoundary extends Component {
       msg: Ho,
       componentStack: jo.componentStack,
       original: Qo
-    }), Promise.resolve().then(() => rumReporter).then(({ reportBusinessOp: qo }) => {
-      qo("reactRenderError", "render", !1, Go ? String(Go) : void 0);
+    }), Promise.resolve().then(() => rumReporter).then(({ reportBusinessOp: qo, RUM_EVENT_NAME: Yo }) => {
+      qo(Yo.RENDER_ERROR, "render", !1, Go ? String(Go) : void 0);
     }).catch(() => {
     });
     const Vo = getErrorMessage(Go, Ho);
@@ -15710,7 +15817,10 @@ export {
   Logger,
   Message,
   NETWORK_ERROR_CODE,
+  RUM_EVENT_NAME,
+  RUM_RESULT,
   SDK_VERSION,
+  SURVEY_URL,
   TIMEOUT_ERROR_CODE,
   applyPatch,
   batchGetUserProfilePortrait,
@@ -15769,14 +15879,17 @@ export {
   login,
   measureAndReport,
   modules,
+  openSurvey,
   performLogout,
   publicApiVersion,
   reportAppInit,
   reportBusinessOp,
   reportCapability,
+  reportConversionClick,
   reportEvent,
   reportFeatureUse,
   reportPageView,
+  reportSurveyRating,
   reportTime,
   resetLiveManagerConfig,
   resetReportedCaches,

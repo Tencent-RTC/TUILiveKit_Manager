@@ -61,6 +61,7 @@ const Config = {
     SecretId: process.env.TENCENT_CLOUD_SECRET_ID || process.env.COS_SECRET_ID || '',
     SecretKey: process.env.TENCENT_CLOUD_SECRET_KEY || process.env.COS_SECRET_KEY || '',
   },
+
 };
 
 module.exports = { Config };

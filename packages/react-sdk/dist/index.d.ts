@@ -25,7 +25,7 @@ export { getErrorMessage, getErrorInfo, setErrorLocale, setErrorLocaleProvider, 
 export type { ErrorCategory, NormalizedErrorInfo, ErrorLocale } from './common/utils/error-message';
 export { initAegis, getAegis, setAegisUin, updateUinFromSdkAppId, enableAutoUpdateUin, disableAutoUpdateUin, isAegisInited } from './common/aegis';
 export type { AegisConfig } from './common/aegis';
-export { reportEvent, reportTime, reportBusinessOp, reportPageView, measureAndReport, reportAppInit, reportCapability, reportFeatureUse, setReportPlatform, setReportSource, resetReportedCaches } from './common/rum-reporter';
+export { reportEvent, reportTime, reportBusinessOp, reportPageView, measureAndReport, reportAppInit, reportCapability, reportFeatureUse, reportConversionClick, setReportPlatform, setReportSource, resetReportedCaches, RUM_EVENT_NAME, RUM_RESULT } from './common/rum-reporter';
 export type { CapabilityType, FeatureKey, ReportSource } from './common/rum-reporter';
 export { logger, Logger, createLogger, setGlobalLogLevel, getGlobalLogLevel } from './common/utils/logger';
 export type { LogLevel, LoggerConfig } from './common/utils/logger';

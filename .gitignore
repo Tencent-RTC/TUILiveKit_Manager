@@ -6,3 +6,9 @@ dist/
 *.log
 .vibe
 test-results/
+
+# 本地密钥文件（勿提交）
+# 注意：config/.env、packages/react/.env 等为空模板，仍需随仓库发布，故不忽略
+.env.local
+.env.*.local
+.env.scf

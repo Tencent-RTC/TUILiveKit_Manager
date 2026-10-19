@@ -4,10 +4,10 @@ import { ArrowLeftIcon as Ae, EditIcon as Te, CopyIcon as ye } from "tdesign-ico
 import { MessagePlugin as A } from "tdesign-vue-next";
 import { useUIKit as be, i18next as K } from "@tencentcloud/uikit-base-component-vue3";
 import { _ as Ge, a as ee } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
-import { u as Ie, a as Le } from "../../chunks/useAsyncAction.BAoVLjEW.js";
-import { I as a, g as te, u as F } from "../../chunks/shared-state.2k2VlnY1.js";
-import { G as Oe, aW as U, aZ as Re, g, b as he, a as x, aq as Ne, aY as De } from "../../chunks/main-layout.B_9sQtkU.js";
-import { g as Ye, M as w, C as N, a as C, b as v } from "../../chunks/constants.ChiFm2XO.js";
+import { u as Ie, a as Le } from "../../chunks/useAsyncAction.DMgdeI4N.js";
+import { I as a, g as te, v as F } from "../../chunks/shared-state.CEzqGWS1.js";
+import { G as Oe, aW as U, aZ as Re, g, b as he, a as x, aq as Ne, aY as De } from "../../chunks/main-layout.DlXjtEAo.js";
+import { g as Ye, M as w, C as N, a as C, b as v } from "../../chunks/constants.B6SqCIHI.js";
 /* empty css                                  */
 const ke = { class: "gift-category-container" }, Se = { class: "gift-category-page-header" }, Me = { class: "gift-category-title-section" }, xe = { class: "gift-category-actions" }, Ve = {
   key: 0,

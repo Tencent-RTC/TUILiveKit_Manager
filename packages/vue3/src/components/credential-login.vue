@@ -7,25 +7,17 @@
 
     <div class="login-content">
       <div class="login-header">
-        <div class="demo-product-name">{{ loginProductName }}</div>
-        <template v-if="!demoModeEnabled">
+        <div class="login-product-name">{{ loginProductName }}</div>
           <h1 class="login-title">{{ $t(I18N.CREDENTIAL_LOGIN_TITLE) }}</h1>
           <p class="login-subtitle">{{ $t(I18N.CREDENTIAL_LOGIN_SUBTITLE) }}</p>
-        </template>
       </div>
 
-      <div v-if="demoModeEnabled" class="login-notice login-notice--demo">
-        <InfoCircleIcon size="16px" class="login-notice__icon" />
-        <div class="login-notice__content">
-          <span>{{ $t(I18N.LOGIN_DEMO_NOTICE) }} </span>
-          <a :href="DOC_URLS.integration" target="_blank" rel="noopener noreferrer">{{ $t(I18N.LOGIN_DEMO_INTEGRATION_DOC) }}</a>
-        </div>
-      </div>
-      <div v-else class="login-notice login-notice--config">
+
+      <div class="login-notice login-notice--config">
         <ErrorCircleIcon size="16px" class="login-notice__icon" />
         <div class="login-notice__content">
           <span>{{ $t(I18N.LOGIN_SERVER_NOT_CONFIGURED_NOTICE) }} </span>
-          <a :href="DOC_URLS.setup" target="_blank" rel="noopener noreferrer">{{ $t(I18N.LOGIN_SERVER_SETUP_GUIDE) }}</a>
+          <a :href="DOC_URLS.setup" target="_blank" rel="noopener noreferrer" @click="trackConversion('server_setup_guide')">{{ $t(I18N.LOGIN_SERVER_SETUP_GUIDE) }}</a>
         </div>
       </div>
 
@@ -37,7 +29,7 @@
               <template #content>
                 <div class="login-help-tooltip">
                   <p>{{ $t(I18N.SDK_APP_ID_DESC) }}</p>
-                  <a :href="helpLinks.sdkAppId" target="_blank" rel="noopener noreferrer">{{ $t(I18N.SDK_APP_ID_HELP_LINK) }}</a>
+                  <a :href="helpLinks.sdkAppId" target="_blank" rel="noopener noreferrer" @click="trackConversion('help_sdk_app_id')">{{ $t(I18N.SDK_APP_ID_HELP_LINK) }}</a>
                 </div>
               </template>
               <HelpCircleIcon size="14px" class="login-help-icon" />
@@ -57,7 +49,7 @@
                 <div class="login-help-tooltip">
                   <p>{{ $t(I18N.SECRET_KEY_DESC) }}</p>
                   <span>{{ $t(I18N.SECRET_KEY_MEMORY_ONLY) }} </span>
-                  <a :href="helpLinks.secretKey" target="_blank" rel="noopener noreferrer">{{ $t(I18N.SECRET_KEY_HELP_LINK) }}</a>
+                  <a :href="helpLinks.secretKey" target="_blank" rel="noopener noreferrer" @click="trackConversion('help_secret_key')">{{ $t(I18N.SECRET_KEY_HELP_LINK) }}</a>
                 </div>
               </template>
               <HelpCircleIcon size="14px" class="login-help-icon" />
@@ -77,7 +69,7 @@
                 <div class="login-help-tooltip">
                   <p>{{ $t(I18N.USER_ID_DESC) }}</p>
                   <span>{{ $t(I18N.USER_ID_HELP_PREFIX) }} </span>
-                  <a :href="helpLinks.userId" target="_blank" rel="noopener noreferrer">{{ $t(I18N.USER_ID_HELP_LINK) }}</a>
+                  <a :href="helpLinks.userId" target="_blank" rel="noopener noreferrer" @click="trackConversion('help_user_id')">{{ $t(I18N.USER_ID_HELP_LINK) }}</a>
                 </div>
               </template>
               <HelpCircleIcon size="14px" class="login-help-icon" />
@@ -91,22 +83,11 @@
 
         <t-button block theme="primary" :loading="loading" :disabled="loading" @click="handleLogin">{{ $t(I18N.LOGIN_BTN) }}</t-button>
 
-        <div v-if="showServerConfigLink && !demoModeEnabled" class="server-config-link">
+        <div v-if="showServerConfigLink" class="server-config-link">
           <button type="button" class="server-config-btn" :disabled="loading" @click="handleServerConfig">{{ $t(I18N.TOGGLE_LOGIN_MODE) }}</button>
         </div>
-
-        <div v-if="demoModeEnabled" style="margin-top: 16px; text-align: center;">
-          <div style="height: 1px; background: #e5e7eb; margin: 16px 0;" />
-          <p style="font-size: 13px; color: #6b7280; margin: 0 0 12px;">{{ $t(I18N.DEMO_MODE_DESC) }}</p>
-          <button
-            type="button"
-            style="background: none; border: 1px solid #1C66E5; color: #1C66E5; padding: 6px 20px; border-radius: 999px; font-size: 13px; cursor: pointer;"
-            @click="enterDemoMode"
-          >
-            {{ $t(I18N.TRY_DEMO_MODE) }}
-          </button>
-        </div>
       </div>
+
     </div>
 
     <!-- 凭证验证失败弹框 -->
@@ -133,7 +114,7 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { TranslateIcon, HelpCircleIcon, InfoCircleIcon, ErrorCircleIcon } from 'tdesign-icons-vue-next';
+import { TranslateIcon, HelpCircleIcon, ErrorCircleIcon } from 'tdesign-icons-vue-next';
 import {
   login,
   saveCredentials,
@@ -141,12 +122,12 @@ import {
   getDefaultLanguage,
   toggleLanguage,
   setDocumentLanguage,
-  resolveDemoTargetPath,
   getHelpLinks,
   validateCredentialLogin,
   verifyCredentials,
   clearCredentials,
   reportBusinessOp,
+  reportConversionClick,
   enResource,
   zhResource,
   I18N,
@@ -184,8 +165,8 @@ const $t = (key: string): string => {
 };
 
 // 登录页顶部品牌位：自定义 BrandConfig.appName 优先，
-// 否则兜底到 I18N.DEMO_PRODUCT_NAME（中文："腾讯直播管理系统" / 英文："Tencent Live Manager"）。
-// 走公共函数避免 UI 层依赖 demo 编译变量，与 React 端共享同一解析策略。
+// 否则兜底到产品名文案（中文："腾讯直播管理系统" / 英文："Tencent Live Manager"）。
+// 走公共函数统一解析策略，与 React 端共享。
 const loginProductName = computed(() => resolveLoginBrandName(currentLanguage.value, $t));
 
 function clearFieldErrors() {
@@ -212,6 +193,8 @@ function setFieldError(field: string | undefined, message: string | undefined) {
 }
 
 async function handleLogin() {
+  // 登录入口点击/提交埋点：记录登录入口选择信号
+  trackConversion('login_click');
   clearFieldErrors();
 
   // ===== 1. 输入级校验：逐字段红字提示 =====
@@ -276,10 +259,22 @@ const DOC_URLS = {
   setup: 'https://cloud.tencent.com/document/product/647/123012#2f8aa93c-a53b-4939-a460-64270c6484b9',
 };
 
-const demoModeEnabled = typeof __DEMO_MODE__ !== 'undefined' ? __DEMO_MODE__ : false;
-const enterDemoMode = demoModeEnabled
-  ? () => { window.location.href = resolveDemoTargetPath('vue'); }
-  : () => {};
+
+/**
+ * 转化触点上报：登录页帮助/文档链接点击。
+ * 点"如何获取凭证"= 正在认真尝试接入（意向+摩擦信号），只记录动作。
+ * 上报异常静默吞掉，不影响链接跳转。
+ */
+const resolveLoginScene = () => {
+  return 'customer';
+};
+const trackConversion = (track: string) => {
+  try {
+    reportConversionClick(track, resolveLoginScene());
+  } catch {
+    // RUM 未初始化等异常不影响 UI
+  }
+};
 </script>
 
 <style scoped>
@@ -302,7 +297,6 @@ const enterDemoMode = demoModeEnabled
 
 /* 登录页顶部说明文案 */
 .login-notice { margin-bottom: 16px; padding: 10px 14px; border-radius: 8px; font-size: 13px; line-height: 1.6; }
-.login-notice--demo { background: #eef2ff; color: #3b5998; }
 .login-notice--config { background: #fff4e5; color: #b45309; }
 .login-notice a { color: inherit; font-weight: 600; text-decoration: underline; }
 .login-notice a:hover { opacity: 0.8; }

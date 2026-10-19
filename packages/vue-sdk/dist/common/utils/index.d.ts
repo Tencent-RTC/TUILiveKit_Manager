@@ -36,5 +36,6 @@ export { logger, Logger, createLogger, setGlobalLogLevel, getGlobalLogLevel } fr
 export type { LogLevel, LoggerConfig } from './logger';
 export { createDeduplicatedFn, createDeduplicatedMethod, createReactiveDeduplicatedFn } from './request-deduplicator';
 export type { DeduplicatorOptions } from './request-deduplicator';
+export { resolveSenderDisplayName } from './sender';
 export { ViolationLabelsPoller } from './violation-labels-poller';
 export type { ViolationLabelsPollerOptions } from './violation-labels-poller';

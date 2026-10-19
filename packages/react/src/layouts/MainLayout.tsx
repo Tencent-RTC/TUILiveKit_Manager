@@ -20,14 +20,10 @@ import {
   performLogout,
   isProxyMode,
   I18N,
-  DEPLOY_DOC_URL,
-  GITHUB_ISSUE_URL,
 } from "tuikit-live-manager-sdk-react";
 import type { SupportedLanguage, UserPortraitProfile } from "tuikit-live-manager-sdk-react";
 import { updateTitleByPath } from "../router";
 
-const demoModeEnabled = typeof __DEMO_MODE__ !== 'undefined' && __DEMO_MODE__;
-const isMockDemo = demoModeEnabled && typeof __MOCK_MODE__ !== 'undefined' && __MOCK_MODE__;
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const t = i18next && typeof i18next.t === 'function'
@@ -39,7 +35,6 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [, setSdkReady] = useState(false);
   const [userProfile, setUserProfile] = useState<UserPortraitProfile | null>(null);
   const [avatarLoadFailed, setAvatarLoadFailed] = useState(false);
-  const [marqueeVisible, setMarqueeVisible] = useState(true);
   const [currentUserId, setCurrentUserId] = useState<string>('');
   const [currentLanguage, setCurrentLanguage] = useState<SupportedLanguage>(getDefaultLanguage());
   const sdkInitializedRef = useRef<boolean>(false);
@@ -96,6 +91,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
     setupUser();
   }, []);
+
 
   // 当前激活的菜单项
   const [activeMenu, setActiveMenu] = useState("live-list");
@@ -186,26 +182,6 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </div>
       </header>
 
-      {/* Demo 模式跑马灯提示 */}
-      {demoModeEnabled && marqueeVisible && (
-        <div className="demo-marquee">
-          <div className="demo-marquee__track">
-            {isMockDemo ? (
-              <>
-                <span className="demo-marquee__text">{t(I18N.DEMO_MARQUEE_BANNER)}</span>
-                <a className="demo-marquee__link" href={DEPLOY_DOC_URL} target="_blank" rel="noopener noreferrer">{t(I18N.DEMO_DEPLOYMENT_GUIDE)} &rarr;</a>
-              </>
-            ) : (
-              <>
-                <span className="demo-marquee__text">{t(I18N.DEMO_BUILD_MARQUEE_PREFIX)}</span>
-                <a className="demo-marquee__link" href={DEPLOY_DOC_URL} target="_blank" rel="noopener noreferrer">{t(I18N.DEMO_INTEGRATION_DOC)} &rarr;</a>
-                <a className="demo-marquee__link" href={GITHUB_ISSUE_URL} target="_blank" rel="noopener noreferrer">{t(I18N.DEMO_GITHUB_TEXT)}</a>
-              </>
-            )}
-          </div>
-          <button className="demo-marquee__close" onClick={() => setMarqueeVisible(false)} aria-label={t(I18N.DEMO_MARQUEE_CLOSE)} title={t(I18N.DEMO_MARQUEE_CLOSE)} />
-        </div>
-      )}
 
       <div className="main-body">
         {/* 侧边栏 */}

@@ -17,6 +17,8 @@ const customerExtension = loadServerCustomerExtension();
 app.use(express.json({ limit: '15mb' }));
 app.use(express.urlencoded({ extended: true, limit: '15mb' }));
 app.use(processCors);
+
+
 app.use(credentialProxy);
 app.use(requestContextMiddleware);
 applyServerCustomerExtension(app, customerExtension);
@@ -24,11 +26,6 @@ app.use('/api', apiRouter);
 app.use('/api/env', envConfigRouter);
 app.use('/api/rum', rumApiRouter);
 
-// 内部工具配置持久化（dev only，release 不含此文件）
-try {
-  const { configApiRouter } = require('./routes/configApiRouter.js');
-  app.use('/api/tools', configApiRouter);
-} catch { /* release 不含 configApiRouter.js */ }
 
 // 全局错误处理中间件
 app.use((err, req, res, next) => {
@@ -100,10 +97,6 @@ function setupSPA(mount, spaDir) {
 
 setupSPA('/vue', path.join(publicPath, 'vue'));
 setupSPA('/react', path.join(publicPath, 'react'));
-setupSPA('/tools', path.join(publicPath, 'tools'));
-setupSPA('/demo', path.join(publicPath, 'demo'));
-setupSPA('/mock-vue', path.join(publicPath, 'mock-vue'));
-setupSPA('/mock-react', path.join(publicPath, 'mock-react'));
 
 // 独立页面：环境变量配置（纯 HTML+JS）
 app.get('/env-config', (req, res) => {

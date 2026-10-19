@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T08:29:28.960Z",
+  "generatedAt": "2026-10-19T10:20:45.391Z",
   "name": "TUILiveKit_Manager",
   "frameworks": [
     "react",
@@ -10,7 +10,7 @@
   "deliveryModel": "open-app-shell-closed-sdk-packages",
   "sdkPackages": {
     "tuikit-live-manager-sdk-react": {
-      "version": "1.0.3",
+      "version": "1.0.4",
       "exports": [
         ".",
         "./dist/style.css",
@@ -18,7 +18,7 @@
       ]
     },
     "tuikit-live-manager-sdk-vue": {
-      "version": "1.0.3",
+      "version": "1.0.4",
       "exports": [
         ".",
         "./dist/style.css",

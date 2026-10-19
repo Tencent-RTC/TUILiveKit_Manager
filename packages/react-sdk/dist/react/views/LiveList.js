@@ -1,45 +1,45 @@
 import { jsx as e, jsxs as s, Fragment as B } from "react/jsx-runtime";
 import { useState as v, useRef as ce, useEffect as me, useSyncExternalStore as Xe, useMemo as ze } from "react";
 import { useNavigate as We } from "react-router-dom";
-import { Dialog as ve, Input as Y, Tooltip as Ce, InputNumber as $e, Checkbox as je, Button as T, Card as qe } from "tdesign-react";
+import { Dialog as ve, Input as Y, Tooltip as Ce, InputNumber as $e, Checkbox as je, Button as g, Card as qe } from "tdesign-react";
 import { useUIKit as Le, i18next as fe } from "@tencentcloud/uikit-base-component-react";
-import { HelpCircleIcon as ge, ChevronDownIcon as Me, ChevronRightIcon as Ue, CloseIcon as we, AddIcon as de, FileCopyIcon as se, SearchIcon as Qe, RefreshIcon as Je } from "tdesign-icons-react";
-import { c as Ve, u as Ze, I as r, g as Fe, ak as er, m as rr, am as tr, D as Te, a as ar, S as sr } from "../../chunks/shared-state.2k2VlnY1.js";
-import { as as Oe, k as re, g as p, U as R, aR as ir, a6 as lr, b4 as Re, b9 as nr, C as K, bc as Ee, aP as or, aq as cr, b7 as dr, ac as mr, bM as ur, at as xe, a3 as De, aA as hr, bX as fr, am as vr, aS as Er, X as pr, af as Ir, aK as Nr, T as _e, bf as _r } from "../../chunks/main-layout.B_9sQtkU.js";
-import { g as Cr } from "../../chunks/PreviewUrlController.IUgppJ6z.js";
-import { g as gr } from "../../chunks/columns.mIDOhVzi.js";
-import { M as Tr } from "../../chunks/MonitorPagination.BW_ZY9KQ.js";
-import { a as Se, M as ue } from "../../chunks/useAsyncAction.DMAyL8UQ.js";
-import { I as ke } from "../../chunks/ImageUpload.BDp5MJff.js";
-import { S as ie } from "../../chunks/SlotRenderer.BbG5_brN.js";
+import { HelpCircleIcon as ge, ChevronDownIcon as Me, ChevronRightIcon as Ue, CloseIcon as we, AddIcon as de, FileCopyIcon as ie, SearchIcon as Qe, RefreshIcon as Je } from "tdesign-icons-react";
+import { c as Ve, v as Ze, I as r, g as Fe, b0 as er, am as rr, m as tr, ao as ar, D as Te, a as sr, V as ir } from "../../chunks/shared-state.CEzqGWS1.js";
+import { as as Oe, k as te, g as p, U as x, aR as lr, a6 as nr, b4 as Re, b9 as or, C as K, bc as Ee, aP as cr, aq as dr, b7 as mr, ac as ur, bM as hr, at as xe, a3 as be, aA as fr, bX as vr, am as Er, aS as pr, X as Ir, af as _r, aK as Nr, T as Ne, bf as Cr } from "../../chunks/main-layout.DlXjtEAo.js";
+import { g as gr } from "../../chunks/PreviewUrlController.B1iCtmJA.js";
+import { g as Tr } from "../../chunks/columns.D-Enjre5.js";
+import { M as Lr } from "../../chunks/MonitorPagination.C0mdBlOB.js";
+import { a as ye, M as ue } from "../../chunks/useAsyncAction.Cvl9CySV.js";
+import { I as ke } from "../../chunks/ImageUpload.DfCCn0X6.js";
+import { S as le } from "../../chunks/SlotRenderer.C_MQN-Nv.js";
 import { F as Pe, a as G } from "../../chunks/FormField.D0eRD3uO.js";
-import { r as Be, I as Ke } from "../../chunks/image-upload-resolve.1-MNNtuJ.js";
-import { A as Lr, F as Sr } from "../../chunks/ActionButtons.Cfkno1zE.js";
-import { useLiveMonitorState as yr } from "../../react.js";
-const Ar = Ve("CreateLive");
-function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extraFieldsSlot: z, onCreate: le }) {
-  const { t, language: W } = Le(), { opSuccess: a, opFailed: u } = Ze(t), F = or(W), [n, _] = v(Oe()), [L, x] = v([]), [b, $] = v(!1), [w, te] = v(!1), [q, Q] = v(""), [k, f] = v(""), [A, j] = v(!1), [I, C] = v(""), [S, E] = v(""), [m, J] = v(null), [y, ne] = v(""), [M, Z] = v(!1), ee = ce(null), [h, c] = v(!1), d = (l, o) => {
+import { r as Be, I as Ke } from "../../chunks/image-upload-resolve.Bzo6gUma.js";
+import { A as yr, F as Sr } from "../../chunks/ActionButtons.Cfkno1zE.js";
+import { useLiveMonitorState as Ar } from "../../react.js";
+const Or = Ve("CreateLive");
+function Rr({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extraFieldsSlot: z, onCreate: ne }) {
+  const { t, language: W } = Le(), { opSuccess: a, opFailed: u } = Ze(t), F = cr(W), [n, N] = v(Oe()), [T, b] = v([]), [M, $] = v(!1), [w, ae] = v(!1), [q, Q] = v(""), [k, f] = v(""), [A, j] = v(!1), [I, C] = v(""), [y, E] = v(""), [m, J] = v(null), [S, oe] = v(""), [U, Z] = v(!1), ee = ce(null), [h, c] = v(!1), d = (l, o) => {
     l === "success" ? ue.success(o) : ue.error(o);
-  }, N = async (l, o) => {
+  }, _ = async (l, o, R) => {
     try {
-      await cr(l), d("success", a(r.COPY, o));
-    } catch (g) {
-      Ar.error("handleCopy", `复制失败 (ErrorCode: ${er(g).code || "N/A"})`, g);
-      const U = g instanceof Error ? g : new Error(String(g));
-      d("error", u(r.COPY, null, U.message || t(r.NETWORK_ERROR)));
+      await dr(l), R && er(R, "customer"), d("success", a(r.COPY, o));
+    } catch (L) {
+      Or.error("handleCopy", `复制失败 (ErrorCode: ${rr(L).code || "N/A"})`, L);
+      const re = L instanceof Error ? L : new Error(String(L));
+      d("error", u(r.COPY, null, re.message || t(r.NETWORK_ERROR)));
     }
   }, D = () => {
-    x([...L, { key: "", value: "" }]);
-  }, O = (l, o, g) => {
-    const U = [...L];
-    U[l][o] = g, x(U);
+    b([...T, { key: "", value: "" }]);
+  }, O = (l, o, R) => {
+    const L = [...T];
+    L[l][o] = R, b(L);
   }, he = (l) => {
-    x(L.filter((o, g) => g !== l));
-  }, ae = () => {
-    _(Oe()), x([]), $(!1), te(!1), Q(""), f(""), j(!1), C(""), E(""), J(null), ne(""), c(!1), Z(!1), ee.current?.reset();
-  }, ye = () => {
-    ae(), i();
-  }, { loading: pe, execute: He } = Se({
+    b(T.filter((o, R) => R !== l));
+  }, se = () => {
+    N(Oe()), b([]), $(!1), ae(!1), Q(""), f(""), j(!1), C(""), E(""), J(null), oe(""), c(!1), Z(!1), ee.current?.reset();
+  }, Se = () => {
+    se(), i();
+  }, { loading: pe, execute: He } = ye({
     operationName: t(r.CREATE_LIVE),
     showSuccess: !1,
     action: async () => {
@@ -54,18 +54,18 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
       } catch (P) {
         throw P instanceof Ke ? new Error(P.message) : new Error(t(r.COVER_PROCESSING_FAILED));
       }
-      const o = mr({
+      const o = ur({
         formData: n,
         coverUrl: l,
-        customInfos: L,
+        customInfos: T,
         useObsStreaming: A
-      }), g = o.liveId, U = o.anchorId;
-      await le(o), J(null), ne("");
-      let oe = !A;
+      }), R = o.liveId, L = o.anchorId;
+      await ne(o), J(null), oe("");
+      let re = !A;
       if (A) {
-        const P = await ur({
-          liveId: g,
-          anchorId: U,
+        const P = await hr({
+          liveId: R,
+          anchorId: L,
           onStatusChange: C,
           messages: {
             getStreamInfoFailed: u(r.OP_GET_STREAM_INFO),
@@ -75,15 +75,15 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
             setupFailed: u(r.OP_OBS_SETUP_ACT, r.LIVE)
           }
         });
-        J(P.streamInfo), ne(P.streamInfoError), E(P.setupError), oe = P.configuredSuccessfully;
+        J(P.streamInfo), oe(P.streamInfoError), E(P.setupError), re = P.configuredSuccessfully;
       }
-      return { obsConfiguredSuccessfully: oe };
+      return { obsConfiguredSuccessfully: re };
     },
     onSuccess: () => {
-      te(!0);
+      ae(!0);
     },
     onError: (l) => {
-      dr(l) && Z(!0);
+      mr(l) && Z(!0);
     }
   }), Ge = async () => {
     if (!n.anchorId.trim()) {
@@ -91,33 +91,33 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
       return;
     }
     const l = p(n.anchorId);
-    if (l > re) {
-      d("error", t(r.MAX_BYTES_WITH_CURRENT, { field: t(r.ANCHOR_ID), max: re, current: l }));
+    if (l > te) {
+      d("error", t(r.MAX_BYTES_WITH_CURRENT, { field: t(r.ANCHOR_ID), max: te, current: l }));
       return;
     }
     const o = p(n.liveName);
-    if (o > R) {
-      d("error", t(r.MAX_BYTES_WITH_CURRENT, { field: t(r.LIVE_TITLE), max: R, current: o }));
+    if (o > x) {
+      d("error", t(r.MAX_BYTES_WITH_CURRENT, { field: t(r.LIVE_TITLE), max: x, current: o }));
       return;
     }
-    if (L.some(Ee)) {
+    if (T.some(Ee)) {
       d("error", t(r.CUSTOM_INFO_KEY_REQUIRED));
       return;
     }
     Q(""), C(""), E(""), await He();
   }, Ye = () => {
-    ae(), X();
+    se(), X();
   }, Ie = A ? I === "" || I === "creating" || I === "seating" ? {
     text: t(I === "creating" ? r.LOADING : I === "seating" ? r.LOADING : r.LOADING),
     error: !1
   } : I === "error" ? {
-    text: u(r.OP_OBS_SETUP_ACT, r.LIVE, S),
+    text: u(r.OP_OBS_SETUP_ACT, r.LIVE, y),
     error: !0
   } : m ? {
     text: t(r.OBS_READY_COPY_INFO),
     error: !1
-  } : y ? {
-    text: u(r.OP_GET_STREAM, r.LIVE, y),
+  } : S ? {
+    text: u(r.OP_GET_STREAM, r.LIVE, S),
     error: !0
   } : {
     text: a(r.OP_READY, "OBS"),
@@ -125,8 +125,8 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
   } : m ? {
     text: t(r.OBS_READY_COPY_INFO),
     error: !1
-  } : y ? {
-    text: u(r.OP_GET_STREAM, r.LIVE, y),
+  } : S ? {
+    text: u(r.OP_GET_STREAM, r.LIVE, S),
     error: !0
   } : {
     text: "",
@@ -137,12 +137,12 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
     {
       visible: V,
       header: w ? a(r.CREATE, r.LIVE) : t(r.CREATE_LIVE),
-      onClose: ye,
+      onClose: Se,
       width: W?.startsWith("en") ? 680 : 620,
       placement: "center",
       className: "create-live-modal",
       footer: w ? /* @__PURE__ */ e(
-        T,
+        g,
         {
           shape: "round",
           theme: "primary",
@@ -151,9 +151,9 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
           children: t(A && I !== "ready" && I !== "error" ? r.LOADING : r.COMPLETE)
         }
       ) : /* @__PURE__ */ s(B, { children: [
-        /* @__PURE__ */ e(T, { shape: "round", variant: "outline", onClick: ye, children: t(r.CANCEL) }),
+        /* @__PURE__ */ e(g, { shape: "round", variant: "outline", onClick: Se, children: t(r.CANCEL) }),
         /* @__PURE__ */ e(
-          T,
+          g,
           {
             shape: "round",
             theme: "primary",
@@ -188,14 +188,14 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
               /* @__PURE__ */ s("div", { className: "stream-info-item", children: [
                 /* @__PURE__ */ s("div", { className: "stream-info-label", children: [
                   /* @__PURE__ */ e("span", { children: t(r.SERVER_URL) }),
-                  /* @__PURE__ */ e(T, { variant: "text", size: "small", icon: /* @__PURE__ */ e(se, { size: "14" }), onClick: () => N(m.serverUrl, t(r.SERVER_URL)), children: t(r.COPY) })
+                  /* @__PURE__ */ e(g, { variant: "text", size: "small", icon: /* @__PURE__ */ e(ie, { size: "14" }), onClick: () => _(m.serverUrl, t(r.SERVER_URL), "obs_server_url"), children: t(r.COPY) })
                 ] }),
                 /* @__PURE__ */ e("code", { className: "stream-info-value", children: m.serverUrl })
               ] }),
               /* @__PURE__ */ s("div", { className: "stream-info-item", children: [
                 /* @__PURE__ */ s("div", { className: "stream-info-label", children: [
                   /* @__PURE__ */ e("span", { children: t(r.STREAM_KEY) }),
-                  /* @__PURE__ */ e(T, { variant: "text", size: "small", icon: /* @__PURE__ */ e(se, { size: 14 }), onClick: () => N(m.streamKey, t(r.STREAM_KEY)), children: t(r.COPY) })
+                  /* @__PURE__ */ e(g, { variant: "text", size: "small", icon: /* @__PURE__ */ e(ie, { size: 14 }), onClick: () => _(m.streamKey, t(r.STREAM_KEY), "obs_stream_key"), children: t(r.COPY) })
                 ] }),
                 /* @__PURE__ */ e("code", { className: "stream-info-value", children: m.streamKey })
               ] })
@@ -217,38 +217,38 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
               {
                 value: n.anchorId,
                 onChange: (l) => {
-                  _((o) => ({ ...o, anchorId: String(l) })), Z(!1);
+                  N((o) => ({ ...o, anchorId: String(l) })), Z(!1);
                 },
                 placeholder: t(r.ENTER_ANCHOR_ID),
-                status: M || p(n.anchorId) > re ? "error" : "default",
-                suffix: /* @__PURE__ */ s("span", { className: `input-suffix-count${p(n.anchorId) > re ? " byte-overflow" : ""}`, children: [
+                status: U || p(n.anchorId) > te ? "error" : "default",
+                suffix: /* @__PURE__ */ s("span", { className: `input-suffix-count${p(n.anchorId) > te ? " byte-overflow" : ""}`, children: [
                   p(n.anchorId),
                   "/",
-                  re
+                  te
                 ] })
               }
             ),
-            M ? /* @__PURE__ */ s("div", { className: "form-field__error-tip", children: [
+            U ? /* @__PURE__ */ s("div", { className: "form-field__error-tip", children: [
               t(r.ANCHOR_ID_NOT_FOUND_TIP),
               /* @__PURE__ */ e("a", { href: F, target: "_blank", rel: "noopener noreferrer", style: { color: "#1C66E5" }, children: t(r.VIEW_DETAILS) })
-            ] }) : p(n.anchorId) > re && /* @__PURE__ */ e("div", { className: "form-field__error-tip", children: t(r.MAX_BYTES, { field: t(r.ANCHOR_ID), max: re }) })
+            ] }) : p(n.anchorId) > te && /* @__PURE__ */ e("div", { className: "form-field__error-tip", children: t(r.MAX_BYTES, { field: t(r.ANCHOR_ID), max: te }) })
           ] }) }),
           /* @__PURE__ */ e(G, { label: t(r.LIVE_TITLE), children: /* @__PURE__ */ s("div", { className: "form-field__input-wrapper", children: [
             /* @__PURE__ */ e(
               Y,
               {
                 value: n.liveName,
-                onChange: (l) => _((o) => ({ ...o, liveName: String(l) })),
+                onChange: (l) => N((o) => ({ ...o, liveName: String(l) })),
                 placeholder: t(r.ENTER_LIVE_TITLE),
-                status: p(n.liveName) > R ? "error" : "default",
-                suffix: /* @__PURE__ */ s("span", { className: `input-suffix-count${p(n.liveName) > R ? " byte-overflow" : ""}`, children: [
+                status: p(n.liveName) > x ? "error" : "default",
+                suffix: /* @__PURE__ */ s("span", { className: `input-suffix-count${p(n.liveName) > x ? " byte-overflow" : ""}`, children: [
                   p(n.liveName),
                   "/",
-                  R
+                  x
                 ] })
               }
             ),
-            p(n.liveName) > R && /* @__PURE__ */ e("div", { className: "form-field__error-tip", children: t(r.MAX_BYTES, { field: t(r.LIVE_TITLE), max: R }) })
+            p(n.liveName) > x && /* @__PURE__ */ e("div", { className: "form-field__error-tip", children: t(r.MAX_BYTES, { field: t(r.LIVE_TITLE), max: x }) })
           ] }) }),
           /* @__PURE__ */ e(G, { label: /* @__PURE__ */ s("span", { style: { display: "inline-flex", alignItems: "center" }, children: [
             t(r.COVER_IMAGE),
@@ -262,12 +262,12 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
               ref: ee,
               value: n.coverUrl,
               onChange: (l) => {
-                _((o) => ({ ...o, coverUrl: l })), c(!1);
+                N((o) => ({ ...o, coverUrl: l })), c(!1);
               },
               type: "cover",
               uploadEnabled: H,
               cropEnabled: !0,
-              aspectRatio: ir(n.seatTemplate),
+              aspectRatio: lr(n.seatTemplate),
               placeholder: t(r.CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE),
               previewHeight: 140,
               maxBytes: 200,
@@ -278,13 +278,13 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
           /* @__PURE__ */ e(G, { label: t(r.LAYOUT_TEMPLATE), requiredMark: !0, help: (() => {
             const l = t(Re(n.seatTemplate)?.descKey || "");
             return Re(n.seatTemplate)?.orientation === "landscape" ? `${l}，${t(r.LANDSCAPE_BROADCASTING_HINT)}` : l;
-          })(), children: /* @__PURE__ */ e("div", { className: "seat-template-group", children: lr.map((l) => /* @__PURE__ */ s(
+          })(), children: /* @__PURE__ */ e("div", { className: "seat-template-group", children: nr.map((l) => /* @__PURE__ */ s(
             "button",
             {
               type: "button",
               className: `seat-template-btn${n.seatTemplate === l.value ? " seat-template-btn--selected" : ""}${l.value === "VideoLandscape4Seat" ? " seat-template-btn--landscape" : ""}`,
               title: t(l.descKey),
-              onClick: () => _((o) => ({ ...o, seatTemplate: l.value })),
+              onClick: () => N((o) => ({ ...o, seatTemplate: l.value })),
               children: [
                 /* @__PURE__ */ s("svg", { className: "seat-template-icon", viewBox: "0 0 72 48", xmlns: "http://www.w3.org/2000/svg", children: [
                   l.value === "VideoDynamicGrid9Seats" && /* @__PURE__ */ s(B, { children: [
@@ -303,7 +303,7 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
                     [15, 30],
                     [30, 30],
                     [45, 30]
-                  ].map(([o, g], U) => /* @__PURE__ */ e("rect", { x: o, y: g, width: "12", height: "10", rx: "1.5", fill: "#C8D6E5", opacity: "0.6" }, U)) }),
+                  ].map(([o, R], L) => /* @__PURE__ */ e("rect", { x: o, y: R, width: "12", height: "10", rx: "1.5", fill: "#C8D6E5", opacity: "0.6" }, L)) }),
                   l.value === "VideoDynamicFloat7Seats" && /* @__PURE__ */ s(B, { children: [
                     /* @__PURE__ */ e("rect", { x: "18", y: "2", width: "36", height: "44", rx: "3", fill: "#F5F7FA", stroke: "#DCE0E8", strokeWidth: "1" }),
                     /* @__PURE__ */ e("rect", { x: "28", y: "16", width: "16", height: "16", rx: "3", fill: "#C8D6E5", opacity: "0.7" })
@@ -315,7 +315,7 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
                       [49, 15],
                       [49, 27],
                       [49, 39]
-                    ].map(([o, g], U) => /* @__PURE__ */ e("rect", { x: o, y: g, width: "14", height: "10", rx: "2", fill: "#C8D6E5", opacity: "0.6" }, U))
+                    ].map(([o, R], L) => /* @__PURE__ */ e("rect", { x: o, y: R, width: "14", height: "10", rx: "2", fill: "#C8D6E5", opacity: "0.6" }, L))
                   ] }),
                   l.value === "VideoLandscape4Seat" && /* @__PURE__ */ s(B, { children: [
                     /* @__PURE__ */ e("rect", { x: "2", y: "2", width: "68", height: "44", rx: "4", fill: "#F5F7FA", stroke: "#DCE0E8", strokeWidth: "1" }),
@@ -329,11 +329,11 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
             },
             l.value
           )) }) }),
-          nr(n.seatTemplate) && /* @__PURE__ */ e(G, { label: t(r.MAX_SEATS), help: t(r.MAX_SEATS_HELP), children: /* @__PURE__ */ e(
+          or(n.seatTemplate) && /* @__PURE__ */ e(G, { label: t(r.MAX_SEATS), help: t(r.MAX_SEATS_HELP), children: /* @__PURE__ */ e(
             $e,
             {
               value: n.maxSeatCount,
-              onChange: (l) => _((o) => ({ ...o, maxSeatCount: Number(l) || 1 })),
+              onChange: (l) => N((o) => ({ ...o, maxSeatCount: Number(l) || 1 })),
               min: 1,
               max: 16,
               placeholder: t(r.ENTER_MAX_SEAT_COUNT),
@@ -346,7 +346,7 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
               style: { width: "100%" }
             }
           ) }),
-          /* @__PURE__ */ e(ie, { slot: z, props: { mode: "create", formData: { ...n }, customInfos: [...L] } }),
+          /* @__PURE__ */ e(le, { slot: z, props: { mode: "create", formData: { ...n }, customInfos: [...T] } }),
           /* @__PURE__ */ e(G, { label: t(r.STREAMING_METHOD), help: t(r.OBS_STREAMING_INFO_WILL_BE_DISPLAYED), children: /* @__PURE__ */ e(
             je,
             {
@@ -360,40 +360,40 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
               "div",
               {
                 className: "custom-info-toggle",
-                onClick: () => $(!b),
+                onClick: () => $(!M),
                 children: [
-                  b ? /* @__PURE__ */ e(Me, { size: "16" }) : /* @__PURE__ */ e(Ue, { size: "16" }),
+                  M ? /* @__PURE__ */ e(Me, { size: "16" }) : /* @__PURE__ */ e(Ue, { size: "16" }),
                   /* @__PURE__ */ e("span", { children: t(r.CUSTOM_INFORMATION) }),
-                  L.length > 0 && /* @__PURE__ */ e("span", { className: "custom-info-count", children: L.length })
+                  T.length > 0 && /* @__PURE__ */ e("span", { className: "custom-info-count", children: T.length })
                 ]
               }
             ),
-            b && /* @__PURE__ */ s("div", { className: "custom-info-container", children: [
-              L.map((l, o) => {
-                const g = p(l.key), U = p(l.value), oe = g > K.maxKeyBytes, P = U > K.maxValueBytes, Ae = Ee(l);
+            M && /* @__PURE__ */ s("div", { className: "custom-info-container", children: [
+              T.map((l, o) => {
+                const R = p(l.key), L = p(l.value), re = R > K.maxKeyBytes, P = L > K.maxValueBytes, Ae = Ee(l);
                 return /* @__PURE__ */ s("div", { className: "custom-info-row", children: [
                   /* @__PURE__ */ e("div", { className: "custom-input-wrap", children: /* @__PURE__ */ e(
                     Y,
                     {
                       value: l.key,
-                      onChange: (Ne) => O(o, "key", String(Ne)),
+                      onChange: (_e) => O(o, "key", String(_e)),
                       placeholder: t(r.ENTER_KEY),
-                      status: oe || Ae ? "error" : "default",
-                      tips: oe ? t(r.MAX_BYTES, { field: `Key ${l.key}`, max: K.maxKeyBytes }) : Ae ? t(r.CUSTOM_INFO_KEY_REQUIRED) : ""
+                      status: re || Ae ? "error" : "default",
+                      tips: re ? t(r.MAX_BYTES, { field: `Key ${l.key}`, max: K.maxKeyBytes }) : Ae ? t(r.CUSTOM_INFO_KEY_REQUIRED) : ""
                     }
                   ) }),
                   /* @__PURE__ */ e("div", { className: "custom-input-wrap custom-value-wrap", children: /* @__PURE__ */ e(
                     Y,
                     {
                       value: l.value,
-                      onChange: (Ne) => O(o, "value", String(Ne)),
+                      onChange: (_e) => O(o, "value", String(_e)),
                       placeholder: t(r.ENTER_VALUE),
                       status: P ? "error" : "default",
                       tips: P ? t(r.VALUE_EXCEEDS_2KB_LIMIT) : ""
                     }
                   ) }),
                   /* @__PURE__ */ e(
-                    T,
+                    g,
                     {
                       shape: "square",
                       variant: "text",
@@ -405,7 +405,7 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
                   )
                 ] }, o);
               }),
-              L.length < K.maxCount && /* @__PURE__ */ e(T, { variant: "text", className: "add-custom-info-btn", onClick: D, icon: /* @__PURE__ */ e(de, { size: "14" }), theme: "primary", children: t(r.ADD) })
+              T.length < K.maxCount && /* @__PURE__ */ e(g, { variant: "text", className: "add-custom-info-btn", onClick: D, icon: /* @__PURE__ */ e(de, { size: "14" }), theme: "primary", children: t(r.ADD) })
             ] })
           ] })
         ] })
@@ -413,9 +413,9 @@ function Or({ visible: V, onClose: i, onSuccess: X, uploadEnabled: H = !1, extra
     }
   );
 }
-const be = Ve("EditLive");
-function Rr({ visible: V, live: i, onClose: X, onSuccess: H, uploadEnabled: z = !1, extraFieldsSlot: le, onUpdate: t, onFetchDetail: W }) {
-  const { t: a } = Le(), [u, F] = v(xe()), [n, _] = v([]), [L, x] = v(!1), b = ce([]), [$, w] = v(De), [te, q] = v(!1), [Q, k] = v(""), [f, A] = v(""), { loading: j, execute: I } = Se({
+const De = Ve("EditLive");
+function xr({ visible: V, live: i, onClose: X, onSuccess: H, uploadEnabled: z = !1, extraFieldsSlot: ne, onUpdate: t, onFetchDetail: W }) {
+  const { t: a } = Le(), [u, F] = v(xe()), [n, N] = v([]), [T, b] = v(!1), M = ce([]), [$, w] = v(be), [ae, q] = v(!1), [Q, k] = v(""), [f, A] = v(""), { loading: j, execute: I } = ye({
     toast: { action: r.EDIT, entity: r.LIVE },
     action: async (h) => {
       const c = i?.id || i?.liveId || "";
@@ -429,9 +429,9 @@ function Rr({ visible: V, live: i, onClose: X, onSuccess: H, uploadEnabled: z = 
         }), Z();
       }, 500);
     }
-  }), C = ce(null), [S, E] = v(!1), m = ce("");
+  }), C = ce(null), [y, E] = v(!1), m = ce("");
   me(() => {
-    i?.coverUrl ? hr(i.coverUrl).then(w) : w(De);
+    i?.coverUrl ? fr(i.coverUrl).then(w) : w(be);
   }, [i?.coverUrl]), me(() => {
     if (i && V) {
       F({
@@ -442,53 +442,53 @@ function Rr({ visible: V, live: i, onClose: X, onSuccess: H, uploadEnabled: z = 
       q(!0), W(h).then((c) => {
         const d = c?.customInfo;
         if (d && typeof d == "object") {
-          const N = Object.entries(d).map(([D, O]) => ({
+          const _ = Object.entries(d).map(([D, O]) => ({
             key: D,
             value: String(O)
           }));
-          _(N), x(N.length > 0), b.current = N.map((D) => D.key);
+          N(_), b(_.length > 0), M.current = _.map((D) => D.key);
         } else
-          _([]), x(!1), b.current = [];
+          N([]), b(!1), M.current = [];
       }).catch((c) => {
-        if (c instanceof rr && k(tr(c.code ?? 0, "", a(r.LIVE_NOT_FOUND))), i.customInfo && typeof i.customInfo == "object") {
-          const d = Object.entries(i.customInfo).map(([N, D]) => ({
-            key: N,
+        if (c instanceof tr && k(ar(c.code ?? 0, "", a(r.LIVE_NOT_FOUND))), i.customInfo && typeof i.customInfo == "object") {
+          const d = Object.entries(i.customInfo).map(([_, D]) => ({
+            key: _,
             value: String(D)
           }));
-          _(d), x(d.length > 0), b.current = d.map((N) => N.key);
+          N(d), b(d.length > 0), M.current = d.map((_) => _.key);
         } else
-          _([]), x(!1), b.current = [];
+          N([]), b(!1), M.current = [];
       }).finally(() => q(!1));
     }
   }, [i?.id, V]);
   const J = () => {
     if (n.length >= K.maxCount) {
-      M("error", a(r.CUSTOM_INFO_MAX_COUNT, { max: K.maxCount }));
+      U("error", a(r.CUSTOM_INFO_MAX_COUNT, { max: K.maxCount }));
       return;
     }
-    _([...n, { key: "", value: "" }]);
-  }, y = (h, c, d) => {
-    const N = [...n];
-    N[h][c] = d, _(N);
-  }, ne = (h) => {
-    _(n.filter((c, d) => d !== h));
-  }, M = (h, c) => {
+    N([...n, { key: "", value: "" }]);
+  }, S = (h, c, d) => {
+    const _ = [...n];
+    _[h][c] = d, N(_);
+  }, oe = (h) => {
+    N(n.filter((c, d) => d !== h));
+  }, U = (h, c) => {
     ue.error(c);
   }, Z = () => {
-    k(""), A(""), _([]), x(!1), b.current = [], E(!1), m.current = "", C.current?.reset(), F(xe()), X();
+    k(""), A(""), N([]), b(!1), M.current = [], E(!1), m.current = "", C.current?.reset(), F(xe()), X();
   }, ee = async () => {
     if (!i) return;
     if (!u.liveName.trim()) {
-      M("error", a(r.PLEASE_ENTER_LIVE_TITLE));
+      U("error", a(r.PLEASE_ENTER_LIVE_TITLE));
       return;
     }
     const h = p(u.liveName);
-    if (h > R) {
-      M("error", a(r.MAX_BYTES_WITH_CURRENT, { field: a(r.LIVE_TITLE), max: R, current: h }));
+    if (h > x) {
+      U("error", a(r.MAX_BYTES_WITH_CURRENT, { field: a(r.LIVE_TITLE), max: x, current: h }));
       return;
     }
     if (n.some(Ee)) {
-      M("error", a(r.CUSTOM_INFO_KEY_REQUIRED));
+      U("error", a(r.CUSTOM_INFO_KEY_REQUIRED));
       return;
     }
     try {
@@ -496,29 +496,29 @@ function Rr({ visible: V, live: i, onClose: X, onSuccess: H, uploadEnabled: z = 
       try {
         c = await Be({
           handle: C.current,
-          hasPendingFile: S,
+          hasPendingFile: y,
           fallbackUrl: u.coverUrl,
           label: a(r.COVER_IMAGE)
         }), m.current = c || u.coverUrl;
       } catch (O) {
-        be.error("EditLive", `Cover processing failed: ${O instanceof Error ? O.message : String(O)}`, O), M("error", O instanceof Ke ? O.message : a(r.COVER_PROCESSING_FAILED));
+        De.error("EditLive", `Cover processing failed: ${O instanceof Error ? O.message : String(O)}`, O), U("error", O instanceof Ke ? O.message : a(r.COVER_PROCESSING_FAILED));
         return;
       }
-      const d = fr(n);
+      const d = vr(n);
       if (d) {
-        d.type === "key-too-long" ? M("error", a(r.MAX_BYTES, { field: `Key ${d.key}`, max: d.max })) : d.type === "value-too-long" ? M("error", a(r.KEY_VALUE_EXCEEDS_2KB, { key: d.key })) : d.type === "max-count" ? M("error", a(r.CUSTOM_INFO_MAX_COUNT, { max: d.max })) : M("error", a(r.TOTAL_VALUE_SIZE_EXCEEDS_16KB));
+        d.type === "key-too-long" ? U("error", a(r.MAX_BYTES, { field: `Key ${d.key}`, max: d.max })) : d.type === "value-too-long" ? U("error", a(r.KEY_VALUE_EXCEEDS_2KB, { key: d.key })) : d.type === "max-count" ? U("error", a(r.CUSTOM_INFO_MAX_COUNT, { max: d.max })) : U("error", a(r.TOTAL_VALUE_SIZE_EXCEEDS_16KB));
         return;
       }
-      const N = vr(n), D = Er(b.current, N);
+      const _ = Er(n), D = pr(M.current, _);
       await I({
         liveId: i.id || i.liveId,
         liveName: u.liveName.trim(),
         coverUrl: c || void 0,
-        customInfo: Object.keys(N).length > 0 ? N : void 0,
+        customInfo: Object.keys(_).length > 0 ? _ : void 0,
         deleteKeys: D.length > 0 ? D : void 0
       });
     } catch (c) {
-      be.error("EditLiveModal", "Update failed:", c);
+      De.error("EditLiveModal", "Update failed:", c);
     }
   };
   return !V || !i ? null : /* @__PURE__ */ e(
@@ -532,9 +532,9 @@ function Rr({ visible: V, live: i, onClose: X, onSuccess: H, uploadEnabled: z = 
       placement: "center",
       className: "edit-live-modal",
       footer: /* @__PURE__ */ s(B, { children: [
-        /* @__PURE__ */ e(T, { shape: "round", variant: "outline", onClick: Z, children: a(r.CANCEL) }),
+        /* @__PURE__ */ e(g, { shape: "round", variant: "outline", onClick: Z, children: a(r.CANCEL) }),
         /* @__PURE__ */ e(
-          T,
+          g,
           {
             shape: "round",
             theme: "primary",
@@ -565,15 +565,15 @@ function Rr({ visible: V, live: i, onClose: X, onSuccess: H, uploadEnabled: z = 
               value: u.liveName,
               onChange: (h) => F((c) => ({ ...c, liveName: String(h) })),
               placeholder: a(r.ENTER_LIVE_TITLE),
-              status: p(u.liveName) > R ? "error" : "default",
-              suffix: /* @__PURE__ */ s("span", { className: `input-suffix-count${p(u.liveName) > R ? " byte-overflow" : ""}`, children: [
+              status: p(u.liveName) > x ? "error" : "default",
+              suffix: /* @__PURE__ */ s("span", { className: `input-suffix-count${p(u.liveName) > x ? " byte-overflow" : ""}`, children: [
                 p(u.liveName),
                 "/",
-                R
+                x
               ] })
             }
           ),
-          p(u.liveName) > R && /* @__PURE__ */ e("div", { className: "form-field__error-tip", children: a(r.MAX_BYTES, { field: a(r.LIVE_TITLE), max: R }) })
+          p(u.liveName) > x && /* @__PURE__ */ e("div", { className: "form-field__error-tip", children: a(r.MAX_BYTES, { field: a(r.LIVE_TITLE), max: x }) })
         ] }) }),
         /* @__PURE__ */ e(G, { label: /* @__PURE__ */ s("span", { style: { display: "inline-flex", alignItems: "center" }, children: [
           a(r.COVER_IMAGE),
@@ -600,29 +600,29 @@ function Rr({ visible: V, live: i, onClose: X, onSuccess: H, uploadEnabled: z = 
             onFileReady: (h) => E(!!h)
           }
         ) }),
-        /* @__PURE__ */ e(ie, { slot: le, props: { mode: "edit", live: i, formData: { ...u }, customInfos: [...n] } }),
+        /* @__PURE__ */ e(le, { slot: ne, props: { mode: "edit", live: i, formData: { ...u }, customInfos: [...n] } }),
         /* @__PURE__ */ s("div", { className: "custom-info-section", children: [
           /* @__PURE__ */ s(
             "div",
             {
               className: "custom-info-toggle",
-              onClick: () => x(!L),
+              onClick: () => b(!T),
               children: [
-                L ? /* @__PURE__ */ e(Me, { size: "16" }) : /* @__PURE__ */ e(Ue, { size: "16" }),
+                T ? /* @__PURE__ */ e(Me, { size: "16" }) : /* @__PURE__ */ e(Ue, { size: "16" }),
                 /* @__PURE__ */ e("span", { children: a(r.CUSTOM_INFORMATION) }),
                 n.length > 0 && /* @__PURE__ */ e("span", { className: "custom-info-count", children: n.length })
               ]
             }
           ),
-          L && /* @__PURE__ */ s("div", { className: "custom-info-container", children: [
+          T && /* @__PURE__ */ s("div", { className: "custom-info-container", children: [
             n.map((h, c) => {
-              const d = p(h.key), N = p(h.value), D = d > K.maxKeyBytes, O = N > K.maxValueBytes, he = Ee(h);
+              const d = p(h.key), _ = p(h.value), D = d > K.maxKeyBytes, O = _ > K.maxValueBytes, he = Ee(h);
               return /* @__PURE__ */ s("div", { className: "custom-info-row", children: [
                 /* @__PURE__ */ e("div", { className: "custom-input-wrap", children: /* @__PURE__ */ e(
                   Y,
                   {
                     value: h.key,
-                    onChange: (ae) => y(c, "key", String(ae)),
+                    onChange: (se) => S(c, "key", String(se)),
                     placeholder: a(r.ENTER_KEY),
                     status: D || he ? "error" : "default",
                     tips: D ? a(r.MAX_BYTES, { field: "Key", max: K.maxKeyBytes }) : he ? a(r.CUSTOM_INFO_KEY_REQUIRED) : ""
@@ -632,26 +632,26 @@ function Rr({ visible: V, live: i, onClose: X, onSuccess: H, uploadEnabled: z = 
                   Y,
                   {
                     value: h.value,
-                    onChange: (ae) => y(c, "value", String(ae)),
+                    onChange: (se) => S(c, "value", String(se)),
                     placeholder: a(r.ENTER_VALUE),
                     status: O ? "error" : "default",
                     tips: O ? a(r.VALUE_EXCEEDS_2KB_LIMIT) : ""
                   }
                 ) }),
                 /* @__PURE__ */ e(
-                  T,
+                  g,
                   {
                     shape: "square",
                     variant: "text",
                     className: "remove-custom-info-btn",
-                    onClick: () => ne(c),
+                    onClick: () => oe(c),
                     title: a(r.DELETE),
                     icon: /* @__PURE__ */ e(we, { size: 14 })
                   }
                 )
               ] }, c);
             }),
-            n.length < K.maxCount && /* @__PURE__ */ e(T, { variant: "text", className: "add-custom-info-btn", onClick: J, icon: /* @__PURE__ */ e(de, { size: 14 }), theme: "primary", children: a(r.ADD) })
+            n.length < K.maxCount && /* @__PURE__ */ e(g, { variant: "text", className: "add-custom-info-btn", onClick: J, icon: /* @__PURE__ */ e(de, { size: 14 }), theme: "primary", children: a(r.ADD) })
           ] })
         ] })
       ] })
@@ -659,21 +659,21 @@ function Rr({ visible: V, live: i, onClose: X, onSuccess: H, uploadEnabled: z = 
     `edit-live-${i?.id}`
   );
 }
-function jr() {
+function qr() {
   const V = We(), { t: i } = Le(), {
     createLive: X,
     updateLive: H,
     fetchLiveDetail: z,
-    endLive: le
-  } = yr(), t = ar().components?.liveList, W = ce(null);
-  W.current || (W.current = new pr({
-    endLive: le,
-    onEnterLive: (S) => V(`/live-control/${S}`, { state: { from: "live-list" } }),
+    endLive: ne
+  } = Ar(), t = sr().components?.liveList, W = ce(null);
+  W.current || (W.current = new Ir({
+    endLive: ne,
+    onEnterLive: (y) => V(`/live-control/${y}`, { state: { from: "live-list" } }),
     t: i,
     toast: ue,
     fetchLiveDetail: z
   }));
-  const a = W.current, u = Xe(a.subscribe, a.getState, a.getState), { loading: F, execute: n } = Se({
+  const a = W.current, u = Xe(a.subscribe, a.getState, a.getState), { loading: F, execute: n } = ye({
     toast: { action: r.DISSOLVE, entity: r.LIVE },
     operationName: i(r.DISSOLVE),
     action: async () => {
@@ -681,15 +681,15 @@ function jr() {
     }
   });
   me(() => (a.init(), () => a.dispose()), []);
-  const _ = xr(), [L, x] = v(0);
+  const N = br(), [T, b] = v(0);
   me(() => {
     if (!fe || typeof fe.on != "function") return;
-    const S = () => x((E) => E + 1);
-    return fe.on("languageChanged", S), () => {
-      fe.off("languageChanged", S);
+    const y = () => b((E) => E + 1);
+    return fe.on("languageChanged", y), () => {
+      fe.off("languageChanged", y);
     };
   }, []);
-  const b = ze(() => gr({ hasExtraColumn: !!t?.tableExtraColumns }).map((E) => {
+  const M = ze(() => Tr({ hasExtraColumn: !!t?.tableExtraColumns }).map((E) => {
     switch (E.key) {
       case "liveId":
         return {
@@ -698,11 +698,11 @@ function jr() {
           render: (m) => /* @__PURE__ */ s("div", { className: "live-list-id-cell", children: [
             /* @__PURE__ */ e("span", { className: "live-list-id-text", children: m.liveId }),
             /* @__PURE__ */ e(
-              se,
+              ie,
               {
                 size: 14,
                 className: "copy-icon",
-                onClick: () => a.copyText(m.liveId, i(r.LIVE_ID))
+                onClick: () => a.copyText(m.liveId, i(r.LIVE_ID), "live_id")
               }
             )
           ] })
@@ -717,7 +717,7 @@ function jr() {
         return {
           ...E,
           title: i(r.COVER_IMAGE),
-          render: (m) => /* @__PURE__ */ e("div", { className: "live-list-cover-cell", children: /* @__PURE__ */ e("img", { src: m.coverUrl || sr, alt: m.liveName, className: "live-list-cover-image" }) })
+          render: (m) => /* @__PURE__ */ e("div", { className: "live-list-cover-cell", children: /* @__PURE__ */ e("img", { src: m.coverUrl || ir, alt: m.liveName, className: "live-list-cover-image" }) })
         };
       case "anchor":
         return {
@@ -735,45 +735,45 @@ function jr() {
         return {
           ...E,
           title: "",
-          render: (m) => /* @__PURE__ */ e(ie, { slot: t?.tableExtraColumns, props: { live: m } })
+          render: (m) => /* @__PURE__ */ e(le, { slot: t?.tableExtraColumns, props: { live: m } })
         };
       case "actions":
         return {
           ...E,
           title: i(r.ACTIONS),
           render: (m) => {
-            const J = Ir({
+            const J = _r({
               live: m,
               t: i,
-              onEnter: (y) => a.enterLive(y),
-              onDetail: (y) => {
-                a.showDetail(y);
+              onEnter: (S) => a.enterLive(S),
+              onDetail: (S) => {
+                a.showDetail(S);
               },
-              onEdit: (y) => a.openEditModal(y),
-              onDelete: (y) => a.requestDelete(y)
+              onEdit: (S) => a.openEditModal(S),
+              onDelete: (S) => a.requestDelete(S)
             });
             return /* @__PURE__ */ s(B, { children: [
-              /* @__PURE__ */ e(Lr, { actions: J }),
-              /* @__PURE__ */ e(ie, { slot: t?.rowActions, props: { live: m } })
+              /* @__PURE__ */ e(yr, { actions: J }),
+              /* @__PURE__ */ e(le, { slot: t?.rowActions, props: { live: m } })
             ] });
           }
         };
       default:
         return { ...E, title: "" };
     }
-  }), [i, t, a, L]), { lives: $, loading: w, refreshing: te, currentPage: q, hasMoreData: Q, searchInput: k, obsModal: f, confirmDialog: A, isCreateModalVisible: j, isEditModalVisible: I, editingLive: C } = u;
+  }), [i, t, a, T]), { lives: $, loading: w, refreshing: ae, currentPage: q, hasMoreData: Q, searchInput: k, obsModal: f, confirmDialog: A, isCreateModalVisible: j, isEditModalVisible: I, editingLive: C } = u;
   return /* @__PURE__ */ s("div", { className: "live-list-page", children: [
     /* @__PURE__ */ s("div", { className: "live-list-header", children: [
       /* @__PURE__ */ e("h1", { className: "live-list-title", children: i(r.LIVE_LIST) }),
-      /* @__PURE__ */ e(ie, { slot: t?.beforeToolbar, props: { lives: $, loading: w } }),
+      /* @__PURE__ */ e(le, { slot: t?.beforeToolbar, props: { lives: $, loading: w } }),
       /* @__PURE__ */ s("div", { className: "header-actions", children: [
         /* @__PURE__ */ e(
           Y,
           {
             value: k,
-            onChange: (S) => a.setSearchInput(String(S)),
+            onChange: (y) => a.setSearchInput(String(y)),
             onEnter: () => {
-              if (_r(k, _e)) {
+              if (Cr(k, Ne)) {
                 ue.error(i(r.INPUT_TOO_LONG));
                 return;
               }
@@ -786,25 +786,25 @@ function jr() {
             placeholder: i(r.ENTER_LIVE_ID_TO_SEARCH),
             suffixIcon: /* @__PURE__ */ e(Qe, { size: 16 }),
             style: { width: 220 },
-            status: p(k) > _e ? "error" : "default",
-            tips: p(k) > _e ? i(r.INPUT_EXCEEDS_LENGTH_LIMIT) : ""
+            status: p(k) > Ne ? "error" : "default",
+            tips: p(k) > Ne ? i(r.INPUT_EXCEEDS_LENGTH_LIMIT) : ""
           }
         ),
         /* @__PURE__ */ e(
-          T,
+          g,
           {
             shape: "round",
             variant: "outline",
-            disabled: te || w,
+            disabled: ae || w,
             onClick: () => {
               a.refresh();
             },
-            icon: /* @__PURE__ */ e(Je, { className: te ? "spinning" : "" }),
+            icon: /* @__PURE__ */ e(Je, { className: ae ? "spinning" : "" }),
             children: i(r.REFRESH)
           }
         ),
         /* @__PURE__ */ e(
-          T,
+          g,
           {
             shape: "round",
             theme: "primary",
@@ -814,12 +814,12 @@ function jr() {
           }
         )
       ] }),
-      /* @__PURE__ */ e(ie, { slot: t?.afterToolbar, props: { lives: $, loading: w } })
+      /* @__PURE__ */ e(le, { slot: t?.afterToolbar, props: { lives: $, loading: w } })
     ] }),
     /* @__PURE__ */ e(qe, { className: "live-list-card", children: /* @__PURE__ */ e(
       Sr,
       {
-        columns: b,
+        columns: M,
         data: $,
         rowKey: "liveId",
         loading: w,
@@ -834,12 +834,12 @@ function jr() {
           /* @__PURE__ */ e("div", { className: "empty-guide-icon", children: /* @__PURE__ */ e(de, { size: "40px" }) }),
           /* @__PURE__ */ e("p", { className: "empty-guide-title", children: i(r.EMPTY_LIVE_LIST_TITLE) }),
           /* @__PURE__ */ e("p", { className: "empty-guide-desc", children: i(r.EMPTY_LIVE_LIST_DESC) }),
-          /* @__PURE__ */ e("div", { className: "empty-guide-actions", children: /* @__PURE__ */ e(T, { theme: "primary", shape: "round", className: "empty-guide-cta", icon: /* @__PURE__ */ e(de, {}), onClick: () => a.openCreateModal(), children: i(r.CREATE_LIVE) }) })
+          /* @__PURE__ */ e("div", { className: "empty-guide-actions", children: /* @__PURE__ */ e(g, { theme: "primary", shape: "round", className: "empty-guide-cta", icon: /* @__PURE__ */ e(de, {}), onClick: () => a.openCreateModal(), children: i(r.CREATE_LIVE) }) })
         ] })
       }
     ) }),
     /* @__PURE__ */ e(
-      Tr,
+      Lr,
       {
         currentPage: q,
         hasMoreData: Q,
@@ -850,17 +850,17 @@ function jr() {
       }
     ),
     /* @__PURE__ */ e(
-      Or,
+      Rr,
       {
         visible: j,
         onClose: () => a.closeCreateModal(),
         onSuccess: () => a.onLiveCreated(),
         onCreate: X,
-        uploadEnabled: _
+        uploadEnabled: N
       }
     ),
     C && /* @__PURE__ */ e(
-      Rr,
+      xr,
       {
         visible: I,
         live: {
@@ -876,10 +876,10 @@ function jr() {
           })() : C.customInfo : void 0
         },
         onClose: () => a.closeEditModal(),
-        onSuccess: (S) => a.onLiveEdited(S),
-        onUpdate: (S, E) => H({ ...E, liveId: S }),
+        onSuccess: (y) => a.onLiveEdited(y),
+        onUpdate: (y, E) => H({ ...E, liveId: y }),
         onFetchDetail: z,
-        uploadEnabled: _,
+        uploadEnabled: N,
         extraFieldsSlot: t?.liveFormExtraFields
       }
     ),
@@ -891,8 +891,8 @@ function jr() {
         onClose: () => a.cancelDelete(),
         width: Te.CONFIRM,
         footer: /* @__PURE__ */ s(B, { children: [
-          /* @__PURE__ */ e(T, { shape: "round", variant: "outline", disabled: F, onClick: () => a.cancelDelete(), children: i(r.CANCEL) }),
-          /* @__PURE__ */ e(T, { shape: "round", theme: "primary", loading: F, onClick: () => n(), children: i(r.CONFIRM) })
+          /* @__PURE__ */ e(g, { shape: "round", variant: "outline", disabled: F, onClick: () => a.cancelDelete(), children: i(r.CANCEL) }),
+          /* @__PURE__ */ e(g, { shape: "round", theme: "primary", loading: F, onClick: () => n(), children: i(r.CONFIRM) })
         ] }),
         children: /* @__PURE__ */ e("p", { children: A.content })
       }
@@ -905,7 +905,7 @@ function jr() {
         onClose: () => a.closeDetail(),
         width: Te.INFO,
         className: "live-info-modal",
-        footer: /* @__PURE__ */ e(T, { shape: "round", variant: "outline", onClick: () => a.closeDetail(), children: i(r.CLOSE) }),
+        footer: /* @__PURE__ */ e(g, { shape: "round", variant: "outline", onClick: () => a.closeDetail(), children: i(r.CLOSE) }),
         children: /* @__PURE__ */ s("div", { className: "live-info-form", children: [
           f.errorMessage && /* @__PURE__ */ s("div", { className: "live-info-error", children: [
             /* @__PURE__ */ e("span", { className: "live-info-error-icon", children: "!" }),
@@ -922,8 +922,8 @@ function jr() {
                     "button",
                     {
                       className: "live-info-copy-btn",
-                      onClick: () => f.live && void a.copyText(f.live.anchor.userId, i(r.LIVE_HOST)),
-                      children: /* @__PURE__ */ e(se, { size: 14 })
+                      onClick: () => f.live && void a.copyText(f.live.anchor.userId, i(r.LIVE_HOST), "anchor_id"),
+                      children: /* @__PURE__ */ e(ie, { size: 14 })
                     }
                   )
                 ] })
@@ -953,8 +953,8 @@ function jr() {
                     "button",
                     {
                       className: "live-info-copy-btn",
-                      onClick: () => f.streamInfo && void a.copyText(f.streamInfo.serverUrl, i(r.SERVER_URL)),
-                      children: /* @__PURE__ */ e(se, { size: 14 })
+                      onClick: () => f.streamInfo && void a.copyText(f.streamInfo.serverUrl, i(r.SERVER_URL), "obs_server_url"),
+                      children: /* @__PURE__ */ e(ie, { size: 14 })
                     }
                   )
                 ] })
@@ -967,8 +967,8 @@ function jr() {
                     "button",
                     {
                       className: "live-info-copy-btn",
-                      onClick: () => f.streamInfo && void a.copyText(f.streamInfo.streamKey, i(r.STREAM_KEY)),
-                      children: /* @__PURE__ */ e(se, { size: 14 })
+                      onClick: () => f.streamInfo && void a.copyText(f.streamInfo.streamKey, i(r.STREAM_KEY), "obs_stream_key"),
+                      children: /* @__PURE__ */ e(ie, { size: 14 })
                     }
                   )
                 ] })
@@ -980,11 +980,11 @@ function jr() {
     )
   ] });
 }
-function xr() {
+function br() {
   const [V, i] = v(!1);
   return me(() => {
     let X = !1;
-    return Cr().then((H) => {
+    return gr().then((H) => {
       X || i(H);
     }), () => {
       X = !0;
@@ -992,5 +992,5 @@ function xr() {
   }, []), V;
 }
 export {
-  jr as default
+  qr as default
 };

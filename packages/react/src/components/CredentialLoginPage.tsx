@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { i18next } from '@tencentcloud/uikit-base-component-react';
-import { TranslateIcon, HelpCircleIcon, InfoCircleIcon, ErrorCircleIcon } from 'tdesign-icons-react';
+import { TranslateIcon, HelpCircleIcon, ErrorCircleIcon } from 'tdesign-icons-react';
 import { Input, Button, Tooltip, Dialog } from 'tdesign-react';
 import {
   login,
@@ -10,12 +10,12 @@ import {
   getDefaultLanguage,
   toggleLanguage,
   setDocumentLanguage,
-  resolveDemoTargetPath,
   getHelpLinks,
   validateCredentialLogin,
   verifyCredentials,
   clearCredentials,
   reportBusinessOp,
+  reportConversionClick,
   I18N,
   resolveLoginBrandName,
 } from 'tuikit-live-manager-sdk-react';
@@ -60,13 +60,26 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
   const [showVerifyDialog, setShowVerifyDialog] = useState(false);
   const [verifyError, setVerifyError] = useState('');
 
-  // Vite define 对 __DEMO_MODE__ 在 dev 下替换不稳定（与 router/index.tsx 一致），
-  // 使用 typeof 守卫避免 ReferenceError；非 demo 构建时回落为 false。
-  const demoModeEnabled = typeof __DEMO_MODE__ !== 'undefined' ? __DEMO_MODE__ : false;
 
-  // 登录页顶部品牌位：自定义 BrandConfig.appName 优先，否则兜底到 I18N.DEMO_PRODUCT_NAME
+  /**
+   * 转化触点上报：登录页帮助/文档链接点击。
+   * 点"如何获取凭证"= 正在认真尝试接入（意向+摩擦信号），只记录动作。
+   * 上报异常静默吞掉，不影响链接跳转。
+   */
+  const resolveLoginScene = () => {
+    return 'customer';
+  };
+  const trackConversion = (track: string) => {
+    try {
+      reportConversionClick(track, resolveLoginScene());
+    } catch {
+      // RUM 未初始化等异常不影响 UI
+    }
+  };
+
+  // 登录页顶部品牌位：自定义 BrandConfig.appName 优先，否则兜底到产品名文案
   // （中文："腾讯直播管理系统"，英文："Tencent Live Manager"）。
-  // 走公共函数避免依赖 demo 编译变量，与 Vue 端共用同一解析策略。
+  // 走公共函数统一解析策略，与 Vue 端共用。
   const loginProductName = resolveLoginBrandName(currentLanguage, t);
 
   const clearFieldErrors = () => {
@@ -83,6 +96,8 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
   };
 
   const handleLogin = async () => {
+    // 登录入口点击/提交埋点：记录登录入口选择信号
+    trackConversion('login_click');
     clearFieldErrors();
 
     // ===== 1. 输入级校验：逐字段红字提示 =====
@@ -153,32 +168,26 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
 
       <div className="login-content">
         <div className="login-header">
-          <div className="demo-product-name">{loginProductName}</div>
-          {!demoModeEnabled && (
+          <div className="login-product-name">{loginProductName}</div>
+          {
             <>
               <h1 className="login-title">{t(I18N.CREDENTIAL_LOGIN_TITLE)}</h1>
               <p className="login-subtitle">{t(I18N.CREDENTIAL_LOGIN_SUBTITLE)}</p>
             </>
-          )}
+          }
         </div>
 
-        {demoModeEnabled ? (
-          <div className="login-notice login-notice--demo">
-            <InfoCircleIcon size="16px" className="login-notice__icon" />
-            <div className="login-notice__content">
-              <span>{t(I18N.LOGIN_DEMO_NOTICE)} </span>
-              <a href="https://cloud.tencent.com/document/product/647/123831" target="_blank" rel="noopener noreferrer">{t(I18N.LOGIN_DEMO_INTEGRATION_DOC)}</a>
-            </div>
-          </div>
-        ) : (
+
+
+        {
           <div className="login-notice login-notice--config">
             <ErrorCircleIcon size="16px" className="login-notice__icon" />
             <div className="login-notice__content">
               <span>{t(I18N.LOGIN_SERVER_NOT_CONFIGURED_NOTICE)} </span>
-              <a href="https://cloud.tencent.com/document/product/647/123831#2f8aa93c-a53b-4939-a460-64270c6484b9" target="_blank" rel="noopener noreferrer">{t(I18N.LOGIN_SERVER_SETUP_GUIDE)}</a>
+              <a href="https://cloud.tencent.com/document/product/647/123831#2f8aa93c-a53b-4939-a460-64270c6484b9" target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('server_setup_guide')}>{t(I18N.LOGIN_SERVER_SETUP_GUIDE)}</a>
             </div>
           </div>
-        )}
+        }
 
         <div className="login-form-wrapper login-form-wrapper--tdesign">
           <div className="login-field login-field--horizontal">
@@ -187,7 +196,7 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
               <Tooltip placement="top" content={
                 <div className="login-help-tooltip">
                   <p>{t(I18N.SDK_APP_ID_DESC)}</p>
-                  <a href={helpLinks.sdkAppId} target="_blank" rel="noopener noreferrer">{t(I18N.SDK_APP_ID_HELP_LINK)}</a>
+                  <a href={helpLinks.sdkAppId} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('help_sdk_app_id')}>{t(I18N.SDK_APP_ID_HELP_LINK)}</a>
                 </div>
               }>
                 <HelpCircleIcon size="14px" className="login-help-icon" />
@@ -214,7 +223,7 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
                 <div className="login-help-tooltip">
                   <p>{t(I18N.SECRET_KEY_DESC)}</p>
                   <span>{t(I18N.SECRET_KEY_MEMORY_ONLY)} </span>
-                  <a href={helpLinks.secretKey} target="_blank" rel="noopener noreferrer">{t(I18N.SECRET_KEY_HELP_LINK)}</a>
+                  <a href={helpLinks.secretKey} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('help_secret_key')}>{t(I18N.SECRET_KEY_HELP_LINK)}</a>
                 </div>
               }>
                 <HelpCircleIcon size="14px" className="login-help-icon" />
@@ -242,7 +251,7 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
                 <div className="login-help-tooltip">
                   <p>{t(I18N.USER_ID_DESC)}</p>
                   <span>{t(I18N.USER_ID_HELP_PREFIX)} </span>
-                  <a href={helpLinks.userId} target="_blank" rel="noopener noreferrer">{t(I18N.USER_ID_HELP_LINK)}</a>
+                  <a href={helpLinks.userId} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion('help_user_id')}>{t(I18N.USER_ID_HELP_LINK)}</a>
                 </div>
               }>
                 <HelpCircleIcon size="14px" className="login-help-icon" />
@@ -272,7 +281,7 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
             {loading ? t(I18N.LOGGING_IN) : t(I18N.LOGIN_BTN)}
           </Button>
 
-          {showServerConfigLink && !demoModeEnabled && (
+          {showServerConfigLink && (
             <div className="server-config-link">
               <button
                 type="button"
@@ -284,29 +293,8 @@ export default function CredentialLoginPage({ showServerConfigLink = false }: Cr
               </button>
             </div>
           )}
-
-          {demoModeEnabled && (
-            <div style={{ marginTop: '16px', textAlign: 'center' }}>
-              <div style={{ height: '1px', background: '#e5e7eb', margin: '16px 0' }} />
-              <p style={{ fontSize: '13px', color: '#6b7280', margin: '0 0 12px' }}>{t(I18N.DEMO_MODE_DESC)}</p>
-              <button
-                type="button"
-                style={{
-                  background: 'none',
-                  border: '1px solid #1C66E5',
-                  color: '#1C66E5',
-                  padding: '6px 20px',
-                  borderRadius: '999px',
-                  fontSize: '13px',
-                  cursor: 'pointer',
-                }}
-                onClick={() => { window.location.href = resolveDemoTargetPath('react'); }}
-              >
-                {t(I18N.TRY_DEMO_MODE)}
-              </button>
-            </div>
-          )}
         </div>
+
       </div>
 
       {/* 凭证验证失败 / 登录失败弹框 */}

@@ -1,45 +1,45 @@
-import { defineComponent as Ce, computed as k, ref as x, watch as we, resolveComponent as D, openBlock as v, createElementBlock as f, Fragment as W, createVNode as n, unref as e, withCtx as r, createBlock as P, createElementVNode as t, normalizeClass as re, toDisplayString as i, createTextVNode as I, createCommentVNode as O, renderList as he, shallowRef as Oe, onMounted as Ze, onBeforeUnmount as Je, createSlots as el } from "vue";
+import { defineComponent as Ce, computed as k, ref as S, watch as we, resolveComponent as D, openBlock as v, createElementBlock as f, Fragment as W, createVNode as n, unref as e, withCtx as r, createBlock as B, createElementVNode as t, normalizeClass as ue, toDisplayString as i, createTextVNode as I, createCommentVNode as O, renderList as he, shallowRef as Oe, onMounted as Ze, onBeforeUnmount as Je, createSlots as el } from "vue";
 import { useRouter as ll } from "vue-router";
-import { HelpCircleIcon as ye, ChevronDownIcon as Fe, ChevronRightIcon as $e, CloseIcon as Be, AddIcon as _e, CopyIcon as ue, SearchIcon as tl, RefreshIcon as ol } from "tdesign-icons-vue-next";
-import { Tooltip as ge, MessagePlugin as S } from "tdesign-vue-next";
+import { HelpCircleIcon as ye, ChevronDownIcon as Fe, ChevronRightIcon as $e, CloseIcon as Be, AddIcon as _e, CopyIcon as de, SearchIcon as tl, RefreshIcon as ol } from "tdesign-icons-vue-next";
+import { Tooltip as ge, MessagePlugin as L } from "tdesign-vue-next";
 import { useUIKit as be } from "@tencentcloud/uikit-base-component-vue3";
-import { as as Ve, g as te, aP as al, bc as Z, b4 as sl, aR as il, k as le, U as M, a6 as nl, C as V, b7 as rl, ac as ul, bM as dl, aq as cl, at as De, a3 as Ne, aA as vl, ay as ke, bX as pl, am as ml, aS as _l, X as fl, bf as Ue, T as Me, aK as El, af as hl } from "../../chunks/main-layout.B_9sQtkU.js";
-import { a as Te } from "../../chunks/useAsyncAction.BAoVLjEW.js";
-import { c as Pe, u as Il, I as l, g as Ke, m as yl, am as gl, a as Cl, S as bl } from "../../chunks/shared-state.2k2VlnY1.js";
-import { g as Tl } from "../../chunks/PreviewUrlController.IUgppJ6z.js";
-import { g as xl } from "../../chunks/columns.mIDOhVzi.js";
+import { as as Ve, g as oe, aP as al, bc as J, b4 as sl, aR as il, k as te, U as M, a6 as nl, C as V, b7 as rl, ac as ul, bM as dl, aq as cl, at as De, a3 as Ne, aA as vl, ay as ke, bX as pl, am as ml, aS as _l, X as fl, bf as Ue, T as Me, aK as El, af as hl } from "../../chunks/main-layout.DlXjtEAo.js";
+import { a as Te } from "../../chunks/useAsyncAction.DMgdeI4N.js";
+import { c as Pe, v as Il, I as l, g as Ke, b0 as yl, m as gl, ao as Cl, a as bl, V as Tl } from "../../chunks/shared-state.CEzqGWS1.js";
+import { g as xl } from "../../chunks/PreviewUrlController.B1iCtmJA.js";
+import { g as Sl } from "../../chunks/columns.D-Enjre5.js";
 import { useLiveMonitorState as xe } from "../../vue.js";
-import { _ as Sl } from "../../chunks/MonitorPagination.vue_vue_type_script_setup_true_lang.hM3Ob2C9.js";
-import { r as He, I as Ye } from "../../chunks/image-upload-resolve.1-MNNtuJ.js";
-import { I as Xe } from "../../chunks/ImageUpload.DR5U83br.js";
+import { _ as Ll } from "../../chunks/MonitorPagination.vue_vue_type_script_setup_true_lang.skj5LX19.js";
+import { r as He, I as Ye } from "../../chunks/image-upload-resolve.Bzo6gUma.js";
+import { I as Xe } from "../../chunks/ImageUpload.h6z_Tw75.js";
 import { _ as Ge } from "../../chunks/_plugin-vue_export-helper.CHgC5LLL.js";
-import { _ as me } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.BmykaOnf.js";
-import { _ as Ll, a as Rl } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
-const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = ["href"], Vl = {
+import { _ as me } from "../../chunks/SlotRenderer.vue_vue_type_script_setup_true_lang.D0IGIUWF.js";
+import { _ as Rl, a as Al } from "../../chunks/ActionButtons.vue_vue_type_script_setup_true_lang.Chj4lTmT.js";
+const Ol = { style: { display: "inline-flex", "align-items": "center" } }, Vl = ["href"], Dl = {
   key: 0,
   class: "form-field__error-tip"
-}, Dl = ["href"], Nl = { style: { display: "inline-flex", "align-items": "center" } }, kl = {
+}, Nl = ["href"], kl = { style: { display: "inline-flex", "align-items": "center" } }, Ul = {
   href: "https://cloud.tencent.com/document/product/647/123012#159bb20a-d83d-4fde-a37b-1ff99632ee2c",
   target: "_blank",
   rel: "noopener noreferrer",
   style: { color: "#6ea1ff", "text-decoration": "underline" }
-}, Ul = { class: "seat-template-group" }, Ml = ["title", "onClick"], wl = {
+}, Ml = { class: "seat-template-group" }, wl = ["title", "onClick"], Fl = {
   class: "seat-template-icon",
   viewBox: "0 0 72 48",
   xmlns: "http://www.w3.org/2000/svg"
-}, Fl = { class: "seat-template-label" }, $l = { class: "custom-info-section" }, Bl = {
+}, $l = { class: "seat-template-label" }, Bl = { class: "custom-info-section" }, Pl = {
   key: 2,
   class: "custom-info-count"
-}, Pl = {
+}, Kl = {
   key: 0,
   class: "custom-info-container"
-}, Kl = { class: "custom-input-wrap" }, Hl = { class: "custom-input-wrap custom-value-wrap" }, Yl = {
+}, Hl = { class: "custom-input-wrap" }, Yl = { class: "custom-input-wrap custom-value-wrap" }, Xl = {
   key: 1,
   class: "create-success-content"
-}, Xl = { class: "create-success-summary" }, Gl = {
+}, Gl = { class: "create-success-summary" }, Wl = {
   key: 0,
   class: "create-success-section"
-}, Wl = { class: "create-success-section-title" }, zl = { class: "stream-info-items" }, ql = { class: "stream-info-item" }, Ql = { class: "stream-info-label" }, jl = { class: "stream-info-value" }, Zl = { class: "stream-info-item" }, Jl = { class: "stream-info-label" }, et = { class: "stream-info-value" }, lt = { class: "dialog-footer" }, tt = { style: { "font-size": "14px", "line-height": "22px", color: "rgba(0,0,0,0.6)" } }, ot = ["href"], at = /* @__PURE__ */ Ce({
+}, zl = { class: "create-success-section-title" }, ql = { class: "stream-info-items" }, Ql = { class: "stream-info-item" }, jl = { class: "stream-info-label" }, Zl = { class: "stream-info-value" }, Jl = { class: "stream-info-item" }, et = { class: "stream-info-label" }, lt = { class: "stream-info-value" }, tt = { class: "dialog-footer" }, ot = { style: { "font-size": "14px", "line-height": "22px", color: "rgba(0,0,0,0.6)" } }, at = ["href"], st = /* @__PURE__ */ Ce({
   __name: "CreateLiveModal",
   props: {
     visible: { type: Boolean },
@@ -47,32 +47,32 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
     extraFieldsSlot: { default: void 0 }
   },
   emits: ["update:visible", "success"],
-  setup(B, { emit: _ }) {
-    const J = Pe("CreateLive"), { t: o, language: oe } = be(), { opSuccess: w, opFailed: u } = Il(o), d = B, { extraFieldsSlot: ae } = d, { createLive: se } = xe(), K = _, j = k({
+  setup($, { emit: _ }) {
+    const ee = Pe("CreateLive"), { t: o, language: ae } = be(), { opSuccess: w, opFailed: u } = Il(o), d = $, { extraFieldsSlot: se } = d, { createLive: ie } = xe(), P = _, j = k({
       get: () => d.visible,
-      set: (h) => K("update:visible", h)
-    }), L = (h) => te(h), A = (h) => te(h), s = (h) => {
+      set: (h) => P("update:visible", h)
+    }), R = (h) => oe(h), A = (h) => oe(h), s = (h) => {
       m.value.maxSeatCount = Number(h) || 1;
-    }, m = x(Ve()), y = x([]), H = x(!1), U = x(!1), c = x(!1), z = x(""), de = x(""), Y = x(null), F = x(""), ee = x(null), ce = x(!1), X = x(!1), { loading: ve, execute: g } = Te({
+    }, m = S(Ve()), y = S([]), K = S(!1), U = S(!1), c = S(!1), z = S(""), ce = S(""), H = S(null), F = S(""), le = S(null), ve = S(!1), Y = S(!1), { loading: pe, execute: g } = Te({
       operationName: o(l.CREATE_LIVE),
       showSuccess: !1,
       action: async () => {
         let h = "";
         try {
           h = await He({
-            handle: ee.value,
-            hasPendingFile: ce.value,
+            handle: le.value,
+            hasPendingFile: ve.value,
             fallbackUrl: m.value.coverUrl,
             label: o(l.COVER_IMAGE)
           });
-        } catch (R) {
-          J.error("CreateLive", `Cover processing failed: ${R instanceof Error ? R.message : String(R)}`, R);
-          const pe = R instanceof Ye ? R.message : `${o(l.COVER_PROCESSING_FAILED)}: ${R instanceof Error ? R.message : String(R) || o(l.UNKNOWN_ERROR)}`;
-          S.error(pe);
+        } catch (x) {
+          ee.error("CreateLive", `Cover processing failed: ${x instanceof Error ? x.message : String(x)}`, x);
+          const Z = x instanceof Ye ? x.message : `${o(l.COVER_PROCESSING_FAILED)}: ${x instanceof Error ? x.message : String(x) || o(l.UNKNOWN_ERROR)}`;
+          L.error(Z);
           return;
         }
-        if (y.value.some(Z)) {
-          S.error(o(l.CUSTOM_INFO_KEY_REQUIRED));
+        if (y.value.some(J)) {
+          L.error(o(l.CUSTOM_INFO_KEY_REQUIRED));
           return;
         }
         const a = ul({
@@ -80,13 +80,13 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
           coverUrl: h,
           customInfos: y.value,
           useObsStreaming: c.value
-        }), Q = a.liveId, $ = a.anchorId;
-        if (await se(a), Y.value = null, F.value = "", c.value, c.value) {
-          const R = await dl({
+        }), Q = a.liveId, G = a.anchorId;
+        if (await ie(a), H.value = null, F.value = "", c.value, c.value) {
+          const x = await dl({
             liveId: Q,
-            anchorId: $,
-            onStatusChange: (pe) => {
-              z.value = pe;
+            anchorId: G,
+            onStatusChange: (Z) => {
+              z.value = Z;
             },
             messages: {
               getStreamInfoFailed: u(l.OP_GET_STREAM_INFO),
@@ -96,79 +96,79 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
               setupFailed: u(l.OP_OBS_SETUP_ACT, l.LIVE)
             }
           });
-          Y.value = R.streamInfo, F.value = R.streamInfoError, de.value = R.setupError, R.configuredSuccessfully;
+          H.value = x.streamInfo, F.value = x.streamInfoError, ce.value = x.setupError, x.configuredSuccessfully;
         }
         U.value = !0;
       },
       onError: (h) => {
-        rl(h) && (X.value = !0);
+        rl(h) && (Y.value = !0);
       }
-    }), E = k(() => te(m.value.anchorId)), b = k(() => al(oe.value)), N = k(() => te(m.value.liveName));
+    }), E = k(() => oe(m.value.anchorId)), b = k(() => al(ae.value)), N = k(() => oe(m.value.liveName));
     k(() => y.value.filter((h) => h.key.trim()).length);
-    const T = k(() => y.value.some(Z));
+    const T = k(() => y.value.some(J));
     we(() => m.value.anchorId, () => {
-      X.value && (X.value = !1);
+      Y.value && (Y.value = !1);
     });
-    const G = k(() => {
+    const X = k(() => {
       const h = sl(m.value.seatTemplate), a = o(h?.descKey || "");
       return h?.orientation === "landscape" ? `${a}，${o(l.LANDSCAPE_BROADCASTING_HINT)}` : a;
-    }), q = k(() => il(m.value.seatTemplate)), C = k(() => c.value ? z.value === "error" ? `OBS 配置失败：${de.value}` : Y.value ? "OBS 已配置完成，可直接复制下方推流信息。" : F.value ? `OBS 已配置完成，但推流信息生成失败：${F.value}` : "OBS 已配置完成。" : ""), fe = k(() => z.value === "error" || !!F.value), ie = (h) => {
-      ce.value = !!h;
-    }, Se = async (h, a) => {
+    }), q = k(() => il(m.value.seatTemplate)), C = k(() => c.value ? z.value === "error" ? `OBS 配置失败：${ce.value}` : H.value ? "OBS 已配置完成，可直接复制下方推流信息。" : F.value ? `OBS 已配置完成，但推流信息生成失败：${F.value}` : "OBS 已配置完成。" : ""), fe = k(() => z.value === "error" || !!F.value), ne = (h) => {
+      ve.value = !!h;
+    }, Se = async (h, a, Q) => {
       try {
-        await cl(h), S.success(w(l.COPY, a));
-      } catch (Q) {
-        const $ = Q, R = $.ErrorInfo || ($ instanceof Error ? $.message : String($)) || o(l.UNKNOWN_ERROR);
-        J.error("CreateLive", `Copy failed: ${R}`, Q), S.error(u(l.COPY, null, R));
+        await cl(h), Q && yl(Q, "customer"), L.success(w(l.COPY, a));
+      } catch (G) {
+        const x = G, Z = x.ErrorInfo || (x instanceof Error ? x.message : String(x)) || o(l.UNKNOWN_ERROR);
+        ee.error("CreateLive", `Copy failed: ${Z}`, G), L.error(u(l.COPY, null, Z));
       }
     }, We = () => {
       if (y.value.length >= V.maxCount) {
-        S.error(o(l.CUSTOM_INFO_MAX_COUNT_EXCEEDED, { max: V.maxCount }));
+        L.error(o(l.CUSTOM_INFO_MAX_COUNT_EXCEEDED, { max: V.maxCount }));
         return;
       }
       y.value.push({ key: "", value: "" });
     }, ze = (h) => {
       y.value.splice(h, 1);
     }, Le = () => {
-      m.value = Ve(), y.value = [], H.value = !1, U.value = !1, c.value = !1, z.value = "", de.value = "", Y.value = null, F.value = "", ce.value = !1, X.value = !1, ee.value?.reset();
+      m.value = Ve(), y.value = [], K.value = !1, U.value = !1, c.value = !1, z.value = "", ce.value = "", H.value = null, F.value = "", ve.value = !1, Y.value = !1, le.value?.reset();
     }, Re = () => {
-      Le(), K("update:visible", !1);
+      Le(), P("update:visible", !1);
     }, qe = async () => {
       if (!m.value.anchorId.trim()) {
-        S.error(o(l.PLEASE_ENTER_ANCHOR_ID));
+        L.error(o(l.PLEASE_ENTER_ANCHOR_ID));
         return;
       }
-      if (E.value > le) {
-        S.error(o(l.MAX_BYTES_WITH_CURRENT, { field: o(l.ANCHOR_ID), max: le, current: E.value }));
+      if (E.value > te) {
+        L.error(o(l.MAX_BYTES_WITH_CURRENT, { field: o(l.ANCHOR_ID), max: te, current: E.value }));
         return;
       }
       if (N.value > M) {
-        S.error(o(l.MAX_BYTES_WITH_CURRENT, { field: o(l.LIVE_TITLE), max: M, current: N.value }));
+        L.error(o(l.MAX_BYTES_WITH_CURRENT, { field: o(l.LIVE_TITLE), max: M, current: N.value }));
         return;
       }
-      if (y.value.some(Z)) {
-        S.error(o(l.CUSTOM_INFO_KEY_REQUIRED));
+      if (y.value.some(J)) {
+        L.error(o(l.CUSTOM_INFO_KEY_REQUIRED));
         return;
       }
       z.value = "", await g();
     }, Qe = () => {
-      Le(), K("success"), K("update:visible", !1);
+      Le(), P("success"), P("update:visible", !1);
     };
     return (h, a) => {
-      const Q = D("t-input"), $ = D("t-form-item"), R = D("t-input-number"), pe = D("t-checkbox"), ne = D("t-button"), je = D("t-form"), Ae = D("t-dialog");
+      const Q = D("t-input"), G = D("t-form-item"), x = D("t-input-number"), Z = D("t-checkbox"), re = D("t-button"), je = D("t-form"), Ae = D("t-dialog");
       return v(), f(W, null, [
         n(Ae, {
           visible: j.value,
           "onUpdate:visible": a[7] || (a[7] = (p) => j.value = p),
           header: U.value ? e(w)(e(l).CREATE, e(l).LIVE) : e(o)(e(l).CREATE_LIVE),
-          width: e(oe)?.startsWith("en") ? 680 : 620,
+          width: e(ae)?.startsWith("en") ? 680 : 620,
           placement: "center",
           class: "create-live-modal",
           onClose: Re
         }, {
           footer: r(() => [
-            t("div", lt, [
-              U.value ? (v(), P(ne, {
+            t("div", tt, [
+              U.value ? (v(), B(re, {
                 key: 1,
                 theme: "primary",
                 shape: "round",
@@ -179,7 +179,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                 ]),
                 _: 1
               })) : (v(), f(W, { key: 0 }, [
-                n(ne, {
+                n(re, {
                   variant: "outline",
                   shape: "round",
                   onClick: Re
@@ -189,15 +189,15 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                   ]),
                   _: 1
                 }),
-                n(ne, {
+                n(re, {
                   theme: "primary",
                   shape: "round",
-                  loading: e(ve),
-                  disabled: e(ve) || !m.value.anchorId.trim() || ee.value?.isValidating || ee.value?.hasUrlError || T.value,
+                  loading: e(pe),
+                  disabled: e(pe) || !m.value.anchorId.trim() || le.value?.isValidating || le.value?.hasUrlError || T.value,
                   onClick: qe
                 }, {
                   default: r(() => [
-                    I(i(e(ve) ? e(o)(e(l).CREATING) : e(o)(e(l).CREATE)), 1)
+                    I(i(e(pe) ? e(o)(e(l).CREATING) : e(o)(e(l).CREATE)), 1)
                   ]),
                   _: 1
                 }, 8, ["loading", "disabled"])
@@ -205,8 +205,8 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
             ])
           ]),
           default: r(() => [
-            U.value ? (v(), f("div", Yl, [
-              t("div", Xl, [
+            U.value ? (v(), f("div", Xl, [
+              t("div", Gl, [
                 a[34] || (a[34] = t("div", { class: "create-success-icon" }, [
                   t("svg", {
                     width: "48",
@@ -232,50 +232,50 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                 t("h3", null, i(e(w)(e(l).LABEL_CREATED, e(l).LIVE)), 1),
                 C.value ? (v(), f("p", {
                   key: 0,
-                  class: re(["create-success-description", { "is-error": fe.value }])
+                  class: ue(["create-success-description", { "is-error": fe.value }])
                 }, i(C.value), 3)) : O("", !0)
               ]),
-              Y.value ? (v(), f("div", Gl, [
-                t("div", Wl, i(e(o)(e(l).STREAM_INFO)), 1),
-                t("div", zl, [
-                  t("div", ql, [
-                    t("div", Ql, [
+              H.value ? (v(), f("div", Wl, [
+                t("div", zl, i(e(o)(e(l).STREAM_INFO)), 1),
+                t("div", ql, [
+                  t("div", Ql, [
+                    t("div", jl, [
                       t("span", null, i(e(o)(e(l).SERVER_URL)), 1),
                       t("button", {
                         class: "action-link",
-                        onClick: a[5] || (a[5] = (p) => Se(Y.value.serverUrl, e(o)(e(l).SERVER_URL)))
+                        onClick: a[5] || (a[5] = (p) => Se(H.value.serverUrl, e(o)(e(l).SERVER_URL), "obs_server_url"))
                       }, [
-                        n(e(ue)),
+                        n(e(de)),
                         I(" " + i(e(o)(e(l).COPY)), 1)
                       ])
                     ]),
-                    t("code", jl, i(Y.value.serverUrl), 1)
+                    t("code", Zl, i(H.value.serverUrl), 1)
                   ]),
-                  t("div", Zl, [
-                    t("div", Jl, [
+                  t("div", Jl, [
+                    t("div", et, [
                       t("span", null, i(e(o)(e(l).STREAM_KEY)), 1),
                       t("button", {
                         class: "action-link",
-                        onClick: a[6] || (a[6] = (p) => Se(Y.value.streamKey, e(o)(e(l).STREAM_KEY)))
+                        onClick: a[6] || (a[6] = (p) => Se(H.value.streamKey, e(o)(e(l).STREAM_KEY), "obs_stream_key"))
                       }, [
-                        n(e(ue)),
+                        n(e(de)),
                         I(" " + i(e(o)(e(l).COPY)), 1)
                       ])
                     ]),
-                    t("code", et, i(Y.value.streamKey), 1)
+                    t("code", lt, i(H.value.streamKey), 1)
                   ])
                 ])
               ])) : O("", !0)
-            ])) : (v(), P(je, {
+            ])) : (v(), B(je, {
               key: 0,
               class: "create-live-form",
               "label-width": e(Ke)(100),
               colon: !1
             }, {
               default: r(() => [
-                n($, { "required-mark": !0 }, {
+                n(G, { "required-mark": !0 }, {
                   label: r(() => [
-                    t("span", Al, [
+                    t("span", Ol, [
                       I(i(e(o)(e(l).LIVE_HOST)) + " ", 1),
                       n(e(ge), { placement: "top" }, {
                         content: r(() => [
@@ -286,7 +286,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                               target: "_blank",
                               rel: "noopener noreferrer",
                               style: { color: "#6ea1ff", "text-decoration": "underline" }
-                            }, i(e(o)(e(l).VIEW_DETAILS)), 9, Ol)
+                            }, i(e(o)(e(l).VIEW_DETAILS)), 9, Vl)
                           ])
                         ]),
                         default: r(() => [
@@ -301,29 +301,29 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                       modelValue: m.value.anchorId,
                       "onUpdate:modelValue": a[0] || (a[0] = (p) => m.value.anchorId = p),
                       placeholder: e(o)(e(l).ENTER_ANCHOR_ID),
-                      status: X.value || E.value > e(le) ? "error" : "default",
-                      tips: !X.value && E.value > e(le) ? e(o)(e(l).MAX_BYTES, { field: e(o)(e(l).ANCHOR_ID), max: e(le) }) : ""
+                      status: Y.value || E.value > e(te) ? "error" : "default",
+                      tips: !Y.value && E.value > e(te) ? e(o)(e(l).MAX_BYTES, { field: e(o)(e(l).ANCHOR_ID), max: e(te) }) : ""
                     }, {
                       suffix: r(() => [
                         t("span", {
-                          class: re(["input-suffix-count", { "byte-overflow": E.value > e(le) }])
-                        }, i(E.value) + "/" + i(e(le)), 3)
+                          class: ue(["input-suffix-count", { "byte-overflow": E.value > e(te) }])
+                        }, i(E.value) + "/" + i(e(te)), 3)
                       ]),
                       _: 1
                     }, 8, ["modelValue", "placeholder", "status", "tips"]),
-                    X.value ? (v(), f("div", Vl, [
+                    Y.value ? (v(), f("div", Dl, [
                       I(i(e(o)(e(l).ANCHOR_ID_NOT_FOUND_TIP)) + " ", 1),
                       t("a", {
                         href: b.value,
                         target: "_blank",
                         rel: "noopener noreferrer",
                         style: { color: "#1C66E5" }
-                      }, i(e(o)(e(l).VIEW_DETAILS)), 9, Dl)
+                      }, i(e(o)(e(l).VIEW_DETAILS)), 9, Nl)
                     ])) : O("", !0)
                   ]),
                   _: 1
                 }),
-                n($, {
+                n(G, {
                   label: e(o)(e(l).LIVE_TITLE)
                 }, {
                   default: r(() => [
@@ -336,7 +336,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                     }, {
                       suffix: r(() => [
                         t("span", {
-                          class: re(["input-suffix-count", { "byte-overflow": N.value > e(M) }])
+                          class: ue(["input-suffix-count", { "byte-overflow": N.value > e(M) }])
                         }, i(N.value) + "/" + i(e(M)), 3)
                       ]),
                       _: 1
@@ -344,18 +344,18 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                   ]),
                   _: 1
                 }, 8, ["label"]),
-                n($, null, {
+                n(G, null, {
                   label: r(() => [
-                    t("span", Nl, [
+                    t("span", kl, [
                       I(i(e(o)(e(l).COVER_IMAGE)) + " ", 1),
-                      B.uploadEnabled ? O("", !0) : (v(), P(e(ge), {
+                      $.uploadEnabled ? O("", !0) : (v(), B(e(ge), {
                         key: 0,
                         placement: "top"
                       }, {
                         content: r(() => [
                           t("span", null, [
                             I(i(e(o)(e(l).UPLOAD_NOT_CONFIGURED_HINT)) + " ", 1),
-                            t("a", kl, i(e(o)(e(l).VIEW_DETAILS)), 1)
+                            t("a", Ul, i(e(o)(e(l).VIEW_DETAILS)), 1)
                           ])
                         ]),
                         default: r(() => [
@@ -371,37 +371,37 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                   default: r(() => [
                     n(Xe, {
                       ref_key: "coverUploadRef",
-                      ref: ee,
+                      ref: le,
                       modelValue: m.value.coverUrl,
                       "onUpdate:modelValue": a[2] || (a[2] = (p) => m.value.coverUrl = p),
                       type: "cover",
-                      "upload-enabled": B.uploadEnabled,
+                      "upload-enabled": $.uploadEnabled,
                       "crop-enabled": !0,
                       "aspect-ratio": q.value,
                       placeholder: e(o)(e(l).CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE),
                       "preview-height": 140,
                       "max-bytes": 200,
-                      "defer-upload": B.uploadEnabled,
-                      onFileReady: ie
+                      "defer-upload": $.uploadEnabled,
+                      onFileReady: ne
                     }, null, 8, ["modelValue", "upload-enabled", "aspect-ratio", "placeholder", "defer-upload"])
                   ]),
                   _: 1
                 }),
-                n($, {
+                n(G, {
                   label: e(o)(e(l).LAYOUT_TEMPLATE),
                   "required-mark": !0,
-                  help: G.value
+                  help: X.value
                 }, {
                   default: r(() => [
-                    t("div", Ul, [
+                    t("div", Ml, [
                       (v(!0), f(W, null, he(e(nl), (p) => (v(), f("button", {
                         key: p.value,
                         type: "button",
-                        class: re(["seat-template-btn", { "seat-template-btn--selected": m.value.seatTemplate === p.value, "seat-template-btn--landscape": p.value === "VideoLandscape4Seat" }]),
+                        class: ue(["seat-template-btn", { "seat-template-btn--selected": m.value.seatTemplate === p.value, "seat-template-btn--landscape": p.value === "VideoLandscape4Seat" }]),
                         title: e(o)(p.descKey),
                         onClick: (Ie) => m.value.seatTemplate = p.value
                       }, [
-                        (v(), f("svg", wl, [
+                        (v(), f("svg", Fl, [
                           p.value === "VideoDynamicGrid9Seats" ? (v(), f(W, { key: 0 }, [
                             a[10] || (a[10] = t("rect", {
                               x: "14",
@@ -628,19 +628,19 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                             }, null, -1))
                           ], 64)) : O("", !0)
                         ])),
-                        t("span", Fl, i(e(o)(p.labelKey)), 1)
-                      ], 10, Ml))), 128))
+                        t("span", $l, i(e(o)(p.labelKey)), 1)
+                      ], 10, wl))), 128))
                     ])
                   ]),
                   _: 1
                 }, 8, ["label", "help"]),
-                m.value.seatTemplate === "AudioSalon" || m.value.seatTemplate === "Karaoke" ? (v(), P($, {
+                m.value.seatTemplate === "AudioSalon" || m.value.seatTemplate === "Karaoke" ? (v(), B(G, {
                   key: 0,
                   label: e(o)(e(l).MAX_SEATS),
                   help: e(o)(e(l).MAX_SEATS_HELP)
                 }, {
                   default: r(() => [
-                    n(R, {
+                    n(x, {
                       "model-value": m.value.maxSeatCount,
                       "onUpdate:modelValue": s,
                       min: 1,
@@ -654,12 +654,12 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                   ]),
                   _: 1
                 }, 8, ["label", "help"])) : O("", !0),
-                n($, {
+                n(G, {
                   label: e(o)(e(l).STREAMING_METHOD),
                   help: e(o)(e(l).OBS_STREAMING_INFO_WILL_BE_DISPLAYED)
                 }, {
                   default: r(() => [
-                    n(pe, {
+                    n(Z, {
                       modelValue: c.value,
                       "onUpdate:modelValue": a[3] || (a[3] = (p) => c.value = p)
                     }, {
@@ -671,36 +671,36 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                   ]),
                   _: 1
                 }, 8, ["label", "help"]),
-                t("div", $l, [
+                t("div", Bl, [
                   t("div", {
                     class: "custom-info-toggle",
-                    onClick: a[4] || (a[4] = (p) => H.value = !H.value)
+                    onClick: a[4] || (a[4] = (p) => K.value = !K.value)
                   }, [
-                    H.value ? (v(), P(e(Fe), {
+                    K.value ? (v(), B(e(Fe), {
                       key: 0,
                       size: "16"
-                    })) : (v(), P(e($e), {
+                    })) : (v(), B(e($e), {
                       key: 1,
                       size: "16"
                     })),
                     t("span", null, i(e(o)(e(l).CUSTOM_INFORMATION)), 1),
-                    y.value.length > 0 ? (v(), f("span", Bl, i(y.value.length), 1)) : O("", !0)
+                    y.value.length > 0 ? (v(), f("span", Pl, i(y.value.length), 1)) : O("", !0)
                   ]),
-                  H.value ? (v(), f("div", Pl, [
+                  K.value ? (v(), f("div", Kl, [
                     (v(!0), f(W, null, he(y.value, (p, Ie) => (v(), f("div", {
                       key: Ie,
                       class: "custom-info-row"
                     }, [
-                      t("div", Kl, [
+                      t("div", Hl, [
                         n(Q, {
                           modelValue: p.key,
                           "onUpdate:modelValue": (Ee) => p.key = Ee,
                           placeholder: e(o)(e(l).ENTER_KEY),
-                          status: L(p.key) > e(V).maxKeyBytes || e(Z)(p) ? "error" : "default",
-                          tips: L(p.key) > e(V).maxKeyBytes ? e(o)(e(l).MAX_BYTES, { field: "Key", max: e(V).maxKeyBytes }) : e(Z)(p) ? e(o)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
+                          status: R(p.key) > e(V).maxKeyBytes || e(J)(p) ? "error" : "default",
+                          tips: R(p.key) > e(V).maxKeyBytes ? e(o)(e(l).MAX_BYTES, { field: "Key", max: e(V).maxKeyBytes }) : e(J)(p) ? e(o)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
                         }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
                       ]),
-                      t("div", Hl, [
+                      t("div", Yl, [
                         n(Q, {
                           modelValue: p.value,
                           "onUpdate:modelValue": (Ee) => p.value = Ee,
@@ -709,7 +709,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                           tips: A(p.value) > e(V).maxValueBytes ? e(o)(e(l).VALUE_EXCEEDS_2KB_LIMIT) : ""
                         }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
                       ]),
-                      n(ne, {
+                      n(re, {
                         variant: "text",
                         shape: "circle",
                         onClick: (Ee) => ze(Ie)
@@ -720,7 +720,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                         _: 1
                       }, 8, ["onClick"])
                     ]))), 128)),
-                    y.value.length < e(V).maxCount ? (v(), P(ne, {
+                    y.value.length < e(V).maxCount ? (v(), B(re, {
                       key: 0,
                       style: { width: "80px" },
                       variant: "text",
@@ -753,7 +753,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
           class: "anchor-id-error-dialog"
         }, {
           footer: r(() => [
-            n(ne, {
+            n(re, {
               theme: "primary",
               shape: "round",
               onClick: a[8] || (a[8] = (p) => h.showAnchorIdErrorDialog = !1)
@@ -765,14 +765,14 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
             })
           ]),
           default: r(() => [
-            t("div", tt, [
+            t("div", ot, [
               I(i(e(o)(e(l).ANCHOR_ID_NOT_FOUND_DESC)) + " ", 1),
               t("a", {
                 href: b.value,
                 target: "_blank",
                 rel: "noopener noreferrer",
                 style: { color: "#1C66E5" }
-              }, i(e(o)(e(l).HERE)), 9, ot)
+              }, i(e(o)(e(l).HERE)), 9, at)
             ])
           ]),
           _: 1
@@ -780,21 +780,21 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
       ], 64);
     };
   }
-}), st = /* @__PURE__ */ Ge(at, [["__scopeId", "data-v-134d4927"]]), it = {
+}), it = /* @__PURE__ */ Ge(st, [["__scopeId", "data-v-d11cf6f7"]]), nt = {
   key: 0,
   class: "edit-live-error"
-}, nt = { style: { display: "inline-flex", "align-items": "center" } }, rt = {
+}, rt = { style: { display: "inline-flex", "align-items": "center" } }, ut = {
   href: "https://cloud.tencent.com/document/product/647/123012#159bb20a-d83d-4fde-a37b-1ff99632ee2c",
   target: "_blank",
   rel: "noopener noreferrer",
   style: { color: "#6ea1ff", "text-decoration": "underline" }
-}, ut = { class: "custom-info-section" }, dt = {
+}, dt = { class: "custom-info-section" }, ct = {
   key: 2,
   class: "custom-info-count"
-}, ct = {
+}, vt = {
   key: 0,
   class: "custom-info-container"
-}, vt = { class: "custom-input-wrap" }, pt = { class: "custom-input-wrap custom-value-wrap" }, mt = { class: "dialog-footer" }, _t = /* @__PURE__ */ Ce({
+}, pt = { class: "custom-input-wrap" }, mt = { class: "custom-input-wrap custom-value-wrap" }, _t = { class: "dialog-footer" }, ft = /* @__PURE__ */ Ce({
   __name: "EditLiveModal",
   props: {
     visible: { type: Boolean },
@@ -803,11 +803,11 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
     extraFieldsSlot: {}
   },
   emits: ["update:visible", "success"],
-  setup(B, { emit: _ }) {
-    const J = Pe("EditLive"), { t: o } = be(), { fetchLiveDetail: oe, updateLive: w } = xe(), u = B, d = k(() => u.live?.liveId || u.live?.id || ""), ae = _, se = k({
+  setup($, { emit: _ }) {
+    const ee = Pe("EditLive"), { t: o } = be(), { fetchLiveDetail: ae, updateLive: w } = xe(), u = $, d = k(() => u.live?.liveId || u.live?.id || ""), se = _, ie = k({
       get: () => u.visible,
-      set: (g) => ae("update:visible", g)
-    }), K = (g) => te(g), j = (g) => te(g), L = x(De()), A = x(""), s = x([]), m = x(!1), y = x([]), H = x(Ne), U = x(null), c = x(!1), { loading: z, execute: de } = Te({
+      set: (g) => se("update:visible", g)
+    }), P = (g) => oe(g), j = (g) => oe(g), R = S(De()), A = S(""), s = S([]), m = S(!1), y = S([]), K = S(Ne), U = S(null), c = S(!1), { loading: z, execute: ce } = Te({
       toast: { action: l.EDIT, entity: l.LIVE },
       action: async (g) => {
         const E = u.live?.liveId || u.live?.id || "";
@@ -818,54 +818,54 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
       },
       showSuccess: !0,
       onSuccess: () => {
-        ae("success", {
-          liveName: L.value.liveName.trim(),
-          coverUrl: L.value.coverUrl
-        }), X();
+        se("success", {
+          liveName: R.value.liveName.trim(),
+          coverUrl: R.value.coverUrl
+        }), Y();
       }
-    }), Y = (g) => {
+    }), H = (g) => {
       c.value = !!g;
-    }, F = k(() => te(L.value.liveName));
+    }, F = k(() => oe(R.value.liveName));
     k(() => s.value.filter((g) => g.key.trim()).length), we([() => u.live?.liveId || u.live?.id, () => u.visible], async ([g, E]) => {
       const b = u.live;
       if (b && E) {
-        L.value = {
+        R.value = {
           liveName: b.liveName || "",
           coverUrl: b.coverUrl || ""
-        }, b.coverUrl ? H.value = await vl(b.coverUrl) : H.value = Ne;
+        }, b.coverUrl ? K.value = await vl(b.coverUrl) : K.value = Ne;
         const N = b.liveId || b.id || "";
         try {
-          const T = await oe(N), G = ke(T?.customInfo);
-          s.value = G, m.value = G.length > 0, y.value = G.map((q) => q.key);
+          const T = await ae(N), X = ke(T?.customInfo);
+          s.value = X, m.value = X.length > 0, y.value = X.map((q) => q.key);
         } catch (T) {
-          T instanceof yl && (A.value = gl(T.code ?? 0, "", o(l.LIVE_NOT_FOUND)));
-          const G = b.customInfo, q = ke(G);
+          T instanceof gl && (A.value = Cl(T.code ?? 0, "", o(l.LIVE_NOT_FOUND)));
+          const X = b.customInfo, q = ke(X);
           s.value = q, m.value = q.length > 0, y.value = q.map((C) => C.key);
         }
       }
     }, { immediate: !0 });
-    const ee = () => {
+    const le = () => {
       if (s.value.length >= V.maxCount) {
-        S.error(o(l.CUSTOM_INFO_MAX_COUNT_EXCEEDED, { max: V.maxCount }));
+        L.error(o(l.CUSTOM_INFO_MAX_COUNT_EXCEEDED, { max: V.maxCount }));
         return;
       }
       s.value.push({ key: "", value: "" });
-    }, ce = (g) => {
+    }, ve = (g) => {
       s.value.splice(g, 1);
-    }, X = () => {
-      A.value = "", s.value = [], m.value = !1, y.value = [], c.value = !1, U.value?.reset(), L.value = De(), ae("update:visible", !1);
-    }, ve = async () => {
+    }, Y = () => {
+      A.value = "", s.value = [], m.value = !1, y.value = [], c.value = !1, U.value?.reset(), R.value = De(), se("update:visible", !1);
+    }, pe = async () => {
       if (u.live) {
-        if (!L.value.liveName.trim()) {
-          S.error(o(l.PLEASE_ENTER_LIVE_TITLE));
+        if (!R.value.liveName.trim()) {
+          L.error(o(l.PLEASE_ENTER_LIVE_TITLE));
           return;
         }
         if (F.value > M) {
-          S.error(o(l.MAX_BYTES_WITH_CURRENT, { field: o(l.LIVE_TITLE), max: M, current: F.value }));
+          L.error(o(l.MAX_BYTES_WITH_CURRENT, { field: o(l.LIVE_TITLE), max: M, current: F.value }));
           return;
         }
-        if (s.value.some(Z)) {
-          S.error(o(l.CUSTOM_INFO_KEY_REQUIRED));
+        if (s.value.some(J)) {
+          L.error(o(l.CUSTOM_INFO_KEY_REQUIRED));
           return;
         }
         try {
@@ -874,49 +874,49 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
             g = await He({
               handle: U.value,
               hasPendingFile: c.value,
-              fallbackUrl: L.value.coverUrl,
+              fallbackUrl: R.value.coverUrl,
               label: o(l.COVER_IMAGE)
             });
           } catch (T) {
-            J.error("EditLive", `Cover processing failed: ${T instanceof Error ? T.message : String(T)}`, T);
-            const G = T instanceof Ye ? T.message : `${o(l.COVER_PROCESSING_FAILED)}: ${T instanceof Error ? T.message : String(T) || o(l.UNKNOWN_ERROR)}`;
-            S.error(G);
+            ee.error("EditLive", `Cover processing failed: ${T instanceof Error ? T.message : String(T)}`, T);
+            const X = T instanceof Ye ? T.message : `${o(l.COVER_PROCESSING_FAILED)}: ${T instanceof Error ? T.message : String(T) || o(l.UNKNOWN_ERROR)}`;
+            L.error(X);
             return;
           }
           const E = pl(s.value);
           if (E) {
-            E.type === "key-too-long" ? S.error(o(l.MAX_BYTES, { field: `Key ${E.key}`, max: E.max })) : E.type === "value-too-long" ? S.error(o(l.KEY_VALUE_EXCEEDS_2KB, { key: E.key })) : E.type === "max-count" ? S.error(o(l.CUSTOM_INFO_MAX_COUNT, { max: E.max })) : S.error(o(l.TOTAL_VALUE_SIZE_EXCEEDS_16KB));
+            E.type === "key-too-long" ? L.error(o(l.MAX_BYTES, { field: `Key ${E.key}`, max: E.max })) : E.type === "value-too-long" ? L.error(o(l.KEY_VALUE_EXCEEDS_2KB, { key: E.key })) : E.type === "max-count" ? L.error(o(l.CUSTOM_INFO_MAX_COUNT, { max: E.max })) : L.error(o(l.TOTAL_VALUE_SIZE_EXCEEDS_16KB));
             return;
           }
           const b = ml(s.value), N = _l(y.value, b);
-          await de({
-            liveName: L.value.liveName.trim(),
+          await ce({
+            liveName: R.value.liveName.trim(),
             coverUrl: g || void 0,
             customInfo: Object.keys(b).length > 0 ? b : void 0,
             deleteKeys: N.length > 0 ? N : void 0
           });
         } catch (g) {
-          J.error("EditLiveModal", "Update failed:", g);
+          ee.error("EditLiveModal", "Update failed:", g);
         }
       }
     };
     return (g, E) => {
-      const b = D("t-input"), N = D("t-form-item"), T = D("t-button"), G = D("t-form"), q = D("t-dialog");
-      return v(), P(q, {
-        visible: se.value,
-        "onUpdate:visible": E[3] || (E[3] = (C) => se.value = C),
+      const b = D("t-input"), N = D("t-form-item"), T = D("t-button"), X = D("t-form"), q = D("t-dialog");
+      return v(), B(q, {
+        visible: ie.value,
+        "onUpdate:visible": E[3] || (E[3] = (C) => ie.value = C),
         header: e(o)(e(l).EDIT_LIVE),
         width: 560,
         placement: "center",
         class: "edit-live-modal",
-        onClose: X
+        onClose: Y
       }, {
         footer: r(() => [
-          t("div", mt, [
+          t("div", _t, [
             n(T, {
               variant: "outline",
               shape: "round",
-              onClick: X
+              onClick: Y
             }, {
               default: r(() => [
                 I(i(e(o)(e(l).CANCEL)), 1)
@@ -927,8 +927,8 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
               theme: "primary",
               shape: "round",
               loading: e(z),
-              disabled: e(z) || !L.value.liveName.trim() || U.value?.isValidating || U.value?.hasUrlError,
-              onClick: ve
+              disabled: e(z) || !R.value.liveName.trim() || U.value?.isValidating || U.value?.hasUrlError,
+              onClick: pe
             }, {
               default: r(() => [
                 I(i(e(z) ? e(o)(e(l).SAVING) : e(o)(e(l).SAVE)), 1)
@@ -938,13 +938,13 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
           ])
         ]),
         default: r(() => [
-          n(G, {
+          n(X, {
             class: "edit-live-form",
             "label-width": e(Ke)(100),
             colon: !1
           }, {
             default: r(() => [
-              A.value ? (v(), f("div", it, [
+              A.value ? (v(), f("div", nt, [
                 E[4] || (E[4] = t("span", { class: "edit-live-error-icon" }, "!", -1)),
                 t("span", null, i(A.value), 1)
               ])) : O("", !0),
@@ -966,15 +966,15 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
               }, {
                 default: r(() => [
                   n(b, {
-                    modelValue: L.value.liveName,
-                    "onUpdate:modelValue": E[0] || (E[0] = (C) => L.value.liveName = C),
+                    modelValue: R.value.liveName,
+                    "onUpdate:modelValue": E[0] || (E[0] = (C) => R.value.liveName = C),
                     placeholder: e(o)(e(l).ENTER_LIVE_TITLE),
                     status: F.value > e(M) ? "error" : "default",
                     tips: F.value > e(M) ? e(o)(e(l).MAX_BYTES, { field: e(o)(e(l).LIVE_TITLE), max: e(M) }) : ""
                   }, {
                     suffix: r(() => [
                       t("span", {
-                        class: re(["input-suffix-count", { "byte-overflow": F.value > e(M) }])
+                        class: ue(["input-suffix-count", { "byte-overflow": F.value > e(M) }])
                       }, i(F.value) + "/" + i(e(M)), 3)
                     ]),
                     _: 1
@@ -984,16 +984,16 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
               }, 8, ["label"]),
               n(N, null, {
                 label: r(() => [
-                  t("span", nt, [
+                  t("span", rt, [
                     I(i(e(o)(e(l).COVER_IMAGE)) + " ", 1),
-                    B.uploadEnabled ? O("", !0) : (v(), P(e(ge), {
+                    $.uploadEnabled ? O("", !0) : (v(), B(e(ge), {
                       key: 0,
                       placement: "top"
                     }, {
                       content: r(() => [
                         t("span", null, [
                           I(i(e(o)(e(l).UPLOAD_NOT_CONFIGURED_HINT)) + " ", 1),
-                          t("a", rt, i(e(o)(e(l).VIEW_DETAILS)), 1)
+                          t("a", ut, i(e(o)(e(l).VIEW_DETAILS)), 1)
                         ])
                       ]),
                       default: r(() => [
@@ -1010,58 +1010,58 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                   n(Xe, {
                     ref_key: "coverUploadRef",
                     ref: U,
-                    modelValue: L.value.coverUrl,
-                    "onUpdate:modelValue": E[1] || (E[1] = (C) => L.value.coverUrl = C),
+                    modelValue: R.value.coverUrl,
+                    "onUpdate:modelValue": E[1] || (E[1] = (C) => R.value.coverUrl = C),
                     type: "cover",
-                    "upload-enabled": B.uploadEnabled,
+                    "upload-enabled": $.uploadEnabled,
                     "crop-enabled": !0,
-                    "aspect-ratio": H.value,
+                    "aspect-ratio": K.value,
                     placeholder: e(o)(e(l).CLICK_OR_DRAG_TO_UPLOAD_COVER_IMAGE),
                     "preview-height": 140,
                     "max-bytes": 200,
-                    "defer-upload": B.uploadEnabled,
-                    onFileReady: Y
+                    "defer-upload": $.uploadEnabled,
+                    onFileReady: H
                   }, null, 8, ["modelValue", "upload-enabled", "aspect-ratio", "placeholder", "defer-upload"])
                 ]),
                 _: 1
               }),
               n(me, {
-                "slot-component": B.extraFieldsSlot,
-                "slot-props": { mode: "edit", live: B.live, formData: { ...L.value }, customInfos: [...s.value] }
+                "slot-component": $.extraFieldsSlot,
+                "slot-props": { mode: "edit", live: $.live, formData: { ...R.value }, customInfos: [...s.value] }
               }, null, 8, ["slot-component", "slot-props"]),
-              t("div", ut, [
+              t("div", dt, [
                 t("div", {
                   class: "custom-info-toggle",
                   onClick: E[2] || (E[2] = (C) => m.value = !m.value)
                 }, [
-                  m.value ? (v(), P(e(Fe), {
+                  m.value ? (v(), B(e(Fe), {
                     key: 0,
                     size: "16"
-                  })) : (v(), P(e($e), {
+                  })) : (v(), B(e($e), {
                     key: 1,
                     size: "16"
                   })),
                   t("span", null, i(e(o)(e(l).CUSTOM_INFORMATION)), 1),
-                  s.value.length > 0 ? (v(), f("span", dt, i(s.value.length), 1)) : O("", !0)
+                  s.value.length > 0 ? (v(), f("span", ct, i(s.value.length), 1)) : O("", !0)
                 ]),
-                m.value ? (v(), f("div", ct, [
+                m.value ? (v(), f("div", vt, [
                   (v(!0), f(W, null, he(s.value, (C, fe) => (v(), f("div", {
                     key: fe,
                     class: "custom-info-row"
                   }, [
-                    t("div", vt, [
-                      n(b, {
-                        modelValue: C.key,
-                        "onUpdate:modelValue": (ie) => C.key = ie,
-                        placeholder: e(o)(e(l).ENTER_KEY),
-                        status: K(C.key) > e(V).maxKeyBytes || e(Z)(C) ? "error" : "default",
-                        tips: K(C.key) > e(V).maxKeyBytes ? e(o)(e(l).MAX_BYTES, { field: "Key", max: e(V).maxKeyBytes }) : e(Z)(C) ? e(o)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
-                      }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
-                    ]),
                     t("div", pt, [
                       n(b, {
+                        modelValue: C.key,
+                        "onUpdate:modelValue": (ne) => C.key = ne,
+                        placeholder: e(o)(e(l).ENTER_KEY),
+                        status: P(C.key) > e(V).maxKeyBytes || e(J)(C) ? "error" : "default",
+                        tips: P(C.key) > e(V).maxKeyBytes ? e(o)(e(l).MAX_BYTES, { field: "Key", max: e(V).maxKeyBytes }) : e(J)(C) ? e(o)(e(l).CUSTOM_INFO_KEY_REQUIRED) : ""
+                      }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder", "status", "tips"])
+                    ]),
+                    t("div", mt, [
+                      n(b, {
                         modelValue: C.value,
-                        "onUpdate:modelValue": (ie) => C.value = ie,
+                        "onUpdate:modelValue": (ne) => C.value = ne,
                         placeholder: e(o)(e(l).ENTER_VALUE),
                         status: j(C.value) > e(V).maxValueBytes ? "error" : "default",
                         tips: j(C.value) > e(V).maxValueBytes ? e(o)(e(l).VALUE_EXCEEDS_2KB_LIMIT) : ""
@@ -1070,7 +1070,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                     n(T, {
                       variant: "text",
                       shape: "circle",
-                      onClick: (ie) => ce(fe)
+                      onClick: (ne) => ve(fe)
                     }, {
                       default: r(() => [
                         n(e(Be))
@@ -1078,12 +1078,12 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                       _: 1
                     }, 8, ["onClick"])
                   ]))), 128)),
-                  s.value.length < e(V).maxCount ? (v(), P(T, {
+                  s.value.length < e(V).maxCount ? (v(), B(T, {
                     key: 0,
                     style: { width: "80px" },
                     variant: "text",
                     shape: "round",
-                    onClick: ee,
+                    onClick: le,
                     theme: "primary"
                   }, {
                     icon: r(() => [
@@ -1104,56 +1104,56 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
       }, 8, ["visible", "header"]);
     };
   }
-}), ft = /* @__PURE__ */ Ge(_t, [["__scopeId", "data-v-2491c474"]]), Et = { class: "live-list-page" }, ht = { class: "live-list-header" }, It = { class: "live-list-title" }, yt = { class: "header-actions" }, gt = { class: "live-list-id-cell" }, Ct = { class: "live-list-id-text" }, bt = { class: "live-list-cover-cell" }, Tt = ["src", "alt"], xt = { class: "live-list-text" }, St = { class: "live-list-text" }, Lt = { class: "live-list-loading-container" }, Rt = { class: "live-list-loading-text" }, At = {
+}), Et = /* @__PURE__ */ Ge(ft, [["__scopeId", "data-v-2491c474"]]), ht = { class: "live-list-page" }, It = { class: "live-list-header" }, yt = { class: "live-list-title" }, gt = { class: "header-actions" }, Ct = { class: "live-list-id-cell" }, bt = { class: "live-list-id-text" }, Tt = { class: "live-list-cover-cell" }, xt = ["src", "alt"], St = { class: "live-list-text" }, Lt = { class: "live-list-text" }, Rt = { class: "live-list-loading-container" }, At = { class: "live-list-loading-text" }, Ot = {
   key: 0,
   class: "live-list-empty-container"
-}, Ot = { class: "live-list-empty-text" }, Vt = {
+}, Vt = { class: "live-list-empty-text" }, Dt = {
   key: 1,
   class: "live-list-empty-container"
-}, Dt = { class: "empty-guide-icon" }, Nt = { class: "empty-guide-title" }, kt = { class: "empty-guide-desc" }, Ut = { class: "empty-guide-actions" }, Mt = { class: "live-info-form" }, wt = {
+}, Nt = { class: "empty-guide-icon" }, kt = { class: "empty-guide-title" }, Ut = { class: "empty-guide-desc" }, Mt = { class: "empty-guide-actions" }, wt = { class: "live-info-form" }, Ft = {
   key: 0,
   class: "live-info-error"
-}, Ft = { class: "live-info-section" }, $t = { class: "live-info-section-title" }, Bt = { class: "live-info-card" }, Pt = { class: "live-info-row" }, Kt = { class: "live-info-label" }, Ht = { class: "live-info-value-area" }, Yt = { class: "live-info-value" }, Xt = { class: "live-info-row" }, Gt = { class: "live-info-label" }, Wt = { class: "live-info-value-area" }, zt = { class: "live-info-value" }, qt = { class: "live-info-row" }, Qt = { class: "live-info-label" }, jt = { class: "live-info-value-area" }, Zt = { class: "live-info-value" }, Jt = { class: "live-info-row" }, eo = { class: "live-info-label" }, lo = { class: "live-info-value-area" }, to = { class: "live-info-value live-info-value-url" }, oo = {
+}, $t = { class: "live-info-section" }, Bt = { class: "live-info-section-title" }, Pt = { class: "live-info-card" }, Kt = { class: "live-info-row" }, Ht = { class: "live-info-label" }, Yt = { class: "live-info-value-area" }, Xt = { class: "live-info-value" }, Gt = { class: "live-info-row" }, Wt = { class: "live-info-label" }, zt = { class: "live-info-value-area" }, qt = { class: "live-info-value" }, Qt = { class: "live-info-row" }, jt = { class: "live-info-label" }, Zt = { class: "live-info-value-area" }, Jt = { class: "live-info-value" }, eo = { class: "live-info-row" }, lo = { class: "live-info-label" }, to = { class: "live-info-value-area" }, oo = { class: "live-info-value live-info-value-url" }, ao = {
   key: 1,
   class: "live-info-section"
-}, ao = { class: "live-info-section-title" }, so = { class: "live-info-card" }, io = { class: "live-info-row" }, no = { class: "live-info-label" }, ro = { class: "live-info-value-area" }, uo = { class: "live-info-value live-info-value-url" }, co = { class: "live-info-row" }, vo = { class: "live-info-label" }, po = { class: "live-info-value-area" }, mo = { class: "live-info-value live-info-value-url" }, _o = {
+}, so = { class: "live-info-section-title" }, io = { class: "live-info-card" }, no = { class: "live-info-row" }, ro = { class: "live-info-label" }, uo = { class: "live-info-value-area" }, co = { class: "live-info-value live-info-value-url" }, vo = { class: "live-info-row" }, po = { class: "live-info-label" }, mo = { class: "live-info-value-area" }, _o = { class: "live-info-value live-info-value-url" }, fo = {
   key: 1,
   class: "live-info-row"
-}, fo = {
+}, Eo = {
   class: "live-info-label",
   style: { width: "auto" }
-}, Eo = { class: "dialog-footer" }, Uo = /* @__PURE__ */ Ce({
+}, ho = { class: "dialog-footer" }, Mo = /* @__PURE__ */ Ce({
   __name: "live-list",
-  setup(B) {
-    const { t: _ } = be(), J = ll(), { endLive: o, fetchLiveDetail: oe } = xe(), w = Cl().components?.liveList, u = new fl({
+  setup($) {
+    const { t: _ } = be(), ee = ll(), { endLive: o, fetchLiveDetail: ae } = xe(), w = bl().components?.liveList, u = new fl({
       endLive: o,
       onEnterLive: (A) => {
-        J.push({ path: `/live-control/${A}`, query: { from: "live-list" } });
+        ee.push({ path: `/live-control/${A}`, query: { from: "live-list" } });
       },
       t: _,
       toast: {
-        success: (A) => S.success(A),
-        error: (A) => S.error(A)
+        success: (A) => L.success(A),
+        error: (A) => L.error(A)
       },
-      fetchLiveDetail: oe
-    }), d = Oe(u.getState()), ae = u.subscribe(() => {
+      fetchLiveDetail: ae
+    }), d = Oe(u.getState()), se = u.subscribe(() => {
       d.value = u.getState();
-    }), { execute: se } = Te({
+    }), { execute: ie } = Te({
       toast: { action: l.DISSOLVE, entity: l.LIVE },
       operationName: _(l.DISSOLVE),
       action: async () => {
         await u.confirmDelete();
       }
-    }), K = Oe(!1);
+    }), P = Oe(!1);
     Ze(async () => {
-      K.value = await Tl(), await u.init();
+      P.value = await xl(), await u.init();
     }), Je(() => {
-      ae(), u.dispose();
+      se(), u.dispose();
     });
-    const j = k(() => xl({ hasExtraColumn: !!w?.tableExtraColumns }).map((s) => ({
+    const j = k(() => Sl({ hasExtraColumn: !!w?.tableExtraColumns }).map((s) => ({
       ...s,
       title: s.i18nKey ? _(s.i18nKey) : ""
-    }))), L = (A) => hl({
+    }))), R = (A) => hl({
       live: A,
       t: _,
       onEnter: (s) => u.enterLive(s),
@@ -1162,15 +1162,15 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
       onDelete: (s) => u.requestDelete(s)
     });
     return (A, s) => {
-      const m = D("t-input"), y = D("t-button"), H = D("t-card"), U = D("t-dialog");
-      return v(), f("div", Et, [
-        t("div", ht, [
-          t("h1", It, i(e(_)(e(l).LIVE_LIST)), 1),
+      const m = D("t-input"), y = D("t-button"), K = D("t-card"), U = D("t-dialog");
+      return v(), f("div", ht, [
+        t("div", It, [
+          t("h1", yt, i(e(_)(e(l).LIVE_LIST)), 1),
           n(me, {
             "slot-component": e(w)?.beforeToolbar,
             "slot-props": { lives: d.value.lives, loading: d.value.loading }
           }, null, 8, ["slot-component", "slot-props"]),
-          t("div", yt, [
+          t("div", gt, [
             n(m, {
               "model-value": d.value.searchInput,
               placeholder: e(_)(e(l).ENTER_LIVE_ID_TO_SEARCH),
@@ -1199,7 +1199,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
             }, {
               icon: r(() => [
                 n(e(ol), {
-                  class: re({ spinning: d.value.refreshing })
+                  class: ue({ spinning: d.value.refreshing })
                 }, null, 8, ["class"])
               ]),
               default: r(() => [
@@ -1226,9 +1226,9 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
             "slot-props": { lives: d.value.lives, loading: d.value.loading }
           }, null, 8, ["slot-component", "slot-props"])
         ]),
-        n(H, { class: "live-list-card" }, {
+        n(K, { class: "live-list-card" }, {
           default: r(() => [
-            n(Ll, {
+            n(Rl, {
               columns: j.value,
               data: d.value.lives,
               "row-key": "liveId",
@@ -1238,11 +1238,11 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
               "row-class-name": "live-list-row"
             }, el({
               "cell-liveId": r(({ row: c }) => [
-                t("div", gt, [
-                  t("span", Ct, i(c.liveId), 1),
-                  n(e(ue), {
+                t("div", Ct, [
+                  t("span", bt, i(c.liveId), 1),
+                  n(e(de), {
                     class: "copy-icon",
-                    onClick: (z) => e(u).copyText(c.liveId, e(_)(e(l).LIVE_ID))
+                    onClick: (z) => e(u).copyText(c.liveId, e(_)(e(l).LIVE_ID), "live_id")
                   }, null, 8, ["onClick"])
                 ])
               ]),
@@ -1250,23 +1250,23 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                 I(i(c.liveName || "-"), 1)
               ]),
               "cell-coverUrl": r(({ row: c }) => [
-                t("div", bt, [
+                t("div", Tt, [
                   t("img", {
-                    src: c.coverUrl || e(bl),
+                    src: c.coverUrl || e(Tl),
                     alt: c.liveName,
                     class: "live-list-cover-image"
-                  }, null, 8, Tt)
+                  }, null, 8, xt)
                 ])
               ]),
               "cell-anchor": r(({ row: c }) => [
-                t("span", xt, i(c.anchor?.userId || "-"), 1)
+                t("span", St, i(c.anchor?.userId || "-"), 1)
               ]),
               "cell-createdAt": r(({ row: c }) => [
-                t("span", St, i(e(El)(c.createdAt)), 1)
+                t("span", Lt, i(e(El)(c.createdAt)), 1)
               ]),
               "cell-actions": r(({ row: c }) => [
-                n(Rl, {
-                  actions: L(c)
+                n(Al, {
+                  actions: R(c)
                 }, null, 8, ["actions"]),
                 n(me, {
                   "slot-component": e(w)?.rowActions,
@@ -1274,21 +1274,21 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
                 }, null, 8, ["slot-component", "slot-props"])
               ]),
               loading: r(() => [
-                t("div", Lt, [
+                t("div", Rt, [
                   s[20] || (s[20] = t("div", { class: "live-list-loading-spinner" }, null, -1)),
-                  t("span", Rt, i(e(_)(e(l).LOADING)), 1)
+                  t("span", At, i(e(_)(e(l).LOADING)), 1)
                 ])
               ]),
               empty: r(() => [
-                d.value.searchInput ? (v(), f("div", At, [
-                  t("span", Ot, i(e(_)(e(l).NO_SEARCH_RESULTS_FOR, { keyword: d.value.searchInput })), 1)
-                ])) : (v(), f("div", Vt, [
-                  t("div", Dt, [
+                d.value.searchInput ? (v(), f("div", Ot, [
+                  t("span", Vt, i(e(_)(e(l).NO_SEARCH_RESULTS_FOR, { keyword: d.value.searchInput })), 1)
+                ])) : (v(), f("div", Dt, [
+                  t("div", Nt, [
                     n(e(_e), { size: "40px" })
                   ]),
-                  t("p", Nt, i(e(_)(e(l).EMPTY_LIVE_LIST_TITLE)), 1),
-                  t("p", kt, i(e(_)(e(l).EMPTY_LIVE_LIST_DESC)), 1),
-                  t("div", Ut, [
+                  t("p", kt, i(e(_)(e(l).EMPTY_LIVE_LIST_TITLE)), 1),
+                  t("p", Ut, i(e(_)(e(l).EMPTY_LIVE_LIST_DESC)), 1),
+                  t("div", Mt, [
                     n(y, {
                       theme: "primary",
                       shape: "round",
@@ -1328,7 +1328,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
           ]),
           _: 1
         }),
-        n(Sl, {
+        n(Ll, {
           "current-page": d.value.currentPage,
           "has-more-data": d.value.hasMoreData,
           loading: !1,
@@ -1336,16 +1336,16 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
           onPrevPage: s[8] || (s[8] = () => e(u).goToPage(d.value.currentPage - 1)),
           onNextPage: s[9] || (s[9] = () => e(u).goToPage(d.value.currentPage + 1))
         }, null, 8, ["current-page", "has-more-data"]),
-        n(st, {
+        n(it, {
           visible: d.value.isCreateModalVisible,
-          "upload-enabled": K.value,
+          "upload-enabled": P.value,
           "onUpdate:visible": s[10] || (s[10] = (c) => c ? e(u).openCreateModal() : e(u).closeCreateModal()),
           onSuccess: s[11] || (s[11] = () => e(u).onLiveCreated())
         }, null, 8, ["visible", "upload-enabled"]),
-        n(ft, {
+        n(Et, {
           visible: d.value.isEditModalVisible,
           live: d.value.editingLive,
-          "upload-enabled": K.value,
+          "upload-enabled": P.value,
           "extra-fields-slot": e(w)?.roomFormExtraFields,
           "onUpdate:visible": s[12] || (s[12] = (c) => {
             c || e(u).closeEditModal();
@@ -1360,7 +1360,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
           "onUpdate:visible": s[14] || (s[14] = (c) => {
             c || e(u).cancelDelete();
           }),
-          onConfirm: e(se)
+          onConfirm: e(ie)
         }, {
           default: r(() => [
             t("p", null, i(d.value.confirmDialog.content), 1)
@@ -1377,7 +1377,7 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
           })
         }, {
           footer: r(() => [
-            t("div", Eo, [
+            t("div", ho, [
               n(y, {
                 variant: "outline",
                 shape: "round",
@@ -1391,77 +1391,77 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
             ])
           ]),
           default: r(() => [
-            t("div", Mt, [
-              d.value.obsModal.errorMessage ? (v(), f("div", wt, [
+            t("div", wt, [
+              d.value.obsModal.errorMessage ? (v(), f("div", Ft, [
                 s[21] || (s[21] = t("span", { class: "live-info-error-icon" }, "!", -1)),
                 t("span", null, i(d.value.obsModal.errorMessage), 1)
               ])) : O("", !0),
-              t("div", Ft, [
-                t("div", $t, i(e(_)(e(l).BASIC_INFORMATION)), 1),
-                t("div", Bt, [
-                  t("div", Pt, [
-                    t("span", Kt, i(e(_)(e(l).ANCHOR_ID)), 1),
-                    t("div", Ht, [
-                      t("span", Yt, i(d.value.obsModal.live?.anchor?.userId || "-"), 1),
+              t("div", $t, [
+                t("div", Bt, i(e(_)(e(l).BASIC_INFORMATION)), 1),
+                t("div", Pt, [
+                  t("div", Kt, [
+                    t("span", Ht, i(e(_)(e(l).ANCHOR_ID)), 1),
+                    t("div", Yt, [
+                      t("span", Xt, i(d.value.obsModal.live?.anchor?.userId || "-"), 1),
                       d.value.obsModal.live?.anchor?.userId ? (v(), f("button", {
                         key: 0,
                         class: "live-info-copy-btn",
-                        onClick: s[15] || (s[15] = (c) => e(u).copyText(d.value.obsModal.live.anchor.userId, e(_)(e(l).LIVE_HOST)))
+                        onClick: s[15] || (s[15] = (c) => e(u).copyText(d.value.obsModal.live.anchor.userId, e(_)(e(l).LIVE_HOST), "anchor_id"))
                       }, [
-                        n(e(ue))
+                        n(e(de))
                       ])) : O("", !0)
                     ])
                   ]),
-                  t("div", Xt, [
-                    t("span", Gt, i(e(_)(e(l).LIVE_ID)), 1),
-                    t("div", Wt, [
-                      t("span", zt, i(d.value.obsModal.live?.liveId || "-"), 1)
+                  t("div", Gt, [
+                    t("span", Wt, i(e(_)(e(l).LIVE_ID)), 1),
+                    t("div", zt, [
+                      t("span", qt, i(d.value.obsModal.live?.liveId || "-"), 1)
                     ])
                   ]),
-                  t("div", qt, [
-                    t("span", Qt, i(e(_)(e(l).LIVE_TITLE)), 1),
-                    t("div", jt, [
-                      t("span", Zt, i(d.value.obsModal.live?.liveName || "-"), 1)
+                  t("div", Qt, [
+                    t("span", jt, i(e(_)(e(l).LIVE_TITLE)), 1),
+                    t("div", Zt, [
+                      t("span", Jt, i(d.value.obsModal.live?.liveName || "-"), 1)
                     ])
                   ]),
-                  t("div", Jt, [
-                    t("span", eo, i(e(_)(e(l).LIVE_COVER)), 1),
-                    t("div", lo, [
-                      t("span", to, i(d.value.obsModal.live?.coverUrl || "-"), 1)
+                  t("div", eo, [
+                    t("span", lo, i(e(_)(e(l).LIVE_COVER)), 1),
+                    t("div", to, [
+                      t("span", oo, i(d.value.obsModal.live?.coverUrl || "-"), 1)
                     ])
                   ])
                 ])
               ]),
-              d.value.obsModal.streamInfo || d.value.obsModal.actionLoading === "stream" ? (v(), f("div", oo, [
-                t("div", ao, i(e(_)(e(l).PUSH_STREAM_INFO)), 1),
-                t("div", so, [
+              d.value.obsModal.streamInfo || d.value.obsModal.actionLoading === "stream" ? (v(), f("div", ao, [
+                t("div", so, i(e(_)(e(l).PUSH_STREAM_INFO)), 1),
+                t("div", io, [
                   d.value.obsModal.streamInfo ? (v(), f(W, { key: 0 }, [
-                    t("div", io, [
-                      t("span", no, i(e(_)(e(l).SERVER_URL)), 1),
-                      t("div", ro, [
-                        t("span", uo, i(d.value.obsModal.streamInfo.serverUrl), 1),
+                    t("div", no, [
+                      t("span", ro, i(e(_)(e(l).SERVER_URL)), 1),
+                      t("div", uo, [
+                        t("span", co, i(d.value.obsModal.streamInfo.serverUrl), 1),
                         t("button", {
                           class: "live-info-copy-btn",
-                          onClick: s[16] || (s[16] = (c) => e(u).copyText(d.value.obsModal.streamInfo.serverUrl, e(_)(e(l).SERVER_URL)))
+                          onClick: s[16] || (s[16] = (c) => e(u).copyText(d.value.obsModal.streamInfo.serverUrl, e(_)(e(l).SERVER_URL), "obs_server_url"))
                         }, [
-                          n(e(ue))
+                          n(e(de))
                         ])
                       ])
                     ]),
-                    t("div", co, [
-                      t("span", vo, i(e(_)(e(l).STREAM_KEY)), 1),
-                      t("div", po, [
-                        t("span", mo, i(d.value.obsModal.streamInfo.streamKey), 1),
+                    t("div", vo, [
+                      t("span", po, i(e(_)(e(l).STREAM_KEY)), 1),
+                      t("div", mo, [
+                        t("span", _o, i(d.value.obsModal.streamInfo.streamKey), 1),
                         t("button", {
                           class: "live-info-copy-btn",
-                          onClick: s[17] || (s[17] = (c) => e(u).copyText(d.value.obsModal.streamInfo.streamKey, e(_)(e(l).STREAM_KEY)))
+                          onClick: s[17] || (s[17] = (c) => e(u).copyText(d.value.obsModal.streamInfo.streamKey, e(_)(e(l).STREAM_KEY), "obs_stream_key"))
                         }, [
-                          n(e(ue))
+                          n(e(de))
                         ])
                       ])
                     ])
-                  ], 64)) : (v(), f("div", _o, [
-                    t("span", fo, i(e(_)(e(l).GETTING_STREAM_INFO)), 1)
+                  ], 64)) : (v(), f("div", fo, [
+                    t("span", Eo, i(e(_)(e(l).GETTING_STREAM_INFO)), 1)
                   ]))
                 ])
               ])) : O("", !0)
@@ -1474,5 +1474,5 @@ const Al = { style: { display: "inline-flex", "align-items": "center" } }, Ol = 
   }
 });
 export {
-  Uo as default
+  Mo as default
 };

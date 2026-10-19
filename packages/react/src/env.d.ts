@@ -13,8 +13,6 @@ interface ImportMeta {
 }
 
 declare global {
-  const __MOCK_MODE__: boolean;
-  const __DEMO_MODE__: boolean;
   var process: {
     env: {
       NODE_ENV: string;

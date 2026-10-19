@@ -47,6 +47,7 @@ type AppRouteObject = Omit<RouteObject, 'children'> & {
 const appConfig = getActiveAppConfig();
 const defaultRoutePath = getDefaultRoutePath();
 
+
 // 设置页面标题
 const setDocumentTitle = (title?: string) => {
   const brand = getActiveAppConfig().brand;
@@ -58,14 +59,6 @@ const setDocumentTitle = (title?: string) => {
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
   
-  const isMockMode = typeof __MOCK_MODE__ !== 'undefined' ? __MOCK_MODE__ :
-    import.meta.env.VITE_API_BASE_URL === ''
-    || (typeof window !== 'undefined' && (window as any).__PLAYWRIGHT_MOCK__ === true);
-  
-  // Mock 模式：跳过登录检查
-  if (isMockMode) {
-    return <>{children}</>;
-  }
   
   if (!isLoggedIn()) {
     // 保存原始路径到 state，登录成功后跳回
@@ -83,22 +76,6 @@ const ConfigRequiredRoute: React.FC = () => {
     missing: string[];
   }>({ loading: true, missing: [] });
   
-  // Mock 模式检测：优先使用 __MOCK_MODE__，其次检查 VITE_API_BASE_URL
-  const isMockMode = typeof __MOCK_MODE__ !== 'undefined' ? __MOCK_MODE__ :
-    import.meta.env.VITE_API_BASE_URL === ''
-    || (typeof window !== 'undefined' && (window as any).__PLAYWRIGHT_MOCK__ === true);
-
-  // Mock 模式：在 useEffect 中重定向，避免在渲染期间导航
-  useEffect(() => {
-    if (isMockMode) {
-      navigate(defaultRoutePath, { replace: true });
-    }
-  }, [isMockMode, navigate, defaultRoutePath]);
-
-  // Mock 模式：不渲染任何内容
-  if (isMockMode) {
-    return null;
-  }
 
   useEffect(() => {
     const checkConfig = async () => {
@@ -218,18 +195,12 @@ const extraChildren: AppRouteObject[] = (appConfig.routes?.extraRoutes ?? []).ma
   };
 });
 
-// Mock 模式检测（使用 vite 定义的全局变量）
-const isMockMode = typeof __MOCK_MODE__ !== 'undefined' ? __MOCK_MODE__ : 
-  import.meta.env.VITE_API_BASE_URL === ''
-  || (typeof window !== 'undefined' && (window as any).__PLAYWRIGHT_MOCK__ === true);
 
 const routes: AppRouteObject[] = [
   {
     path: '/',
     element: <Navigate to={defaultRoutePath} replace />,
   },
-  // 非 Mock 模式才包含 config-required 路由
-  ...(isMockMode ? [] : [
     {
       path: '/config-required',
       element: <ConfigRequiredRoute />,
@@ -240,7 +211,6 @@ const routes: AppRouteObject[] = [
       element: <ConfigRequiredPage missingItems={[]} />,
       meta: { titleKey: 'Server Config' },
     },
-  ]),
   {
     element: <LayoutRoute />,
     children: [...coreChildren, ...extraChildren],
