@@ -1,19 +1,19 @@
 import { jsxs as s, jsx as e, Fragment as se } from "react/jsx-runtime";
-import { I as n, p as Ge, c as Ee, a0 as He, v as ue, D as ge, am as me, ao as Le, ad as De, b9 as Ke, y as qe, $ as Ye, a3 as je, a as Je, V as Xe } from "../../chunks/shared-state.CEzqGWS1.js";
+import { I as n, p as Ge, c as Ee, a0 as He, v as ue, D as ge, am as me, ao as Le, ad as De, b9 as Ke, y as qe, $ as Ye, a3 as je, a as Je, V as Xe } from "../../chunks/shared-state.DVNvfj7e.js";
 import Pe, { useState as R, useCallback as y, useEffect as F, useRef as J, useMemo as le } from "react";
 import { useParams as Ze, useNavigate as Qe, useLocation as en } from "react-router-dom";
 import { Dialog as pe, Tooltip as oe, Button as ee, Tabs as Me, Switch as Be, Loading as nn } from "tdesign-react";
 import { FileCopyIcon as tn, CheckCircleIcon as ve, ChatOffIcon as xe, UserCheckedIcon as rn, UserBlockedIcon as Fe, MoreIcon as an, InfoCircleIcon as de, CloseCircleIcon as on, RefreshIcon as sn, ChevronLeftIcon as cn, ChevronRightIcon as ln, ArrowLeftIcon as dn, NotificationIcon as un, StopCircleIcon as mn } from "tdesign-icons-react";
 import { useUIKit as Se } from "@tencentcloud/uikit-base-component-react";
 import { LiveView as fn, useLiveAudienceState as Ae, BarrageList as hn, BarrageInput as Nn, LiveAudienceList as gn, useLiveListState as pn, useLoginState as En, useLivePlayerState as Cn, LiveListEvent as Re } from "tuikit-atomicx-react";
-import { aq as Ln, bb as Tn, b5 as bn, b3 as Ve, r as vn, bh as Ue, D as An, bK as Mn, a9 as In, bz as _n, a0 as Te, an as On, az as yn, bU as he, aj as Sn, b6 as wn, bH as Dn, by as Rn, bx as Un } from "../../chunks/main-layout.DlXjtEAo.js";
+import { aq as Ln, bb as Tn, b5 as bn, b3 as Ve, r as vn, bh as Ue, D as An, bK as Mn, a9 as In, bz as _n, a0 as Te, an as On, az as yn, bU as he, aj as Sn, b6 as wn, bH as Dn, by as Rn, bx as Un } from "../../chunks/main-layout.8WX-Nzxd.js";
 import { useRiskControlState as We, useConfirmAction as fe, useLiveMonitorState as we } from "../../react.js";
-import { u as kn, M as K, a as Pn } from "../../chunks/useAsyncAction.Cvl9CySV.js";
-import { S as $e } from "../../chunks/SlotRenderer.C_MQN-Nv.js";
-import { c as Bn, C as xn } from "../../chunks/user-action-dropdown.CfGEADc8.js";
-import { A as Oe } from "../../chunks/AnchorAvatar.dijA4ymO.js";
+import { u as kn, M as K, a as Pn } from "../../chunks/useAsyncAction.Dscau7fG.js";
+import { S as $e } from "../../chunks/SlotRenderer.Dgpd6eOQ.js";
+import { c as Bn, C as xn } from "../../chunks/user-action-dropdown.CdY_bqZ9.js";
+import { A as Oe } from "../../chunks/AnchorAvatar.BzCJblU0.js";
 import { createPortal as Fn } from "react-dom";
-import { r as be, p as Vn, g as Wn, b as $n } from "../../chunks/columns.Cv77hox7.js";
+import { r as be, p as Vn, g as Wn, b as $n } from "../../chunks/columns.B0rslDfQ.js";
 import { A as ye, F as zn } from "../../chunks/ActionButtons.Cfkno1zE.js";
 function Gn() {
   const [a, r] = R(""), [l, u] = R(""), L = y((m, f) => {
